@@ -134,14 +134,14 @@ public class Container extends com.pulumi.resources.CustomResource {
         return this.metadata;
     }
     /**
-     * The name of the Container which should be created within the Storage Account.
+     * The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the Container which should be created within the Storage Account.
+     * @return The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -162,14 +162,14 @@ public class Container extends com.pulumi.resources.CustomResource {
         return this.resourceManagerId;
     }
     /**
-     * The name of the Storage Account where the Container should be created.
+     * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     /**
-     * @return The name of the Storage Account where the Container should be created.
+     * @return The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountName() {

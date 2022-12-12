@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string CallbackUrl;
         /// <summary>
-        /// The name of the logic app receiver.
+        /// The name of the logic app receiver. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

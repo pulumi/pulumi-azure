@@ -407,7 +407,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the resource ID of the resource that the autoscale setting should be added to.
+        /// Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("targetResourceId")]
         public Output<string> TargetResourceId { get; private set; } = null!;
@@ -513,7 +513,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Specifies the resource ID of the resource that the autoscale setting should be added to.
+        /// Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetResourceId", required: true)]
         public Input<string> TargetResourceId { get; set; } = null!;
@@ -581,7 +581,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Specifies the resource ID of the resource that the autoscale setting should be added to.
+        /// Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }

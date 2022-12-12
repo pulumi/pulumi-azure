@@ -14,14 +14,14 @@ public final class ResourceGroupCostManagementExportExportDataStorageLocationArg
     public static final ResourceGroupCostManagementExportExportDataStorageLocationArgs Empty = new ResourceGroupCostManagementExportExportDataStorageLocationArgs();
 
     /**
-     * The Resource Manager ID of the container where exports will be uploaded.
+     * The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="containerId", required=true)
     private Output<String> containerId;
 
     /**
-     * @return The Resource Manager ID of the container where exports will be uploaded.
+     * @return The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> containerId() {
@@ -29,14 +29,14 @@ public final class ResourceGroupCostManagementExportExportDataStorageLocationArg
     }
 
     /**
-     * The path of the directory where exports will be uploaded.
+     * The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="rootFolderPath", required=true)
     private Output<String> rootFolderPath;
 
     /**
-     * @return The path of the directory where exports will be uploaded.
+     * @return The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> rootFolderPath() {
@@ -69,7 +69,7 @@ public final class ResourceGroupCostManagementExportExportDataStorageLocationArg
         }
 
         /**
-         * @param containerId The Resource Manager ID of the container where exports will be uploaded.
+         * @param containerId The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class ResourceGroupCostManagementExportExportDataStorageLocationArg
         }
 
         /**
-         * @param containerId The Resource Manager ID of the container where exports will be uploaded.
+         * @param containerId The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class ResourceGroupCostManagementExportExportDataStorageLocationArg
         }
 
         /**
-         * @param rootFolderPath The path of the directory where exports will be uploaded.
+         * @param rootFolderPath The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ResourceGroupCostManagementExportExportDataStorageLocationArg
         }
 
         /**
-         * @param rootFolderPath The path of the directory where exports will be uploaded.
+         * @param rootFolderPath The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

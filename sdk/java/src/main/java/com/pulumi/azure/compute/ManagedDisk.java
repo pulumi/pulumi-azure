@@ -265,14 +265,14 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.encryptionSettings);
     }
     /**
-     * ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+     * ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="galleryImageReferenceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> galleryImageReferenceId;
 
     /**
-     * @return ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+     * @return ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> galleryImageReferenceId() {
@@ -293,14 +293,14 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hyperVGeneration);
     }
     /**
-     * ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
+     * ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="imageReferenceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> imageReferenceId;
 
     /**
-     * @return ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
+     * @return ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> imageReferenceId() {
@@ -419,14 +419,14 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
-     * The name of the Resource Group where the Managed Disk should exist.
+     * The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Managed Disk should exist.
+     * @return The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -461,28 +461,28 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityType);
     }
     /**
-     * The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+     * The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourceResourceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceResourceId;
 
     /**
-     * @return The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+     * @return The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> sourceResourceId() {
         return Codegen.optional(this.sourceResourceId);
     }
     /**
-     * URI to a valid VHD file to be used when `create_option` is `Import`.
+     * URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourceUri", type=String.class, parameters={})
     private Output<String> sourceUri;
 
     /**
-     * @return URI to a valid VHD file to be used when `create_option` is `Import`.
+     * @return URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sourceUri() {
@@ -545,14 +545,14 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return this.tier;
     }
     /**
-     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="trustedLaunchEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> trustedLaunchEnabled;
 
     /**
-     * @return Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+     * @return Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> trustedLaunchEnabled() {

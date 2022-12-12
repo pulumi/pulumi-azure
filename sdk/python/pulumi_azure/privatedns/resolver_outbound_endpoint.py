@@ -22,7 +22,7 @@ class ResolverOutboundEndpointArgs:
         """
         The set of arguments for constructing a ResolverOutboundEndpoint resource.
         :param pulumi.Input[str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Private DNS Resolver Outbound Endpoint should exist. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Private DNS Resolver Outbound Endpoint.
@@ -52,7 +52,7 @@ class ResolverOutboundEndpointArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+        The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -110,7 +110,7 @@ class _ResolverOutboundEndpointState:
         :param pulumi.Input[str] location: Specifies the Azure Region where the Private DNS Resolver Outbound Endpoint should exist. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
         :param pulumi.Input[str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Private DNS Resolver Outbound Endpoint.
         """
         if location is not None:
@@ -164,7 +164,7 @@ class _ResolverOutboundEndpointState:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+        The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -247,7 +247,7 @@ class ResolverOutboundEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Private DNS Resolver Outbound Endpoint should exist. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
         :param pulumi.Input[str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Private DNS Resolver Outbound Endpoint.
         """
         ...
@@ -365,7 +365,7 @@ class ResolverOutboundEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Private DNS Resolver Outbound Endpoint should exist. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
         :param pulumi.Input[str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Private DNS Resolver Outbound Endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -407,7 +407,7 @@ class ResolverOutboundEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+        The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 

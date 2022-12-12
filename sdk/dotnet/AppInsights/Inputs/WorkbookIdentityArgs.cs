@@ -16,7 +16,7 @@ namespace Pulumi.Azure.AppInsights.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// The list of User Assigned Managed Identity IDs assigned to this Workbook.
+        /// The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.AppInsights.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+        /// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

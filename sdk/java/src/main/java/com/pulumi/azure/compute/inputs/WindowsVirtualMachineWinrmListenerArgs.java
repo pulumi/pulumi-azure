@@ -16,14 +16,14 @@ public final class WindowsVirtualMachineWinrmListenerArgs extends com.pulumi.res
     public static final WindowsVirtualMachineWinrmListenerArgs Empty = new WindowsVirtualMachineWinrmListenerArgs();
 
     /**
-     * The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+     * The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="certificateUrl")
     private @Nullable Output<String> certificateUrl;
 
     /**
-     * @return The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+     * @return The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> certificateUrl() {
@@ -63,7 +63,7 @@ public final class WindowsVirtualMachineWinrmListenerArgs extends com.pulumi.res
         }
 
         /**
-         * @param certificateUrl The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+         * @param certificateUrl The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -74,7 +74,7 @@ public final class WindowsVirtualMachineWinrmListenerArgs extends com.pulumi.res
         }
 
         /**
-         * @param certificateUrl The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+         * @param certificateUrl The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -188,7 +188,7 @@ namespace Pulumi.Azure.AppService
         public Output<bool?> Reserved { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the App Service Plan component.
+        /// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? Reserved { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the App Service Plan component.
+        /// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -392,7 +392,7 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? Reserved { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the App Service Plan component.
+        /// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

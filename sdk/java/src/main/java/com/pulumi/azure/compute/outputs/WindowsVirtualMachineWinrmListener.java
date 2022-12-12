@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsVirtualMachineWinrmListener {
     /**
-     * @return The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+     * @return The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String certificateUrl;
@@ -20,7 +20,7 @@ public final class WindowsVirtualMachineWinrmListener {
 
     private WindowsVirtualMachineWinrmListener() {}
     /**
-     * @return The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+     * @return The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> certificateUrl() {

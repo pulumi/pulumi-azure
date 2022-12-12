@@ -120,14 +120,14 @@ public class DscConfiguration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Must be the same location as the Automation Account.
+     * Must be the same location as the Automation Account. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return Must be the same location as the Automation Account.
+     * @return Must be the same location as the Automation Account. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {

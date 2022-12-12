@@ -254,7 +254,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> KeyVaultKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the MS SQL Managed Instance.
+        /// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         /// </summary>
         [Output("managedInstanceId")]
         public Output<string> ManagedInstanceId { get; private set; } = null!;
@@ -318,7 +318,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the name of the MS SQL Managed Instance.
+        /// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managedInstanceId", required: true)]
         public Input<string> ManagedInstanceId { get; set; } = null!;
@@ -344,7 +344,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the name of the MS SQL Managed Instance.
+        /// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managedInstanceId")]
         public Input<string>? ManagedInstanceId { get; set; }

@@ -19,7 +19,7 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
     public static final VnpGatewayNatRuleArgs Empty = new VnpGatewayNatRuleArgs();
 
     /**
-     * A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+     * (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
      * 
      * @deprecated
      * `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
@@ -30,7 +30,7 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
     private @Nullable Output<List<String>> externalAddressSpaceMappings;
 
     /**
-     * @return A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+     * @return (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
      * 
      * @deprecated
      * `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
@@ -57,7 +57,7 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+     * (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
      * 
      * @deprecated
      * `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
@@ -68,7 +68,7 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
     private @Nullable Output<List<String>> internalAddressSpaceMappings;
 
     /**
-     * @return A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+     * @return (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
      * 
      * @deprecated
      * `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
@@ -218,7 +218,7 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param externalAddressSpaceMappings A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+         * @param externalAddressSpaceMappings (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param externalAddressSpaceMappings A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+         * @param externalAddressSpaceMappings (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param externalAddressSpaceMappings A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+         * @param externalAddressSpaceMappings (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param internalAddressSpaceMappings A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+         * @param internalAddressSpaceMappings (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param internalAddressSpaceMappings A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+         * @param internalAddressSpaceMappings (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param internalAddressSpaceMappings A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+         * @param internalAddressSpaceMappings (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
          * 
          * @return builder
          * 

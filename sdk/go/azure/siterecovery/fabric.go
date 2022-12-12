@@ -75,13 +75,13 @@ import (
 type Fabric struct {
 	pulumi.CustomResourceState
 
-	// In what region should the fabric be located.
+	// In what region should the fabric be located. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the network mapping.
+	// The name of the network mapping. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
@@ -120,24 +120,24 @@ func GetFabric(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Fabric resources.
 type fabricState struct {
-	// In what region should the fabric be located.
+	// In what region should the fabric be located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the network mapping.
+	// The name of the network mapping. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName *string `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 type FabricState struct {
-	// In what region should the fabric be located.
+	// In what region should the fabric be located. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the network mapping.
+	// The name of the network mapping. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringPtrInput
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 }
 
@@ -146,25 +146,25 @@ func (FabricState) ElementType() reflect.Type {
 }
 
 type fabricArgs struct {
-	// In what region should the fabric be located.
+	// In what region should the fabric be located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the network mapping.
+	// The name of the network mapping. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Fabric resource.
 type FabricArgs struct {
-	// In what region should the fabric be located.
+	// In what region should the fabric be located. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the network mapping.
+	// The name of the network mapping. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringInput
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -255,22 +255,22 @@ func (o FabricOutput) ToFabricOutputWithContext(ctx context.Context) FabricOutpu
 	return o
 }
 
-// In what region should the fabric be located.
+// In what region should the fabric be located. Changing this forces a new resource to be created.
 func (o FabricOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fabric) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the network mapping.
+// The name of the network mapping. Changing this forces a new resource to be created.
 func (o FabricOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fabric) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the vault that should be updated.
+// The name of the vault that should be updated. Changing this forces a new resource to be created.
 func (o FabricOutput) RecoveryVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fabric) pulumi.StringOutput { return v.RecoveryVaultName }).(pulumi.StringOutput)
 }
 
-// Name of the resource group where the vault that should be updated is located.
+// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 func (o FabricOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fabric) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

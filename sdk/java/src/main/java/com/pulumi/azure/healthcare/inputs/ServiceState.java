@@ -104,14 +104,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the supported Azure Region where the Service should be created.
+     * Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Specifies the supported Azure Region where the Service should be created.
+     * @return Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -119,14 +119,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the service instance. Used for service endpoint, must be unique within the audience.
+     * The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the service instance. Used for service endpoint, must be unique within the audience.
+     * @return The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -149,14 +149,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Resource Group in which to create the Service.
+     * The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group in which to create the Service.
+     * @return The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -331,7 +331,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location Specifies the supported Azure Region where the Service should be created.
+         * @param location Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location Specifies the supported Azure Region where the Service should be created.
+         * @param location Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the service instance. Used for service endpoint, must be unique within the audience.
+         * @param name The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the service instance. Used for service endpoint, must be unique within the audience.
+         * @param name The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group in which to create the Service.
+         * @param resourceGroupName The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group in which to create the Service.
+         * @param resourceGroupName The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

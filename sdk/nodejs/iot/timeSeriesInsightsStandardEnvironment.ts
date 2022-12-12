@@ -75,7 +75,7 @@ export class TimeSeriesInsightsStandardEnvironment extends pulumi.CustomResource
      */
     public readonly partitionKey!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+     * The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -158,7 +158,7 @@ export interface TimeSeriesInsightsStandardEnvironmentState {
      */
     partitionKey?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+     * The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -196,7 +196,7 @@ export interface TimeSeriesInsightsStandardEnvironmentArgs {
      */
     partitionKey?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+     * The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

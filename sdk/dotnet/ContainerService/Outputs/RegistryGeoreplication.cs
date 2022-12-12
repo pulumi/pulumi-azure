@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class RegistryGeoreplication
     {
         /// <summary>
-        /// A location where the container registry should be geo-replicated.
+        /// A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+        /// Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? ZoneRedundancyEnabled;
 

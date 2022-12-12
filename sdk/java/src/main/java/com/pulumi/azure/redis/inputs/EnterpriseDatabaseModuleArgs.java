@@ -16,14 +16,14 @@ public final class EnterpriseDatabaseModuleArgs extends com.pulumi.resources.Res
     public static final EnterpriseDatabaseModuleArgs Empty = new EnterpriseDatabaseModuleArgs();
 
     /**
-     * Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+     * Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="args")
     private @Nullable Output<String> args;
 
     /**
-     * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+     * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> args() {
@@ -79,7 +79,7 @@ public final class EnterpriseDatabaseModuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param args Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+         * @param args Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class EnterpriseDatabaseModuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param args Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+         * @param args Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

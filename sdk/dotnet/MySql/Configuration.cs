@@ -89,7 +89,7 @@ namespace Pulumi.Azure.MySql
         public Output<string> ServerName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values.
+        /// Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.MySql
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values.
+        /// Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.MySql
         public Input<string>? ServerName { get; set; }
 
         /// <summary>
-        /// Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values.
+        /// Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

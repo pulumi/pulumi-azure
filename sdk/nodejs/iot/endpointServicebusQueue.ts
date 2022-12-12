@@ -51,10 +51,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IoTHub ServiceBus Queue Endpoint can be imported using the `resource id`, e.g.
+ * IoTHub ServiceBus Queue Endpoint can be imported using the `resource id`, e.g. g
  *
  * ```sh
- *  $ pulumi import azure:iot/endpointServicebusQueue:EndpointServicebusQueue servicebus_queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/servicebusqueue_endpoint1
+ *  $ pulumi import azure:iot/endpointServicebusQueue:EndpointServicebusQueue servicebus_queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/servicebusqueue_endpoint1
  * ```
  */
 export class EndpointServicebusQueue extends pulumi.CustomResource {
@@ -106,11 +106,11 @@ export class EndpointServicebusQueue extends pulumi.CustomResource {
      */
     public readonly identityId!: pulumi.Output<string | undefined>;
     /**
-     * The IoTHub ID for the endpoint.
+     * The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
      */
     public readonly iothubId!: pulumi.Output<string>;
     /**
-     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -186,11 +186,11 @@ export interface EndpointServicebusQueueState {
      */
     identityId?: pulumi.Input<string>;
     /**
-     * The IoTHub ID for the endpoint.
+     * The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
      */
     iothubId?: pulumi.Input<string>;
     /**
-     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -224,11 +224,11 @@ export interface EndpointServicebusQueueArgs {
      */
     identityId?: pulumi.Input<string>;
     /**
-     * The IoTHub ID for the endpoint.
+     * The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
      */
     iothubId: pulumi.Input<string>;
     /**
-     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

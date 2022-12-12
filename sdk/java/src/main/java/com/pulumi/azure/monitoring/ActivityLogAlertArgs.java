@@ -96,14 +96,14 @@ public final class ActivityLogAlertArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the resource group in which to create the activity log alert instance.
+     * The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the activity log alert instance.
+     * @return The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -287,7 +287,7 @@ public final class ActivityLogAlertArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the activity log alert instance.
+         * @param resourceGroupName The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class ActivityLogAlertArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the activity log alert instance.
+         * @param resourceGroupName The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -110,7 +110,7 @@ type OutputSynapse struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+	// The password that will be used to connect to the Azure SQL database.
 	Password pulumi.StringOutput `pulumi:"password"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -178,7 +178,7 @@ type outputSynapseState struct {
 	Database *string `pulumi:"database"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+	// The password that will be used to connect to the Azure SQL database.
 	Password *string `pulumi:"password"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -197,7 +197,7 @@ type OutputSynapseState struct {
 	Database pulumi.StringPtrInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+	// The password that will be used to connect to the Azure SQL database.
 	Password pulumi.StringPtrInput
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -220,7 +220,7 @@ type outputSynapseArgs struct {
 	Database string `pulumi:"database"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+	// The password that will be used to connect to the Azure SQL database.
 	Password string `pulumi:"password"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -240,7 +240,7 @@ type OutputSynapseArgs struct {
 	Database pulumi.StringInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+	// The password that will be used to connect to the Azure SQL database.
 	Password pulumi.StringInput
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -351,7 +351,7 @@ func (o OutputSynapseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutputSynapse) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+// The password that will be used to connect to the Azure SQL database.
 func (o OutputSynapseOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutputSynapse) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }

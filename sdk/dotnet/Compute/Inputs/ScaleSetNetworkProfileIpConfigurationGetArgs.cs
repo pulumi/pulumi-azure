@@ -61,7 +61,7 @@ namespace Pulumi.Azure.Compute.Inputs
         }
 
         /// <summary>
-        /// Specifies name of the IP configuration.
+        /// Specifies name of the IP configuration. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

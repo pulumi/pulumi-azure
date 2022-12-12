@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
 
         /// <summary>
-        /// Specifies the name of the extension.
+        /// Specifies the name of the extension. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

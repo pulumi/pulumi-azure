@@ -133,7 +133,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.blueprint.AssignmentIdentity>;
     /**
-     * The Azure location of the Assignment.
+     * The Azure location of the Assignment. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -149,7 +149,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly lockMode!: pulumi.Output<string | undefined>;
     /**
-     * The name of the Blueprint Assignment
+     * The name of the Blueprint Assignment. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -161,7 +161,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly resourceGroups!: pulumi.Output<string | undefined>;
     /**
-     * The Subscription ID the Blueprint Published Version is to be applied to.
+     * The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
      */
     public readonly targetSubscriptionId!: pulumi.Output<string>;
     /**
@@ -252,7 +252,7 @@ export interface AssignmentState {
      */
     identity?: pulumi.Input<inputs.blueprint.AssignmentIdentity>;
     /**
-     * The Azure location of the Assignment.
+     * The Azure location of the Assignment. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -268,7 +268,7 @@ export interface AssignmentState {
      */
     lockMode?: pulumi.Input<string>;
     /**
-     * The name of the Blueprint Assignment
+     * The name of the Blueprint Assignment. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -280,7 +280,7 @@ export interface AssignmentState {
      */
     resourceGroups?: pulumi.Input<string>;
     /**
-     * The Subscription ID the Blueprint Published Version is to be applied to.
+     * The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
      */
     targetSubscriptionId?: pulumi.Input<string>;
     /**
@@ -302,7 +302,7 @@ export interface AssignmentArgs {
      */
     identity: pulumi.Input<inputs.blueprint.AssignmentIdentity>;
     /**
-     * The Azure location of the Assignment.
+     * The Azure location of the Assignment. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -318,7 +318,7 @@ export interface AssignmentArgs {
      */
     lockMode?: pulumi.Input<string>;
     /**
-     * The name of the Blueprint Assignment
+     * The name of the Blueprint Assignment. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -330,7 +330,7 @@ export interface AssignmentArgs {
      */
     resourceGroups?: pulumi.Input<string>;
     /**
-     * The Subscription ID the Blueprint Published Version is to be applied to.
+     * The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
      */
     targetSubscriptionId: pulumi.Input<string>;
     /**

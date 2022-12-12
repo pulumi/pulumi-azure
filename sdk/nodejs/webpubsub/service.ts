@@ -96,8 +96,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the supported Azure location where the Web PubSub service exists. Changing this
-     * forces a new resource to be created.
+     * Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -121,8 +120,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicPort!: pulumi.Output<number>;
     /**
-     * The name of the resource group in which to create the Web PubSub service. Changing
-     * this forces a new resource to be created.
+     * The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -252,8 +250,7 @@ export interface ServiceState {
      */
     localAuthEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the supported Azure location where the Web PubSub service exists. Changing this
-     * forces a new resource to be created.
+     * Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -277,8 +274,7 @@ export interface ServiceState {
      */
     publicPort?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to create the Web PubSub service. Changing
-     * this forces a new resource to be created.
+     * The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -335,8 +331,7 @@ export interface ServiceArgs {
      */
     localAuthEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the supported Azure location where the Web PubSub service exists. Changing this
-     * forces a new resource to be created.
+     * Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -348,8 +343,7 @@ export interface ServiceArgs {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to create the Web PubSub service. Changing
-     * this forces a new resource to be created.
+     * The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

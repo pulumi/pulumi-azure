@@ -13,13 +13,13 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterHttpProxyConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The proxy address to be used when communicating over HTTP.
+        /// The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
         /// </summary>
         [Input("httpProxy")]
         public Input<string>? HttpProxy { get; set; }
 
         /// <summary>
-        /// The proxy address to be used when communicating over HTTPS.
+        /// The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
         /// </summary>
         [Input("httpsProxy")]
         public Input<string>? HttpsProxy { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<string>? _noProxies;
 
         /// <summary>
-        /// The list of domains that will not use the proxy for communication.
+        /// The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> NoProxies
         {

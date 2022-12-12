@@ -243,13 +243,17 @@ namespace Pulumi.Azure.ContainerService
         public readonly string PrivateFqdn;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// Is Role Based Access Control enabled for this managed Kubernetes Cluster.
+        /// Is Role Based Access Control enabled for this managed Kubernetes Cluster?
         /// </summary>
         public readonly bool RoleBasedAccessControlEnabled;
         /// <summary>
         /// A `service_principal` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterServicePrincipalResult> ServicePrincipals;
+        /// <summary>
+        /// A `storage_profile` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterStorageProfileResult> StorageProfiles;
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
@@ -331,6 +335,8 @@ namespace Pulumi.Azure.ContainerService
 
             ImmutableArray<Outputs.GetKubernetesClusterServicePrincipalResult> servicePrincipals,
 
+            ImmutableArray<Outputs.GetKubernetesClusterStorageProfileResult> storageProfiles,
+
             ImmutableDictionary<string, string> tags,
 
             ImmutableArray<Outputs.GetKubernetesClusterWindowsProfileResult> windowsProfiles)
@@ -370,6 +376,7 @@ namespace Pulumi.Azure.ContainerService
             ResourceGroupName = resourceGroupName;
             RoleBasedAccessControlEnabled = roleBasedAccessControlEnabled;
             ServicePrincipals = servicePrincipals;
+            StorageProfiles = storageProfiles;
             Tags = tags;
             WindowsProfiles = windowsProfiles;
         }

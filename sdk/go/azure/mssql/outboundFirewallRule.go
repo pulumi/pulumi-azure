@@ -69,9 +69,9 @@ import (
 type OutboundFirewallRule struct {
 	pulumi.CustomResourceState
 
-	// The name of the outbound firewall rule. This should be a FQDN.
+	// The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+	// The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 }
 
@@ -107,16 +107,16 @@ func GetOutboundFirewallRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OutboundFirewallRule resources.
 type outboundFirewallRuleState struct {
-	// The name of the outbound firewall rule. This should be a FQDN.
+	// The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+	// The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
 	ServerId *string `pulumi:"serverId"`
 }
 
 type OutboundFirewallRuleState struct {
-	// The name of the outbound firewall rule. This should be a FQDN.
+	// The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+	// The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
 	ServerId pulumi.StringPtrInput
 }
 
@@ -125,17 +125,17 @@ func (OutboundFirewallRuleState) ElementType() reflect.Type {
 }
 
 type outboundFirewallRuleArgs struct {
-	// The name of the outbound firewall rule. This should be a FQDN.
+	// The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+	// The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
 	ServerId string `pulumi:"serverId"`
 }
 
 // The set of arguments for constructing a OutboundFirewallRule resource.
 type OutboundFirewallRuleArgs struct {
-	// The name of the outbound firewall rule. This should be a FQDN.
+	// The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+	// The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
 	ServerId pulumi.StringInput
 }
 
@@ -226,12 +226,12 @@ func (o OutboundFirewallRuleOutput) ToOutboundFirewallRuleOutputWithContext(ctx 
 	return o
 }
 
-// The name of the outbound firewall rule. This should be a FQDN.
+// The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
 func (o OutboundFirewallRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutboundFirewallRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+// The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
 func (o OutboundFirewallRuleOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutboundFirewallRule) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
 }

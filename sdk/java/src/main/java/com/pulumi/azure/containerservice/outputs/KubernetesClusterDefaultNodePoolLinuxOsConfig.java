@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterDefaultNodePoolLinuxOsConfig {
     /**
-     * @return Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+     * @return Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Integer swapFileSizeMb;
@@ -36,7 +36,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfig {
 
     private KubernetesClusterDefaultNodePoolLinuxOsConfig() {}
     /**
-     * @return Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+     * @return Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Integer> swapFileSizeMb() {

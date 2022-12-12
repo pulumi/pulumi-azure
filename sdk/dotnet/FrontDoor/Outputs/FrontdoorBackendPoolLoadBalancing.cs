@@ -22,7 +22,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Specifies the name of the Load Balancer.
+        /// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

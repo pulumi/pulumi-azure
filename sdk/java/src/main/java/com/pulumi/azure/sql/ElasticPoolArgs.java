@@ -123,14 +123,14 @@ public final class ElasticPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+     * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+     * @return The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -348,7 +348,7 @@ public final class ElasticPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+         * @param resourceGroupName The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class ElasticPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+         * @param resourceGroupName The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

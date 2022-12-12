@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Maps
     public partial class Creator : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Azure Region where the Azure Maps Creator should exist.
+        /// The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.Maps
     public sealed class CreatorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure Region where the Azure Maps Creator should exist.
+        /// The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Maps
     public sealed class CreatorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure Region where the Azure Maps Creator should exist.
+        /// The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

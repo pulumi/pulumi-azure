@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`.
+        /// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("runbookType")]
         public Output<string> RunbookType { get; private set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.Automation
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`.
+        /// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("runbookType", required: true)]
         public Input<string> RunbookType { get; set; } = null!;
@@ -364,7 +364,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`.
+        /// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("runbookType")]
         public Input<string>? RunbookType { get; set; }

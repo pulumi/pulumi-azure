@@ -90,7 +90,7 @@ type ExpressRouteGateway struct {
 	ScaleUnits pulumi.IntOutput `pulumi:"scaleUnits"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+	// The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringOutput `pulumi:"virtualHubId"`
 }
 
@@ -142,7 +142,7 @@ type expressRouteGatewayState struct {
 	ScaleUnits *int `pulumi:"scaleUnits"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+	// The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
 	VirtualHubId *string `pulumi:"virtualHubId"`
 }
 
@@ -157,7 +157,7 @@ type ExpressRouteGatewayState struct {
 	ScaleUnits pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+	// The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringPtrInput
 }
 
@@ -176,7 +176,7 @@ type expressRouteGatewayArgs struct {
 	ScaleUnits int `pulumi:"scaleUnits"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+	// The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
 	VirtualHubId string `pulumi:"virtualHubId"`
 }
 
@@ -192,7 +192,7 @@ type ExpressRouteGatewayArgs struct {
 	ScaleUnits pulumi.IntInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+	// The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringInput
 }
 
@@ -308,7 +308,7 @@ func (o ExpressRouteGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExpressRouteGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+// The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
 func (o ExpressRouteGatewayOutput) VirtualHubId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressRouteGateway) pulumi.StringOutput { return v.VirtualHubId }).(pulumi.StringOutput)
 }

@@ -19,13 +19,19 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? CapacityReservationGroupId { get; set; }
 
         /// <summary>
+        /// Specifies whether to trust a Custom CA. Defaults to `false`.
+        /// </summary>
+        [Input("customCaTrustEnabled")]
+        public Input<bool>? CustomCaTrustEnabled { get; set; }
+
+        /// <summary>
         /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         /// </summary>
         [Input("enableAutoScaling")]
         public Input<bool>? EnableAutoScaling { get; set; }
 
         /// <summary>
-        /// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+        /// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableHostEncryption")]
         public Input<bool>? EnableHostEncryption { get; set; }
@@ -183,13 +189,13 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+        /// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+        /// Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ultraSsdEnabled")]
         public Input<bool>? UltraSsdEnabled { get; set; }

@@ -92,14 +92,14 @@ public final class EventhubDataConnectionState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="databaseRoutingType")
     private @Nullable Output<String> databaseRoutingType;
 
     /**
-     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> databaseRoutingType() {
@@ -369,7 +369,7 @@ public final class EventhubDataConnectionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class EventhubDataConnectionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.DevTest.Inputs
         public Input<int>? FrontendPort { get; set; }
 
         /// <summary>
-        /// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+        /// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;

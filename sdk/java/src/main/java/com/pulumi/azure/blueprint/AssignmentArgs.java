@@ -33,14 +33,14 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Azure location of the Assignment.
+     * The Azure location of the Assignment. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Azure location of the Assignment.
+     * @return The Azure location of the Assignment. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -93,14 +93,14 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Blueprint Assignment
+     * The name of the Blueprint Assignment. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Blueprint Assignment
+     * @return The name of the Blueprint Assignment. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -138,14 +138,14 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Subscription ID the Blueprint Published Version is to be applied to.
+     * The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="targetSubscriptionId", required=true)
     private Output<String> targetSubscriptionId;
 
     /**
-     * @return The Subscription ID the Blueprint Published Version is to be applied to.
+     * @return The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> targetSubscriptionId() {
@@ -222,7 +222,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Azure location of the Assignment.
+         * @param location The Azure location of the Assignment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Azure location of the Assignment.
+         * @param location The Azure location of the Assignment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Blueprint Assignment
+         * @param name The name of the Blueprint Assignment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Blueprint Assignment
+         * @param name The name of the Blueprint Assignment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetSubscriptionId The Subscription ID the Blueprint Published Version is to be applied to.
+         * @param targetSubscriptionId The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetSubscriptionId The Subscription ID the Blueprint Published Version is to be applied to.
+         * @param targetSubscriptionId The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

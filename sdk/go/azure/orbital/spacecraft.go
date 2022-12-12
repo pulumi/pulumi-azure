@@ -79,13 +79,13 @@ type Spacecraft struct {
 
 	// A `links` block as defined below.
 	Links SpacecraftLinkArrayOutput `pulumi:"links"`
-	// The location where the Spacecraft exists.
+	// The location where the Spacecraft exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the link.
+	// Name of the link. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// NORAD ID of the Spacecraft.
 	NoradId pulumi.StringOutput `pulumi:"noradId"`
-	// The name of the Resource Group where the Spacecraft exists.
+	// The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
 	Tags              pulumi.StringMapOutput `pulumi:"tags"`
 	// Title of the two line elements(TLE).
@@ -140,13 +140,13 @@ func GetSpacecraft(ctx *pulumi.Context,
 type spacecraftState struct {
 	// A `links` block as defined below.
 	Links []SpacecraftLink `pulumi:"links"`
-	// The location where the Spacecraft exists.
+	// The location where the Spacecraft exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Name of the link.
+	// Name of the link. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// NORAD ID of the Spacecraft.
 	NoradId *string `pulumi:"noradId"`
-	// The name of the Resource Group where the Spacecraft exists.
+	// The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string           `pulumi:"resourceGroupName"`
 	Tags              map[string]string `pulumi:"tags"`
 	// Title of the two line elements(TLE).
@@ -158,13 +158,13 @@ type spacecraftState struct {
 type SpacecraftState struct {
 	// A `links` block as defined below.
 	Links SpacecraftLinkArrayInput
-	// The location where the Spacecraft exists.
+	// The location where the Spacecraft exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Name of the link.
+	// Name of the link. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// NORAD ID of the Spacecraft.
 	NoradId pulumi.StringPtrInput
-	// The name of the Resource Group where the Spacecraft exists.
+	// The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	Tags              pulumi.StringMapInput
 	// Title of the two line elements(TLE).
@@ -180,13 +180,13 @@ func (SpacecraftState) ElementType() reflect.Type {
 type spacecraftArgs struct {
 	// A `links` block as defined below.
 	Links []SpacecraftLink `pulumi:"links"`
-	// The location where the Spacecraft exists.
+	// The location where the Spacecraft exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Name of the link.
+	// Name of the link. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// NORAD ID of the Spacecraft.
 	NoradId string `pulumi:"noradId"`
-	// The name of the Resource Group where the Spacecraft exists.
+	// The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
 	ResourceGroupName string            `pulumi:"resourceGroupName"`
 	Tags              map[string]string `pulumi:"tags"`
 	// Title of the two line elements(TLE).
@@ -199,13 +199,13 @@ type spacecraftArgs struct {
 type SpacecraftArgs struct {
 	// A `links` block as defined below.
 	Links SpacecraftLinkArrayInput
-	// The location where the Spacecraft exists.
+	// The location where the Spacecraft exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Name of the link.
+	// Name of the link. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// NORAD ID of the Spacecraft.
 	NoradId pulumi.StringInput
-	// The name of the Resource Group where the Spacecraft exists.
+	// The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	Tags              pulumi.StringMapInput
 	// Title of the two line elements(TLE).
@@ -306,12 +306,12 @@ func (o SpacecraftOutput) Links() SpacecraftLinkArrayOutput {
 	return o.ApplyT(func(v *Spacecraft) SpacecraftLinkArrayOutput { return v.Links }).(SpacecraftLinkArrayOutput)
 }
 
-// The location where the Spacecraft exists.
+// The location where the Spacecraft exists. Changing this forces a new resource to be created.
 func (o SpacecraftOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Name of the link.
+// Name of the link. Changing this forces a new resource to be created.
 func (o SpacecraftOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -321,7 +321,7 @@ func (o SpacecraftOutput) NoradId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringOutput { return v.NoradId }).(pulumi.StringOutput)
 }
 
-// The name of the Resource Group where the Spacecraft exists.
+// The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
 func (o SpacecraftOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

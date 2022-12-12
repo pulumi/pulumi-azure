@@ -131,28 +131,28 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
         return this.loadBalancingRules;
     }
     /**
-     * The ID of the Load Balancer in which to create the Backend Address Pool.
+     * The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="loadbalancerId", type=String.class, parameters={})
     private Output<String> loadbalancerId;
 
     /**
-     * @return The ID of the Load Balancer in which to create the Backend Address Pool.
+     * @return The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> loadbalancerId() {
         return this.loadbalancerId;
     }
     /**
-     * Specifies the name of the Backend Address Pool.
+     * Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Backend Address Pool.
+     * @return Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

@@ -31,14 +31,14 @@ public final class VolumeDataProtectionReplicationArgs extends com.pulumi.resour
     }
 
     /**
-     * Location of the primary volume.
+     * Location of the primary volume. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="remoteVolumeLocation", required=true)
     private Output<String> remoteVolumeLocation;
 
     /**
-     * @return Location of the primary volume.
+     * @return Location of the primary volume. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> remoteVolumeLocation() {
@@ -124,7 +124,7 @@ public final class VolumeDataProtectionReplicationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param remoteVolumeLocation Location of the primary volume.
+         * @param remoteVolumeLocation Location of the primary volume. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class VolumeDataProtectionReplicationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param remoteVolumeLocation Location of the primary volume.
+         * @param remoteVolumeLocation Location of the primary volume. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

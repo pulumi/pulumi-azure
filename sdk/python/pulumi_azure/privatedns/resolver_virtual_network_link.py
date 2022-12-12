@@ -21,7 +21,7 @@ class ResolverVirtualNetworkLinkArgs:
         """
         The set of arguments for constructing a ResolverVirtualNetworkLink resource.
         :param pulumi.Input[str] dns_forwarding_ruleset_id: Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the Private DNS Resolver Virtual Network Link.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
         """
@@ -48,7 +48,7 @@ class ResolverVirtualNetworkLinkArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+        The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -93,7 +93,7 @@ class _ResolverVirtualNetworkLinkState:
         :param pulumi.Input[str] dns_forwarding_ruleset_id: Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the Private DNS Resolver Virtual Network Link.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
         """
         if dns_forwarding_ruleset_id is not None:
             pulumi.set(__self__, "dns_forwarding_ruleset_id", dns_forwarding_ruleset_id)
@@ -144,7 +144,7 @@ class _ResolverVirtualNetworkLinkState:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+        The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -227,7 +227,7 @@ class ResolverVirtualNetworkLink(pulumi.CustomResource):
         :param pulumi.Input[str] dns_forwarding_ruleset_id: Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the Private DNS Resolver Virtual Network Link.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -354,7 +354,7 @@ class ResolverVirtualNetworkLink(pulumi.CustomResource):
         :param pulumi.Input[str] dns_forwarding_ruleset_id: Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the Private DNS Resolver Virtual Network Link.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -394,7 +394,7 @@ class ResolverVirtualNetworkLink(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+        The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 

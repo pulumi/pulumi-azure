@@ -199,7 +199,7 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+     * The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -306,7 +306,7 @@ export interface FrontdoorFirewallPolicyState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+     * The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -356,7 +356,7 @@ export interface FrontdoorFirewallPolicyArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+     * The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      */
     skuName: pulumi.Input<string>;
     /**

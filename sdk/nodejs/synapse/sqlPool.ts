@@ -82,7 +82,7 @@ export class SqlPool extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string>;
     /**
-     * Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+     * Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
@@ -168,7 +168,7 @@ export interface SqlPoolState {
      */
     collation?: pulumi.Input<string>;
     /**
-     * Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+     * Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
      */
     createMode?: pulumi.Input<string>;
     /**
@@ -210,7 +210,7 @@ export interface SqlPoolArgs {
      */
     collation?: pulumi.Input<string>;
     /**
-     * Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+     * Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
      */
     createMode?: pulumi.Input<string>;
     /**

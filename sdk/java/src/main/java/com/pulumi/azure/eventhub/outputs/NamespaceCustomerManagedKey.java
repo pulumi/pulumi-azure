@@ -18,7 +18,7 @@ public final class NamespaceCustomerManagedKey {
      */
     private String identityId;
     /**
-     * @return Used to specify whether enable Infrastructure Encryption (Double Encryption).
+     * @return Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Boolean infrastructureEncryptionEnabled;
@@ -37,7 +37,7 @@ public final class NamespaceCustomerManagedKey {
         return this.identityId;
     }
     /**
-     * @return Used to specify whether enable Infrastructure Encryption (Double Encryption).
+     * @return Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
      * 
      */
     public Optional<Boolean> infrastructureEncryptionEnabled() {

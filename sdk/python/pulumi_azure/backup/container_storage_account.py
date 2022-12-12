@@ -19,9 +19,9 @@ class ContainerStorageAccountArgs:
                  storage_account_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a ContainerStorageAccount resource.
-        :param pulumi.Input[str] recovery_vault_name: The name of the vault where the storage account will be registered.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault is located.
-        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account to be registered
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account to be registered Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -31,7 +31,7 @@ class ContainerStorageAccountArgs:
     @pulumi.getter(name="recoveryVaultName")
     def recovery_vault_name(self) -> pulumi.Input[str]:
         """
-        The name of the vault where the storage account will be registered.
+        The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
@@ -43,7 +43,7 @@ class ContainerStorageAccountArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group where the vault is located.
+        Name of the resource group where the vault is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -55,7 +55,7 @@ class ContainerStorageAccountArgs:
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Storage Account to be registered
+        The ID of the Storage Account to be registered Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -72,9 +72,9 @@ class _ContainerStorageAccountState:
                  storage_account_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ContainerStorageAccount resources.
-        :param pulumi.Input[str] recovery_vault_name: The name of the vault where the storage account will be registered.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault is located.
-        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account to be registered
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account to be registered Changing this forces a new resource to be created.
         """
         if recovery_vault_name is not None:
             pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
@@ -87,7 +87,7 @@ class _ContainerStorageAccountState:
     @pulumi.getter(name="recoveryVaultName")
     def recovery_vault_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the vault where the storage account will be registered.
+        The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
@@ -99,7 +99,7 @@ class _ContainerStorageAccountState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the resource group where the vault is located.
+        Name of the resource group where the vault is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -111,7 +111,7 @@ class _ContainerStorageAccountState:
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Storage Account to be registered
+        The ID of the Storage Account to be registered Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -166,9 +166,9 @@ class ContainerStorageAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] recovery_vault_name: The name of the vault where the storage account will be registered.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault is located.
-        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account to be registered
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account to be registered Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -267,9 +267,9 @@ class ContainerStorageAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] recovery_vault_name: The name of the vault where the storage account will be registered.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault is located.
-        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account to be registered
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account to be registered Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -284,7 +284,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
     @pulumi.getter(name="recoveryVaultName")
     def recovery_vault_name(self) -> pulumi.Output[str]:
         """
-        The name of the vault where the storage account will be registered.
+        The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
@@ -292,7 +292,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        Name of the resource group where the vault is located.
+        Name of the resource group where the vault is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -300,7 +300,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Storage Account to be registered
+        The ID of the Storage Account to be registered Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
 

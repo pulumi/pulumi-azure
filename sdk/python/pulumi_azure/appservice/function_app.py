@@ -40,9 +40,9 @@ class FunctionAppArgs:
         """
         The set of arguments for constructing a FunctionApp resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
-        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['FunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
@@ -54,8 +54,8 @@ class FunctionAppArgs:
         :param pulumi.Input['FunctionAppIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
-        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
+        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
         :param pulumi.Input['FunctionAppSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input['FunctionAppSourceControlArgs'] source_control: A `source_control` block, as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -116,7 +116,7 @@ class FunctionAppArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Function App.
+        The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -140,7 +140,7 @@ class FunctionAppArgs:
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Input[str]:
         """
-        The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+        The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -284,7 +284,7 @@ class FunctionAppArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+        Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
         """
         return pulumi.get(self, "name")
 
@@ -296,7 +296,7 @@ class FunctionAppArgs:
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[pulumi.Input[str]]:
         """
-        A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+        A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "os_type")
 
@@ -400,16 +400,16 @@ class _FunctionAppState:
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] kind: The Function App kind - such as `functionapp,linux,container`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
-        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
+        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
         :param pulumi.Input['FunctionAppSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input['FunctionAppSourceControlArgs'] source_control: A `source_control` block, as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
-        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
         """
@@ -652,7 +652,7 @@ class _FunctionAppState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+        Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
         """
         return pulumi.get(self, "name")
 
@@ -664,7 +664,7 @@ class _FunctionAppState:
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[pulumi.Input[str]]:
         """
-        A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+        A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "os_type")
 
@@ -700,7 +700,7 @@ class _FunctionAppState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the Function App.
+        The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -760,7 +760,7 @@ class _FunctionAppState:
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+        The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -930,13 +930,13 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FunctionAppIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
-        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App.
+        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
+        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['FunctionAppSiteConfigArgs']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[pulumi.InputType['FunctionAppSourceControlArgs']] source_control: A `source_control` block, as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
-        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
         """
@@ -1181,16 +1181,16 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] kind: The Function App kind - such as `functionapp,linux,container`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
-        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
+        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['FunctionAppSiteConfigArgs']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[pulumi.InputType['FunctionAppSourceControlArgs']] source_control: A `source_control` block, as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
-        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
         """
@@ -1351,7 +1351,7 @@ class FunctionApp(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+        Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
         """
         return pulumi.get(self, "name")
 
@@ -1359,7 +1359,7 @@ class FunctionApp(pulumi.CustomResource):
     @pulumi.getter(name="osType")
     def os_type(self) -> pulumi.Output[Optional[str]]:
         """
-        A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+        A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "os_type")
 
@@ -1383,7 +1383,7 @@ class FunctionApp(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the Function App.
+        The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -1423,7 +1423,7 @@ class FunctionApp(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Output[str]:
         """
-        The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+        The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 

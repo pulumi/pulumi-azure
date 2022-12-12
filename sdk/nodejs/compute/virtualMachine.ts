@@ -206,7 +206,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly vmSize!: pulumi.Output<string>;
     /**
-     * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+     * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      */
     public readonly zones!: pulumi.Output<string | undefined>;
 
@@ -388,7 +388,7 @@ export interface VirtualMachineState {
      */
     vmSize?: pulumi.Input<string>;
     /**
-     * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+     * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      */
     zones?: pulumi.Input<string>;
 }
@@ -490,7 +490,7 @@ export interface VirtualMachineArgs {
      */
     vmSize: pulumi.Input<string>;
     /**
-     * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+     * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      */
     zones?: pulumi.Input<string>;
 }

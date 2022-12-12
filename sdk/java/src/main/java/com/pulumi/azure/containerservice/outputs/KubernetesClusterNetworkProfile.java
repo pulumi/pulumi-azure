@@ -25,6 +25,11 @@ public final class KubernetesClusterNetworkProfile {
      */
     private @Nullable String dockerBridgeCidr;
     /**
+     * @return Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable String ebpfDataPlane;
+    /**
      * @return Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
      * 
      */
@@ -35,7 +40,7 @@ public final class KubernetesClusterNetworkProfile {
      */
     private @Nullable KubernetesClusterNetworkProfileLoadBalancerProfile loadBalancerProfile;
     /**
-     * @return Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+     * @return Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String loadBalancerSku;
@@ -55,12 +60,17 @@ public final class KubernetesClusterNetworkProfile {
      */
     private String networkPlugin;
     /**
+     * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable String networkPluginMode;
+    /**
      * @return Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String networkPolicy;
     /**
-     * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
+     * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String outboundType;
@@ -101,6 +111,13 @@ public final class KubernetesClusterNetworkProfile {
         return Optional.ofNullable(this.dockerBridgeCidr);
     }
     /**
+     * @return Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> ebpfDataPlane() {
+        return Optional.ofNullable(this.ebpfDataPlane);
+    }
+    /**
      * @return Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
      * 
      */
@@ -115,7 +132,7 @@ public final class KubernetesClusterNetworkProfile {
         return Optional.ofNullable(this.loadBalancerProfile);
     }
     /**
-     * @return Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+     * @return Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> loadBalancerSku() {
@@ -143,6 +160,13 @@ public final class KubernetesClusterNetworkProfile {
         return this.networkPlugin;
     }
     /**
+     * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> networkPluginMode() {
+        return Optional.ofNullable(this.networkPluginMode);
+    }
+    /**
      * @return Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
      * 
      */
@@ -150,7 +174,7 @@ public final class KubernetesClusterNetworkProfile {
         return Optional.ofNullable(this.networkPolicy);
     }
     /**
-     * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
+     * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> outboundType() {
@@ -196,12 +220,14 @@ public final class KubernetesClusterNetworkProfile {
     public static final class Builder {
         private @Nullable String dnsServiceIp;
         private @Nullable String dockerBridgeCidr;
+        private @Nullable String ebpfDataPlane;
         private @Nullable List<String> ipVersions;
         private @Nullable KubernetesClusterNetworkProfileLoadBalancerProfile loadBalancerProfile;
         private @Nullable String loadBalancerSku;
         private @Nullable KubernetesClusterNetworkProfileNatGatewayProfile natGatewayProfile;
         private @Nullable String networkMode;
         private String networkPlugin;
+        private @Nullable String networkPluginMode;
         private @Nullable String networkPolicy;
         private @Nullable String outboundType;
         private @Nullable String podCidr;
@@ -213,12 +239,14 @@ public final class KubernetesClusterNetworkProfile {
     	      Objects.requireNonNull(defaults);
     	      this.dnsServiceIp = defaults.dnsServiceIp;
     	      this.dockerBridgeCidr = defaults.dockerBridgeCidr;
+    	      this.ebpfDataPlane = defaults.ebpfDataPlane;
     	      this.ipVersions = defaults.ipVersions;
     	      this.loadBalancerProfile = defaults.loadBalancerProfile;
     	      this.loadBalancerSku = defaults.loadBalancerSku;
     	      this.natGatewayProfile = defaults.natGatewayProfile;
     	      this.networkMode = defaults.networkMode;
     	      this.networkPlugin = defaults.networkPlugin;
+    	      this.networkPluginMode = defaults.networkPluginMode;
     	      this.networkPolicy = defaults.networkPolicy;
     	      this.outboundType = defaults.outboundType;
     	      this.podCidr = defaults.podCidr;
@@ -235,6 +263,11 @@ public final class KubernetesClusterNetworkProfile {
         @CustomType.Setter
         public Builder dockerBridgeCidr(@Nullable String dockerBridgeCidr) {
             this.dockerBridgeCidr = dockerBridgeCidr;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ebpfDataPlane(@Nullable String ebpfDataPlane) {
+            this.ebpfDataPlane = ebpfDataPlane;
             return this;
         }
         @CustomType.Setter
@@ -268,6 +301,11 @@ public final class KubernetesClusterNetworkProfile {
         @CustomType.Setter
         public Builder networkPlugin(String networkPlugin) {
             this.networkPlugin = Objects.requireNonNull(networkPlugin);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder networkPluginMode(@Nullable String networkPluginMode) {
+            this.networkPluginMode = networkPluginMode;
             return this;
         }
         @CustomType.Setter
@@ -310,12 +348,14 @@ public final class KubernetesClusterNetworkProfile {
             final var o = new KubernetesClusterNetworkProfile();
             o.dnsServiceIp = dnsServiceIp;
             o.dockerBridgeCidr = dockerBridgeCidr;
+            o.ebpfDataPlane = ebpfDataPlane;
             o.ipVersions = ipVersions;
             o.loadBalancerProfile = loadBalancerProfile;
             o.loadBalancerSku = loadBalancerSku;
             o.natGatewayProfile = natGatewayProfile;
             o.networkMode = networkMode;
             o.networkPlugin = networkPlugin;
+            o.networkPluginMode = networkPluginMode;
             o.networkPolicy = networkPolicy;
             o.outboundType = outboundType;
             o.podCidr = podCidr;

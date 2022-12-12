@@ -130,7 +130,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly apiManagementName!: pulumi.Output<string>;
     /**
-     * The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+     * The base-64 encoded certificate data, which must be a PFX file.
      */
     public readonly data!: pulumi.Output<string | undefined>;
     /**
@@ -150,7 +150,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The password used for this certificate. Changing this forces a new resource to be created.
+     * The password used for this certificate.
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
@@ -222,7 +222,7 @@ export interface CertificateState {
      */
     apiManagementName?: pulumi.Input<string>;
     /**
-     * The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+     * The base-64 encoded certificate data, which must be a PFX file.
      */
     data?: pulumi.Input<string>;
     /**
@@ -242,7 +242,7 @@ export interface CertificateState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The password used for this certificate. Changing this forces a new resource to be created.
+     * The password used for this certificate.
      */
     password?: pulumi.Input<string>;
     /**
@@ -268,7 +268,7 @@ export interface CertificateArgs {
      */
     apiManagementName: pulumi.Input<string>;
     /**
-     * The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+     * The base-64 encoded certificate data, which must be a PFX file.
      */
     data?: pulumi.Input<string>;
     /**
@@ -284,7 +284,7 @@ export interface CertificateArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The password used for this certificate. Changing this forces a new resource to be created.
+     * The password used for this certificate.
      */
     password?: pulumi.Input<string>;
     /**

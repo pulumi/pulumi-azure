@@ -61,14 +61,14 @@ public final class LinkedServiceState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+     * The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
      * 
      */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
     /**
-     * @return The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+     * @return The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
      * 
      */
     public Optional<Output<String>> workspaceId() {
@@ -182,7 +182,7 @@ public final class LinkedServiceState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param workspaceId The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+         * @param workspaceId The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class LinkedServiceState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param workspaceId The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+         * @param workspaceId The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
          * 
          * @return builder
          * 

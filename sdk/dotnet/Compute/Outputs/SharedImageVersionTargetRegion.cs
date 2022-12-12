@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? DiskEncryptionSetId;
         /// <summary>
-        /// The Azure Region in which this Image Version should exist.
+        /// The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

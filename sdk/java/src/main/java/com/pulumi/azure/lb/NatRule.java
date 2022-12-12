@@ -253,28 +253,28 @@ public class NatRule extends com.pulumi.resources.CustomResource {
         return this.idleTimeoutInMinutes;
     }
     /**
-     * The ID of the Load Balancer in which to create the NAT Rule.
+     * The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="loadbalancerId", type=String.class, parameters={})
     private Output<String> loadbalancerId;
 
     /**
-     * @return The ID of the Load Balancer in which to create the NAT Rule.
+     * @return The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> loadbalancerId() {
         return this.loadbalancerId;
     }
     /**
-     * Specifies the name of the NAT Rule.
+     * Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the NAT Rule.
+     * @return Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -295,14 +295,14 @@ public class NatRule extends com.pulumi.resources.CustomResource {
         return this.protocol;
     }
     /**
-     * The name of the resource group in which to create the resource.
+     * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the resource.
+     * @return The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

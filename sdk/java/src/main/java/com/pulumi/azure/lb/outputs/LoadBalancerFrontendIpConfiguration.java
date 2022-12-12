@@ -33,7 +33,7 @@ public final class LoadBalancerFrontendIpConfiguration {
      */
     private @Nullable List<String> loadBalancerRules;
     /**
-     * @return Specifies the name of the frontend IP configuration.
+     * @return Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -108,7 +108,7 @@ public final class LoadBalancerFrontendIpConfiguration {
         return this.loadBalancerRules == null ? List.of() : this.loadBalancerRules;
     }
     /**
-     * @return Specifies the name of the frontend IP configuration.
+     * @return Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

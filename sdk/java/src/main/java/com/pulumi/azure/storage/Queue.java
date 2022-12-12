@@ -89,14 +89,14 @@ public class Queue extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.metadata);
     }
     /**
-     * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+     * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+     * @return The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

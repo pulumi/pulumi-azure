@@ -36,14 +36,14 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="hyperVGeneration")
     private @Nullable Output<String> hyperVGeneration;
 
     /**
-     * @return The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+     * @return The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> hyperVGeneration() {
@@ -51,7 +51,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specified the supported Azure location where the resource exists.
+     * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * Changing this forces a new resource to be created.
      * 
      */
@@ -59,7 +59,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> location;
 
     /**
-     * @return Specified the supported Azure location where the resource exists.
+     * @return Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * Changing this forces a new resource to be created.
      * 
      */
@@ -100,7 +100,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to create
+     * The name of the resource group in which to create. Changing this forces a new resource to be created.
      * the image. Changing this forces a new resource to be created.
      * 
      */
@@ -108,7 +108,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create
+     * @return The name of the resource group in which to create. Changing this forces a new resource to be created.
      * the image. Changing this forces a new resource to be created.
      * 
      */
@@ -225,7 +225,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hyperVGeneration The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+         * @param hyperVGeneration The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hyperVGeneration The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+         * @param hyperVGeneration The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location Specified the supported Azure location where the resource exists.
+         * @param location Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
          * Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -258,7 +258,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location Specified the supported Azure location where the resource exists.
+         * @param location Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
          * Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -313,7 +313,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create
+         * @param resourceGroupName The name of the resource group in which to create. Changing this forces a new resource to be created.
          * the image. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -325,7 +325,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create
+         * @param resourceGroupName The name of the resource group in which to create. Changing this forces a new resource to be created.
          * the image. Changing this forces a new resource to be created.
          * 
          * @return builder

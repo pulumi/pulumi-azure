@@ -115,7 +115,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:kusto/iotHubDataConnection:IotHubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/dataConnection1
+//	$ pulumi import azure:kusto/iotHubDataConnection:IotHubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/dataConnection1
 //
 // ```
 type IotHubDataConnection struct {
@@ -125,11 +125,11 @@ type IotHubDataConnection struct {
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	ConsumerGroup pulumi.StringOutput `pulumi:"consumerGroup"`
-	// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+	// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
 	DataFormat pulumi.StringPtrOutput `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 	DatabaseRoutingType pulumi.StringPtrOutput `pulumi:"databaseRoutingType"`
 	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
 	EventSystemProperties pulumi.StringArrayOutput `pulumi:"eventSystemProperties"`
@@ -137,7 +137,7 @@ type IotHubDataConnection struct {
 	IothubId pulumi.StringOutput `pulumi:"iothubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
 	MappingRuleName pulumi.StringPtrOutput `pulumi:"mappingRuleName"`
 	// The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -145,7 +145,7 @@ type IotHubDataConnection struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
 	SharedAccessPolicyName pulumi.StringOutput `pulumi:"sharedAccessPolicyName"`
-	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+	// Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
 }
 
@@ -200,11 +200,11 @@ type iotHubDataConnectionState struct {
 	ClusterName *string `pulumi:"clusterName"`
 	// Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	ConsumerGroup *string `pulumi:"consumerGroup"`
-	// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+	// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
 	DataFormat *string `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 	DatabaseRoutingType *string `pulumi:"databaseRoutingType"`
 	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
 	EventSystemProperties []string `pulumi:"eventSystemProperties"`
@@ -212,7 +212,7 @@ type iotHubDataConnectionState struct {
 	IothubId *string `pulumi:"iothubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
 	MappingRuleName *string `pulumi:"mappingRuleName"`
 	// The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -220,7 +220,7 @@ type iotHubDataConnectionState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
 	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
-	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+	// Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
 	TableName *string `pulumi:"tableName"`
 }
 
@@ -229,11 +229,11 @@ type IotHubDataConnectionState struct {
 	ClusterName pulumi.StringPtrInput
 	// Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	ConsumerGroup pulumi.StringPtrInput
-	// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+	// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
 	DataFormat pulumi.StringPtrInput
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 	DatabaseRoutingType pulumi.StringPtrInput
 	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
 	EventSystemProperties pulumi.StringArrayInput
@@ -241,7 +241,7 @@ type IotHubDataConnectionState struct {
 	IothubId pulumi.StringPtrInput
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
 	MappingRuleName pulumi.StringPtrInput
 	// The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -249,7 +249,7 @@ type IotHubDataConnectionState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
 	SharedAccessPolicyName pulumi.StringPtrInput
-	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+	// Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
 	TableName pulumi.StringPtrInput
 }
 
@@ -262,11 +262,11 @@ type iotHubDataConnectionArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	ConsumerGroup string `pulumi:"consumerGroup"`
-	// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+	// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
 	DataFormat *string `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 	DatabaseRoutingType *string `pulumi:"databaseRoutingType"`
 	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
 	EventSystemProperties []string `pulumi:"eventSystemProperties"`
@@ -274,7 +274,7 @@ type iotHubDataConnectionArgs struct {
 	IothubId string `pulumi:"iothubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
 	MappingRuleName *string `pulumi:"mappingRuleName"`
 	// The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -282,7 +282,7 @@ type iotHubDataConnectionArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
 	SharedAccessPolicyName string `pulumi:"sharedAccessPolicyName"`
-	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+	// Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
 	TableName *string `pulumi:"tableName"`
 }
 
@@ -292,11 +292,11 @@ type IotHubDataConnectionArgs struct {
 	ClusterName pulumi.StringInput
 	// Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	ConsumerGroup pulumi.StringInput
-	// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+	// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
 	DataFormat pulumi.StringPtrInput
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 	DatabaseRoutingType pulumi.StringPtrInput
 	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
 	EventSystemProperties pulumi.StringArrayInput
@@ -304,7 +304,7 @@ type IotHubDataConnectionArgs struct {
 	IothubId pulumi.StringInput
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
 	MappingRuleName pulumi.StringPtrInput
 	// The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -312,7 +312,7 @@ type IotHubDataConnectionArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
 	SharedAccessPolicyName pulumi.StringInput
-	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+	// Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
 	TableName pulumi.StringPtrInput
 }
 
@@ -413,7 +413,7 @@ func (o IotHubDataConnectionOutput) ConsumerGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringOutput { return v.ConsumerGroup }).(pulumi.StringOutput)
 }
 
-// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
 func (o IotHubDataConnectionOutput) DataFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringPtrOutput { return v.DataFormat }).(pulumi.StringPtrOutput)
 }
@@ -423,7 +423,7 @@ func (o IotHubDataConnectionOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 func (o IotHubDataConnectionOutput) DatabaseRoutingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringPtrOutput { return v.DatabaseRoutingType }).(pulumi.StringPtrOutput)
 }
@@ -443,7 +443,7 @@ func (o IotHubDataConnectionOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
 func (o IotHubDataConnectionOutput) MappingRuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringPtrOutput { return v.MappingRuleName }).(pulumi.StringPtrOutput)
 }
@@ -463,7 +463,7 @@ func (o IotHubDataConnectionOutput) SharedAccessPolicyName() pulumi.StringOutput
 	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringOutput { return v.SharedAccessPolicyName }).(pulumi.StringOutput)
 }
 
-// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+// Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
 func (o IotHubDataConnectionOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringPtrOutput { return v.TableName }).(pulumi.StringPtrOutput)
 }

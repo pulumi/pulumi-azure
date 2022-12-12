@@ -69,12 +69,11 @@ export class Profile extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to
-     * create the CDN Profile.
+     * The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+     * The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
      */
     public readonly sku!: pulumi.Output<string>;
     /**
@@ -133,12 +132,11 @@ export interface ProfileState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the CDN Profile.
+     * The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+     * The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -161,12 +159,11 @@ export interface ProfileArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the CDN Profile.
+     * The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+     * The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
      */
     sku: pulumi.Input<string>;
     /**

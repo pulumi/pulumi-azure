@@ -49,6 +49,21 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
+     * Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="ebpfDataPlane")
+    private @Nullable Output<String> ebpfDataPlane;
+
+    /**
+     * @return Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> ebpfDataPlane() {
+        return Optional.ofNullable(this.ebpfDataPlane);
+    }
+
+    /**
      * Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
      * 
      */
@@ -79,14 +94,14 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
-     * Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+     * Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="loadBalancerSku")
     private @Nullable Output<String> loadBalancerSku;
 
     /**
-     * @return Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+     * @return Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> loadBalancerSku() {
@@ -139,6 +154,21 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
+     * Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="networkPluginMode")
+    private @Nullable Output<String> networkPluginMode;
+
+    /**
+     * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> networkPluginMode() {
+        return Optional.ofNullable(this.networkPluginMode);
+    }
+
+    /**
      * Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
      * 
      */
@@ -154,14 +184,14 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
-     * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
+     * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="outboundType")
     private @Nullable Output<String> outboundType;
 
     /**
-     * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
+     * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> outboundType() {
@@ -233,12 +263,14 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     private KubernetesClusterNetworkProfileArgs(KubernetesClusterNetworkProfileArgs $) {
         this.dnsServiceIp = $.dnsServiceIp;
         this.dockerBridgeCidr = $.dockerBridgeCidr;
+        this.ebpfDataPlane = $.ebpfDataPlane;
         this.ipVersions = $.ipVersions;
         this.loadBalancerProfile = $.loadBalancerProfile;
         this.loadBalancerSku = $.loadBalancerSku;
         this.natGatewayProfile = $.natGatewayProfile;
         this.networkMode = $.networkMode;
         this.networkPlugin = $.networkPlugin;
+        this.networkPluginMode = $.networkPluginMode;
         this.networkPolicy = $.networkPolicy;
         this.outboundType = $.outboundType;
         this.podCidr = $.podCidr;
@@ -308,6 +340,27 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
+         * @param ebpfDataPlane Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ebpfDataPlane(@Nullable Output<String> ebpfDataPlane) {
+            $.ebpfDataPlane = ebpfDataPlane;
+            return this;
+        }
+
+        /**
+         * @param ebpfDataPlane Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ebpfDataPlane(String ebpfDataPlane) {
+            return ebpfDataPlane(Output.of(ebpfDataPlane));
+        }
+
+        /**
          * @param ipVersions Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -360,7 +413,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param loadBalancerSku Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+         * @param loadBalancerSku Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -371,7 +424,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param loadBalancerSku Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+         * @param loadBalancerSku Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -444,6 +497,27 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
+         * @param networkPluginMode Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkPluginMode(@Nullable Output<String> networkPluginMode) {
+            $.networkPluginMode = networkPluginMode;
+            return this;
+        }
+
+        /**
+         * @param networkPluginMode Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkPluginMode(String networkPluginMode) {
+            return networkPluginMode(Output.of(networkPluginMode));
+        }
+
+        /**
          * @param networkPolicy Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -465,7 +539,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param outboundType The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
+         * @param outboundType The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -476,7 +550,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param outboundType The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
+         * @param outboundType The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

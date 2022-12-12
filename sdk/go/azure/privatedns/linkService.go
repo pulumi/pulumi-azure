@@ -142,7 +142,7 @@ type LinkService struct {
 	EnableProxyProtocol pulumi.BoolPtrOutput `pulumi:"enableProxyProtocol"`
 	// List of FQDNs allowed for the Private Link Service.
 	Fqdns pulumi.StringArrayOutput `pulumi:"fqdns"`
-	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
 	LoadBalancerFrontendIpConfigurationIds pulumi.StringArrayOutput `pulumi:"loadBalancerFrontendIpConfigurationIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -152,7 +152,7 @@ type LinkService struct {
 	NatIpConfigurations LinkServiceNatIpConfigurationArrayOutput `pulumi:"natIpConfigurations"`
 	// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 	VisibilitySubscriptionIds pulumi.StringArrayOutput `pulumi:"visibilitySubscriptionIds"`
@@ -204,7 +204,7 @@ type linkServiceState struct {
 	EnableProxyProtocol *bool `pulumi:"enableProxyProtocol"`
 	// List of FQDNs allowed for the Private Link Service.
 	Fqdns []string `pulumi:"fqdns"`
-	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
 	LoadBalancerFrontendIpConfigurationIds []string `pulumi:"loadBalancerFrontendIpConfigurationIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -214,7 +214,7 @@ type linkServiceState struct {
 	NatIpConfigurations []LinkServiceNatIpConfiguration `pulumi:"natIpConfigurations"`
 	// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 	VisibilitySubscriptionIds []string `pulumi:"visibilitySubscriptionIds"`
@@ -229,7 +229,7 @@ type LinkServiceState struct {
 	EnableProxyProtocol pulumi.BoolPtrInput
 	// List of FQDNs allowed for the Private Link Service.
 	Fqdns pulumi.StringArrayInput
-	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
 	LoadBalancerFrontendIpConfigurationIds pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -239,7 +239,7 @@ type LinkServiceState struct {
 	NatIpConfigurations LinkServiceNatIpConfigurationArrayInput
 	// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 	VisibilitySubscriptionIds pulumi.StringArrayInput
@@ -256,7 +256,7 @@ type linkServiceArgs struct {
 	EnableProxyProtocol *bool `pulumi:"enableProxyProtocol"`
 	// List of FQDNs allowed for the Private Link Service.
 	Fqdns []string `pulumi:"fqdns"`
-	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
 	LoadBalancerFrontendIpConfigurationIds []string `pulumi:"loadBalancerFrontendIpConfigurationIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -266,7 +266,7 @@ type linkServiceArgs struct {
 	NatIpConfigurations []LinkServiceNatIpConfiguration `pulumi:"natIpConfigurations"`
 	// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 	VisibilitySubscriptionIds []string `pulumi:"visibilitySubscriptionIds"`
@@ -280,7 +280,7 @@ type LinkServiceArgs struct {
 	EnableProxyProtocol pulumi.BoolPtrInput
 	// List of FQDNs allowed for the Private Link Service.
 	Fqdns pulumi.StringArrayInput
-	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
 	LoadBalancerFrontendIpConfigurationIds pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -290,7 +290,7 @@ type LinkServiceArgs struct {
 	NatIpConfigurations LinkServiceNatIpConfigurationArrayInput
 	// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 	VisibilitySubscriptionIds pulumi.StringArrayInput
@@ -403,7 +403,7 @@ func (o LinkServiceOutput) Fqdns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LinkService) pulumi.StringArrayOutput { return v.Fqdns }).(pulumi.StringArrayOutput)
 }
 
-// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
 func (o LinkServiceOutput) LoadBalancerFrontendIpConfigurationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LinkService) pulumi.StringArrayOutput { return v.LoadBalancerFrontendIpConfigurationIds }).(pulumi.StringArrayOutput)
 }
@@ -428,7 +428,7 @@ func (o LinkServiceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkService) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+// A mapping of tags to assign to the resource.
 func (o LinkServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinkService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -147,8 +147,7 @@ export class Extension extends pulumi.CustomResource {
      */
     public readonly failureSuppressionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the virtual machine extension peering. Changing
-     * this forces a new resource to be created.
+     * The name of the virtual machine extension peering. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -263,8 +262,7 @@ export interface ExtensionState {
      */
     failureSuppressionEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the virtual machine extension peering. Changing
-     * this forces a new resource to be created.
+     * The name of the virtual machine extension peering. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -323,8 +321,7 @@ export interface ExtensionArgs {
      */
     failureSuppressionEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the virtual machine extension peering. Changing
-     * this forces a new resource to be created.
+     * The name of the virtual machine extension peering. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

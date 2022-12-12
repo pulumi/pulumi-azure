@@ -62,14 +62,14 @@ public final class ResolverOutboundEndpointState extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+     * The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+     * @return The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -183,7 +183,7 @@ public final class ResolverOutboundEndpointState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param subnetId The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+         * @param subnetId The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ResolverOutboundEndpointState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param subnetId The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+         * @param subnetId The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

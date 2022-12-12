@@ -25,8 +25,7 @@ class TemplateDeploymentArgs:
         :param pulumi.Input[str] deployment_mode: Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
                Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
                specified within the template, and this provider will not be aware of this.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the template deployment.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the template deployment. Changing this forces a
                new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies the name and value pairs that define the deployment parameters for the template.
@@ -62,8 +61,7 @@ class TemplateDeploymentArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to
-        create the template deployment.
+        The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -141,8 +139,7 @@ class _TemplateDeploymentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] outputs: A map of supported scalar output types returned from the deployment (currently, Azure Template Deployment outputs of type String, Int and Bool are supported, and are converted to strings - others will be ignored) and can be accessed using `.outputs["name"]`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies the name and value pairs that define the deployment parameters for the template.
         :param pulumi.Input[str] parameters_body: Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the template deployment.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] template_body: Specifies the JSON definition for the template.
         """
         if deployment_mode is not None:
@@ -227,8 +224,7 @@ class _TemplateDeploymentState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to
-        create the template deployment.
+        The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -354,8 +350,7 @@ class TemplateDeployment(pulumi.CustomResource):
                new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies the name and value pairs that define the deployment parameters for the template.
         :param pulumi.Input[str] parameters_body: Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the template deployment.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] template_body: Specifies the JSON definition for the template.
         """
         ...
@@ -521,8 +516,7 @@ class TemplateDeployment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] outputs: A map of supported scalar output types returned from the deployment (currently, Azure Template Deployment outputs of type String, Int and Bool are supported, and are converted to strings - others will be ignored) and can be accessed using `.outputs["name"]`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies the name and value pairs that define the deployment parameters for the template.
         :param pulumi.Input[str] parameters_body: Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the template deployment.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] template_body: Specifies the JSON definition for the template.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -585,8 +579,7 @@ class TemplateDeployment(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to
-        create the template deployment.
+        The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

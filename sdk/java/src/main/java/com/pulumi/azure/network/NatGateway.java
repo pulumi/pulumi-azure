@@ -175,14 +175,14 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skuName);
     }
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * @return A mapping of tags to assign to the resource.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

@@ -62,14 +62,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+     * The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+     * @return The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -183,7 +183,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+         * @param skuName The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+         * @param skuName The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

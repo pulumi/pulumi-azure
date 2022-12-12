@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Healthcare.Inputs
     public sealed class ServiceCorsConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If credentials are allowed via CORS.
+        /// (Boolean) If credentials are allowed via CORS.
         /// </summary>
         [Input("allowCredentials")]
         public Input<bool>? AllowCredentials { get; set; }

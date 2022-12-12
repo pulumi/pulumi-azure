@@ -111,7 +111,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<ImmutableArray<string>> ClientCertificatePems { get; private set; } = null!;
 
         /// <summary>
-        /// The initial admin password for this Cassandra Cluster.
+        /// The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Output("defaultAdminPassword")]
         public Output<string> DefaultAdminPassword { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
-        /// The initial admin password for this Cassandra Cluster.
+        /// The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Input("defaultAdminPassword", required: true)]
         public Input<string> DefaultAdminPassword { get; set; } = null!;
@@ -363,7 +363,7 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
-        /// The initial admin password for this Cassandra Cluster.
+        /// The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Input("defaultAdminPassword")]
         public Input<string>? DefaultAdminPassword { get; set; }

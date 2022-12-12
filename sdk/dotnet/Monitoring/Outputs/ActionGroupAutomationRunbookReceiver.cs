@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly bool IsGlobalRunbook;
         /// <summary>
-        /// The name of the automation runbook receiver.
+        /// The name of the automation runbook receiver. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

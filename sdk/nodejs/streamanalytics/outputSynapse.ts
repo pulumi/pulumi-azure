@@ -93,7 +93,7 @@ export class OutputSynapse extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+     * The password that will be used to connect to the Azure SQL database.
      */
     public readonly password!: pulumi.Output<string>;
     /**
@@ -188,7 +188,7 @@ export interface OutputSynapseState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+     * The password that will be used to connect to the Azure SQL database.
      */
     password?: pulumi.Input<string>;
     /**
@@ -226,7 +226,7 @@ export interface OutputSynapseArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+     * The password that will be used to connect to the Azure SQL database.
      */
     password: pulumi.Input<string>;
     /**

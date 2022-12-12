@@ -124,14 +124,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.secondaryAccessKey;
     }
     /**
-     * The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+     * The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
-     * @return The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+     * @return The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> skuName() {

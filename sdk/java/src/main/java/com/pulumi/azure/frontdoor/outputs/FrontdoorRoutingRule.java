@@ -41,7 +41,7 @@ public final class FrontdoorRoutingRule {
      */
     private @Nullable String id;
     /**
-     * @return Specifies the name of the Routing Rule.
+     * @return Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -93,7 +93,7 @@ public final class FrontdoorRoutingRule {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Specifies the name of the Routing Rule.
+     * @return Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

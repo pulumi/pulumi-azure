@@ -197,7 +197,7 @@ type ScaleSet struct {
 	AutomaticOsUpgrade pulumi.BoolPtrOutput `pulumi:"automaticOsUpgrade"`
 	// A boot diagnostics profile block as referenced below.
 	BootDiagnostics ScaleSetBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
-	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions ScaleSetExtensionArrayOutput `pulumi:"extensions"`
@@ -224,7 +224,7 @@ type ScaleSet struct {
 	Overprovision pulumi.BoolPtrOutput `pulumi:"overprovision"`
 	// A plan block as documented below.
 	Plan ScaleSetPlanPtrOutput `pulumi:"plan"`
-	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
@@ -246,7 +246,7 @@ type ScaleSet struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
 	UpgradePolicyMode pulumi.StringOutput `pulumi:"upgradePolicyMode"`
-	// A collection of availability zones to spread the Virtual Machines over.
+	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -301,7 +301,7 @@ type scaleSetState struct {
 	AutomaticOsUpgrade *bool `pulumi:"automaticOsUpgrade"`
 	// A boot diagnostics profile block as referenced below.
 	BootDiagnostics *ScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
-	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions []ScaleSetExtension `pulumi:"extensions"`
@@ -328,7 +328,7 @@ type scaleSetState struct {
 	Overprovision *bool `pulumi:"overprovision"`
 	// A plan block as documented below.
 	Plan *ScaleSetPlan `pulumi:"plan"`
-	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
@@ -350,7 +350,7 @@ type scaleSetState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
 	UpgradePolicyMode *string `pulumi:"upgradePolicyMode"`
-	// A collection of availability zones to spread the Virtual Machines over.
+	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -359,7 +359,7 @@ type ScaleSetState struct {
 	AutomaticOsUpgrade pulumi.BoolPtrInput
 	// A boot diagnostics profile block as referenced below.
 	BootDiagnostics ScaleSetBootDiagnosticsPtrInput
-	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions ScaleSetExtensionArrayInput
@@ -386,7 +386,7 @@ type ScaleSetState struct {
 	Overprovision pulumi.BoolPtrInput
 	// A plan block as documented below.
 	Plan ScaleSetPlanPtrInput
-	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
 	ProximityPlacementGroupId pulumi.StringPtrInput
@@ -408,7 +408,7 @@ type ScaleSetState struct {
 	Tags pulumi.StringMapInput
 	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
 	UpgradePolicyMode pulumi.StringPtrInput
-	// A collection of availability zones to spread the Virtual Machines over.
+	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -421,7 +421,7 @@ type scaleSetArgs struct {
 	AutomaticOsUpgrade *bool `pulumi:"automaticOsUpgrade"`
 	// A boot diagnostics profile block as referenced below.
 	BootDiagnostics *ScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
-	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions []ScaleSetExtension `pulumi:"extensions"`
@@ -448,7 +448,7 @@ type scaleSetArgs struct {
 	Overprovision *bool `pulumi:"overprovision"`
 	// A plan block as documented below.
 	Plan *ScaleSetPlan `pulumi:"plan"`
-	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
@@ -470,7 +470,7 @@ type scaleSetArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
 	UpgradePolicyMode string `pulumi:"upgradePolicyMode"`
-	// A collection of availability zones to spread the Virtual Machines over.
+	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -480,7 +480,7 @@ type ScaleSetArgs struct {
 	AutomaticOsUpgrade pulumi.BoolPtrInput
 	// A boot diagnostics profile block as referenced below.
 	BootDiagnostics ScaleSetBootDiagnosticsPtrInput
-	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions ScaleSetExtensionArrayInput
@@ -507,7 +507,7 @@ type ScaleSetArgs struct {
 	Overprovision pulumi.BoolPtrInput
 	// A plan block as documented below.
 	Plan ScaleSetPlanPtrInput
-	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
 	ProximityPlacementGroupId pulumi.StringPtrInput
@@ -529,7 +529,7 @@ type ScaleSetArgs struct {
 	Tags pulumi.StringMapInput
 	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
 	UpgradePolicyMode pulumi.StringInput
-	// A collection of availability zones to spread the Virtual Machines over.
+	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -630,7 +630,7 @@ func (o ScaleSetOutput) BootDiagnostics() ScaleSetBootDiagnosticsPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetBootDiagnosticsPtrOutput { return v.BootDiagnostics }).(ScaleSetBootDiagnosticsPtrOutput)
 }
 
-// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 func (o ScaleSetOutput) EvictionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.StringPtrOutput { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
 }
@@ -699,7 +699,7 @@ func (o ScaleSetOutput) Plan() ScaleSetPlanPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetPlanPtrOutput { return v.Plan }).(ScaleSetPlanPtrOutput)
 }
 
-// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 func (o ScaleSetOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.StringPtrOutput { return v.Priority }).(pulumi.StringPtrOutput)
 }
@@ -754,7 +754,7 @@ func (o ScaleSetOutput) UpgradePolicyMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.StringOutput { return v.UpgradePolicyMode }).(pulumi.StringOutput)
 }
 
-// A collection of availability zones to spread the Virtual Machines over.
+// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 func (o ScaleSetOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

@@ -124,14 +124,14 @@ public final class ResourceGroupCostManagementExportState extends com.pulumi.res
     }
 
     /**
-     * The id of the resource group on which to create an export.
+     * The id of the resource group on which to create an export. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupId")
     private @Nullable Output<String> resourceGroupId;
 
     /**
-     * @return The id of the resource group on which to create an export.
+     * @return The id of the resource group on which to create an export. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupId() {
@@ -317,7 +317,7 @@ public final class ResourceGroupCostManagementExportState extends com.pulumi.res
         }
 
         /**
-         * @param resourceGroupId The id of the resource group on which to create an export.
+         * @param resourceGroupId The id of the resource group on which to create an export. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class ResourceGroupCostManagementExportState extends com.pulumi.res
         }
 
         /**
-         * @param resourceGroupId The id of the resource group on which to create an export.
+         * @param resourceGroupId The id of the resource group on which to create an export. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

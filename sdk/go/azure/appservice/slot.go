@@ -217,7 +217,7 @@ type Slot struct {
 	Logs SlotLogsOutput `pulumi:"logs"`
 	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to create the App Service Slot component.
+	// The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig SlotSiteConfigOutput `pulumi:"siteConfig"`
@@ -295,7 +295,7 @@ type slotState struct {
 	Logs *SlotLogs `pulumi:"logs"`
 	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the App Service Slot component.
+	// The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig *SlotSiteConfig `pulumi:"siteConfig"`
@@ -336,7 +336,7 @@ type SlotState struct {
 	Logs SlotLogsPtrInput
 	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the App Service Slot component.
+	// The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `siteConfig` object as defined below.
 	SiteConfig SlotSiteConfigPtrInput
@@ -379,7 +379,7 @@ type slotArgs struct {
 	Logs *SlotLogs `pulumi:"logs"`
 	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the App Service Slot component.
+	// The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig *SlotSiteConfig `pulumi:"siteConfig"`
@@ -417,7 +417,7 @@ type SlotArgs struct {
 	Logs SlotLogsPtrInput
 	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the App Service Slot component.
+	// The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `siteConfig` object as defined below.
 	SiteConfig SlotSiteConfigPtrInput
@@ -584,7 +584,7 @@ func (o SlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Slot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the App Service Slot component.
+// The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
 func (o SlotOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Slot) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

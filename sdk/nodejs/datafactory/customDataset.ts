@@ -172,7 +172,7 @@ export class CustomDataset extends pulumi.CustomResource {
      */
     public readonly schemaJson!: pulumi.Output<string | undefined>;
     /**
-     * The type of dataset that will be associated with Data Factory.
+     * The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -276,7 +276,7 @@ export interface CustomDatasetState {
      */
     schemaJson?: pulumi.Input<string>;
     /**
-     * The type of dataset that will be associated with Data Factory.
+     * The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
      */
     type?: pulumi.Input<string>;
     /**
@@ -326,7 +326,7 @@ export interface CustomDatasetArgs {
      */
     schemaJson?: pulumi.Input<string>;
     /**
-     * The type of dataset that will be associated with Data Factory.
+     * The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
      */
     type: pulumi.Input<string>;
     /**

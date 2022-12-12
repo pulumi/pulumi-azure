@@ -138,7 +138,7 @@ type Account struct {
 
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
-	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
 	AccountKind pulumi.StringPtrOutput `pulumi:"accountKind"`
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
 	AccountReplicationType pulumi.StringOutput `pulumi:"accountReplicationType"`
@@ -258,8 +258,9 @@ type Account struct {
 	// The endpoint URL for web storage in the secondary location.
 	SecondaryWebEndpoint pulumi.StringOutput `pulumi:"secondaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the secondary location.
-	SecondaryWebHost pulumi.StringOutput  `pulumi:"secondaryWebHost"`
-	SftpEnabled      pulumi.BoolPtrOutput `pulumi:"sftpEnabled"`
+	SecondaryWebHost pulumi.StringOutput `pulumi:"secondaryWebHost"`
+	// Boolean, enable SFTP for the storage account
+	SftpEnabled pulumi.BoolPtrOutput `pulumi:"sftpEnabled"`
 	// A `shareProperties` block as defined below.
 	ShareProperties AccountSharePropertiesOutput `pulumi:"shareProperties"`
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
@@ -312,7 +313,7 @@ func GetAccount(ctx *pulumi.Context,
 type accountState struct {
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier *string `pulumi:"accessTier"`
-	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
 	AccountKind *string `pulumi:"accountKind"`
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
 	AccountReplicationType *string `pulumi:"accountReplicationType"`
@@ -433,7 +434,8 @@ type accountState struct {
 	SecondaryWebEndpoint *string `pulumi:"secondaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the secondary location.
 	SecondaryWebHost *string `pulumi:"secondaryWebHost"`
-	SftpEnabled      *bool   `pulumi:"sftpEnabled"`
+	// Boolean, enable SFTP for the storage account
+	SftpEnabled *bool `pulumi:"sftpEnabled"`
 	// A `shareProperties` block as defined below.
 	ShareProperties *AccountShareProperties `pulumi:"shareProperties"`
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
@@ -449,7 +451,7 @@ type accountState struct {
 type AccountState struct {
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier pulumi.StringPtrInput
-	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
 	AccountKind pulumi.StringPtrInput
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
 	AccountReplicationType pulumi.StringPtrInput
@@ -570,7 +572,8 @@ type AccountState struct {
 	SecondaryWebEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for web storage in the secondary location.
 	SecondaryWebHost pulumi.StringPtrInput
-	SftpEnabled      pulumi.BoolPtrInput
+	// Boolean, enable SFTP for the storage account
+	SftpEnabled pulumi.BoolPtrInput
 	// A `shareProperties` block as defined below.
 	ShareProperties AccountSharePropertiesPtrInput
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
@@ -590,7 +593,7 @@ func (AccountState) ElementType() reflect.Type {
 type accountArgs struct {
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier *string `pulumi:"accessTier"`
-	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
 	AccountKind *string `pulumi:"accountKind"`
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
 	AccountReplicationType string `pulumi:"accountReplicationType"`
@@ -646,8 +649,9 @@ type accountArgs struct {
 	// A `routing` block as defined below.
 	Routing *AccountRouting `pulumi:"routing"`
 	// A `sasPolicy` block as defined below.
-	SasPolicy   *AccountSasPolicy `pulumi:"sasPolicy"`
-	SftpEnabled *bool             `pulumi:"sftpEnabled"`
+	SasPolicy *AccountSasPolicy `pulumi:"sasPolicy"`
+	// Boolean, enable SFTP for the storage account
+	SftpEnabled *bool `pulumi:"sftpEnabled"`
 	// A `shareProperties` block as defined below.
 	ShareProperties *AccountShareProperties `pulumi:"shareProperties"`
 	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
@@ -664,7 +668,7 @@ type accountArgs struct {
 type AccountArgs struct {
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier pulumi.StringPtrInput
-	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
 	AccountKind pulumi.StringPtrInput
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
 	AccountReplicationType pulumi.StringInput
@@ -720,7 +724,8 @@ type AccountArgs struct {
 	// A `routing` block as defined below.
 	Routing AccountRoutingPtrInput
 	// A `sasPolicy` block as defined below.
-	SasPolicy   AccountSasPolicyPtrInput
+	SasPolicy AccountSasPolicyPtrInput
+	// Boolean, enable SFTP for the storage account
 	SftpEnabled pulumi.BoolPtrInput
 	// A `shareProperties` block as defined below.
 	ShareProperties AccountSharePropertiesPtrInput
@@ -826,7 +831,7 @@ func (o AccountOutput) AccessTier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AccessTier }).(pulumi.StringOutput)
 }
 
-// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
 func (o AccountOutput) AccountKind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.AccountKind }).(pulumi.StringPtrOutput)
 }
@@ -1127,6 +1132,7 @@ func (o AccountOutput) SecondaryWebHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryWebHost }).(pulumi.StringOutput)
 }
 
+// Boolean, enable SFTP for the storage account
 func (o AccountOutput) SftpEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.SftpEnabled }).(pulumi.BoolPtrOutput)
 }

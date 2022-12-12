@@ -1955,7 +1955,7 @@ func (o ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput) In
 }
 
 type JobInputAsset struct {
-	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'. Changing this forces a new resource to be created.
 	Label *string `pulumi:"label"`
 	// The name of the input Asset. Changing this forces a new Media Job to be created.
 	Name string `pulumi:"name"`
@@ -1973,7 +1973,7 @@ type JobInputAssetInput interface {
 }
 
 type JobInputAssetArgs struct {
-	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'. Changing this forces a new resource to be created.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The name of the input Asset. Changing this forces a new Media Job to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2056,7 +2056,7 @@ func (o JobInputAssetOutput) ToJobInputAssetPtrOutputWithContext(ctx context.Con
 	}).(JobInputAssetPtrOutput)
 }
 
-// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'. Changing this forces a new resource to be created.
 func (o JobInputAssetOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobInputAsset) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
@@ -2090,7 +2090,7 @@ func (o JobInputAssetPtrOutput) Elem() JobInputAssetOutput {
 	}).(JobInputAssetOutput)
 }
 
-// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'. Changing this forces a new resource to be created.
 func (o JobInputAssetPtrOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobInputAsset) *string {
 		if v == nil {
@@ -2111,7 +2111,7 @@ func (o JobInputAssetPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type JobOutputAsset struct {
-	// A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
+	// A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform. Changing this forces a new resource to be created.
 	Label *string `pulumi:"label"`
 	// The name of the output Asset. Changing this forces a new Media Job to be created.
 	Name string `pulumi:"name"`
@@ -2129,7 +2129,7 @@ type JobOutputAssetInput interface {
 }
 
 type JobOutputAssetArgs struct {
-	// A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
+	// A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform. Changing this forces a new resource to be created.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The name of the output Asset. Changing this forces a new Media Job to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2186,7 +2186,7 @@ func (o JobOutputAssetOutput) ToJobOutputAssetOutputWithContext(ctx context.Cont
 	return o
 }
 
-// A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
+// A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform. Changing this forces a new resource to be created.
 func (o JobOutputAssetOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobOutputAsset) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
@@ -2991,7 +2991,7 @@ func (o LiveEventInputIpAccessControlAllowArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type LiveEventPreview struct {
-	// An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field. Changing this forces a new resource to be created.
+	// An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field.
 	AlternativeMediaId *string                    `pulumi:"alternativeMediaId"`
 	Endpoints          []LiveEventPreviewEndpoint `pulumi:"endpoints"`
 	// One or more `ipAccessControlAllow` blocks as defined above.
@@ -3014,7 +3014,7 @@ type LiveEventPreviewInput interface {
 }
 
 type LiveEventPreviewArgs struct {
-	// An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field. Changing this forces a new resource to be created.
+	// An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field.
 	AlternativeMediaId pulumi.StringPtrInput              `pulumi:"alternativeMediaId"`
 	Endpoints          LiveEventPreviewEndpointArrayInput `pulumi:"endpoints"`
 	// One or more `ipAccessControlAllow` blocks as defined above.
@@ -3102,7 +3102,7 @@ func (o LiveEventPreviewOutput) ToLiveEventPreviewPtrOutputWithContext(ctx conte
 	}).(LiveEventPreviewPtrOutput)
 }
 
-// An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field. Changing this forces a new resource to be created.
+// An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field.
 func (o LiveEventPreviewOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventPreview) *string { return v.AlternativeMediaId }).(pulumi.StringPtrOutput)
 }
@@ -3150,7 +3150,7 @@ func (o LiveEventPreviewPtrOutput) Elem() LiveEventPreviewOutput {
 	}).(LiveEventPreviewOutput)
 }
 
-// An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field. Changing this forces a new resource to be created.
+// An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field.
 func (o LiveEventPreviewPtrOutput) AlternativeMediaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventPreview) *string {
 		if v == nil {

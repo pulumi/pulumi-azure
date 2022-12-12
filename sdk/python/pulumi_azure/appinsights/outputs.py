@@ -43,8 +43,8 @@ class WorkbookIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
-        :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Workbook.
+        :param str type: The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
+        :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
         :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Workbook.
         :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
         """
@@ -60,7 +60,7 @@ class WorkbookIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+        The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -68,7 +68,7 @@ class WorkbookIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        The list of User Assigned Managed Identity IDs assigned to this Workbook.
+        The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identity_ids")
 

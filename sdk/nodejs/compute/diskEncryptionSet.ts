@@ -130,7 +130,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      */
     public readonly autoKeyRotationEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
+     * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
      */
     public readonly encryptionType!: pulumi.Output<string | undefined>;
     /**
@@ -219,7 +219,7 @@ export interface DiskEncryptionSetState {
      */
     autoKeyRotationEnabled?: pulumi.Input<boolean>;
     /**
-     * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
+     * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
      */
     encryptionType?: pulumi.Input<string>;
     /**
@@ -261,7 +261,7 @@ export interface DiskEncryptionSetArgs {
      */
     autoKeyRotationEnabled?: pulumi.Input<boolean>;
     /**
-     * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
+     * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
      */
     encryptionType?: pulumi.Input<string>;
     /**

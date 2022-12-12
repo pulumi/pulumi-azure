@@ -71,7 +71,7 @@ import (
 type Snapshot struct {
 	pulumi.CustomResourceState
 
-	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
 	CreateOption pulumi.StringOutput `pulumi:"createOption"`
 	// The size of the Snapshotted Disk in GB.
 	DiskSizeGb pulumi.IntOutput `pulumi:"diskSizeGb"`
@@ -130,7 +130,7 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
-	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
 	CreateOption *string `pulumi:"createOption"`
 	// The size of the Snapshotted Disk in GB.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
@@ -155,7 +155,7 @@ type snapshotState struct {
 }
 
 type SnapshotState struct {
-	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
 	CreateOption pulumi.StringPtrInput
 	// The size of the Snapshotted Disk in GB.
 	DiskSizeGb pulumi.IntPtrInput
@@ -184,7 +184,7 @@ func (SnapshotState) ElementType() reflect.Type {
 }
 
 type snapshotArgs struct {
-	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
 	CreateOption string `pulumi:"createOption"`
 	// The size of the Snapshotted Disk in GB.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
@@ -208,7 +208,7 @@ type snapshotArgs struct {
 
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
-	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
 	CreateOption pulumi.StringInput
 	// The size of the Snapshotted Disk in GB.
 	DiskSizeGb pulumi.IntPtrInput
@@ -317,7 +317,7 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 	return o
 }
 
-// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
 func (o SnapshotOutput) CreateOption() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.CreateOption }).(pulumi.StringOutput)
 }

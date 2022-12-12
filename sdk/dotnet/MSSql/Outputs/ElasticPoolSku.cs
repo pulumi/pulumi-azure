@@ -22,7 +22,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string? Family;
         /// <summary>
-        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
+        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

@@ -122,7 +122,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
      */
     public readonly rules!: pulumi.Output<outputs.storage.ManagementPolicyRule[] | undefined>;
     /**
-     * Specifies the id of the storage account to apply the management policy to.
+     * Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
      */
     public readonly storageAccountId!: pulumi.Output<string>;
 
@@ -163,7 +163,7 @@ export interface ManagementPolicyState {
      */
     rules?: pulumi.Input<pulumi.Input<inputs.storage.ManagementPolicyRule>[]>;
     /**
-     * Specifies the id of the storage account to apply the management policy to.
+     * Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
      */
     storageAccountId?: pulumi.Input<string>;
 }
@@ -177,7 +177,7 @@ export interface ManagementPolicyArgs {
      */
     rules?: pulumi.Input<pulumi.Input<inputs.storage.ManagementPolicyRule>[]>;
     /**
-     * Specifies the id of the storage account to apply the management policy to.
+     * Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
      */
     storageAccountId: pulumi.Input<string>;
 }

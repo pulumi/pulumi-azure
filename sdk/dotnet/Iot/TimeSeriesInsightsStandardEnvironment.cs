@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Iot
         public Output<string?> PartitionKey { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+        /// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? PartitionKey { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+        /// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? PartitionKey { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+        /// The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterDefaultNodePoolLinuxOsConfig
     {
         /// <summary>
-        /// Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+        /// Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
         /// </summary>
         public readonly int? SwapFileSizeMb;
         /// <summary>

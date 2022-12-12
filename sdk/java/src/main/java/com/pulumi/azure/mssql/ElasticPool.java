@@ -195,14 +195,14 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
         return this.perDatabaseSettings;
     }
     /**
-     * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+     * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+     * @return The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

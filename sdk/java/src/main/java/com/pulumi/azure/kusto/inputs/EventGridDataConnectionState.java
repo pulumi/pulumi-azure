@@ -77,14 +77,14 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
     }
 
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="databaseRoutingType")
     private @Nullable Output<String> databaseRoutingType;
 
     /**
-     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> databaseRoutingType() {
@@ -107,16 +107,14 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies the Event Hub consumer group this data connection will use for
-     * ingestion. Changing this forces a new resource to be created.
+     * Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="eventhubConsumerGroupName")
     private @Nullable Output<String> eventhubConsumerGroupName;
 
     /**
-     * @return Specifies the Event Hub consumer group this data connection will use for
-     * ingestion. Changing this forces a new resource to be created.
+     * @return Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> eventhubConsumerGroupName() {
@@ -124,16 +122,14 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies the resource id of the Event Hub this data connection will use for ingestion.
-     * Changing this forces a new resource to be created.
+     * Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="eventhubId")
     private @Nullable Output<String> eventhubId;
 
     /**
-     * @return Specifies the resource id of the Event Hub this data connection will use for ingestion.
-     * Changing this forces a new resource to be created.
+     * @return Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> eventhubId() {
@@ -384,7 +380,7 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -395,7 +391,7 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -426,8 +422,7 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param eventhubConsumerGroupName Specifies the Event Hub consumer group this data connection will use for
-         * ingestion. Changing this forces a new resource to be created.
+         * @param eventhubConsumerGroupName Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -438,8 +433,7 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param eventhubConsumerGroupName Specifies the Event Hub consumer group this data connection will use for
-         * ingestion. Changing this forces a new resource to be created.
+         * @param eventhubConsumerGroupName Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -449,8 +443,7 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param eventhubId Specifies the resource id of the Event Hub this data connection will use for ingestion.
-         * Changing this forces a new resource to be created.
+         * @param eventhubId Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -461,8 +454,7 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param eventhubId Specifies the resource id of the Event Hub this data connection will use for ingestion.
-         * Changing this forces a new resource to be created.
+         * @param eventhubId Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

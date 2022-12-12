@@ -45,8 +45,8 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         /// <summary>
         /// Specifies the route processing order.
         /// </summary>
-        [Input("order")]
-        public Input<int>? Order { get; set; }
+        [Input("order", required: true)]
+        public Input<int> Order { get; set; } = null!;
 
         [Input("predicates")]
         private InputList<string>? _predicates;

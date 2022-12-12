@@ -469,14 +469,14 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return this.vmSize;
     }
     /**
-     * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+     * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="zones", type=String.class, parameters={})
     private Output</* @Nullable */ String> zones;
 
     /**
-     * @return A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+     * @return A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> zones() {

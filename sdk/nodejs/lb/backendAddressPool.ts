@@ -83,11 +83,11 @@ export class BackendAddressPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly loadBalancingRules!: pulumi.Output<string[]>;
     /**
-     * The ID of the Load Balancer in which to create the Backend Address Pool.
+     * The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
      */
     public readonly loadbalancerId!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Backend Address Pool.
+     * Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -154,11 +154,11 @@ export interface BackendAddressPoolState {
      */
     loadBalancingRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ID of the Load Balancer in which to create the Backend Address Pool.
+     * The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
      */
     loadbalancerId?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Backend Address Pool.
+     * Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -176,11 +176,11 @@ export interface BackendAddressPoolState {
  */
 export interface BackendAddressPoolArgs {
     /**
-     * The ID of the Load Balancer in which to create the Backend Address Pool.
+     * The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
      */
     loadbalancerId: pulumi.Input<string>;
     /**
-     * Specifies the name of the Backend Address Pool.
+     * Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

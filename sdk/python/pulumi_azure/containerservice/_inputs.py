@@ -63,6 +63,7 @@ __all__ = [
     'KubernetesClusterOmsAgentArgs',
     'KubernetesClusterOmsAgentOmsAgentIdentityArgs',
     'KubernetesClusterServicePrincipalArgs',
+    'KubernetesClusterStorageProfileArgs',
     'KubernetesClusterWebAppRoutingArgs',
     'KubernetesClusterWindowsProfileArgs',
     'KubernetesClusterWindowsProfileGmsaArgs',
@@ -2159,6 +2160,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                  name: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
+                 custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_host_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
@@ -2194,8 +2196,9 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[str] name: The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA. Defaults to `false`.
         :param pulumi.Input[bool] enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below.
@@ -2216,8 +2219,8 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[str] pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Node Pool.
-        :param pulumi.Input[str] type: The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
-        :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+        :param pulumi.Input[str] type: The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workload_runtime: Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
@@ -2227,6 +2230,8 @@ class KubernetesClusterDefaultNodePoolArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if capacity_reservation_group_id is not None:
             pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
+        if custom_ca_trust_enabled is not None:
+            pulumi.set(__self__, "custom_ca_trust_enabled", custom_ca_trust_enabled)
         if enable_auto_scaling is not None:
             pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
         if enable_host_encryption is not None:
@@ -2327,6 +2332,18 @@ class KubernetesClusterDefaultNodePoolArgs:
         pulumi.set(self, "capacity_reservation_group_id", value)
 
     @property
+    @pulumi.getter(name="customCaTrustEnabled")
+    def custom_ca_trust_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to trust a Custom CA. Defaults to `false`.
+        """
+        return pulumi.get(self, "custom_ca_trust_enabled")
+
+    @custom_ca_trust_enabled.setter
+    def custom_ca_trust_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "custom_ca_trust_enabled", value)
+
+    @property
     @pulumi.getter(name="enableAutoScaling")
     def enable_auto_scaling(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -2342,7 +2359,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="enableHostEncryption")
     def enable_host_encryption(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+        Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_host_encryption")
 
@@ -2621,7 +2638,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+        The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -2633,7 +2650,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="ultraSsdEnabled")
     def ultra_ssd_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+        Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ultra_ssd_enabled")
 
@@ -2865,7 +2882,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
                  transparent_huge_page_defrag: Optional[pulumi.Input[str]] = None,
                  transparent_huge_page_enabled: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] swap_file_size_mb: Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] swap_file_size_mb: Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs'] sysctl_config: A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] transparent_huge_page_defrag: specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] transparent_huge_page_enabled: Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
@@ -2883,7 +2900,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
     @pulumi.getter(name="swapFileSizeMb")
     def swap_file_size_mb(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+        Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "swap_file_size_mb")
 
@@ -3429,9 +3446,9 @@ class KubernetesClusterHttpProxyConfigArgs:
                  no_proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_ca: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] http_proxy: The proxy address to be used when communicating over HTTP.
-        :param pulumi.Input[str] https_proxy: The proxy address to be used when communicating over HTTPS.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] no_proxies: The list of domains that will not use the proxy for communication.
+        :param pulumi.Input[str] http_proxy: The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] https_proxy: The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] no_proxies: The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
         :param pulumi.Input[str] trusted_ca: The base64 encoded alternative CA certificate content in PEM format.
         """
         if http_proxy is not None:
@@ -3447,7 +3464,7 @@ class KubernetesClusterHttpProxyConfigArgs:
     @pulumi.getter(name="httpProxy")
     def http_proxy(self) -> Optional[pulumi.Input[str]]:
         """
-        The proxy address to be used when communicating over HTTP.
+        The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "http_proxy")
 
@@ -3459,7 +3476,7 @@ class KubernetesClusterHttpProxyConfigArgs:
     @pulumi.getter(name="httpsProxy")
     def https_proxy(self) -> Optional[pulumi.Input[str]]:
         """
-        The proxy address to be used when communicating over HTTPS.
+        The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "https_proxy")
 
@@ -3471,7 +3488,7 @@ class KubernetesClusterHttpProxyConfigArgs:
     @pulumi.getter(name="noProxies")
     def no_proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The list of domains that will not use the proxy for communication.
+        The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "no_proxies")
 
@@ -4156,7 +4173,7 @@ class KubernetesClusterMaintenanceWindowArgs:
                  alloweds: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAllowedArgs']]]] = None,
                  not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNotAllowedArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAllowedArgs']]] alloweds: One or more `allowed` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAllowedArgs']]] alloweds: One or more `allowed` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNotAllowedArgs']]] not_alloweds: One or more `not_allowed` block as defined below.
         """
         if alloweds is not None:
@@ -4168,7 +4185,7 @@ class KubernetesClusterMaintenanceWindowArgs:
     @pulumi.getter
     def alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAllowedArgs']]]]:
         """
-        One or more `allowed` block as defined below.
+        One or more `allowed` blocks as defined below.
         """
         return pulumi.get(self, "alloweds")
 
@@ -4291,11 +4308,13 @@ class KubernetesClusterNetworkProfileArgs:
                  network_plugin: pulumi.Input[str],
                  dns_service_ip: Optional[pulumi.Input[str]] = None,
                  docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
+                 ebpf_data_plane: Optional[pulumi.Input[str]] = None,
                  ip_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancer_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs']] = None,
                  load_balancer_sku: Optional[pulumi.Input[str]] = None,
                  nat_gateway_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs']] = None,
                  network_mode: Optional[pulumi.Input[str]] = None,
+                 network_plugin_mode: Optional[pulumi.Input[str]] = None,
                  network_policy: Optional[pulumi.Input[str]] = None,
                  outbound_type: Optional[pulumi.Input[str]] = None,
                  pod_cidr: Optional[pulumi.Input[str]] = None,
@@ -4306,13 +4325,15 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input[str] network_plugin: Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_service_ip: IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         :param pulumi.Input[str] docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ebpf_data_plane: Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs'] load_balancer_profile: A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `standard`.
-        :param pulumi.Input[str] load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+        :param pulumi.Input[str] load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs'] nat_gateway_profile: A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
         :param pulumi.Input[str] network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_plugin_mode: Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
+        :param pulumi.Input[str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pod_cidrs: A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_cidr: The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
@@ -4323,6 +4344,8 @@ class KubernetesClusterNetworkProfileArgs:
             pulumi.set(__self__, "dns_service_ip", dns_service_ip)
         if docker_bridge_cidr is not None:
             pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
+        if ebpf_data_plane is not None:
+            pulumi.set(__self__, "ebpf_data_plane", ebpf_data_plane)
         if ip_versions is not None:
             pulumi.set(__self__, "ip_versions", ip_versions)
         if load_balancer_profile is not None:
@@ -4333,6 +4356,8 @@ class KubernetesClusterNetworkProfileArgs:
             pulumi.set(__self__, "nat_gateway_profile", nat_gateway_profile)
         if network_mode is not None:
             pulumi.set(__self__, "network_mode", network_mode)
+        if network_plugin_mode is not None:
+            pulumi.set(__self__, "network_plugin_mode", network_plugin_mode)
         if network_policy is not None:
             pulumi.set(__self__, "network_policy", network_policy)
         if outbound_type is not None:
@@ -4383,6 +4408,18 @@ class KubernetesClusterNetworkProfileArgs:
         pulumi.set(self, "docker_bridge_cidr", value)
 
     @property
+    @pulumi.getter(name="ebpfDataPlane")
+    def ebpf_data_plane(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ebpf_data_plane")
+
+    @ebpf_data_plane.setter
+    def ebpf_data_plane(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ebpf_data_plane", value)
+
+    @property
     @pulumi.getter(name="ipVersions")
     def ip_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -4410,7 +4447,7 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="loadBalancerSku")
     def load_balancer_sku(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+        Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "load_balancer_sku")
 
@@ -4443,6 +4480,18 @@ class KubernetesClusterNetworkProfileArgs:
         pulumi.set(self, "network_mode", value)
 
     @property
+    @pulumi.getter(name="networkPluginMode")
+    def network_plugin_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "network_plugin_mode")
+
+    @network_plugin_mode.setter
+    def network_plugin_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_plugin_mode", value)
+
+    @property
     @pulumi.getter(name="networkPolicy")
     def network_policy(self) -> Optional[pulumi.Input[str]]:
         """
@@ -4458,7 +4507,7 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="outboundType")
     def outbound_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
+        The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "outbound_type")
 
@@ -5551,6 +5600,93 @@ class KubernetesClusterServicePrincipalArgs:
 
 
 @pulumi.input_type
+class KubernetesClusterStorageProfileArgs:
+    def __init__(__self__, *,
+                 blob_driver_enabled: Optional[pulumi.Input[bool]] = None,
+                 disk_driver_enabled: Optional[pulumi.Input[bool]] = None,
+                 disk_driver_version: Optional[pulumi.Input[str]] = None,
+                 file_driver_enabled: Optional[pulumi.Input[bool]] = None,
+                 snapshot_controller_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] blob_driver_enabled: Is the Blob CSI driver enabled? Defaults to `false`.
+        :param pulumi.Input[bool] disk_driver_enabled: Is the Disk CSI driver enabled? Defaults to `true`.
+        :param pulumi.Input[str] disk_driver_version: Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
+        :param pulumi.Input[bool] file_driver_enabled: Is the File CSI driver enabled? Defaults to `true`.
+        :param pulumi.Input[bool] snapshot_controller_enabled: Is the Snapshot Controller enabled? Defaults to `true`.
+        """
+        if blob_driver_enabled is not None:
+            pulumi.set(__self__, "blob_driver_enabled", blob_driver_enabled)
+        if disk_driver_enabled is not None:
+            pulumi.set(__self__, "disk_driver_enabled", disk_driver_enabled)
+        if disk_driver_version is not None:
+            pulumi.set(__self__, "disk_driver_version", disk_driver_version)
+        if file_driver_enabled is not None:
+            pulumi.set(__self__, "file_driver_enabled", file_driver_enabled)
+        if snapshot_controller_enabled is not None:
+            pulumi.set(__self__, "snapshot_controller_enabled", snapshot_controller_enabled)
+
+    @property
+    @pulumi.getter(name="blobDriverEnabled")
+    def blob_driver_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the Blob CSI driver enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "blob_driver_enabled")
+
+    @blob_driver_enabled.setter
+    def blob_driver_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "blob_driver_enabled", value)
+
+    @property
+    @pulumi.getter(name="diskDriverEnabled")
+    def disk_driver_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the Disk CSI driver enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "disk_driver_enabled")
+
+    @disk_driver_enabled.setter
+    def disk_driver_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disk_driver_enabled", value)
+
+    @property
+    @pulumi.getter(name="diskDriverVersion")
+    def disk_driver_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
+        """
+        return pulumi.get(self, "disk_driver_version")
+
+    @disk_driver_version.setter
+    def disk_driver_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_driver_version", value)
+
+    @property
+    @pulumi.getter(name="fileDriverEnabled")
+    def file_driver_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the File CSI driver enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "file_driver_enabled")
+
+    @file_driver_enabled.setter
+    def file_driver_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "file_driver_enabled", value)
+
+    @property
+    @pulumi.getter(name="snapshotControllerEnabled")
+    def snapshot_controller_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the Snapshot Controller enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "snapshot_controller_enabled")
+
+    @snapshot_controller_enabled.setter
+    def snapshot_controller_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "snapshot_controller_enabled", value)
+
+
+@pulumi.input_type
 class KubernetesClusterWebAppRoutingArgs:
     def __init__(__self__, *,
                  dns_zone_id: pulumi.Input[str]):
@@ -5580,7 +5716,7 @@ class KubernetesClusterWindowsProfileArgs:
                  gmsa: Optional[pulumi.Input['KubernetesClusterWindowsProfileGmsaArgs']] = None,
                  license: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] admin_username: The Admin Username for Windows VMs.
+        :param pulumi.Input[str] admin_username: The Admin Username for Windows VMs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_password: The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
         :param pulumi.Input['KubernetesClusterWindowsProfileGmsaArgs'] gmsa: A `gmsa` block as defined below.
         :param pulumi.Input[str] license: Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
@@ -5597,7 +5733,7 @@ class KubernetesClusterWindowsProfileArgs:
     @pulumi.getter(name="adminUsername")
     def admin_username(self) -> pulumi.Input[str]:
         """
-        The Admin Username for Windows VMs.
+        The Admin Username for Windows VMs. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "admin_username")
 
@@ -5803,10 +5939,10 @@ class RegistryGeoreplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] location: A location where the container registry should be geo-replicated.
+        :param pulumi.Input[str] location: A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] regional_endpoint_enabled: Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to this replication location.
-        :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+        :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "location", location)
         if regional_endpoint_enabled is not None:
@@ -5820,7 +5956,7 @@ class RegistryGeoreplicationArgs:
     @pulumi.getter
     def location(self) -> pulumi.Input[str]:
         """
-        A location where the container registry should be geo-replicated.
+        A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -5856,7 +5992,7 @@ class RegistryGeoreplicationArgs:
     @pulumi.getter(name="zoneRedundancyEnabled")
     def zone_redundancy_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+        Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_redundancy_enabled")
 

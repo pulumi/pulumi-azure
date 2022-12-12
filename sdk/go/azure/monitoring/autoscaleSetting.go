@@ -362,7 +362,7 @@ type AutoscaleSetting struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the resource ID of the resource that the autoscale setting should be added to.
+	// Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
 }
 
@@ -418,7 +418,7 @@ type autoscaleSettingState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the resource ID of the resource that the autoscale setting should be added to.
+	// Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
 	TargetResourceId *string `pulumi:"targetResourceId"`
 }
 
@@ -437,7 +437,7 @@ type AutoscaleSettingState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies the resource ID of the resource that the autoscale setting should be added to.
+	// Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringPtrInput
 }
 
@@ -460,7 +460,7 @@ type autoscaleSettingArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies the resource ID of the resource that the autoscale setting should be added to.
+	// Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
 	TargetResourceId string `pulumi:"targetResourceId"`
 }
 
@@ -480,7 +480,7 @@ type AutoscaleSettingArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies the resource ID of the resource that the autoscale setting should be added to.
+	// Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringInput
 }
 
@@ -606,7 +606,7 @@ func (o AutoscaleSettingOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AutoscaleSetting) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies the resource ID of the resource that the autoscale setting should be added to.
+// Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
 func (o AutoscaleSettingOutput) TargetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutoscaleSetting) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }

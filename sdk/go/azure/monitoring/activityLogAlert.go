@@ -108,7 +108,7 @@ type ActivityLogAlert struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The name of the activity log alert. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to create the activity log alert instance.
+	// The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
@@ -164,7 +164,7 @@ type activityLogAlertState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the activity log alert. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the activity log alert instance.
+	// The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
 	Scopes []string `pulumi:"scopes"`
@@ -183,7 +183,7 @@ type ActivityLogAlertState struct {
 	Enabled pulumi.BoolPtrInput
 	// The name of the activity log alert. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the activity log alert instance.
+	// The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
 	Scopes pulumi.StringArrayInput
@@ -206,7 +206,7 @@ type activityLogAlertArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the activity log alert. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the activity log alert instance.
+	// The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
 	Scopes []string `pulumi:"scopes"`
@@ -226,7 +226,7 @@ type ActivityLogAlertArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// The name of the activity log alert. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the activity log alert instance.
+	// The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
 	Scopes pulumi.StringArrayInput
@@ -346,7 +346,7 @@ func (o ActivityLogAlertOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the activity log alert instance.
+// The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
 func (o ActivityLogAlertOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

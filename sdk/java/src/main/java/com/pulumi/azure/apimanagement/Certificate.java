@@ -194,14 +194,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.apiManagementName;
     }
     /**
-     * The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+     * The base-64 encoded certificate data, which must be a PFX file.
      * 
      */
     @Export(name="data", type=String.class, parameters={})
     private Output</* @Nullable */ String> data;
 
     /**
-     * @return The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+     * @return The base-64 encoded certificate data, which must be a PFX file.
      * 
      */
     public Output<Optional<String>> data() {
@@ -264,14 +264,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The password used for this certificate. Changing this forces a new resource to be created.
+     * The password used for this certificate.
      * 
      */
     @Export(name="password", type=String.class, parameters={})
     private Output</* @Nullable */ String> password;
 
     /**
-     * @return The password used for this certificate. Changing this forces a new resource to be created.
+     * @return The password used for this certificate.
      * 
      */
     public Output<Optional<String>> password() {

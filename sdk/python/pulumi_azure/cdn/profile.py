@@ -21,9 +21,8 @@ class ProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Profile resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the CDN Profile.
-        :param pulumi.Input[str] sku: The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CDN Profile. Changing this forces a
                new resource to be created.
@@ -42,8 +41,7 @@ class ProfileArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to
-        create the CDN Profile.
+        The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -55,7 +53,7 @@ class ProfileArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input[str]:
         """
-        The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+        The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -114,9 +112,8 @@ class _ProfileState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CDN Profile. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the CDN Profile.
-        :param pulumi.Input[str] sku: The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if location is not None:
@@ -159,8 +156,7 @@ class _ProfileState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to
-        create the CDN Profile.
+        The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -172,7 +168,7 @@ class _ProfileState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+        The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -235,9 +231,8 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CDN Profile. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the CDN Profile.
-        :param pulumi.Input[str] sku: The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -335,9 +330,8 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CDN Profile. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the CDN Profile.
-        :param pulumi.Input[str] sku: The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -372,8 +366,7 @@ class Profile(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to
-        create the CDN Profile.
+        The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -381,7 +374,7 @@ class Profile(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[str]:
         """
-        The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+        The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string ClientAppId;
         /// <summary>
-        /// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+        /// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
         /// </summary>
         public readonly bool Managed;
         /// <summary>

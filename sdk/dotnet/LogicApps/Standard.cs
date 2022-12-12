@@ -230,7 +230,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Logic App
+        /// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> StorageAccountAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+        /// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
@@ -414,7 +414,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Logic App
+        /// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -432,7 +432,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string> StorageAccountAccessKey { get; set; } = null!;
 
         /// <summary>
-        /// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+        /// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountName", required: true)]
         public Input<string> StorageAccountName { get; set; } = null!;
@@ -590,7 +590,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? PossibleOutboundIpAddresses { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Logic App
+        /// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -620,7 +620,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? StorageAccountAccessKey { get; set; }
 
         /// <summary>
-        /// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+        /// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppInsights.Outputs
     public sealed class WorkbookIdentity
     {
         /// <summary>
-        /// The list of User Assigned Managed Identity IDs assigned to this Workbook.
+        /// The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppInsights.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+        /// The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Type;
 

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// </summary>
         public readonly string? Label;
         /// <summary>
-        /// A name to identify on the Git repository, required only if repos exists.
+        /// A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

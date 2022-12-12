@@ -79,7 +79,7 @@ type CertificateIssuer struct {
 	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
 	// One or more `admin` blocks as defined below.
 	Admins CertificateIssuerAdminArrayOutput `pulumi:"admins"`
-	// The ID of the Key Vault in which to create the Certificate Issuer.
+	// The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
 	// The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -130,7 +130,7 @@ type certificateIssuerState struct {
 	AccountId *string `pulumi:"accountId"`
 	// One or more `admin` blocks as defined below.
 	Admins []CertificateIssuerAdmin `pulumi:"admins"`
-	// The ID of the Key Vault in which to create the Certificate Issuer.
+	// The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
 	Name *string `pulumi:"name"`
@@ -147,7 +147,7 @@ type CertificateIssuerState struct {
 	AccountId pulumi.StringPtrInput
 	// One or more `admin` blocks as defined below.
 	Admins CertificateIssuerAdminArrayInput
-	// The ID of the Key Vault in which to create the Certificate Issuer.
+	// The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringPtrInput
 	// The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
 	Name pulumi.StringPtrInput
@@ -168,7 +168,7 @@ type certificateIssuerArgs struct {
 	AccountId *string `pulumi:"accountId"`
 	// One or more `admin` blocks as defined below.
 	Admins []CertificateIssuerAdmin `pulumi:"admins"`
-	// The ID of the Key Vault in which to create the Certificate Issuer.
+	// The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
 	Name *string `pulumi:"name"`
@@ -186,7 +186,7 @@ type CertificateIssuerArgs struct {
 	AccountId pulumi.StringPtrInput
 	// One or more `admin` blocks as defined below.
 	Admins CertificateIssuerAdminArrayInput
-	// The ID of the Key Vault in which to create the Certificate Issuer.
+	// The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringInput
 	// The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
 	Name pulumi.StringPtrInput
@@ -295,7 +295,7 @@ func (o CertificateIssuerOutput) Admins() CertificateIssuerAdminArrayOutput {
 	return o.ApplyT(func(v *CertificateIssuer) CertificateIssuerAdminArrayOutput { return v.Admins }).(CertificateIssuerAdminArrayOutput)
 }
 
-// The ID of the Key Vault in which to create the Certificate Issuer.
+// The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
 func (o CertificateIssuerOutput) KeyVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateIssuer) pulumi.StringOutput { return v.KeyVaultId }).(pulumi.StringOutput)
 }

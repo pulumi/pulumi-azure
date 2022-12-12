@@ -96,14 +96,14 @@ public final class TrafficManagerProfileArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the resource group in which to create the Traffic Manager profile.
+     * The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Traffic Manager profile.
+     * @return The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -293,7 +293,7 @@ public final class TrafficManagerProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Traffic Manager profile.
+         * @param resourceGroupName The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class TrafficManagerProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Traffic Manager profile.
+         * @param resourceGroupName The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -116,13 +116,13 @@ namespace Pulumi.Azure.Lb
         public Output<int?> IdleTimeoutInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Load Balancer in which to create the NAT pool.
+        /// The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
         /// </summary>
         [Output("loadbalancerId")]
         public Output<string> LoadbalancerId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the NAT pool.
+        /// Specifies the name of the NAT pool. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.Lb
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the resource.
+        /// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -228,13 +228,13 @@ namespace Pulumi.Azure.Lb
         public Input<int>? IdleTimeoutInMinutes { get; set; }
 
         /// <summary>
-        /// The ID of the Load Balancer in which to create the NAT pool.
+        /// The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("loadbalancerId", required: true)]
         public Input<string> LoadbalancerId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the NAT pool.
+        /// Specifies the name of the NAT pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.Lb
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the resource.
+        /// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -305,13 +305,13 @@ namespace Pulumi.Azure.Lb
         public Input<int>? IdleTimeoutInMinutes { get; set; }
 
         /// <summary>
-        /// The ID of the Load Balancer in which to create the NAT pool.
+        /// The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("loadbalancerId")]
         public Input<string>? LoadbalancerId { get; set; }
 
         /// <summary>
-        /// Specifies the name of the NAT pool.
+        /// Specifies the name of the NAT pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the resource.
+        /// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

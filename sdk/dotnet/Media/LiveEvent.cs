@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Media
     public partial class LiveEvent : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The flag indicates if the resource should be automatically started on creation. Default is `false`.
+        /// The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("autoStartEnabled")]
         public Output<bool?> AutoStartEnabled { get; private set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.Media
     public sealed class LiveEventArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The flag indicates if the resource should be automatically started on creation. Default is `false`.
+        /// The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("autoStartEnabled")]
         public Input<bool>? AutoStartEnabled { get; set; }
@@ -343,7 +343,7 @@ namespace Pulumi.Azure.Media
     public sealed class LiveEventState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The flag indicates if the resource should be automatically started on creation. Default is `false`.
+        /// The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("autoStartEnabled")]
         public Input<bool>? AutoStartEnabled { get; set; }

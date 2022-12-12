@@ -96,7 +96,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> Path { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type for path to create. Currently only `directory` is supported.
+        /// Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resource")]
         public Output<string> Resource { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.Storage
         public Input<string> Path { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the type for path to create. Currently only `directory` is supported.
+        /// Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resource", required: true)]
         public Input<string> Resource { get; set; } = null!;
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// Specifies the type for path to create. Currently only `directory` is supported.
+        /// Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resource")]
         public Input<string>? Resource { get; set; }

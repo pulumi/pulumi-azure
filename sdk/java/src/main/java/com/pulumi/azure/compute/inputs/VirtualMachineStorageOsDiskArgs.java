@@ -78,14 +78,14 @@ public final class VirtualMachineStorageOsDiskArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
+     * Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="managedDiskId")
     private @Nullable Output<String> managedDiskId;
 
     /**
-     * @return Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
+     * @return Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> managedDiskId() {
@@ -285,7 +285,7 @@ public final class VirtualMachineStorageOsDiskArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param managedDiskId Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
+         * @param managedDiskId Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class VirtualMachineStorageOsDiskArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param managedDiskId Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
+         * @param managedDiskId Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

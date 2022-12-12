@@ -172,7 +172,7 @@ export class ManagedStorageAccount extends pulumi.CustomResource {
      */
     public readonly storageAccountKey!: pulumi.Output<string>;
     /**
-     * A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+     * A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -249,7 +249,7 @@ export interface ManagedStorageAccountState {
      */
     storageAccountKey?: pulumi.Input<string>;
     /**
-     * A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+     * A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -283,7 +283,7 @@ export interface ManagedStorageAccountArgs {
      */
     storageAccountKey: pulumi.Input<string>;
     /**
-     * A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+     * A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

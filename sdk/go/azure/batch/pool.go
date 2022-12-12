@@ -162,7 +162,7 @@ type Pool struct {
 	DataDisks PoolDataDiskArrayOutput `pulumi:"dataDisks"`
 	// A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
 	DiskEncryptions PoolDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
-	// Specifies the display name of the Batch pool.
+	// Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// An `extensions` block as defined below.
 	Extensions PoolExtensionArrayOutput `pulumi:"extensions"`
@@ -184,7 +184,7 @@ type Pool struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
 	NetworkConfiguration PoolNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
-	// Specifies the SKU of the node agents that will be created in the Batch pool.
+	// Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
 	NodeAgentSkuId pulumi.StringOutput `pulumi:"nodeAgentSkuId"`
 	// A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
 	NodePlacements PoolNodePlacementArrayOutput `pulumi:"nodePlacements"`
@@ -201,7 +201,7 @@ type Pool struct {
 	TaskSchedulingPolicies PoolTaskSchedulingPolicyArrayOutput `pulumi:"taskSchedulingPolicies"`
 	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
 	UserAccounts PoolUserAccountArrayOutput `pulumi:"userAccounts"`
-	// Specifies the size of the VM created in the Batch pool.
+	// Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
 	VmSize pulumi.StringOutput `pulumi:"vmSize"`
 	// A `windows` block that describes the Windows configuration in the pool.
 	Windows PoolWindowArrayOutput `pulumi:"windows"`
@@ -263,7 +263,7 @@ type poolState struct {
 	DataDisks []PoolDataDisk `pulumi:"dataDisks"`
 	// A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
 	DiskEncryptions []PoolDiskEncryption `pulumi:"diskEncryptions"`
-	// Specifies the display name of the Batch pool.
+	// Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
 	DisplayName *string `pulumi:"displayName"`
 	// An `extensions` block as defined below.
 	Extensions []PoolExtension `pulumi:"extensions"`
@@ -285,7 +285,7 @@ type poolState struct {
 	Name *string `pulumi:"name"`
 	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
 	NetworkConfiguration *PoolNetworkConfiguration `pulumi:"networkConfiguration"`
-	// Specifies the SKU of the node agents that will be created in the Batch pool.
+	// Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
 	NodeAgentSkuId *string `pulumi:"nodeAgentSkuId"`
 	// A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
 	NodePlacements []PoolNodePlacement `pulumi:"nodePlacements"`
@@ -302,7 +302,7 @@ type poolState struct {
 	TaskSchedulingPolicies []PoolTaskSchedulingPolicy `pulumi:"taskSchedulingPolicies"`
 	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
 	UserAccounts []PoolUserAccount `pulumi:"userAccounts"`
-	// Specifies the size of the VM created in the Batch pool.
+	// Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
 	VmSize *string `pulumi:"vmSize"`
 	// A `windows` block that describes the Windows configuration in the pool.
 	Windows []PoolWindow `pulumi:"windows"`
@@ -321,7 +321,7 @@ type PoolState struct {
 	DataDisks PoolDataDiskArrayInput
 	// A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
 	DiskEncryptions PoolDiskEncryptionArrayInput
-	// Specifies the display name of the Batch pool.
+	// Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
 	DisplayName pulumi.StringPtrInput
 	// An `extensions` block as defined below.
 	Extensions PoolExtensionArrayInput
@@ -343,7 +343,7 @@ type PoolState struct {
 	Name pulumi.StringPtrInput
 	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
 	NetworkConfiguration PoolNetworkConfigurationPtrInput
-	// Specifies the SKU of the node agents that will be created in the Batch pool.
+	// Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
 	NodeAgentSkuId pulumi.StringPtrInput
 	// A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
 	NodePlacements PoolNodePlacementArrayInput
@@ -360,7 +360,7 @@ type PoolState struct {
 	TaskSchedulingPolicies PoolTaskSchedulingPolicyArrayInput
 	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
 	UserAccounts PoolUserAccountArrayInput
-	// Specifies the size of the VM created in the Batch pool.
+	// Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
 	VmSize pulumi.StringPtrInput
 	// A `windows` block that describes the Windows configuration in the pool.
 	Windows PoolWindowArrayInput
@@ -383,7 +383,7 @@ type poolArgs struct {
 	DataDisks []PoolDataDisk `pulumi:"dataDisks"`
 	// A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
 	DiskEncryptions []PoolDiskEncryption `pulumi:"diskEncryptions"`
-	// Specifies the display name of the Batch pool.
+	// Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
 	DisplayName *string `pulumi:"displayName"`
 	// An `extensions` block as defined below.
 	Extensions []PoolExtension `pulumi:"extensions"`
@@ -405,7 +405,7 @@ type poolArgs struct {
 	Name *string `pulumi:"name"`
 	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
 	NetworkConfiguration *PoolNetworkConfiguration `pulumi:"networkConfiguration"`
-	// Specifies the SKU of the node agents that will be created in the Batch pool.
+	// Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
 	NodeAgentSkuId string `pulumi:"nodeAgentSkuId"`
 	// A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
 	NodePlacements []PoolNodePlacement `pulumi:"nodePlacements"`
@@ -422,7 +422,7 @@ type poolArgs struct {
 	TaskSchedulingPolicies []PoolTaskSchedulingPolicy `pulumi:"taskSchedulingPolicies"`
 	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
 	UserAccounts []PoolUserAccount `pulumi:"userAccounts"`
-	// Specifies the size of the VM created in the Batch pool.
+	// Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
 	VmSize string `pulumi:"vmSize"`
 	// A `windows` block that describes the Windows configuration in the pool.
 	Windows []PoolWindow `pulumi:"windows"`
@@ -442,7 +442,7 @@ type PoolArgs struct {
 	DataDisks PoolDataDiskArrayInput
 	// A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
 	DiskEncryptions PoolDiskEncryptionArrayInput
-	// Specifies the display name of the Batch pool.
+	// Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
 	DisplayName pulumi.StringPtrInput
 	// An `extensions` block as defined below.
 	Extensions PoolExtensionArrayInput
@@ -464,7 +464,7 @@ type PoolArgs struct {
 	Name pulumi.StringPtrInput
 	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
 	NetworkConfiguration PoolNetworkConfigurationPtrInput
-	// Specifies the SKU of the node agents that will be created in the Batch pool.
+	// Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
 	NodeAgentSkuId pulumi.StringInput
 	// A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
 	NodePlacements PoolNodePlacementArrayInput
@@ -481,7 +481,7 @@ type PoolArgs struct {
 	TaskSchedulingPolicies PoolTaskSchedulingPolicyArrayInput
 	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
 	UserAccounts PoolUserAccountArrayInput
-	// Specifies the size of the VM created in the Batch pool.
+	// Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
 	VmSize pulumi.StringInput
 	// A `windows` block that describes the Windows configuration in the pool.
 	Windows PoolWindowArrayInput
@@ -604,7 +604,7 @@ func (o PoolOutput) DiskEncryptions() PoolDiskEncryptionArrayOutput {
 	return o.ApplyT(func(v *Pool) PoolDiskEncryptionArrayOutput { return v.DiskEncryptions }).(PoolDiskEncryptionArrayOutput)
 }
 
-// Specifies the display name of the Batch pool.
+// Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
 func (o PoolOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
@@ -659,7 +659,7 @@ func (o PoolOutput) NetworkConfiguration() PoolNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *Pool) PoolNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(PoolNetworkConfigurationPtrOutput)
 }
 
-// Specifies the SKU of the node agents that will be created in the Batch pool.
+// Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
 func (o PoolOutput) NodeAgentSkuId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.NodeAgentSkuId }).(pulumi.StringOutput)
 }
@@ -703,7 +703,7 @@ func (o PoolOutput) UserAccounts() PoolUserAccountArrayOutput {
 	return o.ApplyT(func(v *Pool) PoolUserAccountArrayOutput { return v.UserAccounts }).(PoolUserAccountArrayOutput)
 }
 
-// Specifies the size of the VM created in the Batch pool.
+// Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
 func (o PoolOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.VmSize }).(pulumi.StringOutput)
 }

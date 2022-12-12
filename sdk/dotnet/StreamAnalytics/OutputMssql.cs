@@ -108,7 +108,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+        /// Password used together with username, to login to the Microsoft SQL Server.
         /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+        /// Password used together with username, to login to the Microsoft SQL Server.
         /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+        /// Password used together with username, to login to the Microsoft SQL Server.
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }

@@ -72,7 +72,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<ImmutableArray<Outputs.CertificateIssuerAdmin>> Admins { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Key Vault in which to create the Certificate Issuer.
+        /// The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
         /// </summary>
         [Output("keyVaultId")]
         public Output<string> KeyVaultId { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// The ID of the Key Vault in which to create the Certificate Issuer.
+        /// The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultId", required: true)]
         public Input<string> KeyVaultId { get; set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// The ID of the Key Vault in which to create the Certificate Issuer.
+        /// The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }

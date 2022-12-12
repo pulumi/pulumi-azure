@@ -18,14 +18,14 @@ public final class CreatorState extends com.pulumi.resources.ResourceArgs {
     public static final CreatorState Empty = new CreatorState();
 
     /**
-     * The Azure Region where the Azure Maps Creator should exist.
+     * The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Azure Region where the Azure Maps Creator should exist.
+     * @return The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -121,7 +121,7 @@ public final class CreatorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Azure Region where the Azure Maps Creator should exist.
+         * @param location The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class CreatorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The Azure Region where the Azure Maps Creator should exist.
+         * @param location The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

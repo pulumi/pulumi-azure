@@ -210,7 +210,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
      */
     public readonly managedDisks!: pulumi.Output<outputs.siterecovery.ReplicatedVMManagedDisk[] | undefined>;
     /**
-     * The name of the replication for the replicated VM.
+     * The name of the replication for the replicated VM. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -219,23 +219,23 @@ export class ReplicatedVM extends pulumi.CustomResource {
     public readonly networkInterfaces!: pulumi.Output<outputs.siterecovery.ReplicatedVMNetworkInterface[]>;
     public readonly recoveryReplicationPolicyId!: pulumi.Output<string>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     public readonly recoveryVaultName!: pulumi.Output<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Name of fabric that should contains this replication.
+     * Name of fabric that should contains this replication. Changing this forces a new resource to be created.
      */
     public readonly sourceRecoveryFabricName!: pulumi.Output<string>;
     /**
-     * Name of the protection container to use.
+     * Name of the protection container to use. Changing this forces a new resource to be created.
      */
     public readonly sourceRecoveryProtectionContainerName!: pulumi.Output<string>;
     /**
-     * Id of the VM to replicate
+     * Id of the VM to replicate Changing this forces a new resource to be created.
      */
     public readonly sourceVmId!: pulumi.Output<string>;
     /**
@@ -247,19 +247,19 @@ export class ReplicatedVM extends pulumi.CustomResource {
      */
     public readonly targetNetworkId!: pulumi.Output<string>;
     /**
-     * Id of fabric where the VM replication should be handled when a failover is done.
+     * Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
      */
     public readonly targetRecoveryFabricId!: pulumi.Output<string>;
     /**
-     * Id of protection container where the VM replication should be created when a failover is done.
+     * Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
      */
     public readonly targetRecoveryProtectionContainerId!: pulumi.Output<string>;
     /**
-     * Id of resource group where the VM should be created when a failover is done.
+     * Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
      */
     public readonly targetResourceGroupId!: pulumi.Output<string>;
     /**
-     * Specifies the Availability Zone where the Failover VM should exist.
+     * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      */
     public readonly targetZone!: pulumi.Output<string | undefined>;
 
@@ -350,7 +350,7 @@ export interface ReplicatedVMState {
      */
     managedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDisk>[]>;
     /**
-     * The name of the replication for the replicated VM.
+     * The name of the replication for the replicated VM. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -359,23 +359,23 @@ export interface ReplicatedVMState {
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[]>;
     recoveryReplicationPolicyId?: pulumi.Input<string>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     recoveryVaultName?: pulumi.Input<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Name of fabric that should contains this replication.
+     * Name of fabric that should contains this replication. Changing this forces a new resource to be created.
      */
     sourceRecoveryFabricName?: pulumi.Input<string>;
     /**
-     * Name of the protection container to use.
+     * Name of the protection container to use. Changing this forces a new resource to be created.
      */
     sourceRecoveryProtectionContainerName?: pulumi.Input<string>;
     /**
-     * Id of the VM to replicate
+     * Id of the VM to replicate Changing this forces a new resource to be created.
      */
     sourceVmId?: pulumi.Input<string>;
     /**
@@ -387,19 +387,19 @@ export interface ReplicatedVMState {
      */
     targetNetworkId?: pulumi.Input<string>;
     /**
-     * Id of fabric where the VM replication should be handled when a failover is done.
+     * Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
      */
     targetRecoveryFabricId?: pulumi.Input<string>;
     /**
-     * Id of protection container where the VM replication should be created when a failover is done.
+     * Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
      */
     targetRecoveryProtectionContainerId?: pulumi.Input<string>;
     /**
-     * Id of resource group where the VM should be created when a failover is done.
+     * Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
      */
     targetResourceGroupId?: pulumi.Input<string>;
     /**
-     * Specifies the Availability Zone where the Failover VM should exist.
+     * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      */
     targetZone?: pulumi.Input<string>;
 }
@@ -413,7 +413,7 @@ export interface ReplicatedVMArgs {
      */
     managedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDisk>[]>;
     /**
-     * The name of the replication for the replicated VM.
+     * The name of the replication for the replicated VM. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -422,23 +422,23 @@ export interface ReplicatedVMArgs {
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[]>;
     recoveryReplicationPolicyId: pulumi.Input<string>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     recoveryVaultName: pulumi.Input<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of fabric that should contains this replication.
+     * Name of fabric that should contains this replication. Changing this forces a new resource to be created.
      */
     sourceRecoveryFabricName: pulumi.Input<string>;
     /**
-     * Name of the protection container to use.
+     * Name of the protection container to use. Changing this forces a new resource to be created.
      */
     sourceRecoveryProtectionContainerName: pulumi.Input<string>;
     /**
-     * Id of the VM to replicate
+     * Id of the VM to replicate Changing this forces a new resource to be created.
      */
     sourceVmId: pulumi.Input<string>;
     /**
@@ -450,19 +450,19 @@ export interface ReplicatedVMArgs {
      */
     targetNetworkId?: pulumi.Input<string>;
     /**
-     * Id of fabric where the VM replication should be handled when a failover is done.
+     * Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
      */
     targetRecoveryFabricId: pulumi.Input<string>;
     /**
-     * Id of protection container where the VM replication should be created when a failover is done.
+     * Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
      */
     targetRecoveryProtectionContainerId: pulumi.Input<string>;
     /**
-     * Id of resource group where the VM should be created when a failover is done.
+     * Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
      */
     targetResourceGroupId: pulumi.Input<string>;
     /**
-     * Specifies the Availability Zone where the Failover VM should exist.
+     * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      */
     targetZone?: pulumi.Input<string>;
 }

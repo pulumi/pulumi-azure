@@ -18,14 +18,14 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
     public static final RegistryGeoreplicationArgs Empty = new RegistryGeoreplicationArgs();
 
     /**
-     * A location where the container registry should be geo-replicated.
+     * A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location", required=true)
     private Output<String> location;
 
     /**
-     * @return A location where the container registry should be geo-replicated.
+     * @return A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
@@ -63,14 +63,14 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+     * Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="zoneRedundancyEnabled")
     private @Nullable Output<Boolean> zoneRedundancyEnabled;
 
     /**
-     * @return Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+     * @return Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> zoneRedundancyEnabled() {
@@ -105,7 +105,7 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param location A location where the container registry should be geo-replicated.
+         * @param location A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param location A location where the container registry should be geo-replicated.
+         * @param location A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param zoneRedundancyEnabled Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+         * @param zoneRedundancyEnabled Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param zoneRedundancyEnabled Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+         * @param zoneRedundancyEnabled Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

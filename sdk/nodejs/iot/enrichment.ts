@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * IoTHub Enrichment can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:iot/enrichment:Enrichment enrichment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Enrichments/enrichment1
+ *  $ pulumi import azure:iot/enrichment:Enrichment enrichment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/enrichments/enrichment1
  * ```
  */
 export class Enrichment extends pulumi.CustomResource {
@@ -51,7 +51,7 @@ export class Enrichment extends pulumi.CustomResource {
     public readonly endpointNames!: pulumi.Output<string[]>;
     public readonly iothubName!: pulumi.Output<string>;
     /**
-     * The key of the enrichment.
+     * The key of the enrichment. Changing this forces a new resource to be created.
      */
     public readonly key!: pulumi.Output<string>;
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -116,7 +116,7 @@ export interface EnrichmentState {
     endpointNames?: pulumi.Input<pulumi.Input<string>[]>;
     iothubName?: pulumi.Input<string>;
     /**
-     * The key of the enrichment.
+     * The key of the enrichment. Changing this forces a new resource to be created.
      */
     key?: pulumi.Input<string>;
     resourceGroupName?: pulumi.Input<string>;
@@ -136,7 +136,7 @@ export interface EnrichmentArgs {
     endpointNames: pulumi.Input<pulumi.Input<string>[]>;
     iothubName: pulumi.Input<string>;
     /**
-     * The key of the enrichment.
+     * The key of the enrichment. Changing this forces a new resource to be created.
      */
     key: pulumi.Input<string>;
     resourceGroupName: pulumi.Input<string>;

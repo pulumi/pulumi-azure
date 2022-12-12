@@ -19,7 +19,7 @@ public final class ScaleSetExtension {
      */
     private @Nullable Boolean autoUpgradeMinorVersion;
     /**
-     * @return Specifies the name of the extension.
+     * @return Specifies the name of the extension. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -63,7 +63,7 @@ public final class ScaleSetExtension {
         return Optional.ofNullable(this.autoUpgradeMinorVersion);
     }
     /**
-     * @return Specifies the name of the extension.
+     * @return Specifies the name of the extension. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

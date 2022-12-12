@@ -19,7 +19,7 @@ namespace Pulumi.Azure.OperationalInsights.Outputs
         /// </summary>
         public readonly string Product;
         /// <summary>
-        /// A promotion code to be used with the solution.
+        /// A promotion code to be used with the solution. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? PromotionCode;
         /// <summary>

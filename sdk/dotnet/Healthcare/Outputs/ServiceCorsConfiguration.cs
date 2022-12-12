@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Healthcare.Outputs
     public sealed class ServiceCorsConfiguration
     {
         /// <summary>
-        /// If credentials are allowed via CORS.
+        /// (Boolean) If credentials are allowed via CORS.
         /// </summary>
         public readonly bool? AllowCredentials;
         /// <summary>

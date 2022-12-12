@@ -33,14 +33,14 @@ public final class ManagementPolicyState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the id of the storage account to apply the management policy to.
+     * Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageAccountId")
     private @Nullable Output<String> storageAccountId;
 
     /**
-     * @return Specifies the id of the storage account to apply the management policy to.
+     * @return Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -104,7 +104,7 @@ public final class ManagementPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageAccountId Specifies the id of the storage account to apply the management policy to.
+         * @param storageAccountId Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ManagementPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageAccountId Specifies the id of the storage account to apply the management policy to.
+         * @param storageAccountId Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -59,6 +59,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * Whether enable auto learn private ip range. Defaults to `false`.
+     */
+    public readonly autoLearnPrivateRangesEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The ID of the base Firewall Policy.
      */
     public readonly basePolicyId!: pulumi.Output<string | undefined>;
@@ -70,6 +74,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
      * A `dns` block as defined below.
      */
     public readonly dns!: pulumi.Output<outputs.network.FirewallPolicyDns | undefined>;
+    /**
+     * A `explicitProxy` block as defined below.
+     */
+    public readonly explicitProxy!: pulumi.Output<outputs.network.FirewallPolicyExplicitProxy | undefined>;
     /**
      * A list of references to Azure Firewalls that this Firewall Policy is associated with.
      */
@@ -144,9 +152,11 @@ export class FirewallPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallPolicyState | undefined;
+            resourceInputs["autoLearnPrivateRangesEnabled"] = state ? state.autoLearnPrivateRangesEnabled : undefined;
             resourceInputs["basePolicyId"] = state ? state.basePolicyId : undefined;
             resourceInputs["childPolicies"] = state ? state.childPolicies : undefined;
             resourceInputs["dns"] = state ? state.dns : undefined;
+            resourceInputs["explicitProxy"] = state ? state.explicitProxy : undefined;
             resourceInputs["firewalls"] = state ? state.firewalls : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["insights"] = state ? state.insights : undefined;
@@ -167,8 +177,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["autoLearnPrivateRangesEnabled"] = args ? args.autoLearnPrivateRangesEnabled : undefined;
             resourceInputs["basePolicyId"] = args ? args.basePolicyId : undefined;
             resourceInputs["dns"] = args ? args.dns : undefined;
+            resourceInputs["explicitProxy"] = args ? args.explicitProxy : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["insights"] = args ? args.insights : undefined;
             resourceInputs["intrusionDetection"] = args ? args.intrusionDetection : undefined;
@@ -196,6 +208,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
  */
 export interface FirewallPolicyState {
     /**
+     * Whether enable auto learn private ip range. Defaults to `false`.
+     */
+    autoLearnPrivateRangesEnabled?: pulumi.Input<boolean>;
+    /**
      * The ID of the base Firewall Policy.
      */
     basePolicyId?: pulumi.Input<string>;
@@ -207,6 +223,10 @@ export interface FirewallPolicyState {
      * A `dns` block as defined below.
      */
     dns?: pulumi.Input<inputs.network.FirewallPolicyDns>;
+    /**
+     * A `explicitProxy` block as defined below.
+     */
+    explicitProxy?: pulumi.Input<inputs.network.FirewallPolicyExplicitProxy>;
     /**
      * A list of references to Azure Firewalls that this Firewall Policy is associated with.
      */
@@ -274,6 +294,10 @@ export interface FirewallPolicyState {
  */
 export interface FirewallPolicyArgs {
     /**
+     * Whether enable auto learn private ip range. Defaults to `false`.
+     */
+    autoLearnPrivateRangesEnabled?: pulumi.Input<boolean>;
+    /**
      * The ID of the base Firewall Policy.
      */
     basePolicyId?: pulumi.Input<string>;
@@ -281,6 +305,10 @@ export interface FirewallPolicyArgs {
      * A `dns` block as defined below.
      */
     dns?: pulumi.Input<inputs.network.FirewallPolicyDns>;
+    /**
+     * A `explicitProxy` block as defined below.
+     */
+    explicitProxy?: pulumi.Input<inputs.network.FirewallPolicyExplicitProxy>;
     /**
      * An `identity` block as defined below.
      */

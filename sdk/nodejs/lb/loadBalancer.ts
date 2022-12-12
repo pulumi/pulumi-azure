@@ -76,11 +76,11 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly frontendIpConfigurations!: pulumi.Output<outputs.lb.LoadBalancerFrontendIpConfiguration[] | undefined>;
     /**
-     * Specifies the supported Azure Region where the Load Balancer should be created.
+     * Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Load Balancer.
+     * Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -92,11 +92,11 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateIpAddresses!: pulumi.Output<string[]>;
     /**
-     * The name of the Resource Group in which to create the Load Balancer.
+     * The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+     * The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
@@ -165,11 +165,11 @@ export interface LoadBalancerState {
      */
     frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.lb.LoadBalancerFrontendIpConfiguration>[]>;
     /**
-     * Specifies the supported Azure Region where the Load Balancer should be created.
+     * Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Load Balancer.
+     * Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -181,11 +181,11 @@ export interface LoadBalancerState {
      */
     privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the Resource Group in which to create the Load Balancer.
+     * The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+     * The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -211,19 +211,19 @@ export interface LoadBalancerArgs {
      */
     frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.lb.LoadBalancerFrontendIpConfiguration>[]>;
     /**
-     * Specifies the supported Azure Region where the Load Balancer should be created.
+     * Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Load Balancer.
+     * Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group in which to create the Load Balancer.
+     * The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+     * The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
      */
     sku?: pulumi.Input<string>;
     /**

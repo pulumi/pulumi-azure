@@ -305,7 +305,7 @@ namespace Pulumi.Azure.Sql
         public Output<string?> MinimumTlsVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+        /// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -323,13 +323,13 @@ namespace Pulumi.Azure.Sql
         public Output<bool?> PublicDataEndpointEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the SQL Server.
+        /// The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
+        /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -347,7 +347,7 @@ namespace Pulumi.Azure.Sql
         public Output<int> StorageSizeInGb { get; private set; } = null!;
 
         /// <summary>
-        /// The subnet resource id that the SQL Managed Instance will be associated with.
+        /// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -465,7 +465,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? MinimumTlsVersion { get; set; }
 
         /// <summary>
-        /// The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+        /// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -483,13 +483,13 @@ namespace Pulumi.Azure.Sql
         public Input<bool>? PublicDataEndpointEnabled { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the SQL Server.
+        /// The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
+        /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -507,7 +507,7 @@ namespace Pulumi.Azure.Sql
         public Input<int> StorageSizeInGb { get; set; } = null!;
 
         /// <summary>
-        /// The subnet resource id that the SQL Managed Instance will be associated with.
+        /// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
@@ -599,7 +599,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? MinimumTlsVersion { get; set; }
 
         /// <summary>
-        /// The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+        /// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -617,13 +617,13 @@ namespace Pulumi.Azure.Sql
         public Input<bool>? PublicDataEndpointEnabled { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the SQL Server.
+        /// The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
+        /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -641,7 +641,7 @@ namespace Pulumi.Azure.Sql
         public Input<int>? StorageSizeInGb { get; set; }
 
         /// <summary>
-        /// The subnet resource id that the SQL Managed Instance will be associated with.
+        /// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

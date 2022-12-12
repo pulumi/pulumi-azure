@@ -68,7 +68,7 @@ export class IotHubDps extends pulumi.CustomResource {
      */
     public readonly allocationPolicy!: pulumi.Output<string | undefined>;
     /**
-     * Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+     * Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly dataResidencyEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -178,7 +178,7 @@ export interface IotHubDpsState {
      */
     allocationPolicy?: pulumi.Input<string>;
     /**
-     * Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+     * Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
      */
     dataResidencyEnabled?: pulumi.Input<boolean>;
     /**
@@ -236,7 +236,7 @@ export interface IotHubDpsArgs {
      */
     allocationPolicy?: pulumi.Input<string>;
     /**
-     * Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+     * Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
      */
     dataResidencyEnabled?: pulumi.Input<boolean>;
     /**

@@ -26,7 +26,7 @@ class ServiceInitialReplicaSetArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  service_status: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] subnet_id: The ID of the subnet in which to place the initial replica set.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_controller_ip_addresses: A list of subnet IP addresses for the domain controllers in the initial replica set, typically two.
         :param pulumi.Input[str] external_access_ip_address: The publicly routable IP address for the domain controllers in the initial replica set.
         :param pulumi.Input[str] id: The ID of the Domain Service.
@@ -49,7 +49,7 @@ class ServiceInitialReplicaSetArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
         """
-        The ID of the subnet in which to place the initial replica set.
+        The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 

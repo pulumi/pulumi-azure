@@ -12,8 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNetworkGatewayIpConfiguration {
     /**
-     * @return A user-defined name of the IP configuration. Defaults to
-     * `vnetGatewayConfig`.
+     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String name;
@@ -41,8 +40,7 @@ public final class VirtualNetworkGatewayIpConfiguration {
 
     private VirtualNetworkGatewayIpConfiguration() {}
     /**
-     * @return A user-defined name of the IP configuration. Defaults to
-     * `vnetGatewayConfig`.
+     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> name() {

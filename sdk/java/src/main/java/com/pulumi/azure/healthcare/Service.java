@@ -172,28 +172,28 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kind);
     }
     /**
-     * Specifies the supported Azure Region where the Service should be created.
+     * Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return Specifies the supported Azure Region where the Service should be created.
+     * @return Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
         return this.location;
     }
     /**
-     * The name of the service instance. Used for service endpoint, must be unique within the audience.
+     * The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the service instance. Used for service endpoint, must be unique within the audience.
+     * @return The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -214,14 +214,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
-     * The name of the Resource Group in which to create the Service.
+     * The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group in which to create the Service.
+     * @return The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

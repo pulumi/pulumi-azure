@@ -108,14 +108,14 @@ public final class ManagedStorageAccountArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+     * A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+     * @return A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -279,7 +279,7 @@ public final class ManagedStorageAccountArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+         * @param tags A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class ManagedStorageAccountArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+         * @param tags A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

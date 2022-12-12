@@ -113,7 +113,7 @@ namespace Pulumi.Azure.MySql
     public partial class FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        /// Specifies the End IP Address associated with this Firewall Rule.
         /// </summary>
         [Output("endIpAddress")]
         public Output<string> EndIpAddress { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.MySql
         public Output<string> ServerName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        /// Specifies the Start IP Address associated with this Firewall Rule.
         /// </summary>
         [Output("startIpAddress")]
         public Output<string> StartIpAddress { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.MySql
     public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        /// Specifies the End IP Address associated with this Firewall Rule.
         /// </summary>
         [Input("endIpAddress", required: true)]
         public Input<string> EndIpAddress { get; set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.MySql
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        /// Specifies the Start IP Address associated with this Firewall Rule.
         /// </summary>
         [Input("startIpAddress", required: true)]
         public Input<string> StartIpAddress { get; set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Azure.MySql
     public sealed class FirewallRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        /// Specifies the End IP Address associated with this Firewall Rule.
         /// </summary>
         [Input("endIpAddress")]
         public Input<string>? EndIpAddress { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.MySql
         public Input<string>? ServerName { get; set; }
 
         /// <summary>
-        /// Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        /// Specifies the Start IP Address associated with this Firewall Rule.
         /// </summary>
         [Input("startIpAddress")]
         public Input<string>? StartIpAddress { get; set; }

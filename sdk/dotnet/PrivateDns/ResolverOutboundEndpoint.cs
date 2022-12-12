@@ -112,7 +112,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<string> PrivateDnsResolverId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+        /// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string> PrivateDnsResolverId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+        /// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string>? PrivateDnsResolverId { get; set; }
 
         /// <summary>
-        /// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint.
+        /// The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

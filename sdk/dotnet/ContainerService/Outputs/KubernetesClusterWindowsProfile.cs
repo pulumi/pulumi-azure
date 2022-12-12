@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? AdminPassword;
         /// <summary>
-        /// The Admin Username for Windows VMs.
+        /// The Admin Username for Windows VMs. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string AdminUsername;
         /// <summary>

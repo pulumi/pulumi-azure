@@ -67,25 +67,25 @@ namespace Pulumi.Azure.SiteRecovery
     public partial class ProtectionContainer : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the protection container.
+        /// The name of the protection container. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Name of fabric that should contain this protection container.
+        /// Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
         /// </summary>
         [Output("recoveryFabricName")]
         public Output<string> RecoveryFabricName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the vault that should be updated.
+        /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Output("recoveryVaultName")]
         public Output<string> RecoveryVaultName { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the resource group where the vault that should be updated is located.
+        /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -137,25 +137,25 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ProtectionContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the protection container.
+        /// The name of the protection container. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of fabric that should contain this protection container.
+        /// Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryFabricName", required: true)]
         public Input<string> RecoveryFabricName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the vault that should be updated.
+        /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryVaultName", required: true)]
         public Input<string> RecoveryVaultName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group where the vault that should be updated is located.
+        /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -169,25 +169,25 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ProtectionContainerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the protection container.
+        /// The name of the protection container. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of fabric that should contain this protection container.
+        /// Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryFabricName")]
         public Input<string>? RecoveryFabricName { get; set; }
 
         /// <summary>
-        /// The name of the vault that should be updated.
+        /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryVaultName")]
         public Input<string>? RecoveryVaultName { get; set; }
 
         /// <summary>
-        /// Name of the resource group where the vault that should be updated is located.
+        /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

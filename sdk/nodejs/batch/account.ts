@@ -106,7 +106,7 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
-     * Whether public network access is allowed for this server. Defaults to `true`.
+     * Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -231,7 +231,7 @@ export interface AccountState {
      */
     primaryAccessKey?: pulumi.Input<string>;
     /**
-     * Whether public network access is allowed for this server. Defaults to `true`.
+     * Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -293,7 +293,7 @@ export interface AccountArgs {
      */
     poolAllocationMode?: pulumi.Input<string>;
     /**
-     * Whether public network access is allowed for this server. Defaults to `true`.
+     * Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**

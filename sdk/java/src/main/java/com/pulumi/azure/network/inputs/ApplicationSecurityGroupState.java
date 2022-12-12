@@ -47,14 +47,14 @@ public final class ApplicationSecurityGroupState extends com.pulumi.resources.Re
     }
 
     /**
-     * The name of the resource group in which to create the Application Security Group.
+     * The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Application Security Group.
+     * @return The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -146,7 +146,7 @@ public final class ApplicationSecurityGroupState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Application Security Group.
+         * @param resourceGroupName The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ApplicationSecurityGroupState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Application Security Group.
+         * @param resourceGroupName The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

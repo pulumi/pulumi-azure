@@ -14,7 +14,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
     public sealed class SqlContainerUniqueKey
     {
         /// <summary>
-        /// A list of paths to use for this unique key.
+        /// A list of paths to use for this unique key. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> Paths;
 

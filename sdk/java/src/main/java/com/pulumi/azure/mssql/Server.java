@@ -193,14 +193,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.minimumTlsVersion);
     }
     /**
-     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+     * The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+     * @return The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -249,14 +249,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
-     * The name of the resource group in which to create the Microsoft SQL Server.
+     * The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Microsoft SQL Server.
+     * @return The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -291,14 +291,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
      * 
      */
     @Export(name="version", type=String.class, parameters={})
     private Output<String> version;
 
     /**
-     * @return The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+     * @return The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
      * 
      */
     public Output<String> version() {

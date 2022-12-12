@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string AddressPrefix;
         /// <summary>
-        /// The name of the route.
+        /// The name of the route. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

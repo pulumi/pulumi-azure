@@ -91,7 +91,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string?> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Key Vault where the Secret should be created.
+        /// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("keyVaultId")]
         public Output<string> KeyVaultId { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? ExpirationDate { get; set; }
 
         /// <summary>
-        /// The ID of the Key Vault where the Secret should be created.
+        /// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultId", required: true)]
         public Input<string> KeyVaultId { get; set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? ExpirationDate { get; set; }
 
         /// <summary>
-        /// The ID of the Key Vault where the Secret should be created.
+        /// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }

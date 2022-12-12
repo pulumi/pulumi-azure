@@ -60,9 +60,15 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         [Input("tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled")]
         public Input<bool>? TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled { get; set; }
 
+        /// <summary>
+        /// Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// </summary>
         [Input("tlsEcdheRsaWithAes128CbcShaCiphersEnabled")]
         public Input<bool>? TlsEcdheRsaWithAes128CbcShaCiphersEnabled { get; set; }
 
+        /// <summary>
+        /// Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// </summary>
         [Input("tlsEcdheRsaWithAes256CbcShaCiphersEnabled")]
         public Input<bool>? TlsEcdheRsaWithAes256CbcShaCiphersEnabled { get; set; }
 
@@ -95,6 +101,12 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         /// </summary>
         [Input("tlsRsaWithAes256CbcShaCiphersEnabled")]
         public Input<bool>? TlsRsaWithAes256CbcShaCiphersEnabled { get; set; }
+
+        /// <summary>
+        /// Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+        /// </summary>
+        [Input("tlsRsaWithAes256GcmSha384CiphersEnabled")]
+        public Input<bool>? TlsRsaWithAes256GcmSha384CiphersEnabled { get; set; }
 
         /// <summary>
         /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.

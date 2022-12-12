@@ -47,14 +47,14 @@ public final class LinuxVirtualMachineInboundNatRuleArgs extends com.pulumi.reso
     }
 
     /**
-     * The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+     * The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+     * @return The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
      * 
      */
     public Output<String> protocol() {
@@ -130,7 +130,7 @@ public final class LinuxVirtualMachineInboundNatRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param protocol The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+         * @param protocol The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class LinuxVirtualMachineInboundNatRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param protocol The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+         * @param protocol The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
          * 
          * @return builder
          * 

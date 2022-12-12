@@ -119,19 +119,19 @@ import (
 type ProtectionContainerMapping struct {
 	pulumi.CustomResourceState
 
-	// The name of the protection container mapping.
+	// The name of the protection container mapping. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Name of fabric that should contains the protection container to map.
+	// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
 	RecoveryFabricName pulumi.StringOutput `pulumi:"recoveryFabricName"`
-	// Id of the policy to use for this mapping.
+	// Id of the policy to use for this mapping. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId pulumi.StringOutput `pulumi:"recoveryReplicationPolicyId"`
-	// Name of the source protection container to map.
+	// Name of the source protection container to map. Changing this forces a new resource to be created.
 	RecoverySourceProtectionContainerName pulumi.StringOutput `pulumi:"recoverySourceProtectionContainerName"`
-	// Id of target protection container to map to.
+	// Id of target protection container to map to. Changing this forces a new resource to be created.
 	RecoveryTargetProtectionContainerId pulumi.StringOutput `pulumi:"recoveryTargetProtectionContainerId"`
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
@@ -182,36 +182,36 @@ func GetProtectionContainerMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProtectionContainerMapping resources.
 type protectionContainerMappingState struct {
-	// The name of the protection container mapping.
+	// The name of the protection container mapping. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Name of fabric that should contains the protection container to map.
+	// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
 	RecoveryFabricName *string `pulumi:"recoveryFabricName"`
-	// Id of the policy to use for this mapping.
+	// Id of the policy to use for this mapping. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId *string `pulumi:"recoveryReplicationPolicyId"`
-	// Name of the source protection container to map.
+	// Name of the source protection container to map. Changing this forces a new resource to be created.
 	RecoverySourceProtectionContainerName *string `pulumi:"recoverySourceProtectionContainerName"`
-	// Id of target protection container to map to.
+	// Id of target protection container to map to. Changing this forces a new resource to be created.
 	RecoveryTargetProtectionContainerId *string `pulumi:"recoveryTargetProtectionContainerId"`
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName *string `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 type ProtectionContainerMappingState struct {
-	// The name of the protection container mapping.
+	// The name of the protection container mapping. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Name of fabric that should contains the protection container to map.
+	// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
 	RecoveryFabricName pulumi.StringPtrInput
-	// Id of the policy to use for this mapping.
+	// Id of the policy to use for this mapping. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId pulumi.StringPtrInput
-	// Name of the source protection container to map.
+	// Name of the source protection container to map. Changing this forces a new resource to be created.
 	RecoverySourceProtectionContainerName pulumi.StringPtrInput
-	// Id of target protection container to map to.
+	// Id of target protection container to map to. Changing this forces a new resource to be created.
 	RecoveryTargetProtectionContainerId pulumi.StringPtrInput
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringPtrInput
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 }
 
@@ -220,37 +220,37 @@ func (ProtectionContainerMappingState) ElementType() reflect.Type {
 }
 
 type protectionContainerMappingArgs struct {
-	// The name of the protection container mapping.
+	// The name of the protection container mapping. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Name of fabric that should contains the protection container to map.
+	// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
 	RecoveryFabricName string `pulumi:"recoveryFabricName"`
-	// Id of the policy to use for this mapping.
+	// Id of the policy to use for this mapping. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId string `pulumi:"recoveryReplicationPolicyId"`
-	// Name of the source protection container to map.
+	// Name of the source protection container to map. Changing this forces a new resource to be created.
 	RecoverySourceProtectionContainerName string `pulumi:"recoverySourceProtectionContainerName"`
-	// Id of target protection container to map to.
+	// Id of target protection container to map to. Changing this forces a new resource to be created.
 	RecoveryTargetProtectionContainerId string `pulumi:"recoveryTargetProtectionContainerId"`
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ProtectionContainerMapping resource.
 type ProtectionContainerMappingArgs struct {
-	// The name of the protection container mapping.
+	// The name of the protection container mapping. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Name of fabric that should contains the protection container to map.
+	// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
 	RecoveryFabricName pulumi.StringInput
-	// Id of the policy to use for this mapping.
+	// Id of the policy to use for this mapping. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId pulumi.StringInput
-	// Name of the source protection container to map.
+	// Name of the source protection container to map. Changing this forces a new resource to be created.
 	RecoverySourceProtectionContainerName pulumi.StringInput
-	// Id of target protection container to map to.
+	// Id of target protection container to map to. Changing this forces a new resource to be created.
 	RecoveryTargetProtectionContainerId pulumi.StringInput
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringInput
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -341,39 +341,39 @@ func (o ProtectionContainerMappingOutput) ToProtectionContainerMappingOutputWith
 	return o
 }
 
-// The name of the protection container mapping.
+// The name of the protection container mapping. Changing this forces a new resource to be created.
 func (o ProtectionContainerMappingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionContainerMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Name of fabric that should contains the protection container to map.
+// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
 func (o ProtectionContainerMappingOutput) RecoveryFabricName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionContainerMapping) pulumi.StringOutput { return v.RecoveryFabricName }).(pulumi.StringOutput)
 }
 
-// Id of the policy to use for this mapping.
+// Id of the policy to use for this mapping. Changing this forces a new resource to be created.
 func (o ProtectionContainerMappingOutput) RecoveryReplicationPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionContainerMapping) pulumi.StringOutput { return v.RecoveryReplicationPolicyId }).(pulumi.StringOutput)
 }
 
-// Name of the source protection container to map.
+// Name of the source protection container to map. Changing this forces a new resource to be created.
 func (o ProtectionContainerMappingOutput) RecoverySourceProtectionContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionContainerMapping) pulumi.StringOutput {
 		return v.RecoverySourceProtectionContainerName
 	}).(pulumi.StringOutput)
 }
 
-// Id of target protection container to map to.
+// Id of target protection container to map to. Changing this forces a new resource to be created.
 func (o ProtectionContainerMappingOutput) RecoveryTargetProtectionContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionContainerMapping) pulumi.StringOutput { return v.RecoveryTargetProtectionContainerId }).(pulumi.StringOutput)
 }
 
-// The name of the vault that should be updated.
+// The name of the vault that should be updated. Changing this forces a new resource to be created.
 func (o ProtectionContainerMappingOutput) RecoveryVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionContainerMapping) pulumi.StringOutput { return v.RecoveryVaultName }).(pulumi.StringOutput)
 }
 
-// Name of the resource group where the vault that should be updated is located.
+// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 func (o ProtectionContainerMappingOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionContainerMapping) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

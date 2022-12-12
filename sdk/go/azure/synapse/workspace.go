@@ -241,7 +241,7 @@ type Workspace struct {
 	AadAdmin WorkspaceAadAdminTypeOutput `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrOutput `pulumi:"azureDevopsRepo"`
-	// Subnet ID used for computes in workspace
+	// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
 	ComputeSubnetId pulumi.StringPtrOutput `pulumi:"computeSubnetId"`
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints pulumi.StringMapOutput `pulumi:"connectivityEndpoints"`
@@ -257,7 +257,7 @@ type Workspace struct {
 	LinkingAllowedForAadTenantIds pulumi.StringArrayOutput `pulumi:"linkingAllowedForAadTenantIds"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Workspace managed resource group.
+	// Workspace managed resource group. Changing this forces a new resource to be created.
 	ManagedResourceGroupName pulumi.StringOutput `pulumi:"managedResourceGroupName"`
 	// Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
 	ManagedVirtualNetworkEnabled pulumi.BoolPtrOutput `pulumi:"managedVirtualNetworkEnabled"`
@@ -322,7 +322,7 @@ type workspaceState struct {
 	AadAdmin *WorkspaceAadAdminType `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
-	// Subnet ID used for computes in workspace
+	// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
 	ComputeSubnetId *string `pulumi:"computeSubnetId"`
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
@@ -338,7 +338,7 @@ type workspaceState struct {
 	LinkingAllowedForAadTenantIds []string `pulumi:"linkingAllowedForAadTenantIds"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Workspace managed resource group.
+	// Workspace managed resource group. Changing this forces a new resource to be created.
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
 	ManagedVirtualNetworkEnabled *bool `pulumi:"managedVirtualNetworkEnabled"`
@@ -369,7 +369,7 @@ type WorkspaceState struct {
 	AadAdmin WorkspaceAadAdminTypePtrInput
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
-	// Subnet ID used for computes in workspace
+	// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
 	ComputeSubnetId pulumi.StringPtrInput
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints pulumi.StringMapInput
@@ -385,7 +385,7 @@ type WorkspaceState struct {
 	LinkingAllowedForAadTenantIds pulumi.StringArrayInput
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Workspace managed resource group.
+	// Workspace managed resource group. Changing this forces a new resource to be created.
 	ManagedResourceGroupName pulumi.StringPtrInput
 	// Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
 	ManagedVirtualNetworkEnabled pulumi.BoolPtrInput
@@ -420,7 +420,7 @@ type workspaceArgs struct {
 	AadAdmin *WorkspaceAadAdminType `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
-	// Subnet ID used for computes in workspace
+	// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
 	ComputeSubnetId *string `pulumi:"computeSubnetId"`
 	// A `customerManagedKey` block as defined below. Conflicts with `aadAdmin`.
 	CustomerManagedKey *WorkspaceCustomerManagedKey `pulumi:"customerManagedKey"`
@@ -434,7 +434,7 @@ type workspaceArgs struct {
 	LinkingAllowedForAadTenantIds []string `pulumi:"linkingAllowedForAadTenantIds"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Workspace managed resource group.
+	// Workspace managed resource group. Changing this forces a new resource to be created.
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
 	ManagedVirtualNetworkEnabled *bool `pulumi:"managedVirtualNetworkEnabled"`
@@ -466,7 +466,7 @@ type WorkspaceArgs struct {
 	AadAdmin WorkspaceAadAdminTypePtrInput
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
-	// Subnet ID used for computes in workspace
+	// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
 	ComputeSubnetId pulumi.StringPtrInput
 	// A `customerManagedKey` block as defined below. Conflicts with `aadAdmin`.
 	CustomerManagedKey WorkspaceCustomerManagedKeyPtrInput
@@ -480,7 +480,7 @@ type WorkspaceArgs struct {
 	LinkingAllowedForAadTenantIds pulumi.StringArrayInput
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Workspace managed resource group.
+	// Workspace managed resource group. Changing this forces a new resource to be created.
 	ManagedResourceGroupName pulumi.StringPtrInput
 	// Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
 	ManagedVirtualNetworkEnabled pulumi.BoolPtrInput
@@ -603,7 +603,7 @@ func (o WorkspaceOutput) AzureDevopsRepo() WorkspaceAzureDevopsRepoPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceAzureDevopsRepoPtrOutput { return v.AzureDevopsRepo }).(WorkspaceAzureDevopsRepoPtrOutput)
 }
 
-// Subnet ID used for computes in workspace
+// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
 func (o WorkspaceOutput) ComputeSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.ComputeSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -643,7 +643,7 @@ func (o WorkspaceOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Workspace managed resource group.
+// Workspace managed resource group. Changing this forces a new resource to be created.
 func (o WorkspaceOutput) ManagedResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ManagedResourceGroupName }).(pulumi.StringOutput)
 }

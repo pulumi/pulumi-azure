@@ -87,23 +87,22 @@ type Blob struct {
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
 	// A map of custom blob metadata.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
-	// The name of the storage blob. Must be unique within the storage container the blob is located.
+	// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 	Parallelism pulumi.IntPtrOutput `pulumi:"parallelism"`
-	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
 	Size pulumi.IntPtrOutput `pulumi:"size"`
-	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	Source pulumi.AssetOrArchiveOutput `pulumi:"source"`
-	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
+	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	SourceContent pulumi.StringPtrOutput `pulumi:"sourceContent"`
-	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-	// for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
+	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri pulumi.StringPtrOutput `pulumi:"sourceUri"`
-	// Specifies the storage account in which to create the storage container.
+	// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
-	// The name of the storage container in which this blob should be created.
+	// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
 	StorageContainerName pulumi.StringOutput `pulumi:"storageContainerName"`
 	// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -159,23 +158,22 @@ type blobState struct {
 	ContentType *string `pulumi:"contentType"`
 	// A map of custom blob metadata.
 	Metadata map[string]string `pulumi:"metadata"`
-	// The name of the storage blob. Must be unique within the storage container the blob is located.
+	// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 	Parallelism *int `pulumi:"parallelism"`
-	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
 	Size *int `pulumi:"size"`
-	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	Source pulumi.AssetOrArchive `pulumi:"source"`
-	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
+	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	SourceContent *string `pulumi:"sourceContent"`
-	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-	// for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
+	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri *string `pulumi:"sourceUri"`
-	// Specifies the storage account in which to create the storage container.
+	// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
-	// The name of the storage container in which this blob should be created.
+	// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
 	StorageContainerName *string `pulumi:"storageContainerName"`
 	// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
 	Type *string `pulumi:"type"`
@@ -194,23 +192,22 @@ type BlobState struct {
 	ContentType pulumi.StringPtrInput
 	// A map of custom blob metadata.
 	Metadata pulumi.StringMapInput
-	// The name of the storage blob. Must be unique within the storage container the blob is located.
+	// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 	Parallelism pulumi.IntPtrInput
-	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
 	Size pulumi.IntPtrInput
-	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	Source pulumi.AssetOrArchiveInput
-	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
+	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	SourceContent pulumi.StringPtrInput
-	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-	// for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
+	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri pulumi.StringPtrInput
-	// Specifies the storage account in which to create the storage container.
+	// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput
-	// The name of the storage container in which this blob should be created.
+	// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
 	StorageContainerName pulumi.StringPtrInput
 	// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrInput
@@ -233,23 +230,22 @@ type blobArgs struct {
 	ContentType *string `pulumi:"contentType"`
 	// A map of custom blob metadata.
 	Metadata map[string]string `pulumi:"metadata"`
-	// The name of the storage blob. Must be unique within the storage container the blob is located.
+	// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 	Parallelism *int `pulumi:"parallelism"`
-	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
 	Size *int `pulumi:"size"`
-	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	Source pulumi.AssetOrArchive `pulumi:"source"`
-	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
+	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	SourceContent *string `pulumi:"sourceContent"`
-	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-	// for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
+	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri *string `pulumi:"sourceUri"`
-	// Specifies the storage account in which to create the storage container.
+	// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
 	StorageAccountName string `pulumi:"storageAccountName"`
-	// The name of the storage container in which this blob should be created.
+	// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
 	StorageContainerName string `pulumi:"storageContainerName"`
 	// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
@@ -267,23 +263,22 @@ type BlobArgs struct {
 	ContentType pulumi.StringPtrInput
 	// A map of custom blob metadata.
 	Metadata pulumi.StringMapInput
-	// The name of the storage blob. Must be unique within the storage container the blob is located.
+	// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 	Parallelism pulumi.IntPtrInput
-	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
 	Size pulumi.IntPtrInput
-	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	Source pulumi.AssetOrArchiveInput
-	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
+	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	SourceContent pulumi.StringPtrInput
-	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-	// for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
+	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri pulumi.StringPtrInput
-	// Specifies the storage account in which to create the storage container.
+	// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringInput
-	// The name of the storage container in which this blob should be created.
+	// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
 	StorageContainerName pulumi.StringInput
 	// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
 	Type pulumi.StringInput
@@ -401,44 +396,43 @@ func (o BlobOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Blob) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
-// The name of the storage blob. Must be unique within the storage container the blob is located.
+// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
 func (o BlobOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Blob) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 func (o BlobOutput) Parallelism() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Blob) pulumi.IntPtrOutput { return v.Parallelism }).(pulumi.IntPtrOutput)
 }
 
-// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
 func (o BlobOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Blob) pulumi.IntPtrOutput { return v.Size }).(pulumi.IntPtrOutput)
 }
 
-// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 func (o BlobOutput) Source() pulumi.AssetOrArchiveOutput {
 	return o.ApplyT(func(v *Blob) pulumi.AssetOrArchiveOutput { return v.Source }).(pulumi.AssetOrArchiveOutput)
 }
 
-// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
+// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
 func (o BlobOutput) SourceContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Blob) pulumi.StringPtrOutput { return v.SourceContent }).(pulumi.StringPtrOutput)
 }
 
-// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-// for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
+// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 func (o BlobOutput) SourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Blob) pulumi.StringPtrOutput { return v.SourceUri }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the storage account in which to create the storage container.
+// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
 // Changing this forces a new resource to be created.
 func (o BlobOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Blob) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
-// The name of the storage container in which this blob should be created.
+// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
 func (o BlobOutput) StorageContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Blob) pulumi.StringOutput { return v.StorageContainerName }).(pulumi.StringOutput)
 }

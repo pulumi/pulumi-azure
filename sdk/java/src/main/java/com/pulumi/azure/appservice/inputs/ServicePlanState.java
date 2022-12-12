@@ -94,14 +94,14 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
+     * The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="osType")
     private @Nullable Output<String> osType;
 
     /**
-     * @return The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
+     * @return The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> osType() {
@@ -199,14 +199,14 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+     * Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="zoneBalancingEnabled")
     private @Nullable Output<Boolean> zoneBalancingEnabled;
 
     /**
-     * @return Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+     * @return Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> zoneBalancingEnabled() {
@@ -355,7 +355,7 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osType The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
+         * @param osType The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osType The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
+         * @param osType The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneBalancingEnabled Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+         * @param zoneBalancingEnabled Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneBalancingEnabled Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+         * @param zoneBalancingEnabled Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

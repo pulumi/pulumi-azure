@@ -1164,23 +1164,23 @@ type ClusterNodeType struct {
 	ApplicationPorts *ClusterNodeTypeApplicationPorts `pulumi:"applicationPorts"`
 	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
 	Capacities map[string]string `pulumi:"capacities"`
-	// The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+	// The Port used for the Client Endpoint for this Node Type.
 	ClientEndpointPort int `pulumi:"clientEndpointPort"`
-	// The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+	// The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
 	DurabilityLevel *string `pulumi:"durabilityLevel"`
 	// A `ephemeralPorts` block as defined below.
 	EphemeralPorts *ClusterNodeTypeEphemeralPorts `pulumi:"ephemeralPorts"`
-	// The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+	// The Port used for the HTTP Endpoint for this Node Type.
 	HttpEndpointPort int `pulumi:"httpEndpointPort"`
 	// The number of nodes for this Node Type.
 	InstanceCount int `pulumi:"instanceCount"`
-	// Is this the Primary Node Type? Changing this forces a new resource to be created.
+	// Is this the Primary Node Type?
 	IsPrimary bool `pulumi:"isPrimary"`
 	// Should this node type run only stateless services?
 	IsStateless *bool `pulumi:"isStateless"`
 	// Does this node type span availability zones?
 	MultipleAvailabilityZones *bool `pulumi:"multipleAvailabilityZones"`
-	// The name of the Node Type. Changing this forces a new resource to be created.
+	// The name of the Node Type.
 	Name string `pulumi:"name"`
 	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
 	PlacementProperties map[string]string `pulumi:"placementProperties"`
@@ -1204,23 +1204,23 @@ type ClusterNodeTypeArgs struct {
 	ApplicationPorts ClusterNodeTypeApplicationPortsPtrInput `pulumi:"applicationPorts"`
 	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
 	Capacities pulumi.StringMapInput `pulumi:"capacities"`
-	// The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+	// The Port used for the Client Endpoint for this Node Type.
 	ClientEndpointPort pulumi.IntInput `pulumi:"clientEndpointPort"`
-	// The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+	// The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
 	DurabilityLevel pulumi.StringPtrInput `pulumi:"durabilityLevel"`
 	// A `ephemeralPorts` block as defined below.
 	EphemeralPorts ClusterNodeTypeEphemeralPortsPtrInput `pulumi:"ephemeralPorts"`
-	// The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+	// The Port used for the HTTP Endpoint for this Node Type.
 	HttpEndpointPort pulumi.IntInput `pulumi:"httpEndpointPort"`
 	// The number of nodes for this Node Type.
 	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
-	// Is this the Primary Node Type? Changing this forces a new resource to be created.
+	// Is this the Primary Node Type?
 	IsPrimary pulumi.BoolInput `pulumi:"isPrimary"`
 	// Should this node type run only stateless services?
 	IsStateless pulumi.BoolPtrInput `pulumi:"isStateless"`
 	// Does this node type span availability zones?
 	MultipleAvailabilityZones pulumi.BoolPtrInput `pulumi:"multipleAvailabilityZones"`
-	// The name of the Node Type. Changing this forces a new resource to be created.
+	// The name of the Node Type.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
 	PlacementProperties pulumi.StringMapInput `pulumi:"placementProperties"`
@@ -1289,12 +1289,12 @@ func (o ClusterNodeTypeOutput) Capacities() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ClusterNodeType) map[string]string { return v.Capacities }).(pulumi.StringMapOutput)
 }
 
-// The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+// The Port used for the Client Endpoint for this Node Type.
 func (o ClusterNodeTypeOutput) ClientEndpointPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterNodeType) int { return v.ClientEndpointPort }).(pulumi.IntOutput)
 }
 
-// The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+// The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
 func (o ClusterNodeTypeOutput) DurabilityLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNodeType) *string { return v.DurabilityLevel }).(pulumi.StringPtrOutput)
 }
@@ -1304,7 +1304,7 @@ func (o ClusterNodeTypeOutput) EphemeralPorts() ClusterNodeTypeEphemeralPortsPtr
 	return o.ApplyT(func(v ClusterNodeType) *ClusterNodeTypeEphemeralPorts { return v.EphemeralPorts }).(ClusterNodeTypeEphemeralPortsPtrOutput)
 }
 
-// The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+// The Port used for the HTTP Endpoint for this Node Type.
 func (o ClusterNodeTypeOutput) HttpEndpointPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterNodeType) int { return v.HttpEndpointPort }).(pulumi.IntOutput)
 }
@@ -1314,7 +1314,7 @@ func (o ClusterNodeTypeOutput) InstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterNodeType) int { return v.InstanceCount }).(pulumi.IntOutput)
 }
 
-// Is this the Primary Node Type? Changing this forces a new resource to be created.
+// Is this the Primary Node Type?
 func (o ClusterNodeTypeOutput) IsPrimary() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterNodeType) bool { return v.IsPrimary }).(pulumi.BoolOutput)
 }
@@ -1329,7 +1329,7 @@ func (o ClusterNodeTypeOutput) MultipleAvailabilityZones() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v ClusterNodeType) *bool { return v.MultipleAvailabilityZones }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the Node Type. Changing this forces a new resource to be created.
+// The name of the Node Type.
 func (o ClusterNodeTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNodeType) string { return v.Name }).(pulumi.StringOutput)
 }

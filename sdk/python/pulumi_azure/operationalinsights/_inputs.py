@@ -23,7 +23,7 @@ class AnalyticsSolutionPlanArgs:
         """
         :param pulumi.Input[str] product: The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] publisher: The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] promotion_code: A promotion code to be used with the solution.
+        :param pulumi.Input[str] promotion_code: A promotion code to be used with the solution. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "product", product)
         pulumi.set(__self__, "publisher", publisher)
@@ -69,7 +69,7 @@ class AnalyticsSolutionPlanArgs:
     @pulumi.getter(name="promotionCode")
     def promotion_code(self) -> Optional[pulumi.Input[str]]:
         """
-        A promotion code to be used with the solution.
+        A promotion code to be used with the solution. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "promotion_code")
 

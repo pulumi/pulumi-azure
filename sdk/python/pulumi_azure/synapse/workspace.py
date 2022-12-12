@@ -43,14 +43,14 @@ class WorkspaceArgs:
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
         :param pulumi.Input['WorkspaceAzureDevopsRepoArgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
-        :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace
+        :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceGithubRepoArgs'] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
+        :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
@@ -154,7 +154,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="computeSubnetId")
     def compute_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Subnet ID used for computes in workspace
+        Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "compute_subnet_id")
 
@@ -238,7 +238,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="managedResourceGroupName")
     def managed_resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Workspace managed resource group.
+        Workspace managed resource group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_resource_group_name")
 
@@ -384,7 +384,7 @@ class _WorkspaceState:
         Input properties used for looking up and filtering Workspace resources.
         :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
         :param pulumi.Input['WorkspaceAzureDevopsRepoArgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
-        :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace
+        :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: A list of Connectivity endpoints for this Synapse Workspace.
         :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
@@ -392,7 +392,7 @@ class _WorkspaceState:
         :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
+        :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
@@ -478,7 +478,7 @@ class _WorkspaceState:
     @pulumi.getter(name="computeSubnetId")
     def compute_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Subnet ID used for computes in workspace
+        Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "compute_subnet_id")
 
@@ -574,7 +574,7 @@ class _WorkspaceState:
     @pulumi.getter(name="managedResourceGroupName")
     def managed_resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Workspace managed resource group.
+        Workspace managed resource group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_resource_group_name")
 
@@ -870,14 +870,14 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
         :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
-        :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace
+        :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']] github_repo: A `github_repo` block as defined below.
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
+        :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
@@ -1132,7 +1132,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
         :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
-        :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace
+        :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: A list of Connectivity endpoints for this Synapse Workspace.
         :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
@@ -1140,7 +1140,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
+        :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
@@ -1201,7 +1201,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="computeSubnetId")
     def compute_subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Subnet ID used for computes in workspace
+        Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "compute_subnet_id")
 
@@ -1265,7 +1265,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="managedResourceGroupName")
     def managed_resource_group_name(self) -> pulumi.Output[str]:
         """
-        Workspace managed resource group.
+        Workspace managed resource group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "managed_resource_group_name")
 

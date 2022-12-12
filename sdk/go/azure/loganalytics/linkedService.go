@@ -88,7 +88,7 @@ type LinkedService struct {
 	ReadAccessId pulumi.StringOutput `pulumi:"readAccessId"`
 	// The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+	// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 	// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
 	WriteAccessId pulumi.StringPtrOutput `pulumi:"writeAccessId"`
@@ -135,7 +135,7 @@ type linkedServiceState struct {
 	ReadAccessId *string `pulumi:"readAccessId"`
 	// The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+	// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
 	WorkspaceId *string `pulumi:"workspaceId"`
 	// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
 	WriteAccessId *string `pulumi:"writeAccessId"`
@@ -148,7 +148,7 @@ type LinkedServiceState struct {
 	ReadAccessId pulumi.StringPtrInput
 	// The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+	// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
 	WorkspaceId pulumi.StringPtrInput
 	// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
 	WriteAccessId pulumi.StringPtrInput
@@ -163,7 +163,7 @@ type linkedServiceArgs struct {
 	ReadAccessId *string `pulumi:"readAccessId"`
 	// The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+	// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
 	WorkspaceId string `pulumi:"workspaceId"`
 	// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
 	WriteAccessId *string `pulumi:"writeAccessId"`
@@ -175,7 +175,7 @@ type LinkedServiceArgs struct {
 	ReadAccessId pulumi.StringPtrInput
 	// The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+	// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
 	WorkspaceId pulumi.StringInput
 	// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
 	WriteAccessId pulumi.StringPtrInput
@@ -283,7 +283,7 @@ func (o LinkedServiceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedService) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
 func (o LinkedServiceOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedService) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

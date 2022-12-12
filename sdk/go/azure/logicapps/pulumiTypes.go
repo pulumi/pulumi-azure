@@ -1450,7 +1450,7 @@ func (o IntegrationAccountPartnerBusinessIdentityArrayOutput) Index(i pulumi.Int
 }
 
 type StandardConnectionString struct {
-	// The name of the Connection String.
+	// The name of the Connection String. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
 	Type string `pulumi:"type"`
@@ -1470,7 +1470,7 @@ type StandardConnectionStringInput interface {
 }
 
 type StandardConnectionStringArgs struct {
-	// The name of the Connection String.
+	// The name of the Connection String. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -1529,7 +1529,7 @@ func (o StandardConnectionStringOutput) ToStandardConnectionStringOutputWithCont
 	return o
 }
 
-// The name of the Connection String.
+// The name of the Connection String. Changing this forces a new resource to be created.
 func (o StandardConnectionStringOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v StandardConnectionString) string { return v.Name }).(pulumi.StringOutput)
 }

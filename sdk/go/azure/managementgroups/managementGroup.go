@@ -76,7 +76,7 @@ type ManagementGroup struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
+	// The ID of the Parent Management Group.
 	ParentManagementGroupId pulumi.StringOutput `pulumi:"parentManagementGroupId"`
 	// A list of Subscription GUIDs which should be assigned to the Management Group.
 	SubscriptionIds pulumi.StringArrayOutput `pulumi:"subscriptionIds"`
@@ -115,7 +115,7 @@ type managementGroupState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
+	// The ID of the Parent Management Group.
 	ParentManagementGroupId *string `pulumi:"parentManagementGroupId"`
 	// A list of Subscription GUIDs which should be assigned to the Management Group.
 	SubscriptionIds []string `pulumi:"subscriptionIds"`
@@ -126,7 +126,7 @@ type ManagementGroupState struct {
 	DisplayName pulumi.StringPtrInput
 	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
+	// The ID of the Parent Management Group.
 	ParentManagementGroupId pulumi.StringPtrInput
 	// A list of Subscription GUIDs which should be assigned to the Management Group.
 	SubscriptionIds pulumi.StringArrayInput
@@ -141,7 +141,7 @@ type managementGroupArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
+	// The ID of the Parent Management Group.
 	ParentManagementGroupId *string `pulumi:"parentManagementGroupId"`
 	// A list of Subscription GUIDs which should be assigned to the Management Group.
 	SubscriptionIds []string `pulumi:"subscriptionIds"`
@@ -153,7 +153,7 @@ type ManagementGroupArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
+	// The ID of the Parent Management Group.
 	ParentManagementGroupId pulumi.StringPtrInput
 	// A list of Subscription GUIDs which should be assigned to the Management Group.
 	SubscriptionIds pulumi.StringArrayInput
@@ -256,7 +256,7 @@ func (o ManagementGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagementGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the Parent Management Group. Changing this forces a new resource to be created.
+// The ID of the Parent Management Group.
 func (o ManagementGroupOutput) ParentManagementGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagementGroup) pulumi.StringOutput { return v.ParentManagementGroupId }).(pulumi.StringOutput)
 }

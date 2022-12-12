@@ -49,8 +49,9 @@ export class Volume extends pulumi.CustomResource {
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
     public readonly accountName!: pulumi.Output<string>;
+    public readonly azureVmwareDataStoreEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
+     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
      */
     public readonly createFromSnapshotResourceId!: pulumi.Output<string>;
     /**
@@ -78,7 +79,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
      */
     public readonly networkFeatures!: pulumi.Output<string>;
     /**
@@ -94,11 +95,11 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+     * Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
      */
     public readonly securityStyle!: pulumi.Output<string>;
     /**
-     * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+     * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
      */
     public readonly serviceLevel!: pulumi.Output<string>;
     /**
@@ -140,6 +141,7 @@ export class Volume extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VolumeState | undefined;
             resourceInputs["accountName"] = state ? state.accountName : undefined;
+            resourceInputs["azureVmwareDataStoreEnabled"] = state ? state.azureVmwareDataStoreEnabled : undefined;
             resourceInputs["createFromSnapshotResourceId"] = state ? state.createFromSnapshotResourceId : undefined;
             resourceInputs["dataProtectionReplication"] = state ? state.dataProtectionReplication : undefined;
             resourceInputs["dataProtectionSnapshotPolicy"] = state ? state.dataProtectionSnapshotPolicy : undefined;
@@ -183,6 +185,7 @@ export class Volume extends pulumi.CustomResource {
                 throw new Error("Missing required property 'volumePath'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["azureVmwareDataStoreEnabled"] = args ? args.azureVmwareDataStoreEnabled : undefined;
             resourceInputs["createFromSnapshotResourceId"] = args ? args.createFromSnapshotResourceId : undefined;
             resourceInputs["dataProtectionReplication"] = args ? args.dataProtectionReplication : undefined;
             resourceInputs["dataProtectionSnapshotPolicy"] = args ? args.dataProtectionSnapshotPolicy : undefined;
@@ -216,8 +219,9 @@ export interface VolumeState {
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
     accountName?: pulumi.Input<string>;
+    azureVmwareDataStoreEnabled?: pulumi.Input<boolean>;
     /**
-     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
+     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
      */
     createFromSnapshotResourceId?: pulumi.Input<string>;
     /**
@@ -245,7 +249,7 @@ export interface VolumeState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
      */
     networkFeatures?: pulumi.Input<string>;
     /**
@@ -261,11 +265,11 @@ export interface VolumeState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+     * Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
      */
     securityStyle?: pulumi.Input<string>;
     /**
-     * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+     * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
      */
     serviceLevel?: pulumi.Input<string>;
     /**
@@ -302,8 +306,9 @@ export interface VolumeArgs {
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
     accountName: pulumi.Input<string>;
+    azureVmwareDataStoreEnabled?: pulumi.Input<boolean>;
     /**
-     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
+     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
      */
     createFromSnapshotResourceId?: pulumi.Input<string>;
     /**
@@ -327,7 +332,7 @@ export interface VolumeArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
      */
     networkFeatures?: pulumi.Input<string>;
     /**
@@ -343,11 +348,11 @@ export interface VolumeArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+     * Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
      */
     securityStyle?: pulumi.Input<string>;
     /**
-     * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+     * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
      */
     serviceLevel: pulumi.Input<string>;
     /**

@@ -103,7 +103,7 @@ class ElasticsearchLogsFilteringTag(dict):
                  value: str):
         """
         :param str action: Specifies the type of action which should be taken when the Tag matches the `name` and `value`. Possible values are `Exclude` and `Include`.
-        :param str name: Specifies the name (key) of the Tag which should be filtered.
+        :param str name: Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
         :param str value: Specifies the value of the Tag which should be filtered.
         """
         pulumi.set(__self__, "action", action)
@@ -122,7 +122,7 @@ class ElasticsearchLogsFilteringTag(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name (key) of the Tag which should be filtered.
+        Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

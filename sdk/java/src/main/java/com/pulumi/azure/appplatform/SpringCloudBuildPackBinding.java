@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Spring Cloud Buildpack Binding.
+ * Manages a Spring Cloud Build Pack Binding.
  * 
  * &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
  * 
@@ -65,10 +65,10 @@ import javax.annotation.Nullable;
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .buildPackGroups(SpringCloudBuilderBuildPackGroupArgs.builder()
  *                 .name(&#34;mix&#34;)
- *                 .buildPackIds(&#34;tanzu-buildpacks/java-azure&#34;)
+ *                 .buildPackIds(&#34;tanzu-Build Packs/java-azure&#34;)
  *                 .build())
  *             .stack(SpringCloudBuilderStackArgs.builder()
- *                 .id(&#34;io.buildpacks.stacks.bionic&#34;)
+ *                 .id(&#34;io.Build Packs.stacks.bionic&#34;)
  *                 .version(&#34;base&#34;)
  *                 .build())
  *             .build());
@@ -92,24 +92,24 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Spring Cloud Buildpack Bindings can be imported using the `resource id`, e.g.
+ * Spring Cloud Build Pack Bindings can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/buildServices/buildService1/builders/builder1/buildpackBindings/buildpackBinding1
+ *  $ pulumi import azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/buildServices/buildService1/builders/builder1/Build PackBindings/Build PackBinding1
  * ```
  * 
  */
 @ResourceType(type="azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding")
 public class SpringCloudBuildPackBinding extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+     * Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      * 
      */
     @Export(name="bindingType", type=String.class, parameters={})
     private Output</* @Nullable */ String> bindingType;
 
     /**
-     * @return Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+     * @return Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      * 
      */
     public Output<Optional<String>> bindingType() {
@@ -130,28 +130,28 @@ public class SpringCloudBuildPackBinding extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.launch);
     }
     /**
-     * The name which should be used for this Spring Cloud Buildpack Binding. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+     * The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Spring Cloud Buildpack Binding. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+     * @return The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+     * The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
      * 
      */
     @Export(name="springCloudBuilderId", type=String.class, parameters={})
     private Output<String> springCloudBuilderId;
 
     /**
-     * @return The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+     * @return The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
      * 
      */
     public Output<String> springCloudBuilderId() {

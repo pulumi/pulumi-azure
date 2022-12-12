@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AccessConnectorIdentity {
+    /**
+     * @return The object id of an existing principal. If not specified, a new system-assigned managed identity is created.
+     * 
+     */
     private @Nullable String principalId;
+    /**
+     * @return The tenant id in which the principal resides.
+     * 
+     */
     private @Nullable String tenantId;
+    /**
+     * @return The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+     * 
+     */
     private String type;
 
     private AccessConnectorIdentity() {}
+    /**
+     * @return The object id of an existing principal. If not specified, a new system-assigned managed identity is created.
+     * 
+     */
     public Optional<String> principalId() {
         return Optional.ofNullable(this.principalId);
     }
+    /**
+     * @return The tenant id in which the principal resides.
+     * 
+     */
     public Optional<String> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }
+    /**
+     * @return The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+     * 
+     */
     public String type() {
         return this.type;
     }

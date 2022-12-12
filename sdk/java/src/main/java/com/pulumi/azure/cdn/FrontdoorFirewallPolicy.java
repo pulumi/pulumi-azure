@@ -311,14 +311,14 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
         return this.resourceGroupName;
     }
     /**
-     * The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+     * The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
-     * @return The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+     * @return The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> skuName() {

@@ -99,7 +99,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Output<string> Query { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+        /// A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.LogAnalytics
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+        /// A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -270,7 +270,7 @@ namespace Pulumi.Azure.LogAnalytics
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+        /// A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         /// </summary>
         public InputMap<string> Tags
         {

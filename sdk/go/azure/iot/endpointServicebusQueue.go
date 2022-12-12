@@ -91,11 +91,11 @@ import (
 //
 // ## Import
 //
-// IoTHub ServiceBus Queue Endpoint can be imported using the `resource id`, e.g.
+// IoTHub ServiceBus Queue Endpoint can be imported using the `resource id`, e.g. g
 //
 // ```sh
 //
-//	$ pulumi import azure:iot/endpointServicebusQueue:EndpointServicebusQueue servicebus_queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/servicebusqueue_endpoint1
+//	$ pulumi import azure:iot/endpointServicebusQueue:EndpointServicebusQueue servicebus_queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/servicebusqueue_endpoint1
 //
 // ```
 type EndpointServicebusQueue struct {
@@ -111,9 +111,9 @@ type EndpointServicebusQueue struct {
 	EntityPath pulumi.StringPtrOutput `pulumi:"entityPath"`
 	// ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
 	IdentityId pulumi.StringPtrOutput `pulumi:"identityId"`
-	// The IoTHub ID for the endpoint.
+	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId pulumi.StringOutput `pulumi:"iothubId"`
-	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -164,9 +164,9 @@ type endpointServicebusQueueState struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
 	IdentityId *string `pulumi:"identityId"`
-	// The IoTHub ID for the endpoint.
+	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId *string `pulumi:"iothubId"`
-	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -183,9 +183,9 @@ type EndpointServicebusQueueState struct {
 	EntityPath pulumi.StringPtrInput
 	// ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
 	IdentityId pulumi.StringPtrInput
-	// The IoTHub ID for the endpoint.
+	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId pulumi.StringPtrInput
-	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -206,9 +206,9 @@ type endpointServicebusQueueArgs struct {
 	EntityPath *string `pulumi:"entityPath"`
 	// ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
 	IdentityId *string `pulumi:"identityId"`
-	// The IoTHub ID for the endpoint.
+	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId string `pulumi:"iothubId"`
-	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -226,9 +226,9 @@ type EndpointServicebusQueueArgs struct {
 	EntityPath pulumi.StringPtrInput
 	// ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
 	IdentityId pulumi.StringPtrInput
-	// The IoTHub ID for the endpoint.
+	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId pulumi.StringInput
-	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group under which the Service Bus Queue has been created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -346,12 +346,12 @@ func (o EndpointServicebusQueueOutput) IdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointServicebusQueue) pulumi.StringPtrOutput { return v.IdentityId }).(pulumi.StringPtrOutput)
 }
 
-// The IoTHub ID for the endpoint.
+// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 func (o EndpointServicebusQueueOutput) IothubId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointServicebusQueue) pulumi.StringOutput { return v.IothubId }).(pulumi.StringOutput)
 }
 
-// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
 func (o EndpointServicebusQueueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointServicebusQueue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

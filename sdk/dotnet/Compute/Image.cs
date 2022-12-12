@@ -144,13 +144,13 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<Outputs.ImageDataDisk>> DataDisks { get; private set; } = null!;
 
         /// <summary>
-        /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+        /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("hyperVGeneration")]
         public Output<string?> HyperVGeneration { get; private set; } = null!;
 
         /// <summary>
-        /// Specified the supported Azure location where the resource exists.
+        /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.ImageOsDisk?> OsDisk { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create
+        /// The name of the resource group in which to create. Changing this forces a new resource to be created.
         /// the image. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -253,13 +253,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+        /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("hyperVGeneration")]
         public Input<string>? HyperVGeneration { get; set; }
 
         /// <summary>
-        /// Specified the supported Azure location where the resource exists.
+        /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ImageOsDiskArgs>? OsDisk { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create
+        /// The name of the resource group in which to create. Changing this forces a new resource to be created.
         /// the image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -330,13 +330,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+        /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("hyperVGeneration")]
         public Input<string>? HyperVGeneration { get; set; }
 
         /// <summary>
-        /// Specified the supported Azure location where the resource exists.
+        /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -356,7 +356,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ImageOsDiskGetArgs>? OsDisk { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create
+        /// The name of the resource group in which to create. Changing this forces a new resource to be created.
         /// the image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]

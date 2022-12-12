@@ -176,16 +176,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.localAuthEnabled);
     }
     /**
-     * Specifies the supported Azure location where the Web PubSub service exists. Changing this
-     * forces a new resource to be created.
+     * Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return Specifies the supported Azure location where the Web PubSub service exists. Changing this
-     * forces a new resource to be created.
+     * @return Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
@@ -262,16 +260,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.publicPort;
     }
     /**
-     * The name of the resource group in which to create the Web PubSub service. Changing
-     * this forces a new resource to be created.
+     * The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Web PubSub service. Changing
-     * this forces a new resource to be created.
+     * @return The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

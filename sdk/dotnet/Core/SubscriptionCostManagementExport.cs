@@ -113,7 +113,7 @@ namespace Pulumi.Azure.Core
         public Output<string> RecurrenceType { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the subscription on which to create an export.
+        /// The id of the subscription on which to create an export. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subscriptionId")]
         public Output<string> SubscriptionId { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.Core
         public Input<string> RecurrenceType { get; set; } = null!;
 
         /// <summary>
-        /// The id of the subscription on which to create an export.
+        /// The id of the subscription on which to create an export. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subscriptionId", required: true)]
         public Input<string> SubscriptionId { get; set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? RecurrenceType { get; set; }
 
         /// <summary>
-        /// The id of the subscription on which to create an export.
+        /// The id of the subscription on which to create an export. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }

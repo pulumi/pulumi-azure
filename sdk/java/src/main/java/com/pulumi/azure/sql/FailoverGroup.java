@@ -189,14 +189,14 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
         return this.readonlyEndpointFailoverPolicy;
     }
     /**
-     * The name of the resource group containing the SQL server
+     * The name of the resource group containing the SQL server Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group containing the SQL server
+     * @return The name of the resource group containing the SQL server Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

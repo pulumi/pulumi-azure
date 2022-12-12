@@ -71,15 +71,15 @@ export class ContainerStorageAccount extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the vault where the storage account will be registered.
+     * The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
      */
     public readonly recoveryVaultName!: pulumi.Output<string>;
     /**
-     * Name of the resource group where the vault is located.
+     * Name of the resource group where the vault is located. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The ID of the Storage Account to be registered
+     * The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      */
     public readonly storageAccountId!: pulumi.Output<string>;
 
@@ -124,15 +124,15 @@ export class ContainerStorageAccount extends pulumi.CustomResource {
  */
 export interface ContainerStorageAccountState {
     /**
-     * The name of the vault where the storage account will be registered.
+     * The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
      */
     recoveryVaultName?: pulumi.Input<string>;
     /**
-     * Name of the resource group where the vault is located.
+     * Name of the resource group where the vault is located. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The ID of the Storage Account to be registered
+     * The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      */
     storageAccountId?: pulumi.Input<string>;
 }
@@ -142,15 +142,15 @@ export interface ContainerStorageAccountState {
  */
 export interface ContainerStorageAccountArgs {
     /**
-     * The name of the vault where the storage account will be registered.
+     * The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
      */
     recoveryVaultName: pulumi.Input<string>;
     /**
-     * Name of the resource group where the vault is located.
+     * Name of the resource group where the vault is located. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The ID of the Storage Account to be registered
+     * The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      */
     storageAccountId: pulumi.Input<string>;
 }

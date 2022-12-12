@@ -23,6 +23,7 @@ class VolumeArgs:
                  storage_quota_in_gb: pulumi.Input[int],
                  subnet_id: pulumi.Input[str],
                  volume_path: pulumi.Input[str],
+                 azure_vmware_data_store_enabled: Optional[pulumi.Input[bool]] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
                  data_protection_replication: Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']] = None,
                  data_protection_snapshot_policy: Optional[pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs']] = None,
@@ -40,19 +41,19 @@ class VolumeArgs:
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below.
         :param pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        :param pulumi.Input[str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
-        :param pulumi.Input[str] security_style: Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+        :param pulumi.Input[str] security_style: Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] throughput_in_mibps: Throughput of this volume in Mibps.
@@ -64,6 +65,8 @@ class VolumeArgs:
         pulumi.set(__self__, "storage_quota_in_gb", storage_quota_in_gb)
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "volume_path", volume_path)
+        if azure_vmware_data_store_enabled is not None:
+            pulumi.set(__self__, "azure_vmware_data_store_enabled", azure_vmware_data_store_enabled)
         if create_from_snapshot_resource_id is not None:
             pulumi.set(__self__, "create_from_snapshot_resource_id", create_from_snapshot_resource_id)
         if data_protection_replication is not None:
@@ -129,7 +132,7 @@ class VolumeArgs:
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> pulumi.Input[str]:
         """
-        The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_level")
 
@@ -174,10 +177,19 @@ class VolumeArgs:
         pulumi.set(self, "volume_path", value)
 
     @property
+    @pulumi.getter(name="azureVmwareDataStoreEnabled")
+    def azure_vmware_data_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "azure_vmware_data_store_enabled")
+
+    @azure_vmware_data_store_enabled.setter
+    def azure_vmware_data_store_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "azure_vmware_data_store_enabled", value)
+
+    @property
     @pulumi.getter(name="createFromSnapshotResourceId")
     def create_from_snapshot_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "create_from_snapshot_resource_id")
 
@@ -249,7 +261,7 @@ class VolumeArgs:
     @pulumi.getter(name="networkFeatures")
     def network_features(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_features")
 
@@ -273,7 +285,7 @@ class VolumeArgs:
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> Optional[pulumi.Input[str]]:
         """
-        Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+        Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_style")
 
@@ -322,6 +334,7 @@ class VolumeArgs:
 class _VolumeState:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 azure_vmware_data_store_enabled: Optional[pulumi.Input[bool]] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
                  data_protection_replication: Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']] = None,
                  data_protection_snapshot_policy: Optional[pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs']] = None,
@@ -344,19 +357,19 @@ class _VolumeState:
         """
         Input properties used for looking up and filtering Volume resources.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below.
         :param pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        :param pulumi.Input[str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] security_style: Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
-        :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        :param pulumi.Input[str] security_style: Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
         :param pulumi.Input[int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
@@ -366,6 +379,8 @@ class _VolumeState:
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
+        if azure_vmware_data_store_enabled is not None:
+            pulumi.set(__self__, "azure_vmware_data_store_enabled", azure_vmware_data_store_enabled)
         if create_from_snapshot_resource_id is not None:
             pulumi.set(__self__, "create_from_snapshot_resource_id", create_from_snapshot_resource_id)
         if data_protection_replication is not None:
@@ -418,10 +433,19 @@ class _VolumeState:
         pulumi.set(self, "account_name", value)
 
     @property
+    @pulumi.getter(name="azureVmwareDataStoreEnabled")
+    def azure_vmware_data_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "azure_vmware_data_store_enabled")
+
+    @azure_vmware_data_store_enabled.setter
+    def azure_vmware_data_store_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "azure_vmware_data_store_enabled", value)
+
+    @property
     @pulumi.getter(name="createFromSnapshotResourceId")
     def create_from_snapshot_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "create_from_snapshot_resource_id")
 
@@ -505,7 +529,7 @@ class _VolumeState:
     @pulumi.getter(name="networkFeatures")
     def network_features(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_features")
 
@@ -553,7 +577,7 @@ class _VolumeState:
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> Optional[pulumi.Input[str]]:
         """
-        Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+        Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_style")
 
@@ -565,7 +589,7 @@ class _VolumeState:
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> Optional[pulumi.Input[str]]:
         """
-        The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_level")
 
@@ -652,6 +676,7 @@ class Volume(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 azure_vmware_data_store_enabled: Optional[pulumi.Input[bool]] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
                  data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
                  data_protection_snapshot_policy: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']]] = None,
@@ -685,18 +710,18 @@ class Volume(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']] data_protection_replication: A `data_protection_replication` block as defined below.
         :param pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        :param pulumi.Input[str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] security_style: Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
-        :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        :param pulumi.Input[str] security_style: Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
         :param pulumi.Input[int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
@@ -737,6 +762,7 @@ class Volume(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 azure_vmware_data_store_enabled: Optional[pulumi.Input[bool]] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
                  data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
                  data_protection_snapshot_policy: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']]] = None,
@@ -767,6 +793,7 @@ class Volume(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["azure_vmware_data_store_enabled"] = azure_vmware_data_store_enabled
             __props__.__dict__["create_from_snapshot_resource_id"] = create_from_snapshot_resource_id
             __props__.__dict__["data_protection_replication"] = data_protection_replication
             __props__.__dict__["data_protection_snapshot_policy"] = data_protection_snapshot_policy
@@ -809,6 +836,7 @@ class Volume(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[str]] = None,
+            azure_vmware_data_store_enabled: Optional[pulumi.Input[bool]] = None,
             create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
             data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
             data_protection_snapshot_policy: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']]] = None,
@@ -836,19 +864,19 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']] data_protection_replication: A `data_protection_replication` block as defined below.
         :param pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        :param pulumi.Input[str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] security_style: Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
-        :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        :param pulumi.Input[str] security_style: Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
         :param pulumi.Input[int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
@@ -861,6 +889,7 @@ class Volume(pulumi.CustomResource):
         __props__ = _VolumeState.__new__(_VolumeState)
 
         __props__.__dict__["account_name"] = account_name
+        __props__.__dict__["azure_vmware_data_store_enabled"] = azure_vmware_data_store_enabled
         __props__.__dict__["create_from_snapshot_resource_id"] = create_from_snapshot_resource_id
         __props__.__dict__["data_protection_replication"] = data_protection_replication
         __props__.__dict__["data_protection_snapshot_policy"] = data_protection_snapshot_policy
@@ -891,10 +920,15 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "account_name")
 
     @property
+    @pulumi.getter(name="azureVmwareDataStoreEnabled")
+    def azure_vmware_data_store_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "azure_vmware_data_store_enabled")
+
+    @property
     @pulumi.getter(name="createFromSnapshotResourceId")
     def create_from_snapshot_resource_id(self) -> pulumi.Output[str]:
         """
-        Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "create_from_snapshot_resource_id")
 
@@ -950,7 +984,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="networkFeatures")
     def network_features(self) -> pulumi.Output[str]:
         """
-        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_features")
 
@@ -982,7 +1016,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> pulumi.Output[str]:
         """
-        Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+        Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_style")
 
@@ -990,7 +1024,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> pulumi.Output[str]:
         """
-        The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_level")
 

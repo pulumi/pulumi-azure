@@ -80,7 +80,7 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
     }
 
     /**
-     * A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+     * (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
      *
      * @deprecated `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
      */
@@ -90,7 +90,7 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
      */
     public readonly externalMappings!: pulumi.Output<outputs.network.VnpGatewayNatRuleExternalMapping[]>;
     /**
-     * A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+     * (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
      *
      * @deprecated `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
      */
@@ -176,7 +176,7 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
  */
 export interface VnpGatewayNatRuleState {
     /**
-     * A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+     * (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
      *
      * @deprecated `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
      */
@@ -186,7 +186,7 @@ export interface VnpGatewayNatRuleState {
      */
     externalMappings?: pulumi.Input<pulumi.Input<inputs.network.VnpGatewayNatRuleExternalMapping>[]>;
     /**
-     * A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+     * (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
      *
      * @deprecated `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
      */
@@ -226,7 +226,7 @@ export interface VnpGatewayNatRuleState {
  */
 export interface VnpGatewayNatRuleArgs {
     /**
-     * A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+     * (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
      *
      * @deprecated `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
      */
@@ -236,7 +236,7 @@ export interface VnpGatewayNatRuleArgs {
      */
     externalMappings?: pulumi.Input<pulumi.Input<inputs.network.VnpGatewayNatRuleExternalMapping>[]>;
     /**
-     * A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+     * (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
      *
      * @deprecated `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
      */

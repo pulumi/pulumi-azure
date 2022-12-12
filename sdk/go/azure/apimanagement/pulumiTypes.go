@@ -10737,7 +10737,7 @@ type ServiceAdditionalLocation struct {
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
 	// A `virtualNetworkConfiguration` block as defined below.  Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration *ServiceAdditionalLocationVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
-	// A list of availability zones.
+	// A list of availability zones. Changing this forces a new resource to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -10769,7 +10769,7 @@ type ServiceAdditionalLocationArgs struct {
 	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
 	// A `virtualNetworkConfiguration` block as defined below.  Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration ServiceAdditionalLocationVirtualNetworkConfigurationPtrInput `pulumi:"virtualNetworkConfiguration"`
-	// A list of availability zones.
+	// A list of availability zones. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
@@ -10866,7 +10866,7 @@ func (o ServiceAdditionalLocationOutput) VirtualNetworkConfiguration() ServiceAd
 	}).(ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput)
 }
 
-// A list of availability zones.
+// A list of availability zones. Changing this forces a new resource to be created.
 func (o ServiceAdditionalLocationOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceAdditionalLocation) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
@@ -12833,8 +12833,10 @@ type ServiceSecurity struct {
 	TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled *bool `pulumi:"tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled"`
 	// Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 	TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled *bool `pulumi:"tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled"`
-	TlsEcdheRsaWithAes128CbcShaCiphersEnabled   *bool `pulumi:"tlsEcdheRsaWithAes128CbcShaCiphersEnabled"`
-	TlsEcdheRsaWithAes256CbcShaCiphersEnabled   *bool `pulumi:"tlsEcdheRsaWithAes256CbcShaCiphersEnabled"`
+	// Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+	TlsEcdheRsaWithAes128CbcShaCiphersEnabled *bool `pulumi:"tlsEcdheRsaWithAes128CbcShaCiphersEnabled"`
+	// Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+	TlsEcdheRsaWithAes256CbcShaCiphersEnabled *bool `pulumi:"tlsEcdheRsaWithAes256CbcShaCiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
 	TlsRsaWithAes128CbcSha256CiphersEnabled *bool `pulumi:"tlsRsaWithAes128CbcSha256CiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
@@ -12845,6 +12847,8 @@ type ServiceSecurity struct {
 	TlsRsaWithAes256CbcSha256CiphersEnabled *bool `pulumi:"tlsRsaWithAes256CbcSha256CiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 	TlsRsaWithAes256CbcShaCiphersEnabled *bool `pulumi:"tlsRsaWithAes256CbcShaCiphersEnabled"`
+	// Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+	TlsRsaWithAes256GcmSha384CiphersEnabled *bool `pulumi:"tlsRsaWithAes256GcmSha384CiphersEnabled"`
 	// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
 	TripleDesCiphersEnabled *bool `pulumi:"tripleDesCiphersEnabled"`
 }
@@ -12877,8 +12881,10 @@ type ServiceSecurityArgs struct {
 	TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled"`
 	// Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 	TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled"`
-	TlsEcdheRsaWithAes128CbcShaCiphersEnabled   pulumi.BoolPtrInput `pulumi:"tlsEcdheRsaWithAes128CbcShaCiphersEnabled"`
-	TlsEcdheRsaWithAes256CbcShaCiphersEnabled   pulumi.BoolPtrInput `pulumi:"tlsEcdheRsaWithAes256CbcShaCiphersEnabled"`
+	// Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+	TlsEcdheRsaWithAes128CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsEcdheRsaWithAes128CbcShaCiphersEnabled"`
+	// Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+	TlsEcdheRsaWithAes256CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsEcdheRsaWithAes256CbcShaCiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
 	TlsRsaWithAes128CbcSha256CiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes128CbcSha256CiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
@@ -12889,6 +12895,8 @@ type ServiceSecurityArgs struct {
 	TlsRsaWithAes256CbcSha256CiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes256CbcSha256CiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 	TlsRsaWithAes256CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes256CbcShaCiphersEnabled"`
+	// Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+	TlsRsaWithAes256GcmSha384CiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes256GcmSha384CiphersEnabled"`
 	// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
 	TripleDesCiphersEnabled pulumi.BoolPtrInput `pulumi:"tripleDesCiphersEnabled"`
 }
@@ -13010,10 +13018,12 @@ func (o ServiceSecurityOutput) TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled() pul
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
 func (o ServiceSecurityOutput) TlsEcdheRsaWithAes128CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsEcdheRsaWithAes128CbcShaCiphersEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 func (o ServiceSecurityOutput) TlsEcdheRsaWithAes256CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsEcdheRsaWithAes256CbcShaCiphersEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -13041,6 +13051,11 @@ func (o ServiceSecurityOutput) TlsRsaWithAes256CbcSha256CiphersEnabled() pulumi.
 // Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 func (o ServiceSecurityOutput) TlsRsaWithAes256CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsRsaWithAes256CbcShaCiphersEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+func (o ServiceSecurityOutput) TlsRsaWithAes256GcmSha384CiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsRsaWithAes256GcmSha384CiphersEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
@@ -13152,6 +13167,7 @@ func (o ServiceSecurityPtrOutput) TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
 func (o ServiceSecurityPtrOutput) TlsEcdheRsaWithAes128CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13161,6 +13177,7 @@ func (o ServiceSecurityPtrOutput) TlsEcdheRsaWithAes128CbcShaCiphersEnabled() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 func (o ServiceSecurityPtrOutput) TlsEcdheRsaWithAes256CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13217,6 +13234,16 @@ func (o ServiceSecurityPtrOutput) TlsRsaWithAes256CbcShaCiphersEnabled() pulumi.
 			return nil
 		}
 		return v.TlsRsaWithAes256CbcShaCiphersEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+func (o ServiceSecurityPtrOutput) TlsRsaWithAes256GcmSha384CiphersEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TlsRsaWithAes256GcmSha384CiphersEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 

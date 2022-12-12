@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * Spring Cloud services can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/Spring/spring1
+ *  $ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/spring/spring1
  * ```
  */
 export class SpringCloudService extends pulumi.CustomResource {
@@ -124,7 +124,7 @@ export class SpringCloudService extends pulumi.CustomResource {
      */
     public /*out*/ readonly serviceRegistryId!: pulumi.Output<string>;
     /**
-     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string | undefined>;
     /**
@@ -243,7 +243,7 @@ export interface SpringCloudServiceState {
      */
     serviceRegistryId?: pulumi.Input<string>;
     /**
-     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -297,7 +297,7 @@ export interface SpringCloudServiceArgs {
      */
     serviceRegistryEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     /**

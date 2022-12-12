@@ -28,7 +28,7 @@ class AutoscaleSettingArgs:
         The set of arguments for constructing a AutoscaleSetting resource.
         :param pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to.
+        :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enabled: Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the AutoScale Setting. Changing this forces a new resource to be created.
@@ -77,7 +77,7 @@ class AutoscaleSettingArgs:
     @pulumi.getter(name="targetResourceId")
     def target_resource_id(self) -> pulumi.Input[str]:
         """
-        Specifies the resource ID of the resource that the autoscale setting should be added to.
+        Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -166,7 +166,7 @@ class _AutoscaleSettingState:
         :param pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to.
+        :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -273,7 +273,7 @@ class _AutoscaleSettingState:
     @pulumi.getter(name="targetResourceId")
     def target_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the resource ID of the resource that the autoscale setting should be added to.
+        Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -535,7 +535,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to.
+        :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -851,7 +851,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to.
+        :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -927,7 +927,7 @@ class AutoscaleSetting(pulumi.CustomResource):
     @pulumi.getter(name="targetResourceId")
     def target_resource_id(self) -> pulumi.Output[str]:
         """
-        Specifies the resource ID of the resource that the autoscale setting should be added to.
+        Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_resource_id")
 

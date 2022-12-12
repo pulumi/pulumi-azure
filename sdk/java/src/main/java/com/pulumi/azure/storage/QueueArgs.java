@@ -32,14 +32,14 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+     * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+     * @return The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,7 +109,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+         * @param name The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+         * @param name The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

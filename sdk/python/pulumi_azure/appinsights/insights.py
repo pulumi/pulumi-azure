@@ -32,8 +32,7 @@ class InsightsArgs:
         """
         The set of arguments for constructing a Insights resource.
         :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Application Insights component.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
@@ -94,8 +93,7 @@ class InsightsArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to
-        create the Application Insights component.
+        The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -298,8 +296,7 @@ class _InsightsState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Application Insights component.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -503,8 +500,7 @@ class _InsightsState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to
-        create the Application Insights component.
+        The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -641,8 +637,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Application Insights component.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -810,8 +805,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Application Insights component.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -950,8 +944,7 @@ class Insights(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to
-        create the Application Insights component.
+        The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

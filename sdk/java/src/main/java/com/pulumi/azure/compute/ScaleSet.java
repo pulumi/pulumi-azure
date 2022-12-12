@@ -395,14 +395,14 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bootDiagnostics);
     }
     /**
-     * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+     * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="evictionPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> evictionPolicy;
 
     /**
-     * @return Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+     * @return Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> evictionPolicy() {
@@ -583,14 +583,14 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.plan);
     }
     /**
-     * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+     * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="priority", type=String.class, parameters={})
     private Output</* @Nullable */ String> priority;
 
     /**
-     * @return Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+     * @return Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> priority() {
@@ -737,14 +737,14 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return this.upgradePolicyMode;
     }
     /**
-     * A collection of availability zones to spread the Virtual Machines over.
+     * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="zones", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> zones;
 
     /**
-     * @return A collection of availability zones to spread the Virtual Machines over.
+     * @return A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<String>>> zones() {

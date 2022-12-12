@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? AdminPassword { get; set; }
 
         /// <summary>
-        /// The Admin Username for Windows VMs.
+        /// The Admin Username for Windows VMs. Changing this forces a new resource to be created.
         /// </summary>
         [Input("adminUsername", required: true)]
         public Input<string> AdminUsername { get; set; } = null!;

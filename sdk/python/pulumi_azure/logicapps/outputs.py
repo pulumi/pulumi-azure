@@ -529,7 +529,7 @@ class StandardConnectionString(dict):
                  type: str,
                  value: str):
         """
-        :param str name: The name of the Connection String.
+        :param str name: The name of the Connection String. Changing this forces a new resource to be created.
         :param str type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
         :param str value: The value for the Connection String.
         """
@@ -541,7 +541,7 @@ class StandardConnectionString(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Connection String.
+        The name of the Connection String. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

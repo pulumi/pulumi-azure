@@ -34,7 +34,7 @@ class ExpressRouteCircuitArgs:
         :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
         :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created on the Service Provider.
-        :param pulumi.Input[str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on.
+        :param pulumi.Input[str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
@@ -126,7 +126,7 @@ class ExpressRouteCircuitArgs:
     @pulumi.getter(name="expressRoutePortId")
     def express_route_port_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Express Route Port this Express Route Circuit is based on.
+        The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "express_route_port_id")
 
@@ -216,7 +216,7 @@ class _ExpressRouteCircuitState:
         :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
         :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created on the Service Provider.
-        :param pulumi.Input[str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on.
+        :param pulumi.Input[str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
@@ -294,7 +294,7 @@ class _ExpressRouteCircuitState:
     @pulumi.getter(name="expressRoutePortId")
     def express_route_port_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Express Route Port this Express Route Circuit is based on.
+        The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "express_route_port_id")
 
@@ -466,7 +466,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
         :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created on the Service Provider.
-        :param pulumi.Input[str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on.
+        :param pulumi.Input[str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
@@ -599,7 +599,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
         :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created on the Service Provider.
-        :param pulumi.Input[str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on.
+        :param pulumi.Input[str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
@@ -657,7 +657,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
     @pulumi.getter(name="expressRoutePortId")
     def express_route_port_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the Express Route Port this Express Route Circuit is based on.
+        The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "express_route_port_id")
 

@@ -17,14 +17,14 @@ public final class ActionGroupArmRoleReceiverArgs extends com.pulumi.resources.R
     public static final ActionGroupArmRoleReceiverArgs Empty = new ActionGroupArmRoleReceiverArgs();
 
     /**
-     * The name of the ARM role receiver.
+     * The name of the ARM role receiver. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the ARM role receiver.
+     * @return The name of the ARM role receiver. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -88,7 +88,7 @@ public final class ActionGroupArmRoleReceiverArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the ARM role receiver.
+         * @param name The name of the ARM role receiver. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ActionGroupArmRoleReceiverArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the ARM role receiver.
+         * @param name The name of the ARM role receiver. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

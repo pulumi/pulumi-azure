@@ -34,7 +34,7 @@ namespace Pulumi.Azure.FrontDoor
         public Output<bool> CustomHttpsProvisioningEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Front Door Frontend Endpoint which this configuration refers to.
+        /// The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("frontendEndpointId")]
         public Output<string> FrontendEndpointId { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<bool> CustomHttpsProvisioningEnabled { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Front Door Frontend Endpoint which this configuration refers to.
+        /// The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("frontendEndpointId", required: true)]
         public Input<string> FrontendEndpointId { get; set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<bool>? CustomHttpsProvisioningEnabled { get; set; }
 
         /// <summary>
-        /// The ID of the Front Door Frontend Endpoint which this configuration refers to.
+        /// The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("frontendEndpointId")]
         public Input<string>? FrontendEndpointId { get; set; }

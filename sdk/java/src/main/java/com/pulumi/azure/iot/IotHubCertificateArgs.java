@@ -47,14 +47,14 @@ public final class IotHubCertificateArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies if the certificate is created in verified state. Defaults to `false`.
+     * Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="isVerified")
     private @Nullable Output<Boolean> isVerified;
 
     /**
-     * @return Specifies if the certificate is created in verified state. Defaults to `false`.
+     * @return Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> isVerified() {
@@ -162,7 +162,7 @@ public final class IotHubCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param isVerified Specifies if the certificate is created in verified state. Defaults to `false`.
+         * @param isVerified Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class IotHubCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param isVerified Specifies if the certificate is created in verified state. Defaults to `false`.
+         * @param isVerified Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

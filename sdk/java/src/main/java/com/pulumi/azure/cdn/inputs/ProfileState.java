@@ -49,16 +49,14 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to
-     * create the CDN Profile.
+     * The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the CDN Profile.
+     * @return The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -66,14 +64,14 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+     * The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+     * @return The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -168,8 +166,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the CDN Profile.
+         * @param resourceGroupName The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -180,8 +177,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the CDN Profile.
+         * @param resourceGroupName The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -191,7 +187,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+         * @param sku The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -202,7 +198,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+         * @param sku The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

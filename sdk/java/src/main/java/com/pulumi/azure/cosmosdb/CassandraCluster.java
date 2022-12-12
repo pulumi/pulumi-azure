@@ -158,14 +158,14 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCertificatePems);
     }
     /**
-     * The initial admin password for this Cassandra Cluster.
+     * The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="defaultAdminPassword", type=String.class, parameters={})
     private Output<String> defaultAdminPassword;
 
     /**
-     * @return The initial admin password for this Cassandra Cluster.
+     * @return The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> defaultAdminPassword() {

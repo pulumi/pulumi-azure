@@ -84,16 +84,14 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The location/region where the Virtual Desktop Host Pool is
-     * located. Changing the location/region forces a new resource to be created.
+     * The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The location/region where the Virtual Desktop Host Pool is
-     * located. Changing the location/region forces a new resource to be created.
+     * @return The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -118,16 +116,14 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Virtual Desktop Host Pool. Changing the name
-     * forces a new resource to be created.
+     * The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Virtual Desktop Host Pool. Changing the name
-     * forces a new resource to be created.
+     * @return The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -135,16 +131,14 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
-     * `Direct` Assignment – Admin selects a specific host to assign to an user.
+     * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="personalDesktopAssignmentType")
     private @Nullable Output<String> personalDesktopAssignmentType;
 
     /**
-     * @return `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
-     * `Direct` Assignment – Admin selects a specific host to assign to an user.
+     * @return `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> personalDesktopAssignmentType() {
@@ -152,14 +146,14 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="preferredAppGroupType")
     private @Nullable Output<String> preferredAppGroupType;
 
     /**
-     * @return Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+     * @return Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> preferredAppGroupType() {
@@ -167,18 +161,14 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to
-     * create the Virtual Desktop Host Pool. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the Virtual Desktop Host Pool. Changing the resource group name forces
-     * a new resource to be created.
+     * @return The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -387,8 +377,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The location/region where the Virtual Desktop Host Pool is
-         * located. Changing the location/region forces a new resource to be created.
+         * @param location The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -399,8 +388,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The location/region where the Virtual Desktop Host Pool is
-         * located. Changing the location/region forces a new resource to be created.
+         * @param location The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -433,8 +421,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Virtual Desktop Host Pool. Changing the name
-         * forces a new resource to be created.
+         * @param name The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -445,8 +432,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Virtual Desktop Host Pool. Changing the name
-         * forces a new resource to be created.
+         * @param name The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -456,8 +442,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param personalDesktopAssignmentType `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
-         * `Direct` Assignment – Admin selects a specific host to assign to an user.
+         * @param personalDesktopAssignmentType `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -468,8 +453,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param personalDesktopAssignmentType `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
-         * `Direct` Assignment – Admin selects a specific host to assign to an user.
+         * @param personalDesktopAssignmentType `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -479,7 +463,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredAppGroupType Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+         * @param preferredAppGroupType Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -490,7 +474,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredAppGroupType Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+         * @param preferredAppGroupType Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -500,9 +484,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the Virtual Desktop Host Pool. Changing the resource group name forces
-         * a new resource to be created.
+         * @param resourceGroupName The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -513,9 +495,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the Virtual Desktop Host Pool. Changing the resource group name forces
-         * a new resource to be created.
+         * @param resourceGroupName The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

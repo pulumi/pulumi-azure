@@ -72,9 +72,9 @@ type FirewallRule struct {
 
 	// The ending IP address to allow through the firewall for this rule.
 	EndIpAddress pulumi.StringOutput `pulumi:"endIpAddress"`
-	// The name of the firewall rule.
+	// The name of the firewall rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource ID of the SQL Server on which to create the Firewall Rule.
+	// The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 	// The starting IP address to allow through the firewall for this rule.
 	StartIpAddress pulumi.StringOutput `pulumi:"startIpAddress"`
@@ -120,9 +120,9 @@ func GetFirewallRule(ctx *pulumi.Context,
 type firewallRuleState struct {
 	// The ending IP address to allow through the firewall for this rule.
 	EndIpAddress *string `pulumi:"endIpAddress"`
-	// The name of the firewall rule.
+	// The name of the firewall rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The resource ID of the SQL Server on which to create the Firewall Rule.
+	// The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
 	ServerId *string `pulumi:"serverId"`
 	// The starting IP address to allow through the firewall for this rule.
 	StartIpAddress *string `pulumi:"startIpAddress"`
@@ -131,9 +131,9 @@ type firewallRuleState struct {
 type FirewallRuleState struct {
 	// The ending IP address to allow through the firewall for this rule.
 	EndIpAddress pulumi.StringPtrInput
-	// The name of the firewall rule.
+	// The name of the firewall rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The resource ID of the SQL Server on which to create the Firewall Rule.
+	// The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
 	ServerId pulumi.StringPtrInput
 	// The starting IP address to allow through the firewall for this rule.
 	StartIpAddress pulumi.StringPtrInput
@@ -146,9 +146,9 @@ func (FirewallRuleState) ElementType() reflect.Type {
 type firewallRuleArgs struct {
 	// The ending IP address to allow through the firewall for this rule.
 	EndIpAddress string `pulumi:"endIpAddress"`
-	// The name of the firewall rule.
+	// The name of the firewall rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The resource ID of the SQL Server on which to create the Firewall Rule.
+	// The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
 	ServerId string `pulumi:"serverId"`
 	// The starting IP address to allow through the firewall for this rule.
 	StartIpAddress string `pulumi:"startIpAddress"`
@@ -158,9 +158,9 @@ type firewallRuleArgs struct {
 type FirewallRuleArgs struct {
 	// The ending IP address to allow through the firewall for this rule.
 	EndIpAddress pulumi.StringInput
-	// The name of the firewall rule.
+	// The name of the firewall rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The resource ID of the SQL Server on which to create the Firewall Rule.
+	// The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
 	ServerId pulumi.StringInput
 	// The starting IP address to allow through the firewall for this rule.
 	StartIpAddress pulumi.StringInput
@@ -258,12 +258,12 @@ func (o FirewallRuleOutput) EndIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.EndIpAddress }).(pulumi.StringOutput)
 }
 
-// The name of the firewall rule.
+// The name of the firewall rule. Changing this forces a new resource to be created.
 func (o FirewallRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource ID of the SQL Server on which to create the Firewall Rule.
+// The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
 func (o FirewallRuleOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
 }

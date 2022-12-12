@@ -112,7 +112,7 @@ type VirtualNetwork struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to create the virtual network.
+	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
 	Subnets VirtualNetworkSubnetArrayOutput `pulumi:"subnets"`
@@ -173,7 +173,7 @@ type virtualNetworkState struct {
 	Location *string `pulumi:"location"`
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the virtual network.
+	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
 	Subnets []VirtualNetworkSubnet `pulumi:"subnets"`
@@ -200,7 +200,7 @@ type VirtualNetworkState struct {
 	Location pulumi.StringPtrInput
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the virtual network.
+	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
 	Subnets VirtualNetworkSubnetArrayInput
@@ -229,7 +229,7 @@ type virtualNetworkArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the virtual network.
+	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
 	Subnets []VirtualNetworkSubnet `pulumi:"subnets"`
@@ -255,7 +255,7 @@ type VirtualNetworkArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the virtual network.
+	// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
 	Subnets VirtualNetworkSubnetArrayInput
@@ -395,7 +395,7 @@ func (o VirtualNetworkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the virtual network.
+// The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
 func (o VirtualNetworkOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

@@ -108,14 +108,14 @@ public final class NatPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Load Balancer in which to create the NAT pool.
+     * The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="loadbalancerId", required=true)
     private Output<String> loadbalancerId;
 
     /**
-     * @return The ID of the Load Balancer in which to create the NAT pool.
+     * @return The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> loadbalancerId() {
@@ -123,14 +123,14 @@ public final class NatPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the NAT pool.
+     * Specifies the name of the NAT pool. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the NAT pool.
+     * @return Specifies the name of the NAT pool. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -153,14 +153,14 @@ public final class NatPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to create the resource.
+     * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the resource.
+     * @return The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -343,7 +343,7 @@ public final class NatPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadbalancerId The ID of the Load Balancer in which to create the NAT pool.
+         * @param loadbalancerId The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class NatPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadbalancerId The ID of the Load Balancer in which to create the NAT pool.
+         * @param loadbalancerId The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class NatPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the NAT pool.
+         * @param name Specifies the name of the NAT pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class NatPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the NAT pool.
+         * @param name Specifies the name of the NAT pool. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class NatPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the resource.
+         * @param resourceGroupName The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class NatPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the resource.
+         * @param resourceGroupName The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -14,14 +14,14 @@ public final class ProfileMonitorConfigCustomHeaderArgs extends com.pulumi.resou
     public static final ProfileMonitorConfigCustomHeaderArgs Empty = new ProfileMonitorConfigCustomHeaderArgs();
 
     /**
-     * The name of the custom header.
+     * The name of the custom header. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the custom header.
+     * @return The name of the custom header. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -69,7 +69,7 @@ public final class ProfileMonitorConfigCustomHeaderArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name The name of the custom header.
+         * @param name The name of the custom header. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class ProfileMonitorConfigCustomHeaderArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name The name of the custom header.
+         * @param name The name of the custom header. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

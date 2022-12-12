@@ -70,7 +70,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+     * The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`. Changing this forces a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -132,7 +132,7 @@ export interface ClusterState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+     * The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`. Changing this forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -158,7 +158,7 @@ export interface ClusterArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`.
+     * The SKU name of the EventHub Cluster. The only supported value at this time is `Dedicated_1`. Changing this forces a new resource to be created.
      */
     skuName: pulumi.Input<string>;
     /**

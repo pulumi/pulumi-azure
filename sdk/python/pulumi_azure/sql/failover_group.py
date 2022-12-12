@@ -28,7 +28,7 @@ class FailoverGroupArgs:
         The set of arguments for constructing a FailoverGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]] partner_servers: A list of secondary servers as documented below
         :param pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs'] read_write_endpoint_failover_policy: A read/write policy as documented below
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server
+        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the primary SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] databases: A list of database ids to add to the failover group
         :param pulumi.Input[str] name: The name of the failover group. Changing this forces a new resource to be created.
@@ -76,7 +76,7 @@ class FailoverGroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group containing the SQL server
+        The name of the resource group containing the SQL server Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -166,7 +166,7 @@ class _FailoverGroupState:
         :param pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]] partner_servers: A list of secondary servers as documented below
         :param pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs'] read_write_endpoint_failover_policy: A read/write policy as documented below
         :param pulumi.Input['FailoverGroupReadonlyEndpointFailoverPolicyArgs'] readonly_endpoint_failover_policy: a read-only policy as documented below
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server
+        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server Changing this forces a new resource to be created.
         :param pulumi.Input[str] role: local replication role of the failover group instance.
         :param pulumi.Input[str] server_name: The name of the primary SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -268,7 +268,7 @@ class _FailoverGroupState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group containing the SQL server
+        The name of the resource group containing the SQL server Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -379,7 +379,7 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FailoverGroupPartnerServerArgs']]]] partner_servers: A list of secondary servers as documented below
         :param pulumi.Input[pulumi.InputType['FailoverGroupReadWriteEndpointFailoverPolicyArgs']] read_write_endpoint_failover_policy: A read/write policy as documented below
         :param pulumi.Input[pulumi.InputType['FailoverGroupReadonlyEndpointFailoverPolicyArgs']] readonly_endpoint_failover_policy: a read-only policy as documented below
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server
+        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the primary SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -517,7 +517,7 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FailoverGroupPartnerServerArgs']]]] partner_servers: A list of secondary servers as documented below
         :param pulumi.Input[pulumi.InputType['FailoverGroupReadWriteEndpointFailoverPolicyArgs']] read_write_endpoint_failover_policy: A read/write policy as documented below
         :param pulumi.Input[pulumi.InputType['FailoverGroupReadonlyEndpointFailoverPolicyArgs']] readonly_endpoint_failover_policy: a read-only policy as documented below
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server
+        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server Changing this forces a new resource to be created.
         :param pulumi.Input[str] role: local replication role of the failover group instance.
         :param pulumi.Input[str] server_name: The name of the primary SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -590,7 +590,7 @@ class FailoverGroup(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group containing the SQL server
+        The name of the resource group containing the SQL server Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

@@ -108,14 +108,14 @@ public class IotHubCertificate extends com.pulumi.resources.CustomResource {
         return this.iotDpsName;
     }
     /**
-     * Specifies if the certificate is created in verified state. Defaults to `false`.
+     * Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="isVerified", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> isVerified;
 
     /**
-     * @return Specifies if the certificate is created in verified state. Defaults to `false`.
+     * @return Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> isVerified() {

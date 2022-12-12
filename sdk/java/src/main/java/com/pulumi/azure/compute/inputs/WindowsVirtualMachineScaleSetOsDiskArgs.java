@@ -49,14 +49,14 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
     }
 
     /**
-     * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+     * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="diskEncryptionSetId")
     private @Nullable Output<String> diskEncryptionSetId;
 
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> diskEncryptionSetId() {
@@ -109,14 +109,14 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
     }
 
     /**
-     * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+     * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageAccountType", required=true)
     private Output<String> storageAccountType;
 
     /**
-     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountType() {
@@ -212,7 +212,7 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param storageAccountType The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+         * @param storageAccountType The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param storageAccountType The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+         * @param storageAccountType The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -1340,7 +1340,7 @@ class SoftwareUpdateConfigurationWindows(dict):
                  included_knowledge_base_numbers: Optional[Sequence[str]] = None,
                  reboot: Optional[str] = None):
         """
-        :param str classification_included: Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+        :param str classification_included: (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
         :param Sequence[str] classifications_includeds: Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
         :param Sequence[str] excluded_knowledge_base_numbers: Specifies a list of knowledge base numbers excluded.
         :param Sequence[str] included_knowledge_base_numbers: Specifies a list of knowledge base numbers included.
@@ -1361,7 +1361,7 @@ class SoftwareUpdateConfigurationWindows(dict):
     @pulumi.getter(name="classificationIncluded")
     def classification_included(self) -> Optional[str]:
         """
-        Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+        (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
         """
         return pulumi.get(self, "classification_included")
 

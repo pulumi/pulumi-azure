@@ -22,7 +22,7 @@ class AccountIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Identity of this Data Share Account.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Data Share Account.
         """
@@ -36,7 +36,7 @@ class AccountIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 

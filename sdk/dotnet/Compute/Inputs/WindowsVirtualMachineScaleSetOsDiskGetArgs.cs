@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<Inputs.WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsGetArgs>? DiffDiskSettings { get; set; }
 
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+        /// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? SecurityEncryptionType { get; set; }
 
         /// <summary>
-        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;

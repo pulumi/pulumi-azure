@@ -127,7 +127,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly probePath!: pulumi.Output<string>;
     /**
-     * The CDN Profile to which to attach the CDN Endpoint.
+     * The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
      */
     public readonly profileName!: pulumi.Output<string>;
     /**
@@ -135,7 +135,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly querystringCachingBehaviour!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource group in which to create the CDN Endpoint.
+     * The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -276,7 +276,7 @@ export interface EndpointState {
      */
     probePath?: pulumi.Input<string>;
     /**
-     * The CDN Profile to which to attach the CDN Endpoint.
+     * The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
      */
     profileName?: pulumi.Input<string>;
     /**
@@ -284,7 +284,7 @@ export interface EndpointState {
      */
     querystringCachingBehaviour?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the CDN Endpoint.
+     * The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -354,7 +354,7 @@ export interface EndpointArgs {
      */
     probePath?: pulumi.Input<string>;
     /**
-     * The CDN Profile to which to attach the CDN Endpoint.
+     * The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
      */
     profileName: pulumi.Input<string>;
     /**
@@ -362,7 +362,7 @@ export interface EndpointArgs {
      */
     querystringCachingBehaviour?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the CDN Endpoint.
+     * The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

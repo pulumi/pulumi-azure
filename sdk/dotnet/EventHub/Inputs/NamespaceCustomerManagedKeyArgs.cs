@@ -19,7 +19,7 @@ namespace Pulumi.Azure.EventHub.Inputs
         public Input<string> IdentityId { get; set; } = null!;
 
         /// <summary>
-        /// Used to specify whether enable Infrastructure Encryption (Double Encryption).
+        /// Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         /// </summary>
         [Input("infrastructureEncryptionEnabled")]
         public Input<bool>? InfrastructureEncryptionEnabled { get; set; }

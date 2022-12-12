@@ -25,7 +25,7 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// A name to identify on the Git repository, required only if repos exists.
+        /// A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

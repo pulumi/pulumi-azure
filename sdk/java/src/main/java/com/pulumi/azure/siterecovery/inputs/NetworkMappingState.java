@@ -16,14 +16,14 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
     public static final NetworkMappingState Empty = new NetworkMappingState();
 
     /**
-     * The name of the network mapping.
+     * The name of the network mapping. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the network mapping.
+     * @return The name of the network mapping. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -31,14 +31,14 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="recoveryVaultName")
     private @Nullable Output<String> recoveryVaultName;
 
     /**
-     * @return The name of the vault that should be updated.
+     * @return The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> recoveryVaultName() {
@@ -46,14 +46,14 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return Name of the resource group where the vault that should be updated is located.
+     * @return Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -61,14 +61,14 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The id of the primary network.
+     * The id of the primary network. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sourceNetworkId")
     private @Nullable Output<String> sourceNetworkId;
 
     /**
-     * @return The id of the primary network.
+     * @return The id of the primary network. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sourceNetworkId() {
@@ -76,14 +76,14 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the ASR fabric where mapping should be created.
+     * Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sourceRecoveryFabricName")
     private @Nullable Output<String> sourceRecoveryFabricName;
 
     /**
-     * @return Specifies the ASR fabric where mapping should be created.
+     * @return Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sourceRecoveryFabricName() {
@@ -91,14 +91,14 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The id of the recovery network.
+     * The id of the recovery network. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="targetNetworkId")
     private @Nullable Output<String> targetNetworkId;
 
     /**
-     * @return The id of the recovery network.
+     * @return The id of the recovery network. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> targetNetworkId() {
@@ -106,14 +106,14 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+     * The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="targetRecoveryFabricName")
     private @Nullable Output<String> targetRecoveryFabricName;
 
     /**
-     * @return The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+     * @return The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> targetRecoveryFabricName() {
@@ -151,7 +151,7 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the network mapping.
+         * @param name The name of the network mapping. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the network mapping.
+         * @param name The name of the network mapping. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param recoveryVaultName The name of the vault that should be updated.
+         * @param recoveryVaultName The name of the vault that should be updated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param recoveryVaultName The name of the vault that should be updated.
+         * @param recoveryVaultName The name of the vault that should be updated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceGroupName Name of the resource group where the vault that should be updated is located.
+         * @param resourceGroupName Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceGroupName Name of the resource group where the vault that should be updated is located.
+         * @param resourceGroupName Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sourceNetworkId The id of the primary network.
+         * @param sourceNetworkId The id of the primary network. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sourceNetworkId The id of the primary network.
+         * @param sourceNetworkId The id of the primary network. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sourceRecoveryFabricName Specifies the ASR fabric where mapping should be created.
+         * @param sourceRecoveryFabricName Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sourceRecoveryFabricName Specifies the ASR fabric where mapping should be created.
+         * @param sourceRecoveryFabricName Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param targetNetworkId The id of the recovery network.
+         * @param targetNetworkId The id of the recovery network. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param targetNetworkId The id of the recovery network.
+         * @param targetNetworkId The id of the recovery network. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param targetRecoveryFabricName The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+         * @param targetRecoveryFabricName The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class NetworkMappingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param targetRecoveryFabricName The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+         * @param targetRecoveryFabricName The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

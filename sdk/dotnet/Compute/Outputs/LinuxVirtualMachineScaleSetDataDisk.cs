@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? CreateOption;
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+        /// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? DiskEncryptionSetId;
         /// <summary>

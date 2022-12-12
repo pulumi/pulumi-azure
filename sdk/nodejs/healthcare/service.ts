@@ -108,11 +108,11 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the supported Azure Region where the Service should be created.
+     * Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the service instance. Used for service endpoint, must be unique within the audience.
+     * The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -120,7 +120,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the Resource Group in which to create the Service.
+     * The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -200,11 +200,11 @@ export interface ServiceState {
      */
     kind?: pulumi.Input<string>;
     /**
-     * Specifies the supported Azure Region where the Service should be created.
+     * Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the service instance. Used for service endpoint, must be unique within the audience.
+     * The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -212,7 +212,7 @@ export interface ServiceState {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the Resource Group in which to create the Service.
+     * The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -247,11 +247,11 @@ export interface ServiceArgs {
      */
     kind?: pulumi.Input<string>;
     /**
-     * Specifies the supported Azure Region where the Service should be created.
+     * Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the service instance. Used for service endpoint, must be unique within the audience.
+     * The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -259,7 +259,7 @@ export interface ServiceArgs {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the Resource Group in which to create the Service.
+     * The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

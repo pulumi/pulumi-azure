@@ -67,15 +67,15 @@ public final class SpringCloudGatewayRouteConfigRouteArgs extends com.pulumi.res
      * Specifies the route processing order.
      * 
      */
-    @Import(name="order")
-    private @Nullable Output<Integer> order;
+    @Import(name="order", required=true)
+    private Output<Integer> order;
 
     /**
      * @return Specifies the route processing order.
      * 
      */
-    public Optional<Output<Integer>> order() {
-        return Optional.ofNullable(this.order);
+    public Output<Integer> order() {
+        return this.order;
     }
 
     /**
@@ -274,7 +274,7 @@ public final class SpringCloudGatewayRouteConfigRouteArgs extends com.pulumi.res
          * @return builder
          * 
          */
-        public Builder order(@Nullable Output<Integer> order) {
+        public Builder order(Output<Integer> order) {
             $.order = order;
             return this;
         }
@@ -405,6 +405,7 @@ public final class SpringCloudGatewayRouteConfigRouteArgs extends com.pulumi.res
         }
 
         public SpringCloudGatewayRouteConfigRouteArgs build() {
+            $.order = Objects.requireNonNull($.order, "expected parameter 'order' to be non-null");
             return $;
         }
     }

@@ -117,19 +117,19 @@ import (
 type NetworkMapping struct {
 	pulumi.CustomResourceState
 
-	// The name of the network mapping.
+	// The name of the network mapping. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The id of the primary network.
+	// The id of the primary network. Changing this forces a new resource to be created.
 	SourceNetworkId pulumi.StringOutput `pulumi:"sourceNetworkId"`
-	// Specifies the ASR fabric where mapping should be created.
+	// Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
 	SourceRecoveryFabricName pulumi.StringOutput `pulumi:"sourceRecoveryFabricName"`
-	// The id of the recovery network.
+	// The id of the recovery network. Changing this forces a new resource to be created.
 	TargetNetworkId pulumi.StringOutput `pulumi:"targetNetworkId"`
-	// The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+	// The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
 	TargetRecoveryFabricName pulumi.StringOutput `pulumi:"targetRecoveryFabricName"`
 }
 
@@ -180,36 +180,36 @@ func GetNetworkMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkMapping resources.
 type networkMappingState struct {
-	// The name of the network mapping.
+	// The name of the network mapping. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName *string `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The id of the primary network.
+	// The id of the primary network. Changing this forces a new resource to be created.
 	SourceNetworkId *string `pulumi:"sourceNetworkId"`
-	// Specifies the ASR fabric where mapping should be created.
+	// Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
 	SourceRecoveryFabricName *string `pulumi:"sourceRecoveryFabricName"`
-	// The id of the recovery network.
+	// The id of the recovery network. Changing this forces a new resource to be created.
 	TargetNetworkId *string `pulumi:"targetNetworkId"`
-	// The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+	// The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
 	TargetRecoveryFabricName *string `pulumi:"targetRecoveryFabricName"`
 }
 
 type NetworkMappingState struct {
-	// The name of the network mapping.
+	// The name of the network mapping. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringPtrInput
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The id of the primary network.
+	// The id of the primary network. Changing this forces a new resource to be created.
 	SourceNetworkId pulumi.StringPtrInput
-	// Specifies the ASR fabric where mapping should be created.
+	// Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
 	SourceRecoveryFabricName pulumi.StringPtrInput
-	// The id of the recovery network.
+	// The id of the recovery network. Changing this forces a new resource to be created.
 	TargetNetworkId pulumi.StringPtrInput
-	// The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+	// The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
 	TargetRecoveryFabricName pulumi.StringPtrInput
 }
 
@@ -218,37 +218,37 @@ func (NetworkMappingState) ElementType() reflect.Type {
 }
 
 type networkMappingArgs struct {
-	// The name of the network mapping.
+	// The name of the network mapping. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The id of the primary network.
+	// The id of the primary network. Changing this forces a new resource to be created.
 	SourceNetworkId string `pulumi:"sourceNetworkId"`
-	// Specifies the ASR fabric where mapping should be created.
+	// Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
 	SourceRecoveryFabricName string `pulumi:"sourceRecoveryFabricName"`
-	// The id of the recovery network.
+	// The id of the recovery network. Changing this forces a new resource to be created.
 	TargetNetworkId string `pulumi:"targetNetworkId"`
-	// The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+	// The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
 	TargetRecoveryFabricName string `pulumi:"targetRecoveryFabricName"`
 }
 
 // The set of arguments for constructing a NetworkMapping resource.
 type NetworkMappingArgs struct {
-	// The name of the network mapping.
+	// The name of the network mapping. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the vault that should be updated.
+	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringInput
-	// Name of the resource group where the vault that should be updated is located.
+	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The id of the primary network.
+	// The id of the primary network. Changing this forces a new resource to be created.
 	SourceNetworkId pulumi.StringInput
-	// Specifies the ASR fabric where mapping should be created.
+	// Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
 	SourceRecoveryFabricName pulumi.StringInput
-	// The id of the recovery network.
+	// The id of the recovery network. Changing this forces a new resource to be created.
 	TargetNetworkId pulumi.StringInput
-	// The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+	// The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
 	TargetRecoveryFabricName pulumi.StringInput
 }
 
@@ -339,37 +339,37 @@ func (o NetworkMappingOutput) ToNetworkMappingOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The name of the network mapping.
+// The name of the network mapping. Changing this forces a new resource to be created.
 func (o NetworkMappingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the vault that should be updated.
+// The name of the vault that should be updated. Changing this forces a new resource to be created.
 func (o NetworkMappingOutput) RecoveryVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkMapping) pulumi.StringOutput { return v.RecoveryVaultName }).(pulumi.StringOutput)
 }
 
-// Name of the resource group where the vault that should be updated is located.
+// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 func (o NetworkMappingOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkMapping) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The id of the primary network.
+// The id of the primary network. Changing this forces a new resource to be created.
 func (o NetworkMappingOutput) SourceNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkMapping) pulumi.StringOutput { return v.SourceNetworkId }).(pulumi.StringOutput)
 }
 
-// Specifies the ASR fabric where mapping should be created.
+// Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
 func (o NetworkMappingOutput) SourceRecoveryFabricName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkMapping) pulumi.StringOutput { return v.SourceRecoveryFabricName }).(pulumi.StringOutput)
 }
 
-// The id of the recovery network.
+// The id of the recovery network. Changing this forces a new resource to be created.
 func (o NetworkMappingOutput) TargetNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkMapping) pulumi.StringOutput { return v.TargetNetworkId }).(pulumi.StringOutput)
 }
 
-// The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+// The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
 func (o NetworkMappingOutput) TargetRecoveryFabricName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkMapping) pulumi.StringOutput { return v.TargetRecoveryFabricName }).(pulumi.StringOutput)
 }

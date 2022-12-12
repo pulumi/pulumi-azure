@@ -33,14 +33,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+     * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+     * @return The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -48,16 +48,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the storage account in which to create the storage table.
-     * Changing this forces a new resource to be created.
+     * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageAccountName", required=true)
     private Output<String> storageAccountName;
 
     /**
-     * @return Specifies the storage account in which to create the storage table.
-     * Changing this forces a new resource to be created.
+     * @return Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountName() {
@@ -122,7 +120,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+         * @param name The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -133,7 +131,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+         * @param name The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -143,8 +141,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName Specifies the storage account in which to create the storage table.
-         * Changing this forces a new resource to be created.
+         * @param storageAccountName Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -155,8 +152,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName Specifies the storage account in which to create the storage table.
-         * Changing this forces a new resource to be created.
+         * @param storageAccountName Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

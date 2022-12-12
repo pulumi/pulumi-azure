@@ -34,7 +34,7 @@ class MetricAlertArgs:
                  window_size: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MetricAlert resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Metric Alert instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A set of strings of resource IDs at which the metric criteria should be applied.
         :param pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]] actions: One or more `action` blocks as defined below.
         :param pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs'] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
@@ -86,7 +86,7 @@ class MetricAlertArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Metric Alert instance.
+        The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -305,7 +305,7 @@ class _MetricAlertState:
         :param pulumi.Input[bool] enabled: Should this Metric Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] frequency: The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
         :param pulumi.Input[str] name: The name of the Metric Alert. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Metric Alert instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A set of strings of resource IDs at which the metric criteria should be applied.
         :param pulumi.Input[int] severity: The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -458,7 +458,7 @@ class _MetricAlertState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the Metric Alert instance.
+        The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -623,7 +623,7 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should this Metric Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] frequency: The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
         :param pulumi.Input[str] name: The name of the Metric Alert. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Metric Alert instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A set of strings of resource IDs at which the metric criteria should be applied.
         :param pulumi.Input[int] severity: The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -790,7 +790,7 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should this Metric Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] frequency: The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
         :param pulumi.Input[str] name: The name of the Metric Alert. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Metric Alert instance.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A set of strings of resource IDs at which the metric criteria should be applied.
         :param pulumi.Input[int] severity: The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -896,7 +896,7 @@ class MetricAlert(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the Metric Alert instance.
+        The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

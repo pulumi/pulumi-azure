@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         final var frontdoor = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
- *             .displayName(&#34;Microsoft.AzureFrontDoor-Cdn&#34;)
+ *             .displayName(&#34;Microsoft.Azure.Cdn&#34;)
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        

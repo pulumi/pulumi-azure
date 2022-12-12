@@ -59,12 +59,16 @@ import (
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 
+	// Whether enable auto learn private ip range. Defaults to `false`.
+	AutoLearnPrivateRangesEnabled pulumi.BoolPtrOutput `pulumi:"autoLearnPrivateRangesEnabled"`
 	// The ID of the base Firewall Policy.
 	BasePolicyId pulumi.StringPtrOutput `pulumi:"basePolicyId"`
 	// A list of reference to child Firewall Policies of this Firewall Policy.
 	ChildPolicies pulumi.StringArrayOutput `pulumi:"childPolicies"`
 	// A `dns` block as defined below.
 	Dns FirewallPolicyDnsPtrOutput `pulumi:"dns"`
+	// A `explicitProxy` block as defined below.
+	ExplicitProxy FirewallPolicyExplicitProxyPtrOutput `pulumi:"explicitProxy"`
 	// A list of references to Azure Firewalls that this Firewall Policy is associated with.
 	Firewalls pulumi.StringArrayOutput `pulumi:"firewalls"`
 	// An `identity` block as defined below.
@@ -129,12 +133,16 @@ func GetFirewallPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallPolicy resources.
 type firewallPolicyState struct {
+	// Whether enable auto learn private ip range. Defaults to `false`.
+	AutoLearnPrivateRangesEnabled *bool `pulumi:"autoLearnPrivateRangesEnabled"`
 	// The ID of the base Firewall Policy.
 	BasePolicyId *string `pulumi:"basePolicyId"`
 	// A list of reference to child Firewall Policies of this Firewall Policy.
 	ChildPolicies []string `pulumi:"childPolicies"`
 	// A `dns` block as defined below.
 	Dns *FirewallPolicyDns `pulumi:"dns"`
+	// A `explicitProxy` block as defined below.
+	ExplicitProxy *FirewallPolicyExplicitProxy `pulumi:"explicitProxy"`
 	// A list of references to Azure Firewalls that this Firewall Policy is associated with.
 	Firewalls []string `pulumi:"firewalls"`
 	// An `identity` block as defined below.
@@ -168,12 +176,16 @@ type firewallPolicyState struct {
 }
 
 type FirewallPolicyState struct {
+	// Whether enable auto learn private ip range. Defaults to `false`.
+	AutoLearnPrivateRangesEnabled pulumi.BoolPtrInput
 	// The ID of the base Firewall Policy.
 	BasePolicyId pulumi.StringPtrInput
 	// A list of reference to child Firewall Policies of this Firewall Policy.
 	ChildPolicies pulumi.StringArrayInput
 	// A `dns` block as defined below.
 	Dns FirewallPolicyDnsPtrInput
+	// A `explicitProxy` block as defined below.
+	ExplicitProxy FirewallPolicyExplicitProxyPtrInput
 	// A list of references to Azure Firewalls that this Firewall Policy is associated with.
 	Firewalls pulumi.StringArrayInput
 	// An `identity` block as defined below.
@@ -211,10 +223,14 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 }
 
 type firewallPolicyArgs struct {
+	// Whether enable auto learn private ip range. Defaults to `false`.
+	AutoLearnPrivateRangesEnabled *bool `pulumi:"autoLearnPrivateRangesEnabled"`
 	// The ID of the base Firewall Policy.
 	BasePolicyId *string `pulumi:"basePolicyId"`
 	// A `dns` block as defined below.
 	Dns *FirewallPolicyDns `pulumi:"dns"`
+	// A `explicitProxy` block as defined below.
+	ExplicitProxy *FirewallPolicyExplicitProxy `pulumi:"explicitProxy"`
 	// An `identity` block as defined below.
 	Identity *FirewallPolicyIdentity `pulumi:"identity"`
 	// An `insights` block as defined below.
@@ -245,10 +261,14 @@ type firewallPolicyArgs struct {
 
 // The set of arguments for constructing a FirewallPolicy resource.
 type FirewallPolicyArgs struct {
+	// Whether enable auto learn private ip range. Defaults to `false`.
+	AutoLearnPrivateRangesEnabled pulumi.BoolPtrInput
 	// The ID of the base Firewall Policy.
 	BasePolicyId pulumi.StringPtrInput
 	// A `dns` block as defined below.
 	Dns FirewallPolicyDnsPtrInput
+	// A `explicitProxy` block as defined below.
+	ExplicitProxy FirewallPolicyExplicitProxyPtrInput
 	// An `identity` block as defined below.
 	Identity FirewallPolicyIdentityPtrInput
 	// An `insights` block as defined below.
@@ -364,6 +384,11 @@ func (o FirewallPolicyOutput) ToFirewallPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Whether enable auto learn private ip range. Defaults to `false`.
+func (o FirewallPolicyOutput) AutoLearnPrivateRangesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicy) pulumi.BoolPtrOutput { return v.AutoLearnPrivateRangesEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The ID of the base Firewall Policy.
 func (o FirewallPolicyOutput) BasePolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringPtrOutput { return v.BasePolicyId }).(pulumi.StringPtrOutput)
@@ -377,6 +402,11 @@ func (o FirewallPolicyOutput) ChildPolicies() pulumi.StringArrayOutput {
 // A `dns` block as defined below.
 func (o FirewallPolicyOutput) Dns() FirewallPolicyDnsPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicy) FirewallPolicyDnsPtrOutput { return v.Dns }).(FirewallPolicyDnsPtrOutput)
+}
+
+// A `explicitProxy` block as defined below.
+func (o FirewallPolicyOutput) ExplicitProxy() FirewallPolicyExplicitProxyPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicy) FirewallPolicyExplicitProxyPtrOutput { return v.ExplicitProxy }).(FirewallPolicyExplicitProxyPtrOutput)
 }
 
 // A list of references to Azure Firewalls that this Firewall Policy is associated with.

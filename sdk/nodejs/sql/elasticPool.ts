@@ -102,7 +102,7 @@ export class ElasticPool extends pulumi.CustomResource {
      */
     public readonly poolSize!: pulumi.Output<number>;
     /**
-     * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+     * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -206,7 +206,7 @@ export interface ElasticPoolState {
      */
     poolSize?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+     * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -252,7 +252,7 @@ export interface ElasticPoolArgs {
      */
     poolSize?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+     * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

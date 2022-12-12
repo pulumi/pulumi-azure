@@ -16,14 +16,14 @@ public final class WindowsVirtualMachineScaleSetWinrmListenerArgs extends com.pu
     public static final WindowsVirtualMachineScaleSetWinrmListenerArgs Empty = new WindowsVirtualMachineScaleSetWinrmListenerArgs();
 
     /**
-     * The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+     * The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="certificateUrl")
     private @Nullable Output<String> certificateUrl;
 
     /**
-     * @return The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+     * @return The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> certificateUrl() {
@@ -31,14 +31,14 @@ public final class WindowsVirtualMachineScaleSetWinrmListenerArgs extends com.pu
     }
 
     /**
-     * The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
+     * The Protocol of the WinRM Listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
+     * @return The Protocol of the WinRM Listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> protocol() {
@@ -71,7 +71,7 @@ public final class WindowsVirtualMachineScaleSetWinrmListenerArgs extends com.pu
         }
 
         /**
-         * @param certificateUrl The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+         * @param certificateUrl The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class WindowsVirtualMachineScaleSetWinrmListenerArgs extends com.pu
         }
 
         /**
-         * @param certificateUrl The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+         * @param certificateUrl The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class WindowsVirtualMachineScaleSetWinrmListenerArgs extends com.pu
         }
 
         /**
-         * @param protocol The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
+         * @param protocol The Protocol of the WinRM Listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class WindowsVirtualMachineScaleSetWinrmListenerArgs extends com.pu
         }
 
         /**
-         * @param protocol The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
+         * @param protocol The Protocol of the WinRM Listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -73,7 +73,7 @@ import (
 type Creator struct {
 	pulumi.CustomResourceState
 
-	// The Azure Region where the Azure Maps Creator should exist.
+	// The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
 	MapsAccountId pulumi.StringOutput `pulumi:"mapsAccountId"`
@@ -120,7 +120,7 @@ func GetCreator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Creator resources.
 type creatorState struct {
-	// The Azure Region where the Azure Maps Creator should exist.
+	// The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
 	MapsAccountId *string `pulumi:"mapsAccountId"`
@@ -133,7 +133,7 @@ type creatorState struct {
 }
 
 type CreatorState struct {
-	// The Azure Region where the Azure Maps Creator should exist.
+	// The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
 	MapsAccountId pulumi.StringPtrInput
@@ -150,7 +150,7 @@ func (CreatorState) ElementType() reflect.Type {
 }
 
 type creatorArgs struct {
-	// The Azure Region where the Azure Maps Creator should exist.
+	// The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
 	MapsAccountId string `pulumi:"mapsAccountId"`
@@ -164,7 +164,7 @@ type creatorArgs struct {
 
 // The set of arguments for constructing a Creator resource.
 type CreatorArgs struct {
-	// The Azure Region where the Azure Maps Creator should exist.
+	// The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
 	MapsAccountId pulumi.StringInput
@@ -263,7 +263,7 @@ func (o CreatorOutput) ToCreatorOutputWithContext(ctx context.Context) CreatorOu
 	return o
 }
 
-// The Azure Region where the Azure Maps Creator should exist.
+// The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
 func (o CreatorOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Creator) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

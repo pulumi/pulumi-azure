@@ -105,7 +105,7 @@ type Cache struct {
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
 	// An `identity` block as defined below.
 	Identity CacheIdentityPtrOutput `pulumi:"identity"`
-	// The location of the resource group.
+	// The location of the resource group. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
@@ -132,8 +132,7 @@ type Cache struct {
 	ReplicasPerMaster pulumi.IntOutput `pulumi:"replicasPerMaster"`
 	// Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
 	ReplicasPerPrimary pulumi.IntOutput `pulumi:"replicasPerPrimary"`
-	// The name of the resource group in which to
-	// create the Redis instance.
+	// The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Redis Instance
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
@@ -206,7 +205,7 @@ type cacheState struct {
 	Hostname *string `pulumi:"hostname"`
 	// An `identity` block as defined below.
 	Identity *CacheIdentity `pulumi:"identity"`
-	// The location of the resource group.
+	// The location of the resource group. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
@@ -233,8 +232,7 @@ type cacheState struct {
 	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
 	// Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
 	ReplicasPerPrimary *int `pulumi:"replicasPerPrimary"`
-	// The name of the resource group in which to
-	// create the Redis instance.
+	// The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Redis Instance
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
@@ -267,7 +265,7 @@ type CacheState struct {
 	Hostname pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity CacheIdentityPtrInput
-	// The location of the resource group.
+	// The location of the resource group. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion pulumi.StringPtrInput
@@ -294,8 +292,7 @@ type CacheState struct {
 	ReplicasPerMaster pulumi.IntPtrInput
 	// Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
 	ReplicasPerPrimary pulumi.IntPtrInput
-	// The name of the resource group in which to
-	// create the Redis instance.
+	// The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Secondary Access Key for the Redis Instance
 	SecondaryAccessKey pulumi.StringPtrInput
@@ -330,7 +327,7 @@ type cacheArgs struct {
 	Family string `pulumi:"family"`
 	// An `identity` block as defined below.
 	Identity *CacheIdentity `pulumi:"identity"`
-	// The location of the resource group.
+	// The location of the resource group. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
@@ -351,8 +348,7 @@ type cacheArgs struct {
 	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
 	// Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
 	ReplicasPerPrimary *int `pulumi:"replicasPerPrimary"`
-	// The name of the resource group in which to
-	// create the Redis instance.
+	// The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
 	ShardCount *int `pulumi:"shardCount"`
@@ -378,7 +374,7 @@ type CacheArgs struct {
 	Family pulumi.StringInput
 	// An `identity` block as defined below.
 	Identity CacheIdentityPtrInput
-	// The location of the resource group.
+	// The location of the resource group. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The minimum TLS version.  Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion pulumi.StringPtrInput
@@ -399,8 +395,7 @@ type CacheArgs struct {
 	ReplicasPerMaster pulumi.IntPtrInput
 	// Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
 	ReplicasPerPrimary pulumi.IntPtrInput
-	// The name of the resource group in which to
-	// create the Redis instance.
+	// The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
 	ShardCount pulumi.IntPtrInput
@@ -528,7 +523,7 @@ func (o CacheOutput) Identity() CacheIdentityPtrOutput {
 	return o.ApplyT(func(v *Cache) CacheIdentityPtrOutput { return v.Identity }).(CacheIdentityPtrOutput)
 }
 
-// The location of the resource group.
+// The location of the resource group. Changing this forces a new resource to be created.
 func (o CacheOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -594,8 +589,7 @@ func (o CacheOutput) ReplicasPerPrimary() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cache) pulumi.IntOutput { return v.ReplicasPerPrimary }).(pulumi.IntOutput)
 }
 
-// The name of the resource group in which to
-// create the Redis instance.
+// The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
 func (o CacheOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

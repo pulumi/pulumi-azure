@@ -49,14 +49,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Key Vault where the Certificate should be created.
+     * The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="keyVaultId", required=true)
     private Output<String> keyVaultId;
 
     /**
-     * @return The ID of the Key Vault where the Certificate should be created.
+     * @return The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> keyVaultId() {
@@ -164,7 +164,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyVaultId The ID of the Key Vault where the Certificate should be created.
+         * @param keyVaultId The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyVaultId The ID of the Key Vault where the Certificate should be created.
+         * @param keyVaultId The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

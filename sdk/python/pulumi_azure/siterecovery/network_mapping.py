@@ -23,13 +23,13 @@ class NetworkMappingArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NetworkMapping resource.
-        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
-        :param pulumi.Input[str] source_network_id: The id of the primary network.
-        :param pulumi.Input[str] source_recovery_fabric_name: Specifies the ASR fabric where mapping should be created.
-        :param pulumi.Input[str] target_network_id: The id of the recovery network.
-        :param pulumi.Input[str] target_recovery_fabric_name: The Azure Site Recovery fabric object corresponding to the recovery Azure region.
-        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_network_id: The id of the primary network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_recovery_fabric_name: Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_network_id: The id of the recovery network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_recovery_fabric_name: The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the network mapping. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -44,7 +44,7 @@ class NetworkMappingArgs:
     @pulumi.getter(name="recoveryVaultName")
     def recovery_vault_name(self) -> pulumi.Input[str]:
         """
-        The name of the vault that should be updated.
+        The name of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
@@ -56,7 +56,7 @@ class NetworkMappingArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group where the vault that should be updated is located.
+        Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -68,7 +68,7 @@ class NetworkMappingArgs:
     @pulumi.getter(name="sourceNetworkId")
     def source_network_id(self) -> pulumi.Input[str]:
         """
-        The id of the primary network.
+        The id of the primary network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_network_id")
 
@@ -80,7 +80,7 @@ class NetworkMappingArgs:
     @pulumi.getter(name="sourceRecoveryFabricName")
     def source_recovery_fabric_name(self) -> pulumi.Input[str]:
         """
-        Specifies the ASR fabric where mapping should be created.
+        Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_recovery_fabric_name")
 
@@ -92,7 +92,7 @@ class NetworkMappingArgs:
     @pulumi.getter(name="targetNetworkId")
     def target_network_id(self) -> pulumi.Input[str]:
         """
-        The id of the recovery network.
+        The id of the recovery network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_network_id")
 
@@ -104,7 +104,7 @@ class NetworkMappingArgs:
     @pulumi.getter(name="targetRecoveryFabricName")
     def target_recovery_fabric_name(self) -> pulumi.Input[str]:
         """
-        The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+        The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_recovery_fabric_name")
 
@@ -116,7 +116,7 @@ class NetworkMappingArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the network mapping.
+        The name of the network mapping. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -137,13 +137,13 @@ class _NetworkMappingState:
                  target_recovery_fabric_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NetworkMapping resources.
-        :param pulumi.Input[str] name: The name of the network mapping.
-        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
-        :param pulumi.Input[str] source_network_id: The id of the primary network.
-        :param pulumi.Input[str] source_recovery_fabric_name: Specifies the ASR fabric where mapping should be created.
-        :param pulumi.Input[str] target_network_id: The id of the recovery network.
-        :param pulumi.Input[str] target_recovery_fabric_name: The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+        :param pulumi.Input[str] name: The name of the network mapping. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_network_id: The id of the primary network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_recovery_fabric_name: Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_network_id: The id of the recovery network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_recovery_fabric_name: The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -164,7 +164,7 @@ class _NetworkMappingState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the network mapping.
+        The name of the network mapping. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -176,7 +176,7 @@ class _NetworkMappingState:
     @pulumi.getter(name="recoveryVaultName")
     def recovery_vault_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the vault that should be updated.
+        The name of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
@@ -188,7 +188,7 @@ class _NetworkMappingState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the resource group where the vault that should be updated is located.
+        Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -200,7 +200,7 @@ class _NetworkMappingState:
     @pulumi.getter(name="sourceNetworkId")
     def source_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of the primary network.
+        The id of the primary network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_network_id")
 
@@ -212,7 +212,7 @@ class _NetworkMappingState:
     @pulumi.getter(name="sourceRecoveryFabricName")
     def source_recovery_fabric_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the ASR fabric where mapping should be created.
+        Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_recovery_fabric_name")
 
@@ -224,7 +224,7 @@ class _NetworkMappingState:
     @pulumi.getter(name="targetNetworkId")
     def target_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The id of the recovery network.
+        The id of the recovery network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_network_id")
 
@@ -236,7 +236,7 @@ class _NetworkMappingState:
     @pulumi.getter(name="targetRecoveryFabricName")
     def target_recovery_fabric_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+        The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_recovery_fabric_name")
 
@@ -310,13 +310,13 @@ class NetworkMapping(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the network mapping.
-        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
-        :param pulumi.Input[str] source_network_id: The id of the primary network.
-        :param pulumi.Input[str] source_recovery_fabric_name: Specifies the ASR fabric where mapping should be created.
-        :param pulumi.Input[str] target_network_id: The id of the recovery network.
-        :param pulumi.Input[str] target_recovery_fabric_name: The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+        :param pulumi.Input[str] name: The name of the network mapping. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_network_id: The id of the primary network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_recovery_fabric_name: Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_network_id: The id of the recovery network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_recovery_fabric_name: The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -448,13 +448,13 @@ class NetworkMapping(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the network mapping.
-        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
-        :param pulumi.Input[str] source_network_id: The id of the primary network.
-        :param pulumi.Input[str] source_recovery_fabric_name: Specifies the ASR fabric where mapping should be created.
-        :param pulumi.Input[str] target_network_id: The id of the recovery network.
-        :param pulumi.Input[str] target_recovery_fabric_name: The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+        :param pulumi.Input[str] name: The name of the network mapping. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_network_id: The id of the primary network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_recovery_fabric_name: Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_network_id: The id of the recovery network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_recovery_fabric_name: The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -473,7 +473,7 @@ class NetworkMapping(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the network mapping.
+        The name of the network mapping. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -481,7 +481,7 @@ class NetworkMapping(pulumi.CustomResource):
     @pulumi.getter(name="recoveryVaultName")
     def recovery_vault_name(self) -> pulumi.Output[str]:
         """
-        The name of the vault that should be updated.
+        The name of the vault that should be updated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_vault_name")
 
@@ -489,7 +489,7 @@ class NetworkMapping(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        Name of the resource group where the vault that should be updated is located.
+        Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -497,7 +497,7 @@ class NetworkMapping(pulumi.CustomResource):
     @pulumi.getter(name="sourceNetworkId")
     def source_network_id(self) -> pulumi.Output[str]:
         """
-        The id of the primary network.
+        The id of the primary network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_network_id")
 
@@ -505,7 +505,7 @@ class NetworkMapping(pulumi.CustomResource):
     @pulumi.getter(name="sourceRecoveryFabricName")
     def source_recovery_fabric_name(self) -> pulumi.Output[str]:
         """
-        Specifies the ASR fabric where mapping should be created.
+        Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_recovery_fabric_name")
 
@@ -513,7 +513,7 @@ class NetworkMapping(pulumi.CustomResource):
     @pulumi.getter(name="targetNetworkId")
     def target_network_id(self) -> pulumi.Output[str]:
         """
-        The id of the recovery network.
+        The id of the recovery network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_network_id")
 
@@ -521,7 +521,7 @@ class NetworkMapping(pulumi.CustomResource):
     @pulumi.getter(name="targetRecoveryFabricName")
     def target_recovery_fabric_name(self) -> pulumi.Output[str]:
         """
-        The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+        The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_recovery_fabric_name")
 

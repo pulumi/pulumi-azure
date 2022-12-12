@@ -72,9 +72,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:databricks/accessConnector:AccessConnector")
 public class AccessConnector extends com.pulumi.resources.CustomResource {
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
     @Export(name="identity", type=AccessConnectorIdentity.class, parameters={})
     private Output<AccessConnectorIdentity> identity;
 
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
     public Output<AccessConnectorIdentity> identity() {
         return this.identity;
     }

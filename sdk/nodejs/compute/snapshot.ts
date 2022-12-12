@@ -68,7 +68,7 @@ export class Snapshot extends pulumi.CustomResource {
     }
 
     /**
-     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
      */
     public readonly createOption!: pulumi.Output<string>;
     /**
@@ -166,7 +166,7 @@ export class Snapshot extends pulumi.CustomResource {
  */
 export interface SnapshotState {
     /**
-     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
      */
     createOption?: pulumi.Input<string>;
     /**
@@ -216,7 +216,7 @@ export interface SnapshotState {
  */
 export interface SnapshotArgs {
     /**
-     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
      */
     createOption: pulumi.Input<string>;
     /**

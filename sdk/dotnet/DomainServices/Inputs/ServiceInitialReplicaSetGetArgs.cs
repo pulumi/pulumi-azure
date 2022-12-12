@@ -49,7 +49,7 @@ namespace Pulumi.Azure.DomainServices.Inputs
         public Input<string>? ServiceStatus { get; set; }
 
         /// <summary>
-        /// The ID of the subnet in which to place the initial replica set.
+        /// The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;

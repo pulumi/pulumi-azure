@@ -43,7 +43,7 @@ type Database struct {
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
 	MaxSizeBytes pulumi.StringOutput `pulumi:"maxSizeBytes"`
 	MaxSizeGb    pulumi.StringOutput `pulumi:"maxSizeGb"`
-	// The name of the database.
+	// The name of the database. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/azure/sql-database/sql-database-read-scale-out).
 	ReadScale pulumi.BoolPtrOutput `pulumi:"readScale"`
@@ -52,11 +52,11 @@ type Database struct {
 	RequestedServiceObjectiveId pulumi.StringOutput `pulumi:"requestedServiceObjectiveId"`
 	// The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
 	RequestedServiceObjectiveName pulumi.StringOutput `pulumi:"requestedServiceObjectiveName"`
-	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 	RestorePointInTime pulumi.StringOutput `pulumi:"restorePointInTime"`
-	// The name of the SQL Server on which to create the database.
+	// The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
 	ServerName pulumi.StringOutput `pulumi:"serverName"`
 	// The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
 	SourceDatabaseDeletionDate pulumi.StringOutput `pulumi:"sourceDatabaseDeletionDate"`
@@ -125,7 +125,7 @@ type databaseState struct {
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
 	MaxSizeBytes *string `pulumi:"maxSizeBytes"`
 	MaxSizeGb    *string `pulumi:"maxSizeGb"`
-	// The name of the database.
+	// The name of the database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/azure/sql-database/sql-database-read-scale-out).
 	ReadScale *bool `pulumi:"readScale"`
@@ -134,11 +134,11 @@ type databaseState struct {
 	RequestedServiceObjectiveId *string `pulumi:"requestedServiceObjectiveId"`
 	// The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
 	RequestedServiceObjectiveName *string `pulumi:"requestedServiceObjectiveName"`
-	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
-	// The name of the SQL Server on which to create the database.
+	// The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
 	ServerName *string `pulumi:"serverName"`
 	// The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
 	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
@@ -173,7 +173,7 @@ type DatabaseState struct {
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
 	MaxSizeBytes pulumi.StringPtrInput
 	MaxSizeGb    pulumi.StringPtrInput
-	// The name of the database.
+	// The name of the database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/azure/sql-database/sql-database-read-scale-out).
 	ReadScale pulumi.BoolPtrInput
@@ -182,11 +182,11 @@ type DatabaseState struct {
 	RequestedServiceObjectiveId pulumi.StringPtrInput
 	// The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
 	RequestedServiceObjectiveName pulumi.StringPtrInput
-	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 	RestorePointInTime pulumi.StringPtrInput
-	// The name of the SQL Server on which to create the database.
+	// The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
 	ServerName pulumi.StringPtrInput
 	// The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
 	SourceDatabaseDeletionDate pulumi.StringPtrInput
@@ -220,7 +220,7 @@ type databaseArgs struct {
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
 	MaxSizeBytes *string `pulumi:"maxSizeBytes"`
 	MaxSizeGb    *string `pulumi:"maxSizeGb"`
-	// The name of the database.
+	// The name of the database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/azure/sql-database/sql-database-read-scale-out).
 	ReadScale *bool `pulumi:"readScale"`
@@ -229,11 +229,11 @@ type databaseArgs struct {
 	RequestedServiceObjectiveId *string `pulumi:"requestedServiceObjectiveId"`
 	// The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
 	RequestedServiceObjectiveName *string `pulumi:"requestedServiceObjectiveName"`
-	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
-	// The name of the SQL Server on which to create the database.
+	// The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
 	ServerName string `pulumi:"serverName"`
 	// The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
 	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
@@ -264,7 +264,7 @@ type DatabaseArgs struct {
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
 	MaxSizeBytes pulumi.StringPtrInput
 	MaxSizeGb    pulumi.StringPtrInput
-	// The name of the database.
+	// The name of the database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/azure/sql-database/sql-database-read-scale-out).
 	ReadScale pulumi.BoolPtrInput
@@ -273,11 +273,11 @@ type DatabaseArgs struct {
 	RequestedServiceObjectiveId pulumi.StringPtrInput
 	// The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
 	RequestedServiceObjectiveName pulumi.StringPtrInput
-	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
 	RestorePointInTime pulumi.StringPtrInput
-	// The name of the SQL Server on which to create the database.
+	// The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
 	ServerName pulumi.StringInput
 	// The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
 	SourceDatabaseDeletionDate pulumi.StringPtrInput
@@ -431,7 +431,7 @@ func (o DatabaseOutput) MaxSizeGb() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.MaxSizeGb }).(pulumi.StringOutput)
 }
 
-// The name of the database.
+// The name of the database. Changing this forces a new resource to be created.
 func (o DatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -452,7 +452,7 @@ func (o DatabaseOutput) RequestedServiceObjectiveName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.RequestedServiceObjectiveName }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
 func (o DatabaseOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -462,7 +462,7 @@ func (o DatabaseOutput) RestorePointInTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.RestorePointInTime }).(pulumi.StringOutput)
 }
 
-// The name of the SQL Server on which to create the database.
+// The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
 func (o DatabaseOutput) ServerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.ServerName }).(pulumi.StringOutput)
 }

@@ -93,51 +93,50 @@ namespace Pulumi.Azure.Storage
         public Output<ImmutableDictionary<string, string>> Metadata { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the storage blob. Must be unique within the storage container the blob is located.
+        /// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+        /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("parallelism")]
         public Output<int?> Parallelism { get; private set; } = null!;
 
         /// <summary>
-        /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+        /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
         /// </summary>
         [Output("size")]
         public Output<int?> Size { get; private set; } = null!;
 
         /// <summary>
-        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
+        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Output("source")]
         public Output<AssetOrArchive?> Source { get; private set; } = null!;
 
         /// <summary>
-        /// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
+        /// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceContent")]
         public Output<string?> SourceContent { get; private set; } = null!;
 
         /// <summary>
-        /// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-        /// for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+        /// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
         /// </summary>
         [Output("sourceUri")]
         public Output<string?> SourceUri { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the storage account in which to create the storage container.
+        /// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
         /// Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the storage container in which this blob should be created.
+        /// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageContainerName")]
         public Output<string> StorageContainerName { get; private set; } = null!;
@@ -237,51 +236,50 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The name of the storage blob. Must be unique within the storage container the blob is located.
+        /// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+        /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }
 
         /// <summary>
-        /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+        /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
         /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }
 
         /// <summary>
-        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
+        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("source")]
         public Input<AssetOrArchive>? Source { get; set; }
 
         /// <summary>
-        /// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
+        /// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceContent")]
         public Input<string>? SourceContent { get; set; }
 
         /// <summary>
-        /// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-        /// for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+        /// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
         /// </summary>
         [Input("sourceUri")]
         public Input<string>? SourceUri { get; set; }
 
         /// <summary>
-        /// Specifies the storage account in which to create the storage container.
+        /// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
         /// Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountName", required: true)]
         public Input<string> StorageAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the storage container in which this blob should be created.
+        /// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageContainerName", required: true)]
         public Input<string> StorageContainerName { get; set; } = null!;
@@ -337,51 +335,50 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The name of the storage blob. Must be unique within the storage container the blob is located.
+        /// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+        /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }
 
         /// <summary>
-        /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+        /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
         /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }
 
         /// <summary>
-        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
+        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("source")]
         public Input<AssetOrArchive>? Source { get; set; }
 
         /// <summary>
-        /// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
+        /// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceContent")]
         public Input<string>? SourceContent { get; set; }
 
         /// <summary>
-        /// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-        /// for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+        /// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
         /// </summary>
         [Input("sourceUri")]
         public Input<string>? SourceUri { get; set; }
 
         /// <summary>
-        /// Specifies the storage account in which to create the storage container.
+        /// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
         /// Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
 
         /// <summary>
-        /// The name of the storage container in which this blob should be created.
+        /// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageContainerName")]
         public Input<string>? StorageContainerName { get; set; }

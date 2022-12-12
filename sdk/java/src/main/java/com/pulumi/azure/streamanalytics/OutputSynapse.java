@@ -136,14 +136,14 @@ public class OutputSynapse extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+     * The password that will be used to connect to the Azure SQL database.
      * 
      */
     @Export(name="password", type=String.class, parameters={})
     private Output<String> password;
 
     /**
-     * @return The password that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
+     * @return The password that will be used to connect to the Azure SQL database.
      * 
      */
     public Output<String> password() {

@@ -39,9 +39,9 @@ class StandardArgs:
         """
         The set of arguments for constructing a Standard resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App
-        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[str] bundle_version: If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
@@ -112,7 +112,7 @@ class StandardArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Logic App
+        The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -136,7 +136,7 @@ class StandardArgs:
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Input[str]:
         """
-        The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+        The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -384,11 +384,11 @@ class _StandardState:
         :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         :param pulumi.Input['StandardSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['StandardSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App
-        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name.  This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
@@ -644,7 +644,7 @@ class _StandardState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the Logic App
+        The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -692,7 +692,7 @@ class _StandardState:
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+        The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -882,10 +882,10 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['StandardIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['StandardSiteConfigArgs']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App
-        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name.  This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
@@ -1117,11 +1117,11 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['StandardSiteConfigArgs']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App
-        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name.  This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
@@ -1292,7 +1292,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the Logic App
+        The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -1324,7 +1324,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Output[str]:
         """
-        The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+        The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 

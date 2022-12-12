@@ -22,7 +22,7 @@ namespace Pulumi.Azure.OperationalInsights.Inputs
         public Input<string> Product { get; set; } = null!;
 
         /// <summary>
-        /// A promotion code to be used with the solution.
+        /// A promotion code to be used with the solution. Changing this forces a new resource to be created.
         /// </summary>
         [Input("promotionCode")]
         public Input<string>? PromotionCode { get; set; }

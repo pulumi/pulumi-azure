@@ -19,14 +19,14 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
     public static final SnapshotArgs Empty = new SnapshotArgs();
 
     /**
-     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
      * 
      */
     @Import(name="createOption", required=true)
     private Output<String> createOption;
 
     /**
-     * @return Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+     * @return Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
      * 
      */
     public Output<String> createOption() {
@@ -202,7 +202,7 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createOption Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+         * @param createOption Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createOption Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+         * @param createOption Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
          * 
          * @return builder
          * 

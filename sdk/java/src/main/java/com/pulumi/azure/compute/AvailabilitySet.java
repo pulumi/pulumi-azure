@@ -84,14 +84,14 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
+     * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="managed", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> managed;
 
     /**
-     * @return Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
+     * @return Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> managed() {

@@ -331,7 +331,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.machinelearning.WorkspaceIdentity>;
     /**
-     * The compute name for image build of the Machine Learning Workspace.
+     * The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     public readonly imageBuildComputeName!: pulumi.Output<string | undefined>;
     /**
@@ -351,7 +351,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly primaryUserAssignedIdentity!: pulumi.Output<string | undefined>;
     /**
-     * Enable public access when this Machine Learning Workspace is behind a VNet.
+     * Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
      *
      * @deprecated `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
      */
@@ -491,7 +491,7 @@ export interface WorkspaceState {
      */
     identity?: pulumi.Input<inputs.machinelearning.WorkspaceIdentity>;
     /**
-     * The compute name for image build of the Machine Learning Workspace.
+     * The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     imageBuildComputeName?: pulumi.Input<string>;
     /**
@@ -511,7 +511,7 @@ export interface WorkspaceState {
      */
     primaryUserAssignedIdentity?: pulumi.Input<string>;
     /**
-     * Enable public access when this Machine Learning Workspace is behind a VNet.
+     * Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
      *
      * @deprecated `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
      */
@@ -572,7 +572,7 @@ export interface WorkspaceArgs {
      */
     identity: pulumi.Input<inputs.machinelearning.WorkspaceIdentity>;
     /**
-     * The compute name for image build of the Machine Learning Workspace.
+     * The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     imageBuildComputeName?: pulumi.Input<string>;
     /**
@@ -592,7 +592,7 @@ export interface WorkspaceArgs {
      */
     primaryUserAssignedIdentity?: pulumi.Input<string>;
     /**
-     * Enable public access when this Machine Learning Workspace is behind a VNet.
+     * Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
      *
      * @deprecated `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
      */

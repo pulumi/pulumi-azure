@@ -32,7 +32,7 @@ class RuleArgs:
         :param pulumi.Input[int] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration to which the rule is associated.
         :param pulumi.Input[int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backend_address_pool_ids: A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
         :param pulumi.Input[bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
@@ -40,7 +40,7 @@ class RuleArgs:
         :param pulumi.Input[bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
         :param pulumi.Input[str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
-        :param pulumi.Input[str] name: Specifies the name of the LB Rule.
+        :param pulumi.Input[str] name: Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] probe_id: A reference to a Probe used by this Load Balancing Rule.
         """
         pulumi.set(__self__, "backend_port", backend_port)
@@ -105,7 +105,7 @@ class RuleArgs:
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Load Balancer in which to create the Rule.
+        The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -201,7 +201,7 @@ class RuleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the LB Rule.
+        Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -250,8 +250,8 @@ class _RuleState:
         :param pulumi.Input[int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
         :param pulumi.Input[str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule.
-        :param pulumi.Input[str] name: Specifies the name of the LB Rule.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] probe_id: A reference to a Probe used by this Load Balancing Rule.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
         """
@@ -405,7 +405,7 @@ class _RuleState:
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Load Balancer in which to create the Rule.
+        The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -417,7 +417,7 @@ class _RuleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the LB Rule.
+        Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -519,8 +519,8 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
         :param pulumi.Input[str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule.
-        :param pulumi.Input[str] name: Specifies the name of the LB Rule.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] probe_id: A reference to a Probe used by this Load Balancing Rule.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
         """
@@ -670,8 +670,8 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
         :param pulumi.Input[str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule.
-        :param pulumi.Input[str] name: Specifies the name of the LB Rule.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] probe_id: A reference to a Probe used by this Load Balancing Rule.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
         """
@@ -776,7 +776,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Load Balancer in which to create the Rule.
+        The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -784,7 +784,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the LB Rule.
+        Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

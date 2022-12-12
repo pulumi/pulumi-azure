@@ -15,14 +15,14 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
     public static final CacheIdentityArgs Empty = new CacheIdentityArgs();
 
     /**
-     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="identityIds", required=true)
     private Output<List<String>> identityIds;
 
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<String>> identityIds() {
@@ -30,14 +30,14 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+     * Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> type() {
@@ -70,7 +70,7 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class CacheIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

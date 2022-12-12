@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ComputeInstanceIdentity {
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -28,14 +28,14 @@ public final class ComputeInstanceIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
      * 
      */
     private String type;
 
     private ComputeInstanceIdentity() {}
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
      * 
      */
     public List<String> identityIds() {
@@ -56,7 +56,7 @@ public final class ComputeInstanceIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
      * 
      */
     public String type() {

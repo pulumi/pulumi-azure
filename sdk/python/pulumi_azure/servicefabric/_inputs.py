@@ -440,14 +440,14 @@ class ClusterNodeTypeArgs:
                  placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  reverse_proxy_endpoint_port: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] client_endpoint_port: The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] http_endpoint_port: The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] client_endpoint_port: The Port used for the Client Endpoint for this Node Type.
+        :param pulumi.Input[int] http_endpoint_port: The Port used for the HTTP Endpoint for this Node Type.
         :param pulumi.Input[int] instance_count: The number of nodes for this Node Type.
-        :param pulumi.Input[bool] is_primary: Is this the Primary Node Type? Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Node Type. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] is_primary: Is this the Primary Node Type?
+        :param pulumi.Input[str] name: The name of the Node Type.
         :param pulumi.Input['ClusterNodeTypeApplicationPortsArgs'] application_ports: A `application_ports` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
-        :param pulumi.Input[str] durability_level: The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] durability_level: The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
         :param pulumi.Input['ClusterNodeTypeEphemeralPortsArgs'] ephemeral_ports: A `ephemeral_ports` block as defined below.
         :param pulumi.Input[bool] is_stateless: Should this node type run only stateless services?
         :param pulumi.Input[bool] multiple_availability_zones: Does this node type span availability zones?
@@ -480,7 +480,7 @@ class ClusterNodeTypeArgs:
     @pulumi.getter(name="clientEndpointPort")
     def client_endpoint_port(self) -> pulumi.Input[int]:
         """
-        The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+        The Port used for the Client Endpoint for this Node Type.
         """
         return pulumi.get(self, "client_endpoint_port")
 
@@ -492,7 +492,7 @@ class ClusterNodeTypeArgs:
     @pulumi.getter(name="httpEndpointPort")
     def http_endpoint_port(self) -> pulumi.Input[int]:
         """
-        The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+        The Port used for the HTTP Endpoint for this Node Type.
         """
         return pulumi.get(self, "http_endpoint_port")
 
@@ -516,7 +516,7 @@ class ClusterNodeTypeArgs:
     @pulumi.getter(name="isPrimary")
     def is_primary(self) -> pulumi.Input[bool]:
         """
-        Is this the Primary Node Type? Changing this forces a new resource to be created.
+        Is this the Primary Node Type?
         """
         return pulumi.get(self, "is_primary")
 
@@ -528,7 +528,7 @@ class ClusterNodeTypeArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Node Type. Changing this forces a new resource to be created.
+        The name of the Node Type.
         """
         return pulumi.get(self, "name")
 
@@ -564,7 +564,7 @@ class ClusterNodeTypeArgs:
     @pulumi.getter(name="durabilityLevel")
     def durability_level(self) -> Optional[pulumi.Input[str]]:
         """
-        The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+        The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
         """
         return pulumi.get(self, "durability_level")
 

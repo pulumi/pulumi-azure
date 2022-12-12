@@ -74,13 +74,13 @@ namespace Pulumi.Azure.Lb
         public Output<ImmutableArray<Outputs.LoadBalancerFrontendIpConfiguration>> FrontendIpConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the supported Azure Region where the Load Balancer should be created.
+        /// Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Load Balancer.
+        /// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -98,13 +98,13 @@ namespace Pulumi.Azure.Lb
         public Output<ImmutableArray<string>> PrivateIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group in which to create the Load Balancer.
+        /// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+        /// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -186,25 +186,25 @@ namespace Pulumi.Azure.Lb
         }
 
         /// <summary>
-        /// Specifies the supported Azure Region where the Load Balancer should be created.
+        /// Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Load Balancer.
+        /// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group in which to create the Load Balancer.
+        /// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+        /// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -254,13 +254,13 @@ namespace Pulumi.Azure.Lb
         }
 
         /// <summary>
-        /// Specifies the supported Azure Region where the Load Balancer should be created.
+        /// Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Load Balancer.
+        /// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -284,13 +284,13 @@ namespace Pulumi.Azure.Lb
         }
 
         /// <summary>
-        /// The name of the Resource Group in which to create the Load Balancer.
+        /// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+        /// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

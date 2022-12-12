@@ -105,7 +105,7 @@ type OutputMssql struct {
 	MaxWriterCount pulumi.Float64PtrOutput `pulumi:"maxWriterCount"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+	// Password used together with username, to login to the Microsoft SQL Server.
 	Password pulumi.StringOutput `pulumi:"password"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -179,7 +179,7 @@ type outputMssqlState struct {
 	MaxWriterCount *float64 `pulumi:"maxWriterCount"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+	// Password used together with username, to login to the Microsoft SQL Server.
 	Password *string `pulumi:"password"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -204,7 +204,7 @@ type OutputMssqlState struct {
 	MaxWriterCount pulumi.Float64PtrInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+	// Password used together with username, to login to the Microsoft SQL Server.
 	Password pulumi.StringPtrInput
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -233,7 +233,7 @@ type outputMssqlArgs struct {
 	MaxWriterCount *float64 `pulumi:"maxWriterCount"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+	// Password used together with username, to login to the Microsoft SQL Server.
 	Password string `pulumi:"password"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -259,7 +259,7 @@ type OutputMssqlArgs struct {
 	MaxWriterCount pulumi.Float64PtrInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+	// Password used together with username, to login to the Microsoft SQL Server.
 	Password pulumi.StringInput
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -385,7 +385,7 @@ func (o OutputMssqlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutputMssql) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+// Password used together with username, to login to the Microsoft SQL Server.
 func (o OutputMssqlOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutputMssql) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }

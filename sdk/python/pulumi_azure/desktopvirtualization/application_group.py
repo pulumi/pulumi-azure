@@ -27,15 +27,12 @@ class ApplicationGroupArgs:
         The set of arguments for constructing a ApplicationGroup resource.
         :param pulumi.Input[str] host_pool_id: Resource ID for a Virtual Desktop Host Pool to associate with the
                Virtual Desktop Application Group.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Virtual Desktop Application Group. Changing the resource group name forces
-               a new resource to be created.
-        :param pulumi.Input[str] type: Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] type: Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_desktop_display_name: Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`.
         :param pulumi.Input[str] description: Option to set a description for the Virtual Desktop Application Group.
         :param pulumi.Input[str] friendly_name: Option to set a friendly name for the Virtual Desktop Application Group.
-        :param pulumi.Input[str] location: The location/region where the Virtual Desktop Application Group is
-               located. Changing the location/region forces a new resource to be created.
+        :param pulumi.Input[str] location: The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -72,9 +69,7 @@ class ApplicationGroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to
-        create the Virtual Desktop Application Group. Changing the resource group name forces
-        a new resource to be created.
+        The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -86,7 +81,7 @@ class ApplicationGroupArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+        Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -134,8 +129,7 @@ class ApplicationGroupArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location/region where the Virtual Desktop Application Group is
-        located. Changing the location/region forces a new resource to be created.
+        The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -187,14 +181,11 @@ class _ApplicationGroupState:
         :param pulumi.Input[str] friendly_name: Option to set a friendly name for the Virtual Desktop Application Group.
         :param pulumi.Input[str] host_pool_id: Resource ID for a Virtual Desktop Host Pool to associate with the
                Virtual Desktop Application Group.
-        :param pulumi.Input[str] location: The location/region where the Virtual Desktop Application Group is
-               located. Changing the location/region forces a new resource to be created.
+        :param pulumi.Input[str] location: The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Virtual Desktop Application Group. Changing the resource group name forces
-               a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] type: Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+        :param pulumi.Input[str] type: Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
         """
         if default_desktop_display_name is not None:
             pulumi.set(__self__, "default_desktop_display_name", default_desktop_display_name)
@@ -268,8 +259,7 @@ class _ApplicationGroupState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location/region where the Virtual Desktop Application Group is
-        located. Changing the location/region forces a new resource to be created.
+        The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -293,9 +283,7 @@ class _ApplicationGroupState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to
-        create the Virtual Desktop Application Group. Changing the resource group name forces
-        a new resource to be created.
+        The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -319,7 +307,7 @@ class _ApplicationGroupState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+        Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -395,14 +383,11 @@ class ApplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: Option to set a friendly name for the Virtual Desktop Application Group.
         :param pulumi.Input[str] host_pool_id: Resource ID for a Virtual Desktop Host Pool to associate with the
                Virtual Desktop Application Group.
-        :param pulumi.Input[str] location: The location/region where the Virtual Desktop Application Group is
-               located. Changing the location/region forces a new resource to be created.
+        :param pulumi.Input[str] location: The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Virtual Desktop Application Group. Changing the resource group name forces
-               a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] type: Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+        :param pulumi.Input[str] type: Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -534,14 +519,11 @@ class ApplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: Option to set a friendly name for the Virtual Desktop Application Group.
         :param pulumi.Input[str] host_pool_id: Resource ID for a Virtual Desktop Host Pool to associate with the
                Virtual Desktop Application Group.
-        :param pulumi.Input[str] location: The location/region where the Virtual Desktop Application Group is
-               located. Changing the location/region forces a new resource to be created.
+        :param pulumi.Input[str] location: The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Virtual Desktop Application Group. Changing the resource group name forces
-               a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] type: Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+        :param pulumi.Input[str] type: Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -595,8 +577,7 @@ class ApplicationGroup(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location/region where the Virtual Desktop Application Group is
-        located. Changing the location/region forces a new resource to be created.
+        The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -612,9 +593,7 @@ class ApplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to
-        create the Virtual Desktop Application Group. Changing the resource group name forces
-        a new resource to be created.
+        The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -630,7 +609,7 @@ class ApplicationGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+        Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 

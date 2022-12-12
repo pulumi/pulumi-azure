@@ -82,7 +82,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> KeyVaultKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the MS SQL Server.
+        /// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the name of the MS SQL Server.
+        /// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the name of the MS SQL Server.
+        /// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }

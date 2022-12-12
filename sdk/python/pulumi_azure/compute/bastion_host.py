@@ -30,7 +30,7 @@ class BastionHostArgs:
                  tunneling_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a BastionHost resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] copy_paste_enabled: Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
         :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input['BastionHostIpConfigurationArgs'] ip_configuration: A `ip_configuration` block as defined below.
@@ -71,7 +71,7 @@ class BastionHostArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Bastion Host.
+        The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -237,7 +237,7 @@ class _BastionHostState:
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
         :param pulumi.Input[bool] shareable_link_enabled: Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
@@ -359,7 +359,7 @@ class _BastionHostState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the Bastion Host.
+        The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -497,7 +497,7 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
         :param pulumi.Input[bool] shareable_link_enabled: Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
@@ -641,7 +641,7 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
         :param pulumi.Input[bool] shareable_link_enabled: Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
         :param pulumi.Input[str] sku: The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
@@ -727,7 +727,7 @@ class BastionHost(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the Bastion Host.
+        The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

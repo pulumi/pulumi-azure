@@ -210,14 +210,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.primaryAccessKey;
     }
     /**
-     * Whether public network access is allowed for this server. Defaults to `true`.
+     * Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether public network access is allowed for this server. Defaults to `true`.
+     * @return Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {

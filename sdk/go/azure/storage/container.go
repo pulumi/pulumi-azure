@@ -79,11 +79,11 @@ type Container struct {
 	HasLegalHold pulumi.BoolOutput `pulumi:"hasLegalHold"`
 	// A mapping of MetaData for this Container. All metadata keys should be lowercase.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
-	// The name of the Container which should be created within the Storage Account.
+	// The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Resource Manager ID of this Storage Container.
 	ResourceManagerId pulumi.StringOutput `pulumi:"resourceManagerId"`
-	// The name of the Storage Account where the Container should be created.
+	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 }
 
@@ -127,11 +127,11 @@ type containerState struct {
 	HasLegalHold *bool `pulumi:"hasLegalHold"`
 	// A mapping of MetaData for this Container. All metadata keys should be lowercase.
 	Metadata map[string]string `pulumi:"metadata"`
-	// The name of the Container which should be created within the Storage Account.
+	// The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The Resource Manager ID of this Storage Container.
 	ResourceManagerId *string `pulumi:"resourceManagerId"`
-	// The name of the Storage Account where the Container should be created.
+	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
 }
 
@@ -144,11 +144,11 @@ type ContainerState struct {
 	HasLegalHold pulumi.BoolPtrInput
 	// A mapping of MetaData for this Container. All metadata keys should be lowercase.
 	Metadata pulumi.StringMapInput
-	// The name of the Container which should be created within the Storage Account.
+	// The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The Resource Manager ID of this Storage Container.
 	ResourceManagerId pulumi.StringPtrInput
-	// The name of the Storage Account where the Container should be created.
+	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput
 }
 
@@ -161,9 +161,9 @@ type containerArgs struct {
 	ContainerAccessType *string `pulumi:"containerAccessType"`
 	// A mapping of MetaData for this Container. All metadata keys should be lowercase.
 	Metadata map[string]string `pulumi:"metadata"`
-	// The name of the Container which should be created within the Storage Account.
+	// The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Storage Account where the Container should be created.
+	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
 	StorageAccountName string `pulumi:"storageAccountName"`
 }
 
@@ -173,9 +173,9 @@ type ContainerArgs struct {
 	ContainerAccessType pulumi.StringPtrInput
 	// A mapping of MetaData for this Container. All metadata keys should be lowercase.
 	Metadata pulumi.StringMapInput
-	// The name of the Container which should be created within the Storage Account.
+	// The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Storage Account where the Container should be created.
+	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringInput
 }
 
@@ -286,7 +286,7 @@ func (o ContainerOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
-// The name of the Container which should be created within the Storage Account.
+// The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
 func (o ContainerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -296,7 +296,7 @@ func (o ContainerOutput) ResourceManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.ResourceManagerId }).(pulumi.StringOutput)
 }
 
-// The name of the Storage Account where the Container should be created.
+// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
 func (o ContainerOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
 }

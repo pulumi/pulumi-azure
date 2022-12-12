@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string EmailAddress;
         /// <summary>
-        /// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

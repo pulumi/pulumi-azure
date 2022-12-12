@@ -102,11 +102,11 @@ type Endpoint struct {
 	Origins EndpointOriginArrayOutput `pulumi:"origins"`
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	ProbePath pulumi.StringOutput `pulumi:"probePath"`
-	// The CDN Profile to which to attach the CDN Endpoint.
+	// The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
 	ProfileName pulumi.StringOutput `pulumi:"profileName"`
 	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
 	QuerystringCachingBehaviour pulumi.StringPtrOutput `pulumi:"querystringCachingBehaviour"`
-	// The name of the resource group in which to create the CDN Endpoint.
+	// The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -180,11 +180,11 @@ type endpointState struct {
 	Origins []EndpointOrigin `pulumi:"origins"`
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	ProbePath *string `pulumi:"probePath"`
-	// The CDN Profile to which to attach the CDN Endpoint.
+	// The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
 	ProfileName *string `pulumi:"profileName"`
 	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
 	QuerystringCachingBehaviour *string `pulumi:"querystringCachingBehaviour"`
-	// The name of the resource group in which to create the CDN Endpoint.
+	// The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -221,11 +221,11 @@ type EndpointState struct {
 	Origins EndpointOriginArrayInput
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	ProbePath pulumi.StringPtrInput
-	// The CDN Profile to which to attach the CDN Endpoint.
+	// The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
 	ProfileName pulumi.StringPtrInput
 	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
 	QuerystringCachingBehaviour pulumi.StringPtrInput
-	// The name of the resource group in which to create the CDN Endpoint.
+	// The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -264,11 +264,11 @@ type endpointArgs struct {
 	Origins []EndpointOrigin `pulumi:"origins"`
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	ProbePath *string `pulumi:"probePath"`
-	// The CDN Profile to which to attach the CDN Endpoint.
+	// The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
 	ProfileName string `pulumi:"profileName"`
 	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
 	QuerystringCachingBehaviour *string `pulumi:"querystringCachingBehaviour"`
-	// The name of the resource group in which to create the CDN Endpoint.
+	// The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -304,11 +304,11 @@ type EndpointArgs struct {
 	Origins EndpointOriginArrayInput
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	ProbePath pulumi.StringPtrInput
-	// The CDN Profile to which to attach the CDN Endpoint.
+	// The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
 	ProfileName pulumi.StringInput
 	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
 	QuerystringCachingBehaviour pulumi.StringPtrInput
-	// The name of the resource group in which to create the CDN Endpoint.
+	// The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -476,7 +476,7 @@ func (o EndpointOutput) ProbePath() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.ProbePath }).(pulumi.StringOutput)
 }
 
-// The CDN Profile to which to attach the CDN Endpoint.
+// The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
 func (o EndpointOutput) ProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.ProfileName }).(pulumi.StringOutput)
 }
@@ -486,7 +486,7 @@ func (o EndpointOutput) QuerystringCachingBehaviour() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.QuerystringCachingBehaviour }).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource group in which to create the CDN Endpoint.
+// The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
 func (o EndpointOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

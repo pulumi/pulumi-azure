@@ -62,14 +62,14 @@ public final class ResolverVirtualNetworkLinkArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+     * The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="virtualNetworkId", required=true)
     private Output<String> virtualNetworkId;
 
     /**
-     * @return The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+     * @return The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> virtualNetworkId() {
@@ -167,7 +167,7 @@ public final class ResolverVirtualNetworkLinkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param virtualNetworkId The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+         * @param virtualNetworkId The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ResolverVirtualNetworkLinkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param virtualNetworkId The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+         * @param virtualNetworkId The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

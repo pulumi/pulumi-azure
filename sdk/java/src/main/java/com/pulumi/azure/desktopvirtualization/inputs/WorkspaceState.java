@@ -62,16 +62,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Virtual Desktop Workspace. Changing the name
-     * forces a new resource to be created.
+     * The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Virtual Desktop Workspace. Changing the name
-     * forces a new resource to be created.
+     * @return The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -79,18 +77,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to
-     * create the Virtual Desktop Workspace. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the Virtual Desktop Workspace. Changing the resource group name forces
-     * a new resource to be created.
+     * @return The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -205,8 +199,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Virtual Desktop Workspace. Changing the name
-         * forces a new resource to be created.
+         * @param name The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -217,8 +210,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Virtual Desktop Workspace. Changing the name
-         * forces a new resource to be created.
+         * @param name The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -228,9 +220,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the Virtual Desktop Workspace. Changing the resource group name forces
-         * a new resource to be created.
+         * @param resourceGroupName The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -241,9 +231,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the Virtual Desktop Workspace. Changing the resource group name forces
-         * a new resource to be created.
+         * @param resourceGroupName The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

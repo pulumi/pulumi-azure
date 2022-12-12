@@ -103,8 +103,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string> HostPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// The location/region where the Virtual Desktop Application Group is
-        /// located. Changing the location/region forces a new resource to be created.
+        /// The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -116,9 +115,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Virtual Desktop Application Group. Changing the resource group name forces
-        /// a new resource to be created.
+        /// The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -130,7 +127,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+        /// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -207,8 +204,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string> HostPoolId { get; set; } = null!;
 
         /// <summary>
-        /// The location/region where the Virtual Desktop Application Group is
-        /// located. Changing the location/region forces a new resource to be created.
+        /// The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -220,9 +216,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Virtual Desktop Application Group. Changing the resource group name forces
-        /// a new resource to be created.
+        /// The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -240,7 +234,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         }
 
         /// <summary>
-        /// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+        /// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -279,8 +273,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? HostPoolId { get; set; }
 
         /// <summary>
-        /// The location/region where the Virtual Desktop Application Group is
-        /// located. Changing the location/region forces a new resource to be created.
+        /// The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -292,9 +285,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Virtual Desktop Application Group. Changing the resource group name forces
-        /// a new resource to be created.
+        /// The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -312,7 +303,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         }
 
         /// <summary>
-        /// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+        /// Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

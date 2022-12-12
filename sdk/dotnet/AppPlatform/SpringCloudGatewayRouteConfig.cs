@@ -87,12 +87,18 @@ namespace Pulumi.Azure.AppPlatform
     /// Spring Cloud Gateway Route Configs can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/gateways/gateway1/routeConfigs/routeConfig1
+    ///  $ pulumi import azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/gateways/gateway1/routeConfigs/routeConfig1
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig")]
     public partial class SpringCloudGatewayRouteConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
+        /// </summary>
+        [Output("filters")]
+        public Output<ImmutableArray<string>> Filters { get; private set; } = null!;
+
         /// <summary>
         /// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         /// </summary>
@@ -104,6 +110,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Output("openApi")]
         public Output<Outputs.SpringCloudGatewayRouteConfigOpenApi?> OpenApi { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+        /// </summary>
+        [Output("predicates")]
+        public Output<ImmutableArray<string>> Predicates { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
@@ -128,6 +140,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Output("springCloudGatewayId")]
         public Output<string> SpringCloudGatewayId { get; private set; } = null!;
+
+        /// <summary>
+        /// Should the sso validation be enabled in app level?
+        /// </summary>
+        [Output("ssoValidationEnabled")]
+        public Output<bool?> SsoValidationEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -175,6 +193,18 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudGatewayRouteConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("filters")]
+        private InputList<string>? _filters;
+
+        /// <summary>
+        /// Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
+        /// </summary>
+        public InputList<string> Filters
+        {
+            get => _filters ?? (_filters = new InputList<string>());
+            set => _filters = value;
+        }
+
         /// <summary>
         /// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         /// </summary>
@@ -186,6 +216,18 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("openApi")]
         public Input<Inputs.SpringCloudGatewayRouteConfigOpenApiArgs>? OpenApi { get; set; }
+
+        [Input("predicates")]
+        private InputList<string>? _predicates;
+
+        /// <summary>
+        /// Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+        /// </summary>
+        public InputList<string> Predicates
+        {
+            get => _predicates ?? (_predicates = new InputList<string>());
+            set => _predicates = value;
+        }
 
         /// <summary>
         /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
@@ -217,6 +259,12 @@ namespace Pulumi.Azure.AppPlatform
         [Input("springCloudGatewayId", required: true)]
         public Input<string> SpringCloudGatewayId { get; set; } = null!;
 
+        /// <summary>
+        /// Should the sso validation be enabled in app level?
+        /// </summary>
+        [Input("ssoValidationEnabled")]
+        public Input<bool>? SsoValidationEnabled { get; set; }
+
         public SpringCloudGatewayRouteConfigArgs()
         {
         }
@@ -225,6 +273,18 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudGatewayRouteConfigState : global::Pulumi.ResourceArgs
     {
+        [Input("filters")]
+        private InputList<string>? _filters;
+
+        /// <summary>
+        /// Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
+        /// </summary>
+        public InputList<string> Filters
+        {
+            get => _filters ?? (_filters = new InputList<string>());
+            set => _filters = value;
+        }
+
         /// <summary>
         /// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         /// </summary>
@@ -236,6 +296,18 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("openApi")]
         public Input<Inputs.SpringCloudGatewayRouteConfigOpenApiGetArgs>? OpenApi { get; set; }
+
+        [Input("predicates")]
+        private InputList<string>? _predicates;
+
+        /// <summary>
+        /// Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+        /// </summary>
+        public InputList<string> Predicates
+        {
+            get => _predicates ?? (_predicates = new InputList<string>());
+            set => _predicates = value;
+        }
 
         /// <summary>
         /// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
@@ -266,6 +338,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("springCloudGatewayId")]
         public Input<string>? SpringCloudGatewayId { get; set; }
+
+        /// <summary>
+        /// Should the sso validation be enabled in app level?
+        /// </summary>
+        [Input("ssoValidationEnabled")]
+        public Input<bool>? SsoValidationEnabled { get; set; }
 
         public SpringCloudGatewayRouteConfigState()
         {

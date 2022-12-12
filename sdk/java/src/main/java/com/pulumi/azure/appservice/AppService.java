@@ -397,14 +397,14 @@ public class AppService extends com.pulumi.resources.CustomResource {
         return this.possibleOutboundIpAddresses;
     }
     /**
-     * The name of the resource group in which to create the App Service.
+     * The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the App Service.
+     * @return The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

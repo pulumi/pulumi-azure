@@ -25,7 +25,7 @@ class ARecordArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of IPv4 Addresses.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the DNS A Record.
+        :param pulumi.Input[str] name: The name of the DNS A Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "records", records)
@@ -86,7 +86,7 @@ class ARecordArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the DNS A Record.
+        The name of the DNS A Record. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -120,7 +120,7 @@ class _ARecordState:
         """
         Input properties used for looking up and filtering ARecord resources.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS A Record.
-        :param pulumi.Input[str] name: The name of the DNS A Record.
+        :param pulumi.Input[str] name: The name of the DNS A Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of IPv4 Addresses.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -157,7 +157,7 @@ class _ARecordState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the DNS A Record.
+        The name of the DNS A Record. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -263,7 +263,7 @@ class ARecord(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the DNS A Record.
+        :param pulumi.Input[str] name: The name of the DNS A Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of IPv4 Addresses.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -371,7 +371,7 @@ class ARecord(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS A Record.
-        :param pulumi.Input[str] name: The name of the DNS A Record.
+        :param pulumi.Input[str] name: The name of the DNS A Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of IPv4 Addresses.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -402,7 +402,7 @@ class ARecord(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the DNS A Record.
+        The name of the DNS A Record. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

@@ -27,7 +27,7 @@ public final class FirewallIpConfiguration {
      */
     private String publicIpAddressId;
     /**
-     * @return Reference to the subnet associated with the IP Configuration.
+     * @return Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String subnetId;
@@ -55,7 +55,7 @@ public final class FirewallIpConfiguration {
         return this.publicIpAddressId;
     }
     /**
-     * @return Reference to the subnet associated with the IP Configuration.
+     * @return Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> subnetId() {

@@ -397,14 +397,14 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.minimumTlsVersion);
     }
     /**
-     * The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+     * The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+     * @return The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -439,14 +439,14 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publicDataEndpointEnabled);
     }
     /**
-     * The name of the resource group in which to create the SQL Managed Instance.
+     * The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the SQL Managed Instance.
+     * @return The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -495,14 +495,14 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return this.storageSizeInGb;
     }
     /**
-     * The subnet resource id that the SQL Managed Instance will be associated with.
+     * The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**
-     * @return The subnet resource id that the SQL Managed Instance will be associated with.
+     * @return The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> subnetId() {

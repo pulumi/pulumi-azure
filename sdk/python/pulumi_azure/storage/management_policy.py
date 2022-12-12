@@ -20,7 +20,7 @@ class ManagementPolicyArgs:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]] = None):
         """
         The set of arguments for constructing a ManagementPolicy resource.
-        :param pulumi.Input[str] storage_account_id: Specifies the id of the storage account to apply the management policy to.
+        :param pulumi.Input[str] storage_account_id: Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]] rules: A `rule` block as documented below.
         """
         pulumi.set(__self__, "storage_account_id", storage_account_id)
@@ -31,7 +31,7 @@ class ManagementPolicyArgs:
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> pulumi.Input[str]:
         """
-        Specifies the id of the storage account to apply the management policy to.
+        Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -60,7 +60,7 @@ class _ManagementPolicyState:
         """
         Input properties used for looking up and filtering ManagementPolicy resources.
         :param pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]] rules: A `rule` block as documented below.
-        :param pulumi.Input[str] storage_account_id: Specifies the id of the storage account to apply the management policy to.
+        :param pulumi.Input[str] storage_account_id: Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
@@ -83,7 +83,7 @@ class _ManagementPolicyState:
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the id of the storage account to apply the management policy to.
+        Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -184,7 +184,7 @@ class ManagementPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementPolicyRuleArgs']]]] rules: A `rule` block as documented below.
-        :param pulumi.Input[str] storage_account_id: Specifies the id of the storage account to apply the management policy to.
+        :param pulumi.Input[str] storage_account_id: Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -323,7 +323,7 @@ class ManagementPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementPolicyRuleArgs']]]] rules: A `rule` block as documented below.
-        :param pulumi.Input[str] storage_account_id: Specifies the id of the storage account to apply the management policy to.
+        :param pulumi.Input[str] storage_account_id: Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -345,7 +345,7 @@ class ManagementPolicy(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> pulumi.Output[str]:
         """
-        Specifies the id of the storage account to apply the management policy to.
+        Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
 

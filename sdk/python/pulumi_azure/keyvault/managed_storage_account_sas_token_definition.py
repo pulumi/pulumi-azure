@@ -27,7 +27,7 @@ class ManagedStorageAccountSasTokenDefinitionArgs:
         :param pulumi.Input[str] sas_type: The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
         :param pulumi.Input[str] validity_period: Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         :param pulumi.Input[str] name: The name which should be used for this SAS Definition.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the SAS Definition.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "managed_storage_account_id", managed_storage_account_id)
         pulumi.set(__self__, "sas_template_uri", sas_template_uri)
@@ -102,7 +102,7 @@ class ManagedStorageAccountSasTokenDefinitionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the SAS Definition.
+        A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
@@ -128,7 +128,7 @@ class _ManagedStorageAccountSasTokenDefinitionState:
         :param pulumi.Input[str] sas_template_uri: The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
         :param pulumi.Input[str] sas_type: The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
         :param pulumi.Input[str] secret_id: The ID of the Secret that is created by Managed Storage Account SAS Definition.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the SAS Definition.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
         :param pulumi.Input[str] validity_period: Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         """
         if managed_storage_account_id is not None:
@@ -210,7 +210,7 @@ class _ManagedStorageAccountSasTokenDefinitionState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the SAS Definition.
+        A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
@@ -334,7 +334,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this SAS Definition.
         :param pulumi.Input[str] sas_template_uri: The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
         :param pulumi.Input[str] sas_type: The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the SAS Definition.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
         :param pulumi.Input[str] validity_period: Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         """
         ...
@@ -502,7 +502,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] sas_template_uri: The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
         :param pulumi.Input[str] sas_type: The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
         :param pulumi.Input[str] secret_id: The ID of the Secret that is created by Managed Storage Account SAS Definition.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the SAS Definition.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
         :param pulumi.Input[str] validity_period: Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -562,7 +562,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags which should be assigned to the SAS Definition.
+        A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 

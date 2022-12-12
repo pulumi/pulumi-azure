@@ -93,11 +93,11 @@ export class PublicIp extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
-     * A mapping of IP tags to assign to the public IP.
+     * A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      */
     public readonly ipTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The IP Version to use, IPv6 or IPv4.
+     * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
      */
     public readonly ipVersion!: pulumi.Output<string | undefined>;
     /**
@@ -109,7 +109,7 @@ export class PublicIp extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * If specified then public IP address allocated will be provided from the public IP prefix resource.
+     * If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
      */
     public readonly publicIpPrefixId!: pulumi.Output<string | undefined>;
     /**
@@ -121,11 +121,11 @@ export class PublicIp extends pulumi.CustomResource {
      */
     public readonly reverseFqdn!: pulumi.Output<string | undefined>;
     /**
-     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
-     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      */
     public readonly skuTier!: pulumi.Output<string | undefined>;
     /**
@@ -133,7 +133,7 @@ export class PublicIp extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A collection containing the availability zone to allocate the Public IP in.
+     * A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -239,11 +239,11 @@ export interface PublicIpState {
      */
     ipAddress?: pulumi.Input<string>;
     /**
-     * A mapping of IP tags to assign to the public IP.
+     * A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      */
     ipTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The IP Version to use, IPv6 or IPv4.
+     * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
      */
     ipVersion?: pulumi.Input<string>;
     /**
@@ -255,7 +255,7 @@ export interface PublicIpState {
      */
     name?: pulumi.Input<string>;
     /**
-     * If specified then public IP address allocated will be provided from the public IP prefix resource.
+     * If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
      */
     publicIpPrefixId?: pulumi.Input<string>;
     /**
@@ -267,11 +267,11 @@ export interface PublicIpState {
      */
     reverseFqdn?: pulumi.Input<string>;
     /**
-     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
      */
     sku?: pulumi.Input<string>;
     /**
-     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      */
     skuTier?: pulumi.Input<string>;
     /**
@@ -279,7 +279,7 @@ export interface PublicIpState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A collection containing the availability zone to allocate the Public IP in.
+     * A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -313,11 +313,11 @@ export interface PublicIpArgs {
      */
     idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
-     * A mapping of IP tags to assign to the public IP.
+     * A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      */
     ipTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The IP Version to use, IPv6 or IPv4.
+     * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
      */
     ipVersion?: pulumi.Input<string>;
     /**
@@ -329,7 +329,7 @@ export interface PublicIpArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * If specified then public IP address allocated will be provided from the public IP prefix resource.
+     * If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
      */
     publicIpPrefixId?: pulumi.Input<string>;
     /**
@@ -341,11 +341,11 @@ export interface PublicIpArgs {
      */
     reverseFqdn?: pulumi.Input<string>;
     /**
-     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
      */
     sku?: pulumi.Input<string>;
     /**
-     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      */
     skuTier?: pulumi.Input<string>;
     /**
@@ -353,7 +353,7 @@ export interface PublicIpArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A collection containing the availability zone to allocate the Public IP in.
+     * A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

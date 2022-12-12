@@ -236,14 +236,14 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return this.enableBgp;
     }
     /**
-     * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+     * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="generation", type=String.class, parameters={})
     private Output<String> generation;
 
     /**
-     * @return The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+     * @return The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> generation() {
@@ -270,32 +270,28 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return this.ipConfigurations;
     }
     /**
-     * The location/region where the Virtual Network Gateway is
-     * located. Changing the location/region forces a new resource to be created.
+     * The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return The location/region where the Virtual Network Gateway is
-     * located. Changing the location/region forces a new resource to be created.
+     * @return The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
         return this.location;
     }
     /**
-     * A user-defined name of the IP configuration. Defaults to
-     * `vnetGatewayConfig`.
+     * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return A user-defined name of the IP configuration. Defaults to
-     * `vnetGatewayConfig`.
+     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -316,18 +312,14 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.privateIpAddressEnabled);
     }
     /**
-     * The name of the resource group in which to
-     * create the Virtual Network Gateway. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the Virtual Network Gateway. Changing the resource group name forces
-     * a new resource to be created.
+     * @return The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -406,14 +398,14 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.vpnClientConfiguration);
     }
     /**
-     * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+     * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="vpnType", type=String.class, parameters={})
     private Output</* @Nullable */ String> vpnType;
 
     /**
-     * @return The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+     * @return The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> vpnType() {

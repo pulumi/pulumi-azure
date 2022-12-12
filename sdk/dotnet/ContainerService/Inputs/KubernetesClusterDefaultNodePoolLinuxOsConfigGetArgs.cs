@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterDefaultNodePoolLinuxOsConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+        /// Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
         /// </summary>
         [Input("swapFileSizeMb")]
         public Input<int>? SwapFileSizeMb { get; set; }

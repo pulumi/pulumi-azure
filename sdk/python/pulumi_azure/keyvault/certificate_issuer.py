@@ -25,7 +25,7 @@ class CertificateIssuerArgs:
                  password: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CertificateIssuer resource.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault in which to create the Certificate Issuer.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
         :param pulumi.Input[str] provider_name: The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
         :param pulumi.Input[str] account_id: The account number with the third-party Certificate Issuer.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateIssuerAdminArgs']]] admins: One or more `admin` blocks as defined below.
@@ -50,7 +50,7 @@ class CertificateIssuerArgs:
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Key Vault in which to create the Certificate Issuer.
+        The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -145,7 +145,7 @@ class _CertificateIssuerState:
         Input properties used for looking up and filtering CertificateIssuer resources.
         :param pulumi.Input[str] account_id: The account number with the third-party Certificate Issuer.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateIssuerAdminArgs']]] admins: One or more `admin` blocks as defined below.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault in which to create the Certificate Issuer.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
         :param pulumi.Input[str] org_id: The ID of the organization as provided to the issuer.
         :param pulumi.Input[str] password: The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
@@ -194,7 +194,7 @@ class _CertificateIssuerState:
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Key Vault in which to create the Certificate Issuer.
+        The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -300,7 +300,7 @@ class CertificateIssuer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The account number with the third-party Certificate Issuer.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateIssuerAdminArgs']]]] admins: One or more `admin` blocks as defined below.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault in which to create the Certificate Issuer.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
         :param pulumi.Input[str] org_id: The ID of the organization as provided to the issuer.
         :param pulumi.Input[str] password: The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
@@ -412,7 +412,7 @@ class CertificateIssuer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The account number with the third-party Certificate Issuer.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateIssuerAdminArgs']]]] admins: One or more `admin` blocks as defined below.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault in which to create the Certificate Issuer.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
         :param pulumi.Input[str] org_id: The ID of the organization as provided to the issuer.
         :param pulumi.Input[str] password: The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
@@ -451,7 +451,7 @@ class CertificateIssuer(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Key Vault in which to create the Certificate Issuer.
+        The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_id")
 

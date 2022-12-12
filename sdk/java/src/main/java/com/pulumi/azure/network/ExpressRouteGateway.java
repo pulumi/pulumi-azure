@@ -157,14 +157,14 @@ public class ExpressRouteGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+     * The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="virtualHubId", type=String.class, parameters={})
     private Output<String> virtualHubId;
 
     /**
-     * @return The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+     * @return The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> virtualHubId() {

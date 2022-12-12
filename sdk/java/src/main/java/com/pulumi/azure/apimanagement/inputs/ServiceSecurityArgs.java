@@ -135,16 +135,32 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled);
     }
 
+    /**
+     * Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     */
     @Import(name="tlsEcdheRsaWithAes128CbcShaCiphersEnabled")
     private @Nullable Output<Boolean> tlsEcdheRsaWithAes128CbcShaCiphersEnabled;
 
+    /**
+     * @return Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> tlsEcdheRsaWithAes128CbcShaCiphersEnabled() {
         return Optional.ofNullable(this.tlsEcdheRsaWithAes128CbcShaCiphersEnabled);
     }
 
+    /**
+     * Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     */
     @Import(name="tlsEcdheRsaWithAes256CbcShaCiphersEnabled")
     private @Nullable Output<Boolean> tlsEcdheRsaWithAes256CbcShaCiphersEnabled;
 
+    /**
+     * @return Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> tlsEcdheRsaWithAes256CbcShaCiphersEnabled() {
         return Optional.ofNullable(this.tlsEcdheRsaWithAes256CbcShaCiphersEnabled);
     }
@@ -225,6 +241,21 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+     * 
+     */
+    @Import(name="tlsRsaWithAes256GcmSha384CiphersEnabled")
+    private @Nullable Output<Boolean> tlsRsaWithAes256GcmSha384CiphersEnabled;
+
+    /**
+     * @return Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> tlsRsaWithAes256GcmSha384CiphersEnabled() {
+        return Optional.ofNullable(this.tlsRsaWithAes256GcmSha384CiphersEnabled);
+    }
+
+    /**
      * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
      * 
      */
@@ -257,6 +288,7 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         this.tlsRsaWithAes128GcmSha256CiphersEnabled = $.tlsRsaWithAes128GcmSha256CiphersEnabled;
         this.tlsRsaWithAes256CbcSha256CiphersEnabled = $.tlsRsaWithAes256CbcSha256CiphersEnabled;
         this.tlsRsaWithAes256CbcShaCiphersEnabled = $.tlsRsaWithAes256CbcShaCiphersEnabled;
+        this.tlsRsaWithAes256GcmSha384CiphersEnabled = $.tlsRsaWithAes256GcmSha384CiphersEnabled;
         this.tripleDesCiphersEnabled = $.tripleDesCiphersEnabled;
     }
 
@@ -446,20 +478,44 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
             return tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled(Output.of(tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled));
         }
 
+        /**
+         * @param tlsEcdheRsaWithAes128CbcShaCiphersEnabled Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tlsEcdheRsaWithAes128CbcShaCiphersEnabled(@Nullable Output<Boolean> tlsEcdheRsaWithAes128CbcShaCiphersEnabled) {
             $.tlsEcdheRsaWithAes128CbcShaCiphersEnabled = tlsEcdheRsaWithAes128CbcShaCiphersEnabled;
             return this;
         }
 
+        /**
+         * @param tlsEcdheRsaWithAes128CbcShaCiphersEnabled Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tlsEcdheRsaWithAes128CbcShaCiphersEnabled(Boolean tlsEcdheRsaWithAes128CbcShaCiphersEnabled) {
             return tlsEcdheRsaWithAes128CbcShaCiphersEnabled(Output.of(tlsEcdheRsaWithAes128CbcShaCiphersEnabled));
         }
 
+        /**
+         * @param tlsEcdheRsaWithAes256CbcShaCiphersEnabled Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tlsEcdheRsaWithAes256CbcShaCiphersEnabled(@Nullable Output<Boolean> tlsEcdheRsaWithAes256CbcShaCiphersEnabled) {
             $.tlsEcdheRsaWithAes256CbcShaCiphersEnabled = tlsEcdheRsaWithAes256CbcShaCiphersEnabled;
             return this;
         }
 
+        /**
+         * @param tlsEcdheRsaWithAes256CbcShaCiphersEnabled Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tlsEcdheRsaWithAes256CbcShaCiphersEnabled(Boolean tlsEcdheRsaWithAes256CbcShaCiphersEnabled) {
             return tlsEcdheRsaWithAes256CbcShaCiphersEnabled(Output.of(tlsEcdheRsaWithAes256CbcShaCiphersEnabled));
         }
@@ -567,6 +623,27 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder tlsRsaWithAes256CbcShaCiphersEnabled(Boolean tlsRsaWithAes256CbcShaCiphersEnabled) {
             return tlsRsaWithAes256CbcShaCiphersEnabled(Output.of(tlsRsaWithAes256CbcShaCiphersEnabled));
+        }
+
+        /**
+         * @param tlsRsaWithAes256GcmSha384CiphersEnabled Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tlsRsaWithAes256GcmSha384CiphersEnabled(@Nullable Output<Boolean> tlsRsaWithAes256GcmSha384CiphersEnabled) {
+            $.tlsRsaWithAes256GcmSha384CiphersEnabled = tlsRsaWithAes256GcmSha384CiphersEnabled;
+            return this;
+        }
+
+        /**
+         * @param tlsRsaWithAes256GcmSha384CiphersEnabled Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tlsRsaWithAes256GcmSha384CiphersEnabled(Boolean tlsRsaWithAes256GcmSha384CiphersEnabled) {
+            return tlsRsaWithAes256GcmSha384CiphersEnabled(Output.of(tlsRsaWithAes256GcmSha384CiphersEnabled));
         }
 
         /**

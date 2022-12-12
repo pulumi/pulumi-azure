@@ -117,7 +117,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the resource group in which to
+     * The name of the resource group in which to Changing this forces a new resource to be created.
      * create the namespace.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -130,7 +130,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
@@ -252,7 +252,7 @@ export interface NamespaceState {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to
+     * The name of the resource group in which to Changing this forces a new resource to be created.
      * create the namespace.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -265,7 +265,7 @@ export interface NamespaceState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
      */
     zoneRedundant?: pulumi.Input<boolean>;
 }
@@ -308,7 +308,7 @@ export interface NamespaceArgs {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to
+     * The name of the resource group in which to Changing this forces a new resource to be created.
      * create the namespace.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -321,7 +321,7 @@ export interface NamespaceArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
      */
     zoneRedundant?: pulumi.Input<boolean>;
 }

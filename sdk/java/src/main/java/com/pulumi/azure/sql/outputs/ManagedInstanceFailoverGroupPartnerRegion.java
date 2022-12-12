@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ManagedInstanceFailoverGroupPartnerRegion {
     /**
-     * @return The Azure Region where the SQL Instance Failover Group exists.
+     * @return The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String location;
@@ -24,7 +24,7 @@ public final class ManagedInstanceFailoverGroupPartnerRegion {
 
     private ManagedInstanceFailoverGroupPartnerRegion() {}
     /**
-     * @return The Azure Region where the SQL Instance Failover Group exists.
+     * @return The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> location() {

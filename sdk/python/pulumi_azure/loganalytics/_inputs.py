@@ -20,7 +20,7 @@ class ClusterIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -34,7 +34,7 @@ class ClusterIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 

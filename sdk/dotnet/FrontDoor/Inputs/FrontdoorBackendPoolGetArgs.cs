@@ -43,7 +43,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<string> LoadBalancingName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Backend Pool.
+        /// Specifies the name of the Backend Pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

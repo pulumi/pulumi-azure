@@ -98,13 +98,13 @@ namespace Pulumi.Azure.Sql
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Microsoft SQL Server.
+        /// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Azure.Sql
         public Output<Outputs.SqlServerThreatDetectionPolicy> ThreatDetectionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -204,13 +204,13 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Microsoft SQL Server.
+        /// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.Sql
         public Input<Inputs.SqlServerThreatDetectionPolicyArgs>? ThreatDetectionPolicy { get; set; }
 
         /// <summary>
-        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -284,13 +284,13 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Microsoft SQL Server.
+        /// The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.Sql
         public Input<Inputs.SqlServerThreatDetectionPolicyGetArgs>? ThreatDetectionPolicy { get; set; }
 
         /// <summary>
-        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

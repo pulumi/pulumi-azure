@@ -77,14 +77,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+     * The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+     * @return The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -236,7 +236,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+         * @param skuName The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`.
+         * @param skuName The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

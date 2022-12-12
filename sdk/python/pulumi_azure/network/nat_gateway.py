@@ -28,7 +28,7 @@ class NatGatewayArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -109,7 +109,7 @@ class NatGatewayArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -149,7 +149,7 @@ class _NatGatewayState:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the NAT Gateway.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
         """
         if idle_timeout_in_minutes is not None:
@@ -245,7 +245,7 @@ class _NatGatewayState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -323,7 +323,7 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
         """
         ...
@@ -441,7 +441,7 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the NAT Gateway.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -510,7 +510,7 @@ class NatGateway(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 

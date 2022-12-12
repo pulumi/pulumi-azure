@@ -87,7 +87,7 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+     * The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     public readonly notificationSettings!: pulumi.Output<outputs.devtest.ScheduleNotificationSettings>;
@@ -188,7 +188,7 @@ export interface ScheduleState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+     * The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     notificationSettings?: pulumi.Input<inputs.devtest.ScheduleNotificationSettings>;
@@ -230,7 +230,7 @@ export interface ScheduleArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+     * The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     notificationSettings: pulumi.Input<inputs.devtest.ScheduleNotificationSettings>;

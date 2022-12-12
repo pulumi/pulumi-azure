@@ -54,6 +54,9 @@ namespace Pulumi.Azure.DataBricks
     [AzureResourceType("azure:databricks/accessConnector:AccessConnector")]
     public partial class AccessConnector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         [Output("identity")]
         public Output<Outputs.AccessConnectorIdentity> Identity { get; private set; } = null!;
 
@@ -127,6 +130,9 @@ namespace Pulumi.Azure.DataBricks
 
     public sealed class AccessConnectorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.AccessConnectorIdentityArgs> Identity { get; set; } = null!;
 
@@ -168,6 +174,9 @@ namespace Pulumi.Azure.DataBricks
 
     public sealed class AccessConnectorState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         [Input("identity")]
         public Input<Inputs.AccessConnectorIdentityGetArgs>? Identity { get; set; }
 

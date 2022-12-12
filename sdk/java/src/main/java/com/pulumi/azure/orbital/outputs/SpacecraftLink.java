@@ -26,7 +26,7 @@ public final class SpacecraftLink {
      */
     private String direction;
     /**
-     * @return Name of the link.
+     * @return Name of the link. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -59,7 +59,7 @@ public final class SpacecraftLink {
         return this.direction;
     }
     /**
-     * @return Name of the link.
+     * @return Name of the link. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

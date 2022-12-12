@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class VirtualMachineAdditionalCapabilities
     {
         /// <summary>
-        /// Should Ultra SSD disk be enabled for this Virtual Machine?
+        /// Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool UltraSsdEnabled;
 

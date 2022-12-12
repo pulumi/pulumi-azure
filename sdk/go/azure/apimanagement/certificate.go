@@ -198,7 +198,7 @@ type Certificate struct {
 
 	// The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
-	// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+	// The base-64 encoded certificate data, which must be a PFX file.
 	Data pulumi.StringPtrOutput `pulumi:"data"`
 	// The Expiration Date of this Certificate, formatted as an RFC3339 string.
 	Expiration pulumi.StringOutput `pulumi:"expiration"`
@@ -208,7 +208,7 @@ type Certificate struct {
 	KeyVaultSecretId pulumi.StringPtrOutput `pulumi:"keyVaultSecretId"`
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The password used for this certificate. Changing this forces a new resource to be created.
+	// The password used for this certificate.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -255,7 +255,7 @@ func GetCertificate(ctx *pulumi.Context,
 type certificateState struct {
 	// The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
 	ApiManagementName *string `pulumi:"apiManagementName"`
-	// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+	// The base-64 encoded certificate data, which must be a PFX file.
 	Data *string `pulumi:"data"`
 	// The Expiration Date of this Certificate, formatted as an RFC3339 string.
 	Expiration *string `pulumi:"expiration"`
@@ -265,7 +265,7 @@ type certificateState struct {
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The password used for this certificate. Changing this forces a new resource to be created.
+	// The password used for this certificate.
 	Password *string `pulumi:"password"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -278,7 +278,7 @@ type certificateState struct {
 type CertificateState struct {
 	// The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringPtrInput
-	// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+	// The base-64 encoded certificate data, which must be a PFX file.
 	Data pulumi.StringPtrInput
 	// The Expiration Date of this Certificate, formatted as an RFC3339 string.
 	Expiration pulumi.StringPtrInput
@@ -288,7 +288,7 @@ type CertificateState struct {
 	KeyVaultSecretId pulumi.StringPtrInput
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The password used for this certificate. Changing this forces a new resource to be created.
+	// The password used for this certificate.
 	Password pulumi.StringPtrInput
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -305,7 +305,7 @@ func (CertificateState) ElementType() reflect.Type {
 type certificateArgs struct {
 	// The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`
-	// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+	// The base-64 encoded certificate data, which must be a PFX file.
 	Data *string `pulumi:"data"`
 	// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
 	KeyVaultIdentityClientId *string `pulumi:"keyVaultIdentityClientId"`
@@ -313,7 +313,7 @@ type certificateArgs struct {
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The password used for this certificate. Changing this forces a new resource to be created.
+	// The password used for this certificate.
 	Password *string `pulumi:"password"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -323,7 +323,7 @@ type certificateArgs struct {
 type CertificateArgs struct {
 	// The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringInput
-	// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+	// The base-64 encoded certificate data, which must be a PFX file.
 	Data pulumi.StringPtrInput
 	// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
 	KeyVaultIdentityClientId pulumi.StringPtrInput
@@ -331,7 +331,7 @@ type CertificateArgs struct {
 	KeyVaultSecretId pulumi.StringPtrInput
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The password used for this certificate. Changing this forces a new resource to be created.
+	// The password used for this certificate.
 	Password pulumi.StringPtrInput
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -429,7 +429,7 @@ func (o CertificateOutput) ApiManagementName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ApiManagementName }).(pulumi.StringOutput)
 }
 
-// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+// The base-64 encoded certificate data, which must be a PFX file.
 func (o CertificateOutput) Data() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Data }).(pulumi.StringPtrOutput)
 }
@@ -454,7 +454,7 @@ func (o CertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The password used for this certificate. Changing this forces a new resource to be created.
+// The password used for this certificate.
 func (o CertificateOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }

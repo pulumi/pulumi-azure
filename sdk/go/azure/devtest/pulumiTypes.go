@@ -17,7 +17,7 @@ type GlobalVMShutdownScheduleNotificationSettings struct {
 	Enabled bool `pulumi:"enabled"`
 	// Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
 	TimeInMinutes *int `pulumi:"timeInMinutes"`
-	// The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+	// The webhook URL to which the notification will be sent.
 	WebhookUrl *string `pulumi:"webhookUrl"`
 }
 
@@ -39,7 +39,7 @@ type GlobalVMShutdownScheduleNotificationSettingsArgs struct {
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
 	TimeInMinutes pulumi.IntPtrInput `pulumi:"timeInMinutes"`
-	// The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+	// The webhook URL to which the notification will be sent.
 	WebhookUrl pulumi.StringPtrInput `pulumi:"webhookUrl"`
 }
 
@@ -135,7 +135,7 @@ func (o GlobalVMShutdownScheduleNotificationSettingsOutput) TimeInMinutes() pulu
 	return o.ApplyT(func(v GlobalVMShutdownScheduleNotificationSettings) *int { return v.TimeInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+// The webhook URL to which the notification will be sent.
 func (o GlobalVMShutdownScheduleNotificationSettingsOutput) WebhookUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalVMShutdownScheduleNotificationSettings) *string { return v.WebhookUrl }).(pulumi.StringPtrOutput)
 }
@@ -194,7 +194,7 @@ func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) TimeInMinutes() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+// The webhook URL to which the notification will be sent.
 func (o GlobalVMShutdownScheduleNotificationSettingsPtrOutput) WebhookUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalVMShutdownScheduleNotificationSettings) *string {
 		if v == nil {
@@ -403,7 +403,7 @@ type LinuxVirtualMachineInboundNatRule struct {
 	BackendPort int `pulumi:"backendPort"`
 	// The frontend port associated with this Inbound NAT Rule.
 	FrontendPort *int `pulumi:"frontendPort"`
-	// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+	// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -423,7 +423,7 @@ type LinuxVirtualMachineInboundNatRuleArgs struct {
 	BackendPort pulumi.IntInput `pulumi:"backendPort"`
 	// The frontend port associated with this Inbound NAT Rule.
 	FrontendPort pulumi.IntPtrInput `pulumi:"frontendPort"`
-	// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+	// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -488,7 +488,7 @@ func (o LinuxVirtualMachineInboundNatRuleOutput) FrontendPort() pulumi.IntPtrOut
 	return o.ApplyT(func(v LinuxVirtualMachineInboundNatRule) *int { return v.FrontendPort }).(pulumi.IntPtrOutput)
 }
 
-// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
 func (o LinuxVirtualMachineInboundNatRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineInboundNatRule) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -1488,7 +1488,7 @@ type WindowsVirtualMachineInboundNatRule struct {
 	BackendPort int `pulumi:"backendPort"`
 	// The frontend port associated with this Inbound NAT Rule.
 	FrontendPort *int `pulumi:"frontendPort"`
-	// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+	// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -1508,7 +1508,7 @@ type WindowsVirtualMachineInboundNatRuleArgs struct {
 	BackendPort pulumi.IntInput `pulumi:"backendPort"`
 	// The frontend port associated with this Inbound NAT Rule.
 	FrontendPort pulumi.IntPtrInput `pulumi:"frontendPort"`
-	// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+	// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -1573,7 +1573,7 @@ func (o WindowsVirtualMachineInboundNatRuleOutput) FrontendPort() pulumi.IntPtrO
 	return o.ApplyT(func(v WindowsVirtualMachineInboundNatRule) *int { return v.FrontendPort }).(pulumi.IntPtrOutput)
 }
 
-// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
 func (o WindowsVirtualMachineInboundNatRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineInboundNatRule) string { return v.Protocol }).(pulumi.StringOutput)
 }

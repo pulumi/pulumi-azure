@@ -195,7 +195,7 @@ export class ManagedInstanceTransparentDataEncryption extends pulumi.CustomResou
      */
     public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the name of the MS SQL Managed Instance.
+     * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      */
     public readonly managedInstanceId!: pulumi.Output<string>;
 
@@ -242,7 +242,7 @@ export interface ManagedInstanceTransparentDataEncryptionState {
      */
     keyVaultKeyId?: pulumi.Input<string>;
     /**
-     * Specifies the name of the MS SQL Managed Instance.
+     * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      */
     managedInstanceId?: pulumi.Input<string>;
 }
@@ -260,7 +260,7 @@ export interface ManagedInstanceTransparentDataEncryptionArgs {
      */
     keyVaultKeyId?: pulumi.Input<string>;
     /**
-     * Specifies the name of the MS SQL Managed Instance.
+     * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      */
     managedInstanceId: pulumi.Input<string>;
 }

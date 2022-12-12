@@ -14,7 +14,7 @@ type AnalyticsSolutionPlan struct {
 	Name *string `pulumi:"name"`
 	// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
 	Product string `pulumi:"product"`
-	// A promotion code to be used with the solution.
+	// A promotion code to be used with the solution. Changing this forces a new resource to be created.
 	PromotionCode *string `pulumi:"promotionCode"`
 	// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
@@ -35,7 +35,7 @@ type AnalyticsSolutionPlanArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
 	Product pulumi.StringInput `pulumi:"product"`
-	// A promotion code to be used with the solution.
+	// A promotion code to be used with the solution. Changing this forces a new resource to be created.
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
 	// The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
@@ -127,7 +127,7 @@ func (o AnalyticsSolutionPlanOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsSolutionPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// A promotion code to be used with the solution.
+// A promotion code to be used with the solution. Changing this forces a new resource to be created.
 func (o AnalyticsSolutionPlanOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsSolutionPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
@@ -180,7 +180,7 @@ func (o AnalyticsSolutionPlanPtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A promotion code to be used with the solution.
+// A promotion code to be used with the solution. Changing this forces a new resource to be created.
 func (o AnalyticsSolutionPlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsSolutionPlan) *string {
 		if v == nil {

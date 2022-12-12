@@ -960,7 +960,7 @@ func (o SnapshotPolicyWeeklySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOu
 type VolumeDataProtectionReplication struct {
 	// The endpoint type, default value is `dst` for destination.
 	EndpointType *string `pulumi:"endpointType"`
-	// Location of the primary volume.
+	// Location of the primary volume. Changing this forces a new resource to be created.
 	RemoteVolumeLocation string `pulumi:"remoteVolumeLocation"`
 	// Resource ID of the primary volume.
 	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
@@ -982,7 +982,7 @@ type VolumeDataProtectionReplicationInput interface {
 type VolumeDataProtectionReplicationArgs struct {
 	// The endpoint type, default value is `dst` for destination.
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	// Location of the primary volume.
+	// Location of the primary volume. Changing this forces a new resource to be created.
 	RemoteVolumeLocation pulumi.StringInput `pulumi:"remoteVolumeLocation"`
 	// Resource ID of the primary volume.
 	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
@@ -1072,7 +1072,7 @@ func (o VolumeDataProtectionReplicationOutput) EndpointType() pulumi.StringPtrOu
 	return o.ApplyT(func(v VolumeDataProtectionReplication) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
-// Location of the primary volume.
+// Location of the primary volume. Changing this forces a new resource to be created.
 func (o VolumeDataProtectionReplicationOutput) RemoteVolumeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeDataProtectionReplication) string { return v.RemoteVolumeLocation }).(pulumi.StringOutput)
 }
@@ -1121,7 +1121,7 @@ func (o VolumeDataProtectionReplicationPtrOutput) EndpointType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location of the primary volume.
+// Location of the primary volume. Changing this forces a new resource to be created.
 func (o VolumeDataProtectionReplicationPtrOutput) RemoteVolumeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeDataProtectionReplication) *string {
 		if v == nil {

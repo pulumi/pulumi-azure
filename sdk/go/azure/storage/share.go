@@ -90,14 +90,13 @@ type Share struct {
 	EnabledProtocol pulumi.StringPtrOutput `pulumi:"enabledProtocol"`
 	// A mapping of MetaData for this File Share.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
-	// The name of the share. Must be unique within the storage account where the share is located.
+	// The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
 	Quota pulumi.IntOutput `pulumi:"quota"`
 	// The Resource Manager ID of this File Share.
 	ResourceManagerId pulumi.StringOutput `pulumi:"resourceManagerId"`
-	// Specifies the storage account in which to create the share.
-	// Changing this forces a new resource to be created.
+	// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 	// The URL of the File Share
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -146,14 +145,13 @@ type shareState struct {
 	EnabledProtocol *string `pulumi:"enabledProtocol"`
 	// A mapping of MetaData for this File Share.
 	Metadata map[string]string `pulumi:"metadata"`
-	// The name of the share. Must be unique within the storage account where the share is located.
+	// The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
 	Quota *int `pulumi:"quota"`
 	// The Resource Manager ID of this File Share.
 	ResourceManagerId *string `pulumi:"resourceManagerId"`
-	// Specifies the storage account in which to create the share.
-	// Changing this forces a new resource to be created.
+	// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
 	// The URL of the File Share
 	Url *string `pulumi:"url"`
@@ -168,14 +166,13 @@ type ShareState struct {
 	EnabledProtocol pulumi.StringPtrInput
 	// A mapping of MetaData for this File Share.
 	Metadata pulumi.StringMapInput
-	// The name of the share. Must be unique within the storage account where the share is located.
+	// The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
 	Quota pulumi.IntPtrInput
 	// The Resource Manager ID of this File Share.
 	ResourceManagerId pulumi.StringPtrInput
-	// Specifies the storage account in which to create the share.
-	// Changing this forces a new resource to be created.
+	// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput
 	// The URL of the File Share
 	Url pulumi.StringPtrInput
@@ -194,12 +191,11 @@ type shareArgs struct {
 	EnabledProtocol *string `pulumi:"enabledProtocol"`
 	// A mapping of MetaData for this File Share.
 	Metadata map[string]string `pulumi:"metadata"`
-	// The name of the share. Must be unique within the storage account where the share is located.
+	// The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
 	Quota int `pulumi:"quota"`
-	// Specifies the storage account in which to create the share.
-	// Changing this forces a new resource to be created.
+	// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
 	StorageAccountName string `pulumi:"storageAccountName"`
 }
 
@@ -213,12 +209,11 @@ type ShareArgs struct {
 	EnabledProtocol pulumi.StringPtrInput
 	// A mapping of MetaData for this File Share.
 	Metadata pulumi.StringMapInput
-	// The name of the share. Must be unique within the storage account where the share is located.
+	// The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be `1`GB (or higher) and at most `5120` GB (`5` TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and at most `102400` GB (`100` TB).
 	Quota pulumi.IntInput
-	// Specifies the storage account in which to create the share.
-	// Changing this forces a new resource to be created.
+	// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringInput
 }
 
@@ -329,7 +324,7 @@ func (o ShareOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
-// The name of the share. Must be unique within the storage account where the share is located.
+// The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
 func (o ShareOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -344,8 +339,7 @@ func (o ShareOutput) ResourceManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.ResourceManagerId }).(pulumi.StringOutput)
 }
 
-// Specifies the storage account in which to create the share.
-// Changing this forces a new resource to be created.
+// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
 func (o ShareOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
 }

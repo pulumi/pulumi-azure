@@ -30,7 +30,7 @@ class NamespaceArgs:
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Namespace resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to Changing this forces a new resource to be created.
                create the namespace.
         :param pulumi.Input[str] sku: Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[int] capacity: Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
@@ -43,7 +43,7 @@ class NamespaceArgs:
                new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+        :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
@@ -72,7 +72,7 @@ class NamespaceArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to
+        The name of the resource group in which to Changing this forces a new resource to be created.
         create the namespace.
         """
         return pulumi.get(self, "resource_group_name")
@@ -206,7 +206,7 @@ class NamespaceArgs:
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+        Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_redundant")
 
@@ -251,11 +251,11 @@ class _NamespaceState:
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a
                new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to Changing this forces a new resource to be created.
                create the namespace.
         :param pulumi.Input[str] sku: Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+        :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -441,7 +441,7 @@ class _NamespaceState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to
+        The name of the resource group in which to Changing this forces a new resource to be created.
         create the namespace.
         """
         return pulumi.get(self, "resource_group_name")
@@ -478,7 +478,7 @@ class _NamespaceState:
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+        Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_redundant")
 
@@ -543,11 +543,11 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a
                new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to Changing this forces a new resource to be created.
                create the namespace.
         :param pulumi.Input[str] sku: Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+        :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -688,11 +688,11 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a
                new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to Changing this forces a new resource to be created.
                create the namespace.
         :param pulumi.Input[str] sku: Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+        :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -819,7 +819,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to
+        The name of the resource group in which to Changing this forces a new resource to be created.
         create the namespace.
         """
         return pulumi.get(self, "resource_group_name")
@@ -844,7 +844,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+        Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_redundant")
 

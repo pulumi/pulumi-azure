@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  * Kusto EventHub Data Connections can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:kusto/eventhubDataConnection:EventhubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/eventHubConnection1
+ *  $ pulumi import azure:kusto/eventhubDataConnection:EventhubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/eventHubConnection1
  * ```
  * 
  */
@@ -191,14 +191,14 @@ public class EventhubDataConnection extends com.pulumi.resources.CustomResource 
         return this.databaseName;
     }
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="databaseRoutingType", type=String.class, parameters={})
     private Output</* @Nullable */ String> databaseRoutingType;
 
     /**
-     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> databaseRoutingType() {

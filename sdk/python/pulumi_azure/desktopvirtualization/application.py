@@ -26,8 +26,7 @@ class ApplicationArgs:
                  show_in_portal: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[str] application_group_id: Resource ID for a Virtual Desktop Application Group to associate with the
-               Virtual Desktop Application. Changing the ID forces a new resource to be created.
+        :param pulumi.Input[str] application_group_id: Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] command_line_argument_policy: Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
         :param pulumi.Input[str] path: The file path location of the app on the Virtual Desktop OS.
         :param pulumi.Input[str] command_line_arguments: Command Line Arguments for Virtual Desktop Application.
@@ -60,8 +59,7 @@ class ApplicationArgs:
     @pulumi.getter(name="applicationGroupId")
     def application_group_id(self) -> pulumi.Input[str]:
         """
-        Resource ID for a Virtual Desktop Application Group to associate with the
-        Virtual Desktop Application. Changing the ID forces a new resource to be created.
+        Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_group_id")
 
@@ -193,8 +191,7 @@ class _ApplicationState:
                  show_in_portal: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Application resources.
-        :param pulumi.Input[str] application_group_id: Resource ID for a Virtual Desktop Application Group to associate with the
-               Virtual Desktop Application. Changing the ID forces a new resource to be created.
+        :param pulumi.Input[str] application_group_id: Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] command_line_argument_policy: Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
         :param pulumi.Input[str] command_line_arguments: Command Line Arguments for Virtual Desktop Application.
         :param pulumi.Input[str] description: Option to set a description for the Virtual Desktop Application.
@@ -230,8 +227,7 @@ class _ApplicationState:
     @pulumi.getter(name="applicationGroupId")
     def application_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource ID for a Virtual Desktop Application Group to associate with the
-        Virtual Desktop Application. Changing the ID forces a new resource to be created.
+        Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_group_id")
 
@@ -414,8 +410,7 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_group_id: Resource ID for a Virtual Desktop Application Group to associate with the
-               Virtual Desktop Application. Changing the ID forces a new resource to be created.
+        :param pulumi.Input[str] application_group_id: Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] command_line_argument_policy: Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
         :param pulumi.Input[str] command_line_arguments: Command Line Arguments for Virtual Desktop Application.
         :param pulumi.Input[str] description: Option to set a description for the Virtual Desktop Application.
@@ -557,8 +552,7 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_group_id: Resource ID for a Virtual Desktop Application Group to associate with the
-               Virtual Desktop Application. Changing the ID forces a new resource to be created.
+        :param pulumi.Input[str] application_group_id: Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] command_line_argument_policy: Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
         :param pulumi.Input[str] command_line_arguments: Command Line Arguments for Virtual Desktop Application.
         :param pulumi.Input[str] description: Option to set a description for the Virtual Desktop Application.
@@ -589,8 +583,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="applicationGroupId")
     def application_group_id(self) -> pulumi.Output[str]:
         """
-        Resource ID for a Virtual Desktop Application Group to associate with the
-        Virtual Desktop Application. Changing the ID forces a new resource to be created.
+        Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_group_id")
 

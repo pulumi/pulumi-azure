@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly bool? ProvisionVmAgent;
         /// <summary>
-        /// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        /// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Timezone;
         /// <summary>

@@ -263,14 +263,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to create the Logic App
+     * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Logic App
+     * @return The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -323,14 +323,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+     * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageAccountName")
     private @Nullable Output<String> storageAccountName;
 
     /**
-     * @return The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+     * @return The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> storageAccountName() {
@@ -808,7 +808,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Logic App
+         * @param resourceGroupName The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -819,7 +819,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Logic App
+         * @param resourceGroupName The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -902,7 +902,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+         * @param storageAccountName The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -913,7 +913,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+         * @param storageAccountName The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

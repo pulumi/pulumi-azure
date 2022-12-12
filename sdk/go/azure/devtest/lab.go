@@ -78,7 +78,7 @@ type Lab struct {
 	PremiumDataDiskStorageAccountId pulumi.StringOutput `pulumi:"premiumDataDiskStorageAccountId"`
 	// The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
 	//
 	// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
@@ -136,7 +136,7 @@ type labState struct {
 	PremiumDataDiskStorageAccountId *string `pulumi:"premiumDataDiskStorageAccountId"`
 	// The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
 	//
 	// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 	StorageType *string `pulumi:"storageType"`
@@ -163,7 +163,7 @@ type LabState struct {
 	PremiumDataDiskStorageAccountId pulumi.StringPtrInput
 	// The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
 	//
 	// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 	StorageType pulumi.StringPtrInput
@@ -184,7 +184,7 @@ type labArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
 	//
 	// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 	StorageType *string `pulumi:"storageType"`
@@ -200,7 +200,7 @@ type LabArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
 	//
 	// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 	StorageType pulumi.StringPtrInput
@@ -335,7 +335,7 @@ func (o LabOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
 //
 // Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 func (o LabOutput) StorageType() pulumi.StringPtrOutput {

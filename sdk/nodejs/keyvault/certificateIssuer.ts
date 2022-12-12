@@ -77,7 +77,7 @@ export class CertificateIssuer extends pulumi.CustomResource {
      */
     public readonly admins!: pulumi.Output<outputs.keyvault.CertificateIssuerAdmin[] | undefined>;
     /**
-     * The ID of the Key Vault in which to create the Certificate Issuer.
+     * The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
      */
     public readonly keyVaultId!: pulumi.Output<string>;
     /**
@@ -151,7 +151,7 @@ export interface CertificateIssuerState {
      */
     admins?: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateIssuerAdmin>[]>;
     /**
-     * The ID of the Key Vault in which to create the Certificate Issuer.
+     * The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
      */
     keyVaultId?: pulumi.Input<string>;
     /**
@@ -185,7 +185,7 @@ export interface CertificateIssuerArgs {
      */
     admins?: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateIssuerAdmin>[]>;
     /**
-     * The ID of the Key Vault in which to create the Certificate Issuer.
+     * The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
      */
     keyVaultId: pulumi.Input<string>;
     /**

@@ -10,38 +10,38 @@ import java.util.Objects;
 @CustomType
 public final class BastionHostIpConfiguration {
     /**
-     * @return The name of the IP configuration.
+     * @return The name of the IP configuration. Changing this forces a new resource to be created.
      * 
      */
     private String name;
     /**
-     * @return Reference to a Public IP Address to associate with this Bastion Host.
+     * @return Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
      * 
      */
     private String publicIpAddressId;
     /**
-     * @return Reference to a subnet in which this Bastion Host has been created.
+     * @return Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
      * 
      */
     private String subnetId;
 
     private BastionHostIpConfiguration() {}
     /**
-     * @return The name of the IP configuration.
+     * @return The name of the IP configuration. Changing this forces a new resource to be created.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Reference to a Public IP Address to associate with this Bastion Host.
+     * @return Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
      * 
      */
     public String publicIpAddressId() {
         return this.publicIpAddressId;
     }
     /**
-     * @return Reference to a subnet in which this Bastion Host has been created.
+     * @return Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
      * 
      */
     public String subnetId() {

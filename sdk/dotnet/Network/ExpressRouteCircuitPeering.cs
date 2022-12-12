@@ -152,7 +152,7 @@ namespace Pulumi.Azure.Network
         public Output<int> AzureAsn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the ExpressRoute Circuit in which to create the Peering.
+        /// The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
         /// </summary>
         [Output("expressRouteCircuitName")]
         public Output<string> ExpressRouteCircuitName { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Azure.Network
         public Output<int> PeerAsn { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
+        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
         /// </summary>
         [Output("peeringType")]
         public Output<string> PeeringType { get; private set; } = null!;
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.Network
     public sealed class ExpressRouteCircuitPeeringArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the ExpressRoute Circuit in which to create the Peering.
+        /// The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
         /// </summary>
         [Input("expressRouteCircuitName", required: true)]
         public Input<string> ExpressRouteCircuitName { get; set; } = null!;
@@ -315,7 +315,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? PeerAsn { get; set; }
 
         /// <summary>
-        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
+        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
         /// </summary>
         [Input("peeringType", required: true)]
         public Input<string> PeeringType { get; set; } = null!;
@@ -371,7 +371,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? AzureAsn { get; set; }
 
         /// <summary>
-        /// The name of the ExpressRoute Circuit in which to create the Peering.
+        /// The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
         /// </summary>
         [Input("expressRouteCircuitName")]
         public Input<string>? ExpressRouteCircuitName { get; set; }
@@ -404,7 +404,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? PeerAsn { get; set; }
 
         /// <summary>
-        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
+        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
         /// </summary>
         [Input("peeringType")]
         public Input<string>? PeeringType { get; set; }

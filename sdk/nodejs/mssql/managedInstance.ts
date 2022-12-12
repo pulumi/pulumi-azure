@@ -259,7 +259,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
     /**
-     * The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+     * The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -271,7 +271,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly publicDataEndpointEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the resource group in which to create the SQL Managed Instance.
+     * The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -287,7 +287,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly storageSizeInGb!: pulumi.Output<number>;
     /**
-     * The subnet resource id that the SQL Managed Instance will be associated with.
+     * The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
@@ -435,7 +435,7 @@ export interface ManagedInstanceState {
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
-     * The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+     * The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -447,7 +447,7 @@ export interface ManagedInstanceState {
      */
     publicDataEndpointEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to create the SQL Managed Instance.
+     * The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -463,7 +463,7 @@ export interface ManagedInstanceState {
      */
     storageSizeInGb?: pulumi.Input<number>;
     /**
-     * The subnet resource id that the SQL Managed Instance will be associated with.
+     * The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
      */
     subnetId?: pulumi.Input<string>;
     /**
@@ -521,7 +521,7 @@ export interface ManagedInstanceArgs {
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
-     * The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+     * The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -533,7 +533,7 @@ export interface ManagedInstanceArgs {
      */
     publicDataEndpointEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to create the SQL Managed Instance.
+     * The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -549,7 +549,7 @@ export interface ManagedInstanceArgs {
      */
     storageSizeInGb: pulumi.Input<number>;
     /**
-     * The subnet resource id that the SQL Managed Instance will be associated with.
+     * The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
      */
     subnetId: pulumi.Input<string>;
     /**

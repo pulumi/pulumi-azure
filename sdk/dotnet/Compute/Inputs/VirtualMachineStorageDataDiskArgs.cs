@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+        /// Specifies the URI of the VHD file backing this Unmanaged Data Disk.
         /// </summary>
         [Input("vhdUri")]
         public Input<string>? VhdUri { get; set; }

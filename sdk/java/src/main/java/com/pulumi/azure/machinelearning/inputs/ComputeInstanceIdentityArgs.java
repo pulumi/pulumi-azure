@@ -17,14 +17,14 @@ public final class ComputeInstanceIdentityArgs extends com.pulumi.resources.Reso
     public static final ComputeInstanceIdentityArgs Empty = new ComputeInstanceIdentityArgs();
 
     /**
-     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance.
+     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -62,14 +62,14 @@ public final class ComputeInstanceIdentityArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
      * 
      */
     public Output<String> type() {
@@ -104,7 +104,7 @@ public final class ComputeInstanceIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ComputeInstanceIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ComputeInstanceIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ComputeInstanceIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class ComputeInstanceIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

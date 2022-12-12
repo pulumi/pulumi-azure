@@ -150,7 +150,7 @@ export class Plan extends pulumi.CustomResource {
      */
     public readonly reserved!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the resource group in which to create the App Service Plan component.
+     * The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -257,7 +257,7 @@ export interface PlanState {
      */
     reserved?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to create the App Service Plan component.
+     * The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -308,7 +308,7 @@ export interface PlanArgs {
      */
     reserved?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to create the App Service Plan component.
+     * The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

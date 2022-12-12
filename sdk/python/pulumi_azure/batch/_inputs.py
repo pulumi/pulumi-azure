@@ -289,8 +289,8 @@ class PoolContainerConfigurationArgs:
                  container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_image_names: A list of container image names to use, as would be specified by `docker pull`.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArgs']]] container_registries: Additional container registries from which container images can be pulled by the pool's VMs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_image_names: A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArgs']]] container_registries: Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of container configuration. Possible value is `DockerCompatible`.
         """
         if container_image_names is not None:
@@ -304,7 +304,7 @@ class PoolContainerConfigurationArgs:
     @pulumi.getter(name="containerImageNames")
     def container_image_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of container image names to use, as would be specified by `docker pull`.
+        A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "container_image_names")
 
@@ -316,7 +316,7 @@ class PoolContainerConfigurationArgs:
     @pulumi.getter(name="containerRegistries")
     def container_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArgs']]]]:
         """
-        Additional container registries from which container images can be pulled by the pool's VMs.
+        Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "container_registries")
 
@@ -1154,7 +1154,7 @@ class PoolNetworkConfigurationArgs:
                  public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] subnet_id: The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dynamic_vnet_assignment_scope: The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+        :param pulumi.Input[str] dynamic_vnet_assignment_scope: The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationArgs']]] endpoint_configurations: A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_address_provisioning_type: Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ips: A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created.
@@ -1185,7 +1185,7 @@ class PoolNetworkConfigurationArgs:
     @pulumi.getter(name="dynamicVnetAssignmentScope")
     def dynamic_vnet_assignment_scope(self) -> Optional[pulumi.Input[str]]:
         """
-        The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+        The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dynamic_vnet_assignment_scope")
 

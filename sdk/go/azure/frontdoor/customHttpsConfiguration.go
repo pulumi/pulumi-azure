@@ -27,7 +27,7 @@ type CustomHttpsConfiguration struct {
 	CustomHttpsConfiguration CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput `pulumi:"customHttpsConfiguration"`
 	// Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
 	CustomHttpsProvisioningEnabled pulumi.BoolOutput `pulumi:"customHttpsProvisioningEnabled"`
-	// The ID of the Front Door Frontend Endpoint which this configuration refers to.
+	// The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
 	FrontendEndpointId pulumi.StringOutput `pulumi:"frontendEndpointId"`
 }
 
@@ -70,7 +70,7 @@ type customHttpsConfigurationState struct {
 	CustomHttpsConfiguration *CustomHttpsConfigurationCustomHttpsConfiguration `pulumi:"customHttpsConfiguration"`
 	// Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
 	CustomHttpsProvisioningEnabled *bool `pulumi:"customHttpsProvisioningEnabled"`
-	// The ID of the Front Door Frontend Endpoint which this configuration refers to.
+	// The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
 	FrontendEndpointId *string `pulumi:"frontendEndpointId"`
 }
 
@@ -79,7 +79,7 @@ type CustomHttpsConfigurationState struct {
 	CustomHttpsConfiguration CustomHttpsConfigurationCustomHttpsConfigurationPtrInput
 	// Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
 	CustomHttpsProvisioningEnabled pulumi.BoolPtrInput
-	// The ID of the Front Door Frontend Endpoint which this configuration refers to.
+	// The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
 	FrontendEndpointId pulumi.StringPtrInput
 }
 
@@ -92,7 +92,7 @@ type customHttpsConfigurationArgs struct {
 	CustomHttpsConfiguration *CustomHttpsConfigurationCustomHttpsConfiguration `pulumi:"customHttpsConfiguration"`
 	// Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
 	CustomHttpsProvisioningEnabled bool `pulumi:"customHttpsProvisioningEnabled"`
-	// The ID of the Front Door Frontend Endpoint which this configuration refers to.
+	// The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
 	FrontendEndpointId string `pulumi:"frontendEndpointId"`
 }
 
@@ -102,7 +102,7 @@ type CustomHttpsConfigurationArgs struct {
 	CustomHttpsConfiguration CustomHttpsConfigurationCustomHttpsConfigurationPtrInput
 	// Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
 	CustomHttpsProvisioningEnabled pulumi.BoolInput
-	// The ID of the Front Door Frontend Endpoint which this configuration refers to.
+	// The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
 	FrontendEndpointId pulumi.StringInput
 }
 
@@ -205,7 +205,7 @@ func (o CustomHttpsConfigurationOutput) CustomHttpsProvisioningEnabled() pulumi.
 	return o.ApplyT(func(v *CustomHttpsConfiguration) pulumi.BoolOutput { return v.CustomHttpsProvisioningEnabled }).(pulumi.BoolOutput)
 }
 
-// The ID of the Front Door Frontend Endpoint which this configuration refers to.
+// The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
 func (o CustomHttpsConfigurationOutput) FrontendEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomHttpsConfiguration) pulumi.StringOutput { return v.FrontendEndpointId }).(pulumi.StringOutput)
 }

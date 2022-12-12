@@ -183,28 +183,28 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
         return this.ipAddress;
     }
     /**
-     * A mapping of IP tags to assign to the public IP.
+     * A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="ipTags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> ipTags;
 
     /**
-     * @return A mapping of IP tags to assign to the public IP.
+     * @return A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Map<String,String>>> ipTags() {
         return Codegen.optional(this.ipTags);
     }
     /**
-     * The IP Version to use, IPv6 or IPv4.
+     * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="ipVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> ipVersion;
 
     /**
-     * @return The IP Version to use, IPv6 or IPv4.
+     * @return The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> ipVersion() {
@@ -239,14 +239,14 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * If specified then public IP address allocated will be provided from the public IP prefix resource.
+     * If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="publicIpPrefixId", type=String.class, parameters={})
     private Output</* @Nullable */ String> publicIpPrefixId;
 
     /**
-     * @return If specified then public IP address allocated will be provided from the public IP prefix resource.
+     * @return If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> publicIpPrefixId() {
@@ -281,28 +281,28 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.reverseFqdn);
     }
     /**
-     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sku", type=String.class, parameters={})
     private Output</* @Nullable */ String> sku;
 
     /**
-     * @return The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * @return The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> sku() {
         return Codegen.optional(this.sku);
     }
     /**
-     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="skuTier", type=String.class, parameters={})
     private Output</* @Nullable */ String> skuTier;
 
     /**
-     * @return The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+     * @return The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> skuTier() {
@@ -323,14 +323,14 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A collection containing the availability zone to allocate the Public IP in.
+     * A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="zones", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> zones;
 
     /**
-     * @return A collection containing the availability zone to allocate the Public IP in.
+     * @return A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<String>>> zones() {

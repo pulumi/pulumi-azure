@@ -104,43 +104,43 @@ namespace Pulumi.Azure.SiteRecovery
     public partial class NetworkMapping : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the network mapping.
+        /// The name of the network mapping. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the vault that should be updated.
+        /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Output("recoveryVaultName")]
         public Output<string> RecoveryVaultName { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the resource group where the vault that should be updated is located.
+        /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the primary network.
+        /// The id of the primary network. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceNetworkId")]
         public Output<string> SourceNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ASR fabric where mapping should be created.
+        /// Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceRecoveryFabricName")]
         public Output<string> SourceRecoveryFabricName { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the recovery network.
+        /// The id of the recovery network. Changing this forces a new resource to be created.
         /// </summary>
         [Output("targetNetworkId")]
         public Output<string> TargetNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+        /// The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
         /// </summary>
         [Output("targetRecoveryFabricName")]
         public Output<string> TargetRecoveryFabricName { get; private set; } = null!;
@@ -192,43 +192,43 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class NetworkMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the network mapping.
+        /// The name of the network mapping. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the vault that should be updated.
+        /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryVaultName", required: true)]
         public Input<string> RecoveryVaultName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group where the vault that should be updated is located.
+        /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The id of the primary network.
+        /// The id of the primary network. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceNetworkId", required: true)]
         public Input<string> SourceNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the ASR fabric where mapping should be created.
+        /// Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceRecoveryFabricName", required: true)]
         public Input<string> SourceRecoveryFabricName { get; set; } = null!;
 
         /// <summary>
-        /// The id of the recovery network.
+        /// The id of the recovery network. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetNetworkId", required: true)]
         public Input<string> TargetNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+        /// The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetRecoveryFabricName", required: true)]
         public Input<string> TargetRecoveryFabricName { get; set; } = null!;
@@ -242,43 +242,43 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class NetworkMappingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the network mapping.
+        /// The name of the network mapping. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the vault that should be updated.
+        /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryVaultName")]
         public Input<string>? RecoveryVaultName { get; set; }
 
         /// <summary>
-        /// Name of the resource group where the vault that should be updated is located.
+        /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The id of the primary network.
+        /// The id of the primary network. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceNetworkId")]
         public Input<string>? SourceNetworkId { get; set; }
 
         /// <summary>
-        /// Specifies the ASR fabric where mapping should be created.
+        /// Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceRecoveryFabricName")]
         public Input<string>? SourceRecoveryFabricName { get; set; }
 
         /// <summary>
-        /// The id of the recovery network.
+        /// The id of the recovery network. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetNetworkId")]
         public Input<string>? TargetNetworkId { get; set; }
 
         /// <summary>
-        /// The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+        /// The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetRecoveryFabricName")]
         public Input<string>? TargetRecoveryFabricName { get; set; }

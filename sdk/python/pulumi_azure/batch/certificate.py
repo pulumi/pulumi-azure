@@ -27,7 +27,7 @@ class CertificateArgs:
         :param pulumi.Input[str] certificate: The base64-encoded contents of the certificate.
         :param pulumi.Input[str] format: The format of the certificate. Possible values are `Cer` or `Pfx`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] thumbprint: The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
+        :param pulumi.Input[str] thumbprint: The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -91,7 +91,7 @@ class CertificateArgs:
     @pulumi.getter
     def thumbprint(self) -> pulumi.Input[str]:
         """
-        The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
+        The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "thumbprint")
 
@@ -142,7 +142,7 @@ class _CertificateState:
         :param pulumi.Input[str] password: The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
         :param pulumi.Input[str] public_data: The public key of the certificate.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] thumbprint: The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
+        :param pulumi.Input[str] thumbprint: The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -251,7 +251,7 @@ class _CertificateState:
     @pulumi.getter
     def thumbprint(self) -> Optional[pulumi.Input[str]]:
         """
-        The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
+        The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "thumbprint")
 
@@ -331,7 +331,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] format: The format of the certificate. Possible values are `Cer` or `Pfx`.
         :param pulumi.Input[str] password: The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] thumbprint: The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
+        :param pulumi.Input[str] thumbprint: The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -466,7 +466,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
         :param pulumi.Input[str] public_data: The public key of the certificate.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] thumbprint: The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
+        :param pulumi.Input[str] thumbprint: The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -543,7 +543,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def thumbprint(self) -> pulumi.Output[str]:
         """
-        The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
+        The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "thumbprint")
 

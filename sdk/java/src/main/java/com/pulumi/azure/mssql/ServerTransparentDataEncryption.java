@@ -226,14 +226,14 @@ public class ServerTransparentDataEncryption extends com.pulumi.resources.Custom
         return Codegen.optional(this.keyVaultKeyId);
     }
     /**
-     * Specifies the name of the MS SQL Server.
+     * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="serverId", type=String.class, parameters={})
     private Output<String> serverId;
 
     /**
-     * @return Specifies the name of the MS SQL Server.
+     * @return Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> serverId() {

@@ -100,7 +100,7 @@ export class MongoCollection extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The name of the key to partition on for sharding. There must not be any other unique index keys.
+     * The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
      */
     public readonly shardKey!: pulumi.Output<string | undefined>;
     /**
@@ -192,7 +192,7 @@ export interface MongoCollectionState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The name of the key to partition on for sharding. There must not be any other unique index keys.
+     * The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
      */
     shardKey?: pulumi.Input<string>;
     /**
@@ -233,7 +233,7 @@ export interface MongoCollectionArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the key to partition on for sharding. There must not be any other unique index keys.
+     * The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
      */
     shardKey?: pulumi.Input<string>;
     throughput?: pulumi.Input<number>;

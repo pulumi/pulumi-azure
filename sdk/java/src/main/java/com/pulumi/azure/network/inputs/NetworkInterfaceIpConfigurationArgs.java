@@ -32,14 +32,14 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * A name used for this IP Configuration.
+     * A name used for this IP Configuration. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A name used for this IP Configuration.
+     * @return A name used for this IP Configuration. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -189,7 +189,7 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name A name used for this IP Configuration.
+         * @param name A name used for this IP Configuration. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name A name used for this IP Configuration.
+         * @param name A name used for this IP Configuration. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -23,13 +23,13 @@ import (
 type ManagedInstanceFailoverGroup struct {
 	pulumi.CustomResourceState
 
-	// The Azure Region where the SQL Instance Failover Group exists.
+	// The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the SQL Managed Instance which will be replicated using a SQL Instance Failover Group. Changing this forces a new SQL Instance Failover Group to be created.
 	ManagedInstanceName pulumi.StringOutput `pulumi:"managedInstanceName"`
 	// The name which should be used for this SQL Instance Failover Group. Changing this forces a new SQL Instance Failover Group to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// ID of the SQL Managed Instance which will be replicated to.
+	// ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
 	PartnerManagedInstanceId pulumi.StringOutput `pulumi:"partnerManagedInstanceId"`
 	// A `partnerRegion` block as defined below.
 	PartnerRegions ManagedInstanceFailoverGroupPartnerRegionArrayOutput `pulumi:"partnerRegions"`
@@ -84,13 +84,13 @@ func GetManagedInstanceFailoverGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedInstanceFailoverGroup resources.
 type managedInstanceFailoverGroupState struct {
-	// The Azure Region where the SQL Instance Failover Group exists.
+	// The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the SQL Managed Instance which will be replicated using a SQL Instance Failover Group. Changing this forces a new SQL Instance Failover Group to be created.
 	ManagedInstanceName *string `pulumi:"managedInstanceName"`
 	// The name which should be used for this SQL Instance Failover Group. Changing this forces a new SQL Instance Failover Group to be created.
 	Name *string `pulumi:"name"`
-	// ID of the SQL Managed Instance which will be replicated to.
+	// ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
 	PartnerManagedInstanceId *string `pulumi:"partnerManagedInstanceId"`
 	// A `partnerRegion` block as defined below.
 	PartnerRegions []ManagedInstanceFailoverGroupPartnerRegion `pulumi:"partnerRegions"`
@@ -105,13 +105,13 @@ type managedInstanceFailoverGroupState struct {
 }
 
 type ManagedInstanceFailoverGroupState struct {
-	// The Azure Region where the SQL Instance Failover Group exists.
+	// The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the SQL Managed Instance which will be replicated using a SQL Instance Failover Group. Changing this forces a new SQL Instance Failover Group to be created.
 	ManagedInstanceName pulumi.StringPtrInput
 	// The name which should be used for this SQL Instance Failover Group. Changing this forces a new SQL Instance Failover Group to be created.
 	Name pulumi.StringPtrInput
-	// ID of the SQL Managed Instance which will be replicated to.
+	// ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
 	PartnerManagedInstanceId pulumi.StringPtrInput
 	// A `partnerRegion` block as defined below.
 	PartnerRegions ManagedInstanceFailoverGroupPartnerRegionArrayInput
@@ -130,13 +130,13 @@ func (ManagedInstanceFailoverGroupState) ElementType() reflect.Type {
 }
 
 type managedInstanceFailoverGroupArgs struct {
-	// The Azure Region where the SQL Instance Failover Group exists.
+	// The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the SQL Managed Instance which will be replicated using a SQL Instance Failover Group. Changing this forces a new SQL Instance Failover Group to be created.
 	ManagedInstanceName string `pulumi:"managedInstanceName"`
 	// The name which should be used for this SQL Instance Failover Group. Changing this forces a new SQL Instance Failover Group to be created.
 	Name *string `pulumi:"name"`
-	// ID of the SQL Managed Instance which will be replicated to.
+	// ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
 	PartnerManagedInstanceId string `pulumi:"partnerManagedInstanceId"`
 	// A `readWriteEndpointFailoverPolicy` block as defined below.
 	ReadWriteEndpointFailoverPolicy ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy `pulumi:"readWriteEndpointFailoverPolicy"`
@@ -148,13 +148,13 @@ type managedInstanceFailoverGroupArgs struct {
 
 // The set of arguments for constructing a ManagedInstanceFailoverGroup resource.
 type ManagedInstanceFailoverGroupArgs struct {
-	// The Azure Region where the SQL Instance Failover Group exists.
+	// The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the SQL Managed Instance which will be replicated using a SQL Instance Failover Group. Changing this forces a new SQL Instance Failover Group to be created.
 	ManagedInstanceName pulumi.StringInput
 	// The name which should be used for this SQL Instance Failover Group. Changing this forces a new SQL Instance Failover Group to be created.
 	Name pulumi.StringPtrInput
-	// ID of the SQL Managed Instance which will be replicated to.
+	// ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
 	PartnerManagedInstanceId pulumi.StringInput
 	// A `readWriteEndpointFailoverPolicy` block as defined below.
 	ReadWriteEndpointFailoverPolicy ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyInput
@@ -251,7 +251,7 @@ func (o ManagedInstanceFailoverGroupOutput) ToManagedInstanceFailoverGroupOutput
 	return o
 }
 
-// The Azure Region where the SQL Instance Failover Group exists.
+// The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
 func (o ManagedInstanceFailoverGroupOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedInstanceFailoverGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -266,7 +266,7 @@ func (o ManagedInstanceFailoverGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedInstanceFailoverGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// ID of the SQL Managed Instance which will be replicated to.
+// ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
 func (o ManagedInstanceFailoverGroupOutput) PartnerManagedInstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedInstanceFailoverGroup) pulumi.StringOutput { return v.PartnerManagedInstanceId }).(pulumi.StringOutput)
 }

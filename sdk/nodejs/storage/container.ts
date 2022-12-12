@@ -82,7 +82,7 @@ export class Container extends pulumi.CustomResource {
      */
     public readonly metadata!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The name of the Container which should be created within the Storage Account.
+     * The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -90,7 +90,7 @@ export class Container extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
     /**
-     * The name of the Storage Account where the Container should be created.
+     * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      */
     public readonly storageAccountName!: pulumi.Output<string>;
 
@@ -153,7 +153,7 @@ export interface ContainerState {
      */
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the Container which should be created within the Storage Account.
+     * The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -161,7 +161,7 @@ export interface ContainerState {
      */
     resourceManagerId?: pulumi.Input<string>;
     /**
-     * The name of the Storage Account where the Container should be created.
+     * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      */
     storageAccountName?: pulumi.Input<string>;
 }
@@ -179,11 +179,11 @@ export interface ContainerArgs {
      */
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the Container which should be created within the Storage Account.
+     * The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the Storage Account where the Container should be created.
+     * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      */
     storageAccountName: pulumi.Input<string>;
 }

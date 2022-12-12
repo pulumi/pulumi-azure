@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<string>? _containerImageNames;
 
         /// <summary>
-        /// A list of container image names to use, as would be specified by `docker pull`.
+        /// A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> ContainerImageNames
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<Inputs.PoolContainerConfigurationContainerRegistryGetArgs>? _containerRegistries;
 
         /// <summary>
-        /// Additional container registries from which container images can be pulled by the pool's VMs.
+        /// Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.PoolContainerConfigurationContainerRegistryGetArgs> ContainerRegistries
         {

@@ -31,13 +31,13 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         }
 
         /// <summary>
-        /// The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+        /// The Port used for the Client Endpoint for this Node Type.
         /// </summary>
         [Input("clientEndpointPort", required: true)]
         public Input<int> ClientEndpointPort { get; set; } = null!;
 
         /// <summary>
-        /// The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+        /// The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
         /// </summary>
         [Input("durabilityLevel")]
         public Input<string>? DurabilityLevel { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public Input<Inputs.ClusterNodeTypeEphemeralPortsArgs>? EphemeralPorts { get; set; }
 
         /// <summary>
-        /// The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+        /// The Port used for the HTTP Endpoint for this Node Type.
         /// </summary>
         [Input("httpEndpointPort", required: true)]
         public Input<int> HttpEndpointPort { get; set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public Input<int> InstanceCount { get; set; } = null!;
 
         /// <summary>
-        /// Is this the Primary Node Type? Changing this forces a new resource to be created.
+        /// Is this the Primary Node Type?
         /// </summary>
         [Input("isPrimary", required: true)]
         public Input<bool> IsPrimary { get; set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public Input<bool>? MultipleAvailabilityZones { get; set; }
 
         /// <summary>
-        /// The name of the Node Type. Changing this forces a new resource to be created.
+        /// The name of the Node Type.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

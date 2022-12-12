@@ -123,14 +123,14 @@ public final class VirtualMachineStorageDataDiskArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+     * Specifies the URI of the VHD file backing this Unmanaged Data Disk.
      * 
      */
     @Import(name="vhdUri")
     private @Nullable Output<String> vhdUri;
 
     /**
-     * @return Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+     * @return Specifies the URI of the VHD file backing this Unmanaged Data Disk.
      * 
      */
     public Optional<Output<String>> vhdUri() {
@@ -332,7 +332,7 @@ public final class VirtualMachineStorageDataDiskArgs extends com.pulumi.resource
         }
 
         /**
-         * @param vhdUri Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+         * @param vhdUri Specifies the URI of the VHD file backing this Unmanaged Data Disk.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class VirtualMachineStorageDataDiskArgs extends com.pulumi.resource
         }
 
         /**
-         * @param vhdUri Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+         * @param vhdUri Specifies the URI of the VHD file backing this Unmanaged Data Disk.
          * 
          * @return builder
          * 

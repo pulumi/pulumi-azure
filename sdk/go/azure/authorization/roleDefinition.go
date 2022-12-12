@@ -72,7 +72,7 @@ type RoleDefinition struct {
 	AssignableScopes pulumi.StringArrayOutput `pulumi:"assignableScopes"`
 	// A description of the Role Definition.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the Role Definition. Changing this forces a new resource to be created.
+	// The name of the Role Definition.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `permissions` block as defined below.
 	Permissions RoleDefinitionPermissionArrayOutput `pulumi:"permissions"`
@@ -126,7 +126,7 @@ type roleDefinitionState struct {
 	AssignableScopes []string `pulumi:"assignableScopes"`
 	// A description of the Role Definition.
 	Description *string `pulumi:"description"`
-	// The name of the Role Definition. Changing this forces a new resource to be created.
+	// The name of the Role Definition.
 	Name *string `pulumi:"name"`
 	// A `permissions` block as defined below.
 	Permissions []RoleDefinitionPermission `pulumi:"permissions"`
@@ -143,7 +143,7 @@ type RoleDefinitionState struct {
 	AssignableScopes pulumi.StringArrayInput
 	// A description of the Role Definition.
 	Description pulumi.StringPtrInput
-	// The name of the Role Definition. Changing this forces a new resource to be created.
+	// The name of the Role Definition.
 	Name pulumi.StringPtrInput
 	// A `permissions` block as defined below.
 	Permissions RoleDefinitionPermissionArrayInput
@@ -164,7 +164,7 @@ type roleDefinitionArgs struct {
 	AssignableScopes []string `pulumi:"assignableScopes"`
 	// A description of the Role Definition.
 	Description *string `pulumi:"description"`
-	// The name of the Role Definition. Changing this forces a new resource to be created.
+	// The name of the Role Definition.
 	Name *string `pulumi:"name"`
 	// A `permissions` block as defined below.
 	Permissions []RoleDefinitionPermission `pulumi:"permissions"`
@@ -180,7 +180,7 @@ type RoleDefinitionArgs struct {
 	AssignableScopes pulumi.StringArrayInput
 	// A description of the Role Definition.
 	Description pulumi.StringPtrInput
-	// The name of the Role Definition. Changing this forces a new resource to be created.
+	// The name of the Role Definition.
 	Name pulumi.StringPtrInput
 	// A `permissions` block as defined below.
 	Permissions RoleDefinitionPermissionArrayInput
@@ -287,7 +287,7 @@ func (o RoleDefinitionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleDefinition) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Role Definition. Changing this forces a new resource to be created.
+// The name of the Role Definition.
 func (o RoleDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

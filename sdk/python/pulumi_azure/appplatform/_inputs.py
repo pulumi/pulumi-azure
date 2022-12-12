@@ -1134,34 +1134,33 @@ class SpringCloudGatewayRouteConfigOpenApiArgs:
 @pulumi.input_type
 class SpringCloudGatewayRouteConfigRouteArgs:
     def __init__(__self__, *,
+                 order: pulumi.Input[int],
                  classification_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 order: Optional[pulumi.Input[int]] = None,
                  predicates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sso_validation_enabled: Optional[pulumi.Input[bool]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  token_relay: Optional[pulumi.Input[bool]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[int] order: Specifies the route processing order.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classification_tags: Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
         :param pulumi.Input[str] description: Specifies the description which will be applied to methods in the generated OpenAPI documentation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filters: Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response.
-        :param pulumi.Input[int] order: Specifies the route processing order.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] predicates: Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
         :param pulumi.Input[bool] sso_validation_enabled: Should the sso validation be enabled?
         :param pulumi.Input[str] title: Specifies the title which will be applied to methods in the generated OpenAPI documentation.
         :param pulumi.Input[bool] token_relay: Should pass currently-authenticated user's identity token to application service?
         :param pulumi.Input[str] uri: Specifies the full uri which will override `appName`.
         """
+        pulumi.set(__self__, "order", order)
         if classification_tags is not None:
             pulumi.set(__self__, "classification_tags", classification_tags)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
         if predicates is not None:
             pulumi.set(__self__, "predicates", predicates)
         if sso_validation_enabled is not None:
@@ -1172,6 +1171,18 @@ class SpringCloudGatewayRouteConfigRouteArgs:
             pulumi.set(__self__, "token_relay", token_relay)
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[int]:
+        """
+        Specifies the route processing order.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[int]):
+        pulumi.set(self, "order", value)
 
     @property
     @pulumi.getter(name="classificationTags")
@@ -1208,18 +1219,6 @@ class SpringCloudGatewayRouteConfigRouteArgs:
     @filters.setter
     def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "filters", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the route processing order.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "order", value)
 
     @property
     @pulumi.getter
@@ -1542,7 +1541,7 @@ class SpringCloudServiceConfigServerGitSettingRepositoryArgs:
                  search_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ssh_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs']] = None):
         """
-        :param pulumi.Input[str] name: A name to identify on the Git repository, required only if repos exists.
+        :param pulumi.Input[str] name: A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] uri: The URI of the Git repository that's used as the Config Server back end should be started with `http://`, `https://`, `git@`, or `ssh://`.
         :param pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs'] http_basic_auth: A `http_basic_auth` block as defined below.
         :param pulumi.Input[str] label: The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
@@ -1567,7 +1566,7 @@ class SpringCloudServiceConfigServerGitSettingRepositoryArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        A name to identify on the Git repository, required only if repos exists.
+        A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

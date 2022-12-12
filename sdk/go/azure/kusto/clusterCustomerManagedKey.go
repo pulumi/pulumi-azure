@@ -143,7 +143,7 @@ type ClusterCustomerManagedKey struct {
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// The name of Key Vault Key.
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
-	// The ID of the Key Vault. Changing this forces a new resource to be created.
+	// The ID of the Key Vault.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
 	// The version of Key Vault Key.
 	KeyVersion pulumi.StringOutput `pulumi:"keyVersion"`
@@ -196,7 +196,7 @@ type clusterCustomerManagedKeyState struct {
 	ClusterId *string `pulumi:"clusterId"`
 	// The name of Key Vault Key.
 	KeyName *string `pulumi:"keyName"`
-	// The ID of the Key Vault. Changing this forces a new resource to be created.
+	// The ID of the Key Vault.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// The version of Key Vault Key.
 	KeyVersion *string `pulumi:"keyVersion"`
@@ -209,7 +209,7 @@ type ClusterCustomerManagedKeyState struct {
 	ClusterId pulumi.StringPtrInput
 	// The name of Key Vault Key.
 	KeyName pulumi.StringPtrInput
-	// The ID of the Key Vault. Changing this forces a new resource to be created.
+	// The ID of the Key Vault.
 	KeyVaultId pulumi.StringPtrInput
 	// The version of Key Vault Key.
 	KeyVersion pulumi.StringPtrInput
@@ -226,7 +226,7 @@ type clusterCustomerManagedKeyArgs struct {
 	ClusterId string `pulumi:"clusterId"`
 	// The name of Key Vault Key.
 	KeyName string `pulumi:"keyName"`
-	// The ID of the Key Vault. Changing this forces a new resource to be created.
+	// The ID of the Key Vault.
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// The version of Key Vault Key.
 	KeyVersion string `pulumi:"keyVersion"`
@@ -240,7 +240,7 @@ type ClusterCustomerManagedKeyArgs struct {
 	ClusterId pulumi.StringInput
 	// The name of Key Vault Key.
 	KeyName pulumi.StringInput
-	// The ID of the Key Vault. Changing this forces a new resource to be created.
+	// The ID of the Key Vault.
 	KeyVaultId pulumi.StringInput
 	// The version of Key Vault Key.
 	KeyVersion pulumi.StringInput
@@ -345,7 +345,7 @@ func (o ClusterCustomerManagedKeyOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterCustomerManagedKey) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// The ID of the Key Vault. Changing this forces a new resource to be created.
+// The ID of the Key Vault.
 func (o ClusterCustomerManagedKeyOutput) KeyVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterCustomerManagedKey) pulumi.StringOutput { return v.KeyVaultId }).(pulumi.StringOutput)
 }

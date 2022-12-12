@@ -24,10 +24,8 @@ class TableEntityArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] entity: A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
         :param pulumi.Input[str] partition_key: The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
         :param pulumi.Input[str] row_key: The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table entity.
-               Changing this forces a new resource to be created.
-        :param pulumi.Input[str] table_name: The name of the storage table in which to create the storage table entity.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] table_name: The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "entity", entity)
         pulumi.set(__self__, "partition_key", partition_key)
@@ -75,8 +73,7 @@ class TableEntityArgs:
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Input[str]:
         """
-        Specifies the storage account in which to create the storage table entity.
-        Changing this forces a new resource to be created.
+        Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -88,8 +85,7 @@ class TableEntityArgs:
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
         """
-        The name of the storage table in which to create the storage table entity.
-        Changing this forces a new resource to be created.
+        The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "table_name")
 
@@ -111,10 +107,8 @@ class _TableEntityState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] entity: A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
         :param pulumi.Input[str] partition_key: The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
         :param pulumi.Input[str] row_key: The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table entity.
-               Changing this forces a new resource to be created.
-        :param pulumi.Input[str] table_name: The name of the storage table in which to create the storage table entity.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] table_name: The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
         """
         if entity is not None:
             pulumi.set(__self__, "entity", entity)
@@ -167,8 +161,7 @@ class _TableEntityState:
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the storage account in which to create the storage table entity.
-        Changing this forces a new resource to be created.
+        Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -180,8 +173,7 @@ class _TableEntityState:
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the storage table in which to create the storage table entity.
-        Changing this forces a new resource to be created.
+        The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "table_name")
 
@@ -240,10 +232,8 @@ class TableEntity(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] entity: A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
         :param pulumi.Input[str] partition_key: The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
         :param pulumi.Input[str] row_key: The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table entity.
-               Changing this forces a new resource to be created.
-        :param pulumi.Input[str] table_name: The name of the storage table in which to create the storage table entity.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] table_name: The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -354,10 +344,8 @@ class TableEntity(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] entity: A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
         :param pulumi.Input[str] partition_key: The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
         :param pulumi.Input[str] row_key: The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table entity.
-               Changing this forces a new resource to be created.
-        :param pulumi.Input[str] table_name: The name of the storage table in which to create the storage table entity.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] table_name: The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -398,8 +386,7 @@ class TableEntity(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Output[str]:
         """
-        Specifies the storage account in which to create the storage table entity.
-        Changing this forces a new resource to be created.
+        Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -407,8 +394,7 @@ class TableEntity(pulumi.CustomResource):
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[str]:
         """
-        The name of the storage table in which to create the storage table entity.
-        Changing this forces a new resource to be created.
+        The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "table_name")
 

@@ -79,16 +79,14 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The location/region where the Virtual Desktop Application Group is
-     * located. Changing the location/region forces a new resource to be created.
+     * The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The location/region where the Virtual Desktop Application Group is
-     * located. Changing the location/region forces a new resource to be created.
+     * @return The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -111,18 +109,14 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name of the resource group in which to
-     * create the Virtual Desktop Application Group. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the Virtual Desktop Application Group. Changing the resource group name forces
-     * a new resource to be created.
+     * @return The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -145,14 +139,14 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+     * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+     * @return Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> type() {
@@ -278,8 +272,7 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param location The location/region where the Virtual Desktop Application Group is
-         * located. Changing the location/region forces a new resource to be created.
+         * @param location The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -290,8 +283,7 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param location The location/region where the Virtual Desktop Application Group is
-         * located. Changing the location/region forces a new resource to be created.
+         * @param location The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -322,9 +314,7 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the Virtual Desktop Application Group. Changing the resource group name forces
-         * a new resource to be created.
+         * @param resourceGroupName The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -335,9 +325,7 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the Virtual Desktop Application Group. Changing the resource group name forces
-         * a new resource to be created.
+         * @param resourceGroupName The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -368,7 +356,7 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param type Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+         * @param type Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -379,7 +367,7 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param type Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+         * @param type Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

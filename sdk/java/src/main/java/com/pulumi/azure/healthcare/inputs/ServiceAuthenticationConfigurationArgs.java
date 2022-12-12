@@ -49,14 +49,14 @@ public final class ServiceAuthenticationConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * Enables the &#39;SMART on FHIR&#39; option for mobile and web implementations.
+     * (Boolean) Enables the &#39;SMART on FHIR&#39; option for mobile and web implementations.
      * 
      */
     @Import(name="smartProxyEnabled")
     private @Nullable Output<Boolean> smartProxyEnabled;
 
     /**
-     * @return Enables the &#39;SMART on FHIR&#39; option for mobile and web implementations.
+     * @return (Boolean) Enables the &#39;SMART on FHIR&#39; option for mobile and web implementations.
      * 
      */
     public Optional<Output<Boolean>> smartProxyEnabled() {
@@ -134,7 +134,7 @@ public final class ServiceAuthenticationConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param smartProxyEnabled Enables the &#39;SMART on FHIR&#39; option for mobile and web implementations.
+         * @param smartProxyEnabled (Boolean) Enables the &#39;SMART on FHIR&#39; option for mobile and web implementations.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class ServiceAuthenticationConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param smartProxyEnabled Enables the &#39;SMART on FHIR&#39; option for mobile and web implementations.
+         * @param smartProxyEnabled (Boolean) Enables the &#39;SMART on FHIR&#39; option for mobile and web implementations.
          * 
          * @return builder
          * 

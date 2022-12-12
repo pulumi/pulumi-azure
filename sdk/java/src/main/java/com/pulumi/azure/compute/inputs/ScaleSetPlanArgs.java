@@ -14,14 +14,14 @@ public final class ScaleSetPlanArgs extends com.pulumi.resources.ResourceArgs {
     public static final ScaleSetPlanArgs Empty = new ScaleSetPlanArgs();
 
     /**
-     * Specifies the name of the image from the marketplace.
+     * Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the image from the marketplace.
+     * @return Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -85,7 +85,7 @@ public final class ScaleSetPlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the image from the marketplace.
+         * @param name Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class ScaleSetPlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the image from the marketplace.
+         * @param name Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -141,14 +141,14 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.prefixLength);
     }
     /**
-     * The name of the resource group in which to create the Public IP Prefix.
+     * The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Public IP Prefix.
+     * @return The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

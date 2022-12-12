@@ -23,7 +23,7 @@ class ZoneArgs:
         """
         The set of arguments for constructing a Zone resource.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name.
+        :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
         :param pulumi.Input['ZoneSoaRecordArgs'] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Record Set.
         """
@@ -51,7 +51,7 @@ class ZoneArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the DNS Zone. Must be a valid domain name.
+        The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -97,7 +97,7 @@ class _ZoneState:
         """
         Input properties used for looking up and filtering Zone resources.
         :param pulumi.Input[int] max_number_of_record_sets: (Optional) Maximum number of Records in the zone. Defaults to `1000`.
-        :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name.
+        :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: (Optional) A list of values that make up the NS record for the zone.
         :param pulumi.Input[int] number_of_record_sets: (Optional) The number of records already in the zone.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
@@ -135,7 +135,7 @@ class _ZoneState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the DNS Zone. Must be a valid domain name.
+        The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -237,7 +237,7 @@ class Zone(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name.
+        :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ZoneSoaRecordArgs']] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Record Set.
@@ -331,7 +331,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] max_number_of_record_sets: (Optional) Maximum number of Records in the zone. Defaults to `1000`.
-        :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name.
+        :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: (Optional) A list of values that make up the NS record for the zone.
         :param pulumi.Input[int] number_of_record_sets: (Optional) The number of records already in the zone.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
@@ -363,7 +363,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the DNS Zone. Must be a valid domain name.
+        The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

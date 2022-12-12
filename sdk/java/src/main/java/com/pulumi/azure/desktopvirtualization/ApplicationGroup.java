@@ -155,16 +155,14 @@ public class ApplicationGroup extends com.pulumi.resources.CustomResource {
         return this.hostPoolId;
     }
     /**
-     * The location/region where the Virtual Desktop Application Group is
-     * located. Changing the location/region forces a new resource to be created.
+     * The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return The location/region where the Virtual Desktop Application Group is
-     * located. Changing the location/region forces a new resource to be created.
+     * @return The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
@@ -185,18 +183,14 @@ public class ApplicationGroup extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The name of the resource group in which to
-     * create the Virtual Desktop Application Group. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the Virtual Desktop Application Group. Changing the resource group name forces
-     * a new resource to be created.
+     * @return The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -217,14 +211,14 @@ public class ApplicationGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+     * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups.
+     * @return Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> type() {

@@ -33,14 +33,14 @@ public final class ActionGroupWebhookReceiverArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+     * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+     * @return The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -126,7 +126,7 @@ public final class ActionGroupWebhookReceiverArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         * @param name The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ActionGroupWebhookReceiverArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         * @param name The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

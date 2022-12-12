@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.network.FirewallPolicyArgs;
 import com.pulumi.azure.network.inputs.FirewallPolicyState;
 import com.pulumi.azure.network.outputs.FirewallPolicyDns;
+import com.pulumi.azure.network.outputs.FirewallPolicyExplicitProxy;
 import com.pulumi.azure.network.outputs.FirewallPolicyIdentity;
 import com.pulumi.azure.network.outputs.FirewallPolicyInsights;
 import com.pulumi.azure.network.outputs.FirewallPolicyIntrusionDetection;
@@ -75,6 +76,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/firewallPolicy:FirewallPolicy")
 public class FirewallPolicy extends com.pulumi.resources.CustomResource {
     /**
+     * Whether enable auto learn private ip range. Defaults to `false`.
+     * 
+     */
+    @Export(name="autoLearnPrivateRangesEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> autoLearnPrivateRangesEnabled;
+
+    /**
+     * @return Whether enable auto learn private ip range. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> autoLearnPrivateRangesEnabled() {
+        return Codegen.optional(this.autoLearnPrivateRangesEnabled);
+    }
+    /**
      * The ID of the base Firewall Policy.
      * 
      */
@@ -115,6 +130,20 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<FirewallPolicyDns>> dns() {
         return Codegen.optional(this.dns);
+    }
+    /**
+     * A `explicit_proxy` block as defined below.
+     * 
+     */
+    @Export(name="explicitProxy", type=FirewallPolicyExplicitProxy.class, parameters={})
+    private Output</* @Nullable */ FirewallPolicyExplicitProxy> explicitProxy;
+
+    /**
+     * @return A `explicit_proxy` block as defined below.
+     * 
+     */
+    public Output<Optional<FirewallPolicyExplicitProxy>> explicitProxy() {
+        return Codegen.optional(this.explicitProxy);
     }
     /**
      * A list of references to Azure Firewalls that this Firewall Policy is associated with.

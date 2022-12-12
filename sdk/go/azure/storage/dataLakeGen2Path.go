@@ -90,7 +90,7 @@ type DataLakeGen2Path struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
 	Path pulumi.StringOutput `pulumi:"path"`
-	// Specifies the type for path to create. Currently only `directory` is supported.
+	// Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
 	Resource pulumi.StringOutput `pulumi:"resource"`
 	// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
@@ -147,7 +147,7 @@ type dataLakeGen2PathState struct {
 	Owner *string `pulumi:"owner"`
 	// The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
 	Path *string `pulumi:"path"`
-	// Specifies the type for path to create. Currently only `directory` is supported.
+	// Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
 	Resource *string `pulumi:"resource"`
 	// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
@@ -164,7 +164,7 @@ type DataLakeGen2PathState struct {
 	Owner pulumi.StringPtrInput
 	// The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
 	Path pulumi.StringPtrInput
-	// Specifies the type for path to create. Currently only `directory` is supported.
+	// Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
 	Resource pulumi.StringPtrInput
 	// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
@@ -185,7 +185,7 @@ type dataLakeGen2PathArgs struct {
 	Owner *string `pulumi:"owner"`
 	// The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
 	Path string `pulumi:"path"`
-	// Specifies the type for path to create. Currently only `directory` is supported.
+	// Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
 	Resource string `pulumi:"resource"`
 	// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
@@ -203,7 +203,7 @@ type DataLakeGen2PathArgs struct {
 	Owner pulumi.StringPtrInput
 	// The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
 	Path pulumi.StringInput
-	// Specifies the type for path to create. Currently only `directory` is supported.
+	// Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
 	Resource pulumi.StringInput
 	// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringInput
@@ -321,7 +321,7 @@ func (o DataLakeGen2PathOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataLakeGen2Path) pulumi.StringOutput { return v.Path }).(pulumi.StringOutput)
 }
 
-// Specifies the type for path to create. Currently only `directory` is supported.
+// Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
 func (o DataLakeGen2PathOutput) Resource() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataLakeGen2Path) pulumi.StringOutput { return v.Resource }).(pulumi.StringOutput)
 }

@@ -61,7 +61,7 @@ namespace Pulumi.Azure.Storage
     public partial class EncryptionScope : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+        /// Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
         /// </summary>
         [Output("infrastructureEncryptionRequired")]
         public Output<bool?> InfrastructureEncryptionRequired { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.Storage
     public sealed class EncryptionScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+        /// Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
         /// </summary>
         [Input("infrastructureEncryptionRequired")]
         public Input<bool>? InfrastructureEncryptionRequired { get; set; }
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.Storage
     public sealed class EncryptionScopeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+        /// Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
         /// </summary>
         [Input("infrastructureEncryptionRequired")]
         public Input<bool>? InfrastructureEncryptionRequired { get; set; }

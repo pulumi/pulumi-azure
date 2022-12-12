@@ -16,16 +16,14 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
     public static final VirtualNetworkGatewayIpConfigurationArgs Empty = new VirtualNetworkGatewayIpConfigurationArgs();
 
     /**
-     * A user-defined name of the IP configuration. Defaults to
-     * `vnetGatewayConfig`.
+     * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A user-defined name of the IP configuration. Defaults to
-     * `vnetGatewayConfig`.
+     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -117,8 +115,7 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param name A user-defined name of the IP configuration. Defaults to
-         * `vnetGatewayConfig`.
+         * @param name A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -129,8 +126,7 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param name A user-defined name of the IP configuration. Defaults to
-         * `vnetGatewayConfig`.
+         * @param name A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

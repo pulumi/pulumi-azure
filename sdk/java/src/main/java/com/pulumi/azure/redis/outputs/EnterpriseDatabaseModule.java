@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EnterpriseDatabaseModule {
     /**
-     * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+     * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String args;
@@ -25,7 +25,7 @@ public final class EnterpriseDatabaseModule {
 
     private EnterpriseDatabaseModule() {}
     /**
-     * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+     * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> args() {

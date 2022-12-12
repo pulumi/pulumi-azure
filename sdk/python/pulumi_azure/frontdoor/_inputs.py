@@ -160,7 +160,7 @@ class FirewallPolicyCustomRuleArgs:
                  rate_limit_threshold: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] action: The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
-        :param pulumi.Input[str] name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+        :param pulumi.Input[str] name: Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
         :param pulumi.Input[bool] enabled: Is the rule is enabled or disabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleMatchConditionArgs']]] match_conditions: One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
@@ -198,7 +198,7 @@ class FirewallPolicyCustomRuleArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+        Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -739,7 +739,7 @@ class FrontdoorBackendPoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolBackendArgs']]] backends: A `backend` block as defined below.
         :param pulumi.Input[str] health_probe_name: Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
         :param pulumi.Input[str] load_balancing_name: Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
-        :param pulumi.Input[str] name: Specifies the name of the Backend Pool.
+        :param pulumi.Input[str] name: Specifies the name of the Backend Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] id: The ID of the FrontDoor.
         """
         pulumi.set(__self__, "backends", backends)
@@ -789,7 +789,7 @@ class FrontdoorBackendPoolArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the Backend Pool.
+        Specifies the name of the Backend Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -936,7 +936,7 @@ class FrontdoorBackendPoolHealthProbeArgs:
                  probe_method: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name of the Health Probe.
+        :param pulumi.Input[str] name: Specifies the name of the Health Probe. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enabled: Is this health probe enabled? Defaults to `true`.
         :param pulumi.Input[str] id: The ID of the FrontDoor.
         :param pulumi.Input[int] interval_in_seconds: The number of seconds between each Health Probe. Defaults to `120`.
@@ -962,7 +962,7 @@ class FrontdoorBackendPoolHealthProbeArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the Health Probe.
+        Specifies the name of the Health Probe. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1052,7 +1052,7 @@ class FrontdoorBackendPoolLoadBalancingArgs:
                  sample_size: Optional[pulumi.Input[int]] = None,
                  successful_samples_required: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name of the Load Balancer.
+        :param pulumi.Input[str] name: Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
         :param pulumi.Input[int] additional_latency_milliseconds: The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
         :param pulumi.Input[str] id: The ID of the FrontDoor.
         :param pulumi.Input[int] sample_size: The number of samples to consider for load balancing decisions. Defaults to `4`.
@@ -1072,7 +1072,7 @@ class FrontdoorBackendPoolLoadBalancingArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the Load Balancer.
+        Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1243,7 +1243,7 @@ class FrontdoorFrontendEndpointArgs:
                  web_application_firewall_policy_link_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] host_name: Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
-        :param pulumi.Input[str] name: Specifies the name of the `frontend_endpoint`.
+        :param pulumi.Input[str] name: Specifies the name of the `frontend_endpoint`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] id: The ID of the FrontDoor.
         :param pulumi.Input[bool] session_affinity_enabled: Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
         :param pulumi.Input[int] session_affinity_ttl_seconds: The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
@@ -1276,7 +1276,7 @@ class FrontdoorFrontendEndpointArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the `frontend_endpoint`.
+        Specifies the name of the `frontend_endpoint`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1347,7 +1347,7 @@ class FrontdoorRoutingRuleArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accepted_protocols: Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoints: The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
-        :param pulumi.Input[str] name: Specifies the name of the Routing Rule.
+        :param pulumi.Input[str] name: Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_to_matches: The route patterns for the Backend Routing Rule. Defaults to `/*`.
         :param pulumi.Input[bool] enabled: `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input['FrontdoorRoutingRuleForwardingConfigurationArgs'] forwarding_configuration: A `forwarding_configuration` block as defined below.
@@ -1395,7 +1395,7 @@ class FrontdoorRoutingRuleArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the Routing Rule.
+        Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1707,7 +1707,7 @@ class RulesEngineRuleArgs:
                  action: Optional[pulumi.Input['RulesEngineRuleActionArgs']] = None,
                  match_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArgs']]]] = None):
         """
-        :param pulumi.Input[str] name: The name of the rule.
+        :param pulumi.Input[str] name: The name of the rule. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: Priority of the rule, must be unique per rules engine definition.
         :param pulumi.Input['RulesEngineRuleActionArgs'] action: A `rule_action` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArgs']]] match_conditions: One or more `match_condition` block as defined below.
@@ -1723,7 +1723,7 @@ class RulesEngineRuleArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the rule.
+        The name of the rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

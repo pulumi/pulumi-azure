@@ -14,16 +14,14 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArg
     public static final VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs Empty = new VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs();
 
     /**
-     * A user-defined name of the IP configuration. Defaults to
-     * `vnetGatewayConfig`.
+     * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A user-defined name of the IP configuration. Defaults to
-     * `vnetGatewayConfig`.
+     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -79,8 +77,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArg
         }
 
         /**
-         * @param name A user-defined name of the IP configuration. Defaults to
-         * `vnetGatewayConfig`.
+         * @param name A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -91,8 +88,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArg
         }
 
         /**
-         * @param name A user-defined name of the IP configuration. Defaults to
-         * `vnetGatewayConfig`.
+         * @param name A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

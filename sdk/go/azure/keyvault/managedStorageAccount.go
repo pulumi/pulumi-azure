@@ -214,7 +214,7 @@ type ManagedStorageAccount struct {
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 	// Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
 	StorageAccountKey pulumi.StringOutput `pulumi:"storageAccountKey"`
-	// A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+	// A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -268,7 +268,7 @@ type managedStorageAccountState struct {
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
 	StorageAccountKey *string `pulumi:"storageAccountKey"`
-	// A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+	// A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -285,7 +285,7 @@ type ManagedStorageAccountState struct {
 	StorageAccountId pulumi.StringPtrInput
 	// Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
 	StorageAccountKey pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+	// A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapInput
 }
 
@@ -306,7 +306,7 @@ type managedStorageAccountArgs struct {
 	StorageAccountId string `pulumi:"storageAccountId"`
 	// Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
 	StorageAccountKey string `pulumi:"storageAccountKey"`
-	// A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+	// A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -324,7 +324,7 @@ type ManagedStorageAccountArgs struct {
 	StorageAccountId pulumi.StringInput
 	// Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
 	StorageAccountKey pulumi.StringInput
-	// A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+	// A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
 	Tags pulumi.StringMapInput
 }
 
@@ -445,7 +445,7 @@ func (o ManagedStorageAccountOutput) StorageAccountKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedStorageAccount) pulumi.StringOutput { return v.StorageAccountKey }).(pulumi.StringOutput)
 }
 
-// A mapping of tags which should be assigned to the Key Vault Managed Storage Account.
+// A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
 func (o ManagedStorageAccountOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ManagedStorageAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

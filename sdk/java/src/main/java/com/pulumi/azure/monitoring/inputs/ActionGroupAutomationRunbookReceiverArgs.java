@@ -47,14 +47,14 @@ public final class ActionGroupAutomationRunbookReceiverArgs extends com.pulumi.r
     }
 
     /**
-     * The name of the automation runbook receiver.
+     * The name of the automation runbook receiver. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the automation runbook receiver.
+     * @return The name of the automation runbook receiver. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -194,7 +194,7 @@ public final class ActionGroupAutomationRunbookReceiverArgs extends com.pulumi.r
         }
 
         /**
-         * @param name The name of the automation runbook receiver.
+         * @param name The name of the automation runbook receiver. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class ActionGroupAutomationRunbookReceiverArgs extends com.pulumi.r
         }
 
         /**
-         * @param name The name of the automation runbook receiver.
+         * @param name The name of the automation runbook receiver. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

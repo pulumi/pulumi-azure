@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SoftwareUpdateConfigurationWindows {
     /**
-     * @return Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+     * @return (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
      * 
      * @deprecated
      * windows classification can be set as a list, use `classifications_included` instead.
@@ -44,7 +44,7 @@ public final class SoftwareUpdateConfigurationWindows {
 
     private SoftwareUpdateConfigurationWindows() {}
     /**
-     * @return Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+     * @return (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
      * 
      * @deprecated
      * windows classification can be set as a list, use `classifications_included` instead.

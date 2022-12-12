@@ -170,14 +170,14 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+     * ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="galleryImageReferenceId")
     private @Nullable Output<String> galleryImageReferenceId;
 
     /**
-     * @return ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+     * @return ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> galleryImageReferenceId() {
@@ -200,14 +200,14 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
+     * ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="imageReferenceId")
     private @Nullable Output<String> imageReferenceId;
 
     /**
-     * @return ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
+     * @return ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> imageReferenceId() {
@@ -335,14 +335,14 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Resource Group where the Managed Disk should exist.
+     * The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Managed Disk should exist.
+     * @return The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -380,14 +380,14 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+     * The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sourceResourceId")
     private @Nullable Output<String> sourceResourceId;
 
     /**
-     * @return The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+     * @return The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sourceResourceId() {
@@ -395,14 +395,14 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * URI to a valid VHD file to be used when `create_option` is `Import`.
+     * URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sourceUri")
     private @Nullable Output<String> sourceUri;
 
     /**
-     * @return URI to a valid VHD file to be used when `create_option` is `Import`.
+     * @return URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sourceUri() {
@@ -470,14 +470,14 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="trustedLaunchEnabled")
     private @Nullable Output<Boolean> trustedLaunchEnabled;
 
     /**
-     * @return Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+     * @return Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> trustedLaunchEnabled() {
@@ -781,7 +781,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param galleryImageReferenceId ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+         * @param galleryImageReferenceId ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -792,7 +792,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param galleryImageReferenceId ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+         * @param galleryImageReferenceId ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -823,7 +823,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageReferenceId ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
+         * @param imageReferenceId ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -834,7 +834,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageReferenceId ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
+         * @param imageReferenceId ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1012,7 +1012,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Managed Disk should exist.
+         * @param resourceGroupName The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1023,7 +1023,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Managed Disk should exist.
+         * @param resourceGroupName The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1075,7 +1075,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceResourceId The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+         * @param sourceResourceId The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1086,7 +1086,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceResourceId The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+         * @param sourceResourceId The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1096,7 +1096,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceUri URI to a valid VHD file to be used when `create_option` is `Import`.
+         * @param sourceUri URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1107,7 +1107,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceUri URI to a valid VHD file to be used when `create_option` is `Import`.
+         * @param sourceUri URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1201,7 +1201,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedLaunchEnabled Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+         * @param trustedLaunchEnabled Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1212,7 +1212,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedLaunchEnabled Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+         * @param trustedLaunchEnabled Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

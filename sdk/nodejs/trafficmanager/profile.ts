@@ -108,7 +108,7 @@ export class Profile extends pulumi.CustomResource {
      */
     public readonly profileStatus!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the Traffic Manager profile.
+     * The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -209,7 +209,7 @@ export interface ProfileState {
      */
     profileStatus?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Traffic Manager profile.
+     * The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -251,7 +251,7 @@ export interface ProfileArgs {
      */
     profileStatus?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Traffic Manager profile.
+     * The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

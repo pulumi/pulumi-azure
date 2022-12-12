@@ -36,7 +36,7 @@ public final class ScaleSetNetworkProfile {
      */
     private @Nullable Boolean ipForwarding;
     /**
-     * @return Specifies the name of the network interface configuration.
+     * @return Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -81,7 +81,7 @@ public final class ScaleSetNetworkProfile {
         return Optional.ofNullable(this.ipForwarding);
     }
     /**
-     * @return Specifies the name of the network interface configuration.
+     * @return Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

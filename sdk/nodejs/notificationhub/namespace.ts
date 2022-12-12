@@ -63,7 +63,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The Azure Region in which this Notification Hub Namespace should be created.
+     * The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -71,7 +71,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
      */
     public readonly namespaceType!: pulumi.Output<string>;
     /**
@@ -83,7 +83,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly servicebusEndpoint!: pulumi.Output<string>;
     /**
-     * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+     * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export interface NamespaceState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The Azure Region in which this Notification Hub Namespace should be created.
+     * The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -154,7 +154,7 @@ export interface NamespaceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
      */
     namespaceType?: pulumi.Input<string>;
     /**
@@ -166,7 +166,7 @@ export interface NamespaceState {
      */
     servicebusEndpoint?: pulumi.Input<string>;
     /**
-     * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+     * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -184,7 +184,7 @@ export interface NamespaceArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The Azure Region in which this Notification Hub Namespace should be created.
+     * The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -192,7 +192,7 @@ export interface NamespaceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+     * The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
      */
     namespaceType: pulumi.Input<string>;
     /**
@@ -200,7 +200,7 @@ export interface NamespaceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+     * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
      */
     skuName: pulumi.Input<string>;
     /**

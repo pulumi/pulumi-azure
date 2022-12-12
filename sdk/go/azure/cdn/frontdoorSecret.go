@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			frontdoor, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
-//				DisplayName: pulumi.StringRef("Microsoft.AzureFrontDoor-Cdn"),
+//				DisplayName: pulumi.StringRef("Microsoft.Azure.Cdn"),
 //			}, nil)
 //			if err != nil {
 //				return err

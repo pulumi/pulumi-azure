@@ -83,7 +83,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the App Service Plan within which to create this Function App Slot.
+     * The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
      */
     public readonly appServicePlanId!: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A string indicating the Operating System type for this function app. The only possible value is `linux`.
+     * A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
      */
     public readonly osType!: pulumi.Output<string | undefined>;
     /**
@@ -151,7 +151,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the Function App Slot.
+     * The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -167,7 +167,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
      */
     public readonly storageAccountAccessKey!: pulumi.Output<string>;
     /**
-     * The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+     * The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      */
     public readonly storageAccountName!: pulumi.Output<string>;
     /**
@@ -268,7 +268,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
  */
 export interface FunctionAppSlotState {
     /**
-     * The ID of the App Service Plan within which to create this Function App Slot.
+     * The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
      */
     appServicePlanId?: pulumi.Input<string>;
     /**
@@ -324,7 +324,7 @@ export interface FunctionAppSlotState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A string indicating the Operating System type for this function app. The only possible value is `linux`.
+     * A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
      */
     osType?: pulumi.Input<string>;
     /**
@@ -336,7 +336,7 @@ export interface FunctionAppSlotState {
      */
     possibleOutboundIpAddresses?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Function App Slot.
+     * The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -352,7 +352,7 @@ export interface FunctionAppSlotState {
      */
     storageAccountAccessKey?: pulumi.Input<string>;
     /**
-     * The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+     * The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      */
     storageAccountName?: pulumi.Input<string>;
     /**
@@ -370,7 +370,7 @@ export interface FunctionAppSlotState {
  */
 export interface FunctionAppSlotArgs {
     /**
-     * The ID of the App Service Plan within which to create this Function App Slot.
+     * The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
      */
     appServicePlanId: pulumi.Input<string>;
     /**
@@ -418,11 +418,11 @@ export interface FunctionAppSlotArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A string indicating the Operating System type for this function app. The only possible value is `linux`.
+     * A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
      */
     osType?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Function App Slot.
+     * The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -434,7 +434,7 @@ export interface FunctionAppSlotArgs {
      */
     storageAccountAccessKey: pulumi.Input<string>;
     /**
-     * The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+     * The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      */
     storageAccountName: pulumi.Input<string>;
     /**

@@ -39,14 +39,14 @@ public final class EnrichmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The key of the enrichment.
+     * The key of the enrichment. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return The key of the enrichment.
+     * @return The key of the enrichment. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> key() {
@@ -144,7 +144,7 @@ public final class EnrichmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key The key of the enrichment.
+         * @param key The key of the enrichment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class EnrichmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key The key of the enrichment.
+         * @param key The key of the enrichment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

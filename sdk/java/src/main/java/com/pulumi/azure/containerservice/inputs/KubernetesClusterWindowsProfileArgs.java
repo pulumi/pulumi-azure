@@ -32,14 +32,14 @@ public final class KubernetesClusterWindowsProfileArgs extends com.pulumi.resour
     }
 
     /**
-     * The Admin Username for Windows VMs.
+     * The Admin Username for Windows VMs. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="adminUsername", required=true)
     private Output<String> adminUsername;
 
     /**
-     * @return The Admin Username for Windows VMs.
+     * @return The Admin Username for Windows VMs. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> adminUsername() {
@@ -125,7 +125,7 @@ public final class KubernetesClusterWindowsProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param adminUsername The Admin Username for Windows VMs.
+         * @param adminUsername The Admin Username for Windows VMs. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class KubernetesClusterWindowsProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param adminUsername The Admin Username for Windows VMs.
+         * @param adminUsername The Admin Username for Windows VMs. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

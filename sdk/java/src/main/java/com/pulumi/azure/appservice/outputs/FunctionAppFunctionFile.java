@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class FunctionAppFunctionFile {
     /**
-     * @return The content of the file.
+     * @return The content of the file. Changing this forces a new resource to be created.
      * 
      */
     private String content;
     /**
-     * @return The filename of the file to be uploaded.
+     * @return The filename of the file to be uploaded. Changing this forces a new resource to be created.
      * 
      */
     private String name;
 
     private FunctionAppFunctionFile() {}
     /**
-     * @return The content of the file.
+     * @return The content of the file. Changing this forces a new resource to be created.
      * 
      */
     public String content() {
         return this.content;
     }
     /**
-     * @return The filename of the file to be uploaded.
+     * @return The filename of the file to be uploaded. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

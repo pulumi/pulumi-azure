@@ -18,14 +18,14 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
     public static final KubernetesClusterDefaultNodePoolLinuxOsConfigArgs Empty = new KubernetesClusterDefaultNodePoolLinuxOsConfigArgs();
 
     /**
-     * Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+     * Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="swapFileSizeMb")
     private @Nullable Output<Integer> swapFileSizeMb;
 
     /**
-     * @return Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+     * @return Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> swapFileSizeMb() {
@@ -105,7 +105,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
         }
 
         /**
-         * @param swapFileSizeMb Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+         * @param swapFileSizeMb Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
         }
 
         /**
-         * @param swapFileSizeMb Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+         * @param swapFileSizeMb Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

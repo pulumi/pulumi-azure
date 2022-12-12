@@ -107,14 +107,14 @@ public final class StreamInputIotHubState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The shared access policy key for the specified shared access policy.
+     * The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sharedAccessPolicyKey")
     private @Nullable Output<String> sharedAccessPolicyKey;
 
     /**
-     * @return The shared access policy key for the specified shared access policy.
+     * @return The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sharedAccessPolicyKey() {
@@ -310,7 +310,7 @@ public final class StreamInputIotHubState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sharedAccessPolicyKey The shared access policy key for the specified shared access policy.
+         * @param sharedAccessPolicyKey The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class StreamInputIotHubState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sharedAccessPolicyKey The shared access policy key for the specified shared access policy.
+         * @param sharedAccessPolicyKey The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

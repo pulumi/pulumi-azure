@@ -30,7 +30,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string LoadBalancingName;
         /// <summary>
-        /// Specifies the name of the Backend Pool.
+        /// Specifies the name of the Backend Pool. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
 

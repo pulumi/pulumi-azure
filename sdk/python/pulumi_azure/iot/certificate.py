@@ -225,7 +225,7 @@ class Certificate(pulumi.CustomResource):
         IoTHub Certificates can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:iot/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/example/Certificates/example
+         $ pulumi import azure:iot/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/example/certificates/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -272,7 +272,7 @@ class Certificate(pulumi.CustomResource):
         IoTHub Certificates can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:iot/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/example/Certificates/example
+         $ pulumi import azure:iot/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/example/certificates/example
         ```
 
         :param str resource_name: The name of the resource.

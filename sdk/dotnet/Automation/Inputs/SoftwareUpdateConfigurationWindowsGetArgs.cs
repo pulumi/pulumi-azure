@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Automation.Inputs
     public sealed class SoftwareUpdateConfigurationWindowsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+        /// (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
         /// </summary>
         [Input("classificationIncluded")]
         public Input<string>? ClassificationIncluded { get; set; }

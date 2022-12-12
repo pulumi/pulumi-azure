@@ -67,7 +67,7 @@ namespace Pulumi.Azure.AppPlatform
     /// Spring Cloud services can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/Spring/spring1
+    ///  $ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/spring/spring1
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudService:SpringCloudService")]
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> ServiceRegistryId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+        /// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string?> SkuName { get; private set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<bool>? ServiceRegistryEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+        /// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -374,7 +374,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? ServiceRegistryId { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
+        /// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

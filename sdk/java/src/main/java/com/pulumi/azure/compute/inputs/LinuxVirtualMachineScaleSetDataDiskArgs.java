@@ -48,14 +48,14 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
     }
 
     /**
-     * The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+     * The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="diskEncryptionSetId")
     private @Nullable Output<String> diskEncryptionSetId;
 
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> diskEncryptionSetId() {
@@ -227,7 +227,7 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

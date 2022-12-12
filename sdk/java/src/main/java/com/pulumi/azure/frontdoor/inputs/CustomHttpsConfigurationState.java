@@ -48,14 +48,14 @@ public final class CustomHttpsConfigurationState extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the Front Door Frontend Endpoint which this configuration refers to.
+     * The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="frontendEndpointId")
     private @Nullable Output<String> frontendEndpointId;
 
     /**
-     * @return The ID of the Front Door Frontend Endpoint which this configuration refers to.
+     * @return The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> frontendEndpointId() {
@@ -131,7 +131,7 @@ public final class CustomHttpsConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param frontendEndpointId The ID of the Front Door Frontend Endpoint which this configuration refers to.
+         * @param frontendEndpointId The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class CustomHttpsConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param frontendEndpointId The ID of the Front Door Frontend Endpoint which this configuration refers to.
+         * @param frontendEndpointId The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

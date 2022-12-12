@@ -204,8 +204,8 @@ class ResourceGroupCostManagementExportExportDataStorageLocation(dict):
                  container_id: str,
                  root_folder_path: str):
         """
-        :param str container_id: The Resource Manager ID of the container where exports will be uploaded.
-        :param str root_folder_path: The path of the directory where exports will be uploaded.
+        :param str container_id: The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
+        :param str root_folder_path: The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "container_id", container_id)
         pulumi.set(__self__, "root_folder_path", root_folder_path)
@@ -214,7 +214,7 @@ class ResourceGroupCostManagementExportExportDataStorageLocation(dict):
     @pulumi.getter(name="containerId")
     def container_id(self) -> str:
         """
-        The Resource Manager ID of the container where exports will be uploaded.
+        The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "container_id")
 
@@ -222,7 +222,7 @@ class ResourceGroupCostManagementExportExportDataStorageLocation(dict):
     @pulumi.getter(name="rootFolderPath")
     def root_folder_path(self) -> str:
         """
-        The path of the directory where exports will be uploaded.
+        The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "root_folder_path")
 
@@ -571,8 +571,8 @@ class SubscriptionCostManagementExportExportDataStorageLocation(dict):
                  container_id: str,
                  root_folder_path: str):
         """
-        :param str container_id: The Resource Manager ID of the container where exports will be uploaded.
-        :param str root_folder_path: The path of the directory where exports will be uploaded.
+        :param str container_id: The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
+        :param str root_folder_path: The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "container_id", container_id)
         pulumi.set(__self__, "root_folder_path", root_folder_path)
@@ -581,7 +581,7 @@ class SubscriptionCostManagementExportExportDataStorageLocation(dict):
     @pulumi.getter(name="containerId")
     def container_id(self) -> str:
         """
-        The Resource Manager ID of the container where exports will be uploaded.
+        The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "container_id")
 
@@ -589,7 +589,7 @@ class SubscriptionCostManagementExportExportDataStorageLocation(dict):
     @pulumi.getter(name="rootFolderPath")
     def root_folder_path(self) -> str:
         """
-        The path of the directory where exports will be uploaded.
+        The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "root_folder_path")
 

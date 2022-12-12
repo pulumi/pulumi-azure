@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class FrontdoorOriginPrivateLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the location where the Private Link resource should exist.
+        /// Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;

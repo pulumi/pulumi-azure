@@ -137,7 +137,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:kusto/eventGridDataConnection:EventGridDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/dataConnection1
+//	$ pulumi import azure:kusto/eventGridDataConnection:EventGridDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/dataConnection1
 //
 // ```
 type EventGridDataConnection struct {
@@ -151,15 +151,13 @@ type EventGridDataConnection struct {
 	DataFormat pulumi.StringPtrOutput `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 	DatabaseRoutingType pulumi.StringPtrOutput `pulumi:"databaseRoutingType"`
 	// The resource ID of the event grid that is subscribed to the storage account events.
 	EventgridResourceId pulumi.StringPtrOutput `pulumi:"eventgridResourceId"`
-	// Specifies the Event Hub consumer group this data connection will use for
-	// ingestion. Changing this forces a new resource to be created.
+	// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubConsumerGroupName pulumi.StringOutput `pulumi:"eventhubConsumerGroupName"`
-	// Specifies the resource id of the Event Hub this data connection will use for ingestion.
-	// Changing this forces a new resource to be created.
+	// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubId pulumi.StringOutput `pulumi:"eventhubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -234,15 +232,13 @@ type eventGridDataConnectionState struct {
 	DataFormat *string `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 	DatabaseRoutingType *string `pulumi:"databaseRoutingType"`
 	// The resource ID of the event grid that is subscribed to the storage account events.
 	EventgridResourceId *string `pulumi:"eventgridResourceId"`
-	// Specifies the Event Hub consumer group this data connection will use for
-	// ingestion. Changing this forces a new resource to be created.
+	// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubConsumerGroupName *string `pulumi:"eventhubConsumerGroupName"`
-	// Specifies the resource id of the Event Hub this data connection will use for ingestion.
-	// Changing this forces a new resource to be created.
+	// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubId *string `pulumi:"eventhubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -271,15 +267,13 @@ type EventGridDataConnectionState struct {
 	DataFormat pulumi.StringPtrInput
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 	DatabaseRoutingType pulumi.StringPtrInput
 	// The resource ID of the event grid that is subscribed to the storage account events.
 	EventgridResourceId pulumi.StringPtrInput
-	// Specifies the Event Hub consumer group this data connection will use for
-	// ingestion. Changing this forces a new resource to be created.
+	// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubConsumerGroupName pulumi.StringPtrInput
-	// Specifies the resource id of the Event Hub this data connection will use for ingestion.
-	// Changing this forces a new resource to be created.
+	// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubId pulumi.StringPtrInput
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -312,15 +306,13 @@ type eventGridDataConnectionArgs struct {
 	DataFormat *string `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 	DatabaseRoutingType *string `pulumi:"databaseRoutingType"`
 	// The resource ID of the event grid that is subscribed to the storage account events.
 	EventgridResourceId *string `pulumi:"eventgridResourceId"`
-	// Specifies the Event Hub consumer group this data connection will use for
-	// ingestion. Changing this forces a new resource to be created.
+	// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubConsumerGroupName string `pulumi:"eventhubConsumerGroupName"`
-	// Specifies the resource id of the Event Hub this data connection will use for ingestion.
-	// Changing this forces a new resource to be created.
+	// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubId string `pulumi:"eventhubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -350,15 +342,13 @@ type EventGridDataConnectionArgs struct {
 	DataFormat pulumi.StringPtrInput
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 	DatabaseRoutingType pulumi.StringPtrInput
 	// The resource ID of the event grid that is subscribed to the storage account events.
 	EventgridResourceId pulumi.StringPtrInput
-	// Specifies the Event Hub consumer group this data connection will use for
-	// ingestion. Changing this forces a new resource to be created.
+	// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubConsumerGroupName pulumi.StringInput
-	// Specifies the resource id of the Event Hub this data connection will use for ingestion.
-	// Changing this forces a new resource to be created.
+	// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	EventhubId pulumi.StringInput
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -485,7 +475,7 @@ func (o EventGridDataConnectionOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
 func (o EventGridDataConnectionOutput) DatabaseRoutingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringPtrOutput { return v.DatabaseRoutingType }).(pulumi.StringPtrOutput)
 }
@@ -495,14 +485,12 @@ func (o EventGridDataConnectionOutput) EventgridResourceId() pulumi.StringPtrOut
 	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringPtrOutput { return v.EventgridResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Event Hub consumer group this data connection will use for
-// ingestion. Changing this forces a new resource to be created.
+// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
 func (o EventGridDataConnectionOutput) EventhubConsumerGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.EventhubConsumerGroupName }).(pulumi.StringOutput)
 }
 
-// Specifies the resource id of the Event Hub this data connection will use for ingestion.
-// Changing this forces a new resource to be created.
+// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
 func (o EventGridDataConnectionOutput) EventhubId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.EventhubId }).(pulumi.StringOutput)
 }

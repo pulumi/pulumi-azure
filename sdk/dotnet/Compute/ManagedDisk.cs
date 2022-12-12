@@ -158,7 +158,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.ManagedDiskEncryptionSettings?> EncryptionSettings { get; private set; } = null!;
 
         /// <summary>
-        /// ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+        /// ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Output("galleryImageReferenceId")]
         public Output<string?> GalleryImageReferenceId { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> HyperVGeneration { get; private set; } = null!;
 
         /// <summary>
-        /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
+        /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Output("imageReferenceId")]
         public Output<string?> ImageReferenceId { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Managed Disk should exist.
+        /// The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -242,13 +242,13 @@ namespace Pulumi.Azure.Compute
         public Output<string?> SecurityType { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+        /// The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceResourceId")]
         public Output<string?> SourceResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// URI to a valid VHD file to be used when `create_option` is `Import`.
+        /// URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceUri")]
         public Output<string> SourceUri { get; private set; } = null!;
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> Tier { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        /// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("trustedLaunchEnabled")]
         public Output<bool?> TrustedLaunchEnabled { get; private set; } = null!;
@@ -402,7 +402,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ManagedDiskEncryptionSettingsArgs>? EncryptionSettings { get; set; }
 
         /// <summary>
-        /// ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+        /// ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("galleryImageReferenceId")]
         public Input<string>? GalleryImageReferenceId { get; set; }
@@ -414,7 +414,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? HyperVGeneration { get; set; }
 
         /// <summary>
-        /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
+        /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("imageReferenceId")]
         public Input<string>? ImageReferenceId { get; set; }
@@ -468,7 +468,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Managed Disk should exist.
+        /// The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -486,13 +486,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SecurityType { get; set; }
 
         /// <summary>
-        /// The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+        /// The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceResourceId")]
         public Input<string>? SourceResourceId { get; set; }
 
         /// <summary>
-        /// URI to a valid VHD file to be used when `create_option` is `Import`.
+        /// URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceUri")]
         public Input<string>? SourceUri { get; set; }
@@ -528,7 +528,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Tier { get; set; }
 
         /// <summary>
-        /// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        /// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("trustedLaunchEnabled")]
         public Input<bool>? TrustedLaunchEnabled { get; set; }
@@ -614,7 +614,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ManagedDiskEncryptionSettingsGetArgs>? EncryptionSettings { get; set; }
 
         /// <summary>
-        /// ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+        /// ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("galleryImageReferenceId")]
         public Input<string>? GalleryImageReferenceId { get; set; }
@@ -626,7 +626,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? HyperVGeneration { get; set; }
 
         /// <summary>
-        /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
+        /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("imageReferenceId")]
         public Input<string>? ImageReferenceId { get; set; }
@@ -680,7 +680,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Managed Disk should exist.
+        /// The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -698,13 +698,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SecurityType { get; set; }
 
         /// <summary>
-        /// The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+        /// The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceResourceId")]
         public Input<string>? SourceResourceId { get; set; }
 
         /// <summary>
-        /// URI to a valid VHD file to be used when `create_option` is `Import`.
+        /// URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceUri")]
         public Input<string>? SourceUri { get; set; }
@@ -740,7 +740,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Tier { get; set; }
 
         /// <summary>
-        /// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        /// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("trustedLaunchEnabled")]
         public Input<bool>? TrustedLaunchEnabled { get; set; }

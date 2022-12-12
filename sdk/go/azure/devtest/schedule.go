@@ -86,7 +86,7 @@ type Schedule struct {
 	LabName pulumi.StringOutput `pulumi:"labName"`
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
 	Name                 pulumi.StringOutput                `pulumi:"name"`
 	NotificationSettings ScheduleNotificationSettingsOutput `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
@@ -152,7 +152,7 @@ type scheduleState struct {
 	LabName *string `pulumi:"labName"`
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
 	Name                 *string                       `pulumi:"name"`
 	NotificationSettings *ScheduleNotificationSettings `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
@@ -175,7 +175,7 @@ type ScheduleState struct {
 	LabName pulumi.StringPtrInput
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
 	Name                 pulumi.StringPtrInput
 	NotificationSettings ScheduleNotificationSettingsPtrInput
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
@@ -202,7 +202,7 @@ type scheduleArgs struct {
 	LabName string `pulumi:"labName"`
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
 	Name                 *string                      `pulumi:"name"`
 	NotificationSettings ScheduleNotificationSettings `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
@@ -226,7 +226,7 @@ type ScheduleArgs struct {
 	LabName pulumi.StringInput
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
 	Name                 pulumi.StringPtrInput
 	NotificationSettings ScheduleNotificationSettingsInput
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
@@ -347,7 +347,7 @@ func (o ScheduleOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
 func (o ScheduleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

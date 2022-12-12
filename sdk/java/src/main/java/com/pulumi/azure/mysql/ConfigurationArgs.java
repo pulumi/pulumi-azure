@@ -59,14 +59,14 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values.
+     * Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values.
+     * @return Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> value() {
@@ -164,7 +164,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values.
+         * @param value Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values.
+         * @param value Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

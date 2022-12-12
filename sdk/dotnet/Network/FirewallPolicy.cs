@@ -47,6 +47,12 @@ namespace Pulumi.Azure.Network
     public partial class FirewallPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether enable auto learn private ip range. Defaults to `false`.
+        /// </summary>
+        [Output("autoLearnPrivateRangesEnabled")]
+        public Output<bool?> AutoLearnPrivateRangesEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the base Firewall Policy.
         /// </summary>
         [Output("basePolicyId")]
@@ -63,6 +69,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("dns")]
         public Output<Outputs.FirewallPolicyDns?> Dns { get; private set; } = null!;
+
+        /// <summary>
+        /// A `explicit_proxy` block as defined below.
+        /// </summary>
+        [Output("explicitProxy")]
+        public Output<Outputs.FirewallPolicyExplicitProxy?> ExplicitProxy { get; private set; } = null!;
 
         /// <summary>
         /// A list of references to Azure Firewalls that this Firewall Policy is associated with.
@@ -201,6 +213,12 @@ namespace Pulumi.Azure.Network
     public sealed class FirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether enable auto learn private ip range. Defaults to `false`.
+        /// </summary>
+        [Input("autoLearnPrivateRangesEnabled")]
+        public Input<bool>? AutoLearnPrivateRangesEnabled { get; set; }
+
+        /// <summary>
         /// The ID of the base Firewall Policy.
         /// </summary>
         [Input("basePolicyId")]
@@ -211,6 +229,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("dns")]
         public Input<Inputs.FirewallPolicyDnsArgs>? Dns { get; set; }
+
+        /// <summary>
+        /// A `explicit_proxy` block as defined below.
+        /// </summary>
+        [Input("explicitProxy")]
+        public Input<Inputs.FirewallPolicyExplicitProxyArgs>? ExplicitProxy { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.
@@ -311,6 +335,12 @@ namespace Pulumi.Azure.Network
     public sealed class FirewallPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether enable auto learn private ip range. Defaults to `false`.
+        /// </summary>
+        [Input("autoLearnPrivateRangesEnabled")]
+        public Input<bool>? AutoLearnPrivateRangesEnabled { get; set; }
+
+        /// <summary>
         /// The ID of the base Firewall Policy.
         /// </summary>
         [Input("basePolicyId")]
@@ -333,6 +363,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("dns")]
         public Input<Inputs.FirewallPolicyDnsGetArgs>? Dns { get; set; }
+
+        /// <summary>
+        /// A `explicit_proxy` block as defined below.
+        /// </summary>
+        [Input("explicitProxy")]
+        public Input<Inputs.FirewallPolicyExplicitProxyGetArgs>? ExplicitProxy { get; set; }
 
         [Input("firewalls")]
         private InputList<string>? _firewalls;

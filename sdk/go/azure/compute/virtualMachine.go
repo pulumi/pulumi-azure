@@ -182,7 +182,7 @@ type VirtualMachine struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
 	VmSize pulumi.StringOutput `pulumi:"vmSize"`
-	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
 	Zones pulumi.StringPtrOutput `pulumi:"zones"`
 }
 
@@ -273,7 +273,7 @@ type virtualMachineState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
 	VmSize *string `pulumi:"vmSize"`
-	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
 	Zones *string `pulumi:"zones"`
 }
 
@@ -324,7 +324,7 @@ type VirtualMachineState struct {
 	Tags pulumi.StringMapInput
 	// Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
 	VmSize pulumi.StringPtrInput
-	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
 	Zones pulumi.StringPtrInput
 }
 
@@ -379,7 +379,7 @@ type virtualMachineArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
 	VmSize string `pulumi:"vmSize"`
-	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
 	Zones *string `pulumi:"zones"`
 }
 
@@ -431,7 +431,7 @@ type VirtualMachineArgs struct {
 	Tags pulumi.StringMapInput
 	// Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
 	VmSize pulumi.StringInput
-	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
 	Zones pulumi.StringPtrInput
 }
 
@@ -637,7 +637,7 @@ func (o VirtualMachineOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.VmSize }).(pulumi.StringOutput)
 }
 
-// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
 func (o VirtualMachineOutput) Zones() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.Zones }).(pulumi.StringPtrOutput)
 }

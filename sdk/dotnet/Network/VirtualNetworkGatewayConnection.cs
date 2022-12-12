@@ -261,9 +261,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> ConnectionMode { get; private set; } = null!;
 
         /// <summary>
-        /// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-        /// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-        /// Changing this value will force a resource to be created.
+        /// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
         /// &gt; **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         /// </summary>
         [Output("connectionProtocol")]
@@ -297,9 +295,7 @@ namespace Pulumi.Azure.Network
         public Output<bool> EnableBgp { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Express Route Circuit
-        /// when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-        /// The Express Route Circuit can be in the same or in a different subscription.
+        /// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Output("expressRouteCircuitId")]
         public Output<string?> ExpressRouteCircuitId { get; private set; } = null!;
@@ -338,8 +334,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> LocalNetworkGatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// The location/region where the connection is
-        /// located. Changing this forces a new resource to be created.
+        /// The location/region where the connection is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -352,17 +347,13 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the peer virtual
-        /// network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-        /// is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-        /// in a different subscription.
+        /// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Output("peerVirtualNetworkGatewayId")]
         public Output<string?> PeerVirtualNetworkGatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the connection Changing the name forces a new resource to be created.
+        /// The name of the resource group in which to create the connection Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -395,11 +386,7 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.VirtualNetworkGatewayConnectionTrafficSelectorPolicy?> TrafficSelectorPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The type of connection. Valid options are `IPsec`
-        /// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-        /// Each connection type requires different mandatory arguments (refer to the
-        /// examples above). Changing the connection type will force a new connection
-        /// to be created.
+        /// The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -413,9 +400,7 @@ namespace Pulumi.Azure.Network
         public Output<bool> UsePolicyBasedTrafficSelectors { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Virtual Network Gateway
-        /// in which the connection will be created. Changing the gateway forces a new
-        /// resource to be created.
+        /// The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("virtualNetworkGatewayId")]
         public Output<string> VirtualNetworkGatewayId { get; private set; } = null!;
@@ -481,9 +466,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ConnectionMode { get; set; }
 
         /// <summary>
-        /// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-        /// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-        /// Changing this value will force a resource to be created.
+        /// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
         /// &gt; **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         /// </summary>
         [Input("connectionProtocol")]
@@ -523,9 +506,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? EnableBgp { get; set; }
 
         /// <summary>
-        /// The ID of the Express Route Circuit
-        /// when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-        /// The Express Route Circuit can be in the same or in a different subscription.
+        /// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Input("expressRouteCircuitId")]
         public Input<string>? ExpressRouteCircuitId { get; set; }
@@ -570,8 +551,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? LocalNetworkGatewayId { get; set; }
 
         /// <summary>
-        /// The location/region where the connection is
-        /// located. Changing this forces a new resource to be created.
+        /// The location/region where the connection is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -584,17 +564,13 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the peer virtual
-        /// network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-        /// is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-        /// in a different subscription.
+        /// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Input("peerVirtualNetworkGatewayId")]
         public Input<string>? PeerVirtualNetworkGatewayId { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the connection Changing the name forces a new resource to be created.
+        /// The name of the resource group in which to create the connection Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -633,11 +609,7 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs>? TrafficSelectorPolicy { get; set; }
 
         /// <summary>
-        /// The type of connection. Valid options are `IPsec`
-        /// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-        /// Each connection type requires different mandatory arguments (refer to the
-        /// examples above). Changing the connection type will force a new connection
-        /// to be created.
+        /// The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -651,9 +623,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? UsePolicyBasedTrafficSelectors { get; set; }
 
         /// <summary>
-        /// The ID of the Virtual Network Gateway
-        /// in which the connection will be created. Changing the gateway forces a new
-        /// resource to be created.
+        /// The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualNetworkGatewayId", required: true)]
         public Input<string> VirtualNetworkGatewayId { get; set; } = null!;
@@ -681,9 +651,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ConnectionMode { get; set; }
 
         /// <summary>
-        /// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`.
-        /// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
-        /// Changing this value will force a resource to be created.
+        /// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
         /// &gt; **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         /// </summary>
         [Input("connectionProtocol")]
@@ -723,9 +691,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? EnableBgp { get; set; }
 
         /// <summary>
-        /// The ID of the Express Route Circuit
-        /// when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-        /// The Express Route Circuit can be in the same or in a different subscription.
+        /// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Input("expressRouteCircuitId")]
         public Input<string>? ExpressRouteCircuitId { get; set; }
@@ -770,8 +736,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? LocalNetworkGatewayId { get; set; }
 
         /// <summary>
-        /// The location/region where the connection is
-        /// located. Changing this forces a new resource to be created.
+        /// The location/region where the connection is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -784,17 +749,13 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the peer virtual
-        /// network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-        /// is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-        /// in a different subscription.
+        /// The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Input("peerVirtualNetworkGatewayId")]
         public Input<string>? PeerVirtualNetworkGatewayId { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the connection Changing the name forces a new resource to be created.
+        /// The name of the resource group in which to create the connection Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -833,11 +794,7 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.VirtualNetworkGatewayConnectionTrafficSelectorPolicyGetArgs>? TrafficSelectorPolicy { get; set; }
 
         /// <summary>
-        /// The type of connection. Valid options are `IPsec`
-        /// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-        /// Each connection type requires different mandatory arguments (refer to the
-        /// examples above). Changing the connection type will force a new connection
-        /// to be created.
+        /// The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -851,9 +808,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? UsePolicyBasedTrafficSelectors { get; set; }
 
         /// <summary>
-        /// The ID of the Virtual Network Gateway
-        /// in which the connection will be created. Changing the gateway forces a new
-        /// resource to be created.
+        /// The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualNetworkGatewayId")]
         public Input<string>? VirtualNetworkGatewayId { get; set; }

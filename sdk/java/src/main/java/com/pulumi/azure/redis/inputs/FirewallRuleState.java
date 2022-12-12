@@ -61,14 +61,14 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which this Redis Cache exists.
+     * The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which this Redis Cache exists.
+     * @return The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -182,7 +182,7 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which this Redis Cache exists.
+         * @param resourceGroupName The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which this Redis Cache exists.
+         * @param resourceGroupName The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

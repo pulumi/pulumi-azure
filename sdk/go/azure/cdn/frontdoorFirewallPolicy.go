@@ -198,7 +198,7 @@ type FrontdoorFirewallPolicy struct {
 	RedirectUrl pulumi.StringPtrOutput `pulumi:"redirectUrl"`
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -262,7 +262,7 @@ type frontdoorFirewallPolicyState struct {
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags map[string]string `pulumi:"tags"`
@@ -289,7 +289,7 @@ type FrontdoorFirewallPolicyState struct {
 	RedirectUrl pulumi.StringPtrInput
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags pulumi.StringMapInput
@@ -318,7 +318,7 @@ type frontdoorFirewallPolicyArgs struct {
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags map[string]string `pulumi:"tags"`
@@ -344,7 +344,7 @@ type FrontdoorFirewallPolicyArgs struct {
 	RedirectUrl pulumi.StringPtrInput
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput
 	// A mapping of tags to assign to the Front Door Firewall Policy.
 	Tags pulumi.StringMapInput
@@ -487,7 +487,7 @@ func (o FrontdoorFirewallPolicyOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
 func (o FrontdoorFirewallPolicyOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

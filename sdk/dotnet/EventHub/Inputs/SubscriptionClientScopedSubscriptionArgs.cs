@@ -13,7 +13,7 @@ namespace Pulumi.Azure.EventHub.Inputs
     public sealed class SubscriptionClientScopedSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Client ID of the application that created the client-scoped subscription.
+        /// Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.EventHub.Inputs
         public Input<bool>? IsClientScopedSubscriptionDurable { get; set; }
 
         /// <summary>
-        /// Whether the client scoped subscription is shareable. Defaults to `true`
+        /// Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
         /// </summary>
         [Input("isClientScopedSubscriptionShareable")]
         public Input<bool>? IsClientScopedSubscriptionShareable { get; set; }

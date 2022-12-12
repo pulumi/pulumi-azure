@@ -140,14 +140,14 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+     * The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+     * @return The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -185,14 +185,14 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the resource group in which to create the SQL Server.
+     * The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the SQL Server.
+     * @return The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -200,14 +200,14 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
+     * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`.
      * 
      */
     @Import(name="skuName", required=true)
     private Output<String> skuName;
 
     /**
-     * @return Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
+     * @return Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`.
      * 
      */
     public Output<String> skuName() {
@@ -245,14 +245,14 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The subnet resource id that the SQL Managed Instance will be associated with.
+     * The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
     /**
-     * @return The subnet resource id that the SQL Managed Instance will be associated with.
+     * @return The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> subnetId() {
@@ -515,7 +515,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+         * @param name The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+         * @param name The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the SQL Server.
+         * @param resourceGroupName The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the SQL Server.
+         * @param resourceGroupName The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param skuName Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
+         * @param skuName Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param skuName Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. Changing this forces a new resource to be created.
+         * @param skuName Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`.
          * 
          * @return builder
          * 
@@ -662,7 +662,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param subnetId The subnet resource id that the SQL Managed Instance will be associated with.
+         * @param subnetId The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -673,7 +673,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param subnetId The subnet resource id that the SQL Managed Instance will be associated with.
+         * @param subnetId The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

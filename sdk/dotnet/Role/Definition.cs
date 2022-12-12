@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Role
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Role Definition. Changing this forces a new resource to be created.
+        /// The name of the Role Definition.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Role
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the Role Definition. Changing this forces a new resource to be created.
+        /// The name of the Role Definition.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.Role
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the Role Definition. Changing this forces a new resource to be created.
+        /// The name of the Role Definition.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

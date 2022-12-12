@@ -162,9 +162,9 @@ type Image struct {
 
 	// One or more `dataDisk` elements as defined below.
 	DataDisks ImageDataDiskArrayOutput `pulumi:"dataDisks"`
-	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
 	HyperVGeneration pulumi.StringPtrOutput `pulumi:"hyperVGeneration"`
-	// Specified the supported Azure location where the resource exists.
+	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the image. Changing this forces a
@@ -172,7 +172,7 @@ type Image struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `osDisk` elements as defined below.
 	OsDisk ImageOsDiskPtrOutput `pulumi:"osDisk"`
-	// The name of the resource group in which to create
+	// The name of the resource group in which to create. Changing this forces a new resource to be created.
 	// the image. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Virtual Machine ID from which to create the image.
@@ -217,9 +217,9 @@ func GetImage(ctx *pulumi.Context,
 type imageState struct {
 	// One or more `dataDisk` elements as defined below.
 	DataDisks []ImageDataDisk `pulumi:"dataDisks"`
-	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// Specified the supported Azure location where the resource exists.
+	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the image. Changing this forces a
@@ -227,7 +227,7 @@ type imageState struct {
 	Name *string `pulumi:"name"`
 	// One or more `osDisk` elements as defined below.
 	OsDisk *ImageOsDisk `pulumi:"osDisk"`
-	// The name of the resource group in which to create
+	// The name of the resource group in which to create. Changing this forces a new resource to be created.
 	// the image. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Virtual Machine ID from which to create the image.
@@ -241,9 +241,9 @@ type imageState struct {
 type ImageState struct {
 	// One or more `dataDisk` elements as defined below.
 	DataDisks ImageDataDiskArrayInput
-	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
 	HyperVGeneration pulumi.StringPtrInput
-	// Specified the supported Azure location where the resource exists.
+	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the image. Changing this forces a
@@ -251,7 +251,7 @@ type ImageState struct {
 	Name pulumi.StringPtrInput
 	// One or more `osDisk` elements as defined below.
 	OsDisk ImageOsDiskPtrInput
-	// The name of the resource group in which to create
+	// The name of the resource group in which to create. Changing this forces a new resource to be created.
 	// the image. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Virtual Machine ID from which to create the image.
@@ -269,9 +269,9 @@ func (ImageState) ElementType() reflect.Type {
 type imageArgs struct {
 	// One or more `dataDisk` elements as defined below.
 	DataDisks []ImageDataDisk `pulumi:"dataDisks"`
-	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// Specified the supported Azure location where the resource exists.
+	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the image. Changing this forces a
@@ -279,7 +279,7 @@ type imageArgs struct {
 	Name *string `pulumi:"name"`
 	// One or more `osDisk` elements as defined below.
 	OsDisk *ImageOsDisk `pulumi:"osDisk"`
-	// The name of the resource group in which to create
+	// The name of the resource group in which to create. Changing this forces a new resource to be created.
 	// the image. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Virtual Machine ID from which to create the image.
@@ -294,9 +294,9 @@ type imageArgs struct {
 type ImageArgs struct {
 	// One or more `dataDisk` elements as defined below.
 	DataDisks ImageDataDiskArrayInput
-	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
 	HyperVGeneration pulumi.StringPtrInput
-	// Specified the supported Azure location where the resource exists.
+	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the image. Changing this forces a
@@ -304,7 +304,7 @@ type ImageArgs struct {
 	Name pulumi.StringPtrInput
 	// One or more `osDisk` elements as defined below.
 	OsDisk ImageOsDiskPtrInput
-	// The name of the resource group in which to create
+	// The name of the resource group in which to create. Changing this forces a new resource to be created.
 	// the image. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The Virtual Machine ID from which to create the image.
@@ -407,12 +407,12 @@ func (o ImageOutput) DataDisks() ImageDataDiskArrayOutput {
 	return o.ApplyT(func(v *Image) ImageDataDiskArrayOutput { return v.DataDisks }).(ImageDataDiskArrayOutput)
 }
 
-// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
 func (o ImageOutput) HyperVGeneration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.HyperVGeneration }).(pulumi.StringPtrOutput)
 }
 
-// Specified the supported Azure location where the resource exists.
+// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 // Changing this forces a new resource to be created.
 func (o ImageOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
@@ -429,7 +429,7 @@ func (o ImageOutput) OsDisk() ImageOsDiskPtrOutput {
 	return o.ApplyT(func(v *Image) ImageOsDiskPtrOutput { return v.OsDisk }).(ImageOsDiskPtrOutput)
 }
 
-// The name of the resource group in which to create
+// The name of the resource group in which to create. Changing this forces a new resource to be created.
 // the image. Changing this forces a new resource to be created.
 func (o ImageOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)

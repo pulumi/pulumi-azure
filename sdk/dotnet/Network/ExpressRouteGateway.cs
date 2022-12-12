@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+        /// The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("virtualHubId")]
         public Output<string> VirtualHubId { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+        /// The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualHubId", required: true)]
         public Input<string> VirtualHubId { get; set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+        /// The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualHubId")]
         public Input<string>? VirtualHubId { get; set; }

@@ -230,14 +230,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.maxSizeGb;
     }
     /**
-     * The name of the database.
+     * The name of the database. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the database.
+     * @return The name of the database. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -288,14 +288,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.requestedServiceObjectiveName;
     }
     /**
-     * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+     * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+     * @return The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -316,14 +316,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.restorePointInTime;
     }
     /**
-     * The name of the SQL Server on which to create the database.
+     * The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="serverName", type=String.class, parameters={})
     private Output<String> serverName;
 
     /**
-     * @return The name of the SQL Server on which to create the database.
+     * @return The name of the SQL Server on which to create the database. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> serverName() {

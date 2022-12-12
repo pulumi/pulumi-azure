@@ -11,11 +11,11 @@ import (
 )
 
 type BastionHostIpConfiguration struct {
-	// The name of the IP configuration.
+	// The name of the IP configuration. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
-	// Reference to a Public IP Address to associate with this Bastion Host.
+	// Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
-	// Reference to a subnet in which this Bastion Host has been created.
+	// Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -31,11 +31,11 @@ type BastionHostIpConfigurationInput interface {
 }
 
 type BastionHostIpConfigurationArgs struct {
-	// The name of the IP configuration.
+	// The name of the IP configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Reference to a Public IP Address to associate with this Bastion Host.
+	// Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
-	// Reference to a subnet in which this Bastion Host has been created.
+	// Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -116,17 +116,17 @@ func (o BastionHostIpConfigurationOutput) ToBastionHostIpConfigurationPtrOutputW
 	}).(BastionHostIpConfigurationPtrOutput)
 }
 
-// The name of the IP configuration.
+// The name of the IP configuration. Changing this forces a new resource to be created.
 func (o BastionHostIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BastionHostIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Reference to a Public IP Address to associate with this Bastion Host.
+// Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
 func (o BastionHostIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
 	return o.ApplyT(func(v BastionHostIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
 }
 
-// Reference to a subnet in which this Bastion Host has been created.
+// Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
 func (o BastionHostIpConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v BastionHostIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -155,7 +155,7 @@ func (o BastionHostIpConfigurationPtrOutput) Elem() BastionHostIpConfigurationOu
 	}).(BastionHostIpConfigurationOutput)
 }
 
-// The name of the IP configuration.
+// The name of the IP configuration. Changing this forces a new resource to be created.
 func (o BastionHostIpConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BastionHostIpConfiguration) *string {
 		if v == nil {
@@ -165,7 +165,7 @@ func (o BastionHostIpConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to a Public IP Address to associate with this Bastion Host.
+// Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
 func (o BastionHostIpConfigurationPtrOutput) PublicIpAddressId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BastionHostIpConfiguration) *string {
 		if v == nil {
@@ -175,7 +175,7 @@ func (o BastionHostIpConfigurationPtrOutput) PublicIpAddressId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to a subnet in which this Bastion Host has been created.
+// Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
 func (o BastionHostIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BastionHostIpConfiguration) *string {
 		if v == nil {
@@ -3519,7 +3519,7 @@ type LinuxVirtualMachineScaleSetDataDisk struct {
 	Caching string `pulumi:"caching"`
 	// The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
 	CreateOption *string `pulumi:"createOption"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
@@ -3551,7 +3551,7 @@ type LinuxVirtualMachineScaleSetDataDiskArgs struct {
 	Caching pulumi.StringInput `pulumi:"caching"`
 	// The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
 	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
@@ -3628,7 +3628,7 @@ func (o LinuxVirtualMachineScaleSetDataDiskOutput) CreateOption() pulumi.StringP
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *string { return v.CreateOption }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -4949,7 +4949,7 @@ type LinuxVirtualMachineScaleSetOsDisk struct {
 	Caching string `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings *LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
+	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
@@ -4957,7 +4957,7 @@ type LinuxVirtualMachineScaleSetOsDisk struct {
 	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
 	// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 	SecurityEncryptionType *string `pulumi:"securityEncryptionType"`
-	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
@@ -4979,7 +4979,7 @@ type LinuxVirtualMachineScaleSetOsDiskArgs struct {
 	Caching pulumi.StringInput `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
+	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
@@ -4987,7 +4987,7 @@ type LinuxVirtualMachineScaleSetOsDiskArgs struct {
 	SecureVmDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"secureVmDiskEncryptionSetId"`
 	// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 	SecurityEncryptionType pulumi.StringPtrInput `pulumi:"securityEncryptionType"`
-	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
@@ -5082,7 +5082,7 @@ func (o LinuxVirtualMachineScaleSetOsDiskOutput) DiffDiskSettings() LinuxVirtual
 	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
+// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -5102,7 +5102,7 @@ func (o LinuxVirtualMachineScaleSetOsDiskOutput) SecurityEncryptionType() pulumi
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) *string { return v.SecurityEncryptionType }).(pulumi.StringPtrOutput)
 }
 
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOsDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
@@ -5156,7 +5156,7 @@ func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) DiffDiskSettings() LinuxVirt
 	}).(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
+// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) *string {
 		if v == nil {
@@ -5196,7 +5196,7 @@ func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) SecurityEncryptionType() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOsDiskPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetOsDisk) *string {
 		if v == nil {
@@ -11823,7 +11823,7 @@ func (o ScaleSetBootDiagnosticsPtrOutput) StorageUri() pulumi.StringPtrOutput {
 type ScaleSetExtension struct {
 	// Specifies whether or not to use the latest minor version available.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// Specifies the name of the extension.
+	// Specifies the name of the extension. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings *string `pulumi:"protectedSettings"`
@@ -11853,7 +11853,7 @@ type ScaleSetExtensionInput interface {
 type ScaleSetExtensionArgs struct {
 	// Specifies whether or not to use the latest minor version available.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
-	// Specifies the name of the extension.
+	// Specifies the name of the extension. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings pulumi.StringPtrInput `pulumi:"protectedSettings"`
@@ -11925,7 +11925,7 @@ func (o ScaleSetExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v ScaleSetExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the name of the extension.
+// Specifies the name of the extension. Changing this forces a new resource to be created.
 func (o ScaleSetExtensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleSetExtension) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -12160,7 +12160,7 @@ type ScaleSetNetworkProfile struct {
 	IpConfigurations []ScaleSetNetworkProfileIpConfiguration `pulumi:"ipConfigurations"`
 	// Whether IP forwarding is enabled on this NIC. Defaults to `false`.
 	IpForwarding *bool `pulumi:"ipForwarding"`
-	// Specifies the name of the network interface configuration.
+	// Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Specifies the identifier for the network security group.
 	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
@@ -12188,7 +12188,7 @@ type ScaleSetNetworkProfileArgs struct {
 	IpConfigurations ScaleSetNetworkProfileIpConfigurationArrayInput `pulumi:"ipConfigurations"`
 	// Whether IP forwarding is enabled on this NIC. Defaults to `false`.
 	IpForwarding pulumi.BoolPtrInput `pulumi:"ipForwarding"`
-	// Specifies the name of the network interface configuration.
+	// Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the identifier for the network security group.
 	NetworkSecurityGroupId pulumi.StringPtrInput `pulumi:"networkSecurityGroupId"`
@@ -12267,7 +12267,7 @@ func (o ScaleSetNetworkProfileOutput) IpForwarding() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScaleSetNetworkProfile) *bool { return v.IpForwarding }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the name of the network interface configuration.
+// Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
 func (o ScaleSetNetworkProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleSetNetworkProfile) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -12448,7 +12448,7 @@ type ScaleSetNetworkProfileIpConfiguration struct {
 	LoadBalancerBackendAddressPoolIds []string `pulumi:"loadBalancerBackendAddressPoolIds"`
 	// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
 	LoadBalancerInboundNatRulesIds []string `pulumi:"loadBalancerInboundNatRulesIds"`
-	// Specifies name of the IP configuration.
+	// Specifies name of the IP configuration. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Specifies if this ipConfiguration is the primary one.
 	Primary bool `pulumi:"primary"`
@@ -12478,7 +12478,7 @@ type ScaleSetNetworkProfileIpConfigurationArgs struct {
 	LoadBalancerBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolIds"`
 	// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
 	LoadBalancerInboundNatRulesIds pulumi.StringArrayInput `pulumi:"loadBalancerInboundNatRulesIds"`
-	// Specifies name of the IP configuration.
+	// Specifies name of the IP configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies if this ipConfiguration is the primary one.
 	Primary pulumi.BoolInput `pulumi:"primary"`
@@ -12561,7 +12561,7 @@ func (o ScaleSetNetworkProfileIpConfigurationOutput) LoadBalancerInboundNatRules
 	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) []string { return v.LoadBalancerInboundNatRulesIds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies name of the IP configuration.
+// Specifies name of the IP configuration. Changing this forces a new resource to be created.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -12608,7 +12608,7 @@ type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration struct {
 	DomainNameLabel string `pulumi:"domainNameLabel"`
 	// The idle timeout in minutes. This value must be between 4 and 30.
 	IdleTimeout int `pulumi:"idleTimeout"`
-	// The name of the public IP address configuration
+	// The name of the public IP address configuration Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 }
 
@@ -12628,7 +12628,7 @@ type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs struc
 	DomainNameLabel pulumi.StringInput `pulumi:"domainNameLabel"`
 	// The idle timeout in minutes. This value must be between 4 and 30.
 	IdleTimeout pulumi.IntInput `pulumi:"idleTimeout"`
-	// The name of the public IP address configuration
+	// The name of the public IP address configuration Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -12721,7 +12721,7 @@ func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput)
 	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) int { return v.IdleTimeout }).(pulumi.IntOutput)
 }
 
-// The name of the public IP address configuration
+// The name of the public IP address configuration Changing this forces a new resource to be created.
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -12770,7 +12770,7 @@ func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of the public IP address configuration
+// The name of the public IP address configuration Changing this forces a new resource to be created.
 func (o ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration) *string {
 		if v == nil {
@@ -13869,7 +13869,7 @@ func (o ScaleSetOsProfileWindowsConfigWinrmArrayOutput) Index(i pulumi.IntInput)
 }
 
 type ScaleSetPlan struct {
-	// Specifies the name of the image from the marketplace.
+	// Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Specifies the product of the image from the marketplace.
 	Product string `pulumi:"product"`
@@ -13889,7 +13889,7 @@ type ScaleSetPlanInput interface {
 }
 
 type ScaleSetPlanArgs struct {
-	// Specifies the name of the image from the marketplace.
+	// Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the product of the image from the marketplace.
 	Product pulumi.StringInput `pulumi:"product"`
@@ -13974,7 +13974,7 @@ func (o ScaleSetPlanOutput) ToScaleSetPlanPtrOutputWithContext(ctx context.Conte
 	}).(ScaleSetPlanPtrOutput)
 }
 
-// Specifies the name of the image from the marketplace.
+// Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
 func (o ScaleSetPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -14013,7 +14013,7 @@ func (o ScaleSetPlanPtrOutput) Elem() ScaleSetPlanOutput {
 	}).(ScaleSetPlanOutput)
 }
 
-// Specifies the name of the image from the marketplace.
+// Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
 func (o ScaleSetPlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSetPlan) *string {
 		if v == nil {
@@ -14240,7 +14240,7 @@ func (o ScaleSetRollingUpgradePolicyPtrOutput) PauseTimeBetweenBatches() pulumi.
 type ScaleSetSku struct {
 	// Specifies the number of virtual machines in the scale set.
 	Capacity int `pulumi:"capacity"`
-	// Specifies the size of virtual machines in a scale set.
+	// Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
 	Tier *string `pulumi:"tier"`
@@ -14260,7 +14260,7 @@ type ScaleSetSkuInput interface {
 type ScaleSetSkuArgs struct {
 	// Specifies the number of virtual machines in the scale set.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// Specifies the size of virtual machines in a scale set.
+	// Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
@@ -14348,7 +14348,7 @@ func (o ScaleSetSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ScaleSetSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Specifies the size of virtual machines in a scale set.
+// Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
 func (o ScaleSetSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ScaleSetSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -14392,7 +14392,7 @@ func (o ScaleSetSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the size of virtual machines in a scale set.
+// Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
 func (o ScaleSetSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSetSku) *string {
 		if v == nil {
@@ -14773,7 +14773,7 @@ type ScaleSetStorageProfileOsDisk struct {
 	Image *string `pulumi:"image"`
 	// Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhdContainers` or `image` is specified.
 	ManagedDiskType *string `pulumi:"managedDiskType"`
-	// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
+	// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set). Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the operating system Type, valid values are windows, Linux.
 	OsType *string `pulumi:"osType"`
@@ -14803,7 +14803,7 @@ type ScaleSetStorageProfileOsDiskArgs struct {
 	Image pulumi.StringPtrInput `pulumi:"image"`
 	// Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhdContainers` or `image` is specified.
 	ManagedDiskType pulumi.StringPtrInput `pulumi:"managedDiskType"`
-	// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
+	// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set). Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Specifies the operating system Type, valid values are windows, Linux.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
@@ -14910,7 +14910,7 @@ func (o ScaleSetStorageProfileOsDiskOutput) ManagedDiskType() pulumi.StringPtrOu
 	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.ManagedDiskType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
+// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set). Changing this forces a new resource to be created.
 func (o ScaleSetStorageProfileOsDiskOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScaleSetStorageProfileOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -14991,7 +14991,7 @@ func (o ScaleSetStorageProfileOsDiskPtrOutput) ManagedDiskType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
+// Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set). Changing this forces a new resource to be created.
 func (o ScaleSetStorageProfileOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSetStorageProfileOsDisk) *string {
 		if v == nil {
@@ -15374,7 +15374,7 @@ func (o SharedImagePurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 type SharedImageVersionTargetRegion struct {
 	// The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
-	// The Azure Region in which this Image Version should exist.
+	// The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The number of replicas of the Image Version to be created per region.
 	RegionalReplicaCount int `pulumi:"regionalReplicaCount"`
@@ -15396,7 +15396,7 @@ type SharedImageVersionTargetRegionInput interface {
 type SharedImageVersionTargetRegionArgs struct {
 	// The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
-	// The Azure Region in which this Image Version should exist.
+	// The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The number of replicas of the Image Version to be created per region.
 	RegionalReplicaCount pulumi.IntInput `pulumi:"regionalReplicaCount"`
@@ -15460,7 +15460,7 @@ func (o SharedImageVersionTargetRegionOutput) DiskEncryptionSetId() pulumi.Strin
 	return o.ApplyT(func(v SharedImageVersionTargetRegion) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
-// The Azure Region in which this Image Version should exist.
+// The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
 func (o SharedImageVersionTargetRegionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedImageVersionTargetRegion) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -15987,7 +15987,7 @@ func (o SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput) SourceVaultId() pul
 }
 
 type VirtualMachineAdditionalCapabilities struct {
-	// Should Ultra SSD disk be enabled for this Virtual Machine?
+	// Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
 	UltraSsdEnabled bool `pulumi:"ultraSsdEnabled"`
 }
 
@@ -16003,7 +16003,7 @@ type VirtualMachineAdditionalCapabilitiesInput interface {
 }
 
 type VirtualMachineAdditionalCapabilitiesArgs struct {
-	// Should Ultra SSD disk be enabled for this Virtual Machine?
+	// Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
 	UltraSsdEnabled pulumi.BoolInput `pulumi:"ultraSsdEnabled"`
 }
 
@@ -16084,7 +16084,7 @@ func (o VirtualMachineAdditionalCapabilitiesOutput) ToVirtualMachineAdditionalCa
 	}).(VirtualMachineAdditionalCapabilitiesPtrOutput)
 }
 
-// Should Ultra SSD disk be enabled for this Virtual Machine?
+// Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
 func (o VirtualMachineAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v VirtualMachineAdditionalCapabilities) bool { return v.UltraSsdEnabled }).(pulumi.BoolOutput)
 }
@@ -16113,7 +16113,7 @@ func (o VirtualMachineAdditionalCapabilitiesPtrOutput) Elem() VirtualMachineAddi
 	}).(VirtualMachineAdditionalCapabilitiesOutput)
 }
 
-// Should Ultra SSD disk be enabled for this Virtual Machine?
+// Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
 func (o VirtualMachineAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineAdditionalCapabilities) *bool {
 		if v == nil {
@@ -16459,9 +16459,9 @@ type VirtualMachineOsProfile struct {
 	AdminPassword *string `pulumi:"adminPassword"`
 	// Specifies the name of the local administrator account.
 	AdminUsername string `pulumi:"adminUsername"`
-	// Specifies the name of the Virtual Machine.
+	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 	ComputerName string `pulumi:"computerName"`
-	// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+	// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
 	CustomData *string `pulumi:"customData"`
 }
 
@@ -16481,9 +16481,9 @@ type VirtualMachineOsProfileArgs struct {
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
 	// Specifies the name of the local administrator account.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-	// Specifies the name of the Virtual Machine.
+	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 	ComputerName pulumi.StringInput `pulumi:"computerName"`
-	// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+	// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
 	CustomData pulumi.StringPtrInput `pulumi:"customData"`
 }
 
@@ -16574,12 +16574,12 @@ func (o VirtualMachineOsProfileOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineOsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Virtual Machine.
+// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 func (o VirtualMachineOsProfileOutput) ComputerName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineOsProfile) string { return v.ComputerName }).(pulumi.StringOutput)
 }
 
-// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
 func (o VirtualMachineOsProfileOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
@@ -16628,7 +16628,7 @@ func (o VirtualMachineOsProfilePtrOutput) AdminUsername() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Virtual Machine.
+// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 func (o VirtualMachineOsProfilePtrOutput) ComputerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineOsProfile) *string {
 		if v == nil {
@@ -16638,7 +16638,7 @@ func (o VirtualMachineOsProfilePtrOutput) ComputerName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
 func (o VirtualMachineOsProfilePtrOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineOsProfile) *string {
 		if v == nil {
@@ -17133,7 +17133,7 @@ type VirtualMachineOsProfileWindowsConfig struct {
 	EnableAutomaticUpgrades *bool `pulumi:"enableAutomaticUpgrades"`
 	// Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
-	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
 	Timezone *string `pulumi:"timezone"`
 	// One or more `winrm` blocks as defined below.
 	Winrms []VirtualMachineOsProfileWindowsConfigWinrm `pulumi:"winrms"`
@@ -17157,7 +17157,7 @@ type VirtualMachineOsProfileWindowsConfigArgs struct {
 	EnableAutomaticUpgrades pulumi.BoolPtrInput `pulumi:"enableAutomaticUpgrades"`
 	// Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
 	ProvisionVmAgent pulumi.BoolPtrInput `pulumi:"provisionVmAgent"`
-	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 	// One or more `winrm` blocks as defined below.
 	Winrms VirtualMachineOsProfileWindowsConfigWinrmArrayInput `pulumi:"winrms"`
@@ -17257,7 +17257,7 @@ func (o VirtualMachineOsProfileWindowsConfigOutput) ProvisionVmAgent() pulumi.Bo
 	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
 func (o VirtualMachineOsProfileWindowsConfigOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -17323,7 +17323,7 @@ func (o VirtualMachineOsProfileWindowsConfigPtrOutput) ProvisionVmAgent() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineOsProfileWindowsConfig) *string {
 		if v == nil {
@@ -17919,7 +17919,7 @@ type VirtualMachineStorageDataDisk struct {
 	ManagedDiskType *string `pulumi:"managedDiskType"`
 	// The name of the Data Disk.
 	Name string `pulumi:"name"`
-	// Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+	// Specifies the URI of the VHD file backing this Unmanaged Data Disk.
 	VhdUri *string `pulumi:"vhdUri"`
 	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
@@ -17951,7 +17951,7 @@ type VirtualMachineStorageDataDiskArgs struct {
 	ManagedDiskType pulumi.StringPtrInput `pulumi:"managedDiskType"`
 	// The name of the Data Disk.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+	// Specifies the URI of the VHD file backing this Unmanaged Data Disk.
 	VhdUri pulumi.StringPtrInput `pulumi:"vhdUri"`
 	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
@@ -18043,7 +18043,7 @@ func (o VirtualMachineStorageDataDiskOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineStorageDataDisk) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+// Specifies the URI of the VHD file backing this Unmanaged Data Disk.
 func (o VirtualMachineStorageDataDiskOutput) VhdUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineStorageDataDisk) *string { return v.VhdUri }).(pulumi.StringPtrOutput)
 }
@@ -18295,7 +18295,7 @@ type VirtualMachineStorageOsDisk struct {
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
 	ImageUri *string `pulumi:"imageUri"`
-	// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`.
+	// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`. Changing this forces a new resource to be created.
 	ManagedDiskId *string `pulumi:"managedDiskId"`
 	// Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
 	ManagedDiskType *string `pulumi:"managedDiskType"`
@@ -18329,7 +18329,7 @@ type VirtualMachineStorageOsDiskArgs struct {
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
 	// Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
 	ImageUri pulumi.StringPtrInput `pulumi:"imageUri"`
-	// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`.
+	// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`. Changing this forces a new resource to be created.
 	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
 	// Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
 	ManagedDiskType pulumi.StringPtrInput `pulumi:"managedDiskType"`
@@ -18440,7 +18440,7 @@ func (o VirtualMachineStorageOsDiskOutput) ImageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`.
+// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageOsDiskOutput) ManagedDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineStorageOsDisk) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
 }
@@ -18534,7 +18534,7 @@ func (o VirtualMachineStorageOsDiskPtrOutput) ImageUri() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`.
+// Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`. Changing this forces a new resource to be created.
 func (o VirtualMachineStorageOsDiskPtrOutput) ManagedDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineStorageOsDisk) *string {
 		if v == nil {
@@ -20611,7 +20611,7 @@ type WindowsVirtualMachineScaleSetDataDisk struct {
 	Caching string `pulumi:"caching"`
 	// The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
 	CreateOption *string `pulumi:"createOption"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
@@ -20643,7 +20643,7 @@ type WindowsVirtualMachineScaleSetDataDiskArgs struct {
 	Caching pulumi.StringInput `pulumi:"caching"`
 	// The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
 	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+	// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
@@ -20720,7 +20720,7 @@ func (o WindowsVirtualMachineScaleSetDataDiskOutput) CreateOption() pulumi.Strin
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *string { return v.CreateOption }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+// The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -22043,7 +22043,7 @@ type WindowsVirtualMachineScaleSetOsDisk struct {
 	Caching string `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings *WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
+	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
@@ -22051,7 +22051,7 @@ type WindowsVirtualMachineScaleSetOsDisk struct {
 	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
 	// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 	SecurityEncryptionType *string `pulumi:"securityEncryptionType"`
-	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
@@ -22073,7 +22073,7 @@ type WindowsVirtualMachineScaleSetOsDiskArgs struct {
 	Caching pulumi.StringInput `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
+	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
@@ -22081,7 +22081,7 @@ type WindowsVirtualMachineScaleSetOsDiskArgs struct {
 	SecureVmDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"secureVmDiskEncryptionSetId"`
 	// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 	SecurityEncryptionType pulumi.StringPtrInput `pulumi:"securityEncryptionType"`
-	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
@@ -22176,7 +22176,7 @@ func (o WindowsVirtualMachineScaleSetOsDiskOutput) DiffDiskSettings() WindowsVir
 	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
+// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -22196,7 +22196,7 @@ func (o WindowsVirtualMachineScaleSetOsDiskOutput) SecurityEncryptionType() pulu
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) *string { return v.SecurityEncryptionType }).(pulumi.StringPtrOutput)
 }
 
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOsDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
@@ -22250,7 +22250,7 @@ func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) DiffDiskSettings() Windows
 	}).(WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
+// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) *string {
 		if v == nil {
@@ -22290,7 +22290,7 @@ func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) SecurityEncryptionType() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOsDiskPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetOsDisk) *string {
 		if v == nil {
@@ -23910,9 +23910,9 @@ func (o WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput) Timeout()
 }
 
 type WindowsVirtualMachineScaleSetWinrmListener struct {
-	// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+	// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
 	CertificateUrl *string `pulumi:"certificateUrl"`
-	// The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
+	// The Protocol of the WinRM Listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -23928,9 +23928,9 @@ type WindowsVirtualMachineScaleSetWinrmListenerInput interface {
 }
 
 type WindowsVirtualMachineScaleSetWinrmListenerArgs struct {
-	// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+	// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
-	// The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
+	// The Protocol of the WinRM Listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -23985,12 +23985,12 @@ func (o WindowsVirtualMachineScaleSetWinrmListenerOutput) ToWindowsVirtualMachin
 	return o
 }
 
-// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetWinrmListenerOutput) CertificateUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetWinrmListener) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
 }
 
-// The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
+// The Protocol of the WinRM Listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetWinrmListenerOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetWinrmListener) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -24578,7 +24578,7 @@ func (o WindowsVirtualMachineTerminationNotificationPtrOutput) Timeout() pulumi.
 }
 
 type WindowsVirtualMachineWinrmListener struct {
-	// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+	// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
 	CertificateUrl *string `pulumi:"certificateUrl"`
 	Protocol       string  `pulumi:"protocol"`
 }
@@ -24595,7 +24595,7 @@ type WindowsVirtualMachineWinrmListenerInput interface {
 }
 
 type WindowsVirtualMachineWinrmListenerArgs struct {
-	// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+	// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
 	Protocol       pulumi.StringInput    `pulumi:"protocol"`
 }
@@ -24651,7 +24651,7 @@ func (o WindowsVirtualMachineWinrmListenerOutput) ToWindowsVirtualMachineWinrmLi
 	return o
 }
 
-// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineWinrmListenerOutput) CertificateUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineWinrmListener) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
 }

@@ -64,7 +64,7 @@ type AvailabilitySet struct {
 
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
+	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
 	Managed pulumi.BoolPtrOutput `pulumi:"managed"`
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -114,7 +114,7 @@ func GetAvailabilitySet(ctx *pulumi.Context,
 type availabilitySetState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
+	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
 	Managed *bool `pulumi:"managed"`
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -133,7 +133,7 @@ type availabilitySetState struct {
 type AvailabilitySetState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
+	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
 	Managed pulumi.BoolPtrInput
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -156,7 +156,7 @@ func (AvailabilitySetState) ElementType() reflect.Type {
 type availabilitySetArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
+	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
 	Managed *bool `pulumi:"managed"`
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -176,7 +176,7 @@ type availabilitySetArgs struct {
 type AvailabilitySetArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
+	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
 	Managed pulumi.BoolPtrInput
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -284,7 +284,7 @@ func (o AvailabilitySetOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *AvailabilitySet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
+// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
 func (o AvailabilitySetOutput) Managed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AvailabilitySet) pulumi.BoolPtrOutput { return v.Managed }).(pulumi.BoolPtrOutput)
 }

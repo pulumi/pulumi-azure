@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Redis
         public Output<string> RedisCacheName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which this Redis Cache exists.
+        /// The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Redis
         public Input<string> RedisCacheName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which this Redis Cache exists.
+        /// The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.Redis
         public Input<string>? RedisCacheName { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which this Redis Cache exists.
+        /// The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

@@ -150,7 +150,7 @@ import (
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
-	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+	// Specifies the End IP Address associated with this Firewall Rule.
 	EndIpAddress pulumi.StringOutput `pulumi:"endIpAddress"`
 	// Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -158,7 +158,7 @@ type FirewallRule struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the name of the MySQL Server. Changing this forces a new resource to be created.
 	ServerName pulumi.StringOutput `pulumi:"serverName"`
-	// Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+	// Specifies the Start IP Address associated with this Firewall Rule.
 	StartIpAddress pulumi.StringOutput `pulumi:"startIpAddress"`
 }
 
@@ -203,7 +203,7 @@ func GetFirewallRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallRule resources.
 type firewallRuleState struct {
-	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+	// Specifies the End IP Address associated with this Firewall Rule.
 	EndIpAddress *string `pulumi:"endIpAddress"`
 	// Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -211,12 +211,12 @@ type firewallRuleState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the name of the MySQL Server. Changing this forces a new resource to be created.
 	ServerName *string `pulumi:"serverName"`
-	// Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+	// Specifies the Start IP Address associated with this Firewall Rule.
 	StartIpAddress *string `pulumi:"startIpAddress"`
 }
 
 type FirewallRuleState struct {
-	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+	// Specifies the End IP Address associated with this Firewall Rule.
 	EndIpAddress pulumi.StringPtrInput
 	// Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -224,7 +224,7 @@ type FirewallRuleState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the name of the MySQL Server. Changing this forces a new resource to be created.
 	ServerName pulumi.StringPtrInput
-	// Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+	// Specifies the Start IP Address associated with this Firewall Rule.
 	StartIpAddress pulumi.StringPtrInput
 }
 
@@ -233,7 +233,7 @@ func (FirewallRuleState) ElementType() reflect.Type {
 }
 
 type firewallRuleArgs struct {
-	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+	// Specifies the End IP Address associated with this Firewall Rule.
 	EndIpAddress string `pulumi:"endIpAddress"`
 	// Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -241,13 +241,13 @@ type firewallRuleArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the name of the MySQL Server. Changing this forces a new resource to be created.
 	ServerName string `pulumi:"serverName"`
-	// Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+	// Specifies the Start IP Address associated with this Firewall Rule.
 	StartIpAddress string `pulumi:"startIpAddress"`
 }
 
 // The set of arguments for constructing a FirewallRule resource.
 type FirewallRuleArgs struct {
-	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+	// Specifies the End IP Address associated with this Firewall Rule.
 	EndIpAddress pulumi.StringInput
 	// Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -255,7 +255,7 @@ type FirewallRuleArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Specifies the name of the MySQL Server. Changing this forces a new resource to be created.
 	ServerName pulumi.StringInput
-	// Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+	// Specifies the Start IP Address associated with this Firewall Rule.
 	StartIpAddress pulumi.StringInput
 }
 
@@ -346,7 +346,7 @@ func (o FirewallRuleOutput) ToFirewallRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+// Specifies the End IP Address associated with this Firewall Rule.
 func (o FirewallRuleOutput) EndIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.EndIpAddress }).(pulumi.StringOutput)
 }
@@ -366,7 +366,7 @@ func (o FirewallRuleOutput) ServerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.ServerName }).(pulumi.StringOutput)
 }
 
-// Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+// Specifies the Start IP Address associated with this Firewall Rule.
 func (o FirewallRuleOutput) StartIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.StartIpAddress }).(pulumi.StringOutput)
 }

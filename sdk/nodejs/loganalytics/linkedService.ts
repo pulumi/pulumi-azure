@@ -84,7 +84,7 @@ export class LinkedService extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+     * The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
      */
     public readonly workspaceId!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export interface LinkedServiceState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+     * The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
      */
     workspaceId?: pulumi.Input<string>;
     /**
@@ -168,7 +168,7 @@ export interface LinkedServiceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+     * The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
      */
     workspaceId: pulumi.Input<string>;
     /**

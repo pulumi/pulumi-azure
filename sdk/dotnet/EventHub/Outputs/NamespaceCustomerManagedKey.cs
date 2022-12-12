@@ -18,7 +18,7 @@ namespace Pulumi.Azure.EventHub.Outputs
         /// </summary>
         public readonly string IdentityId;
         /// <summary>
-        /// Used to specify whether enable Infrastructure Encryption (Double Encryption).
+        /// Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? InfrastructureEncryptionEnabled;
         /// <summary>

@@ -111,13 +111,13 @@ namespace Pulumi.Azure.Healthcare
         public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the supported Azure Region where the Service should be created.
+        /// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the service instance. Used for service endpoint, must be unique within the audience.
+        /// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Healthcare
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group in which to create the Service.
+        /// The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -225,13 +225,13 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure Region where the Service should be created.
+        /// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the service instance. Used for service endpoint, must be unique within the audience.
+        /// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group in which to create the Service.
+        /// The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -307,13 +307,13 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure Region where the Service should be created.
+        /// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the service instance. Used for service endpoint, must be unique within the audience.
+        /// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -325,7 +325,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group in which to create the Service.
+        /// The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

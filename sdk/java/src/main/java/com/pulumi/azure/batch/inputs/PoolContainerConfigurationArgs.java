@@ -18,14 +18,14 @@ public final class PoolContainerConfigurationArgs extends com.pulumi.resources.R
     public static final PoolContainerConfigurationArgs Empty = new PoolContainerConfigurationArgs();
 
     /**
-     * A list of container image names to use, as would be specified by `docker pull`.
+     * A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="containerImageNames")
     private @Nullable Output<List<String>> containerImageNames;
 
     /**
-     * @return A list of container image names to use, as would be specified by `docker pull`.
+     * @return A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> containerImageNames() {
@@ -33,14 +33,14 @@ public final class PoolContainerConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Additional container registries from which container images can be pulled by the pool&#39;s VMs.
+     * Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="containerRegistries")
     private @Nullable Output<List<PoolContainerConfigurationContainerRegistryArgs>> containerRegistries;
 
     /**
-     * @return Additional container registries from which container images can be pulled by the pool&#39;s VMs.
+     * @return Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<PoolContainerConfigurationContainerRegistryArgs>>> containerRegistries() {
@@ -89,7 +89,7 @@ public final class PoolContainerConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param containerImageNames A list of container image names to use, as would be specified by `docker pull`.
+         * @param containerImageNames A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class PoolContainerConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param containerImageNames A list of container image names to use, as would be specified by `docker pull`.
+         * @param containerImageNames A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class PoolContainerConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param containerImageNames A list of container image names to use, as would be specified by `docker pull`.
+         * @param containerImageNames A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class PoolContainerConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param containerRegistries Additional container registries from which container images can be pulled by the pool&#39;s VMs.
+         * @param containerRegistries Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class PoolContainerConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param containerRegistries Additional container registries from which container images can be pulled by the pool&#39;s VMs.
+         * @param containerRegistries Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PoolContainerConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param containerRegistries Additional container registries from which container images can be pulled by the pool&#39;s VMs.
+         * @param containerRegistries Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -20,7 +20,7 @@ class ReplicaSetArgs:
         """
         The set of arguments for constructing a ReplicaSet resource.
         :param pulumi.Input[str] domain_service_id: The ID of the Domain Service for which to create this Replica Set. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet in which to place this Replica Set.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "domain_service_id", domain_service_id)
@@ -44,7 +44,7 @@ class ReplicaSetArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
         """
-        The ID of the subnet in which to place this Replica Set.
+        The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -81,7 +81,7 @@ class _ReplicaSetState:
         :param pulumi.Input[str] external_access_ip_address: The publicly routable IP address for the domain controllers in this Replica Set.
         :param pulumi.Input[str] location: The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_status: The current service status for the replica set.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet in which to place this Replica Set.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
         """
         if domain_controller_ip_addresses is not None:
             pulumi.set(__self__, "domain_controller_ip_addresses", domain_controller_ip_addresses)
@@ -160,7 +160,7 @@ class _ReplicaSetState:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the subnet in which to place this Replica Set.
+        The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -193,7 +193,7 @@ class ReplicaSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_service_id: The ID of the Domain Service for which to create this Replica Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet in which to place this Replica Set.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -277,7 +277,7 @@ class ReplicaSet(pulumi.CustomResource):
         :param pulumi.Input[str] external_access_ip_address: The publicly routable IP address for the domain controllers in this Replica Set.
         :param pulumi.Input[str] location: The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_status: The current service status for the replica set.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet in which to place this Replica Set.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -335,7 +335,7 @@ class ReplicaSet(pulumi.CustomResource):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
         """
-        The ID of the subnet in which to place this Replica Set.
+        The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 

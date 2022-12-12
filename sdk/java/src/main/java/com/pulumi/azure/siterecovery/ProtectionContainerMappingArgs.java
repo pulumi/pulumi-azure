@@ -16,14 +16,14 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
     public static final ProtectionContainerMappingArgs Empty = new ProtectionContainerMappingArgs();
 
     /**
-     * The name of the protection container mapping.
+     * The name of the protection container mapping. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the protection container mapping.
+     * @return The name of the protection container mapping. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -31,14 +31,14 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Name of fabric that should contains the protection container to map.
+     * Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="recoveryFabricName", required=true)
     private Output<String> recoveryFabricName;
 
     /**
-     * @return Name of fabric that should contains the protection container to map.
+     * @return Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoveryFabricName() {
@@ -46,14 +46,14 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Id of the policy to use for this mapping.
+     * Id of the policy to use for this mapping. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="recoveryReplicationPolicyId", required=true)
     private Output<String> recoveryReplicationPolicyId;
 
     /**
-     * @return Id of the policy to use for this mapping.
+     * @return Id of the policy to use for this mapping. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoveryReplicationPolicyId() {
@@ -61,14 +61,14 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Name of the source protection container to map.
+     * Name of the source protection container to map. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="recoverySourceProtectionContainerName", required=true)
     private Output<String> recoverySourceProtectionContainerName;
 
     /**
-     * @return Name of the source protection container to map.
+     * @return Name of the source protection container to map. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoverySourceProtectionContainerName() {
@@ -76,14 +76,14 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Id of target protection container to map to.
+     * Id of target protection container to map to. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="recoveryTargetProtectionContainerId", required=true)
     private Output<String> recoveryTargetProtectionContainerId;
 
     /**
-     * @return Id of target protection container to map to.
+     * @return Id of target protection container to map to. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoveryTargetProtectionContainerId() {
@@ -91,14 +91,14 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="recoveryVaultName", required=true)
     private Output<String> recoveryVaultName;
 
     /**
-     * @return The name of the vault that should be updated.
+     * @return The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoveryVaultName() {
@@ -106,14 +106,14 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return Name of the resource group where the vault that should be updated is located.
+     * @return Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -151,7 +151,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the protection container mapping.
+         * @param name The name of the protection container mapping. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the protection container mapping.
+         * @param name The name of the protection container mapping. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param recoveryFabricName Name of fabric that should contains the protection container to map.
+         * @param recoveryFabricName Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param recoveryFabricName Name of fabric that should contains the protection container to map.
+         * @param recoveryFabricName Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param recoveryReplicationPolicyId Id of the policy to use for this mapping.
+         * @param recoveryReplicationPolicyId Id of the policy to use for this mapping. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param recoveryReplicationPolicyId Id of the policy to use for this mapping.
+         * @param recoveryReplicationPolicyId Id of the policy to use for this mapping. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param recoverySourceProtectionContainerName Name of the source protection container to map.
+         * @param recoverySourceProtectionContainerName Name of the source protection container to map. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param recoverySourceProtectionContainerName Name of the source protection container to map.
+         * @param recoverySourceProtectionContainerName Name of the source protection container to map. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param recoveryTargetProtectionContainerId Id of target protection container to map to.
+         * @param recoveryTargetProtectionContainerId Id of target protection container to map to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param recoveryTargetProtectionContainerId Id of target protection container to map to.
+         * @param recoveryTargetProtectionContainerId Id of target protection container to map to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param recoveryVaultName The name of the vault that should be updated.
+         * @param recoveryVaultName The name of the vault that should be updated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param recoveryVaultName The name of the vault that should be updated.
+         * @param recoveryVaultName The name of the vault that should be updated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param resourceGroupName Name of the resource group where the vault that should be updated is located.
+         * @param resourceGroupName Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param resourceGroupName Name of the resource group where the vault that should be updated is located.
+         * @param resourceGroupName Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

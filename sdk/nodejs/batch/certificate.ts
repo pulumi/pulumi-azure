@@ -106,7 +106,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
+     * The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
      */
     public readonly thumbprint!: pulumi.Output<string>;
     public readonly thumbprintAlgorithm!: pulumi.Output<string>;
@@ -201,7 +201,7 @@ export interface CertificateState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
+     * The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
      */
     thumbprint?: pulumi.Input<string>;
     thumbprintAlgorithm?: pulumi.Input<string>;
@@ -232,7 +232,7 @@ export interface CertificateArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
+     * The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
      */
     thumbprint: pulumi.Input<string>;
     thumbprintAlgorithm: pulumi.Input<string>;

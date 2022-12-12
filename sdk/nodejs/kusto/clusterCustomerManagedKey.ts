@@ -126,7 +126,7 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
      */
     public readonly keyName!: pulumi.Output<string>;
     /**
-     * The ID of the Key Vault. Changing this forces a new resource to be created.
+     * The ID of the Key Vault.
      */
     public readonly keyVaultId!: pulumi.Output<string>;
     /**
@@ -194,7 +194,7 @@ export interface ClusterCustomerManagedKeyState {
      */
     keyName?: pulumi.Input<string>;
     /**
-     * The ID of the Key Vault. Changing this forces a new resource to be created.
+     * The ID of the Key Vault.
      */
     keyVaultId?: pulumi.Input<string>;
     /**
@@ -220,7 +220,7 @@ export interface ClusterCustomerManagedKeyArgs {
      */
     keyName: pulumi.Input<string>;
     /**
-     * The ID of the Key Vault. Changing this forces a new resource to be created.
+     * The ID of the Key Vault.
      */
     keyVaultId: pulumi.Input<string>;
     /**

@@ -96,7 +96,7 @@ export class CassandraCluster extends pulumi.CustomResource {
      */
     public readonly clientCertificatePems!: pulumi.Output<string[] | undefined>;
     /**
-     * The initial admin password for this Cassandra Cluster.
+     * The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
      */
     public readonly defaultAdminPassword!: pulumi.Output<string>;
     /**
@@ -215,7 +215,7 @@ export interface CassandraClusterState {
      */
     clientCertificatePems?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The initial admin password for this Cassandra Cluster.
+     * The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
      */
     defaultAdminPassword?: pulumi.Input<string>;
     /**
@@ -277,7 +277,7 @@ export interface CassandraClusterArgs {
      */
     clientCertificatePems?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The initial admin password for this Cassandra Cluster.
+     * The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
      */
     defaultAdminPassword: pulumi.Input<string>;
     /**

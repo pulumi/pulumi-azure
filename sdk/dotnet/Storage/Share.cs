@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Storage
         public Output<ImmutableDictionary<string, string>> Metadata { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the share. Must be unique within the storage account where the share is located.
+        /// The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -115,8 +115,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> ResourceManagerId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the storage account in which to create the share.
-        /// Changing this forces a new resource to be created.
+        /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
@@ -210,7 +209,7 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The name of the share. Must be unique within the storage account where the share is located.
+        /// The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -222,8 +221,7 @@ namespace Pulumi.Azure.Storage
         public Input<int> Quota { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the storage account in which to create the share.
-        /// Changing this forces a new resource to be created.
+        /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountName", required: true)]
         public Input<string> StorageAccountName { get; set; } = null!;
@@ -273,7 +271,7 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The name of the share. Must be unique within the storage account where the share is located.
+        /// The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -291,8 +289,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? ResourceManagerId { get; set; }
 
         /// <summary>
-        /// Specifies the storage account in which to create the share.
-        /// Changing this forces a new resource to be created.
+        /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }

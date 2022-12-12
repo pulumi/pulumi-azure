@@ -99,43 +99,43 @@ namespace Pulumi.Azure.SiteRecovery
     public partial class ProtectionContainerMapping : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the protection container mapping.
+        /// The name of the protection container mapping. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Name of fabric that should contains the protection container to map.
+        /// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
         /// </summary>
         [Output("recoveryFabricName")]
         public Output<string> RecoveryFabricName { get; private set; } = null!;
 
         /// <summary>
-        /// Id of the policy to use for this mapping.
+        /// Id of the policy to use for this mapping. Changing this forces a new resource to be created.
         /// </summary>
         [Output("recoveryReplicationPolicyId")]
         public Output<string> RecoveryReplicationPolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the source protection container to map.
+        /// Name of the source protection container to map. Changing this forces a new resource to be created.
         /// </summary>
         [Output("recoverySourceProtectionContainerName")]
         public Output<string> RecoverySourceProtectionContainerName { get; private set; } = null!;
 
         /// <summary>
-        /// Id of target protection container to map to.
+        /// Id of target protection container to map to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("recoveryTargetProtectionContainerId")]
         public Output<string> RecoveryTargetProtectionContainerId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the vault that should be updated.
+        /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Output("recoveryVaultName")]
         public Output<string> RecoveryVaultName { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the resource group where the vault that should be updated is located.
+        /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -187,43 +187,43 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ProtectionContainerMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the protection container mapping.
+        /// The name of the protection container mapping. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of fabric that should contains the protection container to map.
+        /// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryFabricName", required: true)]
         public Input<string> RecoveryFabricName { get; set; } = null!;
 
         /// <summary>
-        /// Id of the policy to use for this mapping.
+        /// Id of the policy to use for this mapping. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryReplicationPolicyId", required: true)]
         public Input<string> RecoveryReplicationPolicyId { get; set; } = null!;
 
         /// <summary>
-        /// Name of the source protection container to map.
+        /// Name of the source protection container to map. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoverySourceProtectionContainerName", required: true)]
         public Input<string> RecoverySourceProtectionContainerName { get; set; } = null!;
 
         /// <summary>
-        /// Id of target protection container to map to.
+        /// Id of target protection container to map to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryTargetProtectionContainerId", required: true)]
         public Input<string> RecoveryTargetProtectionContainerId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the vault that should be updated.
+        /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryVaultName", required: true)]
         public Input<string> RecoveryVaultName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group where the vault that should be updated is located.
+        /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -237,43 +237,43 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ProtectionContainerMappingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the protection container mapping.
+        /// The name of the protection container mapping. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of fabric that should contains the protection container to map.
+        /// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryFabricName")]
         public Input<string>? RecoveryFabricName { get; set; }
 
         /// <summary>
-        /// Id of the policy to use for this mapping.
+        /// Id of the policy to use for this mapping. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryReplicationPolicyId")]
         public Input<string>? RecoveryReplicationPolicyId { get; set; }
 
         /// <summary>
-        /// Name of the source protection container to map.
+        /// Name of the source protection container to map. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoverySourceProtectionContainerName")]
         public Input<string>? RecoverySourceProtectionContainerName { get; set; }
 
         /// <summary>
-        /// Id of target protection container to map to.
+        /// Id of target protection container to map to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryTargetProtectionContainerId")]
         public Input<string>? RecoveryTargetProtectionContainerId { get; set; }
 
         /// <summary>
-        /// The name of the vault that should be updated.
+        /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryVaultName")]
         public Input<string>? RecoveryVaultName { get; set; }
 
         /// <summary>
-        /// Name of the resource group where the vault that should be updated is located.
+        /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

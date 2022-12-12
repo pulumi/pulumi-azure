@@ -735,7 +735,7 @@ class BudgetResourceGroupNotification(dict):
         :param Sequence[str] contact_groups: Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded.
         :param Sequence[str] contact_roles: Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
         :param bool enabled: Should the notification be enabled?
-        :param str threshold_type: The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
+        :param str threshold_type: The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "threshold", threshold)
@@ -802,7 +802,7 @@ class BudgetResourceGroupNotification(dict):
     @pulumi.getter(name="thresholdType")
     def threshold_type(self) -> Optional[str]:
         """
-        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
+        The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "threshold_type")
 

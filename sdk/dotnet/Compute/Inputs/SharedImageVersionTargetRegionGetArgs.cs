@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// The Azure Region in which this Image Version should exist.
+        /// The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

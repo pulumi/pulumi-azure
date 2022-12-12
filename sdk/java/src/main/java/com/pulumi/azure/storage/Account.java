@@ -161,14 +161,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.accessTier;
     }
     /**
-     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
      * 
      */
     @Export(name="accountKind", type=String.class, parameters={})
     private Output</* @Nullable */ String> accountKind;
 
     /**
-     * @return Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+     * @return Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`.  Defaults to `StorageV2`.
      * 
      */
     public Output<Optional<String>> accountKind() {
@@ -1002,9 +1002,17 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> secondaryWebHost() {
         return this.secondaryWebHost;
     }
+    /**
+     * Boolean, enable SFTP for the storage account
+     * 
+     */
     @Export(name="sftpEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> sftpEnabled;
 
+    /**
+     * @return Boolean, enable SFTP for the storage account
+     * 
+     */
     public Output<Optional<Boolean>> sftpEnabled() {
         return Codegen.optional(this.sftpEnabled);
     }

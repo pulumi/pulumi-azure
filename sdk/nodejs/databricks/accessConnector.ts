@@ -64,6 +64,9 @@ export class AccessConnector extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessConnector.__pulumiType;
     }
 
+    /**
+     * An `identity` block as defined below.
+     */
     public readonly identity!: pulumi.Output<outputs.databricks.AccessConnectorIdentity>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -123,6 +126,9 @@ export class AccessConnector extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccessConnector resources.
  */
 export interface AccessConnectorState {
+    /**
+     * An `identity` block as defined below.
+     */
     identity?: pulumi.Input<inputs.databricks.AccessConnectorIdentity>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -146,6 +152,9 @@ export interface AccessConnectorState {
  * The set of arguments for constructing a AccessConnector resource.
  */
 export interface AccessConnectorArgs {
+    /**
+     * An `identity` block as defined below.
+     */
     identity: pulumi.Input<inputs.databricks.AccessConnectorIdentity>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.

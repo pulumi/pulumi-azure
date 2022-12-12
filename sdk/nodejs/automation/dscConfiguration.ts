@@ -76,7 +76,7 @@ export class DscConfiguration extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Must be the same location as the Automation Account.
+     * Must be the same location as the Automation Account. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -162,7 +162,7 @@ export interface DscConfigurationState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Must be the same location as the Automation Account.
+     * Must be the same location as the Automation Account. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -201,7 +201,7 @@ export interface DscConfigurationArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Must be the same location as the Automation Account.
+     * Must be the same location as the Automation Account. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**

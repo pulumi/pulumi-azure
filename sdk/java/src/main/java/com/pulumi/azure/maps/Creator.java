@@ -78,14 +78,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:maps/creator:Creator")
 public class Creator extends com.pulumi.resources.CustomResource {
     /**
-     * The Azure Region where the Azure Maps Creator should exist.
+     * The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return The Azure Region where the Azure Maps Creator should exist.
+     * @return The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {

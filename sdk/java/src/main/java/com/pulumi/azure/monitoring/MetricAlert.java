@@ -239,14 +239,14 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The name of the resource group in which to create the Metric Alert instance.
+     * The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Metric Alert instance.
+     * @return The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

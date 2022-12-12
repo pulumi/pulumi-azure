@@ -60,14 +60,13 @@ namespace Pulumi.Azure.Storage
         public Output<ImmutableArray<Outputs.TableAcl>> Acls { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+        /// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the storage account in which to create the storage table.
-        /// Changing this forces a new resource to be created.
+        /// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
@@ -131,14 +130,13 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+        /// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the storage account in which to create the storage table.
-        /// Changing this forces a new resource to be created.
+        /// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountName", required: true)]
         public Input<string> StorageAccountName { get; set; } = null!;
@@ -164,14 +162,13 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
+        /// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the storage account in which to create the storage table.
-        /// Changing this forces a new resource to be created.
+        /// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }

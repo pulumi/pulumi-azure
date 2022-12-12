@@ -101,14 +101,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The ID of the Parent Management Group. Changing this forces a new resource to be created.
+     * The ID of the Parent Management Group.
      * 
      */
     @Export(name="parentManagementGroupId", type=String.class, parameters={})
     private Output<String> parentManagementGroupId;
 
     /**
-     * @return The ID of the Parent Management Group. Changing this forces a new resource to be created.
+     * @return The ID of the Parent Management Group.
      * 
      */
     public Output<String> parentManagementGroupId() {

@@ -286,13 +286,13 @@ type ManagedInstance struct {
 	MaintenanceConfigurationName pulumi.StringPtrOutput `pulumi:"maintenanceConfigurationName"`
 	// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
-	// The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+	// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
 	ProxyOverride pulumi.StringPtrOutput `pulumi:"proxyOverride"`
 	// Is the public data endpoint enabled? Default value is `false`.
 	PublicDataEndpointEnabled pulumi.BoolPtrOutput `pulumi:"publicDataEndpointEnabled"`
-	// The name of the resource group in which to create the SQL Managed Instance.
+	// The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
@@ -300,7 +300,7 @@ type ManagedInstance struct {
 	StorageAccountType pulumi.StringPtrOutput `pulumi:"storageAccountType"`
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
 	StorageSizeInGb pulumi.IntOutput `pulumi:"storageSizeInGb"`
-	// The subnet resource id that the SQL Managed Instance will be associated with.
+	// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -383,13 +383,13 @@ type managedInstanceState struct {
 	MaintenanceConfigurationName *string `pulumi:"maintenanceConfigurationName"`
 	// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+	// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
 	ProxyOverride *string `pulumi:"proxyOverride"`
 	// Is the public data endpoint enabled? Default value is `false`.
 	PublicDataEndpointEnabled *bool `pulumi:"publicDataEndpointEnabled"`
-	// The name of the resource group in which to create the SQL Managed Instance.
+	// The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
 	SkuName *string `pulumi:"skuName"`
@@ -397,7 +397,7 @@ type managedInstanceState struct {
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
 	StorageSizeInGb *int `pulumi:"storageSizeInGb"`
-	// The subnet resource id that the SQL Managed Instance will be associated with.
+	// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -428,13 +428,13 @@ type ManagedInstanceState struct {
 	MaintenanceConfigurationName pulumi.StringPtrInput
 	// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
 	MinimumTlsVersion pulumi.StringPtrInput
-	// The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+	// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
 	ProxyOverride pulumi.StringPtrInput
 	// Is the public data endpoint enabled? Default value is `false`.
 	PublicDataEndpointEnabled pulumi.BoolPtrInput
-	// The name of the resource group in which to create the SQL Managed Instance.
+	// The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
 	SkuName pulumi.StringPtrInput
@@ -442,7 +442,7 @@ type ManagedInstanceState struct {
 	StorageAccountType pulumi.StringPtrInput
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
 	StorageSizeInGb pulumi.IntPtrInput
-	// The subnet resource id that the SQL Managed Instance will be associated with.
+	// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -475,13 +475,13 @@ type managedInstanceArgs struct {
 	MaintenanceConfigurationName *string `pulumi:"maintenanceConfigurationName"`
 	// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+	// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
 	ProxyOverride *string `pulumi:"proxyOverride"`
 	// Is the public data endpoint enabled? Default value is `false`.
 	PublicDataEndpointEnabled *bool `pulumi:"publicDataEndpointEnabled"`
-	// The name of the resource group in which to create the SQL Managed Instance.
+	// The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
 	SkuName string `pulumi:"skuName"`
@@ -489,7 +489,7 @@ type managedInstanceArgs struct {
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
 	StorageSizeInGb int `pulumi:"storageSizeInGb"`
-	// The subnet resource id that the SQL Managed Instance will be associated with.
+	// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -519,13 +519,13 @@ type ManagedInstanceArgs struct {
 	MaintenanceConfigurationName pulumi.StringPtrInput
 	// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
 	MinimumTlsVersion pulumi.StringPtrInput
-	// The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+	// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
 	ProxyOverride pulumi.StringPtrInput
 	// Is the public data endpoint enabled? Default value is `false`.
 	PublicDataEndpointEnabled pulumi.BoolPtrInput
-	// The name of the resource group in which to create the SQL Managed Instance.
+	// The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
 	SkuName pulumi.StringInput
@@ -533,7 +533,7 @@ type ManagedInstanceArgs struct {
 	StorageAccountType pulumi.StringPtrInput
 	// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
 	StorageSizeInGb pulumi.IntInput
-	// The subnet resource id that the SQL Managed Instance will be associated with.
+	// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -680,7 +680,7 @@ func (o ManagedInstanceOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 func (o ManagedInstanceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -695,7 +695,7 @@ func (o ManagedInstanceOutput) PublicDataEndpointEnabled() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *ManagedInstance) pulumi.BoolPtrOutput { return v.PublicDataEndpointEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the resource group in which to create the SQL Managed Instance.
+// The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
 func (o ManagedInstanceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -715,7 +715,7 @@ func (o ManagedInstanceOutput) StorageSizeInGb() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.IntOutput { return v.StorageSizeInGb }).(pulumi.IntOutput)
 }
 
-// The subnet resource id that the SQL Managed Instance will be associated with.
+// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
 func (o ManagedInstanceOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

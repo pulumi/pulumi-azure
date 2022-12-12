@@ -135,7 +135,7 @@ type LinuxVirtualMachineScaleSet struct {
 	BootDiagnostics LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrOutput `pulumi:"capacityReservationGroupId"`
-	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 	ComputerNamePrefix pulumi.StringOutput `pulumi:"computerNamePrefix"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	CustomData pulumi.StringPtrOutput `pulumi:"customData"`
@@ -221,7 +221,7 @@ type LinuxVirtualMachineScaleSet struct {
 	TerminationNotification LinuxVirtualMachineScaleSetTerminationNotificationOutput `pulumi:"terminationNotification"`
 	// The Unique ID for this Linux Virtual Machine Scale Set.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 	UpgradeMode pulumi.StringPtrOutput `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
@@ -293,7 +293,7 @@ type linuxVirtualMachineScaleSetState struct {
 	BootDiagnostics *LinuxVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
-	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 	ComputerNamePrefix *string `pulumi:"computerNamePrefix"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	CustomData *string `pulumi:"customData"`
@@ -379,7 +379,7 @@ type linuxVirtualMachineScaleSetState struct {
 	TerminationNotification *LinuxVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
 	// The Unique ID for this Linux Virtual Machine Scale Set.
 	UniqueId *string `pulumi:"uniqueId"`
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 	UpgradeMode *string `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData *string `pulumi:"userData"`
@@ -408,7 +408,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	BootDiagnostics LinuxVirtualMachineScaleSetBootDiagnosticsPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput
-	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 	ComputerNamePrefix pulumi.StringPtrInput
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	CustomData pulumi.StringPtrInput
@@ -494,7 +494,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	TerminationNotification LinuxVirtualMachineScaleSetTerminationNotificationPtrInput
 	// The Unique ID for this Linux Virtual Machine Scale Set.
 	UniqueId pulumi.StringPtrInput
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 	UpgradeMode pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData pulumi.StringPtrInput
@@ -527,7 +527,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	BootDiagnostics *LinuxVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
-	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 	ComputerNamePrefix *string `pulumi:"computerNamePrefix"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	CustomData *string `pulumi:"customData"`
@@ -611,7 +611,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	TerminateNotification *LinuxVirtualMachineScaleSetTerminateNotification `pulumi:"terminateNotification"`
 	// A `terminationNotification` block as defined below.
 	TerminationNotification *LinuxVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 	UpgradeMode *string `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData *string `pulumi:"userData"`
@@ -641,7 +641,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	BootDiagnostics LinuxVirtualMachineScaleSetBootDiagnosticsPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput
-	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 	ComputerNamePrefix pulumi.StringPtrInput
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	CustomData pulumi.StringPtrInput
@@ -725,7 +725,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	TerminateNotification LinuxVirtualMachineScaleSetTerminateNotificationPtrInput
 	// A `terminationNotification` block as defined below.
 	TerminationNotification LinuxVirtualMachineScaleSetTerminationNotificationPtrInput
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 	UpgradeMode pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData pulumi.StringPtrInput
@@ -874,7 +874,7 @@ func (o LinuxVirtualMachineScaleSetOutput) CapacityReservationGroupId() pulumi.S
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOutput) ComputerNamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.StringOutput { return v.ComputerNamePrefix }).(pulumi.StringOutput)
 }
@@ -1106,7 +1106,7 @@ func (o LinuxVirtualMachineScaleSetOutput) UniqueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
 }
 
-// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOutput) UpgradeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.UpgradeMode }).(pulumi.StringPtrOutput)
 }

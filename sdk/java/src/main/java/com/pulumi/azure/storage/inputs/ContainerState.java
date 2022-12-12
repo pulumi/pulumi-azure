@@ -78,14 +78,14 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Container which should be created within the Storage Account.
+     * The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Container which should be created within the Storage Account.
+     * @return The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -108,14 +108,14 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Storage Account where the Container should be created.
+     * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageAccountName")
     private @Nullable Output<String> storageAccountName;
 
     /**
-     * @return The name of the Storage Account where the Container should be created.
+     * @return The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> storageAccountName() {
@@ -237,7 +237,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Container which should be created within the Storage Account.
+         * @param name The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Container which should be created within the Storage Account.
+         * @param name The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName The name of the Storage Account where the Container should be created.
+         * @param storageAccountName The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName The name of the Storage Account where the Container should be created.
+         * @param storageAccountName The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -84,8 +84,7 @@ type Service struct {
 	LiveTrace ServiceLiveTracePtrOutput `pulumi:"liveTrace"`
 	// Whether to enable local auth? Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
-	// Specifies the supported Azure location where the Web PubSub service exists. Changing this
-	// forces a new resource to be created.
+	// Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Web PubSub service. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -97,8 +96,7 @@ type Service struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The publicly accessible port of the Web PubSub service which is designed for browser/client use.
 	PublicPort pulumi.IntOutput `pulumi:"publicPort"`
-	// The name of the resource group in which to create the Web PubSub service. Changing
-	// this forces a new resource to be created.
+	// The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The secondary access key for the Web PubSub service.
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
@@ -165,8 +163,7 @@ type serviceState struct {
 	LiveTrace *ServiceLiveTrace `pulumi:"liveTrace"`
 	// Whether to enable local auth? Defaults to `true`.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
-	// Specifies the supported Azure location where the Web PubSub service exists. Changing this
-	// forces a new resource to be created.
+	// Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Web PubSub service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -178,8 +175,7 @@ type serviceState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The publicly accessible port of the Web PubSub service which is designed for browser/client use.
 	PublicPort *int `pulumi:"publicPort"`
-	// The name of the resource group in which to create the Web PubSub service. Changing
-	// this forces a new resource to be created.
+	// The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The secondary access key for the Web PubSub service.
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
@@ -212,8 +208,7 @@ type ServiceState struct {
 	LiveTrace ServiceLiveTracePtrInput
 	// Whether to enable local auth? Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrInput
-	// Specifies the supported Azure location where the Web PubSub service exists. Changing this
-	// forces a new resource to be created.
+	// Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Web PubSub service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -225,8 +220,7 @@ type ServiceState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The publicly accessible port of the Web PubSub service which is designed for browser/client use.
 	PublicPort pulumi.IntPtrInput
-	// The name of the resource group in which to create the Web PubSub service. Changing
-	// this forces a new resource to be created.
+	// The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The secondary access key for the Web PubSub service.
 	SecondaryAccessKey pulumi.StringPtrInput
@@ -260,15 +254,13 @@ type serviceArgs struct {
 	LiveTrace *ServiceLiveTrace `pulumi:"liveTrace"`
 	// Whether to enable local auth? Defaults to `true`.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
-	// Specifies the supported Azure location where the Web PubSub service exists. Changing this
-	// forces a new resource to be created.
+	// Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Web PubSub service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Whether to enable public network access? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the resource group in which to create the Web PubSub service. Changing
-	// this forces a new resource to be created.
+	// The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
 	Sku string `pulumi:"sku"`
@@ -292,15 +284,13 @@ type ServiceArgs struct {
 	LiveTrace ServiceLiveTracePtrInput
 	// Whether to enable local auth? Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrInput
-	// Specifies the supported Azure location where the Web PubSub service exists. Changing this
-	// forces a new resource to be created.
+	// Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Web PubSub service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Whether to enable public network access? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// The name of the resource group in which to create the Web PubSub service. Changing
-	// this forces a new resource to be created.
+	// The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
 	Sku pulumi.StringInput
@@ -433,8 +423,7 @@ func (o ServiceOutput) LocalAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.LocalAuthEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the supported Azure location where the Web PubSub service exists. Changing this
-// forces a new resource to be created.
+// Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
 func (o ServiceOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -464,8 +453,7 @@ func (o ServiceOutput) PublicPort() pulumi.IntOutput {
 	return o.ApplyT(func(v *Service) pulumi.IntOutput { return v.PublicPort }).(pulumi.IntOutput)
 }
 
-// The name of the resource group in which to create the Web PubSub service. Changing
-// this forces a new resource to be created.
+// The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
 func (o ServiceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

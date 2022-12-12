@@ -77,7 +77,7 @@ type SrvRecord struct {
 
 	// The FQDN of the DNS SRV Record.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
-	// The name of the DNS SRV Record.
+	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of values that make up the SRV record. Each `record` block supports fields documented below.
 	Records SrvRecordRecordArrayOutput `pulumi:"records"`
@@ -134,7 +134,7 @@ func GetSrvRecord(ctx *pulumi.Context,
 type srvRecordState struct {
 	// The FQDN of the DNS SRV Record.
 	Fqdn *string `pulumi:"fqdn"`
-	// The name of the DNS SRV Record.
+	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of values that make up the SRV record. Each `record` block supports fields documented below.
 	Records []SrvRecordRecord `pulumi:"records"`
@@ -151,7 +151,7 @@ type srvRecordState struct {
 type SrvRecordState struct {
 	// The FQDN of the DNS SRV Record.
 	Fqdn pulumi.StringPtrInput
-	// The name of the DNS SRV Record.
+	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of values that make up the SRV record. Each `record` block supports fields documented below.
 	Records SrvRecordRecordArrayInput
@@ -170,7 +170,7 @@ func (SrvRecordState) ElementType() reflect.Type {
 }
 
 type srvRecordArgs struct {
-	// The name of the DNS SRV Record.
+	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of values that make up the SRV record. Each `record` block supports fields documented below.
 	Records []SrvRecordRecord `pulumi:"records"`
@@ -186,7 +186,7 @@ type srvRecordArgs struct {
 
 // The set of arguments for constructing a SrvRecord resource.
 type SrvRecordArgs struct {
-	// The name of the DNS SRV Record.
+	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of values that make up the SRV record. Each `record` block supports fields documented below.
 	Records SrvRecordRecordArrayInput
@@ -292,7 +292,7 @@ func (o SrvRecordOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SrvRecord) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// The name of the DNS SRV Record.
+// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 func (o SrvRecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SrvRecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

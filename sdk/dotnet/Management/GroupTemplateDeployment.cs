@@ -157,7 +157,7 @@ namespace Pulumi.Azure.Management
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Management Group to apply the Deployment Template to.
+        /// The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("managementGroupId")]
         public Output<string> ManagementGroupId { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.Management
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The ID of the Management Group to apply the Deployment Template to.
+        /// The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managementGroupId", required: true)]
         public Input<string> ManagementGroupId { get; set; } = null!;
@@ -319,7 +319,7 @@ namespace Pulumi.Azure.Management
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The ID of the Management Group to apply the Deployment Template to.
+        /// The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managementGroupId")]
         public Input<string>? ManagementGroupId { get; set; }

@@ -34,7 +34,7 @@ namespace Pulumi.Azure.DomainServices.Outputs
         /// </summary>
         public readonly string? ServiceStatus;
         /// <summary>
-        /// The ID of the subnet in which to place the initial replica set.
+        /// The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string SubnetId;
 

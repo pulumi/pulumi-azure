@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Iot
     /// IoTHub Enrichment can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:iot/enrichment:Enrichment enrichment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Enrichments/enrichment1
+    ///  $ pulumi import azure:iot/enrichment:Enrichment enrichment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/enrichments/enrichment1
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/enrichment:Enrichment")]
@@ -35,7 +35,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> IothubName { get; private set; } = null!;
 
         /// <summary>
-        /// The key of the enrichment.
+        /// The key of the enrichment. Changing this forces a new resource to be created.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Iot
         public Input<string> IothubName { get; set; } = null!;
 
         /// <summary>
-        /// The key of the enrichment.
+        /// The key of the enrichment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? IothubName { get; set; }
 
         /// <summary>
-        /// The key of the enrichment.
+        /// The key of the enrichment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

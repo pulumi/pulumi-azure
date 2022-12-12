@@ -369,7 +369,7 @@ class ManagedInstanceFailoverGroupPartnerRegion(dict):
                  location: Optional[str] = None,
                  role: Optional[str] = None):
         """
-        :param str location: The Azure Region where the SQL Instance Failover Group exists.
+        :param str location: The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
         :param str role: The partner replication role of the SQL Instance Failover Group.
         """
         if location is not None:
@@ -381,7 +381,7 @@ class ManagedInstanceFailoverGroupPartnerRegion(dict):
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        The Azure Region where the SQL Instance Failover Group exists.
+        The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 

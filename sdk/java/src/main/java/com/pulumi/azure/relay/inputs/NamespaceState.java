@@ -92,14 +92,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to create the Azure Relay Namespace.
+     * The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Azure Relay Namespace.
+     * @return The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -305,7 +305,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Azure Relay Namespace.
+         * @param resourceGroupName The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Azure Relay Namespace.
+         * @param resourceGroupName The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

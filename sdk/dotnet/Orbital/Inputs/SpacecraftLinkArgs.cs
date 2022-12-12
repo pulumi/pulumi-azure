@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Orbital.Inputs
         public Input<string> Direction { get; set; } = null!;
 
         /// <summary>
-        /// Name of the link.
+        /// Name of the link. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

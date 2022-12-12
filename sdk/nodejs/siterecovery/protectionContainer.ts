@@ -69,19 +69,19 @@ export class ProtectionContainer extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the protection container.
+     * The name of the protection container. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Name of fabric that should contain this protection container.
+     * Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
      */
     public readonly recoveryFabricName!: pulumi.Output<string>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     public readonly recoveryVaultName!: pulumi.Output<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
 
@@ -128,19 +128,19 @@ export class ProtectionContainer extends pulumi.CustomResource {
  */
 export interface ProtectionContainerState {
     /**
-     * The name of the protection container.
+     * The name of the protection container. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Name of fabric that should contain this protection container.
+     * Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
      */
     recoveryFabricName?: pulumi.Input<string>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     recoveryVaultName?: pulumi.Input<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
 }
@@ -150,19 +150,19 @@ export interface ProtectionContainerState {
  */
 export interface ProtectionContainerArgs {
     /**
-     * The name of the protection container.
+     * The name of the protection container. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Name of fabric that should contain this protection container.
+     * Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
      */
     recoveryFabricName: pulumi.Input<string>;
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
     recoveryVaultName: pulumi.Input<string>;
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
 }

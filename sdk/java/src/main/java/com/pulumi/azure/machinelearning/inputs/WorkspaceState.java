@@ -132,14 +132,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The compute name for image build of the Machine Learning Workspace.
+     * The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="imageBuildComputeName")
     private @Nullable Output<String> imageBuildComputeName;
 
     /**
-     * @return The compute name for image build of the Machine Learning Workspace.
+     * @return The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> imageBuildComputeName() {
@@ -207,7 +207,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable public access when this Machine Learning Workspace is behind a VNet.
+     * Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
      * 
      * @deprecated
      * `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
@@ -218,7 +218,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> publicAccessBehindVirtualNetworkEnabled;
 
     /**
-     * @return Enable public access when this Machine Learning Workspace is behind a VNet.
+     * @return Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
      * 
      * @deprecated
      * `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
@@ -519,7 +519,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageBuildComputeName The compute name for image build of the Machine Learning Workspace.
+         * @param imageBuildComputeName The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageBuildComputeName The compute name for image build of the Machine Learning Workspace.
+         * @param imageBuildComputeName The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -624,7 +624,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicAccessBehindVirtualNetworkEnabled Enable public access when this Machine Learning Workspace is behind a VNet.
+         * @param publicAccessBehindVirtualNetworkEnabled Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -639,7 +639,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicAccessBehindVirtualNetworkEnabled Enable public access when this Machine Learning Workspace is behind a VNet.
+         * @param publicAccessBehindVirtualNetworkEnabled Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

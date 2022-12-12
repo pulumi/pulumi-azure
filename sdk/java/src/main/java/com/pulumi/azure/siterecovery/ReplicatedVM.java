@@ -281,14 +281,14 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.managedDisks);
     }
     /**
-     * The name of the replication for the replicated VM.
+     * The name of the replication for the replicated VM. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the replication for the replicated VM.
+     * @return The name of the replication for the replicated VM. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -315,70 +315,70 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
         return this.recoveryReplicationPolicyId;
     }
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="recoveryVaultName", type=String.class, parameters={})
     private Output<String> recoveryVaultName;
 
     /**
-     * @return The name of the vault that should be updated.
+     * @return The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoveryVaultName() {
         return this.recoveryVaultName;
     }
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return Name of the resource group where the vault that should be updated is located.
+     * @return Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * Name of fabric that should contains this replication.
+     * Name of fabric that should contains this replication. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourceRecoveryFabricName", type=String.class, parameters={})
     private Output<String> sourceRecoveryFabricName;
 
     /**
-     * @return Name of fabric that should contains this replication.
+     * @return Name of fabric that should contains this replication. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sourceRecoveryFabricName() {
         return this.sourceRecoveryFabricName;
     }
     /**
-     * Name of the protection container to use.
+     * Name of the protection container to use. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourceRecoveryProtectionContainerName", type=String.class, parameters={})
     private Output<String> sourceRecoveryProtectionContainerName;
 
     /**
-     * @return Name of the protection container to use.
+     * @return Name of the protection container to use. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sourceRecoveryProtectionContainerName() {
         return this.sourceRecoveryProtectionContainerName;
     }
     /**
-     * Id of the VM to replicate
+     * Id of the VM to replicate Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourceVmId", type=String.class, parameters={})
     private Output<String> sourceVmId;
 
     /**
-     * @return Id of the VM to replicate
+     * @return Id of the VM to replicate Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sourceVmId() {
@@ -413,56 +413,56 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
         return this.targetNetworkId;
     }
     /**
-     * Id of fabric where the VM replication should be handled when a failover is done.
+     * Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="targetRecoveryFabricId", type=String.class, parameters={})
     private Output<String> targetRecoveryFabricId;
 
     /**
-     * @return Id of fabric where the VM replication should be handled when a failover is done.
+     * @return Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> targetRecoveryFabricId() {
         return this.targetRecoveryFabricId;
     }
     /**
-     * Id of protection container where the VM replication should be created when a failover is done.
+     * Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="targetRecoveryProtectionContainerId", type=String.class, parameters={})
     private Output<String> targetRecoveryProtectionContainerId;
 
     /**
-     * @return Id of protection container where the VM replication should be created when a failover is done.
+     * @return Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> targetRecoveryProtectionContainerId() {
         return this.targetRecoveryProtectionContainerId;
     }
     /**
-     * Id of resource group where the VM should be created when a failover is done.
+     * Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="targetResourceGroupId", type=String.class, parameters={})
     private Output<String> targetResourceGroupId;
 
     /**
-     * @return Id of resource group where the VM should be created when a failover is done.
+     * @return Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> targetResourceGroupId() {
         return this.targetResourceGroupId;
     }
     /**
-     * Specifies the Availability Zone where the Failover VM should exist.
+     * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="targetZone", type=String.class, parameters={})
     private Output</* @Nullable */ String> targetZone;
 
     /**
-     * @return Specifies the Availability Zone where the Failover VM should exist.
+     * @return Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> targetZone() {

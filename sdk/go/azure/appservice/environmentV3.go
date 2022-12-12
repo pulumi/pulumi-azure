@@ -37,7 +37,7 @@ type EnvironmentV3 struct {
 	InboundNetworkDependencies EnvironmentV3InboundNetworkDependencyArrayOutput `pulumi:"inboundNetworkDependencies"`
 	// The internal inbound IP addresses of the App Service Environment V3.
 	InternalInboundIpAddresses pulumi.StringArrayOutput `pulumi:"internalInboundIpAddresses"`
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
 	InternalLoadBalancingMode pulumi.StringPtrOutput `pulumi:"internalLoadBalancingMode"`
 	// The number of IP SSL addresses reserved for the App Service Environment V3.
 	IpSslAddressCount pulumi.IntOutput `pulumi:"ipSslAddressCount"`
@@ -49,15 +49,15 @@ type EnvironmentV3 struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Pricing tier for the front end instances.
 	PricingTier pulumi.StringOutput `pulumi:"pricingTier"`
-	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
+	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Outbound addresses of Windows based Apps in this App Service Environment V3.
 	WindowsOutboundIpAddresses pulumi.StringArrayOutput `pulumi:"windowsOutboundIpAddresses"`
-	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both.
+	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
 	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
@@ -110,7 +110,7 @@ type environmentV3State struct {
 	InboundNetworkDependencies []EnvironmentV3InboundNetworkDependency `pulumi:"inboundNetworkDependencies"`
 	// The internal inbound IP addresses of the App Service Environment V3.
 	InternalInboundIpAddresses []string `pulumi:"internalInboundIpAddresses"`
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
 	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
 	// The number of IP SSL addresses reserved for the App Service Environment V3.
 	IpSslAddressCount *int `pulumi:"ipSslAddressCount"`
@@ -122,15 +122,15 @@ type environmentV3State struct {
 	Name *string `pulumi:"name"`
 	// Pricing tier for the front end instances.
 	PricingTier *string `pulumi:"pricingTier"`
-	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
+	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Outbound addresses of Windows based Apps in this App Service Environment V3.
 	WindowsOutboundIpAddresses []string `pulumi:"windowsOutboundIpAddresses"`
-	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both.
+	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
@@ -149,7 +149,7 @@ type EnvironmentV3State struct {
 	InboundNetworkDependencies EnvironmentV3InboundNetworkDependencyArrayInput
 	// The internal inbound IP addresses of the App Service Environment V3.
 	InternalInboundIpAddresses pulumi.StringArrayInput
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
 	InternalLoadBalancingMode pulumi.StringPtrInput
 	// The number of IP SSL addresses reserved for the App Service Environment V3.
 	IpSslAddressCount pulumi.IntPtrInput
@@ -161,15 +161,15 @@ type EnvironmentV3State struct {
 	Name pulumi.StringPtrInput
 	// Pricing tier for the front end instances.
 	PricingTier pulumi.StringPtrInput
-	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
+	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Outbound addresses of Windows based Apps in this App Service Environment V3.
 	WindowsOutboundIpAddresses pulumi.StringArrayInput
-	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both.
+	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -184,17 +184,17 @@ type environmentV3Args struct {
 	ClusterSettings []EnvironmentV3ClusterSetting `pulumi:"clusterSettings"`
 	// This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
 	DedicatedHostCount *int `pulumi:"dedicatedHostCount"`
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
 	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
+	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both.
+	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
@@ -206,17 +206,17 @@ type EnvironmentV3Args struct {
 	ClusterSettings EnvironmentV3ClusterSettingArrayInput
 	// This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
 	DedicatedHostCount pulumi.IntPtrInput
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
 	InternalLoadBalancingMode pulumi.StringPtrInput
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
+	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both.
+	// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -344,7 +344,7 @@ func (o EnvironmentV3Output) InternalInboundIpAddresses() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *EnvironmentV3) pulumi.StringArrayOutput { return v.InternalInboundIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
 func (o EnvironmentV3Output) InternalLoadBalancingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentV3) pulumi.StringPtrOutput { return v.InternalLoadBalancingMode }).(pulumi.StringPtrOutput)
 }
@@ -374,7 +374,7 @@ func (o EnvironmentV3Output) PricingTier() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentV3) pulumi.StringOutput { return v.PricingTier }).(pulumi.StringOutput)
 }
 
-// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
+// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
 func (o EnvironmentV3Output) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentV3) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -384,7 +384,7 @@ func (o EnvironmentV3Output) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentV3) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+// A mapping of tags to assign to the resource.
 func (o EnvironmentV3Output) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EnvironmentV3) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -394,7 +394,7 @@ func (o EnvironmentV3Output) WindowsOutboundIpAddresses() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *EnvironmentV3) pulumi.StringArrayOutput { return v.WindowsOutboundIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both.
+// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
 func (o EnvironmentV3Output) ZoneRedundant() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnvironmentV3) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
 }

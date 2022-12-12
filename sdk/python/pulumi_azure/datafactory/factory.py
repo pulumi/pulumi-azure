@@ -31,7 +31,7 @@ class FactoryArgs:
                  vsts_configuration: Optional[pulumi.Input['FactoryVstsConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Factory resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
         :param pulumi.Input[str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
         :param pulumi.Input[str] customer_managed_key_identity_id: Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
         :param pulumi.Input['FactoryGithubConfigurationArgs'] github_configuration: A `github_configuration` block as defined below.
@@ -74,7 +74,7 @@ class FactoryArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Data Factory.
+        The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -251,7 +251,7 @@ class _FactoryState:
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Managed Virtual Network enabled?
         :param pulumi.Input[str] name: Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[bool] public_network_enabled: Is the Data Factory visible to the public network? Defaults to `true`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['FactoryVstsConfigurationArgs'] vsts_configuration: A `vsts_configuration` block as defined below.
         """
@@ -403,7 +403,7 @@ class _FactoryState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the Data Factory.
+        The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -489,7 +489,7 @@ class Factory(pulumi.CustomResource):
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Managed Virtual Network enabled?
         :param pulumi.Input[str] name: Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[bool] public_network_enabled: Is the Data Factory visible to the public network? Defaults to `true`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['FactoryVstsConfigurationArgs']] vsts_configuration: A `vsts_configuration` block as defined below.
         """
@@ -613,7 +613,7 @@ class Factory(pulumi.CustomResource):
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Managed Virtual Network enabled?
         :param pulumi.Input[str] name: Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[bool] public_network_enabled: Is the Data Factory visible to the public network? Defaults to `true`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['FactoryVstsConfigurationArgs']] vsts_configuration: A `vsts_configuration` block as defined below.
         """
@@ -717,7 +717,7 @@ class Factory(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the Data Factory.
+        The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

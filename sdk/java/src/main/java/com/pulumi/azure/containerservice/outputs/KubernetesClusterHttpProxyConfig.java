@@ -13,17 +13,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterHttpProxyConfig {
     /**
-     * @return The proxy address to be used when communicating over HTTP.
+     * @return The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String httpProxy;
     /**
-     * @return The proxy address to be used when communicating over HTTPS.
+     * @return The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String httpsProxy;
     /**
-     * @return The list of domains that will not use the proxy for communication.
+     * @return The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<String> noProxies;
@@ -35,21 +35,21 @@ public final class KubernetesClusterHttpProxyConfig {
 
     private KubernetesClusterHttpProxyConfig() {}
     /**
-     * @return The proxy address to be used when communicating over HTTP.
+     * @return The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> httpProxy() {
         return Optional.ofNullable(this.httpProxy);
     }
     /**
-     * @return The proxy address to be used when communicating over HTTPS.
+     * @return The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> httpsProxy() {
         return Optional.ofNullable(this.httpsProxy);
     }
     /**
-     * @return The list of domains that will not use the proxy for communication.
+     * @return The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
      * 
      */
     public List<String> noProxies() {

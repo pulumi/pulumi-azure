@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Hpc.Outputs
     public sealed class CacheIdentity
     {
         /// <summary>
-        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Type;
 

@@ -96,14 +96,14 @@ public class ApplicationSecurityGroup extends com.pulumi.resources.CustomResourc
         return this.name;
     }
     /**
-     * The name of the resource group in which to create the Application Security Group.
+     * The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Application Security Group.
+     * @return The name of the resource group in which to create the Application Security Group. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

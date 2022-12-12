@@ -266,7 +266,7 @@ type FirewallPolicyCustomRule struct {
 	Enabled *bool `pulumi:"enabled"`
 	// One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
 	MatchConditions []FirewallPolicyCustomRuleMatchCondition `pulumi:"matchConditions"`
-	// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+	// Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
 	Priority *int `pulumi:"priority"`
@@ -296,7 +296,7 @@ type FirewallPolicyCustomRuleArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
 	MatchConditions FirewallPolicyCustomRuleMatchConditionArrayInput `pulumi:"matchConditions"`
-	// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+	// Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
@@ -374,7 +374,7 @@ func (o FirewallPolicyCustomRuleOutput) MatchConditions() FirewallPolicyCustomRu
 	return o.ApplyT(func(v FirewallPolicyCustomRule) []FirewallPolicyCustomRuleMatchCondition { return v.MatchConditions }).(FirewallPolicyCustomRuleMatchConditionArrayOutput)
 }
 
-// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+// Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
 func (o FirewallPolicyCustomRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyCustomRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1282,7 +1282,7 @@ type FrontdoorBackendPool struct {
 	Id *string `pulumi:"id"`
 	// Specifies the name of the `backendPoolLoadBalancing` block within this resource to use for this `Backend Pool`.
 	LoadBalancingName string `pulumi:"loadBalancingName"`
-	// Specifies the name of the Backend Pool.
+	// Specifies the name of the Backend Pool. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 }
 
@@ -1306,7 +1306,7 @@ type FrontdoorBackendPoolArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specifies the name of the `backendPoolLoadBalancing` block within this resource to use for this `Backend Pool`.
 	LoadBalancingName pulumi.StringInput `pulumi:"loadBalancingName"`
-	// Specifies the name of the Backend Pool.
+	// Specifies the name of the Backend Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1381,7 +1381,7 @@ func (o FrontdoorBackendPoolOutput) LoadBalancingName() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorBackendPool) string { return v.LoadBalancingName }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Backend Pool.
+// Specifies the name of the Backend Pool. Changing this forces a new resource to be created.
 func (o FrontdoorBackendPoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorBackendPool) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1564,7 +1564,7 @@ type FrontdoorBackendPoolHealthProbe struct {
 	Id *string `pulumi:"id"`
 	// The number of seconds between each Health Probe. Defaults to `120`.
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// Specifies the name of the Health Probe.
+	// Specifies the name of the Health Probe. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The path to use for the Health Probe. Default is `/`.
 	Path *string `pulumi:"path"`
@@ -1592,7 +1592,7 @@ type FrontdoorBackendPoolHealthProbeArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The number of seconds between each Health Probe. Defaults to `120`.
 	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
-	// Specifies the name of the Health Probe.
+	// Specifies the name of the Health Probe. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The path to use for the Health Probe. Default is `/`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
@@ -1668,7 +1668,7 @@ func (o FrontdoorBackendPoolHealthProbeOutput) IntervalInSeconds() pulumi.IntPtr
 	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the name of the Health Probe.
+// Specifies the name of the Health Probe. Changing this forces a new resource to be created.
 func (o FrontdoorBackendPoolHealthProbeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1713,7 +1713,7 @@ type FrontdoorBackendPoolLoadBalancing struct {
 	AdditionalLatencyMilliseconds *int `pulumi:"additionalLatencyMilliseconds"`
 	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
-	// Specifies the name of the Load Balancer.
+	// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The number of samples to consider for load balancing decisions. Defaults to `4`.
 	SampleSize *int `pulumi:"sampleSize"`
@@ -1737,7 +1737,7 @@ type FrontdoorBackendPoolLoadBalancingArgs struct {
 	AdditionalLatencyMilliseconds pulumi.IntPtrInput `pulumi:"additionalLatencyMilliseconds"`
 	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies the name of the Load Balancer.
+	// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The number of samples to consider for load balancing decisions. Defaults to `4`.
 	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
@@ -1806,7 +1806,7 @@ func (o FrontdoorBackendPoolLoadBalancingOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorBackendPoolLoadBalancing) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Load Balancer.
+// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
 func (o FrontdoorBackendPoolLoadBalancingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorBackendPoolLoadBalancing) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2070,7 +2070,7 @@ type FrontdoorFrontendEndpoint struct {
 	HostName string `pulumi:"hostName"`
 	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
-	// Specifies the name of the `frontendEndpoint`.
+	// Specifies the name of the `frontendEndpoint`. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
 	SessionAffinityEnabled *bool `pulumi:"sessionAffinityEnabled"`
@@ -2096,7 +2096,7 @@ type FrontdoorFrontendEndpointArgs struct {
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies the name of the `frontendEndpoint`.
+	// Specifies the name of the `frontendEndpoint`. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
 	SessionAffinityEnabled pulumi.BoolPtrInput `pulumi:"sessionAffinityEnabled"`
@@ -2167,7 +2167,7 @@ func (o FrontdoorFrontendEndpointOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorFrontendEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the `frontendEndpoint`.
+// Specifies the name of the `frontendEndpoint`. Changing this forces a new resource to be created.
 func (o FrontdoorFrontendEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFrontendEndpoint) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2218,7 +2218,7 @@ type FrontdoorRoutingRule struct {
 	FrontendEndpoints []string `pulumi:"frontendEndpoints"`
 	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
-	// Specifies the name of the Routing Rule.
+	// Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The route patterns for the Backend Routing Rule. Defaults to `/*`.
 	PatternsToMatches []string `pulumi:"patternsToMatches"`
@@ -2248,7 +2248,7 @@ type FrontdoorRoutingRuleArgs struct {
 	FrontendEndpoints pulumi.StringArrayInput `pulumi:"frontendEndpoints"`
 	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies the name of the Routing Rule.
+	// Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The route patterns for the Backend Routing Rule. Defaults to `/*`.
 	PatternsToMatches pulumi.StringArrayInput `pulumi:"patternsToMatches"`
@@ -2334,7 +2334,7 @@ func (o FrontdoorRoutingRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRoutingRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the Routing Rule.
+// Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
 func (o FrontdoorRoutingRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorRoutingRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2880,7 +2880,7 @@ type RulesEngineRule struct {
 	Action *RulesEngineRuleAction `pulumi:"action"`
 	// One or more `matchCondition` block as defined below.
 	MatchConditions []RulesEngineRuleMatchCondition `pulumi:"matchConditions"`
-	// The name of the rule.
+	// The name of the rule. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Priority of the rule, must be unique per rules engine definition.
 	Priority int `pulumi:"priority"`
@@ -2902,7 +2902,7 @@ type RulesEngineRuleArgs struct {
 	Action RulesEngineRuleActionPtrInput `pulumi:"action"`
 	// One or more `matchCondition` block as defined below.
 	MatchConditions RulesEngineRuleMatchConditionArrayInput `pulumi:"matchConditions"`
-	// The name of the rule.
+	// The name of the rule. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Priority of the rule, must be unique per rules engine definition.
 	Priority pulumi.IntInput `pulumi:"priority"`
@@ -2969,7 +2969,7 @@ func (o RulesEngineRuleOutput) MatchConditions() RulesEngineRuleMatchConditionAr
 	return o.ApplyT(func(v RulesEngineRule) []RulesEngineRuleMatchCondition { return v.MatchConditions }).(RulesEngineRuleMatchConditionArrayOutput)
 }
 
-// The name of the rule.
+// The name of the rule. Changing this forces a new resource to be created.
 func (o RulesEngineRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RulesEngineRule) string { return v.Name }).(pulumi.StringOutput)
 }

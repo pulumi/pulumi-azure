@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GetKubernetesClusterAgentPoolProfileUpgradeSettingResult
     {
         /// <summary>
-        /// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+        /// The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
         /// </summary>
         public readonly string MaxSurge;
 

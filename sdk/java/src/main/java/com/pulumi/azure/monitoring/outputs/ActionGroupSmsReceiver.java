@@ -15,7 +15,7 @@ public final class ActionGroupSmsReceiver {
      */
     private String countryCode;
     /**
-     * @return The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+     * @return The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -34,7 +34,7 @@ public final class ActionGroupSmsReceiver {
         return this.countryCode;
     }
     /**
-     * @return The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+     * @return The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

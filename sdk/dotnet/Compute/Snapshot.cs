@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Compute
     public partial class Snapshot : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
         /// </summary>
         [Output("createOption")]
         public Output<string> CreateOption { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Compute
     public sealed class SnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
         /// </summary>
         [Input("createOption", required: true)]
         public Input<string> CreateOption { get; set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.Compute
     public sealed class SnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
         /// </summary>
         [Input("createOption")]
         public Input<string>? CreateOption { get; set; }

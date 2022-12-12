@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SubscriptionClientScopedSubscription {
     /**
-     * @return Specifies the Client ID of the application that created the client-scoped subscription.
+     * @return Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String clientId;
@@ -23,14 +23,14 @@ public final class SubscriptionClientScopedSubscription {
      */
     private @Nullable Boolean isClientScopedSubscriptionDurable;
     /**
-     * @return Whether the client scoped subscription is shareable. Defaults to `true`
+     * @return Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Boolean isClientScopedSubscriptionShareable;
 
     private SubscriptionClientScopedSubscription() {}
     /**
-     * @return Specifies the Client ID of the application that created the client-scoped subscription.
+     * @return Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> clientId() {
@@ -44,7 +44,7 @@ public final class SubscriptionClientScopedSubscription {
         return Optional.ofNullable(this.isClientScopedSubscriptionDurable);
     }
     /**
-     * @return Whether the client scoped subscription is shareable. Defaults to `true`
+     * @return Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
      * 
      */
     public Optional<Boolean> isClientScopedSubscriptionShareable() {

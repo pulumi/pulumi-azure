@@ -34,14 +34,14 @@ public final class ARecordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the DNS A Record.
+     * The name of the DNS A Record. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the DNS A Record.
+     * @return The name of the DNS A Record. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -191,7 +191,7 @@ public final class ARecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DNS A Record.
+         * @param name The name of the DNS A Record. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class ARecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DNS A Record.
+         * @param name The name of the DNS A Record. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

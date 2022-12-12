@@ -72,7 +72,7 @@ type AAAARecord struct {
 
 	// The FQDN of the DNS AAAA Record.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
-	// The name of the DNS A Record.
+	// The name of the DNS A Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of IPv6 Addresses.
 	Records pulumi.StringArrayOutput `pulumi:"records"`
@@ -128,7 +128,7 @@ func GetAAAARecord(ctx *pulumi.Context,
 type aaaarecordState struct {
 	// The FQDN of the DNS AAAA Record.
 	Fqdn *string `pulumi:"fqdn"`
-	// The name of the DNS A Record.
+	// The name of the DNS A Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of IPv6 Addresses.
 	Records []string `pulumi:"records"`
@@ -144,7 +144,7 @@ type aaaarecordState struct {
 type AAAARecordState struct {
 	// The FQDN of the DNS AAAA Record.
 	Fqdn pulumi.StringPtrInput
-	// The name of the DNS A Record.
+	// The name of the DNS A Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of IPv6 Addresses.
 	Records pulumi.StringArrayInput
@@ -162,7 +162,7 @@ func (AAAARecordState) ElementType() reflect.Type {
 }
 
 type aaaarecordArgs struct {
-	// The name of the DNS A Record.
+	// The name of the DNS A Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of IPv6 Addresses.
 	Records []string `pulumi:"records"`
@@ -177,7 +177,7 @@ type aaaarecordArgs struct {
 
 // The set of arguments for constructing a AAAARecord resource.
 type AAAARecordArgs struct {
-	// The name of the DNS A Record.
+	// The name of the DNS A Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of IPv6 Addresses.
 	Records pulumi.StringArrayInput
@@ -282,7 +282,7 @@ func (o AAAARecordOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AAAARecord) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// The name of the DNS A Record.
+// The name of the DNS A Record. Changing this forces a new resource to be created.
 func (o AAAARecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AAAARecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

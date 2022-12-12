@@ -68,7 +68,7 @@ export class EncryptionScope extends pulumi.CustomResource {
     }
 
     /**
-     * Is a secondary layer of encryption with Platform Managed Keys for data applied?
+     * Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
      */
     public readonly infrastructureEncryptionRequired!: pulumi.Output<boolean | undefined>;
     /**
@@ -130,7 +130,7 @@ export class EncryptionScope extends pulumi.CustomResource {
  */
 export interface EncryptionScopeState {
     /**
-     * Is a secondary layer of encryption with Platform Managed Keys for data applied?
+     * Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
      */
     infrastructureEncryptionRequired?: pulumi.Input<boolean>;
     /**
@@ -156,7 +156,7 @@ export interface EncryptionScopeState {
  */
 export interface EncryptionScopeArgs {
     /**
-     * Is a secondary layer of encryption with Platform Managed Keys for data applied?
+     * Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
      */
     infrastructureEncryptionRequired?: pulumi.Input<boolean>;
     /**

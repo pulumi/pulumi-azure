@@ -88,14 +88,14 @@ public class HybridRunbookWorkerGroup extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.credentialName);
     }
     /**
-     * The name which should be used for this Automation Account Runbook Worker Group.
+     * The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Automation Account Runbook Worker Group.
+     * @return The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

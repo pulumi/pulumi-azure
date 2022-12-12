@@ -39,7 +39,7 @@ class AppServiceArgs:
         """
         The set of arguments for constructing a AppService resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input['AppServiceAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['AppServiceBackupArgs'] backup: A `backup` block as defined below.
@@ -114,7 +114,7 @@ class AppServiceArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the App Service.
+        The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -392,7 +392,7 @@ class _AppServiceState:
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input['AppServiceSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AppServiceSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input['AppServiceSourceControlArgs'] source_control: A Source Control block as defined below
@@ -710,7 +710,7 @@ class _AppServiceState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the App Service.
+        The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -865,7 +865,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AppServiceLogsArgs']] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AppServiceSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[pulumi.InputType['AppServiceSourceControlArgs']] source_control: A Source Control block as defined below
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppServiceStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
@@ -1060,7 +1060,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AppServiceSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppServiceSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[pulumi.InputType['AppServiceSourceControlArgs']] source_control: A Source Control block as defined below
@@ -1272,7 +1272,7 @@ class AppService(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the App Service.
+        The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

@@ -4748,7 +4748,7 @@ class ServiceAdditionalLocation(dict):
         :param str public_ip_address_id: ID of a standard SKU IPv4 Public IP.
         :param Sequence[str] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         :param 'ServiceAdditionalLocationVirtualNetworkConfigurationArgs' virtual_network_configuration: A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
-        :param Sequence[str] zones: A list of availability zones.
+        :param Sequence[str] zones: A list of availability zones. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "location", location)
         if capacity is not None:
@@ -4836,7 +4836,7 @@ class ServiceAdditionalLocation(dict):
     @pulumi.getter
     def zones(self) -> Optional[Sequence[str]]:
         """
-        A list of availability zones.
+        A list of availability zones. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zones")
 
@@ -6103,6 +6103,8 @@ class ServiceSecurity(dict):
             suggest = "tls_rsa_with_aes256_cbc_sha256_ciphers_enabled"
         elif key == "tlsRsaWithAes256CbcShaCiphersEnabled":
             suggest = "tls_rsa_with_aes256_cbc_sha_ciphers_enabled"
+        elif key == "tlsRsaWithAes256GcmSha384CiphersEnabled":
+            suggest = "tls_rsa_with_aes256_gcm_sha384_ciphers_enabled"
         elif key == "tripleDesCiphersEnabled":
             suggest = "triple_des_ciphers_enabled"
 
@@ -6133,6 +6135,7 @@ class ServiceSecurity(dict):
                  tls_rsa_with_aes128_gcm_sha256_ciphers_enabled: Optional[bool] = None,
                  tls_rsa_with_aes256_cbc_sha256_ciphers_enabled: Optional[bool] = None,
                  tls_rsa_with_aes256_cbc_sha_ciphers_enabled: Optional[bool] = None,
+                 tls_rsa_with_aes256_gcm_sha384_ciphers_enabled: Optional[bool] = None,
                  triple_des_ciphers_enabled: Optional[bool] = None):
         """
         :param bool enable_backend_ssl30: Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
@@ -6143,11 +6146,14 @@ class ServiceSecurity(dict):
         :param bool enable_frontend_tls11: Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
         :param bool tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled: Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
         :param bool tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled: Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        :param bool tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled: Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        :param bool tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled: Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
         :param bool tls_rsa_with_aes128_cbc_sha256_ciphers_enabled: Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
         :param bool tls_rsa_with_aes128_cbc_sha_ciphers_enabled: Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
         :param bool tls_rsa_with_aes128_gcm_sha256_ciphers_enabled: Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
         :param bool tls_rsa_with_aes256_cbc_sha256_ciphers_enabled: Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
         :param bool tls_rsa_with_aes256_cbc_sha_ciphers_enabled: Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        :param bool tls_rsa_with_aes256_gcm_sha384_ciphers_enabled: Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
         :param bool triple_des_ciphers_enabled: Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
         """
         if enable_backend_ssl30 is not None:
@@ -6180,6 +6186,8 @@ class ServiceSecurity(dict):
             pulumi.set(__self__, "tls_rsa_with_aes256_cbc_sha256_ciphers_enabled", tls_rsa_with_aes256_cbc_sha256_ciphers_enabled)
         if tls_rsa_with_aes256_cbc_sha_ciphers_enabled is not None:
             pulumi.set(__self__, "tls_rsa_with_aes256_cbc_sha_ciphers_enabled", tls_rsa_with_aes256_cbc_sha_ciphers_enabled)
+        if tls_rsa_with_aes256_gcm_sha384_ciphers_enabled is not None:
+            pulumi.set(__self__, "tls_rsa_with_aes256_gcm_sha384_ciphers_enabled", tls_rsa_with_aes256_gcm_sha384_ciphers_enabled)
         if triple_des_ciphers_enabled is not None:
             pulumi.set(__self__, "triple_des_ciphers_enabled", triple_des_ciphers_enabled)
 
@@ -6250,11 +6258,17 @@ class ServiceSecurity(dict):
     @property
     @pulumi.getter(name="tlsEcdheRsaWithAes128CbcShaCiphersEnabled")
     def tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled(self) -> Optional[bool]:
+        """
+        Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        """
         return pulumi.get(self, "tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled")
 
     @property
     @pulumi.getter(name="tlsEcdheRsaWithAes256CbcShaCiphersEnabled")
     def tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled(self) -> Optional[bool]:
+        """
+        Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        """
         return pulumi.get(self, "tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled")
 
     @property
@@ -6296,6 +6310,14 @@ class ServiceSecurity(dict):
         Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
         """
         return pulumi.get(self, "tls_rsa_with_aes256_cbc_sha_ciphers_enabled")
+
+    @property
+    @pulumi.getter(name="tlsRsaWithAes256GcmSha384CiphersEnabled")
+    def tls_rsa_with_aes256_gcm_sha384_ciphers_enabled(self) -> Optional[bool]:
+        """
+        Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "tls_rsa_with_aes256_gcm_sha384_ciphers_enabled")
 
     @property
     @pulumi.getter(name="tripleDesCiphersEnabled")

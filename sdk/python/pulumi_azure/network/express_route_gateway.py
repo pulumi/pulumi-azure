@@ -24,7 +24,7 @@ class ExpressRouteGatewayArgs:
         The set of arguments for constructing a ExpressRouteGateway resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps).
-        :param pulumi.Input[str] virtual_hub_id: The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+        :param pulumi.Input[str] virtual_hub_id: The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -67,7 +67,7 @@ class ExpressRouteGatewayArgs:
     @pulumi.getter(name="virtualHubId")
     def virtual_hub_id(self) -> pulumi.Input[str]:
         """
-        The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+        The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_hub_id")
 
@@ -128,7 +128,7 @@ class _ExpressRouteGatewayState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] virtual_hub_id: The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+        :param pulumi.Input[str] virtual_hub_id: The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -207,7 +207,7 @@ class _ExpressRouteGatewayState:
     @pulumi.getter(name="virtualHubId")
     def virtual_hub_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+        The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_hub_id")
 
@@ -271,7 +271,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] virtual_hub_id: The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+        :param pulumi.Input[str] virtual_hub_id: The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -385,7 +385,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_units: The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] virtual_hub_id: The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+        :param pulumi.Input[str] virtual_hub_id: The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -443,7 +443,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
     @pulumi.getter(name="virtualHubId")
     def virtual_hub_id(self) -> pulumi.Output[str]:
         """
-        The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+        The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_hub_id")
 

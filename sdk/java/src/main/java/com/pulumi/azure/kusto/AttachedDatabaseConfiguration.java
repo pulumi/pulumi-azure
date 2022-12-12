@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  * Kusto Attached Database Configurations can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/AttachedDatabaseConfigurations/configuration1
+ *  $ pulumi import azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/attachedDatabaseConfigurations/configuration1
  * ```
  * 
  */
@@ -143,28 +143,28 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
         return this.clusterName;
     }
     /**
-     * The resource id of the cluster where the databases you would like to attach reside.
+     * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="clusterResourceId", type=String.class, parameters={})
     private Output<String> clusterResourceId;
 
     /**
-     * @return The resource id of the cluster where the databases you would like to attach reside.
+     * @return The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> clusterResourceId() {
         return this.clusterResourceId;
     }
     /**
-     * The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+     * The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="databaseName", type=String.class, parameters={})
     private Output<String> databaseName;
 
     /**
-     * @return The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+     * @return The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> databaseName() {

@@ -31,9 +31,9 @@ class NatRuleArgs:
         The set of arguments for constructing a NatRule resource.
         :param pulumi.Input[int] backend_port: The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration exposing this rule.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT Rule.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] backend_address_pool_id: Specifies a reference to backendAddressPool resource.
         :param pulumi.Input[bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         :param pulumi.Input[bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
@@ -41,7 +41,7 @@ class NatRuleArgs:
         :param pulumi.Input[int] frontend_port_end: The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
         :param pulumi.Input[int] frontend_port_start: The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
-        :param pulumi.Input[str] name: Specifies the name of the NAT Rule.
+        :param pulumi.Input[str] name: Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "backend_port", backend_port)
         pulumi.set(__self__, "frontend_ip_configuration_name", frontend_ip_configuration_name)
@@ -93,7 +93,7 @@ class NatRuleArgs:
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Load Balancer in which to create the NAT Rule.
+        The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -117,7 +117,7 @@ class NatRuleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the resource.
+        The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -213,7 +213,7 @@ class NatRuleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the NAT Rule.
+        Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -251,10 +251,10 @@ class _NatRuleState:
         :param pulumi.Input[int] frontend_port_end: The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
         :param pulumi.Input[int] frontend_port_start: The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT Rule.
-        :param pulumi.Input[str] name: Specifies the name of the NAT Rule.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         """
         if backend_address_pool_id is not None:
             pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
@@ -417,7 +417,7 @@ class _NatRuleState:
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Load Balancer in which to create the NAT Rule.
+        The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -429,7 +429,7 @@ class _NatRuleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the NAT Rule.
+        Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -453,7 +453,7 @@ class _NatRuleState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the resource.
+        The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -507,10 +507,10 @@ class NatRule(pulumi.CustomResource):
         :param pulumi.Input[int] frontend_port_end: The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
         :param pulumi.Input[int] frontend_port_start: The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT Rule.
-        :param pulumi.Input[str] name: Specifies the name of the NAT Rule.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -636,10 +636,10 @@ class NatRule(pulumi.CustomResource):
         :param pulumi.Input[int] frontend_port_end: The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
         :param pulumi.Input[int] frontend_port_start: The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT Rule.
-        :param pulumi.Input[str] name: Specifies the name of the NAT Rule.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -748,7 +748,7 @@ class NatRule(pulumi.CustomResource):
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Load Balancer in which to create the NAT Rule.
+        The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -756,7 +756,7 @@ class NatRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the NAT Rule.
+        Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -772,7 +772,7 @@ class NatRule(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the resource.
+        The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

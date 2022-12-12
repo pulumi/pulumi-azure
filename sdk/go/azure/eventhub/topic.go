@@ -90,7 +90,7 @@ type Topic struct {
 	// are enabled. An express topic holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to false.
 	EnableExpress pulumi.BoolPtrOutput `pulumi:"enableExpress"`
-	// Boolean flag which controls whether to enable
+	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning pulumi.BoolPtrOutput `pulumi:"enablePartitioning"`
@@ -105,11 +105,11 @@ type Topic struct {
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the ServiceBus Namespace to create
+	// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
 	// this topic in. Changing this forces a new resource to be created.
 	NamespaceId   pulumi.StringOutput `pulumi:"namespaceId"`
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
-	// Boolean flag which controls whether
+	// Boolean flag which controls whether Changing this forces a new resource to be created.
 	// the Topic requires duplicate detection. Defaults to false. Changing this forces
 	// a new resource to be created.
 	RequiresDuplicateDetection pulumi.BoolPtrOutput `pulumi:"requiresDuplicateDetection"`
@@ -169,7 +169,7 @@ type topicState struct {
 	// are enabled. An express topic holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to false.
 	EnableExpress *bool `pulumi:"enableExpress"`
-	// Boolean flag which controls whether to enable
+	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
@@ -184,11 +184,11 @@ type topicState struct {
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
 	// new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the ServiceBus Namespace to create
+	// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
 	// this topic in. Changing this forces a new resource to be created.
 	NamespaceId   *string `pulumi:"namespaceId"`
 	NamespaceName *string `pulumi:"namespaceName"`
-	// Boolean flag which controls whether
+	// Boolean flag which controls whether Changing this forces a new resource to be created.
 	// the Topic requires duplicate detection. Defaults to false. Changing this forces
 	// a new resource to be created.
 	RequiresDuplicateDetection *bool   `pulumi:"requiresDuplicateDetection"`
@@ -217,7 +217,7 @@ type TopicState struct {
 	// are enabled. An express topic holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to false.
 	EnableExpress pulumi.BoolPtrInput
-	// Boolean flag which controls whether to enable
+	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning pulumi.BoolPtrInput
@@ -232,11 +232,11 @@ type TopicState struct {
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the ServiceBus Namespace to create
+	// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
 	// this topic in. Changing this forces a new resource to be created.
 	NamespaceId   pulumi.StringPtrInput
 	NamespaceName pulumi.StringPtrInput
-	// Boolean flag which controls whether
+	// Boolean flag which controls whether Changing this forces a new resource to be created.
 	// the Topic requires duplicate detection. Defaults to false. Changing this forces
 	// a new resource to be created.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
@@ -269,7 +269,7 @@ type topicArgs struct {
 	// are enabled. An express topic holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to false.
 	EnableExpress *bool `pulumi:"enableExpress"`
-	// Boolean flag which controls whether to enable
+	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
@@ -284,10 +284,10 @@ type topicArgs struct {
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
 	// new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the ServiceBus Namespace to create
+	// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
 	// this topic in. Changing this forces a new resource to be created.
 	NamespaceId string `pulumi:"namespaceId"`
-	// Boolean flag which controls whether
+	// Boolean flag which controls whether Changing this forces a new resource to be created.
 	// the Topic requires duplicate detection. Defaults to false. Changing this forces
 	// a new resource to be created.
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
@@ -316,7 +316,7 @@ type TopicArgs struct {
 	// are enabled. An express topic holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to false.
 	EnableExpress pulumi.BoolPtrInput
-	// Boolean flag which controls whether to enable
+	// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
 	EnablePartitioning pulumi.BoolPtrInput
@@ -331,10 +331,10 @@ type TopicArgs struct {
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the ServiceBus Namespace to create
+	// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
 	// this topic in. Changing this forces a new resource to be created.
 	NamespaceId pulumi.StringInput
-	// Boolean flag which controls whether
+	// Boolean flag which controls whether Changing this forces a new resource to be created.
 	// the Topic requires duplicate detection. Defaults to false. Changing this forces
 	// a new resource to be created.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
@@ -463,7 +463,7 @@ func (o TopicOutput) EnableExpress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.EnableExpress }).(pulumi.BoolPtrOutput)
 }
 
-// Boolean flag which controls whether to enable
+// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
 // the topic to be partitioned across multiple message brokers. Defaults to false.
 // Changing this forces a new resource to be created.
 func (o TopicOutput) EnablePartitioning() pulumi.BoolPtrOutput {
@@ -490,7 +490,7 @@ func (o TopicOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the ServiceBus Namespace to create
+// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
 // this topic in. Changing this forces a new resource to be created.
 func (o TopicOutput) NamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.NamespaceId }).(pulumi.StringOutput)
@@ -500,7 +500,7 @@ func (o TopicOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.NamespaceName }).(pulumi.StringOutput)
 }
 
-// Boolean flag which controls whether
+// Boolean flag which controls whether Changing this forces a new resource to be created.
 // the Topic requires duplicate detection. Defaults to false. Changing this forces
 // a new resource to be created.
 func (o TopicOutput) RequiresDuplicateDetection() pulumi.BoolPtrOutput {

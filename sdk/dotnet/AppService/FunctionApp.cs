@@ -253,13 +253,13 @@ namespace Pulumi.Azure.AppService
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+        /// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+        /// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
         /// </summary>
         [Output("osType")]
         public Output<string?> OsType { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Function App.
+        /// The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -307,7 +307,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> StorageAccountAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+        /// The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
@@ -455,19 +455,19 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+        /// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+        /// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Function App.
+        /// The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -491,7 +491,7 @@ namespace Pulumi.Azure.AppService
         public Input<string> StorageAccountAccessKey { get; set; } = null!;
 
         /// <summary>
-        /// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+        /// The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountName", required: true)]
         public Input<string> StorageAccountName { get; set; } = null!;
@@ -625,13 +625,13 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+        /// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+        /// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
@@ -649,7 +649,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? PossibleOutboundIpAddresses { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Function App.
+        /// The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -685,7 +685,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? StorageAccountAccessKey { get; set; }
 
         /// <summary>
-        /// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+        /// The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }

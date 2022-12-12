@@ -19,6 +19,7 @@ class KubernetesClusterNodePoolArgs:
                  kubernetes_cluster_id: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
+                 custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_host_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
@@ -59,8 +60,9 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA. Defaults to `false`.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
@@ -89,9 +91,9 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[str] scale_down_mode: Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+        :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
-        :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
+        :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
@@ -99,6 +101,8 @@ class KubernetesClusterNodePoolArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if capacity_reservation_group_id is not None:
             pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
+        if custom_ca_trust_enabled is not None:
+            pulumi.set(__self__, "custom_ca_trust_enabled", custom_ca_trust_enabled)
         if enable_auto_scaling is not None:
             pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
         if enable_host_encryption is not None:
@@ -207,6 +211,18 @@ class KubernetesClusterNodePoolArgs:
         pulumi.set(self, "capacity_reservation_group_id", value)
 
     @property
+    @pulumi.getter(name="customCaTrustEnabled")
+    def custom_ca_trust_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to trust a Custom CA. Defaults to `false`.
+        """
+        return pulumi.get(self, "custom_ca_trust_enabled")
+
+    @custom_ca_trust_enabled.setter
+    def custom_ca_trust_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "custom_ca_trust_enabled", value)
+
+    @property
     @pulumi.getter(name="enableAutoScaling")
     def enable_auto_scaling(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -222,7 +238,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="enableHostEncryption")
     def enable_host_encryption(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+        Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_host_encryption")
 
@@ -570,7 +586,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="ultraSsdEnabled")
     def ultra_ssd_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+        Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ultra_ssd_enabled")
 
@@ -594,7 +610,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="vnetSubnetId")
     def vnet_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet where this Node Pool should exist.
+        The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vnet_subnet_id")
 
@@ -631,6 +647,7 @@ class KubernetesClusterNodePoolArgs:
 class _KubernetesClusterNodePoolState:
     def __init__(__self__, *,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
+                 custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_host_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
@@ -671,8 +688,9 @@ class _KubernetesClusterNodePoolState:
         """
         Input properties used for looking up and filtering KubernetesClusterNodePool resources.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA. Defaults to `false`.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
@@ -702,15 +720,17 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input[str] scale_down_mode: Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+        :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
+        :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
         if capacity_reservation_group_id is not None:
             pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
+        if custom_ca_trust_enabled is not None:
+            pulumi.set(__self__, "custom_ca_trust_enabled", custom_ca_trust_enabled)
         if enable_auto_scaling is not None:
             pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
         if enable_host_encryption is not None:
@@ -799,6 +819,18 @@ class _KubernetesClusterNodePoolState:
         pulumi.set(self, "capacity_reservation_group_id", value)
 
     @property
+    @pulumi.getter(name="customCaTrustEnabled")
+    def custom_ca_trust_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to trust a Custom CA. Defaults to `false`.
+        """
+        return pulumi.get(self, "custom_ca_trust_enabled")
+
+    @custom_ca_trust_enabled.setter
+    def custom_ca_trust_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "custom_ca_trust_enabled", value)
+
+    @property
     @pulumi.getter(name="enableAutoScaling")
     def enable_auto_scaling(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -814,7 +846,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="enableHostEncryption")
     def enable_host_encryption(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+        Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_host_encryption")
 
@@ -1174,7 +1206,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="ultraSsdEnabled")
     def ultra_ssd_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+        Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ultra_ssd_enabled")
 
@@ -1210,7 +1242,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="vnetSubnetId")
     def vnet_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet where this Node Pool should exist.
+        The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vnet_subnet_id")
 
@@ -1249,6 +1281,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
+                 custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_host_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
@@ -1334,8 +1367,9 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA. Defaults to `false`.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
@@ -1365,10 +1399,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] scale_down_mode: Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+        :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
+        :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
@@ -1438,6 +1472,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
+                 custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_host_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
@@ -1485,6 +1520,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__ = KubernetesClusterNodePoolArgs.__new__(KubernetesClusterNodePoolArgs)
 
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
+            __props__.__dict__["custom_ca_trust_enabled"] = custom_ca_trust_enabled
             __props__.__dict__["enable_auto_scaling"] = enable_auto_scaling
             __props__.__dict__["enable_host_encryption"] = enable_host_encryption
             __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
@@ -1537,6 +1573,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
+            custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
             enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
             enable_host_encryption: Optional[pulumi.Input[bool]] = None,
             enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
@@ -1582,8 +1619,9 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA. Defaults to `false`.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
@@ -1613,10 +1651,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] scale_down_mode: Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+        :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
+        :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
@@ -1625,6 +1663,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__ = _KubernetesClusterNodePoolState.__new__(_KubernetesClusterNodePoolState)
 
         __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
+        __props__.__dict__["custom_ca_trust_enabled"] = custom_ca_trust_enabled
         __props__.__dict__["enable_auto_scaling"] = enable_auto_scaling
         __props__.__dict__["enable_host_encryption"] = enable_host_encryption
         __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
@@ -1673,6 +1712,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         return pulumi.get(self, "capacity_reservation_group_id")
 
     @property
+    @pulumi.getter(name="customCaTrustEnabled")
+    def custom_ca_trust_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to trust a Custom CA. Defaults to `false`.
+        """
+        return pulumi.get(self, "custom_ca_trust_enabled")
+
+    @property
     @pulumi.getter(name="enableAutoScaling")
     def enable_auto_scaling(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -1684,7 +1731,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="enableHostEncryption")
     def enable_host_encryption(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+        Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_host_encryption")
 
@@ -1924,7 +1971,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="ultraSsdEnabled")
     def ultra_ssd_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+        Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ultra_ssd_enabled")
 
@@ -1948,7 +1995,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="vnetSubnetId")
     def vnet_subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the Subnet where this Node Pool should exist.
+        The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vnet_subnet_id")
 

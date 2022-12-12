@@ -81,13 +81,11 @@ export class TableEntity extends pulumi.CustomResource {
      */
     public readonly rowKey!: pulumi.Output<string>;
     /**
-     * Specifies the storage account in which to create the storage table entity.
-     * Changing this forces a new resource to be created.
+     * Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
      */
     public readonly storageAccountName!: pulumi.Output<string>;
     /**
-     * The name of the storage table in which to create the storage table entity.
-     * Changing this forces a new resource to be created.
+     * The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
      */
     public readonly tableName!: pulumi.Output<string>;
 
@@ -154,13 +152,11 @@ export interface TableEntityState {
      */
     rowKey?: pulumi.Input<string>;
     /**
-     * Specifies the storage account in which to create the storage table entity.
-     * Changing this forces a new resource to be created.
+     * Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
      */
     storageAccountName?: pulumi.Input<string>;
     /**
-     * The name of the storage table in which to create the storage table entity.
-     * Changing this forces a new resource to be created.
+     * The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
      */
     tableName?: pulumi.Input<string>;
 }
@@ -182,13 +178,11 @@ export interface TableEntityArgs {
      */
     rowKey: pulumi.Input<string>;
     /**
-     * Specifies the storage account in which to create the storage table entity.
-     * Changing this forces a new resource to be created.
+     * Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
      */
     storageAccountName: pulumi.Input<string>;
     /**
-     * The name of the storage table in which to create the storage table entity.
-     * Changing this forces a new resource to be created.
+     * The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
      */
     tableName: pulumi.Input<string>;
 }

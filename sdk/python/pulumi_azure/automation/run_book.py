@@ -36,7 +36,7 @@ class RunBookArgs:
         :param pulumi.Input[bool] log_progress: Progress log option.
         :param pulumi.Input[bool] log_verbose: Verbose log option.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`.
+        :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content: The desired content of the runbook.
         :param pulumi.Input[str] description: A description for this credential.
         :param pulumi.Input['RunBookDraftArgs'] draft: A `draft` block as defined below .
@@ -122,7 +122,7 @@ class RunBookArgs:
     @pulumi.getter(name="runbookType")
     def runbook_type(self) -> pulumi.Input[str]:
         """
-        The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`.
+        The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "runbook_type")
 
@@ -266,7 +266,7 @@ class _RunBookState:
         :param pulumi.Input[str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
         :param pulumi.Input['RunBookPublishContentLinkArgs'] publish_content_link: The published runbook content link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`.
+        :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if automation_account_name is not None:
@@ -443,7 +443,7 @@ class _RunBookState:
     @pulumi.getter(name="runbookType")
     def runbook_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`.
+        The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "runbook_type")
 
@@ -532,7 +532,7 @@ class RunBook(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['RunBookPublishContentLinkArgs']] publish_content_link: The published runbook content link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`.
+        :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -680,7 +680,7 @@ class RunBook(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['RunBookPublishContentLinkArgs']] publish_content_link: The published runbook content link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`.
+        :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -800,7 +800,7 @@ class RunBook(pulumi.CustomResource):
     @pulumi.getter(name="runbookType")
     def runbook_type(self) -> pulumi.Output[str]:
         """
-        The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`.
+        The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "runbook_type")
 

@@ -110,14 +110,14 @@ public class ExpressRouteCircuitAuthorization extends com.pulumi.resources.Custo
         return this.authorizationUseStatus;
     }
     /**
-     * The name of the Express Route Circuit in which to create the Authorization.
+     * The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="expressRouteCircuitName", type=String.class, parameters={})
     private Output<String> expressRouteCircuitName;
 
     /**
-     * @return The name of the Express Route Circuit in which to create the Authorization.
+     * @return The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> expressRouteCircuitName() {
@@ -140,7 +140,7 @@ public class ExpressRouteCircuitAuthorization extends com.pulumi.resources.Custo
         return this.name;
     }
     /**
-     * The name of the resource group in which to
+     * The name of the resource group in which to Changing this forces a new resource to be created.
      * create the ExpressRoute circuit. Changing this forces a new resource to be created.
      * 
      */
@@ -148,7 +148,7 @@ public class ExpressRouteCircuitAuthorization extends com.pulumi.resources.Custo
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
+     * @return The name of the resource group in which to Changing this forces a new resource to be created.
      * create the ExpressRoute circuit. Changing this forces a new resource to be created.
      * 
      */

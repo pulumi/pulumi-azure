@@ -116,14 +116,14 @@ public final class SubscriptionCostManagementExportState extends com.pulumi.reso
     }
 
     /**
-     * The id of the subscription on which to create an export.
+     * The id of the subscription on which to create an export. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="subscriptionId")
     private @Nullable Output<String> subscriptionId;
 
     /**
-     * @return The id of the subscription on which to create an export.
+     * @return The id of the subscription on which to create an export. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> subscriptionId() {
@@ -297,7 +297,7 @@ public final class SubscriptionCostManagementExportState extends com.pulumi.reso
         }
 
         /**
-         * @param subscriptionId The id of the subscription on which to create an export.
+         * @param subscriptionId The id of the subscription on which to create an export. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class SubscriptionCostManagementExportState extends com.pulumi.reso
         }
 
         /**
-         * @param subscriptionId The id of the subscription on which to create an export.
+         * @param subscriptionId The id of the subscription on which to create an export. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

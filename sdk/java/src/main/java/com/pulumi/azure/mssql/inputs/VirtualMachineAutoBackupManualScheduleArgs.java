@@ -7,12 +7,30 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final VirtualMachineAutoBackupManualScheduleArgs Empty = new VirtualMachineAutoBackupManualScheduleArgs();
+
+    /**
+     * A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+     * 
+     */
+    @Import(name="daysOfWeeks")
+    private @Nullable Output<List<String>> daysOfWeeks;
+
+    /**
+     * @return A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+     * 
+     */
+    public Optional<Output<List<String>>> daysOfWeeks() {
+        return Optional.ofNullable(this.daysOfWeeks);
+    }
 
     /**
      * Frequency of full backups. Valid values include `Daily` or `Weekly`.
@@ -77,6 +95,7 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
     private VirtualMachineAutoBackupManualScheduleArgs() {}
 
     private VirtualMachineAutoBackupManualScheduleArgs(VirtualMachineAutoBackupManualScheduleArgs $) {
+        this.daysOfWeeks = $.daysOfWeeks;
         this.fullBackupFrequency = $.fullBackupFrequency;
         this.fullBackupStartHour = $.fullBackupStartHour;
         this.fullBackupWindowInHours = $.fullBackupWindowInHours;
@@ -99,6 +118,37 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
 
         public Builder(VirtualMachineAutoBackupManualScheduleArgs defaults) {
             $ = new VirtualMachineAutoBackupManualScheduleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param daysOfWeeks A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder daysOfWeeks(@Nullable Output<List<String>> daysOfWeeks) {
+            $.daysOfWeeks = daysOfWeeks;
+            return this;
+        }
+
+        /**
+         * @param daysOfWeeks A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder daysOfWeeks(List<String> daysOfWeeks) {
+            return daysOfWeeks(Output.of(daysOfWeeks));
+        }
+
+        /**
+         * @param daysOfWeeks A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder daysOfWeeks(String... daysOfWeeks) {
+            return daysOfWeeks(List.of(daysOfWeeks));
         }
 
         /**

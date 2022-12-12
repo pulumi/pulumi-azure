@@ -75,13 +75,13 @@ namespace Pulumi.Azure.Orbital
         public Output<ImmutableArray<Outputs.SpacecraftLink>> Links { get; private set; } = null!;
 
         /// <summary>
-        /// The location where the Spacecraft exists.
+        /// The location where the Spacecraft exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the link.
+        /// Name of the link. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Orbital
         public Output<string> NoradId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Spacecraft exists.
+        /// The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -172,13 +172,13 @@ namespace Pulumi.Azure.Orbital
         }
 
         /// <summary>
-        /// The location where the Spacecraft exists.
+        /// The location where the Spacecraft exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Name of the link.
+        /// Name of the link. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.Orbital
         public Input<string> NoradId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Spacecraft exists.
+        /// The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -242,13 +242,13 @@ namespace Pulumi.Azure.Orbital
         }
 
         /// <summary>
-        /// The location where the Spacecraft exists.
+        /// The location where the Spacecraft exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Name of the link.
+        /// Name of the link. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.Orbital
         public Input<string>? NoradId { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Spacecraft exists.
+        /// The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

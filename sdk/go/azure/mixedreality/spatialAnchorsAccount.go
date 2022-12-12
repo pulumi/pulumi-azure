@@ -67,7 +67,7 @@ type SpatialAnchorsAccount struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to create the Spatial Anchors Account.
+	// The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -113,7 +113,7 @@ type spatialAnchorsAccountState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Spatial Anchors Account.
+	// The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -128,7 +128,7 @@ type SpatialAnchorsAccountState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Spatial Anchors Account.
+	// The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -143,7 +143,7 @@ type spatialAnchorsAccountArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Spatial Anchors Account.
+	// The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -155,7 +155,7 @@ type SpatialAnchorsAccountArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Spatial Anchors Account.
+	// The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -268,7 +268,7 @@ func (o SpatialAnchorsAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpatialAnchorsAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the Spatial Anchors Account.
+// The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
 func (o SpatialAnchorsAccountOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpatialAnchorsAccount) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

@@ -139,7 +139,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> AutoKeyRotationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
+        /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("encryptionType")]
         public Output<string?> EncryptionType { get; private set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutoKeyRotationEnabled { get; set; }
 
         /// <summary>
-        /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
+        /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("encryptionType")]
         public Input<string>? EncryptionType { get; set; }
@@ -307,7 +307,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutoKeyRotationEnabled { get; set; }
 
         /// <summary>
-        /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`.
+        /// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("encryptionType")]
         public Input<string>? EncryptionType { get; set; }

@@ -38,15 +38,22 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         return this.accountName;
     }
 
+    @Import(name="azureVmwareDataStoreEnabled")
+    private @Nullable Output<Boolean> azureVmwareDataStoreEnabled;
+
+    public Optional<Output<Boolean>> azureVmwareDataStoreEnabled() {
+        return Optional.ofNullable(this.azureVmwareDataStoreEnabled);
+    }
+
     /**
-     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+     * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="createFromSnapshotResourceId")
     private @Nullable Output<String> createFromSnapshotResourceId;
 
     /**
-     * @return Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+     * @return Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> createFromSnapshotResourceId() {
@@ -129,14 +136,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+     * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="networkFeatures")
     private @Nullable Output<String> networkFeatures;
 
     /**
-     * @return Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+     * @return Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> networkFeatures() {
@@ -189,14 +196,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+     * Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="securityStyle")
     private @Nullable Output<String> securityStyle;
 
     /**
-     * @return Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+     * @return Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> securityStyle() {
@@ -204,14 +211,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+     * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="serviceLevel", required=true)
     private Output<String> serviceLevel;
 
     /**
-     * @return The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+     * @return The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> serviceLevel() {
@@ -312,6 +319,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
 
     private VolumeArgs(VolumeArgs $) {
         this.accountName = $.accountName;
+        this.azureVmwareDataStoreEnabled = $.azureVmwareDataStoreEnabled;
         this.createFromSnapshotResourceId = $.createFromSnapshotResourceId;
         this.dataProtectionReplication = $.dataProtectionReplication;
         this.dataProtectionSnapshotPolicy = $.dataProtectionSnapshotPolicy;
@@ -371,8 +379,17 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
             return accountName(Output.of(accountName));
         }
 
+        public Builder azureVmwareDataStoreEnabled(@Nullable Output<Boolean> azureVmwareDataStoreEnabled) {
+            $.azureVmwareDataStoreEnabled = azureVmwareDataStoreEnabled;
+            return this;
+        }
+
+        public Builder azureVmwareDataStoreEnabled(Boolean azureVmwareDataStoreEnabled) {
+            return azureVmwareDataStoreEnabled(Output.of(azureVmwareDataStoreEnabled));
+        }
+
         /**
-         * @param createFromSnapshotResourceId Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+         * @param createFromSnapshotResourceId Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -383,7 +400,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createFromSnapshotResourceId Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+         * @param createFromSnapshotResourceId Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -508,7 +525,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkFeatures Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+         * @param networkFeatures Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -519,7 +536,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkFeatures Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+         * @param networkFeatures Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -602,7 +619,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityStyle Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+         * @param securityStyle Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -613,7 +630,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityStyle Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+         * @param securityStyle Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -623,7 +640,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceLevel The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+         * @param serviceLevel The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -634,7 +651,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceLevel The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+         * @param serviceLevel The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

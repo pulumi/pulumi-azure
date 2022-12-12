@@ -73,7 +73,7 @@ type Namespace struct {
 	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
-	// The name of the resource group in which to create the Azure Relay Namespace.
+	// The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
@@ -130,7 +130,7 @@ type namespaceState struct {
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	PrimaryKey *string `pulumi:"primaryKey"`
-	// The name of the resource group in which to create the Azure Relay Namespace.
+	// The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
@@ -153,7 +153,7 @@ type NamespaceState struct {
 	PrimaryConnectionString pulumi.StringPtrInput
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
 	PrimaryKey pulumi.StringPtrInput
-	// The name of the resource group in which to create the Azure Relay Namespace.
+	// The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
 	SecondaryConnectionString pulumi.StringPtrInput
@@ -174,7 +174,7 @@ type namespaceArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Azure Relay Namespace.
+	// The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SKU to use. At this time the only supported value is `Standard`.
 	SkuName string `pulumi:"skuName"`
@@ -188,7 +188,7 @@ type NamespaceArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Azure Relay Namespace.
+	// The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The name of the SKU to use. At this time the only supported value is `Standard`.
 	SkuName pulumi.StringInput
@@ -308,7 +308,7 @@ func (o NamespaceOutput) PrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.PrimaryKey }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the Azure Relay Namespace.
+// The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
 func (o NamespaceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

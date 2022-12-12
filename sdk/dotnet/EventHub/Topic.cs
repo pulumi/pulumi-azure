@@ -97,7 +97,7 @@ namespace Pulumi.Azure.EventHub
         public Output<bool?> EnableExpress { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether to enable
+        /// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
         /// the topic to be partitioned across multiple message brokers. Defaults to false.
         /// Changing this forces a new resource to be created.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the ServiceBus Namespace to create
+        /// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
         /// this topic in. Changing this forces a new resource to be created.
         /// </summary>
         [Output("namespaceId")]
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> NamespaceName { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether
+        /// Boolean flag which controls whether Changing this forces a new resource to be created.
         /// the Topic requires duplicate detection. Defaults to false. Changing this forces
         /// a new resource to be created.
         /// </summary>
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.EventHub
         public Input<bool>? EnableExpress { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether to enable
+        /// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
         /// the topic to be partitioned across multiple message brokers. Defaults to false.
         /// Changing this forces a new resource to be created.
         /// </summary>
@@ -275,14 +275,14 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the ServiceBus Namespace to create
+        /// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
         /// this topic in. Changing this forces a new resource to be created.
         /// </summary>
         [Input("namespaceId", required: true)]
         public Input<string> NamespaceId { get; set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether
+        /// Boolean flag which controls whether Changing this forces a new resource to be created.
         /// the Topic requires duplicate detection. Defaults to false. Changing this forces
         /// a new resource to be created.
         /// </summary>
@@ -347,7 +347,7 @@ namespace Pulumi.Azure.EventHub
         public Input<bool>? EnableExpress { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether to enable
+        /// Boolean flag which controls whether to enable Changing this forces a new resource to be created.
         /// the topic to be partitioned across multiple message brokers. Defaults to false.
         /// Changing this forces a new resource to be created.
         /// </summary>
@@ -378,7 +378,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the ServiceBus Namespace to create
+        /// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
         /// this topic in. Changing this forces a new resource to be created.
         /// </summary>
         [Input("namespaceId")]
@@ -388,7 +388,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether
+        /// Boolean flag which controls whether Changing this forces a new resource to be created.
         /// the Topic requires duplicate detection. Defaults to false. Changing this forces
         /// a new resource to be created.
         /// </summary>

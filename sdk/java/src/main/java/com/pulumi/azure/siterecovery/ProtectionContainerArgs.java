@@ -16,14 +16,14 @@ public final class ProtectionContainerArgs extends com.pulumi.resources.Resource
     public static final ProtectionContainerArgs Empty = new ProtectionContainerArgs();
 
     /**
-     * The name of the protection container.
+     * The name of the protection container. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the protection container.
+     * @return The name of the protection container. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -31,14 +31,14 @@ public final class ProtectionContainerArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Name of fabric that should contain this protection container.
+     * Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="recoveryFabricName", required=true)
     private Output<String> recoveryFabricName;
 
     /**
-     * @return Name of fabric that should contain this protection container.
+     * @return Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoveryFabricName() {
@@ -46,14 +46,14 @@ public final class ProtectionContainerArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="recoveryVaultName", required=true)
     private Output<String> recoveryVaultName;
 
     /**
-     * @return The name of the vault that should be updated.
+     * @return The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoveryVaultName() {
@@ -61,14 +61,14 @@ public final class ProtectionContainerArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return Name of the resource group where the vault that should be updated is located.
+     * @return Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -103,7 +103,7 @@ public final class ProtectionContainerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the protection container.
+         * @param name The name of the protection container. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ProtectionContainerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the protection container.
+         * @param name The name of the protection container. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class ProtectionContainerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param recoveryFabricName Name of fabric that should contain this protection container.
+         * @param recoveryFabricName Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class ProtectionContainerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param recoveryFabricName Name of fabric that should contain this protection container.
+         * @param recoveryFabricName Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class ProtectionContainerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param recoveryVaultName The name of the vault that should be updated.
+         * @param recoveryVaultName The name of the vault that should be updated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ProtectionContainerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param recoveryVaultName The name of the vault that should be updated.
+         * @param recoveryVaultName The name of the vault that should be updated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ProtectionContainerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceGroupName Name of the resource group where the vault that should be updated is located.
+         * @param resourceGroupName Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ProtectionContainerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceGroupName Name of the resource group where the vault that should be updated is located.
+         * @param resourceGroupName Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

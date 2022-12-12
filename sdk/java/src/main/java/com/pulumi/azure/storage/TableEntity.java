@@ -126,32 +126,28 @@ public class TableEntity extends com.pulumi.resources.CustomResource {
         return this.rowKey;
     }
     /**
-     * Specifies the storage account in which to create the storage table entity.
-     * Changing this forces a new resource to be created.
+     * Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     /**
-     * @return Specifies the storage account in which to create the storage table entity.
-     * Changing this forces a new resource to be created.
+     * @return Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountName() {
         return this.storageAccountName;
     }
     /**
-     * The name of the storage table in which to create the storage table entity.
-     * Changing this forces a new resource to be created.
+     * The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="tableName", type=String.class, parameters={})
     private Output<String> tableName;
 
     /**
-     * @return The name of the storage table in which to create the storage table entity.
-     * Changing this forces a new resource to be created.
+     * @return The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> tableName() {

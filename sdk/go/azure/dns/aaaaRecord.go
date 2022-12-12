@@ -120,7 +120,7 @@ type AaaaRecord struct {
 
 	// The FQDN of the DNS AAAA Record.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
-	// The name of the DNS AAAA Record.
+	// The name of the DNS AAAA Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of IPv6 Addresses. Conflicts with `targetResourceId`.
 	Records pulumi.StringArrayOutput `pulumi:"records"`
@@ -176,7 +176,7 @@ func GetAaaaRecord(ctx *pulumi.Context,
 type aaaaRecordState struct {
 	// The FQDN of the DNS AAAA Record.
 	Fqdn *string `pulumi:"fqdn"`
-	// The name of the DNS AAAA Record.
+	// The name of the DNS AAAA Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// List of IPv6 Addresses. Conflicts with `targetResourceId`.
 	Records []string `pulumi:"records"`
@@ -195,7 +195,7 @@ type aaaaRecordState struct {
 type AaaaRecordState struct {
 	// The FQDN of the DNS AAAA Record.
 	Fqdn pulumi.StringPtrInput
-	// The name of the DNS AAAA Record.
+	// The name of the DNS AAAA Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// List of IPv6 Addresses. Conflicts with `targetResourceId`.
 	Records pulumi.StringArrayInput
@@ -216,7 +216,7 @@ func (AaaaRecordState) ElementType() reflect.Type {
 }
 
 type aaaaRecordArgs struct {
-	// The name of the DNS AAAA Record.
+	// The name of the DNS AAAA Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// List of IPv6 Addresses. Conflicts with `targetResourceId`.
 	Records []string `pulumi:"records"`
@@ -234,7 +234,7 @@ type aaaaRecordArgs struct {
 
 // The set of arguments for constructing a AaaaRecord resource.
 type AaaaRecordArgs struct {
-	// The name of the DNS AAAA Record.
+	// The name of the DNS AAAA Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// List of IPv6 Addresses. Conflicts with `targetResourceId`.
 	Records pulumi.StringArrayInput
@@ -342,7 +342,7 @@ func (o AaaaRecordOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AaaaRecord) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// The name of the DNS AAAA Record.
+// The name of the DNS AAAA Record. Changing this forces a new resource to be created.
 func (o AaaaRecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AaaaRecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

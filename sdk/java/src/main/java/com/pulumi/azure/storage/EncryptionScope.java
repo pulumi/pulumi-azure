@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:storage/encryptionScope:EncryptionScope")
 public class EncryptionScope extends com.pulumi.resources.CustomResource {
     /**
-     * Is a secondary layer of encryption with Platform Managed Keys for data applied?
+     * Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
      * 
      */
     @Export(name="infrastructureEncryptionRequired", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> infrastructureEncryptionRequired;
 
     /**
-     * @return Is a secondary layer of encryption with Platform Managed Keys for data applied?
+     * @return Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> infrastructureEncryptionRequired() {

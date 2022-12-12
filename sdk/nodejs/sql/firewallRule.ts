@@ -68,16 +68,15 @@ export class FirewallRule extends pulumi.CustomResource {
      */
     public readonly endIpAddress!: pulumi.Output<string>;
     /**
-     * The name of the firewall rule.
+     * The name of the firewall rule. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to
-     * create the SQL Server.
+     * The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The name of the SQL Server on which to create the Firewall Rule.
+     * The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
      */
     public readonly serverName!: pulumi.Output<string>;
     /**
@@ -137,16 +136,15 @@ export interface FirewallRuleState {
      */
     endIpAddress?: pulumi.Input<string>;
     /**
-     * The name of the firewall rule.
+     * The name of the firewall rule. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the SQL Server.
+     * The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The name of the SQL Server on which to create the Firewall Rule.
+     * The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
      */
     serverName?: pulumi.Input<string>;
     /**
@@ -164,16 +162,15 @@ export interface FirewallRuleArgs {
      */
     endIpAddress: pulumi.Input<string>;
     /**
-     * The name of the firewall rule.
+     * The name of the firewall rule. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the SQL Server.
+     * The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the SQL Server on which to create the Firewall Rule.
+     * The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
      */
     serverName: pulumi.Input<string>;
     /**

@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/vnpGatewayNatRule:VnpGatewayNatRule")
 public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
     /**
-     * A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+     * (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
      * 
      * @deprecated
      * `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
@@ -112,7 +112,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
     private Output<List<String>> externalAddressSpaceMappings;
 
     /**
-     * @return A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+     * @return (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
      * 
      */
     public Output<List<String>> externalAddressSpaceMappings() {
@@ -133,7 +133,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
         return this.externalMappings;
     }
     /**
-     * A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+     * (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
      * 
      * @deprecated
      * `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
@@ -144,7 +144,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
     private Output<List<String>> internalAddressSpaceMappings;
 
     /**
-     * @return A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+     * @return (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
      * 
      */
     public Output<List<String>> internalAddressSpaceMappings() {

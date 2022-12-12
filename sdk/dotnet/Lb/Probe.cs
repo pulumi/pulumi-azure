@@ -79,13 +79,13 @@ namespace Pulumi.Azure.Lb
         public Output<ImmutableArray<string>> LoadBalancerRules { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the LoadBalancer in which to create the NAT Rule.
+        /// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
         /// </summary>
         [Output("loadbalancerId")]
         public Output<string> LoadbalancerId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Probe.
+        /// Specifies the name of the Probe. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -101,6 +101,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+        /// </summary>
+        [Output("probeThreshold")]
+        public Output<int?> ProbeThreshold { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
@@ -167,13 +173,13 @@ namespace Pulumi.Azure.Lb
         public Input<int>? IntervalInSeconds { get; set; }
 
         /// <summary>
-        /// The ID of the LoadBalancer in which to create the NAT Rule.
+        /// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
         /// </summary>
         [Input("loadbalancerId", required: true)]
         public Input<string> LoadbalancerId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Probe.
+        /// Specifies the name of the Probe. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -189,6 +195,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
+
+        /// <summary>
+        /// The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+        /// </summary>
+        [Input("probeThreshold")]
+        public Input<int>? ProbeThreshold { get; set; }
 
         /// <summary>
         /// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
@@ -225,13 +237,13 @@ namespace Pulumi.Azure.Lb
         }
 
         /// <summary>
-        /// The ID of the LoadBalancer in which to create the NAT Rule.
+        /// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
         /// </summary>
         [Input("loadbalancerId")]
         public Input<string>? LoadbalancerId { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Probe.
+        /// Specifies the name of the Probe. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -247,6 +259,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+        /// </summary>
+        [Input("probeThreshold")]
+        public Input<int>? ProbeThreshold { get; set; }
 
         /// <summary>
         /// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.

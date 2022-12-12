@@ -92,14 +92,14 @@ public final class OutputMssqlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+     * Password used together with username, to login to the Microsoft SQL Server.
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+     * @return Password used together with username, to login to the Microsoft SQL Server.
      * 
      */
     public Output<String> password() {
@@ -321,7 +321,7 @@ public final class OutputMssqlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+         * @param password Password used together with username, to login to the Microsoft SQL Server.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class OutputMssqlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+         * @param password Password used together with username, to login to the Microsoft SQL Server.
          * 
          * @return builder
          * 

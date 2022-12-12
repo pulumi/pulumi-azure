@@ -110,7 +110,7 @@ export class ResolverVirtualNetworkLink extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+     * The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
      */
     public readonly virtualNetworkId!: pulumi.Output<string>;
 
@@ -166,7 +166,7 @@ export interface ResolverVirtualNetworkLinkState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+     * The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
      */
     virtualNetworkId?: pulumi.Input<string>;
 }
@@ -188,7 +188,7 @@ export interface ResolverVirtualNetworkLinkArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
+     * The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
      */
     virtualNetworkId: pulumi.Input<string>;
 }

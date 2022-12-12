@@ -17,6 +17,7 @@ import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterMicrosoftDe
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterNetworkProfile;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterOmsAgent;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterServicePrincipal;
+import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterStorageProfile;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterWindowsProfile;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
@@ -189,7 +190,7 @@ public final class GetKubernetesClusterResult {
     private String privateFqdn;
     private String resourceGroupName;
     /**
-     * @return Is Role Based Access Control enabled for this managed Kubernetes Cluster.
+     * @return Is Role Based Access Control enabled for this managed Kubernetes Cluster?
      * 
      */
     private Boolean roleBasedAccessControlEnabled;
@@ -198,6 +199,11 @@ public final class GetKubernetesClusterResult {
      * 
      */
     private List<GetKubernetesClusterServicePrincipal> servicePrincipals;
+    /**
+     * @return A `storage_profile` block as documented below.
+     * 
+     */
+    private List<GetKubernetesClusterStorageProfile> storageProfiles;
     /**
      * @return A mapping of tags to assign to the resource.
      * 
@@ -438,7 +444,7 @@ public final class GetKubernetesClusterResult {
         return this.resourceGroupName;
     }
     /**
-     * @return Is Role Based Access Control enabled for this managed Kubernetes Cluster.
+     * @return Is Role Based Access Control enabled for this managed Kubernetes Cluster?
      * 
      */
     public Boolean roleBasedAccessControlEnabled() {
@@ -450,6 +456,13 @@ public final class GetKubernetesClusterResult {
      */
     public List<GetKubernetesClusterServicePrincipal> servicePrincipals() {
         return this.servicePrincipals;
+    }
+    /**
+     * @return A `storage_profile` block as documented below.
+     * 
+     */
+    public List<GetKubernetesClusterStorageProfile> storageProfiles() {
+        return this.storageProfiles;
     }
     /**
      * @return A mapping of tags to assign to the resource.
@@ -510,6 +523,7 @@ public final class GetKubernetesClusterResult {
         private String resourceGroupName;
         private Boolean roleBasedAccessControlEnabled;
         private List<GetKubernetesClusterServicePrincipal> servicePrincipals;
+        private List<GetKubernetesClusterStorageProfile> storageProfiles;
         private Map<String,String> tags;
         private List<GetKubernetesClusterWindowsProfile> windowsProfiles;
         public Builder() {}
@@ -550,6 +564,7 @@ public final class GetKubernetesClusterResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.roleBasedAccessControlEnabled = defaults.roleBasedAccessControlEnabled;
     	      this.servicePrincipals = defaults.servicePrincipals;
+    	      this.storageProfiles = defaults.storageProfiles;
     	      this.tags = defaults.tags;
     	      this.windowsProfiles = defaults.windowsProfiles;
         }
@@ -775,6 +790,14 @@ public final class GetKubernetesClusterResult {
             return servicePrincipals(List.of(servicePrincipals));
         }
         @CustomType.Setter
+        public Builder storageProfiles(List<GetKubernetesClusterStorageProfile> storageProfiles) {
+            this.storageProfiles = Objects.requireNonNull(storageProfiles);
+            return this;
+        }
+        public Builder storageProfiles(GetKubernetesClusterStorageProfile... storageProfiles) {
+            return storageProfiles(List.of(storageProfiles));
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
@@ -824,6 +847,7 @@ public final class GetKubernetesClusterResult {
             o.resourceGroupName = resourceGroupName;
             o.roleBasedAccessControlEnabled = roleBasedAccessControlEnabled;
             o.servicePrincipals = servicePrincipals;
+            o.storageProfiles = storageProfiles;
             o.tags = tags;
             o.windowsProfiles = windowsProfiles;
             return o;

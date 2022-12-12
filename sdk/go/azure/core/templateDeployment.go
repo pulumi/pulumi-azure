@@ -136,8 +136,7 @@ type TemplateDeployment struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
 	ParametersBody pulumi.StringPtrOutput `pulumi:"parametersBody"`
-	// The name of the resource group in which to
-	// create the template deployment.
+	// The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the JSON definition for the template.
 	TemplateBody pulumi.StringOutput `pulumi:"templateBody"`
@@ -191,8 +190,7 @@ type templateDeploymentState struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
 	ParametersBody *string `pulumi:"parametersBody"`
-	// The name of the resource group in which to
-	// create the template deployment.
+	// The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the JSON definition for the template.
 	TemplateBody *string `pulumi:"templateBody"`
@@ -212,8 +210,7 @@ type TemplateDeploymentState struct {
 	Parameters pulumi.StringMapInput
 	// Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
 	ParametersBody pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the template deployment.
+	// The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the JSON definition for the template.
 	TemplateBody pulumi.StringPtrInput
@@ -235,8 +232,7 @@ type templateDeploymentArgs struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
 	ParametersBody *string `pulumi:"parametersBody"`
-	// The name of the resource group in which to
-	// create the template deployment.
+	// The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the JSON definition for the template.
 	TemplateBody *string `pulumi:"templateBody"`
@@ -255,8 +251,7 @@ type TemplateDeploymentArgs struct {
 	Parameters pulumi.StringMapInput
 	// Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
 	ParametersBody pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the template deployment.
+	// The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the JSON definition for the template.
 	TemplateBody pulumi.StringPtrInput
@@ -377,8 +372,7 @@ func (o TemplateDeploymentOutput) ParametersBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateDeployment) pulumi.StringPtrOutput { return v.ParametersBody }).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource group in which to
-// create the template deployment.
+// The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created.
 func (o TemplateDeploymentOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateDeployment) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

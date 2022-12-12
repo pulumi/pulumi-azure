@@ -78,17 +78,17 @@ type LoadBalancer struct {
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// One or multiple `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationArrayOutput `pulumi:"frontendIpConfigurations"`
-	// Specifies the supported Azure Region where the Load Balancer should be created.
+	// Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the Load Balancer.
+	// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
 	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
 	// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
 	PrivateIpAddresses pulumi.StringArrayOutput `pulumi:"privateIpAddresses"`
-	// The name of the Resource Group in which to create the Load Balancer.
+	// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
@@ -132,17 +132,17 @@ type loadBalancerState struct {
 	EdgeZone *string `pulumi:"edgeZone"`
 	// One or multiple `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations []LoadBalancerFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
-	// Specifies the supported Azure Region where the Load Balancer should be created.
+	// Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Load Balancer.
+	// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
-	// The name of the Resource Group in which to create the Load Balancer.
+	// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
 	// `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	SkuTier *string `pulumi:"skuTier"`
@@ -155,17 +155,17 @@ type LoadBalancerState struct {
 	EdgeZone pulumi.StringPtrInput
 	// One or multiple `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationArrayInput
-	// Specifies the supported Azure Region where the Load Balancer should be created.
+	// Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Load Balancer.
+	// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
 	PrivateIpAddress pulumi.StringPtrInput
 	// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
 	PrivateIpAddresses pulumi.StringArrayInput
-	// The name of the Resource Group in which to create the Load Balancer.
+	// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput
 	// `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	SkuTier pulumi.StringPtrInput
@@ -182,13 +182,13 @@ type loadBalancerArgs struct {
 	EdgeZone *string `pulumi:"edgeZone"`
 	// One or multiple `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations []LoadBalancerFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
-	// Specifies the supported Azure Region where the Load Balancer should be created.
+	// Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Load Balancer.
+	// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Resource Group in which to create the Load Balancer.
+	// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
 	// `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	SkuTier *string `pulumi:"skuTier"`
@@ -202,13 +202,13 @@ type LoadBalancerArgs struct {
 	EdgeZone pulumi.StringPtrInput
 	// One or multiple `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationArrayInput
-	// Specifies the supported Azure Region where the Load Balancer should be created.
+	// Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Load Balancer.
+	// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Resource Group in which to create the Load Balancer.
+	// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput
 	// `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	SkuTier pulumi.StringPtrInput
@@ -315,12 +315,12 @@ func (o LoadBalancerOutput) FrontendIpConfigurations() LoadBalancerFrontendIpCon
 	}).(LoadBalancerFrontendIpConfigurationArrayOutput)
 }
 
-// Specifies the supported Azure Region where the Load Balancer should be created.
+// Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
 func (o LoadBalancerOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Load Balancer.
+// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
 func (o LoadBalancerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -335,12 +335,12 @@ func (o LoadBalancerOutput) PrivateIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// The name of the Resource Group in which to create the Load Balancer.
+// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
 func (o LoadBalancerOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
 func (o LoadBalancerOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }

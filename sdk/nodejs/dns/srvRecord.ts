@@ -72,7 +72,7 @@ export class SrvRecord extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * The name of the DNS SRV Record.
+     * The name of the DNS SRV Record. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -152,7 +152,7 @@ export interface SrvRecordState {
      */
     fqdn?: pulumi.Input<string>;
     /**
-     * The name of the DNS SRV Record.
+     * The name of the DNS SRV Record. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -182,7 +182,7 @@ export interface SrvRecordState {
  */
 export interface SrvRecordArgs {
     /**
-     * The name of the DNS SRV Record.
+     * The name of the DNS SRV Record. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

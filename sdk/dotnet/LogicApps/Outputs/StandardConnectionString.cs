@@ -14,7 +14,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
     public sealed class StandardConnectionString
     {
         /// <summary>
-        /// The name of the Connection String.
+        /// The name of the Connection String. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

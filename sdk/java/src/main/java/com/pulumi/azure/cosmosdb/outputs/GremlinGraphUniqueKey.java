@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GremlinGraphUniqueKey {
     /**
-     * @return A list of paths to use for this unique key.
+     * @return A list of paths to use for this unique key. Changing this forces a new resource to be created.
      * 
      */
     private List<String> paths;
 
     private GremlinGraphUniqueKey() {}
     /**
-     * @return A list of paths to use for this unique key.
+     * @return A list of paths to use for this unique key. Changing this forces a new resource to be created.
      * 
      */
     public List<String> paths() {

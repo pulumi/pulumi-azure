@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Sql.Inputs
     public sealed class ManagedInstanceFailoverGroupPartnerRegionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure Region where the SQL Instance Failover Group exists.
+        /// The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

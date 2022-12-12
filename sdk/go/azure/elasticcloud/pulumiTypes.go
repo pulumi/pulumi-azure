@@ -207,7 +207,7 @@ func (o ElasticsearchLogsPtrOutput) SendSubscriptionLogs() pulumi.BoolPtrOutput 
 type ElasticsearchLogsFilteringTag struct {
 	// Specifies the type of action which should be taken when the Tag matches the `name` and `value`. Possible values are `Exclude` and `Include`.
 	Action string `pulumi:"action"`
-	// Specifies the name (key) of the Tag which should be filtered.
+	// Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Specifies the value of the Tag which should be filtered.
 	Value string `pulumi:"value"`
@@ -227,7 +227,7 @@ type ElasticsearchLogsFilteringTagInput interface {
 type ElasticsearchLogsFilteringTagArgs struct {
 	// Specifies the type of action which should be taken when the Tag matches the `name` and `value`. Possible values are `Exclude` and `Include`.
 	Action pulumi.StringInput `pulumi:"action"`
-	// Specifies the name (key) of the Tag which should be filtered.
+	// Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the value of the Tag which should be filtered.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -289,7 +289,7 @@ func (o ElasticsearchLogsFilteringTagOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticsearchLogsFilteringTag) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// Specifies the name (key) of the Tag which should be filtered.
+// Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
 func (o ElasticsearchLogsFilteringTagOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticsearchLogsFilteringTag) string { return v.Name }).(pulumi.StringOutput)
 }

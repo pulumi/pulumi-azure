@@ -158,7 +158,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> CapacityReservationGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("computerNamePrefix")]
         public Output<string> ComputerNamePrefix { get; private set; } = null!;
@@ -416,7 +416,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> UniqueId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        /// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("upgradeMode")]
         public Output<string?> UpgradeMode { get; private set; } = null!;
@@ -552,7 +552,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? CapacityReservationGroupId { get; set; }
 
         /// <summary>
-        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("computerNamePrefix")]
         public Input<string>? ComputerNamePrefix { get; set; }
@@ -840,7 +840,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Timezone { get; set; }
 
         /// <summary>
-        /// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        /// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("upgradeMode")]
         public Input<string>? UpgradeMode { get; set; }
@@ -950,7 +950,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? CapacityReservationGroupId { get; set; }
 
         /// <summary>
-        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("computerNamePrefix")]
         public Input<string>? ComputerNamePrefix { get; set; }
@@ -1244,7 +1244,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? UniqueId { get; set; }
 
         /// <summary>
-        /// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+        /// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("upgradeMode")]
         public Input<string>? UpgradeMode { get; set; }

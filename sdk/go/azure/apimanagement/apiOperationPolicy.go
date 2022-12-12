@@ -98,7 +98,7 @@ type ApiOperationPolicy struct {
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
 	// The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
 	ApiName pulumi.StringOutput `pulumi:"apiName"`
-	// The operation identifier within an API. Must be unique in the current API Management service instance.
+	// The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
 	OperationId pulumi.StringOutput `pulumi:"operationId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -153,7 +153,7 @@ type apiOperationPolicyState struct {
 	ApiManagementName *string `pulumi:"apiManagementName"`
 	// The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
 	ApiName *string `pulumi:"apiName"`
-	// The operation identifier within an API. Must be unique in the current API Management service instance.
+	// The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
 	OperationId *string `pulumi:"operationId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -168,7 +168,7 @@ type ApiOperationPolicyState struct {
 	ApiManagementName pulumi.StringPtrInput
 	// The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
 	ApiName pulumi.StringPtrInput
-	// The operation identifier within an API. Must be unique in the current API Management service instance.
+	// The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
 	OperationId pulumi.StringPtrInput
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -187,7 +187,7 @@ type apiOperationPolicyArgs struct {
 	ApiManagementName string `pulumi:"apiManagementName"`
 	// The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
 	ApiName string `pulumi:"apiName"`
-	// The operation identifier within an API. Must be unique in the current API Management service instance.
+	// The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
 	OperationId string `pulumi:"operationId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -203,7 +203,7 @@ type ApiOperationPolicyArgs struct {
 	ApiManagementName pulumi.StringInput
 	// The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
 	ApiName pulumi.StringInput
-	// The operation identifier within an API. Must be unique in the current API Management service instance.
+	// The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
 	OperationId pulumi.StringInput
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -310,7 +310,7 @@ func (o ApiOperationPolicyOutput) ApiName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiOperationPolicy) pulumi.StringOutput { return v.ApiName }).(pulumi.StringOutput)
 }
 
-// The operation identifier within an API. Must be unique in the current API Management service instance.
+// The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
 func (o ApiOperationPolicyOutput) OperationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiOperationPolicy) pulumi.StringOutput { return v.OperationId }).(pulumi.StringOutput)
 }

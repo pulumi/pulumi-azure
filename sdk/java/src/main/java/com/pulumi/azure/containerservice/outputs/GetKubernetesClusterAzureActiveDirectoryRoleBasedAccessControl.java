@@ -27,7 +27,7 @@ public final class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessContro
      */
     private String clientAppId;
     /**
-     * @return Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+     * @return Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
      * 
      */
     private Boolean managed;
@@ -65,7 +65,7 @@ public final class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessContro
         return this.clientAppId;
     }
     /**
-     * @return Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+     * @return Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
      * 
      */
     public Boolean managed() {

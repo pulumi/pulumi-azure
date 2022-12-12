@@ -187,7 +187,7 @@ func (o AadDiagnosticSettingLogRetentionPolicyOutput) Enabled() pulumi.BoolPtrOu
 }
 
 type ActionGroupArmRoleReceiver struct {
-	// The name of the ARM role receiver.
+	// The name of the ARM role receiver. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The arm role id.
 	RoleId string `pulumi:"roleId"`
@@ -207,7 +207,7 @@ type ActionGroupArmRoleReceiverInput interface {
 }
 
 type ActionGroupArmRoleReceiverArgs struct {
-	// The name of the ARM role receiver.
+	// The name of the ARM role receiver. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The arm role id.
 	RoleId pulumi.StringInput `pulumi:"roleId"`
@@ -266,7 +266,7 @@ func (o ActionGroupArmRoleReceiverOutput) ToActionGroupArmRoleReceiverOutputWith
 	return o
 }
 
-// The name of the ARM role receiver.
+// The name of the ARM role receiver. Changing this forces a new resource to be created.
 func (o ActionGroupArmRoleReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupArmRoleReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -306,7 +306,7 @@ type ActionGroupAutomationRunbookReceiver struct {
 	AutomationAccountId string `pulumi:"automationAccountId"`
 	// Indicates whether this instance is global runbook.
 	IsGlobalRunbook bool `pulumi:"isGlobalRunbook"`
-	// The name of the automation runbook receiver.
+	// The name of the automation runbook receiver. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The name for this runbook.
 	RunbookName string `pulumi:"runbookName"`
@@ -334,7 +334,7 @@ type ActionGroupAutomationRunbookReceiverArgs struct {
 	AutomationAccountId pulumi.StringInput `pulumi:"automationAccountId"`
 	// Indicates whether this instance is global runbook.
 	IsGlobalRunbook pulumi.BoolInput `pulumi:"isGlobalRunbook"`
-	// The name of the automation runbook receiver.
+	// The name of the automation runbook receiver. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name for this runbook.
 	RunbookName pulumi.StringInput `pulumi:"runbookName"`
@@ -407,7 +407,7 @@ func (o ActionGroupAutomationRunbookReceiverOutput) IsGlobalRunbook() pulumi.Boo
 	return o.ApplyT(func(v ActionGroupAutomationRunbookReceiver) bool { return v.IsGlobalRunbook }).(pulumi.BoolOutput)
 }
 
-// The name of the automation runbook receiver.
+// The name of the automation runbook receiver. Changing this forces a new resource to be created.
 func (o ActionGroupAutomationRunbookReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupAutomationRunbookReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -455,7 +455,7 @@ func (o ActionGroupAutomationRunbookReceiverArrayOutput) Index(i pulumi.IntInput
 type ActionGroupAzureAppPushReceiver struct {
 	// The email address of the user signed into the mobile app who will receive push notifications from this receiver.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the Azure app push receiver.
+	// The name of the Azure app push receiver. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 }
 
@@ -473,7 +473,7 @@ type ActionGroupAzureAppPushReceiverInput interface {
 type ActionGroupAzureAppPushReceiverArgs struct {
 	// The email address of the user signed into the mobile app who will receive push notifications from this receiver.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the Azure app push receiver.
+	// The name of the Azure app push receiver. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -533,7 +533,7 @@ func (o ActionGroupAzureAppPushReceiverOutput) EmailAddress() pulumi.StringOutpu
 	return o.ApplyT(func(v ActionGroupAzureAppPushReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the Azure app push receiver.
+// The name of the Azure app push receiver. Changing this forces a new resource to be created.
 func (o ActionGroupAzureAppPushReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupAzureAppPushReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -565,7 +565,7 @@ type ActionGroupAzureFunctionReceiver struct {
 	FunctionName string `pulumi:"functionName"`
 	// The HTTP trigger url where HTTP request sent to.
 	HttpTriggerUrl string `pulumi:"httpTriggerUrl"`
-	// The name of the Azure Function receiver.
+	// The name of the Azure Function receiver. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Enables or disables the common alert schema.
 	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
@@ -589,7 +589,7 @@ type ActionGroupAzureFunctionReceiverArgs struct {
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
 	// The HTTP trigger url where HTTP request sent to.
 	HttpTriggerUrl pulumi.StringInput `pulumi:"httpTriggerUrl"`
-	// The name of the Azure Function receiver.
+	// The name of the Azure Function receiver. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Enables or disables the common alert schema.
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
@@ -661,7 +661,7 @@ func (o ActionGroupAzureFunctionReceiverOutput) HttpTriggerUrl() pulumi.StringOu
 	return o.ApplyT(func(v ActionGroupAzureFunctionReceiver) string { return v.HttpTriggerUrl }).(pulumi.StringOutput)
 }
 
-// The name of the Azure Function receiver.
+// The name of the Azure Function receiver. Changing this forces a new resource to be created.
 func (o ActionGroupAzureFunctionReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupAzureFunctionReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -694,7 +694,7 @@ func (o ActionGroupAzureFunctionReceiverArrayOutput) Index(i pulumi.IntInput) Ac
 type ActionGroupEmailReceiver struct {
 	// The email address of this receiver.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Enables or disables the common alert schema.
 	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
@@ -714,7 +714,7 @@ type ActionGroupEmailReceiverInput interface {
 type ActionGroupEmailReceiverArgs struct {
 	// The email address of this receiver.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Enables or disables the common alert schema.
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
@@ -776,7 +776,7 @@ func (o ActionGroupEmailReceiverOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupEmailReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+// The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
 func (o ActionGroupEmailReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupEmailReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -815,7 +815,7 @@ type ActionGroupEventHubReceiver struct {
 	EventHubName *string `pulumi:"eventHubName"`
 	// The namespace name of the Event Hub.
 	EventHubNamespace *string `pulumi:"eventHubNamespace"`
-	// The name of the EventHub Receiver, must be unique within action group.
+	// The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
 	SubscriptionId *string `pulumi:"subscriptionId"`
@@ -845,7 +845,7 @@ type ActionGroupEventHubReceiverArgs struct {
 	EventHubName pulumi.StringPtrInput `pulumi:"eventHubName"`
 	// The namespace name of the Event Hub.
 	EventHubNamespace pulumi.StringPtrInput `pulumi:"eventHubNamespace"`
-	// The name of the EventHub Receiver, must be unique within action group.
+	// The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
 	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
@@ -923,7 +923,7 @@ func (o ActionGroupEventHubReceiverOutput) EventHubNamespace() pulumi.StringPtrO
 	return o.ApplyT(func(v ActionGroupEventHubReceiver) *string { return v.EventHubNamespace }).(pulumi.StringPtrOutput)
 }
 
-// The name of the EventHub Receiver, must be unique within action group.
+// The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
 func (o ActionGroupEventHubReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupEventHubReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -966,7 +966,7 @@ func (o ActionGroupEventHubReceiverArrayOutput) Index(i pulumi.IntInput) ActionG
 type ActionGroupItsmReceiver struct {
 	// The unique connection identifier of the ITSM connection.
 	ConnectionId string `pulumi:"connectionId"`
-	// The name of the ITSM receiver.
+	// The name of the ITSM receiver. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The region of the workspace.
 	Region string `pulumi:"region"`
@@ -990,7 +990,7 @@ type ActionGroupItsmReceiverInput interface {
 type ActionGroupItsmReceiverArgs struct {
 	// The unique connection identifier of the ITSM connection.
 	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
-	// The name of the ITSM receiver.
+	// The name of the ITSM receiver. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The region of the workspace.
 	Region pulumi.StringInput `pulumi:"region"`
@@ -1056,7 +1056,7 @@ func (o ActionGroupItsmReceiverOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupItsmReceiver) string { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// The name of the ITSM receiver.
+// The name of the ITSM receiver. Changing this forces a new resource to be created.
 func (o ActionGroupItsmReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupItsmReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1099,7 +1099,7 @@ func (o ActionGroupItsmReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroup
 type ActionGroupLogicAppReceiver struct {
 	// The callback url where HTTP request sent to.
 	CallbackUrl string `pulumi:"callbackUrl"`
-	// The name of the logic app receiver.
+	// The name of the logic app receiver. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The Azure resource ID of the logic app.
 	ResourceId string `pulumi:"resourceId"`
@@ -1121,7 +1121,7 @@ type ActionGroupLogicAppReceiverInput interface {
 type ActionGroupLogicAppReceiverArgs struct {
 	// The callback url where HTTP request sent to.
 	CallbackUrl pulumi.StringInput `pulumi:"callbackUrl"`
-	// The name of the logic app receiver.
+	// The name of the logic app receiver. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Azure resource ID of the logic app.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
@@ -1185,7 +1185,7 @@ func (o ActionGroupLogicAppReceiverOutput) CallbackUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupLogicAppReceiver) string { return v.CallbackUrl }).(pulumi.StringOutput)
 }
 
-// The name of the logic app receiver.
+// The name of the logic app receiver. Changing this forces a new resource to be created.
 func (o ActionGroupLogicAppReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupLogicAppReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1223,7 +1223,7 @@ func (o ActionGroupLogicAppReceiverArrayOutput) Index(i pulumi.IntInput) ActionG
 type ActionGroupSmsReceiver struct {
 	// The country code of the SMS receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The phone number of the SMS receiver.
 	PhoneNumber string `pulumi:"phoneNumber"`
@@ -1243,7 +1243,7 @@ type ActionGroupSmsReceiverInput interface {
 type ActionGroupSmsReceiverArgs struct {
 	// The country code of the SMS receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The phone number of the SMS receiver.
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
@@ -1305,7 +1305,7 @@ func (o ActionGroupSmsReceiverOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupSmsReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+// The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
 func (o ActionGroupSmsReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupSmsReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1338,7 +1338,7 @@ func (o ActionGroupSmsReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupS
 type ActionGroupVoiceReceiver struct {
 	// The country code of the voice receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the voice receiver.
+	// The name of the voice receiver. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The phone number of the voice receiver.
 	PhoneNumber string `pulumi:"phoneNumber"`
@@ -1358,7 +1358,7 @@ type ActionGroupVoiceReceiverInput interface {
 type ActionGroupVoiceReceiverArgs struct {
 	// The country code of the voice receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the voice receiver.
+	// The name of the voice receiver. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The phone number of the voice receiver.
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
@@ -1420,7 +1420,7 @@ func (o ActionGroupVoiceReceiverOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupVoiceReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the voice receiver.
+// The name of the voice receiver. Changing this forces a new resource to be created.
 func (o ActionGroupVoiceReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupVoiceReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1453,7 +1453,7 @@ func (o ActionGroupVoiceReceiverArrayOutput) Index(i pulumi.IntInput) ActionGrou
 type ActionGroupWebhookReceiver struct {
 	// The `aadAuth` block as defined below
 	AadAuth *ActionGroupWebhookReceiverAadAuth `pulumi:"aadAuth"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The URI where webhooks should be sent.
 	ServiceUri string `pulumi:"serviceUri"`
@@ -1475,7 +1475,7 @@ type ActionGroupWebhookReceiverInput interface {
 type ActionGroupWebhookReceiverArgs struct {
 	// The `aadAuth` block as defined below
 	AadAuth ActionGroupWebhookReceiverAadAuthPtrInput `pulumi:"aadAuth"`
-	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The URI where webhooks should be sent.
 	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
@@ -1539,7 +1539,7 @@ func (o ActionGroupWebhookReceiverOutput) AadAuth() ActionGroupWebhookReceiverAa
 	return o.ApplyT(func(v ActionGroupWebhookReceiver) *ActionGroupWebhookReceiverAadAuth { return v.AadAuth }).(ActionGroupWebhookReceiverAadAuthPtrOutput)
 }
 
-// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
 func (o ActionGroupWebhookReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupWebhookReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -17855,7 +17855,7 @@ func (o ScheduledQueryRulesLogCriteriaPtrOutput) MetricName() pulumi.StringPtrOu
 }
 
 type ScheduledQueryRulesLogCriteriaDimension struct {
-	// Name of the dimension.
+	// Name of the dimension. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Operator for dimension values, - 'Include'.
 	Operator *string `pulumi:"operator"`
@@ -17875,7 +17875,7 @@ type ScheduledQueryRulesLogCriteriaDimensionInput interface {
 }
 
 type ScheduledQueryRulesLogCriteriaDimensionArgs struct {
-	// Name of the dimension.
+	// Name of the dimension. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Operator for dimension values, - 'Include'.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
@@ -17934,7 +17934,7 @@ func (o ScheduledQueryRulesLogCriteriaDimensionOutput) ToScheduledQueryRulesLogC
 	return o
 }
 
-// Name of the dimension.
+// Name of the dimension. Changing this forces a new resource to be created.
 func (o ScheduledQueryRulesLogCriteriaDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesLogCriteriaDimension) string { return v.Name }).(pulumi.StringOutput)
 }

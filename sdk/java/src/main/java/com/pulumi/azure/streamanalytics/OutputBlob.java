@@ -11,7 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -134,14 +134,14 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * The minimum number of rows per batch (must be between `0` and `10000`).
      * 
      */
-    @Export(name="batchMinRows", type=Double.class, parameters={})
-    private Output</* @Nullable */ Double> batchMinRows;
+    @Export(name="batchMinRows", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> batchMinRows;
 
     /**
      * @return The minimum number of rows per batch (must be between `0` and `10000`).
      * 
      */
-    public Output<Optional<Double>> batchMinRows() {
+    public Output<Optional<Integer>> batchMinRows() {
         return Codegen.optional(this.batchMinRows);
     }
     /**

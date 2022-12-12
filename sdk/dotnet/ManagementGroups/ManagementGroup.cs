@@ -73,7 +73,7 @@ namespace Pulumi.Azure.ManagementGroups
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Parent Management Group. Changing this forces a new resource to be created.
+        /// The ID of the Parent Management Group.
         /// </summary>
         [Output("parentManagementGroupId")]
         public Output<string> ParentManagementGroupId { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Azure.ManagementGroups
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Parent Management Group. Changing this forces a new resource to be created.
+        /// The ID of the Parent Management Group.
         /// </summary>
         [Input("parentManagementGroupId")]
         public Input<string>? ParentManagementGroupId { get; set; }
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.ManagementGroups
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Parent Management Group. Changing this forces a new resource to be created.
+        /// The ID of the Parent Management Group.
         /// </summary>
         [Input("parentManagementGroupId")]
         public Input<string>? ParentManagementGroupId { get; set; }

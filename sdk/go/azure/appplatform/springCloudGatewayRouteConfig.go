@@ -98,16 +98,20 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/gateways/gateway1/routeConfigs/routeConfig1
+//	$ pulumi import azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/gateways/gateway1/routeConfigs/routeConfig1
 //
 // ```
 type SpringCloudGatewayRouteConfig struct {
 	pulumi.CustomResourceState
 
+	// Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
+	Filters pulumi.StringArrayOutput `pulumi:"filters"`
 	// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `openApi` blocks as defined below.
 	OpenApi SpringCloudGatewayRouteConfigOpenApiPtrOutput `pulumi:"openApi"`
+	// Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+	Predicates pulumi.StringArrayOutput `pulumi:"predicates"`
 	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
 	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
 	// One or more `route` blocks as defined below.
@@ -116,6 +120,8 @@ type SpringCloudGatewayRouteConfig struct {
 	SpringCloudAppId pulumi.StringPtrOutput `pulumi:"springCloudAppId"`
 	// The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 	SpringCloudGatewayId pulumi.StringOutput `pulumi:"springCloudGatewayId"`
+	// Should the sso validation be enabled in app level?
+	SsoValidationEnabled pulumi.BoolPtrOutput `pulumi:"ssoValidationEnabled"`
 }
 
 // NewSpringCloudGatewayRouteConfig registers a new resource with the given unique name, arguments, and options.
@@ -150,10 +156,14 @@ func GetSpringCloudGatewayRouteConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudGatewayRouteConfig resources.
 type springCloudGatewayRouteConfigState struct {
+	// Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
+	Filters []string `pulumi:"filters"`
 	// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 	Name *string `pulumi:"name"`
 	// One or more `openApi` blocks as defined below.
 	OpenApi *SpringCloudGatewayRouteConfigOpenApi `pulumi:"openApi"`
+	// Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+	Predicates []string `pulumi:"predicates"`
 	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
 	Protocol *string `pulumi:"protocol"`
 	// One or more `route` blocks as defined below.
@@ -162,13 +172,19 @@ type springCloudGatewayRouteConfigState struct {
 	SpringCloudAppId *string `pulumi:"springCloudAppId"`
 	// The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 	SpringCloudGatewayId *string `pulumi:"springCloudGatewayId"`
+	// Should the sso validation be enabled in app level?
+	SsoValidationEnabled *bool `pulumi:"ssoValidationEnabled"`
 }
 
 type SpringCloudGatewayRouteConfigState struct {
+	// Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
+	Filters pulumi.StringArrayInput
 	// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 	Name pulumi.StringPtrInput
 	// One or more `openApi` blocks as defined below.
 	OpenApi SpringCloudGatewayRouteConfigOpenApiPtrInput
+	// Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+	Predicates pulumi.StringArrayInput
 	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
 	Protocol pulumi.StringPtrInput
 	// One or more `route` blocks as defined below.
@@ -177,6 +193,8 @@ type SpringCloudGatewayRouteConfigState struct {
 	SpringCloudAppId pulumi.StringPtrInput
 	// The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 	SpringCloudGatewayId pulumi.StringPtrInput
+	// Should the sso validation be enabled in app level?
+	SsoValidationEnabled pulumi.BoolPtrInput
 }
 
 func (SpringCloudGatewayRouteConfigState) ElementType() reflect.Type {
@@ -184,10 +202,14 @@ func (SpringCloudGatewayRouteConfigState) ElementType() reflect.Type {
 }
 
 type springCloudGatewayRouteConfigArgs struct {
+	// Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
+	Filters []string `pulumi:"filters"`
 	// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 	Name *string `pulumi:"name"`
 	// One or more `openApi` blocks as defined below.
 	OpenApi *SpringCloudGatewayRouteConfigOpenApi `pulumi:"openApi"`
+	// Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+	Predicates []string `pulumi:"predicates"`
 	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
 	Protocol *string `pulumi:"protocol"`
 	// One or more `route` blocks as defined below.
@@ -196,14 +218,20 @@ type springCloudGatewayRouteConfigArgs struct {
 	SpringCloudAppId *string `pulumi:"springCloudAppId"`
 	// The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 	SpringCloudGatewayId string `pulumi:"springCloudGatewayId"`
+	// Should the sso validation be enabled in app level?
+	SsoValidationEnabled *bool `pulumi:"ssoValidationEnabled"`
 }
 
 // The set of arguments for constructing a SpringCloudGatewayRouteConfig resource.
 type SpringCloudGatewayRouteConfigArgs struct {
+	// Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
+	Filters pulumi.StringArrayInput
 	// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 	Name pulumi.StringPtrInput
 	// One or more `openApi` blocks as defined below.
 	OpenApi SpringCloudGatewayRouteConfigOpenApiPtrInput
+	// Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+	Predicates pulumi.StringArrayInput
 	// Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
 	Protocol pulumi.StringPtrInput
 	// One or more `route` blocks as defined below.
@@ -212,6 +240,8 @@ type SpringCloudGatewayRouteConfigArgs struct {
 	SpringCloudAppId pulumi.StringPtrInput
 	// The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 	SpringCloudGatewayId pulumi.StringInput
+	// Should the sso validation be enabled in app level?
+	SsoValidationEnabled pulumi.BoolPtrInput
 }
 
 func (SpringCloudGatewayRouteConfigArgs) ElementType() reflect.Type {
@@ -301,6 +331,11 @@ func (o SpringCloudGatewayRouteConfigOutput) ToSpringCloudGatewayRouteConfigOutp
 	return o
 }
 
+// Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
+func (o SpringCloudGatewayRouteConfigOutput) Filters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayRouteConfig) pulumi.StringArrayOutput { return v.Filters }).(pulumi.StringArrayOutput)
+}
+
 // The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 func (o SpringCloudGatewayRouteConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudGatewayRouteConfig) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -309,6 +344,11 @@ func (o SpringCloudGatewayRouteConfigOutput) Name() pulumi.StringOutput {
 // One or more `openApi` blocks as defined below.
 func (o SpringCloudGatewayRouteConfigOutput) OpenApi() SpringCloudGatewayRouteConfigOpenApiPtrOutput {
 	return o.ApplyT(func(v *SpringCloudGatewayRouteConfig) SpringCloudGatewayRouteConfigOpenApiPtrOutput { return v.OpenApi }).(SpringCloudGatewayRouteConfigOpenApiPtrOutput)
+}
+
+// Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+func (o SpringCloudGatewayRouteConfigOutput) Predicates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayRouteConfig) pulumi.StringArrayOutput { return v.Predicates }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
@@ -329,6 +369,11 @@ func (o SpringCloudGatewayRouteConfigOutput) SpringCloudAppId() pulumi.StringPtr
 // The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 func (o SpringCloudGatewayRouteConfigOutput) SpringCloudGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudGatewayRouteConfig) pulumi.StringOutput { return v.SpringCloudGatewayId }).(pulumi.StringOutput)
+}
+
+// Should the sso validation be enabled in app level?
+func (o SpringCloudGatewayRouteConfigOutput) SsoValidationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayRouteConfig) pulumi.BoolPtrOutput { return v.SsoValidationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type SpringCloudGatewayRouteConfigArrayOutput struct{ *pulumi.OutputState }

@@ -65,6 +65,7 @@ import (
 type AccessConnector struct {
 	pulumi.CustomResourceState
 
+	// An `identity` block as defined below.
 	Identity AccessConnectorIdentityOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -111,6 +112,7 @@ func GetAccessConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessConnector resources.
 type accessConnectorState struct {
+	// An `identity` block as defined below.
 	Identity *AccessConnectorIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -123,6 +125,7 @@ type accessConnectorState struct {
 }
 
 type AccessConnectorState struct {
+	// An `identity` block as defined below.
 	Identity AccessConnectorIdentityPtrInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -139,6 +142,7 @@ func (AccessConnectorState) ElementType() reflect.Type {
 }
 
 type accessConnectorArgs struct {
+	// An `identity` block as defined below.
 	Identity AccessConnectorIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -152,6 +156,7 @@ type accessConnectorArgs struct {
 
 // The set of arguments for constructing a AccessConnector resource.
 type AccessConnectorArgs struct {
+	// An `identity` block as defined below.
 	Identity AccessConnectorIdentityInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -250,6 +255,7 @@ func (o AccessConnectorOutput) ToAccessConnectorOutputWithContext(ctx context.Co
 	return o
 }
 
+// An `identity` block as defined below.
 func (o AccessConnectorOutput) Identity() AccessConnectorIdentityOutput {
 	return o.ApplyT(func(v *AccessConnector) AccessConnectorIdentityOutput { return v.Identity }).(AccessConnectorIdentityOutput)
 }

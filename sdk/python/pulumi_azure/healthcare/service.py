@@ -29,14 +29,14 @@ class ServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
         :param pulumi.Input['ServiceAuthenticationConfigurationArgs'] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input['ServiceCorsConfigurationArgs'] cors_configuration: A `cors_configuration` block as defined below.
         :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
         :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
-        :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
-        :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience.
+        :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -66,7 +66,7 @@ class ServiceArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the Resource Group in which to create the Service.
+        The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -147,7 +147,7 @@ class ServiceArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the supported Azure Region where the Service should be created.
+        Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -159,7 +159,7 @@ class ServiceArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the service instance. Used for service endpoint, must be unique within the audience.
+        The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -213,10 +213,10 @@ class _ServiceState:
         :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
         :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
-        :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
-        :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience.
+        :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if access_policy_object_ids is not None:
@@ -315,7 +315,7 @@ class _ServiceState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the supported Azure Region where the Service should be created.
+        Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -327,7 +327,7 @@ class _ServiceState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the service instance. Used for service endpoint, must be unique within the audience.
+        The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -351,7 +351,7 @@ class _ServiceState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Resource Group in which to create the Service.
+        The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -447,10 +447,10 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
         :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
-        :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
-        :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience.
+        :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -591,10 +591,10 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
         :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`10000`. Defaults to `400`.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
-        :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
-        :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience.
+        :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -663,7 +663,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Specifies the supported Azure Region where the Service should be created.
+        Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -671,7 +671,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the service instance. Used for service endpoint, must be unique within the audience.
+        The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -687,7 +687,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the Resource Group in which to create the Service.
+        The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

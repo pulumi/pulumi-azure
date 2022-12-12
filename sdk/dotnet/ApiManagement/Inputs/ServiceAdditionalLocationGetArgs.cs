@@ -76,7 +76,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<string>? _zones;
 
         /// <summary>
-        /// A list of availability zones.
+        /// A list of availability zones. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> Zones
         {

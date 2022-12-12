@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<Inputs.ActionGroupWebhookReceiverAadAuthGetArgs>? AadAuth { get; set; }
 
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        /// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

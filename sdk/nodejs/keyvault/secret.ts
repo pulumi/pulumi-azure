@@ -88,7 +88,7 @@ export class Secret extends pulumi.CustomResource {
      */
     public readonly expirationDate!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the Key Vault where the Secret should be created.
+     * The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
      */
     public readonly keyVaultId!: pulumi.Output<string>;
     /**
@@ -186,7 +186,7 @@ export interface SecretState {
      */
     expirationDate?: pulumi.Input<string>;
     /**
-     * The ID of the Key Vault where the Secret should be created.
+     * The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
      */
     keyVaultId?: pulumi.Input<string>;
     /**
@@ -236,7 +236,7 @@ export interface SecretArgs {
      */
     expirationDate?: pulumi.Input<string>;
     /**
-     * The ID of the Key Vault where the Secret should be created.
+     * The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
      */
     keyVaultId: pulumi.Input<string>;
     /**

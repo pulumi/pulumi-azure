@@ -77,11 +77,11 @@ export class Probe extends pulumi.CustomResource {
     public readonly intervalInSeconds!: pulumi.Output<number | undefined>;
     public /*out*/ readonly loadBalancerRules!: pulumi.Output<string[]>;
     /**
-     * The ID of the LoadBalancer in which to create the NAT Rule.
+     * The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
      */
     public readonly loadbalancerId!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Probe.
+     * Specifies the name of the Probe. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -92,6 +92,10 @@ export class Probe extends pulumi.CustomResource {
      * Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
      */
     public readonly port!: pulumi.Output<number>;
+    /**
+     * The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+     */
+    public readonly probeThreshold!: pulumi.Output<number | undefined>;
     /**
      * Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
      */
@@ -120,6 +124,7 @@ export class Probe extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["numberOfProbes"] = state ? state.numberOfProbes : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["probeThreshold"] = state ? state.probeThreshold : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
             resourceInputs["requestPath"] = state ? state.requestPath : undefined;
         } else {
@@ -135,6 +140,7 @@ export class Probe extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["numberOfProbes"] = args ? args.numberOfProbes : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["probeThreshold"] = args ? args.probeThreshold : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["requestPath"] = args ? args.requestPath : undefined;
             resourceInputs["loadBalancerRules"] = undefined /*out*/;
@@ -154,11 +160,11 @@ export interface ProbeState {
     intervalInSeconds?: pulumi.Input<number>;
     loadBalancerRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ID of the LoadBalancer in which to create the NAT Rule.
+     * The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
      */
     loadbalancerId?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Probe.
+     * Specifies the name of the Probe. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -169,6 +175,10 @@ export interface ProbeState {
      * Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
      */
     port?: pulumi.Input<number>;
+    /**
+     * The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+     */
+    probeThreshold?: pulumi.Input<number>;
     /**
      * Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
      */
@@ -188,11 +198,11 @@ export interface ProbeArgs {
      */
     intervalInSeconds?: pulumi.Input<number>;
     /**
-     * The ID of the LoadBalancer in which to create the NAT Rule.
+     * The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
      */
     loadbalancerId: pulumi.Input<string>;
     /**
-     * Specifies the name of the Probe.
+     * Specifies the name of the Probe. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -203,6 +213,10 @@ export interface ProbeArgs {
      * Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
      */
     port: pulumi.Input<number>;
+    /**
+     * The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+     */
+    probeThreshold?: pulumi.Input<number>;
     /**
      * Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
      */

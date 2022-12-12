@@ -18,14 +18,14 @@ public final class KubernetesClusterMaintenanceWindowArgs extends com.pulumi.res
     public static final KubernetesClusterMaintenanceWindowArgs Empty = new KubernetesClusterMaintenanceWindowArgs();
 
     /**
-     * One or more `allowed` block as defined below.
+     * One or more `allowed` blocks as defined below.
      * 
      */
     @Import(name="alloweds")
     private @Nullable Output<List<KubernetesClusterMaintenanceWindowAllowedArgs>> alloweds;
 
     /**
-     * @return One or more `allowed` block as defined below.
+     * @return One or more `allowed` blocks as defined below.
      * 
      */
     public Optional<Output<List<KubernetesClusterMaintenanceWindowAllowedArgs>>> alloweds() {
@@ -73,7 +73,7 @@ public final class KubernetesClusterMaintenanceWindowArgs extends com.pulumi.res
         }
 
         /**
-         * @param alloweds One or more `allowed` block as defined below.
+         * @param alloweds One or more `allowed` blocks as defined below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class KubernetesClusterMaintenanceWindowArgs extends com.pulumi.res
         }
 
         /**
-         * @param alloweds One or more `allowed` block as defined below.
+         * @param alloweds One or more `allowed` blocks as defined below.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class KubernetesClusterMaintenanceWindowArgs extends com.pulumi.res
         }
 
         /**
-         * @param alloweds One or more `allowed` block as defined below.
+         * @param alloweds One or more `allowed` blocks as defined below.
          * 
          * @return builder
          * 

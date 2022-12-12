@@ -194,14 +194,14 @@ public class ResourceGroupCostManagementExport extends com.pulumi.resources.Cust
         return this.recurrenceType;
     }
     /**
-     * The id of the resource group on which to create an export.
+     * The id of the resource group on which to create an export. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupId", type=String.class, parameters={})
     private Output<String> resourceGroupId;
 
     /**
-     * @return The id of the resource group on which to create an export.
+     * @return The id of the resource group on which to create an export. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupId() {

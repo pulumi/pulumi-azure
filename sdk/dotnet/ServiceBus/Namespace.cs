@@ -127,7 +127,7 @@ namespace Pulumi.Azure.ServiceBus
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
+        /// The name of the resource group in which to Changing this forces a new resource to be created.
         /// create the namespace.
         /// </summary>
         [Output("resourceGroupName")]
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.ServiceBus
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+        /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zoneRedundant")]
         public Output<bool?> ZoneRedundant { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
+        /// The name of the resource group in which to Changing this forces a new resource to be created.
         /// create the namespace.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.ServiceBus
         }
 
         /// <summary>
-        /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+        /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }
@@ -365,7 +365,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
+        /// The name of the resource group in which to Changing this forces a new resource to be created.
         /// create the namespace.
         /// </summary>
         [Input("resourceGroupName")]
@@ -390,7 +390,7 @@ namespace Pulumi.Azure.ServiceBus
         }
 
         /// <summary>
-        /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+        /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }

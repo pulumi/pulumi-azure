@@ -110,6 +110,10 @@ type KubernetesCluster struct {
 	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrOutput `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity KubernetesClusterIdentityPtrOutput `pulumi:"identity"`
+	// Specifies whether Image Cleaner is enabled.
+	ImageCleanerEnabled pulumi.BoolPtrOutput `pulumi:"imageCleanerEnabled"`
+	// Specifies the interval in hours when images should be cleaned up.
+	ImageCleanerIntervalHours pulumi.IntPtrOutput `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrOutput `pulumi:"ingressApplicationGateway"`
 	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
@@ -156,7 +160,7 @@ type KubernetesCluster struct {
 	PrivateClusterEnabled pulumi.BoolPtrOutput `pulumi:"privateClusterEnabled"`
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrOutput `pulumi:"privateClusterPublicFqdnEnabled"`
-	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PrivateFqdn                pulumi.StringOutput  `pulumi:"privateFqdn"`
@@ -171,6 +175,8 @@ type KubernetesCluster struct {
 	ServicePrincipal KubernetesClusterServicePrincipalPtrOutput `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
+	// A `storageProfile` block as defined below.
+	StorageProfile KubernetesClusterStorageProfilePtrOutput `pulumi:"storageProfile"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `webAppRouting` block as defined below.
@@ -251,6 +257,10 @@ type kubernetesClusterState struct {
 	HttpProxyConfig *KubernetesClusterHttpProxyConfig `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
+	// Specifies whether Image Cleaner is enabled.
+	ImageCleanerEnabled *bool `pulumi:"imageCleanerEnabled"`
+	// Specifies the interval in hours when images should be cleaned up.
+	ImageCleanerIntervalHours *int `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway *KubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
 	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
@@ -297,7 +307,7 @@ type kubernetesClusterState struct {
 	PrivateClusterEnabled *bool `pulumi:"privateClusterEnabled"`
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 	PrivateClusterPublicFqdnEnabled *bool `pulumi:"privateClusterPublicFqdnEnabled"`
-	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PrivateFqdn                *string `pulumi:"privateFqdn"`
@@ -312,6 +322,8 @@ type kubernetesClusterState struct {
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier *string `pulumi:"skuTier"`
+	// A `storageProfile` block as defined below.
+	StorageProfile *KubernetesClusterStorageProfile `pulumi:"storageProfile"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `webAppRouting` block as defined below.
@@ -358,6 +370,10 @@ type KubernetesClusterState struct {
 	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrInput
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity KubernetesClusterIdentityPtrInput
+	// Specifies whether Image Cleaner is enabled.
+	ImageCleanerEnabled pulumi.BoolPtrInput
+	// Specifies the interval in hours when images should be cleaned up.
+	ImageCleanerIntervalHours pulumi.IntPtrInput
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrInput
 	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
@@ -404,7 +420,7 @@ type KubernetesClusterState struct {
 	PrivateClusterEnabled pulumi.BoolPtrInput
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrInput
-	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PrivateFqdn                pulumi.StringPtrInput
@@ -419,6 +435,8 @@ type KubernetesClusterState struct {
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier pulumi.StringPtrInput
+	// A `storageProfile` block as defined below.
+	StorageProfile KubernetesClusterStorageProfilePtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `webAppRouting` block as defined below.
@@ -465,6 +483,10 @@ type kubernetesClusterArgs struct {
 	HttpProxyConfig *KubernetesClusterHttpProxyConfig `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
+	// Specifies whether Image Cleaner is enabled.
+	ImageCleanerEnabled *bool `pulumi:"imageCleanerEnabled"`
+	// Specifies the interval in hours when images should be cleaned up.
+	ImageCleanerIntervalHours *int `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway *KubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
 	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
@@ -499,7 +521,7 @@ type kubernetesClusterArgs struct {
 	PrivateClusterEnabled *bool `pulumi:"privateClusterEnabled"`
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 	PrivateClusterPublicFqdnEnabled *bool `pulumi:"privateClusterPublicFqdnEnabled"`
-	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId           *string `pulumi:"privateDnsZoneId"`
 	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -512,6 +534,8 @@ type kubernetesClusterArgs struct {
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier *string `pulumi:"skuTier"`
+	// A `storageProfile` block as defined below.
+	StorageProfile *KubernetesClusterStorageProfile `pulumi:"storageProfile"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `webAppRouting` block as defined below.
@@ -555,6 +579,10 @@ type KubernetesClusterArgs struct {
 	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrInput
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity KubernetesClusterIdentityPtrInput
+	// Specifies whether Image Cleaner is enabled.
+	ImageCleanerEnabled pulumi.BoolPtrInput
+	// Specifies the interval in hours when images should be cleaned up.
+	ImageCleanerIntervalHours pulumi.IntPtrInput
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrInput
 	// A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
@@ -589,7 +617,7 @@ type KubernetesClusterArgs struct {
 	PrivateClusterEnabled pulumi.BoolPtrInput
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrInput
-	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId           pulumi.StringPtrInput
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -602,6 +630,8 @@ type KubernetesClusterArgs struct {
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier pulumi.StringPtrInput
+	// A `storageProfile` block as defined below.
+	StorageProfile KubernetesClusterStorageProfilePtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `webAppRouting` block as defined below.
@@ -787,6 +817,16 @@ func (o KubernetesClusterOutput) Identity() KubernetesClusterIdentityPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterIdentityPtrOutput { return v.Identity }).(KubernetesClusterIdentityPtrOutput)
 }
 
+// Specifies whether Image Cleaner is enabled.
+func (o KubernetesClusterOutput) ImageCleanerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.ImageCleanerEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the interval in hours when images should be cleaned up.
+func (o KubernetesClusterOutput) ImageCleanerIntervalHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) pulumi.IntPtrOutput { return v.ImageCleanerIntervalHours }).(pulumi.IntPtrOutput)
+}
+
 // A `ingressApplicationGateway` block as defined below.
 func (o KubernetesClusterOutput) IngressApplicationGateway() KubernetesClusterIngressApplicationGatewayPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterIngressApplicationGatewayPtrOutput {
@@ -906,7 +946,7 @@ func (o KubernetesClusterOutput) PrivateClusterPublicFqdnEnabled() pulumi.BoolPt
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.PrivateClusterPublicFqdnEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 func (o KubernetesClusterOutput) PrivateDnsZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.PrivateDnsZoneId }).(pulumi.StringOutput)
 }
@@ -943,6 +983,11 @@ func (o KubernetesClusterOutput) ServicePrincipal() KubernetesClusterServicePrin
 // The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
 func (o KubernetesClusterOutput) SkuTier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.SkuTier }).(pulumi.StringPtrOutput)
+}
+
+// A `storageProfile` block as defined below.
+func (o KubernetesClusterOutput) StorageProfile() KubernetesClusterStorageProfilePtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterStorageProfilePtrOutput { return v.StorageProfile }).(KubernetesClusterStorageProfilePtrOutput)
 }
 
 // A mapping of tags to assign to the resource.

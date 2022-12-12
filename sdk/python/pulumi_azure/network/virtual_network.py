@@ -30,7 +30,7 @@ class VirtualNetworkArgs:
         """
         The set of arguments for constructing a VirtualNetwork resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
         :param pulumi.Input['VirtualNetworkDdosProtectionPlanArgs'] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of IP addresses of DNS servers
@@ -78,7 +78,7 @@ class VirtualNetworkArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the virtual network.
+        The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -221,7 +221,7 @@ class _VirtualNetworkState:
         :param pulumi.Input[str] guid: The GUID of the virtual network.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -362,7 +362,7 @@ class _VirtualNetworkState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the virtual network.
+        The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -474,7 +474,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -625,7 +625,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] guid: The GUID of the virtual network.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -723,7 +723,7 @@ class VirtualNetwork(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the virtual network.
+        The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

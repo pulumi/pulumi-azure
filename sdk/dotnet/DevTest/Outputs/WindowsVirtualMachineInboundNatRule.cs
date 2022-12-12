@@ -22,7 +22,7 @@ namespace Pulumi.Azure.DevTest.Outputs
         /// </summary>
         public readonly int? FrontendPort;
         /// <summary>
-        /// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+        /// The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
         /// </summary>
         public readonly string Protocol;
 

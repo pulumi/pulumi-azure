@@ -70,14 +70,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:dataprotection/backupVault:BackupVault")
 public class BackupVault extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
+     * Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="datastoreType", type=String.class, parameters={})
     private Output<String> datastoreType;
 
     /**
-     * @return Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
+     * @return Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> datastoreType() {

@@ -64,14 +64,14 @@ public final class TimeSeriesInsightsGen2EnvironmentArgs extends com.pulumi.reso
     }
 
     /**
-     * The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+     * The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+     * @return The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -79,14 +79,14 @@ public final class TimeSeriesInsightsGen2EnvironmentArgs extends com.pulumi.reso
     }
 
     /**
-     * Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+     * Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="skuName", required=true)
     private Output<String> skuName;
 
     /**
-     * @return Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+     * @return Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> skuName() {
@@ -124,14 +124,14 @@ public final class TimeSeriesInsightsGen2EnvironmentArgs extends com.pulumi.reso
     }
 
     /**
-     * Specifies the ISO8601 timespan specifying the minimum number of days the environment&#39;s events will be available for query. Changing this forces a new resource to be created.
+     * Specifies the ISO8601 timespan specifying the minimum number of days the environment&#39;s events will be available for query.
      * 
      */
     @Import(name="warmStoreDataRetentionTime")
     private @Nullable Output<String> warmStoreDataRetentionTime;
 
     /**
-     * @return Specifies the ISO8601 timespan specifying the minimum number of days the environment&#39;s events will be available for query. Changing this forces a new resource to be created.
+     * @return Specifies the ISO8601 timespan specifying the minimum number of days the environment&#39;s events will be available for query.
      * 
      */
     public Optional<Output<String>> warmStoreDataRetentionTime() {
@@ -243,7 +243,7 @@ public final class TimeSeriesInsightsGen2EnvironmentArgs extends com.pulumi.reso
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+         * @param resourceGroupName The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class TimeSeriesInsightsGen2EnvironmentArgs extends com.pulumi.reso
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment.
+         * @param resourceGroupName The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class TimeSeriesInsightsGen2EnvironmentArgs extends com.pulumi.reso
         }
 
         /**
-         * @param skuName Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+         * @param skuName Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class TimeSeriesInsightsGen2EnvironmentArgs extends com.pulumi.reso
         }
 
         /**
-         * @param skuName Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified.
+         * @param skuName Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class TimeSeriesInsightsGen2EnvironmentArgs extends com.pulumi.reso
         }
 
         /**
-         * @param warmStoreDataRetentionTime Specifies the ISO8601 timespan specifying the minimum number of days the environment&#39;s events will be available for query. Changing this forces a new resource to be created.
+         * @param warmStoreDataRetentionTime Specifies the ISO8601 timespan specifying the minimum number of days the environment&#39;s events will be available for query.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class TimeSeriesInsightsGen2EnvironmentArgs extends com.pulumi.reso
         }
 
         /**
-         * @param warmStoreDataRetentionTime Specifies the ISO8601 timespan specifying the minimum number of days the environment&#39;s events will be available for query. Changing this forces a new resource to be created.
+         * @param warmStoreDataRetentionTime Specifies the ISO8601 timespan specifying the minimum number of days the environment&#39;s events will be available for query.
          * 
          * @return builder
          * 

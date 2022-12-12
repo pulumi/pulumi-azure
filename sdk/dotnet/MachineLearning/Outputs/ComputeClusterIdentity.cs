@@ -14,7 +14,7 @@ namespace Pulumi.Azure.MachineLearning.Outputs
     public sealed class ComputeClusterIdentity
     {
         /// <summary>
-        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.MachineLearning.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        /// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Type;
 

@@ -375,14 +375,14 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+     * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="zones")
     private @Nullable Output<String> zones;
 
     /**
-     * @return A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+     * @return A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> zones() {
@@ -950,7 +950,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param zones A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+         * @param zones A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -961,7 +961,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param zones A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+         * @param zones A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

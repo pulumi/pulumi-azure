@@ -65,14 +65,14 @@ public final class FirewallPolicyCustomRuleArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+     * Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+     * @return Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -244,7 +244,7 @@ public final class FirewallPolicyCustomRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+         * @param name Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class FirewallPolicyCustomRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+         * @param name Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

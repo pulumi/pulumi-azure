@@ -25,7 +25,7 @@ namespace Pulumi.Azure.LogAnalytics.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

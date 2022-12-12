@@ -77,14 +77,14 @@ public final class TimeSeriesInsightsStandardEnvironmentArgs extends com.pulumi.
     }
 
     /**
-     * The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+     * The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+     * @return The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -252,7 +252,7 @@ public final class TimeSeriesInsightsStandardEnvironmentArgs extends com.pulumi.
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+         * @param resourceGroupName The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class TimeSeriesInsightsStandardEnvironmentArgs extends com.pulumi.
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
+         * @param resourceGroupName The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

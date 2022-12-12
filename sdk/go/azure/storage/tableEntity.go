@@ -85,11 +85,9 @@ type TableEntity struct {
 	PartitionKey pulumi.StringOutput `pulumi:"partitionKey"`
 	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
 	RowKey pulumi.StringOutput `pulumi:"rowKey"`
-	// Specifies the storage account in which to create the storage table entity.
-	// Changing this forces a new resource to be created.
+	// Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
-	// The name of the storage table in which to create the storage table entity.
-	// Changing this forces a new resource to be created.
+	// The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 }
 
@@ -143,11 +141,9 @@ type tableEntityState struct {
 	PartitionKey *string `pulumi:"partitionKey"`
 	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
 	RowKey *string `pulumi:"rowKey"`
-	// Specifies the storage account in which to create the storage table entity.
-	// Changing this forces a new resource to be created.
+	// Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
-	// The name of the storage table in which to create the storage table entity.
-	// Changing this forces a new resource to be created.
+	// The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
 	TableName *string `pulumi:"tableName"`
 }
 
@@ -158,11 +154,9 @@ type TableEntityState struct {
 	PartitionKey pulumi.StringPtrInput
 	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
 	RowKey pulumi.StringPtrInput
-	// Specifies the storage account in which to create the storage table entity.
-	// Changing this forces a new resource to be created.
+	// Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput
-	// The name of the storage table in which to create the storage table entity.
-	// Changing this forces a new resource to be created.
+	// The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
 	TableName pulumi.StringPtrInput
 }
 
@@ -177,11 +171,9 @@ type tableEntityArgs struct {
 	PartitionKey string `pulumi:"partitionKey"`
 	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
 	RowKey string `pulumi:"rowKey"`
-	// Specifies the storage account in which to create the storage table entity.
-	// Changing this forces a new resource to be created.
+	// Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
 	StorageAccountName string `pulumi:"storageAccountName"`
-	// The name of the storage table in which to create the storage table entity.
-	// Changing this forces a new resource to be created.
+	// The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
 	TableName string `pulumi:"tableName"`
 }
 
@@ -193,11 +185,9 @@ type TableEntityArgs struct {
 	PartitionKey pulumi.StringInput
 	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
 	RowKey pulumi.StringInput
-	// Specifies the storage account in which to create the storage table entity.
-	// Changing this forces a new resource to be created.
+	// Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringInput
-	// The name of the storage table in which to create the storage table entity.
-	// Changing this forces a new resource to be created.
+	// The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
 	TableName pulumi.StringInput
 }
 
@@ -303,14 +293,12 @@ func (o TableEntityOutput) RowKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableEntity) pulumi.StringOutput { return v.RowKey }).(pulumi.StringOutput)
 }
 
-// Specifies the storage account in which to create the storage table entity.
-// Changing this forces a new resource to be created.
+// Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
 func (o TableEntityOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableEntity) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
-// The name of the storage table in which to create the storage table entity.
-// Changing this forces a new resource to be created.
+// The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
 func (o TableEntityOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableEntity) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }

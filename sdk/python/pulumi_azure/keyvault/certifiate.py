@@ -23,7 +23,7 @@ class CertifiateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Certifiate resource.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['CertifiateCertificateArgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate.
         :param pulumi.Input['CertifiateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
@@ -43,7 +43,7 @@ class CertifiateArgs:
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Key Vault where the Certificate should be created.
+        The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -123,7 +123,7 @@ class _CertifiateState:
         :param pulumi.Input[str] certificate_data: The raw Key Vault Certificate data represented as a hexadecimal string.
         :param pulumi.Input[str] certificate_data_base64: The Base64 encoded Key Vault Certificate data.
         :param pulumi.Input['CertifiateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secret_id: The ID of the associated Key Vault Secret.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -223,7 +223,7 @@ class _CertifiateState:
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Key Vault where the Certificate should be created.
+        The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -333,6 +333,184 @@ class Certifiate(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Manages a Key Vault Certificate.
+
+        ## Example Usage
+        ### Importing A PFX)
+
+        > **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+                tenant_id=current.tenant_id,
+                object_id=current.object_id,
+                certificate_permissions=[
+                    "Create",
+                    "Delete",
+                    "DeleteIssuers",
+                    "Get",
+                    "GetIssuers",
+                    "Import",
+                    "List",
+                    "ListIssuers",
+                    "ManageContacts",
+                    "ManageIssuers",
+                    "SetIssuers",
+                    "Update",
+                ],
+                key_permissions=[
+                    "Backup",
+                    "Create",
+                    "Decrypt",
+                    "Delete",
+                    "Encrypt",
+                    "Get",
+                    "Import",
+                    "List",
+                    "Purge",
+                    "Recover",
+                    "Restore",
+                    "Sign",
+                    "UnwrapKey",
+                    "Update",
+                    "Verify",
+                    "WrapKey",
+                ],
+                secret_permissions=[
+                    "Backup",
+                    "Delete",
+                    "Get",
+                    "List",
+                    "Purge",
+                    "Recover",
+                    "Restore",
+                    "Set",
+                ],
+            )])
+        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+            key_vault_id=example_key_vault.id,
+            certificate=azure.keyvault.CertificateCertificateArgs(
+                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
+                password="",
+            ))
+        ```
+        ### Generating a new certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            soft_delete_retention_days=7,
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+                tenant_id=current.tenant_id,
+                object_id=current.object_id,
+                certificate_permissions=[
+                    "Create",
+                    "Delete",
+                    "DeleteIssuers",
+                    "Get",
+                    "GetIssuers",
+                    "Import",
+                    "List",
+                    "ListIssuers",
+                    "ManageContacts",
+                    "ManageIssuers",
+                    "Purge",
+                    "SetIssuers",
+                    "Update",
+                ],
+                key_permissions=[
+                    "Backup",
+                    "Create",
+                    "Decrypt",
+                    "Delete",
+                    "Encrypt",
+                    "Get",
+                    "Import",
+                    "List",
+                    "Purge",
+                    "Recover",
+                    "Restore",
+                    "Sign",
+                    "UnwrapKey",
+                    "Update",
+                    "Verify",
+                    "WrapKey",
+                ],
+                secret_permissions=[
+                    "Backup",
+                    "Delete",
+                    "Get",
+                    "List",
+                    "Purge",
+                    "Recover",
+                    "Restore",
+                    "Set",
+                ],
+            )])
+        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+            key_vault_id=example_key_vault.id,
+            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
+                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
+                    name="Self",
+                ),
+                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
+                    exportable=True,
+                    key_size=2048,
+                    key_type="RSA",
+                    reuse_key=True,
+                ),
+                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArgs(
+                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArgs(
+                        action_type="AutoRenew",
+                    ),
+                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs(
+                        days_before_expiry=30,
+                    ),
+                )],
+                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
+                    content_type="application/x-pkcs12",
+                ),
+                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs(
+                    extended_key_usages=["1.3.6.1.5.5.7.3.1"],
+                    key_usages=[
+                        "cRLSign",
+                        "dataEncipherment",
+                        "digitalSignature",
+                        "keyAgreement",
+                        "keyCertSign",
+                        "keyEncipherment",
+                    ],
+                    subject_alternative_names=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs(
+                        dns_names=[
+                            "internal.contoso.com",
+                            "domain.hello.world",
+                        ],
+                    ),
+                    subject="CN=hello-world",
+                    validity_in_months=12,
+                ),
+            ))
+        ```
+
         ## Import
 
         Key Vault Certificates can be imported using the `resource id`, e.g.
@@ -345,7 +523,7 @@ class Certifiate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CertifiateCertificateArgs']] certificate: A `certificate` block as defined below, used to Import an existing certificate.
         :param pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -356,6 +534,184 @@ class Certifiate(pulumi.CustomResource):
                  args: CertifiateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Key Vault Certificate.
+
+        ## Example Usage
+        ### Importing A PFX)
+
+        > **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+                tenant_id=current.tenant_id,
+                object_id=current.object_id,
+                certificate_permissions=[
+                    "Create",
+                    "Delete",
+                    "DeleteIssuers",
+                    "Get",
+                    "GetIssuers",
+                    "Import",
+                    "List",
+                    "ListIssuers",
+                    "ManageContacts",
+                    "ManageIssuers",
+                    "SetIssuers",
+                    "Update",
+                ],
+                key_permissions=[
+                    "Backup",
+                    "Create",
+                    "Decrypt",
+                    "Delete",
+                    "Encrypt",
+                    "Get",
+                    "Import",
+                    "List",
+                    "Purge",
+                    "Recover",
+                    "Restore",
+                    "Sign",
+                    "UnwrapKey",
+                    "Update",
+                    "Verify",
+                    "WrapKey",
+                ],
+                secret_permissions=[
+                    "Backup",
+                    "Delete",
+                    "Get",
+                    "List",
+                    "Purge",
+                    "Recover",
+                    "Restore",
+                    "Set",
+                ],
+            )])
+        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+            key_vault_id=example_key_vault.id,
+            certificate=azure.keyvault.CertificateCertificateArgs(
+                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
+                password="",
+            ))
+        ```
+        ### Generating a new certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            soft_delete_retention_days=7,
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+                tenant_id=current.tenant_id,
+                object_id=current.object_id,
+                certificate_permissions=[
+                    "Create",
+                    "Delete",
+                    "DeleteIssuers",
+                    "Get",
+                    "GetIssuers",
+                    "Import",
+                    "List",
+                    "ListIssuers",
+                    "ManageContacts",
+                    "ManageIssuers",
+                    "Purge",
+                    "SetIssuers",
+                    "Update",
+                ],
+                key_permissions=[
+                    "Backup",
+                    "Create",
+                    "Decrypt",
+                    "Delete",
+                    "Encrypt",
+                    "Get",
+                    "Import",
+                    "List",
+                    "Purge",
+                    "Recover",
+                    "Restore",
+                    "Sign",
+                    "UnwrapKey",
+                    "Update",
+                    "Verify",
+                    "WrapKey",
+                ],
+                secret_permissions=[
+                    "Backup",
+                    "Delete",
+                    "Get",
+                    "List",
+                    "Purge",
+                    "Recover",
+                    "Restore",
+                    "Set",
+                ],
+            )])
+        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+            key_vault_id=example_key_vault.id,
+            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
+                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
+                    name="Self",
+                ),
+                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
+                    exportable=True,
+                    key_size=2048,
+                    key_type="RSA",
+                    reuse_key=True,
+                ),
+                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArgs(
+                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArgs(
+                        action_type="AutoRenew",
+                    ),
+                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs(
+                        days_before_expiry=30,
+                    ),
+                )],
+                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
+                    content_type="application/x-pkcs12",
+                ),
+                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs(
+                    extended_key_usages=["1.3.6.1.5.5.7.3.1"],
+                    key_usages=[
+                        "cRLSign",
+                        "dataEncipherment",
+                        "digitalSignature",
+                        "keyAgreement",
+                        "keyCertSign",
+                        "keyEncipherment",
+                    ],
+                    subject_alternative_names=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs(
+                        dns_names=[
+                            "internal.contoso.com",
+                            "domain.hello.world",
+                        ],
+                    ),
+                    subject="CN=hello-world",
+                    validity_in_months=12,
+                ),
+            ))
+        ```
+
         ## Import
 
         Key Vault Certificates can be imported using the `resource id`, e.g.
@@ -444,7 +800,7 @@ class Certifiate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_data: The raw Key Vault Certificate data represented as a hexadecimal string.
         :param pulumi.Input[str] certificate_data_base64: The Base64 encoded Key Vault Certificate data.
         :param pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secret_id: The ID of the associated Key Vault Secret.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -516,7 +872,7 @@ class Certifiate(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Key Vault where the Certificate should be created.
+        The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_id")
 

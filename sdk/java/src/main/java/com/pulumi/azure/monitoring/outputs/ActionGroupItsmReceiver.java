@@ -15,7 +15,7 @@ public final class ActionGroupItsmReceiver {
      */
     private String connectionId;
     /**
-     * @return The name of the ITSM receiver.
+     * @return The name of the ITSM receiver. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -44,7 +44,7 @@ public final class ActionGroupItsmReceiver {
         return this.connectionId;
     }
     /**
-     * @return The name of the ITSM receiver.
+     * @return The name of the ITSM receiver. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

@@ -125,14 +125,14 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the key to partition on for sharding. There must not be any other unique index keys.
+     * The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="shardKey")
     private @Nullable Output<String> shardKey;
 
     /**
-     * @return The name of the key to partition on for sharding. There must not be any other unique index keys.
+     * @return The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> shardKey() {
@@ -350,7 +350,7 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param shardKey The name of the key to partition on for sharding. There must not be any other unique index keys.
+         * @param shardKey The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param shardKey The name of the key to partition on for sharding. There must not be any other unique index keys.
+         * @param shardKey The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

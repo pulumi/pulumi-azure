@@ -34,7 +34,7 @@ public final class VirtualMachineStorageOsDisk {
      */
     private @Nullable String imageUri;
     /**
-     * @return Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
+     * @return Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String managedDiskId;
@@ -94,7 +94,7 @@ public final class VirtualMachineStorageOsDisk {
         return Optional.ofNullable(this.imageUri);
     }
     /**
-     * @return Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
+     * @return Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> managedDiskId() {

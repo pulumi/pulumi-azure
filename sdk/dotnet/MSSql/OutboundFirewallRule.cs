@@ -56,13 +56,13 @@ namespace Pulumi.Azure.MSSql
     public partial class OutboundFirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the outbound firewall rule. This should be a FQDN.
+        /// The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+        /// The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
         /// </summary>
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
@@ -114,13 +114,13 @@ namespace Pulumi.Azure.MSSql
     public sealed class OutboundFirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the outbound firewall rule. This should be a FQDN.
+        /// The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+        /// The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
@@ -134,13 +134,13 @@ namespace Pulumi.Azure.MSSql
     public sealed class OutboundFirewallRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the outbound firewall rule. This should be a FQDN.
+        /// The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The resource ID of the SQL Server on which to create the Outbound Firewall Rule.
+        /// The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }

@@ -67,10 +67,9 @@ type Profile struct {
 	// Specifies the name of the CDN Profile. Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the CDN Profile.
+	// The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+	// The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -116,10 +115,9 @@ type profileState struct {
 	// Specifies the name of the CDN Profile. Changing this forces a
 	// new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the CDN Profile.
+	// The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+	// The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -131,10 +129,9 @@ type ProfileState struct {
 	// Specifies the name of the CDN Profile. Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the CDN Profile.
+	// The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+	// The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -150,10 +147,9 @@ type profileArgs struct {
 	// Specifies the name of the CDN Profile. Changing this forces a
 	// new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the CDN Profile.
+	// The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+	// The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -166,10 +162,9 @@ type ProfileArgs struct {
 	// Specifies the name of the CDN Profile. Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the CDN Profile.
+	// The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+	// The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -273,13 +268,12 @@ func (o ProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to
-// create the CDN Profile.
+// The name of the resource group in which to create the CDN Profile. Changing this forces a new resource to be created.
 func (o ProfileOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
+// The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`. Changing this forces a new resource to be created.
 func (o ProfileOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }

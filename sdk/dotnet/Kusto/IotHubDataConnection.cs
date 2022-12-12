@@ -99,7 +99,7 @@ namespace Pulumi.Azure.Kusto
     /// Kusto IotHub Data Connections can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:kusto/iotHubDataConnection:IotHubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/dataConnection1
+    ///  $ pulumi import azure:kusto/iotHubDataConnection:IotHubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/dataConnection1
     /// ```
     /// </summary>
     [AzureResourceType("azure:kusto/iotHubDataConnection:IotHubDataConnection")]
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> ConsumerGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+        /// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dataFormat")]
         public Output<string?> DataFormat { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("databaseRoutingType")]
         public Output<string?> DatabaseRoutingType { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+        /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("mappingRuleName")]
         public Output<string?> MappingRuleName { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> SharedAccessPolicyName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+        /// Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("tableName")]
         public Output<string?> TableName { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string> ConsumerGroup { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+        /// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataFormat")]
         public Input<string>? DataFormat { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("databaseRoutingType")]
         public Input<string>? DatabaseRoutingType { get; set; }
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+        /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("mappingRuleName")]
         public Input<string>? MappingRuleName { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string> SharedAccessPolicyName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+        /// Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? ConsumerGroup { get; set; }
 
         /// <summary>
-        /// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+        /// Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataFormat")]
         public Input<string>? DataFormat { get; set; }
@@ -346,7 +346,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("databaseRoutingType")]
         public Input<string>? DatabaseRoutingType { get; set; }
@@ -376,7 +376,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+        /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("mappingRuleName")]
         public Input<string>? MappingRuleName { get; set; }
@@ -400,7 +400,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? SharedAccessPolicyName { get; set; }
 
         /// <summary>
-        /// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+        /// Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.NetApp.Inputs
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// Location of the primary volume.
+        /// Location of the primary volume. Changing this forces a new resource to be created.
         /// </summary>
         [Input("remoteVolumeLocation", required: true)]
         public Input<string> RemoteVolumeLocation { get; set; } = null!;

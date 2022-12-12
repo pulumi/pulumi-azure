@@ -12,6 +12,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -102,12 +103,26 @@ import javax.annotation.Nullable;
  * Spring Cloud Gateway Route Configs can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/gateways/gateway1/routeConfigs/routeConfig1
+ *  $ pulumi import azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/gateways/gateway1/routeConfigs/routeConfig1
  * ```
  * 
  */
 @ResourceType(type="azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig")
 public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomResource {
+    /**
+     * Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
+     * 
+     */
+    @Export(name="filters", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> filters;
+
+    /**
+     * @return Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
+     * 
+     */
+    public Output<Optional<List<String>>> filters() {
+        return Codegen.optional(this.filters);
+    }
     /**
      * The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
      * 
@@ -135,6 +150,20 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      */
     public Output<Optional<SpringCloudGatewayRouteConfigOpenApi>> openApi() {
         return Codegen.optional(this.openApi);
+    }
+    /**
+     * Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+     * 
+     */
+    @Export(name="predicates", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> predicates;
+
+    /**
+     * @return Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+     * 
+     */
+    public Output<Optional<List<String>>> predicates() {
+        return Codegen.optional(this.predicates);
     }
     /**
      * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
@@ -191,6 +220,20 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      */
     public Output<String> springCloudGatewayId() {
         return this.springCloudGatewayId;
+    }
+    /**
+     * Should the sso validation be enabled in app level?
+     * 
+     */
+    @Export(name="ssoValidationEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> ssoValidationEnabled;
+
+    /**
+     * @return Should the sso validation be enabled in app level?
+     * 
+     */
+    public Output<Optional<Boolean>> ssoValidationEnabled() {
+        return Codegen.optional(this.ssoValidationEnabled);
     }
 
     /**

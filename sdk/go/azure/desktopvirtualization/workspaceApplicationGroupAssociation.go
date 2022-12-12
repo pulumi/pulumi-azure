@@ -84,9 +84,9 @@ import (
 type WorkspaceApplicationGroupAssociation struct {
 	pulumi.CustomResourceState
 
-	// The resource ID for the Virtual Desktop Application Group.
+	// The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
 	ApplicationGroupId pulumi.StringOutput `pulumi:"applicationGroupId"`
-	// The resource ID for the Virtual Desktop Workspace.
+	// The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -125,16 +125,16 @@ func GetWorkspaceApplicationGroupAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceApplicationGroupAssociation resources.
 type workspaceApplicationGroupAssociationState struct {
-	// The resource ID for the Virtual Desktop Application Group.
+	// The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
 	ApplicationGroupId *string `pulumi:"applicationGroupId"`
-	// The resource ID for the Virtual Desktop Workspace.
+	// The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type WorkspaceApplicationGroupAssociationState struct {
-	// The resource ID for the Virtual Desktop Application Group.
+	// The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
 	ApplicationGroupId pulumi.StringPtrInput
-	// The resource ID for the Virtual Desktop Workspace.
+	// The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -143,17 +143,17 @@ func (WorkspaceApplicationGroupAssociationState) ElementType() reflect.Type {
 }
 
 type workspaceApplicationGroupAssociationArgs struct {
-	// The resource ID for the Virtual Desktop Application Group.
+	// The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
 	ApplicationGroupId string `pulumi:"applicationGroupId"`
-	// The resource ID for the Virtual Desktop Workspace.
+	// The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a WorkspaceApplicationGroupAssociation resource.
 type WorkspaceApplicationGroupAssociationArgs struct {
-	// The resource ID for the Virtual Desktop Application Group.
+	// The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
 	ApplicationGroupId pulumi.StringInput
-	// The resource ID for the Virtual Desktop Workspace.
+	// The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 	WorkspaceId pulumi.StringInput
 }
 
@@ -244,12 +244,12 @@ func (o WorkspaceApplicationGroupAssociationOutput) ToWorkspaceApplicationGroupA
 	return o
 }
 
-// The resource ID for the Virtual Desktop Application Group.
+// The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
 func (o WorkspaceApplicationGroupAssociationOutput) ApplicationGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceApplicationGroupAssociation) pulumi.StringOutput { return v.ApplicationGroupId }).(pulumi.StringOutput)
 }
 
-// The resource ID for the Virtual Desktop Workspace.
+// The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
 func (o WorkspaceApplicationGroupAssociationOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceApplicationGroupAssociation) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

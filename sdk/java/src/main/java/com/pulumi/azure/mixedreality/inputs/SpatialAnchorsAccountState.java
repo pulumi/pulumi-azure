@@ -77,14 +77,14 @@ public final class SpatialAnchorsAccountState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The name of the resource group in which to create the Spatial Anchors Account.
+     * The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Spatial Anchors Account.
+     * @return The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -220,7 +220,7 @@ public final class SpatialAnchorsAccountState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Spatial Anchors Account.
+         * @param resourceGroupName The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class SpatialAnchorsAccountState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Spatial Anchors Account.
+         * @param resourceGroupName The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

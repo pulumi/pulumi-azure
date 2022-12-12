@@ -133,7 +133,7 @@ type WindowsVirtualMachineScaleSet struct {
 	BootDiagnostics WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrOutput `pulumi:"capacityReservationGroupId"`
-	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 	ComputerNamePrefix pulumi.StringOutput `pulumi:"computerNamePrefix"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	CustomData pulumi.StringPtrOutput `pulumi:"customData"`
@@ -223,7 +223,7 @@ type WindowsVirtualMachineScaleSet struct {
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 	// The Unique ID for this Windows Virtual Machine Scale Set.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 	UpgradeMode pulumi.StringPtrOutput `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
@@ -303,7 +303,7 @@ type windowsVirtualMachineScaleSetState struct {
 	BootDiagnostics *WindowsVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
-	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 	ComputerNamePrefix *string `pulumi:"computerNamePrefix"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	CustomData *string `pulumi:"customData"`
@@ -393,7 +393,7 @@ type windowsVirtualMachineScaleSetState struct {
 	Timezone *string `pulumi:"timezone"`
 	// The Unique ID for this Windows Virtual Machine Scale Set.
 	UniqueId *string `pulumi:"uniqueId"`
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 	UpgradeMode *string `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData *string `pulumi:"userData"`
@@ -424,7 +424,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	BootDiagnostics WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput
-	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 	ComputerNamePrefix pulumi.StringPtrInput
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	CustomData pulumi.StringPtrInput
@@ -514,7 +514,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	Timezone pulumi.StringPtrInput
 	// The Unique ID for this Windows Virtual Machine Scale Set.
 	UniqueId pulumi.StringPtrInput
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 	UpgradeMode pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData pulumi.StringPtrInput
@@ -549,7 +549,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 	BootDiagnostics *WindowsVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
-	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 	ComputerNamePrefix *string `pulumi:"computerNamePrefix"`
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	CustomData *string `pulumi:"customData"`
@@ -637,7 +637,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 	TerminationNotification *WindowsVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone *string `pulumi:"timezone"`
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 	UpgradeMode *string `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData *string `pulumi:"userData"`
@@ -669,7 +669,7 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	BootDiagnostics WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput
-	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 	ComputerNamePrefix pulumi.StringPtrInput
 	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	CustomData pulumi.StringPtrInput
@@ -757,7 +757,7 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	TerminationNotification WindowsVirtualMachineScaleSetTerminationNotificationPtrInput
 	// Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrInput
-	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+	// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 	UpgradeMode pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserData pulumi.StringPtrInput
@@ -908,7 +908,7 @@ func (o WindowsVirtualMachineScaleSetOutput) CapacityReservationGroupId() pulumi
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOutput) ComputerNamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringOutput { return v.ComputerNamePrefix }).(pulumi.StringOutput)
 }
@@ -1154,7 +1154,7 @@ func (o WindowsVirtualMachineScaleSetOutput) UniqueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
 }
 
-// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+// Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOutput) UpgradeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.UpgradeMode }).(pulumi.StringPtrOutput)
 }

@@ -104,7 +104,7 @@ export class StreamInputIotHub extends pulumi.CustomResource {
      */
     public readonly serialization!: pulumi.Output<outputs.streamanalytics.StreamInputIotHubSerialization>;
     /**
-     * The shared access policy key for the specified shared access policy.
+     * The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
      */
     public readonly sharedAccessPolicyKey!: pulumi.Output<string>;
     /**
@@ -208,7 +208,7 @@ export interface StreamInputIotHubState {
      */
     serialization?: pulumi.Input<inputs.streamanalytics.StreamInputIotHubSerialization>;
     /**
-     * The shared access policy key for the specified shared access policy.
+     * The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
      */
     sharedAccessPolicyKey?: pulumi.Input<string>;
     /**
@@ -250,7 +250,7 @@ export interface StreamInputIotHubArgs {
      */
     serialization: pulumi.Input<inputs.streamanalytics.StreamInputIotHubSerialization>;
     /**
-     * The shared access policy key for the specified shared access policy.
+     * The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
      */
     sharedAccessPolicyKey: pulumi.Input<string>;
     /**

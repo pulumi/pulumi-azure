@@ -272,14 +272,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.azureDevopsRepo);
     }
     /**
-     * Subnet ID used for computes in workspace
+     * Subnet ID used for computes in workspace Changing this forces a new resource to be created.
      * 
      */
     @Export(name="computeSubnetId", type=String.class, parameters={})
     private Output</* @Nullable */ String> computeSubnetId;
 
     /**
-     * @return Subnet ID used for computes in workspace
+     * @return Subnet ID used for computes in workspace Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> computeSubnetId() {
@@ -384,14 +384,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Workspace managed resource group.
+     * Workspace managed resource group. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="managedResourceGroupName", type=String.class, parameters={})
     private Output<String> managedResourceGroupName;
 
     /**
-     * @return Workspace managed resource group.
+     * @return Workspace managed resource group. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> managedResourceGroupName() {

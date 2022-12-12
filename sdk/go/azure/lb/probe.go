@@ -86,14 +86,16 @@ type Probe struct {
 	// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
 	IntervalInSeconds pulumi.IntPtrOutput      `pulumi:"intervalInSeconds"`
 	LoadBalancerRules pulumi.StringArrayOutput `pulumi:"loadBalancerRules"`
-	// The ID of the LoadBalancer in which to create the NAT Rule.
+	// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
-	// Specifies the name of the Probe.
+	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
 	NumberOfProbes pulumi.IntPtrOutput `pulumi:"numberOfProbes"`
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port pulumi.IntOutput `pulumi:"port"`
+	// The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+	ProbeThreshold pulumi.IntPtrOutput `pulumi:"probeThreshold"`
 	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
@@ -138,14 +140,16 @@ type probeState struct {
 	// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
 	IntervalInSeconds *int     `pulumi:"intervalInSeconds"`
 	LoadBalancerRules []string `pulumi:"loadBalancerRules"`
-	// The ID of the LoadBalancer in which to create the NAT Rule.
+	// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
-	// Specifies the name of the Probe.
+	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
 	NumberOfProbes *int `pulumi:"numberOfProbes"`
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port *int `pulumi:"port"`
+	// The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+	ProbeThreshold *int `pulumi:"probeThreshold"`
 	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol *string `pulumi:"protocol"`
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
@@ -156,14 +160,16 @@ type ProbeState struct {
 	// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
 	IntervalInSeconds pulumi.IntPtrInput
 	LoadBalancerRules pulumi.StringArrayInput
-	// The ID of the LoadBalancer in which to create the NAT Rule.
+	// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringPtrInput
-	// Specifies the name of the Probe.
+	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
 	NumberOfProbes pulumi.IntPtrInput
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port pulumi.IntPtrInput
+	// The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+	ProbeThreshold pulumi.IntPtrInput
 	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol pulumi.StringPtrInput
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
@@ -177,14 +183,16 @@ func (ProbeState) ElementType() reflect.Type {
 type probeArgs struct {
 	// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// The ID of the LoadBalancer in which to create the NAT Rule.
+	// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
-	// Specifies the name of the Probe.
+	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
 	NumberOfProbes *int `pulumi:"numberOfProbes"`
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port int `pulumi:"port"`
+	// The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+	ProbeThreshold *int `pulumi:"probeThreshold"`
 	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol *string `pulumi:"protocol"`
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
@@ -195,14 +203,16 @@ type probeArgs struct {
 type ProbeArgs struct {
 	// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
 	IntervalInSeconds pulumi.IntPtrInput
-	// The ID of the LoadBalancer in which to create the NAT Rule.
+	// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringInput
-	// Specifies the name of the Probe.
+	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
 	NumberOfProbes pulumi.IntPtrInput
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port pulumi.IntInput
+	// The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+	ProbeThreshold pulumi.IntPtrInput
 	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol pulumi.StringPtrInput
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
@@ -305,12 +315,12 @@ func (o ProbeOutput) LoadBalancerRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringArrayOutput { return v.LoadBalancerRules }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the LoadBalancer in which to create the NAT Rule.
+// The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created.
 func (o ProbeOutput) LoadbalancerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.LoadbalancerId }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Probe.
+// Specifies the name of the Probe. Changing this forces a new resource to be created.
 func (o ProbeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -323,6 +333,11 @@ func (o ProbeOutput) NumberOfProbes() pulumi.IntPtrOutput {
 // Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 func (o ProbeOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *Probe) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+}
+
+// The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
+func (o ProbeOutput) ProbeThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Probe) pulumi.IntPtrOutput { return v.ProbeThreshold }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful.

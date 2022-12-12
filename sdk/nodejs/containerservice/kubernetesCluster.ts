@@ -140,6 +140,14 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.containerservice.KubernetesClusterIdentity | undefined>;
     /**
+     * Specifies whether Image Cleaner is enabled.
+     */
+    public readonly imageCleanerEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies the interval in hours when images should be cleaned up.
+     */
+    public readonly imageCleanerIntervalHours!: pulumi.Output<number | undefined>;
+    /**
      * A `ingressApplicationGateway` block as defined below.
      */
     public readonly ingressApplicationGateway!: pulumi.Output<outputs.containerservice.KubernetesClusterIngressApplicationGateway | undefined>;
@@ -232,7 +240,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly privateClusterPublicFqdnEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+     * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
      */
     public readonly privateDnsZoneId!: pulumi.Output<string>;
     /**
@@ -260,6 +268,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
      */
     public readonly skuTier!: pulumi.Output<string | undefined>;
+    /**
+     * A `storageProfile` block as defined below.
+     */
+    public readonly storageProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterStorageProfile | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -311,6 +323,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["httpApplicationRoutingZoneName"] = state ? state.httpApplicationRoutingZoneName : undefined;
             resourceInputs["httpProxyConfig"] = state ? state.httpProxyConfig : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["imageCleanerEnabled"] = state ? state.imageCleanerEnabled : undefined;
+            resourceInputs["imageCleanerIntervalHours"] = state ? state.imageCleanerIntervalHours : undefined;
             resourceInputs["ingressApplicationGateway"] = state ? state.ingressApplicationGateway : undefined;
             resourceInputs["keyVaultSecretsProvider"] = state ? state.keyVaultSecretsProvider : undefined;
             resourceInputs["kubeAdminConfigRaw"] = state ? state.kubeAdminConfigRaw : undefined;
@@ -342,6 +356,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["runCommandEnabled"] = state ? state.runCommandEnabled : undefined;
             resourceInputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
             resourceInputs["skuTier"] = state ? state.skuTier : undefined;
+            resourceInputs["storageProfile"] = state ? state.storageProfile : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["webAppRouting"] = state ? state.webAppRouting : undefined;
             resourceInputs["windowsProfile"] = state ? state.windowsProfile : undefined;
@@ -370,6 +385,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["httpApplicationRoutingEnabled"] = args ? args.httpApplicationRoutingEnabled : undefined;
             resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["imageCleanerEnabled"] = args ? args.imageCleanerEnabled : undefined;
+            resourceInputs["imageCleanerIntervalHours"] = args ? args.imageCleanerIntervalHours : undefined;
             resourceInputs["ingressApplicationGateway"] = args ? args.ingressApplicationGateway : undefined;
             resourceInputs["keyVaultSecretsProvider"] = args ? args.keyVaultSecretsProvider : undefined;
             resourceInputs["kubeletIdentity"] = args ? args.kubeletIdentity : undefined;
@@ -394,6 +411,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["runCommandEnabled"] = args ? args.runCommandEnabled : undefined;
             resourceInputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
             resourceInputs["skuTier"] = args ? args.skuTier : undefined;
+            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["webAppRouting"] = args ? args.webAppRouting : undefined;
             resourceInputs["windowsProfile"] = args ? args.windowsProfile : undefined;
@@ -483,6 +501,14 @@ export interface KubernetesClusterState {
      * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      */
     identity?: pulumi.Input<inputs.containerservice.KubernetesClusterIdentity>;
+    /**
+     * Specifies whether Image Cleaner is enabled.
+     */
+    imageCleanerEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the interval in hours when images should be cleaned up.
+     */
+    imageCleanerIntervalHours?: pulumi.Input<number>;
     /**
      * A `ingressApplicationGateway` block as defined below.
      */
@@ -576,7 +602,7 @@ export interface KubernetesClusterState {
      */
     privateClusterPublicFqdnEnabled?: pulumi.Input<boolean>;
     /**
-     * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+     * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
      */
     privateDnsZoneId?: pulumi.Input<string>;
     /**
@@ -604,6 +630,10 @@ export interface KubernetesClusterState {
      * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
      */
     skuTier?: pulumi.Input<string>;
+    /**
+     * A `storageProfile` block as defined below.
+     */
+    storageProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterStorageProfile>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -688,6 +718,14 @@ export interface KubernetesClusterArgs {
      */
     identity?: pulumi.Input<inputs.containerservice.KubernetesClusterIdentity>;
     /**
+     * Specifies whether Image Cleaner is enabled.
+     */
+    imageCleanerEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the interval in hours when images should be cleaned up.
+     */
+    imageCleanerIntervalHours?: pulumi.Input<number>;
+    /**
      * A `ingressApplicationGateway` block as defined below.
      */
     ingressApplicationGateway?: pulumi.Input<inputs.containerservice.KubernetesClusterIngressApplicationGateway>;
@@ -756,7 +794,7 @@ export interface KubernetesClusterArgs {
      */
     privateClusterPublicFqdnEnabled?: pulumi.Input<boolean>;
     /**
-     * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning. Changing this forces a new resource to be created.
+     * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
      */
     privateDnsZoneId?: pulumi.Input<string>;
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
@@ -780,6 +818,10 @@ export interface KubernetesClusterArgs {
      * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
      */
     skuTier?: pulumi.Input<string>;
+    /**
+     * A `storageProfile` block as defined below.
+     */
+    storageProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterStorageProfile>;
     /**
      * A mapping of tags to assign to the resource.
      */

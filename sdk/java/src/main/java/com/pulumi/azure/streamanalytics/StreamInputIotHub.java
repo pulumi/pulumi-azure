@@ -179,14 +179,14 @@ public class StreamInputIotHub extends com.pulumi.resources.CustomResource {
         return this.serialization;
     }
     /**
-     * The shared access policy key for the specified shared access policy.
+     * The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sharedAccessPolicyKey", type=String.class, parameters={})
     private Output<String> sharedAccessPolicyKey;
 
     /**
-     * @return The shared access policy key for the specified shared access policy.
+     * @return The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sharedAccessPolicyKey() {

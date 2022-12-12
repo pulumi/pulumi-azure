@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? GatewayLoadBalancerFrontendIpConfigurationId { get; set; }
 
         /// <summary>
-        /// A name used for this IP Configuration.
+        /// A name used for this IP Configuration. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -192,7 +192,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> SchemaJson { get; private set; } = null!;
 
         /// <summary>
-        /// The type of dataset that will be associated with Data Factory.
+        /// The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? SchemaJson { get; set; }
 
         /// <summary>
-        /// The type of dataset that will be associated with Data Factory.
+        /// The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -414,7 +414,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? SchemaJson { get; set; }
 
         /// <summary>
-        /// The type of dataset that will be associated with Data Factory.
+        /// The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

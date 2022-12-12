@@ -47,14 +47,14 @@ public final class GroupTemplateDeploymentState extends com.pulumi.resources.Res
     }
 
     /**
-     * The ID of the Management Group to apply the Deployment Template to.
+     * The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="managementGroupId")
     private @Nullable Output<String> managementGroupId;
 
     /**
-     * @return The ID of the Management Group to apply the Deployment Template to.
+     * @return The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> managementGroupId() {
@@ -226,7 +226,7 @@ public final class GroupTemplateDeploymentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param managementGroupId The ID of the Management Group to apply the Deployment Template to.
+         * @param managementGroupId The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class GroupTemplateDeploymentState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param managementGroupId The ID of the Management Group to apply the Deployment Template to.
+         * @param managementGroupId The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

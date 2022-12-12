@@ -121,7 +121,7 @@ namespace Pulumi.Azure.Kusto
     /// Kusto Event Grid Data Connections can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:kusto/eventGridDataConnection:EventGridDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/dataConnection1
+    ///  $ pulumi import azure:kusto/eventGridDataConnection:EventGridDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/dataConnection1
     /// ```
     /// </summary>
     [AzureResourceType("azure:kusto/eventGridDataConnection:EventGridDataConnection")]
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("databaseRoutingType")]
         public Output<string?> DatabaseRoutingType { get; private set; } = null!;
@@ -164,15 +164,13 @@ namespace Pulumi.Azure.Kusto
         public Output<string?> EventgridResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Event Hub consumer group this data connection will use for
-        /// ingestion. Changing this forces a new resource to be created.
+        /// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         /// </summary>
         [Output("eventhubConsumerGroupName")]
         public Output<string> EventhubConsumerGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the resource id of the Event Hub this data connection will use for ingestion.
-        /// Changing this forces a new resource to be created.
+        /// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         /// </summary>
         [Output("eventhubId")]
         public Output<string> EventhubId { get; private set; } = null!;
@@ -296,7 +294,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("databaseRoutingType")]
         public Input<string>? DatabaseRoutingType { get; set; }
@@ -308,15 +306,13 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? EventgridResourceId { get; set; }
 
         /// <summary>
-        /// Specifies the Event Hub consumer group this data connection will use for
-        /// ingestion. Changing this forces a new resource to be created.
+        /// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eventhubConsumerGroupName", required: true)]
         public Input<string> EventhubConsumerGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the resource id of the Event Hub this data connection will use for ingestion.
-        /// Changing this forces a new resource to be created.
+        /// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eventhubId", required: true)]
         public Input<string> EventhubId { get; set; } = null!;
@@ -402,7 +398,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("databaseRoutingType")]
         public Input<string>? DatabaseRoutingType { get; set; }
@@ -414,15 +410,13 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? EventgridResourceId { get; set; }
 
         /// <summary>
-        /// Specifies the Event Hub consumer group this data connection will use for
-        /// ingestion. Changing this forces a new resource to be created.
+        /// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eventhubConsumerGroupName")]
         public Input<string>? EventhubConsumerGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the resource id of the Event Hub this data connection will use for ingestion.
-        /// Changing this forces a new resource to be created.
+        /// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         /// </summary>
         [Input("eventhubId")]
         public Input<string>? EventhubId { get; set; }

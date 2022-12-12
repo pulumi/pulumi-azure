@@ -92,7 +92,7 @@ type SqlPool struct {
 
 	// The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringOutput `pulumi:"collation"`
-	// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+	// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// Is transparent data encryption enabled? Defaults to `false`.
 	DataEncrypted pulumi.BoolPtrOutput `pulumi:"dataEncrypted"`
@@ -147,7 +147,7 @@ func GetSqlPool(ctx *pulumi.Context,
 type sqlPoolState struct {
 	// The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
-	// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+	// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
 	CreateMode *string `pulumi:"createMode"`
 	// Is transparent data encryption enabled? Defaults to `false`.
 	DataEncrypted *bool `pulumi:"dataEncrypted"`
@@ -168,7 +168,7 @@ type sqlPoolState struct {
 type SqlPoolState struct {
 	// The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
-	// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+	// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
 	CreateMode pulumi.StringPtrInput
 	// Is transparent data encryption enabled? Defaults to `false`.
 	DataEncrypted pulumi.BoolPtrInput
@@ -193,7 +193,7 @@ func (SqlPoolState) ElementType() reflect.Type {
 type sqlPoolArgs struct {
 	// The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
-	// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+	// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
 	CreateMode *string `pulumi:"createMode"`
 	// Is transparent data encryption enabled? Defaults to `false`.
 	DataEncrypted *bool `pulumi:"dataEncrypted"`
@@ -215,7 +215,7 @@ type sqlPoolArgs struct {
 type SqlPoolArgs struct {
 	// The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
-	// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+	// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
 	CreateMode pulumi.StringPtrInput
 	// Is transparent data encryption enabled? Defaults to `false`.
 	DataEncrypted pulumi.BoolPtrInput
@@ -325,7 +325,7 @@ func (o SqlPoolOutput) Collation() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlPool) pulumi.StringOutput { return v.Collation }).(pulumi.StringOutput)
 }
 
-// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
 func (o SqlPoolOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlPool) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
 }

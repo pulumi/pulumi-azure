@@ -110,7 +110,7 @@ type BastionHost struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to create the Bastion Host.
+	// The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
 	ScaleUnits pulumi.IntPtrOutput `pulumi:"scaleUnits"`
@@ -170,7 +170,7 @@ type bastionHostState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Bastion Host.
+	// The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
 	ScaleUnits *int `pulumi:"scaleUnits"`
@@ -199,7 +199,7 @@ type BastionHostState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Bastion Host.
+	// The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
 	ScaleUnits pulumi.IntPtrInput
@@ -230,7 +230,7 @@ type bastionHostArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the Bastion Host.
+	// The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
 	ScaleUnits *int `pulumi:"scaleUnits"`
@@ -258,7 +258,7 @@ type BastionHostArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the Bastion Host.
+	// The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
 	ScaleUnits pulumi.IntPtrInput
@@ -394,7 +394,7 @@ func (o BastionHostOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the Bastion Host.
+// The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
 func (o BastionHostOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BastionHost) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

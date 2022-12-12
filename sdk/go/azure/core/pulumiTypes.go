@@ -485,9 +485,9 @@ func (o ResourceGroupCostManagementExportExportDataOptionsPtrOutput) Type() pulu
 }
 
 type ResourceGroupCostManagementExportExportDataStorageLocation struct {
-	// The Resource Manager ID of the container where exports will be uploaded.
+	// The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
 	ContainerId string `pulumi:"containerId"`
-	// The path of the directory where exports will be uploaded.
+	// The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
 	RootFolderPath string `pulumi:"rootFolderPath"`
 }
 
@@ -503,9 +503,9 @@ type ResourceGroupCostManagementExportExportDataStorageLocationInput interface {
 }
 
 type ResourceGroupCostManagementExportExportDataStorageLocationArgs struct {
-	// The Resource Manager ID of the container where exports will be uploaded.
+	// The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
 	ContainerId pulumi.StringInput `pulumi:"containerId"`
-	// The path of the directory where exports will be uploaded.
+	// The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
 	RootFolderPath pulumi.StringInput `pulumi:"rootFolderPath"`
 }
 
@@ -586,12 +586,12 @@ func (o ResourceGroupCostManagementExportExportDataStorageLocationOutput) ToReso
 	}).(ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput)
 }
 
-// The Resource Manager ID of the container where exports will be uploaded.
+// The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
 func (o ResourceGroupCostManagementExportExportDataStorageLocationOutput) ContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupCostManagementExportExportDataStorageLocation) string { return v.ContainerId }).(pulumi.StringOutput)
 }
 
-// The path of the directory where exports will be uploaded.
+// The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
 func (o ResourceGroupCostManagementExportExportDataStorageLocationOutput) RootFolderPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupCostManagementExportExportDataStorageLocation) string { return v.RootFolderPath }).(pulumi.StringOutput)
 }
@@ -620,7 +620,7 @@ func (o ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) Ele
 	}).(ResourceGroupCostManagementExportExportDataStorageLocationOutput)
 }
 
-// The Resource Manager ID of the container where exports will be uploaded.
+// The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
 func (o ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) ContainerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceGroupCostManagementExportExportDataStorageLocation) *string {
 		if v == nil {
@@ -630,7 +630,7 @@ func (o ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path of the directory where exports will be uploaded.
+// The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
 func (o ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceGroupCostManagementExportExportDataStorageLocation) *string {
 		if v == nil {
@@ -1505,9 +1505,9 @@ func (o SubscriptionCostManagementExportExportDataOptionsPtrOutput) Type() pulum
 }
 
 type SubscriptionCostManagementExportExportDataStorageLocation struct {
-	// The Resource Manager ID of the container where exports will be uploaded.
+	// The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
 	ContainerId string `pulumi:"containerId"`
-	// The path of the directory where exports will be uploaded.
+	// The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
 	RootFolderPath string `pulumi:"rootFolderPath"`
 }
 
@@ -1523,9 +1523,9 @@ type SubscriptionCostManagementExportExportDataStorageLocationInput interface {
 }
 
 type SubscriptionCostManagementExportExportDataStorageLocationArgs struct {
-	// The Resource Manager ID of the container where exports will be uploaded.
+	// The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
 	ContainerId pulumi.StringInput `pulumi:"containerId"`
-	// The path of the directory where exports will be uploaded.
+	// The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
 	RootFolderPath pulumi.StringInput `pulumi:"rootFolderPath"`
 }
 
@@ -1606,12 +1606,12 @@ func (o SubscriptionCostManagementExportExportDataStorageLocationOutput) ToSubsc
 	}).(SubscriptionCostManagementExportExportDataStorageLocationPtrOutput)
 }
 
-// The Resource Manager ID of the container where exports will be uploaded.
+// The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
 func (o SubscriptionCostManagementExportExportDataStorageLocationOutput) ContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionCostManagementExportExportDataStorageLocation) string { return v.ContainerId }).(pulumi.StringOutput)
 }
 
-// The path of the directory where exports will be uploaded.
+// The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
 func (o SubscriptionCostManagementExportExportDataStorageLocationOutput) RootFolderPath() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionCostManagementExportExportDataStorageLocation) string { return v.RootFolderPath }).(pulumi.StringOutput)
 }
@@ -1640,7 +1640,7 @@ func (o SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) Elem
 	}).(SubscriptionCostManagementExportExportDataStorageLocationOutput)
 }
 
-// The Resource Manager ID of the container where exports will be uploaded.
+// The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
 func (o SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) ContainerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionCostManagementExportExportDataStorageLocation) *string {
 		if v == nil {
@@ -1650,7 +1650,7 @@ func (o SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path of the directory where exports will be uploaded.
+// The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
 func (o SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionCostManagementExportExportDataStorageLocation) *string {
 		if v == nil {

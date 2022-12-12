@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Batch
         public Output<string> PrimaryAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// Whether public network access is allowed for this server. Defaults to `true`.
+        /// Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.Batch
         public Input<string>? PoolAllocationMode { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for this server. Defaults to `true`.
+        /// Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.Azure.Batch
         public Input<string>? PrimaryAccessKey { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for this server. Defaults to `true`.
+        /// Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

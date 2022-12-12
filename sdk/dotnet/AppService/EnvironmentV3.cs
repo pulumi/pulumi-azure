@@ -64,7 +64,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<string>> InternalInboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("internalLoadBalancingMode")]
         public Output<string?> InternalLoadBalancingMode { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> PricingTier { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
+        /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<string>> WindowsOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both.
+        /// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zoneRedundant")]
         public Output<bool?> ZoneRedundant { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.AppService
         public Input<int>? DedicatedHostCount { get; set; }
 
         /// <summary>
-        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("internalLoadBalancingMode")]
         public Input<string>? InternalLoadBalancingMode { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
+        /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Azure.AppService
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both.
+        /// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`.
+        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("internalLoadBalancingMode")]
         public Input<string>? InternalLoadBalancingMode { get; set; }
@@ -358,7 +358,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? PricingTier { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
+        /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -373,7 +373,7 @@ namespace Pulumi.Azure.AppService
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -394,7 +394,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both.
+        /// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }

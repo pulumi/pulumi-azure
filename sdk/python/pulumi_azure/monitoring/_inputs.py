@@ -229,7 +229,7 @@ class ActionGroupArmRoleReceiverArgs:
                  role_id: pulumi.Input[str],
                  use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] name: The name of the ARM role receiver.
+        :param pulumi.Input[str] name: The name of the ARM role receiver. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_id: The arm role id.
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
@@ -242,7 +242,7 @@ class ActionGroupArmRoleReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the ARM role receiver.
+        The name of the ARM role receiver. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -288,7 +288,7 @@ class ActionGroupAutomationRunbookReceiverArgs:
         """
         :param pulumi.Input[str] automation_account_id: The automation account ID which holds this runbook and authenticates to Azure resources.
         :param pulumi.Input[bool] is_global_runbook: Indicates whether this instance is global runbook.
-        :param pulumi.Input[str] name: The name of the automation runbook receiver.
+        :param pulumi.Input[str] name: The name of the automation runbook receiver. Changing this forces a new resource to be created.
         :param pulumi.Input[str] runbook_name: The name for this runbook.
         :param pulumi.Input[str] service_uri: The URI where webhooks should be sent.
         :param pulumi.Input[str] webhook_resource_id: The resource id for webhook linked to this runbook.
@@ -331,7 +331,7 @@ class ActionGroupAutomationRunbookReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the automation runbook receiver.
+        The name of the automation runbook receiver. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -395,7 +395,7 @@ class ActionGroupAzureAppPushReceiverArgs:
                  name: pulumi.Input[str]):
         """
         :param pulumi.Input[str] email_address: The email address of the user signed into the mobile app who will receive push notifications from this receiver.
-        :param pulumi.Input[str] name: The name of the Azure app push receiver.
+        :param pulumi.Input[str] name: The name of the Azure app push receiver. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "email_address", email_address)
         pulumi.set(__self__, "name", name)
@@ -416,7 +416,7 @@ class ActionGroupAzureAppPushReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Azure app push receiver.
+        The name of the Azure app push receiver. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -437,7 +437,7 @@ class ActionGroupAzureFunctionReceiverArgs:
         :param pulumi.Input[str] function_app_resource_id: The Azure resource ID of the function app.
         :param pulumi.Input[str] function_name: The function name in the function app.
         :param pulumi.Input[str] http_trigger_url: The HTTP trigger url where HTTP request sent to.
-        :param pulumi.Input[str] name: The name of the Azure Function receiver.
+        :param pulumi.Input[str] name: The name of the Azure Function receiver. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
         pulumi.set(__self__, "function_app_resource_id", function_app_resource_id)
@@ -487,7 +487,7 @@ class ActionGroupAzureFunctionReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Azure Function receiver.
+        The name of the Azure Function receiver. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -516,7 +516,7 @@ class ActionGroupEmailReceiverArgs:
                  use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] email_address: The email address of this receiver.
-        :param pulumi.Input[str] name: The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        :param pulumi.Input[str] name: The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
         pulumi.set(__self__, "email_address", email_address)
@@ -540,7 +540,7 @@ class ActionGroupEmailReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -572,7 +572,7 @@ class ActionGroupEventHubReceiverArgs:
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] name: The name of the EventHub Receiver, must be unique within action group.
+        :param pulumi.Input[str] name: The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] event_hub_id: The resource ID of the respective Event Hub.
         :param pulumi.Input[str] event_hub_name: The name of the specific Event Hub queue.
         :param pulumi.Input[str] event_hub_namespace: The namespace name of the Event Hub.
@@ -601,7 +601,7 @@ class ActionGroupEventHubReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the EventHub Receiver, must be unique within action group.
+        The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -692,7 +692,7 @@ class ActionGroupItsmReceiverArgs:
                  workspace_id: pulumi.Input[str]):
         """
         :param pulumi.Input[str] connection_id: The unique connection identifier of the ITSM connection.
-        :param pulumi.Input[str] name: The name of the ITSM receiver.
+        :param pulumi.Input[str] name: The name of the ITSM receiver. Changing this forces a new resource to be created.
         :param pulumi.Input[str] region: The region of the workspace.
         :param pulumi.Input[str] ticket_configuration: A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
         :param pulumi.Input[str] workspace_id: The Azure Log Analytics workspace ID where this connection is defined. Format is `<subscription id>|<workspace id>`, for example `00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000`.
@@ -719,7 +719,7 @@ class ActionGroupItsmReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the ITSM receiver.
+        The name of the ITSM receiver. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -773,7 +773,7 @@ class ActionGroupLogicAppReceiverArgs:
                  use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] callback_url: The callback url where HTTP request sent to.
-        :param pulumi.Input[str] name: The name of the logic app receiver.
+        :param pulumi.Input[str] name: The name of the logic app receiver. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_id: The Azure resource ID of the logic app.
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
@@ -799,7 +799,7 @@ class ActionGroupLogicAppReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the logic app receiver.
+        The name of the logic app receiver. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -840,7 +840,7 @@ class ActionGroupSmsReceiverArgs:
                  phone_number: pulumi.Input[str]):
         """
         :param pulumi.Input[str] country_code: The country code of the SMS receiver.
-        :param pulumi.Input[str] name: The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        :param pulumi.Input[str] name: The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] phone_number: The phone number of the SMS receiver.
         """
         pulumi.set(__self__, "country_code", country_code)
@@ -863,7 +863,7 @@ class ActionGroupSmsReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -892,7 +892,7 @@ class ActionGroupVoiceReceiverArgs:
                  phone_number: pulumi.Input[str]):
         """
         :param pulumi.Input[str] country_code: The country code of the voice receiver.
-        :param pulumi.Input[str] name: The name of the voice receiver.
+        :param pulumi.Input[str] name: The name of the voice receiver. Changing this forces a new resource to be created.
         :param pulumi.Input[str] phone_number: The phone number of the voice receiver.
         """
         pulumi.set(__self__, "country_code", country_code)
@@ -915,7 +915,7 @@ class ActionGroupVoiceReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the voice receiver.
+        The name of the voice receiver. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -944,7 +944,7 @@ class ActionGroupWebhookReceiverArgs:
                  aad_auth: Optional[pulumi.Input['ActionGroupWebhookReceiverAadAuthArgs']] = None,
                  use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] name: The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        :param pulumi.Input[str] name: The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_uri: The URI where webhooks should be sent.
         :param pulumi.Input['ActionGroupWebhookReceiverAadAuthArgs'] aad_auth: The `aad_auth` block as defined below
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
@@ -960,7 +960,7 @@ class ActionGroupWebhookReceiverArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -6803,7 +6803,7 @@ class ScheduledQueryRulesLogCriteriaDimensionArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  operator: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Name of the dimension.
+        :param pulumi.Input[str] name: Name of the dimension. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of dimension values.
         :param pulumi.Input[str] operator: Operator for dimension values, - 'Include'.
         """
@@ -6816,7 +6816,7 @@ class ScheduledQueryRulesLogCriteriaDimensionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the dimension.
+        Name of the dimension. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

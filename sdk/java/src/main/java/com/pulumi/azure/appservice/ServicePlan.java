@@ -141,14 +141,14 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
+     * The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="osType", type=String.class, parameters={})
     private Output<String> osType;
 
     /**
-     * @return The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
+     * @return The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> osType() {
@@ -239,14 +239,14 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
         return this.workerCount;
     }
     /**
-     * Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+     * Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="zoneBalancingEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> zoneBalancingEnabled;
 
     /**
-     * @return Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
+     * @return Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> zoneBalancingEnabled() {

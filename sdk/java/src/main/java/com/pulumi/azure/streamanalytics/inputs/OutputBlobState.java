@@ -6,7 +6,7 @@ package com.pulumi.azure.streamanalytics.inputs;
 import com.pulumi.azure.streamanalytics.inputs.OutputBlobSerializationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -52,13 +52,13 @@ public final class OutputBlobState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="batchMinRows")
-    private @Nullable Output<Double> batchMinRows;
+    private @Nullable Output<Integer> batchMinRows;
 
     /**
      * @return The minimum number of rows per batch (must be between `0` and `10000`).
      * 
      */
-    public Optional<Output<Double>> batchMinRows() {
+    public Optional<Output<Integer>> batchMinRows() {
         return Optional.ofNullable(this.batchMinRows);
     }
 
@@ -296,7 +296,7 @@ public final class OutputBlobState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder batchMinRows(@Nullable Output<Double> batchMinRows) {
+        public Builder batchMinRows(@Nullable Output<Integer> batchMinRows) {
             $.batchMinRows = batchMinRows;
             return this;
         }
@@ -307,7 +307,7 @@ public final class OutputBlobState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder batchMinRows(Double batchMinRows) {
+        public Builder batchMinRows(Integer batchMinRows) {
             return batchMinRows(Output.of(batchMinRows));
         }
 

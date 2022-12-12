@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string? EventHubNamespace;
         /// <summary>
-        /// The name of the EventHub Receiver, must be unique within action group.
+        /// The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

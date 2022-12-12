@@ -93,7 +93,7 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly enableExpress!: pulumi.Output<boolean | undefined>;
     /**
-     * Boolean flag which controls whether to enable
+     * Boolean flag which controls whether to enable Changing this forces a new resource to be created.
      * the topic to be partitioned across multiple message brokers. Defaults to false.
      * Changing this forces a new resource to be created.
      */
@@ -116,13 +116,13 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the ServiceBus Namespace to create
+     * The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
      * this topic in. Changing this forces a new resource to be created.
      */
     public readonly namespaceId!: pulumi.Output<string>;
     public /*out*/ readonly namespaceName!: pulumi.Output<string>;
     /**
-     * Boolean flag which controls whether
+     * Boolean flag which controls whether Changing this forces a new resource to be created.
      * the Topic requires duplicate detection. Defaults to false. Changing this forces
      * a new resource to be created.
      */
@@ -225,7 +225,7 @@ export interface TopicState {
      */
     enableExpress?: pulumi.Input<boolean>;
     /**
-     * Boolean flag which controls whether to enable
+     * Boolean flag which controls whether to enable Changing this forces a new resource to be created.
      * the topic to be partitioned across multiple message brokers. Defaults to false.
      * Changing this forces a new resource to be created.
      */
@@ -248,13 +248,13 @@ export interface TopicState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the ServiceBus Namespace to create
+     * The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
      * this topic in. Changing this forces a new resource to be created.
      */
     namespaceId?: pulumi.Input<string>;
     namespaceName?: pulumi.Input<string>;
     /**
-     * Boolean flag which controls whether
+     * Boolean flag which controls whether Changing this forces a new resource to be created.
      * the Topic requires duplicate detection. Defaults to false. Changing this forces
      * a new resource to be created.
      */
@@ -302,7 +302,7 @@ export interface TopicArgs {
      */
     enableExpress?: pulumi.Input<boolean>;
     /**
-     * Boolean flag which controls whether to enable
+     * Boolean flag which controls whether to enable Changing this forces a new resource to be created.
      * the topic to be partitioned across multiple message brokers. Defaults to false.
      * Changing this forces a new resource to be created.
      */
@@ -325,12 +325,12 @@ export interface TopicArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the ServiceBus Namespace to create
+     * The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
      * this topic in. Changing this forces a new resource to be created.
      */
     namespaceId: pulumi.Input<string>;
     /**
-     * Boolean flag which controls whether
+     * Boolean flag which controls whether Changing this forces a new resource to be created.
      * the Topic requires duplicate detection. Defaults to false. Changing this forces
      * a new resource to be created.
      */

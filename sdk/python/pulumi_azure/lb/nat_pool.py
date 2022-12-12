@@ -31,12 +31,12 @@ class NatPoolArgs:
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration exposing this rule.
         :param pulumi.Input[int] frontend_port_end: The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[int] frontend_port_start: The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] floating_ip_enabled: Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
-        :param pulumi.Input[str] name: Specifies the name of the NAT pool.
+        :param pulumi.Input[str] name: Specifies the name of the NAT pool. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         """
         pulumi.set(__self__, "backend_port", backend_port)
@@ -107,7 +107,7 @@ class NatPoolArgs:
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Load Balancer in which to create the NAT pool.
+        The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -131,7 +131,7 @@ class NatPoolArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the resource.
+        The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -167,7 +167,7 @@ class NatPoolArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the NAT pool.
+        Specifies the name of the NAT pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -211,10 +211,10 @@ class _NatPoolState:
         :param pulumi.Input[int] frontend_port_end: The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[int] frontend_port_start: The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool.
-        :param pulumi.Input[str] name: Specifies the name of the NAT pool.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the NAT pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         """
         if backend_port is not None:
@@ -327,7 +327,7 @@ class _NatPoolState:
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Load Balancer in which to create the NAT pool.
+        The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -339,7 +339,7 @@ class _NatPoolState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the NAT pool.
+        Specifies the name of the NAT pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -363,7 +363,7 @@ class _NatPoolState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the resource.
+        The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -452,10 +452,10 @@ class NatPool(pulumi.CustomResource):
         :param pulumi.Input[int] frontend_port_end: The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[int] frontend_port_start: The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool.
-        :param pulumi.Input[str] name: Specifies the name of the NAT pool.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the NAT pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         """
         ...
@@ -603,10 +603,10 @@ class NatPool(pulumi.CustomResource):
         :param pulumi.Input[int] frontend_port_end: The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[int] frontend_port_start: The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool.
-        :param pulumi.Input[str] name: Specifies the name of the NAT pool.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the NAT pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -684,7 +684,7 @@ class NatPool(pulumi.CustomResource):
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Load Balancer in which to create the NAT pool.
+        The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "loadbalancer_id")
 
@@ -692,7 +692,7 @@ class NatPool(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the NAT pool.
+        Specifies the name of the NAT pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -708,7 +708,7 @@ class NatPool(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the resource.
+        The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

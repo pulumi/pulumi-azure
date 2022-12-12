@@ -170,14 +170,14 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+     * The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+     * @return The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -215,14 +215,14 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the resource group in which to create the SQL Managed Instance.
+     * The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the SQL Managed Instance.
+     * @return The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -275,14 +275,14 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The subnet resource id that the SQL Managed Instance will be associated with.
+     * The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The subnet resource id that the SQL Managed Instance will be associated with.
+     * @return The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -589,7 +589,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+         * @param name The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -600,7 +600,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the SQL Managed Instance. This needs to be globally unique within Azure.
+         * @param name The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -652,7 +652,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the SQL Managed Instance.
+         * @param resourceGroupName The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -663,7 +663,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the SQL Managed Instance.
+         * @param resourceGroupName The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -736,7 +736,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param subnetId The subnet resource id that the SQL Managed Instance will be associated with.
+         * @param subnetId The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -747,7 +747,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param subnetId The subnet resource id that the SQL Managed Instance will be associated with.
+         * @param subnetId The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

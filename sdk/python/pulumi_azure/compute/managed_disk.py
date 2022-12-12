@@ -52,7 +52,7 @@ class ManagedDiskArgs:
         """
         The set of arguments for constructing a ManagedDisk resource.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
@@ -63,9 +63,9 @@ class ManagedDiskArgs:
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
         :param pulumi.Input['ManagedDiskEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
-        :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+        :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
+        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] logical_sector_size: Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
@@ -76,12 +76,12 @@ class ManagedDiskArgs:
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
         :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] security_type: Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
-        :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
+        :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
-        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] upload_size_bytes: Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         """
@@ -165,7 +165,7 @@ class ManagedDiskArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the Resource Group where the Managed Disk should exist.
+        The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -297,7 +297,7 @@ class ManagedDiskArgs:
     @pulumi.getter(name="galleryImageReferenceId")
     def gallery_image_reference_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+        ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gallery_image_reference_id")
 
@@ -321,7 +321,7 @@ class ManagedDiskArgs:
     @pulumi.getter(name="imageReferenceId")
     def image_reference_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
+        ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "image_reference_id")
 
@@ -453,7 +453,7 @@ class ManagedDiskArgs:
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+        The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_resource_id")
 
@@ -465,7 +465,7 @@ class ManagedDiskArgs:
     @pulumi.getter(name="sourceUri")
     def source_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        URI to a valid VHD file to be used when `create_option` is `Import`.
+        URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_uri")
 
@@ -513,7 +513,7 @@ class ManagedDiskArgs:
     @pulumi.getter(name="trustedLaunchEnabled")
     def trusted_launch_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "trusted_launch_enabled")
 
@@ -594,9 +594,9 @@ class _ManagedDiskState:
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
         :param pulumi.Input['ManagedDiskEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
-        :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+        :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
+        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] logical_sector_size: Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
@@ -605,16 +605,16 @@ class _ManagedDiskState:
         :param pulumi.Input[bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] security_type: Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
-        :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
+        :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
-        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] upload_size_bytes: Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         """
@@ -809,7 +809,7 @@ class _ManagedDiskState:
     @pulumi.getter(name="galleryImageReferenceId")
     def gallery_image_reference_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+        ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gallery_image_reference_id")
 
@@ -833,7 +833,7 @@ class _ManagedDiskState:
     @pulumi.getter(name="imageReferenceId")
     def image_reference_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
+        ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "image_reference_id")
 
@@ -941,7 +941,7 @@ class _ManagedDiskState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Resource Group where the Managed Disk should exist.
+        The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -977,7 +977,7 @@ class _ManagedDiskState:
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+        The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_resource_id")
 
@@ -989,7 +989,7 @@ class _ManagedDiskState:
     @pulumi.getter(name="sourceUri")
     def source_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        URI to a valid VHD file to be used when `create_option` is `Import`.
+        URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_uri")
 
@@ -1049,7 +1049,7 @@ class _ManagedDiskState:
     @pulumi.getter(name="trustedLaunchEnabled")
     def trusted_launch_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "trusted_launch_enabled")
 
@@ -1190,9 +1190,9 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
         :param pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
-        :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+        :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
+        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] logical_sector_size: Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
@@ -1201,16 +1201,16 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] security_type: Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
-        :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
+        :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
-        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] upload_size_bytes: Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         """
@@ -1433,9 +1433,9 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
         :param pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
-        :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+        :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
+        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] logical_sector_size: Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
@@ -1444,16 +1444,16 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] security_type: Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
-        :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
+        :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
-        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] upload_size_bytes: Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
         """
@@ -1580,7 +1580,7 @@ class ManagedDisk(pulumi.CustomResource):
     @pulumi.getter(name="galleryImageReferenceId")
     def gallery_image_reference_id(self) -> pulumi.Output[Optional[str]]:
         """
-        ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified.
+        ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "gallery_image_reference_id")
 
@@ -1596,7 +1596,7 @@ class ManagedDisk(pulumi.CustomResource):
     @pulumi.getter(name="imageReferenceId")
     def image_reference_id(self) -> pulumi.Output[Optional[str]]:
         """
-        ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified.
+        ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "image_reference_id")
 
@@ -1668,7 +1668,7 @@ class ManagedDisk(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the Resource Group where the Managed Disk should exist.
+        The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -1692,7 +1692,7 @@ class ManagedDisk(pulumi.CustomResource):
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+        The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_resource_id")
 
@@ -1700,7 +1700,7 @@ class ManagedDisk(pulumi.CustomResource):
     @pulumi.getter(name="sourceUri")
     def source_uri(self) -> pulumi.Output[str]:
         """
-        URI to a valid VHD file to be used when `create_option` is `Import`.
+        URI to a valid VHD file to be used when `create_option` is `Import`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_uri")
 
@@ -1740,7 +1740,7 @@ class ManagedDisk(pulumi.CustomResource):
     @pulumi.getter(name="trustedLaunchEnabled")
     def trusted_launch_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`.
+        Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "trusted_launch_enabled")
 

@@ -29,8 +29,11 @@ namespace Pulumi.Azure.NetApp
         [Output("accountName")]
         public Output<string> AccountName { get; private set; } = null!;
 
+        [Output("azureVmwareDataStoreEnabled")]
+        public Output<bool?> AzureVmwareDataStoreEnabled { get; private set; } = null!;
+
         /// <summary>
-        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("createFromSnapshotResourceId")]
         public Output<string> CreateFromSnapshotResourceId { get; private set; } = null!;
@@ -72,7 +75,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
         /// </summary>
         [Output("networkFeatures")]
         public Output<string> NetworkFeatures { get; private set; } = null!;
@@ -96,13 +99,13 @@ namespace Pulumi.Azure.NetApp
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+        /// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("securityStyle")]
         public Output<string> SecurityStyle { get; private set; } = null!;
 
         /// <summary>
-        /// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        /// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("serviceLevel")]
         public Output<string> ServiceLevel { get; private set; } = null!;
@@ -195,8 +198,11 @@ namespace Pulumi.Azure.NetApp
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        [Input("azureVmwareDataStoreEnabled")]
+        public Input<bool>? AzureVmwareDataStoreEnabled { get; set; }
+
         /// <summary>
-        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("createFromSnapshotResourceId")]
         public Input<string>? CreateFromSnapshotResourceId { get; set; }
@@ -238,7 +244,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkFeatures")]
         public Input<string>? NetworkFeatures { get; set; }
@@ -268,13 +274,13 @@ namespace Pulumi.Azure.NetApp
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+        /// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("securityStyle")]
         public Input<string>? SecurityStyle { get; set; }
 
         /// <summary>
-        /// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        /// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serviceLevel", required: true)]
         public Input<string> ServiceLevel { get; set; } = null!;
@@ -335,8 +341,11 @@ namespace Pulumi.Azure.NetApp
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
 
+        [Input("azureVmwareDataStoreEnabled")]
+        public Input<bool>? AzureVmwareDataStoreEnabled { get; set; }
+
         /// <summary>
-        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("createFromSnapshotResourceId")]
         public Input<string>? CreateFromSnapshotResourceId { get; set; }
@@ -390,7 +399,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+        /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkFeatures")]
         public Input<string>? NetworkFeatures { get; set; }
@@ -420,13 +429,13 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+        /// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("securityStyle")]
         public Input<string>? SecurityStyle { get; set; }
 
         /// <summary>
-        /// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        /// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serviceLevel")]
         public Input<string>? ServiceLevel { get; set; }

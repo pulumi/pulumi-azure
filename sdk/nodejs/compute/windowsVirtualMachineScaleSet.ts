@@ -134,7 +134,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly capacityReservationGroupId!: pulumi.Output<string | undefined>;
     /**
-     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
      */
     public readonly computerNamePrefix!: pulumi.Output<string>;
     /**
@@ -312,7 +312,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly uniqueId!: pulumi.Output<string>;
     /**
-     * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+     * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
      */
     public readonly upgradeMode!: pulumi.Output<string | undefined>;
     /**
@@ -531,7 +531,7 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     capacityReservationGroupId?: pulumi.Input<string>;
     /**
-     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
      */
     computerNamePrefix?: pulumi.Input<string>;
     /**
@@ -709,7 +709,7 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     uniqueId?: pulumi.Input<string>;
     /**
-     * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+     * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
      */
     upgradeMode?: pulumi.Input<string>;
     /**
@@ -771,7 +771,7 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     capacityReservationGroupId?: pulumi.Input<string>;
     /**
-     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
      */
     computerNamePrefix?: pulumi.Input<string>;
     /**
@@ -945,7 +945,7 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     timezone?: pulumi.Input<string>;
     /**
-     * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
+     * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
      */
     upgradeMode?: pulumi.Input<string>;
     /**

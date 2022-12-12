@@ -63,17 +63,17 @@ type Namespace struct {
 
 	// Is this Notification Hub Namespace enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The Azure Region in which this Notification Hub Namespace should be created.
+	// The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
 	NamespaceType pulumi.StringOutput `pulumi:"namespaceType"`
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ServiceBus Endpoint for this Notification Hub Namespace.
 	ServicebusEndpoint pulumi.StringOutput `pulumi:"servicebusEndpoint"`
-	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -119,17 +119,17 @@ func GetNamespace(ctx *pulumi.Context,
 type namespaceState struct {
 	// Is this Notification Hub Namespace enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The Azure Region in which this Notification Hub Namespace should be created.
+	// The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
 	NamespaceType *string `pulumi:"namespaceType"`
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ServiceBus Endpoint for this Notification Hub Namespace.
 	ServicebusEndpoint *string `pulumi:"servicebusEndpoint"`
-	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -138,17 +138,17 @@ type namespaceState struct {
 type NamespaceState struct {
 	// Is this Notification Hub Namespace enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The Azure Region in which this Notification Hub Namespace should be created.
+	// The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
 	NamespaceType pulumi.StringPtrInput
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The ServiceBus Endpoint for this Notification Hub Namespace.
 	ServicebusEndpoint pulumi.StringPtrInput
-	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -161,15 +161,15 @@ func (NamespaceState) ElementType() reflect.Type {
 type namespaceArgs struct {
 	// Is this Notification Hub Namespace enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The Azure Region in which this Notification Hub Namespace should be created.
+	// The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
 	NamespaceType string `pulumi:"namespaceType"`
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -179,15 +179,15 @@ type namespaceArgs struct {
 type NamespaceArgs struct {
 	// Is this Notification Hub Namespace enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The Azure Region in which this Notification Hub Namespace should be created.
+	// The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
 	NamespaceType pulumi.StringInput
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
 	SkuName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -285,7 +285,7 @@ func (o NamespaceOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Azure Region in which this Notification Hub Namespace should be created.
+// The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
 func (o NamespaceOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -295,7 +295,7 @@ func (o NamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+// The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
 func (o NamespaceOutput) NamespaceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.NamespaceType }).(pulumi.StringOutput)
 }
@@ -310,7 +310,7 @@ func (o NamespaceOutput) ServicebusEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.ServicebusEndpoint }).(pulumi.StringOutput)
 }
 
-// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
 func (o NamespaceOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

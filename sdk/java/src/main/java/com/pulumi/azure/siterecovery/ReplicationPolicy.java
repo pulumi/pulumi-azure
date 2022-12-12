@@ -90,14 +90,14 @@ public class ReplicationPolicy extends com.pulumi.resources.CustomResource {
         return this.applicationConsistentSnapshotFrequencyInMinutes;
     }
     /**
-     * The name of the replication policy.
+     * The name of the replication policy. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the replication policy.
+     * @return The name of the replication policy. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -118,28 +118,28 @@ public class ReplicationPolicy extends com.pulumi.resources.CustomResource {
         return this.recoveryPointRetentionInMinutes;
     }
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="recoveryVaultName", type=String.class, parameters={})
     private Output<String> recoveryVaultName;
 
     /**
-     * @return The name of the vault that should be updated.
+     * @return The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoveryVaultName() {
         return this.recoveryVaultName;
     }
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return Name of the resource group where the vault that should be updated is located.
+     * @return Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

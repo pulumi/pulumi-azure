@@ -71,7 +71,7 @@ namespace Pulumi.Azure.MixedReality
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Spatial Anchors Account.
+        /// The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Azure.MixedReality
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Spatial Anchors Account.
+        /// The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.MixedReality
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Spatial Anchors Account.
+        /// The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

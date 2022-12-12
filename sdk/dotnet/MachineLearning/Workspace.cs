@@ -423,7 +423,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<Outputs.WorkspaceIdentity> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The compute name for image build of the Machine Learning Workspace.
+        /// The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Output("imageBuildComputeName")]
         public Output<string?> ImageBuildComputeName { get; private set; } = null!;
@@ -453,7 +453,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> PrimaryUserAssignedIdentity { get; private set; } = null!;
 
         /// <summary>
-        /// Enable public access when this Machine Learning Workspace is behind a VNet.
+        /// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         /// </summary>
         [Output("publicAccessBehindVirtualNetworkEnabled")]
         public Output<bool?> PublicAccessBehindVirtualNetworkEnabled { get; private set; } = null!;
@@ -580,7 +580,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<Inputs.WorkspaceIdentityArgs> Identity { get; set; } = null!;
 
         /// <summary>
-        /// The compute name for image build of the Machine Learning Workspace.
+        /// The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("imageBuildComputeName")]
         public Input<string>? ImageBuildComputeName { get; set; }
@@ -610,7 +610,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? PrimaryUserAssignedIdentity { get; set; }
 
         /// <summary>
-        /// Enable public access when this Machine Learning Workspace is behind a VNet.
+        /// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publicAccessBehindVirtualNetworkEnabled")]
         public Input<bool>? PublicAccessBehindVirtualNetworkEnabled { get; set; }
@@ -711,7 +711,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<Inputs.WorkspaceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The compute name for image build of the Machine Learning Workspace.
+        /// The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("imageBuildComputeName")]
         public Input<string>? ImageBuildComputeName { get; set; }
@@ -741,7 +741,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? PrimaryUserAssignedIdentity { get; set; }
 
         /// <summary>
-        /// Enable public access when this Machine Learning Workspace is behind a VNet.
+        /// Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publicAccessBehindVirtualNetworkEnabled")]
         public Input<bool>? PublicAccessBehindVirtualNetworkEnabled { get; set; }

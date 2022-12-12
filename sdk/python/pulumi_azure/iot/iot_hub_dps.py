@@ -31,7 +31,7 @@ class IotHubDpsArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input['IotHubDpsSkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[str] allocation_policy: The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
-        :param pulumi.Input[bool] data_residency_enabled: Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+        :param pulumi.Input[bool] data_residency_enabled: Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['IotHubDpsIpFilterRuleArgs']]] ip_filter_rules: An `ip_filter_rule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IotHubDpsLinkedHubArgs']]] linked_hubs: A `linked_hub` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -98,7 +98,7 @@ class IotHubDpsArgs:
     @pulumi.getter(name="dataResidencyEnabled")
     def data_residency_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+        Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_residency_enabled")
 
@@ -198,7 +198,7 @@ class _IotHubDpsState:
         """
         Input properties used for looking up and filtering IotHubDps resources.
         :param pulumi.Input[str] allocation_policy: The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
-        :param pulumi.Input[bool] data_residency_enabled: Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+        :param pulumi.Input[bool] data_residency_enabled: Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] device_provisioning_host_name: The device endpoint of the IoT Device Provisioning Service.
         :param pulumi.Input[str] id_scope: The unique identifier of the IoT Device Provisioning Service.
         :param pulumi.Input[Sequence[pulumi.Input['IotHubDpsIpFilterRuleArgs']]] ip_filter_rules: An `ip_filter_rule` block as defined below.
@@ -254,7 +254,7 @@ class _IotHubDpsState:
     @pulumi.getter(name="dataResidencyEnabled")
     def data_residency_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+        Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_residency_enabled")
 
@@ -442,7 +442,7 @@ class IotHubDps(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_policy: The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
-        :param pulumi.Input[bool] data_residency_enabled: Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+        :param pulumi.Input[bool] data_residency_enabled: Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsIpFilterRuleArgs']]]] ip_filter_rules: An `ip_filter_rule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]] linked_hubs: A `linked_hub` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -568,7 +568,7 @@ class IotHubDps(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_policy: The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
-        :param pulumi.Input[bool] data_residency_enabled: Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+        :param pulumi.Input[bool] data_residency_enabled: Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] device_provisioning_host_name: The device endpoint of the IoT Device Provisioning Service.
         :param pulumi.Input[str] id_scope: The unique identifier of the IoT Device Provisioning Service.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsIpFilterRuleArgs']]]] ip_filter_rules: An `ip_filter_rule` block as defined below.
@@ -612,7 +612,7 @@ class IotHubDps(pulumi.CustomResource):
     @pulumi.getter(name="dataResidencyEnabled")
     def data_residency_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+        Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_residency_enabled")
 

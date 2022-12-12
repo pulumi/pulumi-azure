@@ -148,14 +148,14 @@ public class ManagementPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rules);
     }
     /**
-     * Specifies the id of the storage account to apply the management policy to.
+     * Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageAccountId", type=String.class, parameters={})
     private Output<String> storageAccountId;
 
     /**
-     * @return Specifies the id of the storage account to apply the management policy to.
+     * @return Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountId() {

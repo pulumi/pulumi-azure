@@ -407,7 +407,7 @@ type SpacecraftLink struct {
 	CenterFrequencyMhz float64 `pulumi:"centerFrequencyMhz"`
 	// Direction if the communication. Possible values are `Uplink` and `Downlink`.
 	Direction string `pulumi:"direction"`
-	// Name of the link.
+	// Name of the link. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Polarization. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizontal`.
 	Polarization string `pulumi:"polarization"`
@@ -431,7 +431,7 @@ type SpacecraftLinkArgs struct {
 	CenterFrequencyMhz pulumi.Float64Input `pulumi:"centerFrequencyMhz"`
 	// Direction if the communication. Possible values are `Uplink` and `Downlink`.
 	Direction pulumi.StringInput `pulumi:"direction"`
-	// Name of the link.
+	// Name of the link. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Polarization. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizontal`.
 	Polarization pulumi.StringInput `pulumi:"polarization"`
@@ -503,7 +503,7 @@ func (o SpacecraftLinkOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v SpacecraftLink) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// Name of the link.
+// Name of the link. Changing this forces a new resource to be created.
 func (o SpacecraftLinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SpacecraftLink) string { return v.Name }).(pulumi.StringOutput)
 }

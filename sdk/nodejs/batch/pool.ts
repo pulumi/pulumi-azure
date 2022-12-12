@@ -152,7 +152,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly diskEncryptions!: pulumi.Output<outputs.batch.PoolDiskEncryption[] | undefined>;
     /**
-     * Specifies the display name of the Batch pool.
+     * Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
@@ -196,7 +196,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly networkConfiguration!: pulumi.Output<outputs.batch.PoolNetworkConfiguration | undefined>;
     /**
-     * Specifies the SKU of the node agents that will be created in the Batch pool.
+     * Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
      */
     public readonly nodeAgentSkuId!: pulumi.Output<string>;
     /**
@@ -229,7 +229,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly userAccounts!: pulumi.Output<outputs.batch.PoolUserAccount[] | undefined>;
     /**
-     * Specifies the size of the VM created in the Batch pool.
+     * Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
      */
     public readonly vmSize!: pulumi.Output<string>;
     /**
@@ -358,7 +358,7 @@ export interface PoolState {
      */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.batch.PoolDiskEncryption>[]>;
     /**
-     * Specifies the display name of the Batch pool.
+     * Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
      */
     displayName?: pulumi.Input<string>;
     /**
@@ -402,7 +402,7 @@ export interface PoolState {
      */
     networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration>;
     /**
-     * Specifies the SKU of the node agents that will be created in the Batch pool.
+     * Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
      */
     nodeAgentSkuId?: pulumi.Input<string>;
     /**
@@ -435,7 +435,7 @@ export interface PoolState {
      */
     userAccounts?: pulumi.Input<pulumi.Input<inputs.batch.PoolUserAccount>[]>;
     /**
-     * Specifies the size of the VM created in the Batch pool.
+     * Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
      */
     vmSize?: pulumi.Input<string>;
     /**
@@ -473,7 +473,7 @@ export interface PoolArgs {
      */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.batch.PoolDiskEncryption>[]>;
     /**
-     * Specifies the display name of the Batch pool.
+     * Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
      */
     displayName?: pulumi.Input<string>;
     /**
@@ -517,7 +517,7 @@ export interface PoolArgs {
      */
     networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration>;
     /**
-     * Specifies the SKU of the node agents that will be created in the Batch pool.
+     * Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
      */
     nodeAgentSkuId: pulumi.Input<string>;
     /**
@@ -550,7 +550,7 @@ export interface PoolArgs {
      */
     userAccounts?: pulumi.Input<pulumi.Input<inputs.batch.PoolUserAccount>[]>;
     /**
-     * Specifies the size of the VM created in the Batch pool.
+     * Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
      */
     vmSize: pulumi.Input<string>;
     /**

@@ -519,14 +519,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.identity;
     }
     /**
-     * The compute name for image build of the Machine Learning Workspace.
+     * The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="imageBuildComputeName", type=String.class, parameters={})
     private Output</* @Nullable */ String> imageBuildComputeName;
 
     /**
-     * @return The compute name for image build of the Machine Learning Workspace.
+     * @return The compute name for image build of the Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> imageBuildComputeName() {
@@ -589,7 +589,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.primaryUserAssignedIdentity);
     }
     /**
-     * Enable public access when this Machine Learning Workspace is behind a VNet.
+     * Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
      * 
      * @deprecated
      * `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
@@ -600,7 +600,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> publicAccessBehindVirtualNetworkEnabled;
 
     /**
-     * @return Enable public access when this Machine Learning Workspace is behind a VNet.
+     * @return Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> publicAccessBehindVirtualNetworkEnabled() {

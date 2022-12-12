@@ -3294,7 +3294,7 @@ class FunctionAppConnectionStringArgs:
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: The name of the Connection String.
+        :param pulumi.Input[str] name: The name of the Connection String. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
         :param pulumi.Input[str] value: The value for the Connection String.
         """
@@ -3306,7 +3306,7 @@ class FunctionAppConnectionStringArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Connection String.
+        The name of the Connection String. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -3345,8 +3345,8 @@ class FunctionAppFunctionFileArgs:
                  content: pulumi.Input[str],
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] content: The content of the file.
-        :param pulumi.Input[str] name: The filename of the file to be uploaded.
+        :param pulumi.Input[str] content: The content of the file. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The filename of the file to be uploaded. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "name", name)
@@ -3355,7 +3355,7 @@ class FunctionAppFunctionFileArgs:
     @pulumi.getter
     def content(self) -> pulumi.Input[str]:
         """
-        The content of the file.
+        The content of the file. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "content")
 
@@ -3367,7 +3367,7 @@ class FunctionAppFunctionFileArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The filename of the file to be uploaded.
+        The filename of the file to be uploaded. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -4729,7 +4729,7 @@ class FunctionAppSlotConnectionStringArgs:
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: The name of the Connection String.
+        :param pulumi.Input[str] name: The name of the Connection String. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
         :param pulumi.Input[str] value: The value for the Connection String.
         """
@@ -4741,7 +4741,7 @@ class FunctionAppSlotConnectionStringArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Connection String.
+        The name of the Connection String. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -16557,7 +16557,7 @@ class SlotConnectionStringArgs:
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: The name of the Connection String.
+        :param pulumi.Input[str] name: The name of the Connection String. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
         :param pulumi.Input[str] value: The value for the Connection String.
         """
@@ -16569,7 +16569,7 @@ class SlotConnectionStringArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Connection String.
+        The name of the Connection String. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

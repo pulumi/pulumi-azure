@@ -110,28 +110,28 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.frontendIpConfigurations);
     }
     /**
-     * Specifies the supported Azure Region where the Load Balancer should be created.
+     * Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return Specifies the supported Azure Region where the Load Balancer should be created.
+     * @return Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
         return this.location;
     }
     /**
-     * Specifies the name of the Load Balancer.
+     * Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Load Balancer.
+     * @return Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -166,28 +166,28 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.privateIpAddresses;
     }
     /**
-     * The name of the Resource Group in which to create the Load Balancer.
+     * The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group in which to create the Load Balancer.
+     * @return The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+     * The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sku", type=String.class, parameters={})
     private Output</* @Nullable */ String> sku;
 
     /**
-     * @return The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`.
+     * @return The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> sku() {

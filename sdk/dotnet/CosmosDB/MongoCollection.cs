@@ -111,7 +111,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the key to partition on for sharding. There must not be any other unique index keys.
+        /// The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         /// </summary>
         [Output("shardKey")]
         public Output<string?> ShardKey { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the key to partition on for sharding. There must not be any other unique index keys.
+        /// The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         /// </summary>
         [Input("shardKey")]
         public Input<string>? ShardKey { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The name of the key to partition on for sharding. There must not be any other unique index keys.
+        /// The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         /// </summary>
         [Input("shardKey")]
         public Input<string>? ShardKey { get; set; }

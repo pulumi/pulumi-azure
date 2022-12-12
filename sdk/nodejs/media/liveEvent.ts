@@ -99,7 +99,7 @@ export class LiveEvent extends pulumi.CustomResource {
     }
 
     /**
-     * The flag indicates if the resource should be automatically started on creation. Default is `false`.
+     * The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
      */
     public readonly autoStartEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -218,7 +218,7 @@ export class LiveEvent extends pulumi.CustomResource {
  */
 export interface LiveEventState {
     /**
-     * The flag indicates if the resource should be automatically started on creation. Default is `false`.
+     * The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
      */
     autoStartEnabled?: pulumi.Input<boolean>;
     /**
@@ -280,7 +280,7 @@ export interface LiveEventState {
  */
 export interface LiveEventArgs {
     /**
-     * The flag indicates if the resource should be automatically started on creation. Default is `false`.
+     * The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
      */
     autoStartEnabled?: pulumi.Input<boolean>;
     /**

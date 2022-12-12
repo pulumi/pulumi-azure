@@ -93,8 +93,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string> LoadBalancerType { get; private set; } = null!;
 
         /// <summary>
-        /// The location/region where the Virtual Desktop Host Pool is
-        /// located. Changing the location/region forces a new resource to be created.
+        /// The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -107,29 +106,25 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<int?> MaximumSessionsAllowed { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Virtual Desktop Host Pool. Changing the name
-        /// forces a new resource to be created.
+        /// The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
-        /// `Direct` Assignment – Admin selects a specific host to assign to an user.
+        /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
         /// </summary>
         [Output("personalDesktopAssignmentType")]
         public Output<string?> PersonalDesktopAssignmentType { get; private set; } = null!;
 
         /// <summary>
-        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("preferredAppGroupType")]
         public Output<string?> PreferredAppGroupType { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Virtual Desktop Host Pool. Changing the resource group name forces
-        /// a new resource to be created.
+        /// The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -237,8 +232,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string> LoadBalancerType { get; set; } = null!;
 
         /// <summary>
-        /// The location/region where the Virtual Desktop Host Pool is
-        /// located. Changing the location/region forces a new resource to be created.
+        /// The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -251,29 +245,25 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<int>? MaximumSessionsAllowed { get; set; }
 
         /// <summary>
-        /// The name of the Virtual Desktop Host Pool. Changing the name
-        /// forces a new resource to be created.
+        /// The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
-        /// `Direct` Assignment – Admin selects a specific host to assign to an user.
+        /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
         /// </summary>
         [Input("personalDesktopAssignmentType")]
         public Input<string>? PersonalDesktopAssignmentType { get; set; }
 
         /// <summary>
-        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("preferredAppGroupType")]
         public Input<string>? PreferredAppGroupType { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Virtual Desktop Host Pool. Changing the resource group name forces
-        /// a new resource to be created.
+        /// The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -349,8 +339,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? LoadBalancerType { get; set; }
 
         /// <summary>
-        /// The location/region where the Virtual Desktop Host Pool is
-        /// located. Changing the location/region forces a new resource to be created.
+        /// The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -363,29 +352,25 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<int>? MaximumSessionsAllowed { get; set; }
 
         /// <summary>
-        /// The name of the Virtual Desktop Host Pool. Changing the name
-        /// forces a new resource to be created.
+        /// The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
-        /// `Direct` Assignment – Admin selects a specific host to assign to an user.
+        /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
         /// </summary>
         [Input("personalDesktopAssignmentType")]
         public Input<string>? PersonalDesktopAssignmentType { get; set; }
 
         /// <summary>
-        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("preferredAppGroupType")]
         public Input<string>? PreferredAppGroupType { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the Virtual Desktop Host Pool. Changing the resource group name forces
-        /// a new resource to be created.
+        /// The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

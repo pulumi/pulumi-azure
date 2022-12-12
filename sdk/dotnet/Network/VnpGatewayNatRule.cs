@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Network
     public partial class VnpGatewayNatRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+        /// (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
         /// </summary>
         [Output("externalAddressSpaceMappings")]
         public Output<ImmutableArray<string>> ExternalAddressSpaceMappings { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.VnpGatewayNatRuleExternalMapping>> ExternalMappings { get; private set; } = null!;
 
         /// <summary>
-        /// A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+        /// (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
         /// </summary>
         [Output("internalAddressSpaceMappings")]
         public Output<ImmutableArray<string>> InternalAddressSpaceMappings { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _externalAddressSpaceMappings;
 
         /// <summary>
-        /// A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+        /// (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
         /// </summary>
         [Obsolete(@"`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.")]
         public InputList<string> ExternalAddressSpaceMappings
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _internalAddressSpaceMappings;
 
         /// <summary>
-        /// A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+        /// (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
         /// </summary>
         [Obsolete(@"`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.")]
         public InputList<string> InternalAddressSpaceMappings
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _externalAddressSpaceMappings;
 
         /// <summary>
-        /// A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+        /// (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
         /// </summary>
         [Obsolete(@"`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.")]
         public InputList<string> ExternalAddressSpaceMappings
@@ -310,7 +310,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _internalAddressSpaceMappings;
 
         /// <summary>
-        /// A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+        /// (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
         /// </summary>
         [Obsolete(@"`internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.")]
         public InputList<string> InternalAddressSpaceMappings

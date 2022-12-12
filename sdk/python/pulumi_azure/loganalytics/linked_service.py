@@ -21,7 +21,7 @@ class LinkedServiceArgs:
         """
         The set of arguments for constructing a LinkedService resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
         :param pulumi.Input[str] read_access_id: The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
         :param pulumi.Input[str] write_access_id: The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
         """
@@ -48,7 +48,7 @@ class LinkedServiceArgs:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+        The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -94,7 +94,7 @@ class _LinkedServiceState:
         :param pulumi.Input[str] name: The generated name of the Linked Service. The format for this attribute is always `<workspace name>/<linked service type>`(e.g. `workspace1/Automation` or `workspace1/Cluster`)
         :param pulumi.Input[str] read_access_id: The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
         :param pulumi.Input[str] write_access_id: The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
         """
         if name is not None:
@@ -148,7 +148,7 @@ class _LinkedServiceState:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+        The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -219,7 +219,7 @@ class LinkedService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] read_access_id: The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
         :param pulumi.Input[str] write_access_id: The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
         """
         ...
@@ -326,7 +326,7 @@ class LinkedService(pulumi.CustomResource):
         :param pulumi.Input[str] name: The generated name of the Linked Service. The format for this attribute is always `<workspace name>/<linked service type>`(e.g. `workspace1/Automation` or `workspace1/Cluster`)
         :param pulumi.Input[str] read_access_id: The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
         :param pulumi.Input[str] write_access_id: The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -368,7 +368,7 @@ class LinkedService(pulumi.CustomResource):
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
+        The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
         """
         return pulumi.get(self, "workspace_id")
 

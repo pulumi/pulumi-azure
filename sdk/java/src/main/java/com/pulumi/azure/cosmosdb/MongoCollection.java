@@ -184,14 +184,14 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The name of the key to partition on for sharding. There must not be any other unique index keys.
+     * The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="shardKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> shardKey;
 
     /**
-     * @return The name of the key to partition on for sharding. There must not be any other unique index keys.
+     * @return The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> shardKey() {

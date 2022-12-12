@@ -32,14 +32,14 @@ public final class NamespaceCustomerManagedKeyArgs extends com.pulumi.resources.
     }
 
     /**
-     * Used to specify whether enable Infrastructure Encryption (Double Encryption).
+     * Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="infrastructureEncryptionEnabled")
     private @Nullable Output<Boolean> infrastructureEncryptionEnabled;
 
     /**
-     * @return Used to specify whether enable Infrastructure Encryption (Double Encryption).
+     * @return Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> infrastructureEncryptionEnabled() {
@@ -109,7 +109,7 @@ public final class NamespaceCustomerManagedKeyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param infrastructureEncryptionEnabled Used to specify whether enable Infrastructure Encryption (Double Encryption).
+         * @param infrastructureEncryptionEnabled Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class NamespaceCustomerManagedKeyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param infrastructureEncryptionEnabled Used to specify whether enable Infrastructure Encryption (Double Encryption).
+         * @param infrastructureEncryptionEnabled Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

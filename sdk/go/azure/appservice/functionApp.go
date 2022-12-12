@@ -233,15 +233,15 @@ type FunctionApp struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
-	// The name of the resource group in which to create the Function App.
+	// The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig FunctionAppSiteConfigOutput `pulumi:"siteConfig"`
@@ -251,7 +251,7 @@ type FunctionApp struct {
 	SourceControl FunctionAppSourceControlOutput `pulumi:"sourceControl"`
 	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey pulumi.StringOutput `pulumi:"storageAccountAccessKey"`
-	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+	// The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -330,15 +330,15 @@ type functionAppState struct {
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
 	Name *string `pulumi:"name"`
-	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
 	OsType *string `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
-	// The name of the resource group in which to create the Function App.
+	// The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig *FunctionAppSiteConfig `pulumi:"siteConfig"`
@@ -348,7 +348,7 @@ type functionAppState struct {
 	SourceControl *FunctionAppSourceControl `pulumi:"sourceControl"`
 	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+	// The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -387,15 +387,15 @@ type FunctionAppState struct {
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
 	Name pulumi.StringPtrInput
-	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
 	OsType pulumi.StringPtrInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringPtrInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
-	// The name of the resource group in which to create the Function App.
+	// The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `siteConfig` object as defined below.
 	SiteConfig FunctionAppSiteConfigPtrInput
@@ -405,7 +405,7 @@ type FunctionAppState struct {
 	SourceControl FunctionAppSourceControlPtrInput
 	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey pulumi.StringPtrInput
-	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+	// The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -442,11 +442,11 @@ type functionAppArgs struct {
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
 	Name *string `pulumi:"name"`
-	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
 	OsType *string `pulumi:"osType"`
-	// The name of the resource group in which to create the Function App.
+	// The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig *FunctionAppSiteConfig `pulumi:"siteConfig"`
@@ -454,7 +454,7 @@ type functionAppArgs struct {
 	SourceControl *FunctionAppSourceControl `pulumi:"sourceControl"`
 	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
-	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+	// The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
 	StorageAccountName string `pulumi:"storageAccountName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -488,11 +488,11 @@ type FunctionAppArgs struct {
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
 	Name pulumi.StringPtrInput
-	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string).
+	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
 	OsType pulumi.StringPtrInput
-	// The name of the resource group in which to create the Function App.
+	// The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `siteConfig` object as defined below.
 	SiteConfig FunctionAppSiteConfigPtrInput
@@ -500,7 +500,7 @@ type FunctionAppArgs struct {
 	SourceControl FunctionAppSourceControlPtrInput
 	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey pulumi.StringInput
-	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+	// The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -670,12 +670,12 @@ func (o FunctionAppOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb)
+// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
 func (o FunctionAppOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A string indicating the Operating System type for this function app. Possible values are `linux` and “(empty string).
+// A string indicating the Operating System type for this function app. Possible values are `linux` and “(empty string). Changing this forces a new resource to be created.
 func (o FunctionAppOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
 }
@@ -690,7 +690,7 @@ func (o FunctionAppOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.StringOutput { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the Function App.
+// The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
 func (o FunctionAppOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -715,7 +715,7 @@ func (o FunctionAppOutput) StorageAccountAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.StringOutput { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
 }
 
-// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
+// The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
 func (o FunctionAppOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
 }

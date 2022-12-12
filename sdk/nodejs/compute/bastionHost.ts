@@ -110,7 +110,7 @@ export class BastionHost extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the Bastion Host.
+     * The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -217,7 +217,7 @@ export interface BastionHostState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Bastion Host.
+     * The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -271,7 +271,7 @@ export interface BastionHostArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Bastion Host.
+     * The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -78,7 +78,7 @@ namespace Pulumi.Azure.KeyVault
     public partial class AccessPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The object ID of an Application in Azure Active Directory.
+        /// The object ID of an Application in Azure Active Directory. Changing this forces a new resource to be created.
         /// </summary>
         [Output("applicationId")]
         public Output<string?> ApplicationId { get; private set; } = null!;
@@ -96,17 +96,13 @@ namespace Pulumi.Azure.KeyVault
         public Output<ImmutableArray<string>> KeyPermissions { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the id of the Key Vault resource. Changing this
-        /// forces a new resource to be created.
+        /// Specifies the id of the Key Vault resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("keyVaultId")]
         public Output<string> KeyVaultId { get; private set; } = null!;
 
         /// <summary>
-        /// The object ID of a user, service principal or security
-        /// group in the Azure Active Directory tenant for the vault. The object ID must
-        /// be unique for the list of access policies. Changing this forces a new resource
-        /// to be created.
+        /// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
         /// </summary>
         [Output("objectId")]
         public Output<string> ObjectId { get; private set; } = null!;
@@ -124,9 +120,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<ImmutableArray<string>> StoragePermissions { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Active Directory tenant ID that should be used
-        /// for authenticating requests to the key vault. Changing this forces a new resource
-        /// to be created.
+        /// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Changing this forces a new resource to be created.
         /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
@@ -178,7 +172,7 @@ namespace Pulumi.Azure.KeyVault
     public sealed class AccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The object ID of an Application in Azure Active Directory.
+        /// The object ID of an Application in Azure Active Directory. Changing this forces a new resource to be created.
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
@@ -208,17 +202,13 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// Specifies the id of the Key Vault resource. Changing this
-        /// forces a new resource to be created.
+        /// Specifies the id of the Key Vault resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultId", required: true)]
         public Input<string> KeyVaultId { get; set; } = null!;
 
         /// <summary>
-        /// The object ID of a user, service principal or security
-        /// group in the Azure Active Directory tenant for the vault. The object ID must
-        /// be unique for the list of access policies. Changing this forces a new resource
-        /// to be created.
+        /// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
         /// </summary>
         [Input("objectId", required: true)]
         public Input<string> ObjectId { get; set; } = null!;
@@ -248,9 +238,7 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// The Azure Active Directory tenant ID that should be used
-        /// for authenticating requests to the key vault. Changing this forces a new resource
-        /// to be created.
+        /// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Changing this forces a new resource to be created.
         /// </summary>
         [Input("tenantId", required: true)]
         public Input<string> TenantId { get; set; } = null!;
@@ -264,7 +252,7 @@ namespace Pulumi.Azure.KeyVault
     public sealed class AccessPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The object ID of an Application in Azure Active Directory.
+        /// The object ID of an Application in Azure Active Directory. Changing this forces a new resource to be created.
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
@@ -294,17 +282,13 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// Specifies the id of the Key Vault resource. Changing this
-        /// forces a new resource to be created.
+        /// Specifies the id of the Key Vault resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// The object ID of a user, service principal or security
-        /// group in the Azure Active Directory tenant for the vault. The object ID must
-        /// be unique for the list of access policies. Changing this forces a new resource
-        /// to be created.
+        /// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
         /// </summary>
         [Input("objectId")]
         public Input<string>? ObjectId { get; set; }
@@ -334,9 +318,7 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// The Azure Active Directory tenant ID that should be used
-        /// for authenticating requests to the key vault. Changing this forces a new resource
-        /// to be created.
+        /// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Changing this forces a new resource to be created.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

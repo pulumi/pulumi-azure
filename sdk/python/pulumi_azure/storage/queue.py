@@ -21,7 +21,7 @@ class QueueArgs:
         The set of arguments for constructing a Queue resource.
         :param pulumi.Input[str] storage_account_name: Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData which should be assigned to this Storage Queue.
-        :param pulumi.Input[str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+        :param pulumi.Input[str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "storage_account_name", storage_account_name)
         if metadata is not None:
@@ -57,7 +57,7 @@ class QueueArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+        The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -75,7 +75,7 @@ class _QueueState:
         """
         Input properties used for looking up and filtering Queue resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData which should be assigned to this Storage Queue.
-        :param pulumi.Input[str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+        :param pulumi.Input[str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
         """
         if metadata is not None:
@@ -101,7 +101,7 @@ class _QueueState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+        The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -160,7 +160,7 @@ class Queue(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData which should be assigned to this Storage Queue.
-        :param pulumi.Input[str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+        :param pulumi.Input[str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
         """
         ...
@@ -248,7 +248,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData which should be assigned to this Storage Queue.
-        :param pulumi.Input[str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+        :param pulumi.Input[str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -272,7 +272,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+        The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

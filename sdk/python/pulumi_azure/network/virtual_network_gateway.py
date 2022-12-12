@@ -39,9 +39,7 @@ class VirtualNetworkGatewayArgs:
                An active-standby gateway requires exactly one `ip_configuration` block,
                an active-active gateway requires exactly two `ip_configuration` blocks whereas
                an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Virtual Network Gateway. Changing the resource group name forces
-               a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Configuration of the size and capacity of the virtual network
                gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
                `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
@@ -63,17 +61,15 @@ class VirtualNetworkGatewayArgs:
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
                for this Virtual Network Gateway. Defaults to `false`.
-        :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
-        :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is
-               located. Changing the location/region forces a new resource to be created.
-        :param pulumi.Input[str] name: A user-defined name of the IP configuration. Defaults to
-               `vnetGatewayConfig`.
+        :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_ip_address_enabled: Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs'] vpn_client_configuration: A `vpn_client_configuration` block which
                is documented below. In this block the Virtual Network Gateway can be configured
                to accept IPSec point-to-site connections.
-        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -125,9 +121,7 @@ class VirtualNetworkGatewayArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to
-        create the Virtual Network Gateway. Changing the resource group name forces
-        a new resource to be created.
+        The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -246,7 +240,7 @@ class VirtualNetworkGatewayArgs:
     @pulumi.getter
     def generation(self) -> Optional[pulumi.Input[str]]:
         """
-        The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+        The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "generation")
 
@@ -258,8 +252,7 @@ class VirtualNetworkGatewayArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location/region where the Virtual Network Gateway is
-        located. Changing the location/region forces a new resource to be created.
+        The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -271,8 +264,7 @@ class VirtualNetworkGatewayArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A user-defined name of the IP configuration. Defaults to
-        `vnetGatewayConfig`.
+        A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -322,7 +314,7 @@ class VirtualNetworkGatewayArgs:
     @pulumi.getter(name="vpnType")
     def vpn_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vpn_type")
 
@@ -366,19 +358,15 @@ class _VirtualNetworkGatewayState:
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
                for this Virtual Network Gateway. Defaults to `false`.
-        :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+        :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIpConfigurationArgs']]] ip_configurations: One, two or three `ip_configuration` blocks documented below.
                An active-standby gateway requires exactly one `ip_configuration` block,
                an active-active gateway requires exactly two `ip_configuration` blocks whereas
                an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
-        :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is
-               located. Changing the location/region forces a new resource to be created.
-        :param pulumi.Input[str] name: A user-defined name of the IP configuration. Defaults to
-               `vnetGatewayConfig`.
+        :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_ip_address_enabled: Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Virtual Network Gateway. Changing the resource group name forces
-               a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Configuration of the size and capacity of the virtual network
                gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
                `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
@@ -391,7 +379,7 @@ class _VirtualNetworkGatewayState:
         :param pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs'] vpn_client_configuration: A `vpn_client_configuration` block which
                is documented below. In this block the Virtual Network Gateway can be configured
                to accept IPSec point-to-site connections.
-        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
         if active_active is not None:
             pulumi.set(__self__, "active_active", active_active)
@@ -509,7 +497,7 @@ class _VirtualNetworkGatewayState:
     @pulumi.getter
     def generation(self) -> Optional[pulumi.Input[str]]:
         """
-        The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+        The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "generation")
 
@@ -536,8 +524,7 @@ class _VirtualNetworkGatewayState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location/region where the Virtual Network Gateway is
-        located. Changing the location/region forces a new resource to be created.
+        The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -549,8 +536,7 @@ class _VirtualNetworkGatewayState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A user-defined name of the IP configuration. Defaults to
-        `vnetGatewayConfig`.
+        A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -574,9 +560,7 @@ class _VirtualNetworkGatewayState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to
-        create the Virtual Network Gateway. Changing the resource group name forces
-        a new resource to be created.
+        The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -644,7 +628,7 @@ class _VirtualNetworkGatewayState:
     @pulumi.getter(name="vpnType")
     def vpn_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vpn_type")
 
@@ -770,19 +754,15 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
                for this Virtual Network Gateway. Defaults to `false`.
-        :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+        :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]] ip_configurations: One, two or three `ip_configuration` blocks documented below.
                An active-standby gateway requires exactly one `ip_configuration` block,
                an active-active gateway requires exactly two `ip_configuration` blocks whereas
                an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
-        :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is
-               located. Changing the location/region forces a new resource to be created.
-        :param pulumi.Input[str] name: A user-defined name of the IP configuration. Defaults to
-               `vnetGatewayConfig`.
+        :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_ip_address_enabled: Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Virtual Network Gateway. Changing the resource group name forces
-               a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Configuration of the size and capacity of the virtual network
                gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
                `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
@@ -795,7 +775,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayVpnClientConfigurationArgs']] vpn_client_configuration: A `vpn_client_configuration` block which
                is documented below. In this block the Virtual Network Gateway can be configured
                to accept IPSec point-to-site connections.
-        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -995,19 +975,15 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
                for this Virtual Network Gateway. Defaults to `false`.
-        :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+        :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]] ip_configurations: One, two or three `ip_configuration` blocks documented below.
                An active-standby gateway requires exactly one `ip_configuration` block,
                an active-active gateway requires exactly two `ip_configuration` blocks whereas
                an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
-        :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is
-               located. Changing the location/region forces a new resource to be created.
-        :param pulumi.Input[str] name: A user-defined name of the IP configuration. Defaults to
-               `vnetGatewayConfig`.
+        :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_ip_address_enabled: Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the Virtual Network Gateway. Changing the resource group name forces
-               a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Configuration of the size and capacity of the virtual network
                gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
                `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
@@ -1020,7 +996,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayVpnClientConfigurationArgs']] vpn_client_configuration: A `vpn_client_configuration` block which
                is documented below. In this block the Virtual Network Gateway can be configured
                to accept IPSec point-to-site connections.
-        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1102,7 +1078,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter
     def generation(self) -> pulumi.Output[str]:
         """
-        The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+        The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "generation")
 
@@ -1121,8 +1097,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location/region where the Virtual Network Gateway is
-        located. Changing the location/region forces a new resource to be created.
+        The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -1130,8 +1105,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        A user-defined name of the IP configuration. Defaults to
-        `vnetGatewayConfig`.
+        A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1147,9 +1121,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to
-        create the Virtual Network Gateway. Changing the resource group name forces
-        a new resource to be created.
+        The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -1197,7 +1169,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter(name="vpnType")
     def vpn_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vpn_type")
 

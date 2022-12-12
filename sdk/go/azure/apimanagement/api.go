@@ -109,7 +109,7 @@ type Api struct {
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The Revision which used for this API.
+	// The Revision which used for this API. Changing this forces a new resource to be created.
 	Revision pulumi.StringOutput `pulumi:"revision"`
 	// The description of the API Revision of the API Management API.
 	RevisionDescription pulumi.StringPtrOutput `pulumi:"revisionDescription"`
@@ -203,7 +203,7 @@ type apiState struct {
 	Protocols []string `pulumi:"protocols"`
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The Revision which used for this API.
+	// The Revision which used for this API. Changing this forces a new resource to be created.
 	Revision *string `pulumi:"revision"`
 	// The description of the API Revision of the API Management API.
 	RevisionDescription *string `pulumi:"revisionDescription"`
@@ -260,7 +260,7 @@ type ApiState struct {
 	Protocols pulumi.StringArrayInput
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The Revision which used for this API.
+	// The Revision which used for this API. Changing this forces a new resource to be created.
 	Revision pulumi.StringPtrInput
 	// The description of the API Revision of the API Management API.
 	RevisionDescription pulumi.StringPtrInput
@@ -317,7 +317,7 @@ type apiArgs struct {
 	Protocols []string `pulumi:"protocols"`
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Revision which used for this API.
+	// The Revision which used for this API. Changing this forces a new resource to be created.
 	Revision string `pulumi:"revision"`
 	// The description of the API Revision of the API Management API.
 	RevisionDescription *string `pulumi:"revisionDescription"`
@@ -371,7 +371,7 @@ type ApiArgs struct {
 	Protocols pulumi.StringArrayInput
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The Revision which used for this API.
+	// The Revision which used for this API. Changing this forces a new resource to be created.
 	Revision pulumi.StringInput
 	// The description of the API Revision of the API Management API.
 	RevisionDescription pulumi.StringPtrInput
@@ -559,7 +559,7 @@ func (o ApiOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The Revision which used for this API.
+// The Revision which used for this API. Changing this forces a new resource to be created.
 func (o ApiOutput) Revision() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.Revision }).(pulumi.StringOutput)
 }

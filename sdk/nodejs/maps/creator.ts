@@ -68,7 +68,7 @@ export class Creator extends pulumi.CustomResource {
     }
 
     /**
-     * The Azure Region where the Azure Maps Creator should exist.
+     * The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -130,7 +130,7 @@ export class Creator extends pulumi.CustomResource {
  */
 export interface CreatorState {
     /**
-     * The Azure Region where the Azure Maps Creator should exist.
+     * The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -156,7 +156,7 @@ export interface CreatorState {
  */
 export interface CreatorArgs {
     /**
-     * The Azure Region where the Azure Maps Creator should exist.
+     * The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**

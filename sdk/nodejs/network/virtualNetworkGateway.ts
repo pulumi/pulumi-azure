@@ -147,7 +147,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly enableBgp!: pulumi.Output<boolean>;
     /**
-     * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+     * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
      */
     public readonly generation!: pulumi.Output<string>;
     /**
@@ -158,13 +158,11 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly ipConfigurations!: pulumi.Output<outputs.network.VirtualNetworkGatewayIpConfiguration[]>;
     /**
-     * The location/region where the Virtual Network Gateway is
-     * located. Changing the location/region forces a new resource to be created.
+     * The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * A user-defined name of the IP configuration. Defaults to
-     * `vnetGatewayConfig`.
+     * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -172,9 +170,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly privateIpAddressEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the resource group in which to
-     * create the Virtual Network Gateway. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -202,7 +198,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly vpnClientConfiguration!: pulumi.Output<outputs.network.VirtualNetworkGatewayVpnClientConfiguration | undefined>;
     /**
-     * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+     * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
      */
     public readonly vpnType!: pulumi.Output<string | undefined>;
 
@@ -307,7 +303,7 @@ export interface VirtualNetworkGatewayState {
      */
     enableBgp?: pulumi.Input<boolean>;
     /**
-     * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+     * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
      */
     generation?: pulumi.Input<string>;
     /**
@@ -318,13 +314,11 @@ export interface VirtualNetworkGatewayState {
      */
     ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayIpConfiguration>[]>;
     /**
-     * The location/region where the Virtual Network Gateway is
-     * located. Changing the location/region forces a new resource to be created.
+     * The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * A user-defined name of the IP configuration. Defaults to
-     * `vnetGatewayConfig`.
+     * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -332,9 +326,7 @@ export interface VirtualNetworkGatewayState {
      */
     privateIpAddressEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to
-     * create the Virtual Network Gateway. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -362,7 +354,7 @@ export interface VirtualNetworkGatewayState {
      */
     vpnClientConfiguration?: pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfiguration>;
     /**
-     * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+     * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
      */
     vpnType?: pulumi.Input<string>;
 }
@@ -401,7 +393,7 @@ export interface VirtualNetworkGatewayArgs {
      */
     enableBgp?: pulumi.Input<boolean>;
     /**
-     * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+     * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
      */
     generation?: pulumi.Input<string>;
     /**
@@ -412,13 +404,11 @@ export interface VirtualNetworkGatewayArgs {
      */
     ipConfigurations: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayIpConfiguration>[]>;
     /**
-     * The location/region where the Virtual Network Gateway is
-     * located. Changing the location/region forces a new resource to be created.
+     * The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * A user-defined name of the IP configuration. Defaults to
-     * `vnetGatewayConfig`.
+     * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -426,9 +416,7 @@ export interface VirtualNetworkGatewayArgs {
      */
     privateIpAddressEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to
-     * create the Virtual Network Gateway. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -456,7 +444,7 @@ export interface VirtualNetworkGatewayArgs {
      */
     vpnClientConfiguration?: pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfiguration>;
     /**
-     * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+     * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
      */
     vpnType?: pulumi.Input<string>;
 }

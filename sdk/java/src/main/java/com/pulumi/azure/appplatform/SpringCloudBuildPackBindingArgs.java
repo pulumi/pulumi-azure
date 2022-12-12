@@ -17,14 +17,14 @@ public final class SpringCloudBuildPackBindingArgs extends com.pulumi.resources.
     public static final SpringCloudBuildPackBindingArgs Empty = new SpringCloudBuildPackBindingArgs();
 
     /**
-     * Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+     * Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      * 
      */
     @Import(name="bindingType")
     private @Nullable Output<String> bindingType;
 
     /**
-     * @return Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+     * @return Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      * 
      */
     public Optional<Output<String>> bindingType() {
@@ -47,14 +47,14 @@ public final class SpringCloudBuildPackBindingArgs extends com.pulumi.resources.
     }
 
     /**
-     * The name which should be used for this Spring Cloud Buildpack Binding. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+     * The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Spring Cloud Buildpack Binding. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+     * @return The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -62,14 +62,14 @@ public final class SpringCloudBuildPackBindingArgs extends com.pulumi.resources.
     }
 
     /**
-     * The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+     * The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
      * 
      */
     @Import(name="springCloudBuilderId", required=true)
     private Output<String> springCloudBuilderId;
 
     /**
-     * @return The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+     * @return The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
      * 
      */
     public Output<String> springCloudBuilderId() {
@@ -104,7 +104,7 @@ public final class SpringCloudBuildPackBindingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param bindingType Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+         * @param bindingType Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class SpringCloudBuildPackBindingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param bindingType Specifies the Buildpack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+         * @param bindingType Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class SpringCloudBuildPackBindingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name The name which should be used for this Spring Cloud Buildpack Binding. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+         * @param name The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class SpringCloudBuildPackBindingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name The name which should be used for this Spring Cloud Buildpack Binding. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+         * @param name The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class SpringCloudBuildPackBindingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param springCloudBuilderId The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+         * @param springCloudBuilderId The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class SpringCloudBuildPackBindingArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param springCloudBuilderId The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Buildpack Binding to be created.
+         * @param springCloudBuilderId The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
          * 
          * @return builder
          * 

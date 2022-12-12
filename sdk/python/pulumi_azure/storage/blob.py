@@ -30,22 +30,21 @@ class BlobArgs:
                  source_uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Blob resource.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage container.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_container_name: The name of the storage container in which this blob should be created.
+        :param pulumi.Input[str] storage_container_name: The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
         :param pulumi.Input[str] cache_control: Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
         :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
-        :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located.
-        :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
-        :param pulumi.Input[int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
-        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
-        :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
-        :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-               for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+        :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
         """
         pulumi.set(__self__, "storage_account_name", storage_account_name)
         pulumi.set(__self__, "storage_container_name", storage_container_name)
@@ -77,7 +76,7 @@ class BlobArgs:
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Input[str]:
         """
-        Specifies the storage account in which to create the storage container.
+        Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
         Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
@@ -90,7 +89,7 @@ class BlobArgs:
     @pulumi.getter(name="storageContainerName")
     def storage_container_name(self) -> pulumi.Input[str]:
         """
-        The name of the storage container in which this blob should be created.
+        The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_container_name")
 
@@ -174,7 +173,7 @@ class BlobArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the storage blob. Must be unique within the storage container the blob is located.
+        The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -186,7 +185,7 @@ class BlobArgs:
     @pulumi.getter
     def parallelism(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+        The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "parallelism")
 
@@ -198,7 +197,7 @@ class BlobArgs:
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[int]]:
         """
-        Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+        Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "size")
 
@@ -210,7 +209,7 @@ class BlobArgs:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]]:
         """
-        An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
+        An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source")
 
@@ -222,7 +221,7 @@ class BlobArgs:
     @pulumi.getter(name="sourceContent")
     def source_content(self) -> Optional[pulumi.Input[str]]:
         """
-        The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
+        The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_content")
 
@@ -234,8 +233,7 @@ class BlobArgs:
     @pulumi.getter(name="sourceUri")
     def source_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-        for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+        The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
         """
         return pulumi.get(self, "source_uri")
 
@@ -269,16 +267,15 @@ class _BlobState:
         :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
-        :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located.
-        :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
-        :param pulumi.Input[int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
-        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
-        :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
-        :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-               for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage container.
+        :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_container_name: The name of the storage container in which this blob should be created.
+        :param pulumi.Input[str] storage_container_name: The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The URL of the blob
         """
@@ -377,7 +374,7 @@ class _BlobState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the storage blob. Must be unique within the storage container the blob is located.
+        The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -389,7 +386,7 @@ class _BlobState:
     @pulumi.getter
     def parallelism(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+        The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "parallelism")
 
@@ -401,7 +398,7 @@ class _BlobState:
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[int]]:
         """
-        Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+        Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "size")
 
@@ -413,7 +410,7 @@ class _BlobState:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]]:
         """
-        An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
+        An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source")
 
@@ -425,7 +422,7 @@ class _BlobState:
     @pulumi.getter(name="sourceContent")
     def source_content(self) -> Optional[pulumi.Input[str]]:
         """
-        The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
+        The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_content")
 
@@ -437,8 +434,7 @@ class _BlobState:
     @pulumi.getter(name="sourceUri")
     def source_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-        for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+        The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
         """
         return pulumi.get(self, "source_uri")
 
@@ -450,7 +446,7 @@ class _BlobState:
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the storage account in which to create the storage container.
+        Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
         Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
@@ -463,7 +459,7 @@ class _BlobState:
     @pulumi.getter(name="storageContainerName")
     def storage_container_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the storage container in which this blob should be created.
+        The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_container_name")
 
@@ -556,16 +552,15 @@ class Blob(pulumi.CustomResource):
         :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
-        :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located.
-        :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
-        :param pulumi.Input[int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
-        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
-        :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
-        :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-               for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage container.
+        :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_container_name: The name of the storage container in which this blob should be created.
+        :param pulumi.Input[str] storage_container_name: The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
         """
         ...
@@ -703,16 +698,15 @@ class Blob(pulumi.CustomResource):
         :param pulumi.Input[str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
-        :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located.
-        :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
-        :param pulumi.Input[int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
-        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
-        :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
-        :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-               for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage container.
+        :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_container_name: The name of the storage container in which this blob should be created.
+        :param pulumi.Input[str] storage_container_name: The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The URL of the blob
         """
@@ -781,7 +775,7 @@ class Blob(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the storage blob. Must be unique within the storage container the blob is located.
+        The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -789,7 +783,7 @@ class Blob(pulumi.CustomResource):
     @pulumi.getter
     def parallelism(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+        The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "parallelism")
 
@@ -797,7 +791,7 @@ class Blob(pulumi.CustomResource):
     @pulumi.getter
     def size(self) -> pulumi.Output[Optional[int]]:
         """
-        Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+        Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "size")
 
@@ -805,7 +799,7 @@ class Blob(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[Optional[Union[pulumi.Asset, pulumi.Archive]]]:
         """
-        An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
+        An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source")
 
@@ -813,7 +807,7 @@ class Blob(pulumi.CustomResource):
     @pulumi.getter(name="sourceContent")
     def source_content(self) -> pulumi.Output[Optional[str]]:
         """
-        The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
+        The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_content")
 
@@ -821,8 +815,7 @@ class Blob(pulumi.CustomResource):
     @pulumi.getter(name="sourceUri")
     def source_uri(self) -> pulumi.Output[Optional[str]]:
         """
-        The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-        for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+        The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
         """
         return pulumi.get(self, "source_uri")
 
@@ -830,7 +823,7 @@ class Blob(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Output[str]:
         """
-        Specifies the storage account in which to create the storage container.
+        Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
         Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
@@ -839,7 +832,7 @@ class Blob(pulumi.CustomResource):
     @pulumi.getter(name="storageContainerName")
     def storage_container_name(self) -> pulumi.Output[str]:
         """
-        The name of the storage container in which this blob should be created.
+        The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_container_name")
 

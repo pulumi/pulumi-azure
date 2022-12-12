@@ -16,14 +16,14 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
     public static final FrontdoorOriginPrivateLinkArgs Empty = new FrontdoorOriginPrivateLinkArgs();
 
     /**
-     * Specifies the location where the Private Link resource should exist.
+     * Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location", required=true)
     private Output<String> location;
 
     /**
-     * @return Specifies the location where the Private Link resource should exist.
+     * @return Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
@@ -103,7 +103,7 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param location Specifies the location where the Private Link resource should exist.
+         * @param location Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param location Specifies the location where the Private Link resource should exist.
+         * @param location Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class WorkbookIdentityArgs extends com.pulumi.resources.ResourceArg
     public static final WorkbookIdentityArgs Empty = new WorkbookIdentityArgs();
 
     /**
-     * The list of User Assigned Managed Identity IDs assigned to this Workbook.
+     * The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
-     * @return The list of User Assigned Managed Identity IDs assigned to this Workbook.
+     * @return The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -62,14 +62,14 @@ public final class WorkbookIdentityArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+     * The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+     * @return The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> type() {
@@ -104,7 +104,7 @@ public final class WorkbookIdentityArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param identityIds The list of User Assigned Managed Identity IDs assigned to this Workbook.
+         * @param identityIds The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class WorkbookIdentityArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param identityIds The list of User Assigned Managed Identity IDs assigned to this Workbook.
+         * @param identityIds The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class WorkbookIdentityArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param identityIds The list of User Assigned Managed Identity IDs assigned to this Workbook.
+         * @param identityIds The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class WorkbookIdentityArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+         * @param type The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class WorkbookIdentityArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+         * @param type The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

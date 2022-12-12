@@ -71,7 +71,7 @@ import * as utilities from "../utilities";
  * Kusto IotHub Data Connections can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:kusto/iotHubDataConnection:IotHubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/dataConnection1
+ *  $ pulumi import azure:kusto/iotHubDataConnection:IotHubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/dataConnection1
  * ```
  */
 export class IotHubDataConnection extends pulumi.CustomResource {
@@ -111,7 +111,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
      */
     public readonly consumerGroup!: pulumi.Output<string>;
     /**
-     * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+     * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
      */
     public readonly dataFormat!: pulumi.Output<string | undefined>;
     /**
@@ -119,7 +119,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      */
     public readonly databaseRoutingType!: pulumi.Output<string | undefined>;
     /**
@@ -135,7 +135,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+     * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
      */
     public readonly mappingRuleName!: pulumi.Output<string | undefined>;
     /**
@@ -151,7 +151,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
      */
     public readonly sharedAccessPolicyName!: pulumi.Output<string>;
     /**
-     * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+     * Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
      */
     public readonly tableName!: pulumi.Output<string | undefined>;
 
@@ -233,7 +233,7 @@ export interface IotHubDataConnectionState {
      */
     consumerGroup?: pulumi.Input<string>;
     /**
-     * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+     * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
      */
     dataFormat?: pulumi.Input<string>;
     /**
@@ -241,7 +241,7 @@ export interface IotHubDataConnectionState {
      */
     databaseName?: pulumi.Input<string>;
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      */
     databaseRoutingType?: pulumi.Input<string>;
     /**
@@ -257,7 +257,7 @@ export interface IotHubDataConnectionState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+     * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
      */
     mappingRuleName?: pulumi.Input<string>;
     /**
@@ -273,7 +273,7 @@ export interface IotHubDataConnectionState {
      */
     sharedAccessPolicyName?: pulumi.Input<string>;
     /**
-     * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+     * Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
      */
     tableName?: pulumi.Input<string>;
 }
@@ -291,7 +291,7 @@ export interface IotHubDataConnectionArgs {
      */
     consumerGroup: pulumi.Input<string>;
     /**
-     * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+     * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
      */
     dataFormat?: pulumi.Input<string>;
     /**
@@ -299,7 +299,7 @@ export interface IotHubDataConnectionArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      */
     databaseRoutingType?: pulumi.Input<string>;
     /**
@@ -315,7 +315,7 @@ export interface IotHubDataConnectionArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+     * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
      */
     mappingRuleName?: pulumi.Input<string>;
     /**
@@ -331,7 +331,7 @@ export interface IotHubDataConnectionArgs {
      */
     sharedAccessPolicyName: pulumi.Input<string>;
     /**
-     * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+     * Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
      */
     tableName?: pulumi.Input<string>;
 }

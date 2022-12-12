@@ -104,7 +104,7 @@ export class ResourceGroupCostManagementExport extends pulumi.CustomResource {
      */
     public readonly recurrenceType!: pulumi.Output<string>;
     /**
-     * The id of the resource group on which to create an export.
+     * The id of the resource group on which to create an export. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupId!: pulumi.Output<string>;
 
@@ -196,7 +196,7 @@ export interface ResourceGroupCostManagementExportState {
      */
     recurrenceType?: pulumi.Input<string>;
     /**
-     * The id of the resource group on which to create an export.
+     * The id of the resource group on which to create an export. Changing this forces a new resource to be created.
      */
     resourceGroupId?: pulumi.Input<string>;
 }
@@ -234,7 +234,7 @@ export interface ResourceGroupCostManagementExportArgs {
      */
     recurrenceType: pulumi.Input<string>;
     /**
-     * The id of the resource group on which to create an export.
+     * The id of the resource group on which to create an export. Changing this forces a new resource to be created.
      */
     resourceGroupId: pulumi.Input<string>;
 }

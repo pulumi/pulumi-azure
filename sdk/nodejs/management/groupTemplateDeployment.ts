@@ -147,7 +147,7 @@ export class GroupTemplateDeployment extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The ID of the Management Group to apply the Deployment Template to.
+     * The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
      */
     public readonly managementGroupId!: pulumi.Output<string>;
     /**
@@ -230,7 +230,7 @@ export interface GroupTemplateDeploymentState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The ID of the Management Group to apply the Deployment Template to.
+     * The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
      */
     managementGroupId?: pulumi.Input<string>;
     /**
@@ -272,7 +272,7 @@ export interface GroupTemplateDeploymentArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The ID of the Management Group to apply the Deployment Template to.
+     * The ID of the Management Group to apply the Deployment Template to. Changing this forces a new resource to be created.
      */
     managementGroupId: pulumi.Input<string>;
     /**

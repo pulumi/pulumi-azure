@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  * IoTHub EventHub Endpoint can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:iot/endpointEventhub:EndpointEventhub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/eventhub_endpoint1
+ *  $ pulumi import azure:iot/endpointEventhub:EndpointEventhub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/eventhub_endpoint1
  * ```
  * 
  */
@@ -180,28 +180,28 @@ public class EndpointEventhub extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identityId);
     }
     /**
-     * The IoTHub ID for the endpoint.
+     * The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="iothubId", type=String.class, parameters={})
     private Output<String> iothubId;
 
     /**
-     * @return The IoTHub ID for the endpoint.
+     * @return The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> iothubId() {
         return this.iothubId;
     }
     /**
-     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+     * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+     * @return The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

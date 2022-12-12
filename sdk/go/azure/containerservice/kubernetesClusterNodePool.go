@@ -86,9 +86,11 @@ type KubernetesClusterNodePool struct {
 
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrOutput `pulumi:"capacityReservationGroupId"`
+	// Specifies whether to trust a Custom CA. Defaults to `false`.
+	CustomCaTrustEnabled pulumi.BoolPtrOutput `pulumi:"customCaTrustEnabled"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrOutput `pulumi:"enableAutoScaling"`
-	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableHostEncryption pulumi.BoolPtrOutput `pulumi:"enableHostEncryption"`
 	// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrOutput `pulumi:"enableNodePublicIp"`
@@ -148,13 +150,13 @@ type KubernetesClusterNodePool struct {
 	SpotMaxPrice pulumi.Float64PtrOutput `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
 	UltraSsdEnabled pulumi.BoolPtrOutput `pulumi:"ultraSsdEnabled"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings KubernetesClusterNodePoolUpgradeSettingsPtrOutput `pulumi:"upgradeSettings"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
 	VmSize pulumi.StringOutput `pulumi:"vmSize"`
-	// The ID of the Subnet where this Node Pool should exist.
+	// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId pulumi.StringPtrOutput `pulumi:"vnetSubnetId"`
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime pulumi.StringPtrOutput `pulumi:"workloadRuntime"`
@@ -199,9 +201,11 @@ func GetKubernetesClusterNodePool(ctx *pulumi.Context,
 type kubernetesClusterNodePoolState struct {
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
+	// Specifies whether to trust a Custom CA. Defaults to `false`.
+	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
 	// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
@@ -261,13 +265,13 @@ type kubernetesClusterNodePoolState struct {
 	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings *KubernetesClusterNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
 	VmSize *string `pulumi:"vmSize"`
-	// The ID of the Subnet where this Node Pool should exist.
+	// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime *string `pulumi:"workloadRuntime"`
@@ -278,9 +282,11 @@ type kubernetesClusterNodePoolState struct {
 type KubernetesClusterNodePoolState struct {
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput
+	// Specifies whether to trust a Custom CA. Defaults to `false`.
+	CustomCaTrustEnabled pulumi.BoolPtrInput
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput
-	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableHostEncryption pulumi.BoolPtrInput
 	// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput
@@ -340,13 +346,13 @@ type KubernetesClusterNodePoolState struct {
 	SpotMaxPrice pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
 	UltraSsdEnabled pulumi.BoolPtrInput
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings KubernetesClusterNodePoolUpgradeSettingsPtrInput
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
 	VmSize pulumi.StringPtrInput
-	// The ID of the Subnet where this Node Pool should exist.
+	// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId pulumi.StringPtrInput
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime pulumi.StringPtrInput
@@ -361,9 +367,11 @@ func (KubernetesClusterNodePoolState) ElementType() reflect.Type {
 type kubernetesClusterNodePoolArgs struct {
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
+	// Specifies whether to trust a Custom CA. Defaults to `false`.
+	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
 	// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
@@ -423,13 +431,13 @@ type kubernetesClusterNodePoolArgs struct {
 	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings *KubernetesClusterNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
 	VmSize string `pulumi:"vmSize"`
-	// The ID of the Subnet where this Node Pool should exist.
+	// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime *string `pulumi:"workloadRuntime"`
@@ -441,9 +449,11 @@ type kubernetesClusterNodePoolArgs struct {
 type KubernetesClusterNodePoolArgs struct {
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput
+	// Specifies whether to trust a Custom CA. Defaults to `false`.
+	CustomCaTrustEnabled pulumi.BoolPtrInput
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput
-	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableHostEncryption pulumi.BoolPtrInput
 	// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput
@@ -503,13 +513,13 @@ type KubernetesClusterNodePoolArgs struct {
 	SpotMaxPrice pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
 	UltraSsdEnabled pulumi.BoolPtrInput
 	// A `upgradeSettings` block as documented below.
 	UpgradeSettings KubernetesClusterNodePoolUpgradeSettingsPtrInput
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
 	VmSize pulumi.StringInput
-	// The ID of the Subnet where this Node Pool should exist.
+	// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId pulumi.StringPtrInput
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime pulumi.StringPtrInput
@@ -609,12 +619,17 @@ func (o KubernetesClusterNodePoolOutput) CapacityReservationGroupId() pulumi.Str
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether to trust a Custom CA. Defaults to `false`.
+func (o KubernetesClusterNodePoolOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.CustomCaTrustEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
 func (o KubernetesClusterNodePoolOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
-// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolOutput) EnableHostEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.EnableHostEncryption }).(pulumi.BoolPtrOutput)
 }
@@ -768,7 +783,7 @@ func (o KubernetesClusterNodePoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -785,7 +800,7 @@ func (o KubernetesClusterNodePoolOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringOutput { return v.VmSize }).(pulumi.StringOutput)
 }
 
-// The ID of the Subnet where this Node Pool should exist.
+// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolOutput) VnetSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
 }

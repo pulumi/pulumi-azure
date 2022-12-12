@@ -18,14 +18,14 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
     public static final PoolNetworkConfigurationArgs Empty = new PoolNetworkConfigurationArgs();
 
     /**
-     * The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+     * The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="dynamicVnetAssignmentScope")
     private @Nullable Output<String> dynamicVnetAssignmentScope;
 
     /**
-     * @return The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+     * @return The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> dynamicVnetAssignmentScope() {
@@ -121,7 +121,7 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dynamicVnetAssignmentScope The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+         * @param dynamicVnetAssignmentScope The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dynamicVnetAssignmentScope The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+         * @param dynamicVnetAssignmentScope The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

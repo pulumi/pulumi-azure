@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GetKubernetesClusterAgentPoolProfileResult
     {
         /// <summary>
-        /// The number of Agents (VM's) in the Pool.
+        /// The number of Agents (VMs) in the Pool.
         /// </summary>
         public readonly int Count;
         /// <summary>

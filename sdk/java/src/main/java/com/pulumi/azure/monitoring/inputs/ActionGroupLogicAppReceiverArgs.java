@@ -32,14 +32,14 @@ public final class ActionGroupLogicAppReceiverArgs extends com.pulumi.resources.
     }
 
     /**
-     * The name of the logic app receiver.
+     * The name of the logic app receiver. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the logic app receiver.
+     * @return The name of the logic app receiver. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -125,7 +125,7 @@ public final class ActionGroupLogicAppReceiverArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name The name of the logic app receiver.
+         * @param name The name of the logic app receiver. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ActionGroupLogicAppReceiverArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name The name of the logic app receiver.
+         * @param name The name of the logic app receiver. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

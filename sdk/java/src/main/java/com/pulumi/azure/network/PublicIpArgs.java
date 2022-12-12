@@ -109,14 +109,14 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A mapping of IP tags to assign to the public IP.
+     * A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="ipTags")
     private @Nullable Output<Map<String,String>> ipTags;
 
     /**
-     * @return A mapping of IP tags to assign to the public IP.
+     * @return A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Map<String,String>>> ipTags() {
@@ -124,14 +124,14 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IP Version to use, IPv6 or IPv4.
+     * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="ipVersion")
     private @Nullable Output<String> ipVersion;
 
     /**
-     * @return The IP Version to use, IPv6 or IPv4.
+     * @return The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> ipVersion() {
@@ -169,14 +169,14 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If specified then public IP address allocated will be provided from the public IP prefix resource.
+     * If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="publicIpPrefixId")
     private @Nullable Output<String> publicIpPrefixId;
 
     /**
-     * @return If specified then public IP address allocated will be provided from the public IP prefix resource.
+     * @return If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> publicIpPrefixId() {
@@ -214,14 +214,14 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+     * @return The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -229,14 +229,14 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+     * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="skuTier")
     private @Nullable Output<String> skuTier;
 
     /**
-     * @return The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+     * @return The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> skuTier() {
@@ -259,14 +259,14 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A collection containing the availability zone to allocate the Public IP in.
+     * A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="zones")
     private @Nullable Output<List<String>> zones;
 
     /**
-     * @return A collection containing the availability zone to allocate the Public IP in.
+     * @return A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -440,7 +440,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipTags A mapping of IP tags to assign to the public IP.
+         * @param ipTags A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipTags A mapping of IP tags to assign to the public IP.
+         * @param ipTags A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -461,7 +461,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipVersion The IP Version to use, IPv6 or IPv4.
+         * @param ipVersion The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -472,7 +472,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipVersion The IP Version to use, IPv6 or IPv4.
+         * @param ipVersion The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicIpPrefixId If specified then public IP address allocated will be provided from the public IP prefix resource.
+         * @param publicIpPrefixId If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicIpPrefixId If specified then public IP address allocated will be provided from the public IP prefix resource.
+         * @param publicIpPrefixId If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -587,7 +587,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+         * @param sku The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -598,7 +598,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+         * @param sku The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -608,7 +608,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuTier The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+         * @param skuTier The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -619,7 +619,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuTier The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`.
+         * @param skuTier The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -650,7 +650,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones A collection containing the availability zone to allocate the Public IP in.
+         * @param zones A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -661,7 +661,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones A collection containing the availability zone to allocate the Public IP in.
+         * @param zones A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -671,7 +671,7 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones A collection containing the availability zone to allocate the Public IP in.
+         * @param zones A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

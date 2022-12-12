@@ -197,14 +197,14 @@ public class Assignment extends com.pulumi.resources.CustomResource {
         return this.identity;
     }
     /**
-     * The Azure location of the Assignment.
+     * The Azure location of the Assignment. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return The Azure location of the Assignment.
+     * @return The Azure location of the Assignment. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
@@ -253,14 +253,14 @@ public class Assignment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.lockMode);
     }
     /**
-     * The name of the Blueprint Assignment
+     * The name of the Blueprint Assignment. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the Blueprint Assignment
+     * @return The name of the Blueprint Assignment. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -295,14 +295,14 @@ public class Assignment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.resourceGroups);
     }
     /**
-     * The Subscription ID the Blueprint Published Version is to be applied to.
+     * The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="targetSubscriptionId", type=String.class, parameters={})
     private Output<String> targetSubscriptionId;
 
     /**
-     * @return The Subscription ID the Blueprint Published Version is to be applied to.
+     * @return The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> targetSubscriptionId() {

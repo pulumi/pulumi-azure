@@ -83,14 +83,14 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The location of the resource group.
+     * The location of the resource group. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The location of the resource group.
+     * @return The location of the resource group. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -235,16 +235,14 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to
-     * create the Redis instance.
+     * The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the Redis instance.
+     * @return The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -470,7 +468,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The location of the resource group.
+         * @param location The location of the resource group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -481,7 +479,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location The location of the resource group.
+         * @param location The location of the resource group. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -692,8 +690,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the Redis instance.
+         * @param resourceGroupName The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -704,8 +701,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the Redis instance.
+         * @param resourceGroupName The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

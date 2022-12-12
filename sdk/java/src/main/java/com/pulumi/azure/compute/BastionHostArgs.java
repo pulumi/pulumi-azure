@@ -110,14 +110,14 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to create the Bastion Host.
+     * The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Bastion Host.
+     * @return The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -361,7 +361,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Bastion Host.
+         * @param resourceGroupName The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class BastionHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create the Bastion Host.
+         * @param resourceGroupName The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

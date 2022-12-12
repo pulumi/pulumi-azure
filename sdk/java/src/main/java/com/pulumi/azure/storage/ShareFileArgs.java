@@ -122,14 +122,14 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An absolute path to a file on the local system.
+     * An absolute path to a file on the local system. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="source")
     private @Nullable Output<String> source;
 
     /**
-     * @return An absolute path to a file on the local system.
+     * @return An absolute path to a file on the local system. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> source() {
@@ -331,7 +331,7 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source An absolute path to a file on the local system.
+         * @param source An absolute path to a file on the local system. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source An absolute path to a file on the local system.
+         * @param source An absolute path to a file on the local system. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

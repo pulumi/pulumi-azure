@@ -158,14 +158,14 @@ public class DataLakeGen2Path extends com.pulumi.resources.CustomResource {
         return this.path;
     }
     /**
-     * Specifies the type for path to create. Currently only `directory` is supported.
+     * Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resource", type=String.class, parameters={})
     private Output<String> resource;
 
     /**
-     * @return Specifies the type for path to create. Currently only `directory` is supported.
+     * @return Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resource() {

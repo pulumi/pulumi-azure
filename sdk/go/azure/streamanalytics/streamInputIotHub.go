@@ -104,7 +104,7 @@ type StreamInputIotHub struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
 	Serialization StreamInputIotHubSerializationOutput `pulumi:"serialization"`
-	// The shared access policy key for the specified shared access policy.
+	// The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
 	SharedAccessPolicyKey pulumi.StringOutput `pulumi:"sharedAccessPolicyKey"`
 	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
 	SharedAccessPolicyName pulumi.StringOutput `pulumi:"sharedAccessPolicyName"`
@@ -177,7 +177,7 @@ type streamInputIotHubState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
 	Serialization *StreamInputIotHubSerialization `pulumi:"serialization"`
-	// The shared access policy key for the specified shared access policy.
+	// The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
 	SharedAccessPolicyKey *string `pulumi:"sharedAccessPolicyKey"`
 	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
 	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
@@ -198,7 +198,7 @@ type StreamInputIotHubState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `serialization` block as defined below.
 	Serialization StreamInputIotHubSerializationPtrInput
-	// The shared access policy key for the specified shared access policy.
+	// The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
 	SharedAccessPolicyKey pulumi.StringPtrInput
 	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
 	SharedAccessPolicyName pulumi.StringPtrInput
@@ -223,7 +223,7 @@ type streamInputIotHubArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
 	Serialization StreamInputIotHubSerialization `pulumi:"serialization"`
-	// The shared access policy key for the specified shared access policy.
+	// The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
 	SharedAccessPolicyKey string `pulumi:"sharedAccessPolicyKey"`
 	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
 	SharedAccessPolicyName string `pulumi:"sharedAccessPolicyName"`
@@ -245,7 +245,7 @@ type StreamInputIotHubArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `serialization` block as defined below.
 	Serialization StreamInputIotHubSerializationInput
-	// The shared access policy key for the specified shared access policy.
+	// The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
 	SharedAccessPolicyKey pulumi.StringInput
 	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
 	SharedAccessPolicyName pulumi.StringInput
@@ -370,7 +370,7 @@ func (o StreamInputIotHubOutput) Serialization() StreamInputIotHubSerializationO
 	return o.ApplyT(func(v *StreamInputIotHub) StreamInputIotHubSerializationOutput { return v.Serialization }).(StreamInputIotHubSerializationOutput)
 }
 
-// The shared access policy key for the specified shared access policy.
+// The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
 func (o StreamInputIotHubOutput) SharedAccessPolicyKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamInputIotHub) pulumi.StringOutput { return v.SharedAccessPolicyKey }).(pulumi.StringOutput)
 }

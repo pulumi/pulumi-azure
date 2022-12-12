@@ -172,14 +172,14 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
     }
 
     /**
-     * The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+     * The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+     * @return The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -477,7 +477,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param skuName The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+         * @param skuName The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -488,7 +488,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param skuName The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`.
+         * @param skuName The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

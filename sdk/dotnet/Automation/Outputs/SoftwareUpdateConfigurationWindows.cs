@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Automation.Outputs
     public sealed class SoftwareUpdateConfigurationWindows
     {
         /// <summary>
-        /// Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+        /// (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
         /// </summary>
         public readonly string? ClassificationIncluded;
         /// <summary>

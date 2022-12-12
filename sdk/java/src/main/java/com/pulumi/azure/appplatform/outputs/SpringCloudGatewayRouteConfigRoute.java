@@ -33,7 +33,7 @@ public final class SpringCloudGatewayRouteConfigRoute {
      * @return Specifies the route processing order.
      * 
      */
-    private @Nullable Integer order;
+    private Integer order;
     /**
      * @return Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
      * 
@@ -86,8 +86,8 @@ public final class SpringCloudGatewayRouteConfigRoute {
      * @return Specifies the route processing order.
      * 
      */
-    public Optional<Integer> order() {
-        return Optional.ofNullable(this.order);
+    public Integer order() {
+        return this.order;
     }
     /**
      * @return Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
@@ -137,7 +137,7 @@ public final class SpringCloudGatewayRouteConfigRoute {
         private @Nullable List<String> classificationTags;
         private @Nullable String description;
         private @Nullable List<String> filters;
-        private @Nullable Integer order;
+        private Integer order;
         private @Nullable List<String> predicates;
         private @Nullable Boolean ssoValidationEnabled;
         private @Nullable String title;
@@ -179,8 +179,8 @@ public final class SpringCloudGatewayRouteConfigRoute {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder order(@Nullable Integer order) {
-            this.order = order;
+        public Builder order(Integer order) {
+            this.order = Objects.requireNonNull(order);
             return this;
         }
         @CustomType.Setter

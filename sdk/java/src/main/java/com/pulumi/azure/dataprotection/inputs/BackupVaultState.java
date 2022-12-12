@@ -18,14 +18,14 @@ public final class BackupVaultState extends com.pulumi.resources.ResourceArgs {
     public static final BackupVaultState Empty = new BackupVaultState();
 
     /**
-     * Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
+     * Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="datastoreType")
     private @Nullable Output<String> datastoreType;
 
     /**
-     * @return Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
+     * @return Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> datastoreType() {
@@ -153,7 +153,7 @@ public final class BackupVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datastoreType Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
+         * @param datastoreType Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class BackupVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datastoreType Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
+         * @param datastoreType Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

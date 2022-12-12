@@ -8054,7 +8054,7 @@ type FirewallIpConfiguration struct {
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The ID of the Public IP Address associated with the firewall.
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
-	// Reference to the subnet associated with the IP Configuration.
+	// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
 }
 
@@ -8076,7 +8076,7 @@ type FirewallIpConfigurationArgs struct {
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// The ID of the Public IP Address associated with the firewall.
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
-	// Reference to the subnet associated with the IP Configuration.
+	// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
@@ -8146,7 +8146,7 @@ func (o FirewallIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
 }
 
-// Reference to the subnet associated with the IP Configuration.
+// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 func (o FirewallIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -8857,6 +8857,238 @@ func (o FirewallPolicyDnsPtrOutput) Servers() pulumi.StringArrayOutput {
 		}
 		return v.Servers
 	}).(pulumi.StringArrayOutput)
+}
+
+type FirewallPolicyExplicitProxy struct {
+	// Whether the pac file port and url need to be provided.
+	EnablePacFile *bool `pulumi:"enablePacFile"`
+	// Whether the explicit proxy is enabled for this Firewall Policy.
+	Enabled *bool `pulumi:"enabled"`
+	// The port number for explicit http protocol.
+	HttpPort *int `pulumi:"httpPort"`
+	// The port number for explicit proxy https protocol.
+	HttpsPort *int `pulumi:"httpsPort"`
+	// Specifies a SAS URL for PAC file.
+	PacFile *string `pulumi:"pacFile"`
+	// Specifies a port number for firewall to serve PAC file.
+	PacFilePort *int `pulumi:"pacFilePort"`
+}
+
+// FirewallPolicyExplicitProxyInput is an input type that accepts FirewallPolicyExplicitProxyArgs and FirewallPolicyExplicitProxyOutput values.
+// You can construct a concrete instance of `FirewallPolicyExplicitProxyInput` via:
+//
+//	FirewallPolicyExplicitProxyArgs{...}
+type FirewallPolicyExplicitProxyInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyExplicitProxyOutput() FirewallPolicyExplicitProxyOutput
+	ToFirewallPolicyExplicitProxyOutputWithContext(context.Context) FirewallPolicyExplicitProxyOutput
+}
+
+type FirewallPolicyExplicitProxyArgs struct {
+	// Whether the pac file port and url need to be provided.
+	EnablePacFile pulumi.BoolPtrInput `pulumi:"enablePacFile"`
+	// Whether the explicit proxy is enabled for this Firewall Policy.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The port number for explicit http protocol.
+	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
+	// The port number for explicit proxy https protocol.
+	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
+	// Specifies a SAS URL for PAC file.
+	PacFile pulumi.StringPtrInput `pulumi:"pacFile"`
+	// Specifies a port number for firewall to serve PAC file.
+	PacFilePort pulumi.IntPtrInput `pulumi:"pacFilePort"`
+}
+
+func (FirewallPolicyExplicitProxyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyExplicitProxy)(nil)).Elem()
+}
+
+func (i FirewallPolicyExplicitProxyArgs) ToFirewallPolicyExplicitProxyOutput() FirewallPolicyExplicitProxyOutput {
+	return i.ToFirewallPolicyExplicitProxyOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyExplicitProxyArgs) ToFirewallPolicyExplicitProxyOutputWithContext(ctx context.Context) FirewallPolicyExplicitProxyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyExplicitProxyOutput)
+}
+
+func (i FirewallPolicyExplicitProxyArgs) ToFirewallPolicyExplicitProxyPtrOutput() FirewallPolicyExplicitProxyPtrOutput {
+	return i.ToFirewallPolicyExplicitProxyPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyExplicitProxyArgs) ToFirewallPolicyExplicitProxyPtrOutputWithContext(ctx context.Context) FirewallPolicyExplicitProxyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyExplicitProxyOutput).ToFirewallPolicyExplicitProxyPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyExplicitProxyPtrInput is an input type that accepts FirewallPolicyExplicitProxyArgs, FirewallPolicyExplicitProxyPtr and FirewallPolicyExplicitProxyPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyExplicitProxyPtrInput` via:
+//
+//	        FirewallPolicyExplicitProxyArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallPolicyExplicitProxyPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyExplicitProxyPtrOutput() FirewallPolicyExplicitProxyPtrOutput
+	ToFirewallPolicyExplicitProxyPtrOutputWithContext(context.Context) FirewallPolicyExplicitProxyPtrOutput
+}
+
+type firewallPolicyExplicitProxyPtrType FirewallPolicyExplicitProxyArgs
+
+func FirewallPolicyExplicitProxyPtr(v *FirewallPolicyExplicitProxyArgs) FirewallPolicyExplicitProxyPtrInput {
+	return (*firewallPolicyExplicitProxyPtrType)(v)
+}
+
+func (*firewallPolicyExplicitProxyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyExplicitProxy)(nil)).Elem()
+}
+
+func (i *firewallPolicyExplicitProxyPtrType) ToFirewallPolicyExplicitProxyPtrOutput() FirewallPolicyExplicitProxyPtrOutput {
+	return i.ToFirewallPolicyExplicitProxyPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyExplicitProxyPtrType) ToFirewallPolicyExplicitProxyPtrOutputWithContext(ctx context.Context) FirewallPolicyExplicitProxyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyExplicitProxyPtrOutput)
+}
+
+type FirewallPolicyExplicitProxyOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyExplicitProxyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyExplicitProxy)(nil)).Elem()
+}
+
+func (o FirewallPolicyExplicitProxyOutput) ToFirewallPolicyExplicitProxyOutput() FirewallPolicyExplicitProxyOutput {
+	return o
+}
+
+func (o FirewallPolicyExplicitProxyOutput) ToFirewallPolicyExplicitProxyOutputWithContext(ctx context.Context) FirewallPolicyExplicitProxyOutput {
+	return o
+}
+
+func (o FirewallPolicyExplicitProxyOutput) ToFirewallPolicyExplicitProxyPtrOutput() FirewallPolicyExplicitProxyPtrOutput {
+	return o.ToFirewallPolicyExplicitProxyPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyExplicitProxyOutput) ToFirewallPolicyExplicitProxyPtrOutputWithContext(ctx context.Context) FirewallPolicyExplicitProxyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyExplicitProxy) *FirewallPolicyExplicitProxy {
+		return &v
+	}).(FirewallPolicyExplicitProxyPtrOutput)
+}
+
+// Whether the pac file port and url need to be provided.
+func (o FirewallPolicyExplicitProxyOutput) EnablePacFile() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyExplicitProxy) *bool { return v.EnablePacFile }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the explicit proxy is enabled for this Firewall Policy.
+func (o FirewallPolicyExplicitProxyOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyExplicitProxy) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The port number for explicit http protocol.
+func (o FirewallPolicyExplicitProxyOutput) HttpPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyExplicitProxy) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
+}
+
+// The port number for explicit proxy https protocol.
+func (o FirewallPolicyExplicitProxyOutput) HttpsPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyExplicitProxy) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
+}
+
+// Specifies a SAS URL for PAC file.
+func (o FirewallPolicyExplicitProxyOutput) PacFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyExplicitProxy) *string { return v.PacFile }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a port number for firewall to serve PAC file.
+func (o FirewallPolicyExplicitProxyOutput) PacFilePort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyExplicitProxy) *int { return v.PacFilePort }).(pulumi.IntPtrOutput)
+}
+
+type FirewallPolicyExplicitProxyPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyExplicitProxyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyExplicitProxy)(nil)).Elem()
+}
+
+func (o FirewallPolicyExplicitProxyPtrOutput) ToFirewallPolicyExplicitProxyPtrOutput() FirewallPolicyExplicitProxyPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyExplicitProxyPtrOutput) ToFirewallPolicyExplicitProxyPtrOutputWithContext(ctx context.Context) FirewallPolicyExplicitProxyPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyExplicitProxyPtrOutput) Elem() FirewallPolicyExplicitProxyOutput {
+	return o.ApplyT(func(v *FirewallPolicyExplicitProxy) FirewallPolicyExplicitProxy {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyExplicitProxy
+		return ret
+	}).(FirewallPolicyExplicitProxyOutput)
+}
+
+// Whether the pac file port and url need to be provided.
+func (o FirewallPolicyExplicitProxyPtrOutput) EnablePacFile() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyExplicitProxy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnablePacFile
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the explicit proxy is enabled for this Firewall Policy.
+func (o FirewallPolicyExplicitProxyPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyExplicitProxy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The port number for explicit http protocol.
+func (o FirewallPolicyExplicitProxyPtrOutput) HttpPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyExplicitProxy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// The port number for explicit proxy https protocol.
+func (o FirewallPolicyExplicitProxyPtrOutput) HttpsPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyExplicitProxy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpsPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies a SAS URL for PAC file.
+func (o FirewallPolicyExplicitProxyPtrOutput) PacFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyExplicitProxy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PacFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a port number for firewall to serve PAC file.
+func (o FirewallPolicyExplicitProxyPtrOutput) PacFilePort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyExplicitProxy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PacFilePort
+	}).(pulumi.IntPtrOutput)
 }
 
 type FirewallPolicyIdentity struct {
@@ -13030,7 +13262,7 @@ func (o NetworkConnectionMonitorTestGroupArrayOutput) Index(i pulumi.IntInput) N
 type NetworkInterfaceIpConfiguration struct {
 	// The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
 	GatewayLoadBalancerFrontendIpConfigurationId *string `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
-	// A name used for this IP Configuration.
+	// A name used for this IP Configuration. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Is this the Primary IP Configuration? Must be `true` for the first `ipConfiguration` when multiple are specified. Defaults to `false`.
 	Primary *bool `pulumi:"primary"`
@@ -13060,7 +13292,7 @@ type NetworkInterfaceIpConfigurationInput interface {
 type NetworkInterfaceIpConfigurationArgs struct {
 	// The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
 	GatewayLoadBalancerFrontendIpConfigurationId pulumi.StringPtrInput `pulumi:"gatewayLoadBalancerFrontendIpConfigurationId"`
-	// A name used for this IP Configuration.
+	// A name used for this IP Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Is this the Primary IP Configuration? Must be `true` for the first `ipConfiguration` when multiple are specified. Defaults to `false`.
 	Primary pulumi.BoolPtrInput `pulumi:"primary"`
@@ -13132,7 +13364,7 @@ func (o NetworkInterfaceIpConfigurationOutput) GatewayLoadBalancerFrontendIpConf
 	return o.ApplyT(func(v NetworkInterfaceIpConfiguration) *string { return v.GatewayLoadBalancerFrontendIpConfigurationId }).(pulumi.StringPtrOutput)
 }
 
-// A name used for this IP Configuration.
+// A name used for this IP Configuration. Changing this forces a new resource to be created.
 func (o NetworkInterfaceIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -13512,7 +13744,7 @@ type NetworkSecurityGroupSecurityRule struct {
 	DestinationPortRanges []string `pulumi:"destinationPortRanges"`
 	// The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
 	Direction string `pulumi:"direction"`
-	// The name of the security rule.
+	// The name of the security rule. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
 	Priority int `pulumi:"priority"`
@@ -13558,7 +13790,7 @@ type NetworkSecurityGroupSecurityRuleArgs struct {
 	DestinationPortRanges pulumi.StringArrayInput `pulumi:"destinationPortRanges"`
 	// The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
 	Direction pulumi.StringInput `pulumi:"direction"`
-	// The name of the security rule.
+	// The name of the security rule. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
 	Priority pulumi.IntInput `pulumi:"priority"`
@@ -13667,7 +13899,7 @@ func (o NetworkSecurityGroupSecurityRuleOutput) Direction() pulumi.StringOutput 
 	return o.ApplyT(func(v NetworkSecurityGroupSecurityRule) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// The name of the security rule.
+// The name of the security rule. Changing this forces a new resource to be created.
 func (o NetworkSecurityGroupSecurityRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupSecurityRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -15210,7 +15442,7 @@ func (o RouteFilterRulePtrOutput) RuleType() pulumi.StringPtrOutput {
 type RouteTableRoute struct {
 	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix string `pulumi:"addressPrefix"`
-	// The name of the route.
+	// The name of the route. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
 	NextHopInIpAddress *string `pulumi:"nextHopInIpAddress"`
@@ -15232,7 +15464,7 @@ type RouteTableRouteInput interface {
 type RouteTableRouteArgs struct {
 	// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
 	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
-	// The name of the route.
+	// The name of the route. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
 	NextHopInIpAddress pulumi.StringPtrInput `pulumi:"nextHopInIpAddress"`
@@ -15296,7 +15528,7 @@ func (o RouteTableRouteOutput) AddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteTableRoute) string { return v.AddressPrefix }).(pulumi.StringOutput)
 }
 
-// The name of the route.
+// The name of the route. Changing this forces a new resource to be created.
 func (o RouteTableRouteOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteTableRoute) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -16765,7 +16997,7 @@ func (o TrafficManagerProfileMonitorConfigPtrOutput) ToleratedNumberOfFailures()
 }
 
 type TrafficManagerProfileMonitorConfigCustomHeader struct {
-	// The name of the custom header.
+	// The name of the custom header. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The value of custom header. Applicable for HTTP and HTTPS protocol.
 	Value string `pulumi:"value"`
@@ -16783,7 +17015,7 @@ type TrafficManagerProfileMonitorConfigCustomHeaderInput interface {
 }
 
 type TrafficManagerProfileMonitorConfigCustomHeaderArgs struct {
-	// The name of the custom header.
+	// The name of the custom header. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value of custom header. Applicable for HTTP and HTTPS protocol.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -16840,7 +17072,7 @@ func (o TrafficManagerProfileMonitorConfigCustomHeaderOutput) ToTrafficManagerPr
 	return o
 }
 
-// The name of the custom header.
+// The name of the custom header. Changing this forces a new resource to be created.
 func (o TrafficManagerProfileMonitorConfigCustomHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TrafficManagerProfileMonitorConfigCustomHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -18780,8 +19012,7 @@ func (o VirtualNetworkGatewayCustomRoutePtrOutput) AddressPrefixes() pulumi.Stri
 }
 
 type VirtualNetworkGatewayIpConfiguration struct {
-	// A user-defined name of the IP configuration. Defaults to
-	// `vnetGatewayConfig`.
+	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Defines how the private IP address
 	// of the gateways virtual interface is assigned. Valid options are `Static` or
@@ -18809,8 +19040,7 @@ type VirtualNetworkGatewayIpConfigurationInput interface {
 }
 
 type VirtualNetworkGatewayIpConfigurationArgs struct {
-	// A user-defined name of the IP configuration. Defaults to
-	// `vnetGatewayConfig`.
+	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Defines how the private IP address
 	// of the gateways virtual interface is assigned. Valid options are `Static` or
@@ -18877,8 +19107,7 @@ func (o VirtualNetworkGatewayIpConfigurationOutput) ToVirtualNetworkGatewayIpCon
 	return o
 }
 
-// A user-defined name of the IP configuration. Defaults to
-// `vnetGatewayConfig`.
+// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayIpConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayIpConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -19489,8 +19718,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) VpnClientProtocols
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate struct {
-	// A user-defined name of the IP configuration. Defaults to
-	// `vnetGatewayConfig`.
+	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
 	Name       string `pulumi:"name"`
 	Thumbprint string `pulumi:"thumbprint"`
 }
@@ -19507,8 +19735,7 @@ type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateInput interfac
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs struct {
-	// A user-defined name of the IP configuration. Defaults to
-	// `vnetGatewayConfig`.
+	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
 	Name       pulumi.StringInput `pulumi:"name"`
 	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
 }
@@ -19564,8 +19791,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateOutput) ToV
 	return o
 }
 
-// A user-defined name of the IP configuration. Defaults to
-// `vnetGatewayConfig`.
+// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -19595,8 +19821,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationRootCertificate struct {
-	// A user-defined name of the IP configuration. Defaults to
-	// `vnetGatewayConfig`.
+	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The public certificate of the root certificate
 	// authority. The certificate must be provided in Base-64 encoded X.509 format
@@ -19618,8 +19843,7 @@ type VirtualNetworkGatewayVpnClientConfigurationRootCertificateInput interface {
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs struct {
-	// A user-defined name of the IP configuration. Defaults to
-	// `vnetGatewayConfig`.
+	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The public certificate of the root certificate
 	// authority. The certificate must be provided in Base-64 encoded X.509 format
@@ -19680,8 +19904,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificateOutput) ToVirt
 	return o
 }
 
-// A user-defined name of the IP configuration. Defaults to
-// `vnetGatewayConfig`.
+// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationRootCertificate) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -27427,6 +27650,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallNetworkRuleCollectionRuleArrayInput)(nil)).Elem(), FirewallNetworkRuleCollectionRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyDnsInput)(nil)).Elem(), FirewallPolicyDnsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyDnsPtrInput)(nil)).Elem(), FirewallPolicyDnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyExplicitProxyInput)(nil)).Elem(), FirewallPolicyExplicitProxyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyExplicitProxyPtrInput)(nil)).Elem(), FirewallPolicyExplicitProxyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyIdentityInput)(nil)).Elem(), FirewallPolicyIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyIdentityPtrInput)(nil)).Elem(), FirewallPolicyIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyInsightsInput)(nil)).Elem(), FirewallPolicyInsightsArgs{})
@@ -27787,6 +28012,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallNetworkRuleCollectionRuleArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyDnsOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyDnsPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyExplicitProxyOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyExplicitProxyPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyIdentityOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyIdentityPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyInsightsOutput{})

@@ -77,7 +77,7 @@ type RouteTable struct {
 	DisableBgpRoutePropagation pulumi.BoolPtrOutput `pulumi:"disableBgpRoutePropagation"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the route.
+	// The name of the route. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -125,7 +125,7 @@ type routeTableState struct {
 	DisableBgpRoutePropagation *bool `pulumi:"disableBgpRoutePropagation"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the route.
+	// The name of the route. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -142,7 +142,7 @@ type RouteTableState struct {
 	DisableBgpRoutePropagation pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the route.
+	// The name of the route. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -163,7 +163,7 @@ type routeTableArgs struct {
 	DisableBgpRoutePropagation *bool `pulumi:"disableBgpRoutePropagation"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the route.
+	// The name of the route. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -179,7 +179,7 @@ type RouteTableArgs struct {
 	DisableBgpRoutePropagation pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the route.
+	// The name of the route. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -286,7 +286,7 @@ func (o RouteTableOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the route.
+// The name of the route. Changing this forces a new resource to be created.
 func (o RouteTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

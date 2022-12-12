@@ -92,7 +92,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+     * The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
      */
     public readonly virtualHubId!: pulumi.Output<string>;
 
@@ -163,7 +163,7 @@ export interface ExpressRouteGatewayState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+     * The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
      */
     virtualHubId?: pulumi.Input<string>;
 }
@@ -193,7 +193,7 @@ export interface ExpressRouteGatewayArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
+     * The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
      */
     virtualHubId: pulumi.Input<string>;
 }

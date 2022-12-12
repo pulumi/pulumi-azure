@@ -15,7 +15,7 @@ public final class ElasticsearchLogsFilteringTag {
      */
     private String action;
     /**
-     * @return Specifies the name (key) of the Tag which should be filtered.
+     * @return Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -34,7 +34,7 @@ public final class ElasticsearchLogsFilteringTag {
         return this.action;
     }
     /**
-     * @return Specifies the name (key) of the Tag which should be filtered.
+     * @return Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

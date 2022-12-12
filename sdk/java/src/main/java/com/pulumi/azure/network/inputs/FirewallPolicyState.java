@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.inputs;
 
 import com.pulumi.azure.network.inputs.FirewallPolicyDnsArgs;
+import com.pulumi.azure.network.inputs.FirewallPolicyExplicitProxyArgs;
 import com.pulumi.azure.network.inputs.FirewallPolicyIdentityArgs;
 import com.pulumi.azure.network.inputs.FirewallPolicyInsightsArgs;
 import com.pulumi.azure.network.inputs.FirewallPolicyIntrusionDetectionArgs;
@@ -23,6 +24,21 @@ import javax.annotation.Nullable;
 public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs {
 
     public static final FirewallPolicyState Empty = new FirewallPolicyState();
+
+    /**
+     * Whether enable auto learn private ip range. Defaults to `false`.
+     * 
+     */
+    @Import(name="autoLearnPrivateRangesEnabled")
+    private @Nullable Output<Boolean> autoLearnPrivateRangesEnabled;
+
+    /**
+     * @return Whether enable auto learn private ip range. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> autoLearnPrivateRangesEnabled() {
+        return Optional.ofNullable(this.autoLearnPrivateRangesEnabled);
+    }
 
     /**
      * The ID of the base Firewall Policy.
@@ -67,6 +83,21 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<FirewallPolicyDnsArgs>> dns() {
         return Optional.ofNullable(this.dns);
+    }
+
+    /**
+     * A `explicit_proxy` block as defined below.
+     * 
+     */
+    @Import(name="explicitProxy")
+    private @Nullable Output<FirewallPolicyExplicitProxyArgs> explicitProxy;
+
+    /**
+     * @return A `explicit_proxy` block as defined below.
+     * 
+     */
+    public Optional<Output<FirewallPolicyExplicitProxyArgs>> explicitProxy() {
+        return Optional.ofNullable(this.explicitProxy);
     }
 
     /**
@@ -297,9 +328,11 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
     private FirewallPolicyState() {}
 
     private FirewallPolicyState(FirewallPolicyState $) {
+        this.autoLearnPrivateRangesEnabled = $.autoLearnPrivateRangesEnabled;
         this.basePolicyId = $.basePolicyId;
         this.childPolicies = $.childPolicies;
         this.dns = $.dns;
+        this.explicitProxy = $.explicitProxy;
         this.firewalls = $.firewalls;
         this.identity = $.identity;
         this.insights = $.insights;
@@ -333,6 +366,27 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
 
         public Builder(FirewallPolicyState defaults) {
             $ = new FirewallPolicyState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param autoLearnPrivateRangesEnabled Whether enable auto learn private ip range. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoLearnPrivateRangesEnabled(@Nullable Output<Boolean> autoLearnPrivateRangesEnabled) {
+            $.autoLearnPrivateRangesEnabled = autoLearnPrivateRangesEnabled;
+            return this;
+        }
+
+        /**
+         * @param autoLearnPrivateRangesEnabled Whether enable auto learn private ip range. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoLearnPrivateRangesEnabled(Boolean autoLearnPrivateRangesEnabled) {
+            return autoLearnPrivateRangesEnabled(Output.of(autoLearnPrivateRangesEnabled));
         }
 
         /**
@@ -406,6 +460,27 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
          */
         public Builder dns(FirewallPolicyDnsArgs dns) {
             return dns(Output.of(dns));
+        }
+
+        /**
+         * @param explicitProxy A `explicit_proxy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder explicitProxy(@Nullable Output<FirewallPolicyExplicitProxyArgs> explicitProxy) {
+            $.explicitProxy = explicitProxy;
+            return this;
+        }
+
+        /**
+         * @param explicitProxy A `explicit_proxy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder explicitProxy(FirewallPolicyExplicitProxyArgs explicitProxy) {
+            return explicitProxy(Output.of(explicitProxy));
         }
 
         /**

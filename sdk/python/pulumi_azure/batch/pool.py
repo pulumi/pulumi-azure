@@ -47,16 +47,16 @@ class PoolArgs:
         """
         The set of arguments for constructing a Pool resource.
         :param pulumi.Input[str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool.
+        :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
-        :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool.
+        :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolAutoScaleArgs'] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale.
         :param pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]] certificates: One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
         :param pulumi.Input['PoolContainerConfigurationArgs'] container_configuration: The container configuration used in the pool's VMs.
         :param pulumi.Input[Sequence[pulumi.Input['PoolDataDiskArgs']]] data_disks: A `data_disks` block describes the data disk settings.
         :param pulumi.Input[Sequence[pulumi.Input['PoolDiskEncryptionArgs']]] disk_encryptions: A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
-        :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool.
+        :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolExtensionArgs']]] extensions: An `extensions` block as defined below.
         :param pulumi.Input['PoolFixedScaleArgs'] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
         :param pulumi.Input['PoolIdentityArgs'] identity: An `identity` block as defined below.
@@ -142,7 +142,7 @@ class PoolArgs:
     @pulumi.getter(name="nodeAgentSkuId")
     def node_agent_sku_id(self) -> pulumi.Input[str]:
         """
-        Specifies the SKU of the node agents that will be created in the Batch pool.
+        Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_agent_sku_id")
 
@@ -178,7 +178,7 @@ class PoolArgs:
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> pulumi.Input[str]:
         """
-        Specifies the size of the VM created in the Batch pool.
+        Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vm_size")
 
@@ -250,7 +250,7 @@ class PoolArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the display name of the Batch pool.
+        Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "display_name")
 
@@ -499,7 +499,7 @@ class _PoolState:
         :param pulumi.Input['PoolContainerConfigurationArgs'] container_configuration: The container configuration used in the pool's VMs.
         :param pulumi.Input[Sequence[pulumi.Input['PoolDataDiskArgs']]] data_disks: A `data_disks` block describes the data disk settings.
         :param pulumi.Input[Sequence[pulumi.Input['PoolDiskEncryptionArgs']]] disk_encryptions: A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
-        :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool.
+        :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolExtensionArgs']]] extensions: An `extensions` block as defined below.
         :param pulumi.Input['PoolFixedScaleArgs'] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
         :param pulumi.Input['PoolIdentityArgs'] identity: An `identity` block as defined below.
@@ -510,7 +510,7 @@ class _PoolState:
         :param pulumi.Input[Sequence[pulumi.Input['PoolMountArgs']]] mounts: A `mount` block defined as below.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolNetworkConfigurationArgs'] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool.
-        :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool.
+        :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool.
         :param pulumi.Input[str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
@@ -518,7 +518,7 @@ class _PoolState:
         :param pulumi.Input['PoolStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
         :param pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
         :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
-        :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool.
+        :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]] windows: A `windows` block that describes the Windows configuration in the pool.
         """
         if account_name is not None:
@@ -654,7 +654,7 @@ class _PoolState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the display name of the Batch pool.
+        Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "display_name")
 
@@ -786,7 +786,7 @@ class _PoolState:
     @pulumi.getter(name="nodeAgentSkuId")
     def node_agent_sku_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the SKU of the node agents that will be created in the Batch pool.
+        Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_agent_sku_id")
 
@@ -891,7 +891,7 @@ class _PoolState:
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the size of the VM created in the Batch pool.
+        Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vm_size")
 
@@ -1043,7 +1043,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PoolContainerConfigurationArgs']] container_configuration: The container configuration used in the pool's VMs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolDataDiskArgs']]]] data_disks: A `data_disks` block describes the data disk settings.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolDiskEncryptionArgs']]]] disk_encryptions: A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
-        :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool.
+        :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolExtensionArgs']]]] extensions: An `extensions` block as defined below.
         :param pulumi.Input[pulumi.InputType['PoolFixedScaleArgs']] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
         :param pulumi.Input[pulumi.InputType['PoolIdentityArgs']] identity: An `identity` block as defined below.
@@ -1054,7 +1054,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolMountArgs']]]] mounts: A `mount` block defined as below.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['PoolNetworkConfigurationArgs']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool.
-        :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool.
+        :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolNodePlacementArgs']]]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool.
         :param pulumi.Input[str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
@@ -1062,7 +1062,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolTaskSchedulingPolicyArgs']]]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolUserAccountArgs']]]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
-        :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool.
+        :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolWindowArgs']]]] windows: A `windows` block that describes the Windows configuration in the pool.
         """
         ...
@@ -1301,7 +1301,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PoolContainerConfigurationArgs']] container_configuration: The container configuration used in the pool's VMs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolDataDiskArgs']]]] data_disks: A `data_disks` block describes the data disk settings.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolDiskEncryptionArgs']]]] disk_encryptions: A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
-        :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool.
+        :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolExtensionArgs']]]] extensions: An `extensions` block as defined below.
         :param pulumi.Input[pulumi.InputType['PoolFixedScaleArgs']] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
         :param pulumi.Input[pulumi.InputType['PoolIdentityArgs']] identity: An `identity` block as defined below.
@@ -1312,7 +1312,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolMountArgs']]]] mounts: A `mount` block defined as below.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['PoolNetworkConfigurationArgs']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool.
-        :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool.
+        :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolNodePlacementArgs']]]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool.
         :param pulumi.Input[str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
@@ -1320,7 +1320,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolTaskSchedulingPolicyArgs']]]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolUserAccountArgs']]]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
-        :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool.
+        :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolWindowArgs']]]] windows: A `windows` block that describes the Windows configuration in the pool.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1409,7 +1409,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the display name of the Batch pool.
+        Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "display_name")
 
@@ -1497,7 +1497,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="nodeAgentSkuId")
     def node_agent_sku_id(self) -> pulumi.Output[str]:
         """
-        Specifies the SKU of the node agents that will be created in the Batch pool.
+        Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_agent_sku_id")
 
@@ -1566,7 +1566,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> pulumi.Output[str]:
         """
-        Specifies the size of the VM created in the Batch pool.
+        Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vm_size")
 

@@ -21,7 +21,7 @@ class NamespaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Relay Namespace.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The name of the SKU to use. At this time the only supported value is `Standard`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
@@ -40,7 +40,7 @@ class NamespaceArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to create the Azure Relay Namespace.
+        The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -117,7 +117,7 @@ class _NamespaceState:
         :param pulumi.Input[str] name: Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_connection_string: The primary connection string for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Relay Namespace.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] sku_name: The name of the SKU to use. At this time the only supported value is `Standard`.
@@ -208,7 +208,7 @@ class _NamespaceState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to create the Azure Relay Namespace.
+        The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -307,7 +307,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Relay Namespace.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The name of the SKU to use. At this time the only supported value is `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -419,7 +419,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_connection_string: The primary connection string for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Relay Namespace.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] sku_name: The name of the SKU to use. At this time the only supported value is `Standard`.
@@ -485,7 +485,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to create the Azure Relay Namespace.
+        The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

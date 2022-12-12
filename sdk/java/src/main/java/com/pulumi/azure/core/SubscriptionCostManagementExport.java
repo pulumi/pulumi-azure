@@ -190,14 +190,14 @@ public class SubscriptionCostManagementExport extends com.pulumi.resources.Custo
         return this.recurrenceType;
     }
     /**
-     * The id of the subscription on which to create an export.
+     * The id of the subscription on which to create an export. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="subscriptionId", type=String.class, parameters={})
     private Output<String> subscriptionId;
 
     /**
-     * @return The id of the subscription on which to create an export.
+     * @return The id of the subscription on which to create an export. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> subscriptionId() {

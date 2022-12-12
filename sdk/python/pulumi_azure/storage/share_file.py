@@ -33,7 +33,7 @@ class ShareFileArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path: The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source: An absolute path to a file on the local system.
+        :param pulumi.Input[str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "storage_share_id", storage_share_id)
         if content_disposition is not None:
@@ -153,7 +153,7 @@ class ShareFileArgs:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
         """
-        An absolute path to a file on the local system.
+        An absolute path to a file on the local system. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source")
 
@@ -185,7 +185,7 @@ class _ShareFileState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path: The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source: An absolute path to a file on the local system.
+        :param pulumi.Input[str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         """
         if content_disposition is not None:
@@ -309,7 +309,7 @@ class _ShareFileState:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
         """
-        An absolute path to a file on the local system.
+        An absolute path to a file on the local system. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source")
 
@@ -385,7 +385,7 @@ class ShareFile(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path: The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source: An absolute path to a file on the local system.
+        :param pulumi.Input[str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         """
         ...
@@ -505,7 +505,7 @@ class ShareFile(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path: The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source: An absolute path to a file on the local system.
+        :param pulumi.Input[str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -592,7 +592,7 @@ class ShareFile(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[Optional[str]]:
         """
-        An absolute path to a file on the local system.
+        An absolute path to a file on the local system. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source")
 

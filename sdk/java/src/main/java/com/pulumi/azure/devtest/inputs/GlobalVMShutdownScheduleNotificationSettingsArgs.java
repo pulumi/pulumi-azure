@@ -63,14 +63,14 @@ public final class GlobalVMShutdownScheduleNotificationSettingsArgs extends com.
     }
 
     /**
-     * The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+     * The webhook URL to which the notification will be sent.
      * 
      */
     @Import(name="webhookUrl")
     private @Nullable Output<String> webhookUrl;
 
     /**
-     * @return The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+     * @return The webhook URL to which the notification will be sent.
      * 
      */
     public Optional<Output<String>> webhookUrl() {
@@ -168,7 +168,7 @@ public final class GlobalVMShutdownScheduleNotificationSettingsArgs extends com.
         }
 
         /**
-         * @param webhookUrl The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+         * @param webhookUrl The webhook URL to which the notification will be sent.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class GlobalVMShutdownScheduleNotificationSettingsArgs extends com.
         }
 
         /**
-         * @param webhookUrl The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+         * @param webhookUrl The webhook URL to which the notification will be sent.
          * 
          * @return builder
          * 

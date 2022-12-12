@@ -127,14 +127,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether public network access is allowed for this server. Defaults to `true`.
+     * Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether public network access is allowed for this server. Defaults to `true`.
+     * @return Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -410,7 +410,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether public network access is allowed for this server. Defaults to `true`.
+         * @param publicNetworkAccessEnabled Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether public network access is allowed for this server. Defaults to `true`.
+         * @param publicNetworkAccessEnabled Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -20,14 +20,14 @@ public final class SrvRecordArgs extends com.pulumi.resources.ResourceArgs {
     public static final SrvRecordArgs Empty = new SrvRecordArgs();
 
     /**
-     * The name of the DNS SRV Record.
+     * The name of the DNS SRV Record. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the DNS SRV Record.
+     * @return The name of the DNS SRV Record. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -139,7 +139,7 @@ public final class SrvRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DNS SRV Record.
+         * @param name The name of the DNS SRV Record. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class SrvRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DNS SRV Record.
+         * @param name The name of the DNS SRV Record. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -94,14 +94,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:keyvault/accessPolicy:AccessPolicy")
 public class AccessPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The object ID of an Application in Azure Active Directory.
+     * The object ID of an Application in Azure Active Directory. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="applicationId", type=String.class, parameters={})
     private Output</* @Nullable */ String> applicationId;
 
     /**
-     * @return The object ID of an Application in Azure Active Directory.
+     * @return The object ID of an Application in Azure Active Directory. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> applicationId() {
@@ -136,36 +136,28 @@ public class AccessPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.keyPermissions);
     }
     /**
-     * Specifies the id of the Key Vault resource. Changing this
-     * forces a new resource to be created.
+     * Specifies the id of the Key Vault resource. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="keyVaultId", type=String.class, parameters={})
     private Output<String> keyVaultId;
 
     /**
-     * @return Specifies the id of the Key Vault resource. Changing this
-     * forces a new resource to be created.
+     * @return Specifies the id of the Key Vault resource. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> keyVaultId() {
         return this.keyVaultId;
     }
     /**
-     * The object ID of a user, service principal or security
-     * group in the Azure Active Directory tenant for the vault. The object ID must
-     * be unique for the list of access policies. Changing this forces a new resource
-     * to be created.
+     * The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="objectId", type=String.class, parameters={})
     private Output<String> objectId;
 
     /**
-     * @return The object ID of a user, service principal or security
-     * group in the Azure Active Directory tenant for the vault. The object ID must
-     * be unique for the list of access policies. Changing this forces a new resource
-     * to be created.
+     * @return The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> objectId() {
@@ -200,18 +192,14 @@ public class AccessPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storagePermissions);
     }
     /**
-     * The Azure Active Directory tenant ID that should be used
-     * for authenticating requests to the key vault. Changing this forces a new resource
-     * to be created.
+     * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="tenantId", type=String.class, parameters={})
     private Output<String> tenantId;
 
     /**
-     * @return The Azure Active Directory tenant ID that should be used
-     * for authenticating requests to the key vault. Changing this forces a new resource
-     * to be created.
+     * @return The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> tenantId() {

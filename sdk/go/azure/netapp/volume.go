@@ -26,8 +26,9 @@ type Volume struct {
 	pulumi.CustomResourceState
 
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName pulumi.StringOutput `pulumi:"accountName"`
-	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
+	AccountName                 pulumi.StringOutput  `pulumi:"accountName"`
+	AzureVmwareDataStoreEnabled pulumi.BoolPtrOutput `pulumi:"azureVmwareDataStoreEnabled"`
+	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringOutput `pulumi:"createFromSnapshotResourceId"`
 	// A `dataProtectionReplication` block as defined below.
 	DataProtectionReplication VolumeDataProtectionReplicationPtrOutput `pulumi:"dataProtectionReplication"`
@@ -41,7 +42,7 @@ type Volume struct {
 	MountIpAddresses pulumi.StringArrayOutput `pulumi:"mountIpAddresses"`
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
 	NetworkFeatures pulumi.StringOutput `pulumi:"networkFeatures"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
@@ -49,9 +50,9 @@ type Volume struct {
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+	// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle pulumi.StringOutput `pulumi:"securityStyle"`
-	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
 	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
 	SnapshotDirectoryVisible pulumi.BoolOutput `pulumi:"snapshotDirectoryVisible"`
@@ -118,8 +119,9 @@ func GetVolume(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Volume resources.
 type volumeState struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName *string `pulumi:"accountName"`
-	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
+	AccountName                 *string `pulumi:"accountName"`
+	AzureVmwareDataStoreEnabled *bool   `pulumi:"azureVmwareDataStoreEnabled"`
+	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId *string `pulumi:"createFromSnapshotResourceId"`
 	// A `dataProtectionReplication` block as defined below.
 	DataProtectionReplication *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
@@ -133,7 +135,7 @@ type volumeState struct {
 	MountIpAddresses []string `pulumi:"mountIpAddresses"`
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
 	NetworkFeatures *string `pulumi:"networkFeatures"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName *string `pulumi:"poolName"`
@@ -141,9 +143,9 @@ type volumeState struct {
 	Protocols []string `pulumi:"protocols"`
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+	// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle *string `pulumi:"securityStyle"`
-	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel *string `pulumi:"serviceLevel"`
 	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
 	SnapshotDirectoryVisible *bool `pulumi:"snapshotDirectoryVisible"`
@@ -161,8 +163,9 @@ type volumeState struct {
 
 type VolumeState struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName pulumi.StringPtrInput
-	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
+	AccountName                 pulumi.StringPtrInput
+	AzureVmwareDataStoreEnabled pulumi.BoolPtrInput
+	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrInput
 	// A `dataProtectionReplication` block as defined below.
 	DataProtectionReplication VolumeDataProtectionReplicationPtrInput
@@ -176,7 +179,7 @@ type VolumeState struct {
 	MountIpAddresses pulumi.StringArrayInput
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
 	NetworkFeatures pulumi.StringPtrInput
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName pulumi.StringPtrInput
@@ -184,9 +187,9 @@ type VolumeState struct {
 	Protocols pulumi.StringArrayInput
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+	// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle pulumi.StringPtrInput
-	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringPtrInput
 	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
 	SnapshotDirectoryVisible pulumi.BoolPtrInput
@@ -208,8 +211,9 @@ func (VolumeState) ElementType() reflect.Type {
 
 type volumeArgs struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName string `pulumi:"accountName"`
-	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
+	AccountName                 string `pulumi:"accountName"`
+	AzureVmwareDataStoreEnabled *bool  `pulumi:"azureVmwareDataStoreEnabled"`
+	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId *string `pulumi:"createFromSnapshotResourceId"`
 	// A `dataProtectionReplication` block as defined below.
 	DataProtectionReplication *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
@@ -221,7 +225,7 @@ type volumeArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
 	NetworkFeatures *string `pulumi:"networkFeatures"`
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName string `pulumi:"poolName"`
@@ -229,9 +233,9 @@ type volumeArgs struct {
 	Protocols []string `pulumi:"protocols"`
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+	// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle *string `pulumi:"securityStyle"`
-	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
 	SnapshotDirectoryVisible *bool `pulumi:"snapshotDirectoryVisible"`
@@ -250,8 +254,9 @@ type volumeArgs struct {
 // The set of arguments for constructing a Volume resource.
 type VolumeArgs struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName pulumi.StringInput
-	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
+	AccountName                 pulumi.StringInput
+	AzureVmwareDataStoreEnabled pulumi.BoolPtrInput
+	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrInput
 	// A `dataProtectionReplication` block as defined below.
 	DataProtectionReplication VolumeDataProtectionReplicationPtrInput
@@ -263,7 +268,7 @@ type VolumeArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
 	NetworkFeatures pulumi.StringPtrInput
 	// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
 	PoolName pulumi.StringInput
@@ -271,9 +276,9 @@ type VolumeArgs struct {
 	Protocols pulumi.StringArrayInput
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+	// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
 	SecurityStyle pulumi.StringPtrInput
-	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringInput
 	// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
 	SnapshotDirectoryVisible pulumi.BoolPtrInput
@@ -381,7 +386,11 @@ func (o VolumeOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
+func (o VolumeOutput) AzureVmwareDataStoreEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.AzureVmwareDataStoreEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 func (o VolumeOutput) CreateFromSnapshotResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.CreateFromSnapshotResourceId }).(pulumi.StringOutput)
 }
@@ -416,7 +425,7 @@ func (o VolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
+// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
 func (o VolumeOutput) NetworkFeatures() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.NetworkFeatures }).(pulumi.StringOutput)
 }
@@ -436,12 +445,12 @@ func (o VolumeOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
 func (o VolumeOutput) SecurityStyle() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.SecurityStyle }).(pulumi.StringOutput)
 }
 
-// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
 func (o VolumeOutput) ServiceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.ServiceLevel }).(pulumi.StringOutput)
 }

@@ -264,7 +264,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> VmSize { get; private set; } = null!;
 
         /// <summary>
-        /// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+        /// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zones")]
         public Output<string?> Zones { get; private set; } = null!;
@@ -478,7 +478,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> VmSize { get; set; } = null!;
 
         /// <summary>
-        /// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+        /// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zones")]
         public Input<string>? Zones { get; set; }
@@ -654,7 +654,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? VmSize { get; set; }
 
         /// <summary>
-        /// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+        /// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zones")]
         public Input<string>? Zones { get; set; }

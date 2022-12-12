@@ -1487,7 +1487,7 @@ export namespace apimanagement {
          */
         virtualNetworkConfiguration?: outputs.apimanagement.ServiceAdditionalLocationVirtualNetworkConfiguration;
         /**
-         * A list of availability zones.
+         * A list of availability zones. Changing this forces a new resource to be created.
          */
         zones?: string[];
     }
@@ -1858,7 +1858,13 @@ export namespace apimanagement {
          * Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
          */
         tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled?: boolean;
+        /**
+         * Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+         */
         tlsEcdheRsaWithAes128CbcShaCiphersEnabled?: boolean;
+        /**
+         * Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+         */
         tlsEcdheRsaWithAes256CbcShaCiphersEnabled?: boolean;
         /**
          * Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
@@ -1880,6 +1886,10 @@ export namespace apimanagement {
          * Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
          */
         tlsRsaWithAes256CbcShaCiphersEnabled?: boolean;
+        /**
+         * Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+         */
+        tlsRsaWithAes256GcmSha384CiphersEnabled?: boolean;
         /**
          * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
          */
@@ -2191,7 +2201,7 @@ export namespace appconfiguration {
 export namespace appinsights {
     export interface WorkbookIdentity {
         /**
-         * The list of User Assigned Managed Identity IDs assigned to this Workbook.
+         * The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
          */
         identityIds?: string[];
         /**
@@ -2203,7 +2213,7 @@ export namespace appinsights {
          */
         tenantId: string;
         /**
-         * The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`.
+         * The type of Managed Service Identity that is configured on this Workbook. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -2714,7 +2724,7 @@ export namespace appplatform {
         /**
          * Specifies the route processing order.
          */
-        order?: number;
+        order: number;
         /**
          * Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
          */
@@ -2815,7 +2825,7 @@ export namespace appplatform {
          */
         label?: string;
         /**
-         * A name to identify on the Git repository, required only if repos exists.
+         * A name to identify on the Git repository, required only if repos exists. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -3739,7 +3749,7 @@ export namespace appservice {
 
     export interface FunctionAppConnectionString {
         /**
-         * The name of the Connection String.
+         * The name of the Connection String. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -3754,11 +3764,11 @@ export namespace appservice {
 
     export interface FunctionAppFunctionFile {
         /**
-         * The content of the file.
+         * The content of the file. Changing this forces a new resource to be created.
          */
         content: string;
         /**
-         * The filename of the file to be uploaded.
+         * The filename of the file to be uploaded. Changing this forces a new resource to be created.
          */
         name: string;
     }
@@ -4120,7 +4130,7 @@ export namespace appservice {
 
     export interface FunctionAppSlotConnectionString {
         /**
-         * The name of the Connection String.
+         * The name of the Connection String. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -10332,7 +10342,7 @@ export namespace appservice {
 
     export interface SlotConnectionString {
         /**
-         * The name of the Connection String.
+         * The name of the Connection String. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -13960,7 +13970,7 @@ export namespace automation {
         /**
          * Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
          */
-        tagFilter?: string;
+        tagFilter: string;
         /**
          * A mapping of tags used for query filter.
          */
@@ -13991,7 +14001,7 @@ export namespace automation {
 
     export interface SoftwareUpdateConfigurationWindows {
         /**
-         * Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+         * (Deprecated) Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
          *
          * @deprecated windows classification can be set as a list, use `classifications_included` instead.
          */
@@ -14982,11 +14992,11 @@ export namespace batch {
 
     export interface PoolContainerConfiguration {
         /**
-         * A list of container image names to use, as would be specified by `docker pull`.
+         * A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
          */
         containerImageNames?: string[];
         /**
-         * Additional container registries from which container images can be pulled by the pool's VMs.
+         * Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
          */
         containerRegistries?: outputs.batch.PoolContainerConfigurationContainerRegistry[];
         /**
@@ -15218,7 +15228,7 @@ export namespace batch {
 
     export interface PoolNetworkConfiguration {
         /**
-         * The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+         * The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
          */
         dynamicVnetAssignmentScope?: string;
         /**
@@ -16418,7 +16428,7 @@ export namespace cdn {
 
     export interface FrontdoorOriginPrivateLink {
         /**
-         * Specifies the location where the Private Link resource should exist.
+         * Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
          */
         location: string;
         /**
@@ -17196,15 +17206,15 @@ export namespace cognitive {
 export namespace compute {
     export interface BastionHostIpConfiguration {
         /**
-         * The name of the IP configuration.
+         * The name of the IP configuration. Changing this forces a new resource to be created.
          */
         name: string;
         /**
-         * Reference to a Public IP Address to associate with this Bastion Host.
+         * Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
          */
         publicIpAddressId: string;
         /**
-         * Reference to a subnet in which this Bastion Host has been created.
+         * Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
          */
         subnetId: string;
     }
@@ -17990,7 +18000,7 @@ export namespace compute {
          */
         createOption?: string;
         /**
-         * The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+         * The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
          */
         diskEncryptionSetId?: string;
         /**
@@ -18228,7 +18238,7 @@ export namespace compute {
          */
         diffDiskSettings?: outputs.compute.LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings;
         /**
-         * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
+         * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
          */
         diskEncryptionSetId?: string;
         /**
@@ -18244,7 +18254,7 @@ export namespace compute {
          */
         securityEncryptionType?: string;
         /**
-         * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+         * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          */
         storageAccountType: string;
         /**
@@ -18742,7 +18752,7 @@ export namespace compute {
          */
         autoUpgradeMinorVersion?: boolean;
         /**
-         * Specifies the name of the extension.
+         * Specifies the name of the extension. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -18801,7 +18811,7 @@ export namespace compute {
          */
         ipForwarding?: boolean;
         /**
-         * Specifies the name of the network interface configuration.
+         * Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -18839,7 +18849,7 @@ export namespace compute {
          */
         loadBalancerInboundNatRulesIds: string[];
         /**
-         * Specifies name of the IP configuration.
+         * Specifies name of the IP configuration. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -18866,7 +18876,7 @@ export namespace compute {
          */
         idleTimeout: number;
         /**
-         * The name of the public IP address configuration
+         * The name of the public IP address configuration Changing this forces a new resource to be created.
          */
         name: string;
     }
@@ -18979,7 +18989,7 @@ export namespace compute {
 
     export interface ScaleSetPlan {
         /**
-         * Specifies the name of the image from the marketplace.
+         * Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -19017,7 +19027,7 @@ export namespace compute {
          */
         capacity: number;
         /**
-         * Specifies the size of virtual machines in a scale set.
+         * Specifies the size of virtual machines in a scale set. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -19093,7 +19103,7 @@ export namespace compute {
          */
         managedDiskType: string;
         /**
-         * Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
+         * Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set). Changing this forces a new resource to be created.
          */
         name?: string;
         /**
@@ -19142,7 +19152,7 @@ export namespace compute {
          */
         diskEncryptionSetId?: string;
         /**
-         * The Azure Region in which this Image Version should exist.
+         * The Azure Region in which this Image Version should exist. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -19194,7 +19204,7 @@ export namespace compute {
 
     export interface VirtualMachineAdditionalCapabilities {
         /**
-         * Should Ultra SSD disk be enabled for this Virtual Machine?
+         * Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created.
          */
         ultraSsdEnabled: boolean;
     }
@@ -19235,11 +19245,11 @@ export namespace compute {
          */
         adminUsername: string;
         /**
-         * Specifies the name of the Virtual Machine.
+         * Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
          */
         computerName: string;
         /**
-         * Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+         * Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
          */
         customData: string;
     }
@@ -19302,7 +19312,7 @@ export namespace compute {
          */
         provisionVmAgent?: boolean;
         /**
-         * Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+         * Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
          */
         timezone?: string;
         /**
@@ -19397,7 +19407,7 @@ export namespace compute {
          */
         name: string;
         /**
-         * Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+         * Specifies the URI of the VHD file backing this Unmanaged Data Disk.
          */
         vhdUri?: string;
         /**
@@ -19447,7 +19457,7 @@ export namespace compute {
          */
         imageUri?: string;
         /**
-         * Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`.
+         * Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`. Changing this forces a new resource to be created.
          */
         managedDiskId: string;
         /**
@@ -19657,7 +19667,7 @@ export namespace compute {
          */
         createOption?: string;
         /**
-         * The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
+         * The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
          */
         diskEncryptionSetId?: string;
         /**
@@ -19895,7 +19905,7 @@ export namespace compute {
          */
         diffDiskSettings?: outputs.compute.WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings;
         /**
-         * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
+         * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
          */
         diskEncryptionSetId?: string;
         /**
@@ -19911,7 +19921,7 @@ export namespace compute {
          */
         securityEncryptionType?: string;
         /**
-         * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`.
+         * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          */
         storageAccountType: string;
         /**
@@ -20060,11 +20070,11 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetWinrmListener {
         /**
-         * The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+         * The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
          */
         certificateUrl?: string;
         /**
-         * The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
+         * The Protocol of the WinRM Listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
          */
         protocol: string;
     }
@@ -20123,7 +20133,7 @@ export namespace compute {
 
     export interface WindowsVirtualMachineWinrmListener {
         /**
-         * The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
+         * The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
          */
         certificateUrl?: string;
         protocol: string;
@@ -20477,7 +20487,7 @@ export namespace consumption {
          */
         threshold: number;
         /**
-         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`.
+         * The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
          */
         thresholdType?: string;
     }
@@ -20930,7 +20940,7 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterAgentPoolProfile {
         /**
-         * The number of Agents (VM's) in the Pool.
+         * The number of Agents (VMs) in the Pool.
          */
         count: number;
         /**
@@ -21003,7 +21013,7 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterAgentPoolProfileUpgradeSetting {
         /**
-         * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+         * The maximum number or percentage of nodes that will be added to the Node Pool size during an upgrade.
          */
         maxSurge: string;
     }
@@ -21022,7 +21032,7 @@ export namespace containerservice {
          */
         clientAppId: string;
         /**
-         * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+         * Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
          */
         managed: boolean;
         /**
@@ -21212,7 +21222,7 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterMicrosoftDefender {
         /**
-         * The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+         * The ID of the Log Analytics Workspace to which the OMS Agent should send data.
          */
         logAnalyticsWorkspaceId: string;
     }
@@ -21247,7 +21257,7 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterOmsAgent {
         /**
-         * The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+         * The ID of the Log Analytics Workspace to which the OMS Agent should send data.
          */
         logAnalyticsWorkspaceId: string;
         /**
@@ -21276,6 +21286,14 @@ export namespace containerservice {
          * The Client ID of the user-defined Managed Identity assigned to the Kubelets.
          */
         clientId: string;
+    }
+
+    export interface GetKubernetesClusterStorageProfile {
+        blobDriverEnabled: boolean;
+        diskDriverEnabled: boolean;
+        diskDriverVersion: string;
+        fileDriverEnabled: boolean;
+        snapshotControllerEnabled: boolean;
     }
 
     export interface GetKubernetesClusterWindowsProfile {
@@ -21821,11 +21839,15 @@ export namespace containerservice {
          */
         capacityReservationGroupId?: string;
         /**
+         * Specifies whether to trust a Custom CA. Defaults to `false`.
+         */
+        customCaTrustEnabled?: boolean;
+        /**
          * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
          */
         enableAutoScaling?: boolean;
         /**
-         * Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
+         * Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
          */
         enableHostEncryption?: boolean;
         /**
@@ -21916,11 +21938,11 @@ export namespace containerservice {
          */
         tags?: {[key: string]: string};
         /**
-         * The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
+         * The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
          */
         type?: string;
         /**
-         * Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
+         * Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
          */
         ultraSsdEnabled?: boolean;
         /**
@@ -21990,7 +22012,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterDefaultNodePoolLinuxOsConfig {
         /**
-         * Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+         * Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
          */
         swapFileSizeMb?: number;
         /**
@@ -22135,15 +22157,15 @@ export namespace containerservice {
 
     export interface KubernetesClusterHttpProxyConfig {
         /**
-         * The proxy address to be used when communicating over HTTP.
+         * The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
          */
         httpProxy?: string;
         /**
-         * The proxy address to be used when communicating over HTTPS.
+         * The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
          */
         httpsProxy?: string;
         /**
-         * The list of domains that will not use the proxy for communication.
+         * The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
          */
         noProxies?: string[];
         /**
@@ -22332,7 +22354,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterMaintenanceWindow {
         /**
-         * One or more `allowed` block as defined below.
+         * One or more `allowed` blocks as defined below.
          */
         alloweds?: outputs.containerservice.KubernetesClusterMaintenanceWindowAllowed[];
         /**
@@ -22380,6 +22402,10 @@ export namespace containerservice {
          */
         dockerBridgeCidr: string;
         /**
+         * Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+         */
+        ebpfDataPlane?: string;
+        /**
          * Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
          */
         ipVersions: string[];
@@ -22388,7 +22414,7 @@ export namespace containerservice {
          */
         loadBalancerProfile: outputs.containerservice.KubernetesClusterNetworkProfileLoadBalancerProfile;
         /**
-         * Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
+         * Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
          */
         loadBalancerSku?: string;
         /**
@@ -22404,11 +22430,15 @@ export namespace containerservice {
          */
         networkPlugin: string;
         /**
+         * Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+         */
+        networkPluginMode?: string;
+        /**
          * Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
          */
         networkPolicy: string;
         /**
-         * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
+         * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
          */
         outboundType?: string;
         /**
@@ -22700,6 +22730,29 @@ export namespace containerservice {
         clientSecret: string;
     }
 
+    export interface KubernetesClusterStorageProfile {
+        /**
+         * Is the Blob CSI driver enabled? Defaults to `false`.
+         */
+        blobDriverEnabled?: boolean;
+        /**
+         * Is the Disk CSI driver enabled? Defaults to `true`.
+         */
+        diskDriverEnabled?: boolean;
+        /**
+         * Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
+         */
+        diskDriverVersion?: string;
+        /**
+         * Is the File CSI driver enabled? Defaults to `true`.
+         */
+        fileDriverEnabled?: boolean;
+        /**
+         * Is the Snapshot Controller enabled? Defaults to `true`.
+         */
+        snapshotControllerEnabled?: boolean;
+    }
+
     export interface KubernetesClusterWebAppRouting {
         /**
          * Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled.
@@ -22713,7 +22766,7 @@ export namespace containerservice {
          */
         adminPassword?: string;
         /**
-         * The Admin Username for Windows VMs.
+         * The Admin Username for Windows VMs. Changing this forces a new resource to be created.
          */
         adminUsername: string;
         /**
@@ -22767,7 +22820,7 @@ export namespace containerservice {
 
     export interface RegistryGeoreplication {
         /**
-         * A location where the container registry should be geo-replicated.
+         * A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
          */
         location: string;
         /**
@@ -22779,7 +22832,7 @@ export namespace containerservice {
          */
         tags?: {[key: string]: string};
         /**
-         * Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+         * Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
          */
         zoneRedundancyEnabled?: boolean;
     }
@@ -23254,11 +23307,11 @@ export namespace core {
 
     export interface ResourceGroupCostManagementExportExportDataStorageLocation {
         /**
-         * The Resource Manager ID of the container where exports will be uploaded.
+         * The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
          */
         containerId: string;
         /**
-         * The path of the directory where exports will be uploaded.
+         * The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
          */
         rootFolderPath: string;
     }
@@ -23347,11 +23400,11 @@ export namespace core {
 
     export interface SubscriptionCostManagementExportExportDataStorageLocation {
         /**
-         * The Resource Manager ID of the container where exports will be uploaded.
+         * The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
          */
         containerId: string;
         /**
-         * The path of the directory where exports will be uploaded.
+         * The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
          */
         rootFolderPath: string;
     }
@@ -23477,7 +23530,7 @@ export namespace cosmosdb {
          */
         id: string;
         /**
-         * The name of the Azure region to host replicated data.
+         * The name of the Azure region to host replicated data. Changing this forces a new resource to be created.
          */
         location: string;
         /**
@@ -23790,7 +23843,7 @@ export namespace cosmosdb {
 
     export interface GremlinGraphUniqueKey {
         /**
-         * A list of paths to use for this unique key.
+         * A list of paths to use for this unique key. Changing this forces a new resource to be created.
          */
         paths: string[];
     }
@@ -23921,7 +23974,7 @@ export namespace cosmosdb {
 
     export interface SqlContainerUniqueKey {
         /**
-         * A list of paths to use for this unique key.
+         * A list of paths to use for this unique key. Changing this forces a new resource to be created.
          */
         paths: string[];
     }
@@ -23960,7 +24013,7 @@ export namespace dashboard {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -24133,8 +24186,17 @@ export namespace databoxedge {
 
 export namespace databricks {
     export interface AccessConnectorIdentity {
+        /**
+         * The object id of an existing principal. If not specified, a new system-assigned managed identity is created.
+         */
         principalId: string;
+        /**
+         * The tenant id in which the principal resides.
+         */
         tenantId: string;
+        /**
+         * The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+         */
         type: string;
     }
 
@@ -26058,7 +26120,7 @@ export namespace datashare {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -26309,7 +26371,7 @@ export namespace devtest {
          */
         timeInMinutes?: number;
         /**
-         * The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
+         * The webhook URL to which the notification will be sent.
          */
         webhookUrl?: string;
     }
@@ -26343,7 +26405,7 @@ export namespace devtest {
          */
         frontendPort: number;
         /**
-         * The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+         * The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
          */
         protocol: string;
     }
@@ -26429,7 +26491,7 @@ export namespace devtest {
          */
         frontendPort: number;
         /**
-         * The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
+         * The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
          */
         protocol: string;
     }
@@ -26705,7 +26767,7 @@ export namespace domainservices {
          */
         serviceStatus: string;
         /**
-         * The ID of the subnet in which to place the initial replica set.
+         * The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
          */
         subnetId: string;
     }
@@ -26806,7 +26868,7 @@ export namespace elasticcloud {
          */
         action: string;
         /**
-         * Specifies the name (key) of the Tag which should be filtered.
+         * Specifies the name (key) of the Tag which should be filtered. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -28604,7 +28666,7 @@ export namespace eventhub {
          */
         identityId: string;
         /**
-         * Used to specify whether enable Infrastructure Encryption (Double Encryption).
+         * Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
          */
         infrastructureEncryptionEnabled?: boolean;
         /**
@@ -28634,7 +28696,7 @@ export namespace eventhub {
 
     export interface SubscriptionClientScopedSubscription {
         /**
-         * Specifies the Client ID of the application that created the client-scoped subscription.
+         * Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
          */
         clientId?: string;
         /**
@@ -28642,7 +28704,7 @@ export namespace eventhub {
          */
         isClientScopedSubscriptionDurable: boolean;
         /**
-         * Whether the client scoped subscription is shareable. Defaults to `true`
+         * Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
          */
         isClientScopedSubscriptionShareable?: boolean;
     }
@@ -28750,7 +28812,7 @@ export namespace frontdoor {
          */
         matchConditions?: outputs.frontdoor.FirewallPolicyCustomRuleMatchCondition[];
         /**
-         * Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+         * Gets name of the resource that is unique within a policy. This name can be used to access the resource. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -28914,7 +28976,7 @@ export namespace frontdoor {
          */
         loadBalancingName: string;
         /**
-         * Specifies the name of the Backend Pool.
+         * Specifies the name of the Backend Pool. Changing this forces a new resource to be created.
          */
         name: string;
     }
@@ -28964,7 +29026,7 @@ export namespace frontdoor {
          */
         intervalInSeconds?: number;
         /**
-         * Specifies the name of the Health Probe.
+         * Specifies the name of the Health Probe. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -28991,7 +29053,7 @@ export namespace frontdoor {
          */
         id: string;
         /**
-         * Specifies the name of the Load Balancer.
+         * Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -29033,7 +29095,7 @@ export namespace frontdoor {
          */
         id: string;
         /**
-         * Specifies the name of the `frontendEndpoint`.
+         * Specifies the name of the `frontendEndpoint`. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -29072,7 +29134,7 @@ export namespace frontdoor {
          */
         id: string;
         /**
-         * Specifies the name of the Routing Rule.
+         * Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -29157,7 +29219,7 @@ export namespace frontdoor {
          */
         matchConditions?: outputs.frontdoor.RulesEngineRuleMatchCondition[];
         /**
-         * The name of the rule.
+         * The name of the rule. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -31665,14 +31727,14 @@ export namespace healthcare {
          */
         authority?: string;
         /**
-         * Enables the 'SMART on FHIR' option for mobile and web implementations.
+         * (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.
          */
         smartProxyEnabled?: boolean;
     }
 
     export interface ServiceCorsConfiguration {
         /**
-         * If credentials are allowed via CORS.
+         * (Boolean) If credentials are allowed via CORS.
          */
         allowCredentials?: boolean;
         /**
@@ -31877,11 +31939,11 @@ export namespace hpc {
 
     export interface CacheIdentity {
         /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
          */
         identityIds: string[];
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -32398,7 +32460,7 @@ export namespace iot {
          */
         key: string;
         /**
-         * Name of storage account for Azure IoT Time Series Insights Gen2 Environment
+         * Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
          */
         name: string;
     }
@@ -33258,7 +33320,7 @@ export namespace lb {
          */
         loadBalancerRules: string[];
         /**
-         * Specifies the name of the frontend IP configuration.
+         * Specifies the name of the frontend IP configuration. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -33369,7 +33431,7 @@ export namespace loganalytics {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -33633,7 +33695,7 @@ export namespace logicapps {
 
     export interface StandardConnectionString {
         /**
-         * The name of the Connection String.
+         * The name of the Connection String. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -33982,7 +34044,7 @@ export namespace logicapps {
 export namespace machinelearning {
     export interface ComputeClusterIdentity {
         /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.
          */
         identityIds?: string[];
         /**
@@ -33994,7 +34056,7 @@ export namespace machinelearning {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -34042,7 +34104,7 @@ export namespace machinelearning {
 
     export interface ComputeInstanceIdentity {
         /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
          */
         identityIds?: string[];
         /**
@@ -34054,7 +34116,7 @@ export namespace machinelearning {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -34095,7 +34157,7 @@ export namespace machinelearning {
 
     export interface InferenceClusterIdentity {
         /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
          */
         identityIds?: string[];
         /**
@@ -34107,7 +34169,7 @@ export namespace machinelearning {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -34137,7 +34199,7 @@ export namespace machinelearning {
 
     export interface SynapseSparkIdentity {
         /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created.
          */
         identityIds?: string[];
         /**
@@ -34149,7 +34211,7 @@ export namespace machinelearning {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
          */
         type: string;
     }
@@ -34274,7 +34336,7 @@ export namespace maintenance {
 export namespace managedapplication {
     export interface ApplicationPlan {
         /**
-         * Specifies the name of the plan from the marketplace.
+         * Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -34630,7 +34692,7 @@ export namespace media {
 
     export interface JobInputAsset {
         /**
-         * A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+         * A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'. Changing this forces a new resource to be created.
          */
         label?: string;
         /**
@@ -34641,7 +34703,7 @@ export namespace media {
 
     export interface JobOutputAsset {
         /**
-         * A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
+         * A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform. Changing this forces a new resource to be created.
          */
         label?: string;
         /**
@@ -34722,7 +34784,7 @@ export namespace media {
 
     export interface LiveEventPreview {
         /**
-         * An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field. Changing this forces a new resource to be created.
+         * An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field.
          */
         alternativeMediaId?: string;
         endpoints: outputs.media.LiveEventPreviewEndpoint[];
@@ -35145,7 +35207,7 @@ export namespace monitoring {
 
     export interface ActionGroupArmRoleReceiver {
         /**
-         * The name of the ARM role receiver.
+         * The name of the ARM role receiver. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -35168,7 +35230,7 @@ export namespace monitoring {
          */
         isGlobalRunbook: boolean;
         /**
-         * The name of the automation runbook receiver.
+         * The name of the automation runbook receiver. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -35195,7 +35257,7 @@ export namespace monitoring {
          */
         emailAddress: string;
         /**
-         * The name of the Azure app push receiver.
+         * The name of the Azure app push receiver. Changing this forces a new resource to be created.
          */
         name: string;
     }
@@ -35214,7 +35276,7 @@ export namespace monitoring {
          */
         httpTriggerUrl: string;
         /**
-         * The name of the Azure Function receiver.
+         * The name of the Azure Function receiver. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -35229,7 +35291,7 @@ export namespace monitoring {
          */
         emailAddress: string;
         /**
-         * The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         * The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -35254,7 +35316,7 @@ export namespace monitoring {
          */
         eventHubNamespace: string;
         /**
-         * The name of the EventHub Receiver, must be unique within action group.
+         * The name of the EventHub Receiver, must be unique within action group. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -35277,7 +35339,7 @@ export namespace monitoring {
          */
         connectionId: string;
         /**
-         * The name of the ITSM receiver.
+         * The name of the ITSM receiver. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -35300,7 +35362,7 @@ export namespace monitoring {
          */
         callbackUrl: string;
         /**
-         * The name of the logic app receiver.
+         * The name of the logic app receiver. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -35319,7 +35381,7 @@ export namespace monitoring {
          */
         countryCode: string;
         /**
-         * The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         * The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -35334,7 +35396,7 @@ export namespace monitoring {
          */
         countryCode: string;
         /**
-         * The name of the voice receiver.
+         * The name of the voice receiver. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -35349,7 +35411,7 @@ export namespace monitoring {
          */
         aadAuth?: outputs.monitoring.ActionGroupWebhookReceiverAadAuth;
         /**
-         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -37426,7 +37488,7 @@ export namespace monitoring {
 
     export interface ScheduledQueryRulesLogCriteriaDimension {
         /**
-         * Name of the dimension.
+         * Name of the dimension. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -37577,7 +37639,7 @@ export namespace mssql {
          */
         family?: string;
         /**
-         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
+         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -37844,6 +37906,10 @@ export namespace mssql {
     }
 
     export interface VirtualMachineAutoBackupManualSchedule {
+        /**
+         * A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+         */
+        daysOfWeeks?: string[];
         /**
          * Frequency of full backups. Valid values include `Daily` or `Weekly`.
          */
@@ -38361,7 +38427,7 @@ export namespace netapp {
          */
         endpointType?: string;
         /**
-         * Location of the primary volume.
+         * Location of the primary volume. Changing this forces a new resource to be created.
          */
         remoteVolumeLocation: string;
         /**
@@ -39583,7 +39649,7 @@ export namespace network {
          */
         publicIpAddressId: string;
         /**
-         * Reference to the subnet associated with the IP Configuration.
+         * Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
          */
         subnetId?: string;
     }
@@ -39694,6 +39760,33 @@ export namespace network {
          * A list of custom DNS servers' IP addresses.
          */
         servers?: string[];
+    }
+
+    export interface FirewallPolicyExplicitProxy {
+        /**
+         * Whether the pac file port and url need to be provided.
+         */
+        enablePacFile?: boolean;
+        /**
+         * Whether the explicit proxy is enabled for this Firewall Policy.
+         */
+        enabled?: boolean;
+        /**
+         * The port number for explicit http protocol.
+         */
+        httpPort?: number;
+        /**
+         * The port number for explicit proxy https protocol.
+         */
+        httpsPort?: number;
+        /**
+         * Specifies a SAS URL for PAC file.
+         */
+        pacFile?: string;
+        /**
+         * Specifies a port number for firewall to serve PAC file.
+         */
+        pacFilePort?: number;
     }
 
     export interface FirewallPolicyIdentity {
@@ -40878,7 +40971,7 @@ export namespace network {
          */
         gatewayLoadBalancerFrontendIpConfigurationId: string;
         /**
-         * A name used for this IP Configuration.
+         * A name used for this IP Configuration. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -40979,7 +41072,7 @@ export namespace network {
          */
         direction: string;
         /**
-         * The name of the security rule.
+         * The name of the security rule. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -41141,7 +41234,7 @@ export namespace network {
          */
         addressPrefix: string;
         /**
-         * The name of the route.
+         * The name of the route. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -41317,7 +41410,7 @@ export namespace network {
 
     export interface TrafficManagerProfileMonitorConfigCustomHeader {
         /**
-         * The name of the custom header.
+         * The name of the custom header. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -41523,8 +41616,7 @@ export namespace network {
 
     export interface VirtualNetworkGatewayIpConfiguration {
         /**
-         * A user-defined name of the IP configuration. Defaults to
-         * `vnetGatewayConfig`.
+         * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
          */
         name?: string;
         /**
@@ -41624,8 +41716,7 @@ export namespace network {
 
     export interface VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
         /**
-         * A user-defined name of the IP configuration. Defaults to
-         * `vnetGatewayConfig`.
+         * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
          */
         name: string;
         thumbprint: string;
@@ -41633,8 +41724,7 @@ export namespace network {
 
     export interface VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
         /**
-         * A user-defined name of the IP configuration. Defaults to
-         * `vnetGatewayConfig`.
+         * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -42252,7 +42342,7 @@ export namespace operationalinsights {
          */
         product: string;
         /**
-         * A promotion code to be used with the solution.
+         * A promotion code to be used with the solution. Changing this forces a new resource to be created.
          */
         promotionCode?: string;
         /**
@@ -42343,7 +42433,7 @@ export namespace orbital {
          */
         direction: string;
         /**
-         * Name of the link.
+         * Name of the link. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -43148,7 +43238,7 @@ export namespace redis {
 
     export interface EnterpriseDatabaseModule {
         /**
-         * Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
+         * Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
          */
         args?: string;
         /**
@@ -43777,7 +43867,7 @@ export namespace servicebus {
          */
         identityId: string;
         /**
-         * Used to specify whether enable Infrastructure Encryption (Double Encryption).
+         * Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
          */
         infrastructureEncryptionEnabled?: boolean;
         /**
@@ -43818,7 +43908,7 @@ export namespace servicebus {
 
     export interface SubscriptionClientScopedSubscription {
         /**
-         * Specifies the Client ID of the application that created the client-scoped subscription.
+         * Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
          */
         clientId?: string;
         /**
@@ -43826,7 +43916,7 @@ export namespace servicebus {
          */
         isClientScopedSubscriptionDurable: boolean;
         /**
-         * Whether the client scoped subscription is shareable. Defaults to `true`
+         * Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
          */
         isClientScopedSubscriptionShareable?: boolean;
     }
@@ -43992,11 +44082,11 @@ export namespace servicefabric {
          */
         capacities?: {[key: string]: string};
         /**
-         * The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+         * The Port used for the Client Endpoint for this Node Type.
          */
         clientEndpointPort: number;
         /**
-         * The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
+         * The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
          */
         durabilityLevel?: string;
         /**
@@ -44004,7 +44094,7 @@ export namespace servicefabric {
          */
         ephemeralPorts: outputs.servicefabric.ClusterNodeTypeEphemeralPorts;
         /**
-         * The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+         * The Port used for the HTTP Endpoint for this Node Type.
          */
         httpEndpointPort: number;
         /**
@@ -44012,7 +44102,7 @@ export namespace servicefabric {
          */
         instanceCount: number;
         /**
-         * Is this the Primary Node Type? Changing this forces a new resource to be created.
+         * Is this the Primary Node Type?
          */
         isPrimary: boolean;
         /**
@@ -44024,7 +44114,7 @@ export namespace servicefabric {
          */
         multipleAvailabilityZones?: boolean;
         /**
-         * The name of the Node Type. Changing this forces a new resource to be created.
+         * The name of the Node Type.
          */
         name: string;
         /**
@@ -44632,7 +44722,7 @@ export namespace sql {
 
     export interface ManagedInstanceFailoverGroupPartnerRegion {
         /**
-         * The Azure Region where the SQL Instance Failover Group exists.
+         * The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
          */
         location: string;
         /**
@@ -46296,7 +46386,7 @@ export namespace trafficmanager {
 
     export interface ProfileMonitorConfigCustomHeader {
         /**
-         * The name of the custom header.
+         * The name of the custom header. Changing this forces a new resource to be created.
          */
         name: string;
         /**

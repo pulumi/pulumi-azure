@@ -13,7 +13,7 @@ namespace Pulumi.Azure.TrafficManager.Inputs
     public sealed class ProfileMonitorConfigCustomHeaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the custom header.
+        /// The name of the custom header. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -47,14 +47,14 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+     * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="dataFormat")
     private @Nullable Output<String> dataFormat;
 
     /**
-     * @return Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+     * @return Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> dataFormat() {
@@ -77,14 +77,14 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="databaseRoutingType")
     private @Nullable Output<String> databaseRoutingType;
 
     /**
-     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> databaseRoutingType() {
@@ -137,14 +137,14 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+     * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="mappingRuleName")
     private @Nullable Output<String> mappingRuleName;
 
     /**
-     * @return Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+     * @return Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> mappingRuleName() {
@@ -197,14 +197,14 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+     * Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="tableName")
     private @Nullable Output<String> tableName;
 
     /**
-     * @return Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+     * @return Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> tableName() {
@@ -290,7 +290,7 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dataFormat Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+         * @param dataFormat Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dataFormat Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
+         * @param dataFormat Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`.
+         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param mappingRuleName Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+         * @param mappingRuleName Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param mappingRuleName Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+         * @param mappingRuleName Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tableName Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+         * @param tableName Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -521,7 +521,7 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tableName Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+         * @param tableName Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

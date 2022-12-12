@@ -16,14 +16,14 @@ public final class FabricState extends com.pulumi.resources.ResourceArgs {
     public static final FabricState Empty = new FabricState();
 
     /**
-     * In what region should the fabric be located.
+     * In what region should the fabric be located. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return In what region should the fabric be located.
+     * @return In what region should the fabric be located. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -31,14 +31,14 @@ public final class FabricState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the network mapping.
+     * The name of the network mapping. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the network mapping.
+     * @return The name of the network mapping. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -46,14 +46,14 @@ public final class FabricState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="recoveryVaultName")
     private @Nullable Output<String> recoveryVaultName;
 
     /**
-     * @return The name of the vault that should be updated.
+     * @return The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> recoveryVaultName() {
@@ -61,14 +61,14 @@ public final class FabricState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return Name of the resource group where the vault that should be updated is located.
+     * @return Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -103,7 +103,7 @@ public final class FabricState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location In what region should the fabric be located.
+         * @param location In what region should the fabric be located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class FabricState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location In what region should the fabric be located.
+         * @param location In what region should the fabric be located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class FabricState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the network mapping.
+         * @param name The name of the network mapping. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class FabricState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the network mapping.
+         * @param name The name of the network mapping. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class FabricState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryVaultName The name of the vault that should be updated.
+         * @param recoveryVaultName The name of the vault that should be updated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class FabricState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryVaultName The name of the vault that should be updated.
+         * @param recoveryVaultName The name of the vault that should be updated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class FabricState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName Name of the resource group where the vault that should be updated is located.
+         * @param resourceGroupName Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class FabricState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName Name of the resource group where the vault that should be updated is located.
+         * @param resourceGroupName Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

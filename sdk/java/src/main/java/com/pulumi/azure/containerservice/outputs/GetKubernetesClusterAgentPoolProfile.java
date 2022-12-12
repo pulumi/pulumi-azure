@@ -15,7 +15,7 @@ import java.util.Objects;
 @CustomType
 public final class GetKubernetesClusterAgentPoolProfile {
     /**
-     * @return The number of Agents (VM&#39;s) in the Pool.
+     * @return The number of Agents (VMs) in the Pool.
      * 
      */
     private Integer count;
@@ -104,7 +104,7 @@ public final class GetKubernetesClusterAgentPoolProfile {
 
     private GetKubernetesClusterAgentPoolProfile() {}
     /**
-     * @return The number of Agents (VM&#39;s) in the Pool.
+     * @return The number of Agents (VMs) in the Pool.
      * 
      */
     public Integer count() {

@@ -34,14 +34,14 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the replication for the replicated VM.
+     * The name of the replication for the replicated VM. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the replication for the replicated VM.
+     * @return The name of the replication for the replicated VM. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,14 +71,14 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the vault that should be updated.
+     * The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="recoveryVaultName")
     private @Nullable Output<String> recoveryVaultName;
 
     /**
-     * @return The name of the vault that should be updated.
+     * @return The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> recoveryVaultName() {
@@ -86,14 +86,14 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the resource group where the vault that should be updated is located.
+     * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return Name of the resource group where the vault that should be updated is located.
+     * @return Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -101,14 +101,14 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of fabric that should contains this replication.
+     * Name of fabric that should contains this replication. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sourceRecoveryFabricName")
     private @Nullable Output<String> sourceRecoveryFabricName;
 
     /**
-     * @return Name of fabric that should contains this replication.
+     * @return Name of fabric that should contains this replication. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sourceRecoveryFabricName() {
@@ -116,14 +116,14 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the protection container to use.
+     * Name of the protection container to use. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sourceRecoveryProtectionContainerName")
     private @Nullable Output<String> sourceRecoveryProtectionContainerName;
 
     /**
-     * @return Name of the protection container to use.
+     * @return Name of the protection container to use. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sourceRecoveryProtectionContainerName() {
@@ -131,14 +131,14 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Id of the VM to replicate
+     * Id of the VM to replicate Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sourceVmId")
     private @Nullable Output<String> sourceVmId;
 
     /**
-     * @return Id of the VM to replicate
+     * @return Id of the VM to replicate Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sourceVmId() {
@@ -176,14 +176,14 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Id of fabric where the VM replication should be handled when a failover is done.
+     * Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="targetRecoveryFabricId")
     private @Nullable Output<String> targetRecoveryFabricId;
 
     /**
-     * @return Id of fabric where the VM replication should be handled when a failover is done.
+     * @return Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> targetRecoveryFabricId() {
@@ -191,14 +191,14 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Id of protection container where the VM replication should be created when a failover is done.
+     * Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="targetRecoveryProtectionContainerId")
     private @Nullable Output<String> targetRecoveryProtectionContainerId;
 
     /**
-     * @return Id of protection container where the VM replication should be created when a failover is done.
+     * @return Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> targetRecoveryProtectionContainerId() {
@@ -206,14 +206,14 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Id of resource group where the VM should be created when a failover is done.
+     * Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="targetResourceGroupId")
     private @Nullable Output<String> targetResourceGroupId;
 
     /**
-     * @return Id of resource group where the VM should be created when a failover is done.
+     * @return Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> targetResourceGroupId() {
@@ -221,14 +221,14 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the Availability Zone where the Failover VM should exist.
+     * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="targetZone")
     private @Nullable Output<String> targetZone;
 
     /**
-     * @return Specifies the Availability Zone where the Failover VM should exist.
+     * @return Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> targetZone() {
@@ -305,7 +305,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the replication for the replicated VM.
+         * @param name The name of the replication for the replicated VM. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the replication for the replicated VM.
+         * @param name The name of the replication for the replicated VM. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryVaultName The name of the vault that should be updated.
+         * @param recoveryVaultName The name of the vault that should be updated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryVaultName The name of the vault that should be updated.
+         * @param recoveryVaultName The name of the vault that should be updated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName Name of the resource group where the vault that should be updated is located.
+         * @param resourceGroupName Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName Name of the resource group where the vault that should be updated is located.
+         * @param resourceGroupName Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceRecoveryFabricName Name of fabric that should contains this replication.
+         * @param sourceRecoveryFabricName Name of fabric that should contains this replication. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -419,7 +419,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceRecoveryFabricName Name of fabric that should contains this replication.
+         * @param sourceRecoveryFabricName Name of fabric that should contains this replication. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceRecoveryProtectionContainerName Name of the protection container to use.
+         * @param sourceRecoveryProtectionContainerName Name of the protection container to use. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceRecoveryProtectionContainerName Name of the protection container to use.
+         * @param sourceRecoveryProtectionContainerName Name of the protection container to use. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceVmId Id of the VM to replicate
+         * @param sourceVmId Id of the VM to replicate Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -461,7 +461,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceVmId Id of the VM to replicate
+         * @param sourceVmId Id of the VM to replicate Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetRecoveryFabricId Id of fabric where the VM replication should be handled when a failover is done.
+         * @param targetRecoveryFabricId Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetRecoveryFabricId Id of fabric where the VM replication should be handled when a failover is done.
+         * @param targetRecoveryFabricId Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -534,7 +534,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetRecoveryProtectionContainerId Id of protection container where the VM replication should be created when a failover is done.
+         * @param targetRecoveryProtectionContainerId Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -545,7 +545,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetRecoveryProtectionContainerId Id of protection container where the VM replication should be created when a failover is done.
+         * @param targetRecoveryProtectionContainerId Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -555,7 +555,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetResourceGroupId Id of resource group where the VM should be created when a failover is done.
+         * @param targetResourceGroupId Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -566,7 +566,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetResourceGroupId Id of resource group where the VM should be created when a failover is done.
+         * @param targetResourceGroupId Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -576,7 +576,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetZone Specifies the Availability Zone where the Failover VM should exist.
+         * @param targetZone Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -587,7 +587,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetZone Specifies the Availability Zone where the Failover VM should exist.
+         * @param targetZone Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

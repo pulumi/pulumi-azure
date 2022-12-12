@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class PoolContainerConfiguration
     {
         /// <summary>
-        /// A list of container image names to use, as would be specified by `docker pull`.
+        /// A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> ContainerImageNames;
         /// <summary>
-        /// Additional container registries from which container images can be pulled by the pool's VMs.
+        /// Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolContainerConfigurationContainerRegistry> ContainerRegistries;
         /// <summary>

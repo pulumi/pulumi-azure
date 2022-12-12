@@ -18,7 +18,7 @@ public final class KubernetesClusterWindowsProfile {
      */
     private @Nullable String adminPassword;
     /**
-     * @return The Admin Username for Windows VMs.
+     * @return The Admin Username for Windows VMs. Changing this forces a new resource to be created.
      * 
      */
     private String adminUsername;
@@ -42,7 +42,7 @@ public final class KubernetesClusterWindowsProfile {
         return Optional.ofNullable(this.adminPassword);
     }
     /**
-     * @return The Admin Username for Windows VMs.
+     * @return The Admin Username for Windows VMs. Changing this forces a new resource to be created.
      * 
      */
     public String adminUsername() {

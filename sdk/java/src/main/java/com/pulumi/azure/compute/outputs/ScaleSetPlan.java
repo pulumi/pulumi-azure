@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class ScaleSetPlan {
     /**
-     * @return Specifies the name of the image from the marketplace.
+     * @return Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -27,7 +27,7 @@ public final class ScaleSetPlan {
 
     private ScaleSetPlan() {}
     /**
-     * @return Specifies the name of the image from the marketplace.
+     * @return Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

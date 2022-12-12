@@ -22,7 +22,7 @@ class EnrichmentArgs:
         """
         The set of arguments for constructing a Enrichment resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_names: The list of endpoints which will be enriched.
-        :param pulumi.Input[str] key: The key of the enrichment.
+        :param pulumi.Input[str] key: The key of the enrichment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
         """
         pulumi.set(__self__, "endpoint_names", endpoint_names)
@@ -56,7 +56,7 @@ class EnrichmentArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The key of the enrichment.
+        The key of the enrichment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key")
 
@@ -97,7 +97,7 @@ class _EnrichmentState:
         """
         Input properties used for looking up and filtering Enrichment resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_names: The list of endpoints which will be enriched.
-        :param pulumi.Input[str] key: The key of the enrichment.
+        :param pulumi.Input[str] key: The key of the enrichment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
         """
         if endpoint_names is not None:
@@ -136,7 +136,7 @@ class _EnrichmentState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        The key of the enrichment.
+        The key of the enrichment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key")
 
@@ -187,13 +187,13 @@ class Enrichment(pulumi.CustomResource):
         IoTHub Enrichment can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:iot/enrichment:Enrichment enrichment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Enrichments/enrichment1
+         $ pulumi import azure:iot/enrichment:Enrichment enrichment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/enrichments/enrichment1
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_names: The list of endpoints which will be enriched.
-        :param pulumi.Input[str] key: The key of the enrichment.
+        :param pulumi.Input[str] key: The key of the enrichment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
         """
         ...
@@ -212,7 +212,7 @@ class Enrichment(pulumi.CustomResource):
         IoTHub Enrichment can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:iot/enrichment:Enrichment enrichment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Enrichments/enrichment1
+         $ pulumi import azure:iot/enrichment:Enrichment enrichment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/enrichments/enrichment1
         ```
 
         :param str resource_name: The name of the resource.
@@ -282,7 +282,7 @@ class Enrichment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_names: The list of endpoints which will be enriched.
-        :param pulumi.Input[str] key: The key of the enrichment.
+        :param pulumi.Input[str] key: The key of the enrichment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -313,7 +313,7 @@ class Enrichment(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        The key of the enrichment.
+        The key of the enrichment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key")
 

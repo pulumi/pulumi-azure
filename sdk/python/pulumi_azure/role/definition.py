@@ -27,7 +27,7 @@ class DefinitionArgs:
         :param pulumi.Input[str] scope: The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         :param pulumi.Input[str] description: A description of the Role Definition.
-        :param pulumi.Input[str] name: The name of the Role Definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Role Definition.
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionPermissionArgs']]] permissions: A `permissions` block as defined below.
         :param pulumi.Input[str] role_definition_id: A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
         """
@@ -83,7 +83,7 @@ class DefinitionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Role Definition. Changing this forces a new resource to be created.
+        The name of the Role Definition.
         """
         return pulumi.get(self, "name")
 
@@ -130,7 +130,7 @@ class _DefinitionState:
         Input properties used for looking up and filtering Definition resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         :param pulumi.Input[str] description: A description of the Role Definition.
-        :param pulumi.Input[str] name: The name of the Role Definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Role Definition.
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionPermissionArgs']]] permissions: A `permissions` block as defined below.
         :param pulumi.Input[str] role_definition_id: A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_definition_resource_id: The Azure Resource Manager ID for the resource.
@@ -179,7 +179,7 @@ class _DefinitionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Role Definition. Changing this forces a new resource to be created.
+        The name of the Role Definition.
         """
         return pulumi.get(self, "name")
 
@@ -285,7 +285,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         :param pulumi.Input[str] description: A description of the Role Definition.
-        :param pulumi.Input[str] name: The name of the Role Definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Role Definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionPermissionArgs']]]] permissions: A `permissions` block as defined below.
         :param pulumi.Input[str] role_definition_id: A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
@@ -390,7 +390,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         :param pulumi.Input[str] description: A description of the Role Definition.
-        :param pulumi.Input[str] name: The name of the Role Definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Role Definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionPermissionArgs']]]] permissions: A `permissions` block as defined below.
         :param pulumi.Input[str] role_definition_id: A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_definition_resource_id: The Azure Resource Manager ID for the resource.
@@ -429,7 +429,7 @@ class Definition(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Role Definition. Changing this forces a new resource to be created.
+        The name of the Role Definition.
         """
         return pulumi.get(self, "name")
 

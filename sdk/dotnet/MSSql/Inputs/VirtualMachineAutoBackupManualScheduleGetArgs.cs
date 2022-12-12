@@ -12,6 +12,18 @@ namespace Pulumi.Azure.MSSql.Inputs
 
     public sealed class VirtualMachineAutoBackupManualScheduleGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("daysOfWeeks")]
+        private InputList<string>? _daysOfWeeks;
+
+        /// <summary>
+        /// A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+        /// </summary>
+        public InputList<string> DaysOfWeeks
+        {
+            get => _daysOfWeeks ?? (_daysOfWeeks = new InputList<string>());
+            set => _daysOfWeeks = value;
+        }
+
         /// <summary>
         /// Frequency of full backups. Valid values include `Daily` or `Weekly`.
         /// </summary>

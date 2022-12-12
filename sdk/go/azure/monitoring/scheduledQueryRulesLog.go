@@ -141,7 +141,7 @@ type ScheduledQueryRulesLog struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to create the scheduled query rule instance.
+	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -198,7 +198,7 @@ type scheduledQueryRulesLogState struct {
 	Location *string `pulumi:"location"`
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the scheduled query rule instance.
+	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -218,7 +218,7 @@ type ScheduledQueryRulesLogState struct {
 	Location pulumi.StringPtrInput
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the scheduled query rule instance.
+	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -242,7 +242,7 @@ type scheduledQueryRulesLogArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the scheduled query rule instance.
+	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -263,7 +263,7 @@ type ScheduledQueryRulesLogArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the scheduled query rule instance.
+	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -390,7 +390,7 @@ func (o ScheduledQueryRulesLogOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesLog) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group in which to create the scheduled query rule instance.
+// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 func (o ScheduledQueryRulesLogOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesLog) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

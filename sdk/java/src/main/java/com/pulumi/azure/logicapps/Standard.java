@@ -400,14 +400,14 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return this.possibleOutboundIpAddresses;
     }
     /**
-     * The name of the resource group in which to create the Logic App
+     * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create the Logic App
+     * @return The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -456,14 +456,14 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return this.storageAccountAccessKey;
     }
     /**
-     * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+     * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     /**
-     * @return The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data)
+     * @return The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountName() {

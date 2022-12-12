@@ -26,7 +26,7 @@ class PtrRecordArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the DNS PTR Record.
+        :param pulumi.Input[str] name: The name of the DNS PTR Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "records", records)
@@ -90,7 +90,7 @@ class PtrRecordArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the DNS PTR Record.
+        The name of the DNS PTR Record. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -124,7 +124,7 @@ class _PtrRecordState:
         """
         Input properties used for looking up and filtering PtrRecord resources.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS PTR Record.
-        :param pulumi.Input[str] name: The name of the DNS PTR Record.
+        :param pulumi.Input[str] name: The name of the DNS PTR Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of Fully Qualified Domain Names.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -162,7 +162,7 @@ class _PtrRecordState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the DNS PTR Record.
+        The name of the DNS PTR Record. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -269,7 +269,7 @@ class PtrRecord(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the DNS PTR Record.
+        :param pulumi.Input[str] name: The name of the DNS PTR Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of Fully Qualified Domain Names.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -376,7 +376,7 @@ class PtrRecord(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS PTR Record.
-        :param pulumi.Input[str] name: The name of the DNS PTR Record.
+        :param pulumi.Input[str] name: The name of the DNS PTR Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of Fully Qualified Domain Names.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -408,7 +408,7 @@ class PtrRecord(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the DNS PTR Record.
+        The name of the DNS PTR Record. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

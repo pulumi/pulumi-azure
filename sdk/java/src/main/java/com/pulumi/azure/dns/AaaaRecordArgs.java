@@ -19,14 +19,14 @@ public final class AaaaRecordArgs extends com.pulumi.resources.ResourceArgs {
     public static final AaaaRecordArgs Empty = new AaaaRecordArgs();
 
     /**
-     * The name of the DNS AAAA Record.
+     * The name of the DNS AAAA Record. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the DNS AAAA Record.
+     * @return The name of the DNS AAAA Record. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -154,7 +154,7 @@ public final class AaaaRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DNS AAAA Record.
+         * @param name The name of the DNS AAAA Record. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class AaaaRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DNS AAAA Record.
+         * @param name The name of the DNS AAAA Record. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

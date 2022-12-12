@@ -92,8 +92,7 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly loadBalancerType!: pulumi.Output<string>;
     /**
-     * The location/region where the Virtual Desktop Host Pool is
-     * located. Changing the location/region forces a new resource to be created.
+     * The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -102,23 +101,19 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly maximumSessionsAllowed!: pulumi.Output<number | undefined>;
     /**
-     * The name of the Virtual Desktop Host Pool. Changing the name
-     * forces a new resource to be created.
+     * The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
-     * `Direct` Assignment – Admin selects a specific host to assign to an user.
+     * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
      */
     public readonly personalDesktopAssignmentType!: pulumi.Output<string | undefined>;
     /**
-     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
      */
     public readonly preferredAppGroupType!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource group in which to
-     * create the Virtual Desktop Host Pool. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -225,8 +220,7 @@ export interface HostPoolState {
      */
     loadBalancerType?: pulumi.Input<string>;
     /**
-     * The location/region where the Virtual Desktop Host Pool is
-     * located. Changing the location/region forces a new resource to be created.
+     * The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -235,23 +229,19 @@ export interface HostPoolState {
      */
     maximumSessionsAllowed?: pulumi.Input<number>;
     /**
-     * The name of the Virtual Desktop Host Pool. Changing the name
-     * forces a new resource to be created.
+     * The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
-     * `Direct` Assignment – Admin selects a specific host to assign to an user.
+     * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
      */
     personalDesktopAssignmentType?: pulumi.Input<string>;
     /**
-     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
      */
     preferredAppGroupType?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the Virtual Desktop Host Pool. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -299,8 +289,7 @@ export interface HostPoolArgs {
      */
     loadBalancerType: pulumi.Input<string>;
     /**
-     * The location/region where the Virtual Desktop Host Pool is
-     * located. Changing the location/region forces a new resource to be created.
+     * The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -309,23 +298,19 @@ export interface HostPoolArgs {
      */
     maximumSessionsAllowed?: pulumi.Input<number>;
     /**
-     * The name of the Virtual Desktop Host Pool. Changing the name
-     * forces a new resource to be created.
+     * The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`.
-     * `Direct` Assignment – Admin selects a specific host to assign to an user.
+     * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
      */
     personalDesktopAssignmentType?: pulumi.Input<string>;
     /**
-     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
      */
     preferredAppGroupType?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the Virtual Desktop Host Pool. Changing the resource group name forces
-     * a new resource to be created.
+     * The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

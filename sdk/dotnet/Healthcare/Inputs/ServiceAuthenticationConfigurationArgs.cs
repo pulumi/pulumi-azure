@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Healthcare.Inputs
         public Input<string>? Authority { get; set; }
 
         /// <summary>
-        /// Enables the 'SMART on FHIR' option for mobile and web implementations.
+        /// (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.
         /// </summary>
         [Input("smartProxyEnabled")]
         public Input<bool>? SmartProxyEnabled { get; set; }

@@ -63,14 +63,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+     * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="evictionPolicy")
     private @Nullable Output<String> evictionPolicy;
 
     /**
-     * @return Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+     * @return Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> evictionPolicy() {
@@ -265,14 +265,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+     * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<String> priority;
 
     /**
-     * @return Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+     * @return Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> priority() {
@@ -430,14 +430,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A collection of availability zones to spread the Virtual Machines over.
+     * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="zones")
     private @Nullable Output<List<String>> zones;
 
     /**
-     * @return A collection of availability zones to spread the Virtual Machines over.
+     * @return A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -538,7 +538,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param evictionPolicy Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+         * @param evictionPolicy Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -549,7 +549,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param evictionPolicy Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+         * @param evictionPolicy Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -850,7 +850,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+         * @param priority Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -861,7 +861,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+         * @param priority Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1091,7 +1091,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones A collection of availability zones to spread the Virtual Machines over.
+         * @param zones A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1102,7 +1102,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones A collection of availability zones to spread the Virtual Machines over.
+         * @param zones A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1112,7 +1112,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones A collection of availability zones to spread the Virtual Machines over.
+         * @param zones A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -49,7 +49,7 @@ public final class VirtualMachineStorageDataDisk {
      */
     private String name;
     /**
-     * @return Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+     * @return Specifies the URI of the VHD file backing this Unmanaged Data Disk.
      * 
      */
     private @Nullable String vhdUri;
@@ -110,7 +110,7 @@ public final class VirtualMachineStorageDataDisk {
         return this.name;
     }
     /**
-     * @return Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
+     * @return Specifies the URI of the VHD file backing this Unmanaged Data Disk.
      * 
      */
     public Optional<String> vhdUri() {

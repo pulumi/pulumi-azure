@@ -104,7 +104,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> PurviewId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Data Factory.
+        /// The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? PurviewId { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Data Factory.
+        /// The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -326,7 +326,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? PurviewId { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the Data Factory.
+        /// The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

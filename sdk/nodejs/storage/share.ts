@@ -91,7 +91,7 @@ export class Share extends pulumi.CustomResource {
      */
     public readonly metadata!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The name of the share. Must be unique within the storage account where the share is located.
+     * The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -103,8 +103,7 @@ export class Share extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
     /**
-     * Specifies the storage account in which to create the share.
-     * Changing this forces a new resource to be created.
+     * Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
      */
     public readonly storageAccountName!: pulumi.Output<string>;
     /**
@@ -178,7 +177,7 @@ export interface ShareState {
      */
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the share. Must be unique within the storage account where the share is located.
+     * The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -190,8 +189,7 @@ export interface ShareState {
      */
     resourceManagerId?: pulumi.Input<string>;
     /**
-     * Specifies the storage account in which to create the share.
-     * Changing this forces a new resource to be created.
+     * Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
      */
     storageAccountName?: pulumi.Input<string>;
     /**
@@ -221,7 +219,7 @@ export interface ShareArgs {
      */
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the share. Must be unique within the storage account where the share is located.
+     * The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -229,8 +227,7 @@ export interface ShareArgs {
      */
     quota: pulumi.Input<number>;
     /**
-     * Specifies the storage account in which to create the share.
-     * Changing this forces a new resource to be created.
+     * Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
      */
     storageAccountName: pulumi.Input<string>;
 }

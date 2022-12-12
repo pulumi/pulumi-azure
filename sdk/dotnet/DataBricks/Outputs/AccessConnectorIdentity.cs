@@ -13,8 +13,17 @@ namespace Pulumi.Azure.DataBricks.Outputs
     [OutputType]
     public sealed class AccessConnectorIdentity
     {
+        /// <summary>
+        /// The object id of an existing principal. If not specified, a new system-assigned managed identity is created.
+        /// </summary>
         public readonly string? PrincipalId;
+        /// <summary>
+        /// The tenant id in which the principal resides.
+        /// </summary>
         public readonly string? TenantId;
+        /// <summary>
+        /// The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

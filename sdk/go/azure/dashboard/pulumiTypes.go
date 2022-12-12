@@ -15,7 +15,7 @@ type GrafanaIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -35,7 +35,7 @@ type GrafanaIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -126,7 +126,7 @@ func (o GrafanaIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrafanaIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`.
+// Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
 func (o GrafanaIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GrafanaIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -175,7 +175,7 @@ func (o GrafanaIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`.
+// Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
 func (o GrafanaIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrafanaIdentity) *string {
 		if v == nil {
