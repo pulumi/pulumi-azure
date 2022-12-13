@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mixedreality.LookupSpatialAnchorsAccount(ctx, &mixedreality.LookupSpatialAnchorsAccountArgs{
+//			_, err = mixedreality.LookupSpatialAnchorsAccount(ctx, &mixedreality.LookupSpatialAnchorsAccountArgs{
 //				Name:              "example",
 //				ResourceGroupName: azurerm_resource_group.Example.Name,
 //			}, nil)

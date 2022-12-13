@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := domainservices.LookupService(ctx, &domainservices.LookupServiceArgs{
+//			_, err = domainservices.LookupService(ctx, &domainservices.LookupServiceArgs{
 //				Name:              "example-aadds",
 //				ResourceGroupName: "example-aadds-rg",
 //			}, nil)

@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := compute.GetSharedImageVersions(ctx, &compute.GetSharedImageVersionsArgs{
+//			_, err = compute.GetSharedImageVersions(ctx, &compute.GetSharedImageVersionsArgs{
 //				GalleryName:       "my-image-gallery",
 //				ImageName:         "my-image",
 //				ResourceGroupName: "example-resources",

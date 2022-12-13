@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cdn.LookupFrontdoorCustomDomain(ctx, &cdn.LookupFrontdoorCustomDomainArgs{
+//			_, err = cdn.LookupFrontdoorCustomDomain(ctx, &cdn.LookupFrontdoorCustomDomainArgs{
 //				Name:              azurerm_cdn_frontdoor_custom_domain.Example.Name,
 //				ProfileName:       azurerm_cdn_frontdoor_profile.Example.Name,
 //				ResourceGroupName: azurerm_cdn_frontdoor_profile.Example.Resource_group_name,
