@@ -50,6 +50,11 @@ export type SpringCloudAppRedisAssociation = import("./springCloudAppRedisAssoci
 export const SpringCloudAppRedisAssociation: typeof import("./springCloudAppRedisAssociation").SpringCloudAppRedisAssociation = null as any;
 utilities.lazyLoad(exports, ["SpringCloudAppRedisAssociation"], () => require("./springCloudAppRedisAssociation"));
 
+export { SpringCloudApplicationLiveViewArgs, SpringCloudApplicationLiveViewState } from "./springCloudApplicationLiveView";
+export type SpringCloudApplicationLiveView = import("./springCloudApplicationLiveView").SpringCloudApplicationLiveView;
+export const SpringCloudApplicationLiveView: typeof import("./springCloudApplicationLiveView").SpringCloudApplicationLiveView = null as any;
+utilities.lazyLoad(exports, ["SpringCloudApplicationLiveView"], () => require("./springCloudApplicationLiveView"));
+
 export { SpringCloudBuildDeploymentArgs, SpringCloudBuildDeploymentState } from "./springCloudBuildDeployment";
 export type SpringCloudBuildDeployment = import("./springCloudBuildDeployment").SpringCloudBuildDeployment;
 export const SpringCloudBuildDeployment: typeof import("./springCloudBuildDeployment").SpringCloudBuildDeployment = null as any;
@@ -139,6 +144,8 @@ const _module = {
                 return new SpringCloudAppMysqlAssociation(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation":
                 return new SpringCloudAppRedisAssociation(name, <any>undefined, { urn })
+            case "azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView":
+                return new SpringCloudApplicationLiveView(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment":
                 return new SpringCloudBuildDeployment(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding":
@@ -179,6 +186,7 @@ pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudApp", _mo
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudAppCosmosDBAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudAppMysqlAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudAppRedisAssociation", _module)
+pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudApplicationLiveView", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudBuildDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudBuildPackBinding", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudBuilder", _module)

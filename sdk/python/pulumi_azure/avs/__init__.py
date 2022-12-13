@@ -8,6 +8,7 @@ import typing
 from .cluster import *
 from .express_route_authorization import *
 from .get_private_cloud import *
+from .netapp_volume_attachment import *
 from .private_cloud import *
 from ._inputs import *
 from . import outputs

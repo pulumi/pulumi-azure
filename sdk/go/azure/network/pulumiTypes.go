@@ -13419,6 +13419,277 @@ func (o NetworkInterfaceIpConfigurationArrayOutput) Index(i pulumi.IntInput) Net
 	}).(NetworkInterfaceIpConfigurationOutput)
 }
 
+type NetworkManagerCrossTenantScope struct {
+	// List of management groups.
+	ManagementGroups []string `pulumi:"managementGroups"`
+	// List of subscriptions.
+	Subscriptions []string `pulumi:"subscriptions"`
+	// Tenant ID.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// NetworkManagerCrossTenantScopeInput is an input type that accepts NetworkManagerCrossTenantScopeArgs and NetworkManagerCrossTenantScopeOutput values.
+// You can construct a concrete instance of `NetworkManagerCrossTenantScopeInput` via:
+//
+//	NetworkManagerCrossTenantScopeArgs{...}
+type NetworkManagerCrossTenantScopeInput interface {
+	pulumi.Input
+
+	ToNetworkManagerCrossTenantScopeOutput() NetworkManagerCrossTenantScopeOutput
+	ToNetworkManagerCrossTenantScopeOutputWithContext(context.Context) NetworkManagerCrossTenantScopeOutput
+}
+
+type NetworkManagerCrossTenantScopeArgs struct {
+	// List of management groups.
+	ManagementGroups pulumi.StringArrayInput `pulumi:"managementGroups"`
+	// List of subscriptions.
+	Subscriptions pulumi.StringArrayInput `pulumi:"subscriptions"`
+	// Tenant ID.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (NetworkManagerCrossTenantScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagerCrossTenantScope)(nil)).Elem()
+}
+
+func (i NetworkManagerCrossTenantScopeArgs) ToNetworkManagerCrossTenantScopeOutput() NetworkManagerCrossTenantScopeOutput {
+	return i.ToNetworkManagerCrossTenantScopeOutputWithContext(context.Background())
+}
+
+func (i NetworkManagerCrossTenantScopeArgs) ToNetworkManagerCrossTenantScopeOutputWithContext(ctx context.Context) NetworkManagerCrossTenantScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerCrossTenantScopeOutput)
+}
+
+// NetworkManagerCrossTenantScopeArrayInput is an input type that accepts NetworkManagerCrossTenantScopeArray and NetworkManagerCrossTenantScopeArrayOutput values.
+// You can construct a concrete instance of `NetworkManagerCrossTenantScopeArrayInput` via:
+//
+//	NetworkManagerCrossTenantScopeArray{ NetworkManagerCrossTenantScopeArgs{...} }
+type NetworkManagerCrossTenantScopeArrayInput interface {
+	pulumi.Input
+
+	ToNetworkManagerCrossTenantScopeArrayOutput() NetworkManagerCrossTenantScopeArrayOutput
+	ToNetworkManagerCrossTenantScopeArrayOutputWithContext(context.Context) NetworkManagerCrossTenantScopeArrayOutput
+}
+
+type NetworkManagerCrossTenantScopeArray []NetworkManagerCrossTenantScopeInput
+
+func (NetworkManagerCrossTenantScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkManagerCrossTenantScope)(nil)).Elem()
+}
+
+func (i NetworkManagerCrossTenantScopeArray) ToNetworkManagerCrossTenantScopeArrayOutput() NetworkManagerCrossTenantScopeArrayOutput {
+	return i.ToNetworkManagerCrossTenantScopeArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkManagerCrossTenantScopeArray) ToNetworkManagerCrossTenantScopeArrayOutputWithContext(ctx context.Context) NetworkManagerCrossTenantScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerCrossTenantScopeArrayOutput)
+}
+
+type NetworkManagerCrossTenantScopeOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagerCrossTenantScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagerCrossTenantScope)(nil)).Elem()
+}
+
+func (o NetworkManagerCrossTenantScopeOutput) ToNetworkManagerCrossTenantScopeOutput() NetworkManagerCrossTenantScopeOutput {
+	return o
+}
+
+func (o NetworkManagerCrossTenantScopeOutput) ToNetworkManagerCrossTenantScopeOutputWithContext(ctx context.Context) NetworkManagerCrossTenantScopeOutput {
+	return o
+}
+
+// List of management groups.
+func (o NetworkManagerCrossTenantScopeOutput) ManagementGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkManagerCrossTenantScope) []string { return v.ManagementGroups }).(pulumi.StringArrayOutput)
+}
+
+// List of subscriptions.
+func (o NetworkManagerCrossTenantScopeOutput) Subscriptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkManagerCrossTenantScope) []string { return v.Subscriptions }).(pulumi.StringArrayOutput)
+}
+
+// Tenant ID.
+func (o NetworkManagerCrossTenantScopeOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkManagerCrossTenantScope) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type NetworkManagerCrossTenantScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagerCrossTenantScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkManagerCrossTenantScope)(nil)).Elem()
+}
+
+func (o NetworkManagerCrossTenantScopeArrayOutput) ToNetworkManagerCrossTenantScopeArrayOutput() NetworkManagerCrossTenantScopeArrayOutput {
+	return o
+}
+
+func (o NetworkManagerCrossTenantScopeArrayOutput) ToNetworkManagerCrossTenantScopeArrayOutputWithContext(ctx context.Context) NetworkManagerCrossTenantScopeArrayOutput {
+	return o
+}
+
+func (o NetworkManagerCrossTenantScopeArrayOutput) Index(i pulumi.IntInput) NetworkManagerCrossTenantScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkManagerCrossTenantScope {
+		return vs[0].([]NetworkManagerCrossTenantScope)[vs[1].(int)]
+	}).(NetworkManagerCrossTenantScopeOutput)
+}
+
+type NetworkManagerScope struct {
+	// A list of management group IDs.
+	ManagementGroupIds []string `pulumi:"managementGroupIds"`
+	// A list of subscription IDs.
+	SubscriptionIds []string `pulumi:"subscriptionIds"`
+}
+
+// NetworkManagerScopeInput is an input type that accepts NetworkManagerScopeArgs and NetworkManagerScopeOutput values.
+// You can construct a concrete instance of `NetworkManagerScopeInput` via:
+//
+//	NetworkManagerScopeArgs{...}
+type NetworkManagerScopeInput interface {
+	pulumi.Input
+
+	ToNetworkManagerScopeOutput() NetworkManagerScopeOutput
+	ToNetworkManagerScopeOutputWithContext(context.Context) NetworkManagerScopeOutput
+}
+
+type NetworkManagerScopeArgs struct {
+	// A list of management group IDs.
+	ManagementGroupIds pulumi.StringArrayInput `pulumi:"managementGroupIds"`
+	// A list of subscription IDs.
+	SubscriptionIds pulumi.StringArrayInput `pulumi:"subscriptionIds"`
+}
+
+func (NetworkManagerScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagerScope)(nil)).Elem()
+}
+
+func (i NetworkManagerScopeArgs) ToNetworkManagerScopeOutput() NetworkManagerScopeOutput {
+	return i.ToNetworkManagerScopeOutputWithContext(context.Background())
+}
+
+func (i NetworkManagerScopeArgs) ToNetworkManagerScopeOutputWithContext(ctx context.Context) NetworkManagerScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerScopeOutput)
+}
+
+func (i NetworkManagerScopeArgs) ToNetworkManagerScopePtrOutput() NetworkManagerScopePtrOutput {
+	return i.ToNetworkManagerScopePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkManagerScopeArgs) ToNetworkManagerScopePtrOutputWithContext(ctx context.Context) NetworkManagerScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerScopeOutput).ToNetworkManagerScopePtrOutputWithContext(ctx)
+}
+
+// NetworkManagerScopePtrInput is an input type that accepts NetworkManagerScopeArgs, NetworkManagerScopePtr and NetworkManagerScopePtrOutput values.
+// You can construct a concrete instance of `NetworkManagerScopePtrInput` via:
+//
+//	        NetworkManagerScopeArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkManagerScopePtrInput interface {
+	pulumi.Input
+
+	ToNetworkManagerScopePtrOutput() NetworkManagerScopePtrOutput
+	ToNetworkManagerScopePtrOutputWithContext(context.Context) NetworkManagerScopePtrOutput
+}
+
+type networkManagerScopePtrType NetworkManagerScopeArgs
+
+func NetworkManagerScopePtr(v *NetworkManagerScopeArgs) NetworkManagerScopePtrInput {
+	return (*networkManagerScopePtrType)(v)
+}
+
+func (*networkManagerScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkManagerScope)(nil)).Elem()
+}
+
+func (i *networkManagerScopePtrType) ToNetworkManagerScopePtrOutput() NetworkManagerScopePtrOutput {
+	return i.ToNetworkManagerScopePtrOutputWithContext(context.Background())
+}
+
+func (i *networkManagerScopePtrType) ToNetworkManagerScopePtrOutputWithContext(ctx context.Context) NetworkManagerScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerScopePtrOutput)
+}
+
+type NetworkManagerScopeOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagerScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagerScope)(nil)).Elem()
+}
+
+func (o NetworkManagerScopeOutput) ToNetworkManagerScopeOutput() NetworkManagerScopeOutput {
+	return o
+}
+
+func (o NetworkManagerScopeOutput) ToNetworkManagerScopeOutputWithContext(ctx context.Context) NetworkManagerScopeOutput {
+	return o
+}
+
+func (o NetworkManagerScopeOutput) ToNetworkManagerScopePtrOutput() NetworkManagerScopePtrOutput {
+	return o.ToNetworkManagerScopePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkManagerScopeOutput) ToNetworkManagerScopePtrOutputWithContext(ctx context.Context) NetworkManagerScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkManagerScope) *NetworkManagerScope {
+		return &v
+	}).(NetworkManagerScopePtrOutput)
+}
+
+// A list of management group IDs.
+func (o NetworkManagerScopeOutput) ManagementGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkManagerScope) []string { return v.ManagementGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of subscription IDs.
+func (o NetworkManagerScopeOutput) SubscriptionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkManagerScope) []string { return v.SubscriptionIds }).(pulumi.StringArrayOutput)
+}
+
+type NetworkManagerScopePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagerScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkManagerScope)(nil)).Elem()
+}
+
+func (o NetworkManagerScopePtrOutput) ToNetworkManagerScopePtrOutput() NetworkManagerScopePtrOutput {
+	return o
+}
+
+func (o NetworkManagerScopePtrOutput) ToNetworkManagerScopePtrOutputWithContext(ctx context.Context) NetworkManagerScopePtrOutput {
+	return o
+}
+
+func (o NetworkManagerScopePtrOutput) Elem() NetworkManagerScopeOutput {
+	return o.ApplyT(func(v *NetworkManagerScope) NetworkManagerScope {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkManagerScope
+		return ret
+	}).(NetworkManagerScopeOutput)
+}
+
+// A list of management group IDs.
+func (o NetworkManagerScopePtrOutput) ManagementGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkManagerScope) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagementGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of subscription IDs.
+func (o NetworkManagerScopePtrOutput) SubscriptionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkManagerScope) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionIds
+	}).(pulumi.StringArrayOutput)
+}
+
 type NetworkPacketCaptureFilter struct {
 	// The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
 	LocalIpAddress *string `pulumi:"localIpAddress"`
@@ -27708,6 +27979,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectionMonitorTestGroupArrayInput)(nil)).Elem(), NetworkConnectionMonitorTestGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceIpConfigurationInput)(nil)).Elem(), NetworkInterfaceIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceIpConfigurationArrayInput)(nil)).Elem(), NetworkInterfaceIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerCrossTenantScopeInput)(nil)).Elem(), NetworkManagerCrossTenantScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerCrossTenantScopeArrayInput)(nil)).Elem(), NetworkManagerCrossTenantScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerScopeInput)(nil)).Elem(), NetworkManagerScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagerScopePtrInput)(nil)).Elem(), NetworkManagerScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCaptureFilterInput)(nil)).Elem(), NetworkPacketCaptureFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCaptureFilterArrayInput)(nil)).Elem(), NetworkPacketCaptureFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPacketCaptureStorageLocationInput)(nil)).Elem(), NetworkPacketCaptureStorageLocationArgs{})
@@ -28070,6 +28345,10 @@ func init() {
 	pulumi.RegisterOutputType(NetworkConnectionMonitorTestGroupArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceIpConfigurationOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(NetworkManagerCrossTenantScopeOutput{})
+	pulumi.RegisterOutputType(NetworkManagerCrossTenantScopeArrayOutput{})
+	pulumi.RegisterOutputType(NetworkManagerScopeOutput{})
+	pulumi.RegisterOutputType(NetworkManagerScopePtrOutput{})
 	pulumi.RegisterOutputType(NetworkPacketCaptureFilterOutput{})
 	pulumi.RegisterOutputType(NetworkPacketCaptureFilterArrayOutput{})
 	pulumi.RegisterOutputType(NetworkPacketCaptureStorageLocationOutput{})

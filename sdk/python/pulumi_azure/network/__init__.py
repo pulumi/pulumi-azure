@@ -61,6 +61,7 @@ from .network_interface_application_security_group_association import *
 from .network_interface_backend_address_pool_association import *
 from .network_interface_nat_rule_association import *
 from .network_interface_security_group_association import *
+from .network_manager import *
 from .network_packet_capture import *
 from .network_security_group import *
 from .network_security_rule import *

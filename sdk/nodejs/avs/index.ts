@@ -20,6 +20,11 @@ export const getPrivateCloud: typeof import("./getPrivateCloud").getPrivateCloud
 export const getPrivateCloudOutput: typeof import("./getPrivateCloud").getPrivateCloudOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateCloud","getPrivateCloudOutput"], () => require("./getPrivateCloud"));
 
+export { NetappVolumeAttachmentArgs, NetappVolumeAttachmentState } from "./netappVolumeAttachment";
+export type NetappVolumeAttachment = import("./netappVolumeAttachment").NetappVolumeAttachment;
+export const NetappVolumeAttachment: typeof import("./netappVolumeAttachment").NetappVolumeAttachment = null as any;
+utilities.lazyLoad(exports, ["NetappVolumeAttachment"], () => require("./netappVolumeAttachment"));
+
 export { PrivateCloudArgs, PrivateCloudState } from "./privateCloud";
 export type PrivateCloud = import("./privateCloud").PrivateCloud;
 export const PrivateCloud: typeof import("./privateCloud").PrivateCloud = null as any;
@@ -34,6 +39,8 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "azure:avs/expressRouteAuthorization:ExpressRouteAuthorization":
                 return new ExpressRouteAuthorization(name, <any>undefined, { urn })
+            case "azure:avs/netappVolumeAttachment:NetappVolumeAttachment":
+                return new NetappVolumeAttachment(name, <any>undefined, { urn })
             case "azure:avs/privateCloud:PrivateCloud":
                 return new PrivateCloud(name, <any>undefined, { urn })
             default:
@@ -43,4 +50,5 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "avs/cluster", _module)
 pulumi.runtime.registerResourceModule("azure", "avs/expressRouteAuthorization", _module)
+pulumi.runtime.registerResourceModule("azure", "avs/netappVolumeAttachment", _module)
 pulumi.runtime.registerResourceModule("azure", "avs/privateCloud", _module)

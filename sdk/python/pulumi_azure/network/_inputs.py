@@ -94,6 +94,8 @@ __all__ = [
     'NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs',
     'NetworkConnectionMonitorTestGroupArgs',
     'NetworkInterfaceIpConfigurationArgs',
+    'NetworkManagerCrossTenantScopeArgs',
+    'NetworkManagerScopeArgs',
     'NetworkPacketCaptureFilterArgs',
     'NetworkPacketCaptureStorageLocationArgs',
     'NetworkSecurityGroupSecurityRuleArgs',
@@ -7153,6 +7155,100 @@ class NetworkInterfaceIpConfigurationArgs:
     @subnet_id.setter
     def subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class NetworkManagerCrossTenantScopeArgs:
+    def __init__(__self__, *,
+                 management_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] management_groups: List of management groups.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subscriptions: List of subscriptions.
+        :param pulumi.Input[str] tenant_id: Tenant ID.
+        """
+        if management_groups is not None:
+            pulumi.set(__self__, "management_groups", management_groups)
+        if subscriptions is not None:
+            pulumi.set(__self__, "subscriptions", subscriptions)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="managementGroups")
+    def management_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of management groups.
+        """
+        return pulumi.get(self, "management_groups")
+
+    @management_groups.setter
+    def management_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "management_groups", value)
+
+    @property
+    @pulumi.getter
+    def subscriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of subscriptions.
+        """
+        return pulumi.get(self, "subscriptions")
+
+    @subscriptions.setter
+    def subscriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subscriptions", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tenant ID.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class NetworkManagerScopeArgs:
+    def __init__(__self__, *,
+                 management_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] management_group_ids: A list of management group IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subscription_ids: A list of subscription IDs.
+        """
+        if management_group_ids is not None:
+            pulumi.set(__self__, "management_group_ids", management_group_ids)
+        if subscription_ids is not None:
+            pulumi.set(__self__, "subscription_ids", subscription_ids)
+
+    @property
+    @pulumi.getter(name="managementGroupIds")
+    def management_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of management group IDs.
+        """
+        return pulumi.get(self, "management_group_ids")
+
+    @management_group_ids.setter
+    def management_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "management_group_ids", value)
+
+    @property
+    @pulumi.getter(name="subscriptionIds")
+    def subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of subscription IDs.
+        """
+        return pulumi.get(self, "subscription_ids")
+
+    @subscription_ids.setter
+    def subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subscription_ids", value)
 
 
 @pulumi.input_type

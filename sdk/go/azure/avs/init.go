@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Cluster{}
 	case "azure:avs/expressRouteAuthorization:ExpressRouteAuthorization":
 		r = &ExpressRouteAuthorization{}
+	case "azure:avs/netappVolumeAttachment:NetappVolumeAttachment":
+		r = &NetappVolumeAttachment{}
 	case "azure:avs/privateCloud:PrivateCloud":
 		r = &PrivateCloud{}
 	default:
@@ -48,6 +50,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"avs/expressRouteAuthorization",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"avs/netappVolumeAttachment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
