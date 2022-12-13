@@ -9,15 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Avs
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// VMware Private Clouds Netapp File Volume Attachment can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:avs/netappVolumeAttachment:NetappVolumeAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/PrivateClouds/privateCloud1/clusters/Cluster1/dataStores/datastore1
+    /// ```
+    /// </summary>
     [AzureResourceType("azure:avs/netappVolumeAttachment:NetappVolumeAttachment")]
     public partial class NetappVolumeAttachment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+        /// </summary>
         [Output("netappVolumeId")]
         public Output<string> NetappVolumeId { get; private set; } = null!;
 
+        /// <summary>
+        /// The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+        /// </summary>
         [Output("vmwareClusterId")]
         public Output<string> VmwareClusterId { get; private set; } = null!;
 
@@ -67,12 +85,21 @@ namespace Pulumi.Azure.Avs
 
     public sealed class NetappVolumeAttachmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+        /// </summary>
         [Input("netappVolumeId", required: true)]
         public Input<string> NetappVolumeId { get; set; } = null!;
 
+        /// <summary>
+        /// The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+        /// </summary>
         [Input("vmwareClusterId", required: true)]
         public Input<string> VmwareClusterId { get; set; } = null!;
 
@@ -84,12 +111,21 @@ namespace Pulumi.Azure.Avs
 
     public sealed class NetappVolumeAttachmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+        /// </summary>
         [Input("netappVolumeId")]
         public Input<string>? NetappVolumeId { get; set; }
 
+        /// <summary>
+        /// The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+        /// </summary>
         [Input("vmwareClusterId")]
         public Input<string>? VmwareClusterId { get; set; }
 

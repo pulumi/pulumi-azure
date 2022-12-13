@@ -13,23 +13,57 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * VMware Private Clouds Netapp File Volume Attachment can be imported using the `resource id`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import azure:avs/netappVolumeAttachment:NetappVolumeAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/PrivateClouds/privateCloud1/clusters/Cluster1/dataStores/datastore1
+ * ```
+ * 
+ */
 @ResourceType(type="azure:avs/netappVolumeAttachment:NetappVolumeAttachment")
 public class NetappVolumeAttachment extends com.pulumi.resources.CustomResource {
+    /**
+     * The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     * 
+     */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
+    /**
+     * @return The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     * 
+     */
     @Export(name="netappVolumeId", type=String.class, parameters={})
     private Output<String> netappVolumeId;
 
+    /**
+     * @return The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     * 
+     */
     public Output<String> netappVolumeId() {
         return this.netappVolumeId;
     }
+    /**
+     * The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     * 
+     */
     @Export(name="vmwareClusterId", type=String.class, parameters={})
     private Output<String> vmwareClusterId;
 
+    /**
+     * @return The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     * 
+     */
     public Output<String> vmwareClusterId() {
         return this.vmwareClusterId;
     }

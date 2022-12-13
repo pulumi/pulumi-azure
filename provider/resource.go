@@ -2442,7 +2442,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_vmware_express_route_authorization": {
 				Tok: azureResource(azureAvs, "ExpressRouteAuthorization"),
 			},
-			"azurerm_vmware_netapp_volume_attachment": {Tok: azureResource(azureAvs, "NetappVolumeAttachment")},
+			"azurerm_vmware_netapp_volume_attachment": {
+				Tok: azureResource(azureAvs, "NetappVolumeAttachment"),
+				Docs: &tfbridge.DocInfo{
+					Source: "vmware_private_cloud__netapp_file_attachment.html.markdown",
+				},
+			},
 
 			// Purview
 			"azurerm_purview_account": {Tok: azureResource(azurePurview, "Account")},

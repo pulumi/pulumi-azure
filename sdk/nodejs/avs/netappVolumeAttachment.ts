@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * VMware Private Clouds Netapp File Volume Attachment can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azure:avs/netappVolumeAttachment:NetappVolumeAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/PrivateClouds/privateCloud1/clusters/Cluster1/dataStores/datastore1
+ * ```
+ */
 export class NetappVolumeAttachment extends pulumi.CustomResource {
     /**
      * Get an existing NetappVolumeAttachment resource's state with the given name, ID, and optional extra
@@ -32,8 +41,17 @@ export class NetappVolumeAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetappVolumeAttachment.__pulumiType;
     }
 
+    /**
+     * The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     */
     public readonly netappVolumeId!: pulumi.Output<string>;
+    /**
+     * The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     */
     public readonly vmwareClusterId!: pulumi.Output<string>;
 
     /**
@@ -73,8 +91,17 @@ export class NetappVolumeAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NetappVolumeAttachment resources.
  */
 export interface NetappVolumeAttachmentState {
+    /**
+     * The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     */
     netappVolumeId?: pulumi.Input<string>;
+    /**
+     * The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     */
     vmwareClusterId?: pulumi.Input<string>;
 }
 
@@ -82,7 +109,16 @@ export interface NetappVolumeAttachmentState {
  * The set of arguments for constructing a NetappVolumeAttachment resource.
  */
 export interface NetappVolumeAttachmentArgs {
+    /**
+     * The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     */
     netappVolumeId: pulumi.Input<string>;
+    /**
+     * The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     */
     vmwareClusterId: pulumi.Input<string>;
 }

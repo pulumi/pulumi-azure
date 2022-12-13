@@ -15,23 +15,47 @@ public final class NetappVolumeAttachmentState extends com.pulumi.resources.Reso
 
     public static final NetappVolumeAttachmentState Empty = new NetappVolumeAttachmentState();
 
+    /**
+     * The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     * 
+     */
     @Import(name="netappVolumeId")
     private @Nullable Output<String> netappVolumeId;
 
+    /**
+     * @return The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     * 
+     */
     public Optional<Output<String>> netappVolumeId() {
         return Optional.ofNullable(this.netappVolumeId);
     }
 
+    /**
+     * The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     * 
+     */
     @Import(name="vmwareClusterId")
     private @Nullable Output<String> vmwareClusterId;
 
+    /**
+     * @return The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     * 
+     */
     public Optional<Output<String>> vmwareClusterId() {
         return Optional.ofNullable(this.vmwareClusterId);
     }
@@ -62,29 +86,65 @@ public final class NetappVolumeAttachmentState extends com.pulumi.resources.Reso
             $ = new NetappVolumeAttachmentState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param netappVolumeId The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder netappVolumeId(@Nullable Output<String> netappVolumeId) {
             $.netappVolumeId = netappVolumeId;
             return this;
         }
 
+        /**
+         * @param netappVolumeId The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder netappVolumeId(String netappVolumeId) {
             return netappVolumeId(Output.of(netappVolumeId));
         }
 
+        /**
+         * @param vmwareClusterId The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vmwareClusterId(@Nullable Output<String> vmwareClusterId) {
             $.vmwareClusterId = vmwareClusterId;
             return this;
         }
 
+        /**
+         * @param vmwareClusterId The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vmwareClusterId(String vmwareClusterId) {
             return vmwareClusterId(Output.of(vmwareClusterId));
         }
