@@ -867,6 +867,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appplatform/springCloudApplicationLiveView",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView": "SpringCloudApplicationLiveView"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appplatform/springCloudBuildDeployment",
   "fqn": "pulumi_azure.appplatform",
   "classes": {
@@ -1535,6 +1543,14 @@ _utilities.register(
   "fqn": "pulumi_azure.avs",
   "classes": {
    "azure:avs/expressRouteAuthorization:ExpressRouteAuthorization": "ExpressRouteAuthorization"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "avs/netappVolumeAttachment",
+  "fqn": "pulumi_azure.avs",
+  "classes": {
+   "azure:avs/netappVolumeAttachment:NetappVolumeAttachment": "NetappVolumeAttachment"
   }
  },
  {
@@ -3359,6 +3375,14 @@ _utilities.register(
   "fqn": "pulumi_azure.digitaltwins",
   "classes": {
    "azure:digitaltwins/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "digitaltwins/timeSeriesDatabaseConnection",
+  "fqn": "pulumi_azure.digitaltwins",
+  "classes": {
+   "azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection": "TimeSeriesDatabaseConnection"
   }
  },
  {
@@ -5643,6 +5667,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "network/networkManager",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManager:NetworkManager": "NetworkManager"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "network/networkPacketCapture",
   "fqn": "pulumi_azure.network",
   "classes": {
@@ -6687,6 +6719,14 @@ _utilities.register(
   "fqn": "pulumi_azure.sentinel",
   "classes": {
    "azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection": "DataConnectorMicrosoftDefenderAdvancedThreatProtection"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "sentinel/dataConnectorMicrosoftThreatProtection",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/dataConnectorMicrosoftThreatProtection:DataConnectorMicrosoftThreatProtection": "DataConnectorMicrosoftThreatProtection"
   }
  },
  {

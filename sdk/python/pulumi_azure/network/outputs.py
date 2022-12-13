@@ -95,6 +95,8 @@ __all__ = [
     'NetworkConnectionMonitorTestConfigurationTcpConfiguration',
     'NetworkConnectionMonitorTestGroup',
     'NetworkInterfaceIpConfiguration',
+    'NetworkManagerCrossTenantScope',
+    'NetworkManagerScope',
     'NetworkPacketCaptureFilter',
     'NetworkPacketCaptureStorageLocation',
     'NetworkSecurityGroupSecurityRule',
@@ -7072,6 +7074,118 @@ class NetworkInterfaceIpConfiguration(dict):
         The ID of the Subnet where this Network Interface should be located in.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class NetworkManagerCrossTenantScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managementGroups":
+            suggest = "management_groups"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkManagerCrossTenantScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkManagerCrossTenantScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkManagerCrossTenantScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 management_groups: Optional[Sequence[str]] = None,
+                 subscriptions: Optional[Sequence[str]] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param Sequence[str] management_groups: List of management groups.
+        :param Sequence[str] subscriptions: List of subscriptions.
+        :param str tenant_id: Tenant ID.
+        """
+        if management_groups is not None:
+            pulumi.set(__self__, "management_groups", management_groups)
+        if subscriptions is not None:
+            pulumi.set(__self__, "subscriptions", subscriptions)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="managementGroups")
+    def management_groups(self) -> Optional[Sequence[str]]:
+        """
+        List of management groups.
+        """
+        return pulumi.get(self, "management_groups")
+
+    @property
+    @pulumi.getter
+    def subscriptions(self) -> Optional[Sequence[str]]:
+        """
+        List of subscriptions.
+        """
+        return pulumi.get(self, "subscriptions")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        Tenant ID.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class NetworkManagerScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managementGroupIds":
+            suggest = "management_group_ids"
+        elif key == "subscriptionIds":
+            suggest = "subscription_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkManagerScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkManagerScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkManagerScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 management_group_ids: Optional[Sequence[str]] = None,
+                 subscription_ids: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] management_group_ids: A list of management group IDs.
+        :param Sequence[str] subscription_ids: A list of subscription IDs.
+        """
+        if management_group_ids is not None:
+            pulumi.set(__self__, "management_group_ids", management_group_ids)
+        if subscription_ids is not None:
+            pulumi.set(__self__, "subscription_ids", subscription_ids)
+
+    @property
+    @pulumi.getter(name="managementGroupIds")
+    def management_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of management group IDs.
+        """
+        return pulumi.get(self, "management_group_ids")
+
+    @property
+    @pulumi.getter(name="subscriptionIds")
+    def subscription_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of subscription IDs.
+        """
+        return pulumi.get(self, "subscription_ids")
 
 
 @pulumi.output_type

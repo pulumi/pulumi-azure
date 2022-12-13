@@ -30,6 +30,11 @@ export type Instance = import("./instance").Instance;
 export const Instance: typeof import("./instance").Instance = null as any;
 utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
 
+export { TimeSeriesDatabaseConnectionArgs, TimeSeriesDatabaseConnectionState } from "./timeSeriesDatabaseConnection";
+export type TimeSeriesDatabaseConnection = import("./timeSeriesDatabaseConnection").TimeSeriesDatabaseConnection;
+export const TimeSeriesDatabaseConnection: typeof import("./timeSeriesDatabaseConnection").TimeSeriesDatabaseConnection = null as any;
+utilities.lazyLoad(exports, ["TimeSeriesDatabaseConnection"], () => require("./timeSeriesDatabaseConnection"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -43,6 +48,8 @@ const _module = {
                 return new EndpointServicebus(name, <any>undefined, { urn })
             case "azure:digitaltwins/instance:Instance":
                 return new Instance(name, <any>undefined, { urn })
+            case "azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection":
+                return new TimeSeriesDatabaseConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -52,3 +59,4 @@ pulumi.runtime.registerResourceModule("azure", "digitaltwins/endpointEventGrid",
 pulumi.runtime.registerResourceModule("azure", "digitaltwins/endpointEventHub", _module)
 pulumi.runtime.registerResourceModule("azure", "digitaltwins/endpointServicebus", _module)
 pulumi.runtime.registerResourceModule("azure", "digitaltwins/instance", _module)
+pulumi.runtime.registerResourceModule("azure", "digitaltwins/timeSeriesDatabaseConnection", _module)

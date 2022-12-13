@@ -10,5 +10,6 @@ from .endpoint_event_hub import *
 from .endpoint_servicebus import *
 from .get_instance import *
 from .instance import *
+from .time_series_database_connection import *
 from ._inputs import *
 from . import outputs

@@ -285,6 +285,11 @@ export type NetworkInterfaceSecurityGroupAssociation = import("./networkInterfac
 export const NetworkInterfaceSecurityGroupAssociation: typeof import("./networkInterfaceSecurityGroupAssociation").NetworkInterfaceSecurityGroupAssociation = null as any;
 utilities.lazyLoad(exports, ["NetworkInterfaceSecurityGroupAssociation"], () => require("./networkInterfaceSecurityGroupAssociation"));
 
+export { NetworkManagerArgs, NetworkManagerState } from "./networkManager";
+export type NetworkManager = import("./networkManager").NetworkManager;
+export const NetworkManager: typeof import("./networkManager").NetworkManager = null as any;
+utilities.lazyLoad(exports, ["NetworkManager"], () => require("./networkManager"));
+
 export { NetworkPacketCaptureArgs, NetworkPacketCaptureState } from "./networkPacketCapture";
 export type NetworkPacketCapture = import("./networkPacketCapture").NetworkPacketCapture;
 export const NetworkPacketCapture: typeof import("./networkPacketCapture").NetworkPacketCapture = null as any;
@@ -558,6 +563,8 @@ const _module = {
                 return new NetworkInterfaceNatRuleAssociation(name, <any>undefined, { urn })
             case "azure:network/networkInterfaceSecurityGroupAssociation:NetworkInterfaceSecurityGroupAssociation":
                 return new NetworkInterfaceSecurityGroupAssociation(name, <any>undefined, { urn })
+            case "azure:network/networkManager:NetworkManager":
+                return new NetworkManager(name, <any>undefined, { urn })
             case "azure:network/networkPacketCapture:NetworkPacketCapture":
                 return new NetworkPacketCapture(name, <any>undefined, { urn })
             case "azure:network/networkSecurityGroup:NetworkSecurityGroup":
@@ -676,6 +683,7 @@ pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceApplicat
 pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceBackendAddressPoolAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceNatRuleAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceSecurityGroupAssociation", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManager", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkPacketCapture", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkSecurityGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkSecurityRule", _module)

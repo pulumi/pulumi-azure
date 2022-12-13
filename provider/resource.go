@@ -771,6 +771,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_spring_cloud_build_deployment":         {Tok: azureResource(azureAppPlatform, "SpringCloudBuildDeployment")},
 			"azurerm_spring_cloud_gateway_route_config":     {Tok: azureResource(azureAppPlatform, "SpringCloudGatewayRouteConfig")},
 			"azurerm_spring_cloud_api_portal_custom_domain": {Tok: azureResource(azureAppPlatform, "SpringCloudApiPortalCustomDomain")},
+			"azurerm_spring_cloud_application_live_view":    {Tok: azureResource(azureAppPlatform, "SpringCloudApplicationLiveView")},
 			"azurerm_spring_cloud_connection": {
 				Tok: azureResource(azureAppPlatform, "SpringCloudConnection"),
 				Docs: &tfbridge.DocInfo{
@@ -1808,6 +1809,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_network_watcher":          {Tok: azureResource(azureNetwork, "NetworkWatcher")},
 			"azurerm_network_watcher_flow_log": {Tok: azureResource(azureNetwork, "NetworkWatcherFlowLog")},
+			"azurerm_network_manager":          {Tok: azureResource(azureNetwork, "NetworkManager")},
 			"azurerm_public_ip": {
 				Tok: azureResource(azureNetwork, "PublicIp"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2358,6 +2360,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_watchlist_item":        {Tok: azureResource(azureSentinel, "WatchlistItem")},
 			"azurerm_sentinel_data_connector_aws_s3": {Tok: azureResource(azureSentinel, "DataConnectorAwsS3")},
 			"azurerm_sentinel_alert_rule_nrt":        {Tok: azureResource(azureSentinel, "AlertRuleNrt")},
+			"azurerm_sentinel_data_connector_microsoft_threat_protection": {
+				Tok: azureResource(azureSentinel, "DataConnectorMicrosoftThreatProtection"),
+			},
 
 			// Eventgrid
 			"azurerm_eventgrid_domain_topic": {Tok: azureResource(azureEventGrid, "DomainTopic")},
@@ -2422,10 +2427,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_desktop_host_pool_registration_info": {Tok: azureResource(azureDesktopVirtualization, "getHostPoolRegistrationInfo")},
 
 			// DigitalTwins
-			"azurerm_digital_twins_instance":            {Tok: azureResource(azureDigitalTwins, "Instance")},
-			"azurerm_digital_twins_endpoint_eventgrid":  {Tok: azureResource(azureDigitalTwins, "EndpointEventGrid")},
-			"azurerm_digital_twins_endpoint_eventhub":   {Tok: azureResource(azureDigitalTwins, "EndpointEventHub")},
-			"azurerm_digital_twins_endpoint_servicebus": {Tok: azureResource(azureDigitalTwins, "EndpointServicebus")},
+			"azurerm_digital_twins_instance":                        {Tok: azureResource(azureDigitalTwins, "Instance")},
+			"azurerm_digital_twins_endpoint_eventgrid":              {Tok: azureResource(azureDigitalTwins, "EndpointEventGrid")},
+			"azurerm_digital_twins_endpoint_eventhub":               {Tok: azureResource(azureDigitalTwins, "EndpointEventHub")},
+			"azurerm_digital_twins_endpoint_servicebus":             {Tok: azureResource(azureDigitalTwins, "EndpointServicebus")},
+			"azurerm_digital_twins_time_series_database_connection": {Tok: azureResource(azureDigitalTwins, "TimeSeriesDatabaseConnection")},
 
 			// Azure Stack
 			"azurerm_stack_hci_cluster": {Tok: azureResource(azureStack, "HciCluster")},
@@ -2436,6 +2442,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_vmware_express_route_authorization": {
 				Tok: azureResource(azureAvs, "ExpressRouteAuthorization"),
 			},
+			"azurerm_vmware_netapp_volume_attachment": {Tok: azureResource(azureAvs, "NetappVolumeAttachment")},
 
 			// Purview
 			"azurerm_purview_account": {Tok: azureResource(azurePurview, "Account")},

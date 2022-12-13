@@ -41000,6 +41000,32 @@ export namespace network {
         subnetId?: string;
     }
 
+    export interface NetworkManagerCrossTenantScope {
+        /**
+         * List of management groups.
+         */
+        managementGroups: string[];
+        /**
+         * List of subscriptions.
+         */
+        subscriptions: string[];
+        /**
+         * Tenant ID.
+         */
+        tenantId: string;
+    }
+
+    export interface NetworkManagerScope {
+        /**
+         * A list of management group IDs.
+         */
+        managementGroupIds?: string[];
+        /**
+         * A list of subscription IDs.
+         */
+        subscriptionIds?: string[];
+    }
+
     export interface NetworkPacketCaptureFilter {
         /**
          * The local IP Address to be filtered on. Notation: "127.0.0.1" for single address entry. "127.0.0.1-127.0.0.255" for range. "127.0.0.1;127.0.0.5" for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.

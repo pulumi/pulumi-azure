@@ -85,6 +85,11 @@ export type DataConnectorMicrosoftDefenderAdvancedThreatProtection = import("./d
 export const DataConnectorMicrosoftDefenderAdvancedThreatProtection: typeof import("./dataConnectorMicrosoftDefenderAdvancedThreatProtection").DataConnectorMicrosoftDefenderAdvancedThreatProtection = null as any;
 utilities.lazyLoad(exports, ["DataConnectorMicrosoftDefenderAdvancedThreatProtection"], () => require("./dataConnectorMicrosoftDefenderAdvancedThreatProtection"));
 
+export { DataConnectorMicrosoftThreatProtectionArgs, DataConnectorMicrosoftThreatProtectionState } from "./dataConnectorMicrosoftThreatProtection";
+export type DataConnectorMicrosoftThreatProtection = import("./dataConnectorMicrosoftThreatProtection").DataConnectorMicrosoftThreatProtection;
+export const DataConnectorMicrosoftThreatProtection: typeof import("./dataConnectorMicrosoftThreatProtection").DataConnectorMicrosoftThreatProtection = null as any;
+utilities.lazyLoad(exports, ["DataConnectorMicrosoftThreatProtection"], () => require("./dataConnectorMicrosoftThreatProtection"));
+
 export { DataConnectorOffice365Args, DataConnectorOffice365State } from "./dataConnectorOffice365";
 export type DataConnectorOffice365 = import("./dataConnectorOffice365").DataConnectorOffice365;
 export const DataConnectorOffice365: typeof import("./dataConnectorOffice365").DataConnectorOffice365 = null as any;
@@ -172,6 +177,8 @@ const _module = {
                 return new DataConnectorMicrosoftCloudAppSecurity(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection":
                 return new DataConnectorMicrosoftDefenderAdvancedThreatProtection(name, <any>undefined, { urn })
+            case "azure:sentinel/dataConnectorMicrosoftThreatProtection:DataConnectorMicrosoftThreatProtection":
+                return new DataConnectorMicrosoftThreatProtection(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365":
                 return new DataConnectorOffice365(name, <any>undefined, { urn })
             case "azure:sentinel/dataConnectorOffice365Project:DataConnectorOffice365Project":
@@ -209,6 +216,7 @@ pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorDynamics36
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorIot", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorMicrosoftCloudAppSecurity", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorMicrosoftThreatProtection", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOffice365", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOffice365Project", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorOfficeAtp", _module)

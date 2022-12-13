@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EndpointServicebus{}
 	case "azure:digitaltwins/instance:Instance":
 		r = &Instance{}
+	case "azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection":
+		r = &TimeSeriesDatabaseConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"digitaltwins/instance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"digitaltwins/timeSeriesDatabaseConnection",
 		&module{version},
 	)
 }
