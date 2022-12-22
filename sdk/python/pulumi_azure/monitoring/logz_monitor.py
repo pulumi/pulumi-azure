@@ -377,7 +377,6 @@ class LogzMonitor(pulumi.CustomResource):
             plan=azure.monitoring.LogzMonitorPlanArgs(
                 billing_cycle="MONTHLY",
                 effective_date="2022-06-06T00:00:00Z",
-                plan_id="100gb14days",
                 usage_type="COMMITTED",
             ),
             user=azure.monitoring.LogzMonitorUserArgs(
@@ -430,7 +429,6 @@ class LogzMonitor(pulumi.CustomResource):
             plan=azure.monitoring.LogzMonitorPlanArgs(
                 billing_cycle="MONTHLY",
                 effective_date="2022-06-06T00:00:00Z",
-                plan_id="100gb14days",
                 usage_type="COMMITTED",
             ),
             user=azure.monitoring.LogzMonitorUserArgs(

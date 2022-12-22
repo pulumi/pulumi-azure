@@ -5302,10 +5302,10 @@ class LogzMonitorPlan(dict):
             suggest = "billing_cycle"
         elif key == "effectiveDate":
             suggest = "effective_date"
-        elif key == "planId":
-            suggest = "plan_id"
         elif key == "usageType":
             suggest = "usage_type"
+        elif key == "planId":
+            suggest = "plan_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LogzMonitorPlan. Access the value via the '{suggest}' property getter instead.")
@@ -5321,18 +5321,19 @@ class LogzMonitorPlan(dict):
     def __init__(__self__, *,
                  billing_cycle: str,
                  effective_date: str,
-                 plan_id: str,
-                 usage_type: str):
+                 usage_type: str,
+                 plan_id: Optional[str] = None):
         """
         :param str billing_cycle: Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
         :param str effective_date: Date when plan was applied. Changing this forces a new logz Monitor to be created.
-        :param str plan_id: Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
         :param str usage_type: Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+        :param str plan_id: Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
         """
         pulumi.set(__self__, "billing_cycle", billing_cycle)
         pulumi.set(__self__, "effective_date", effective_date)
-        pulumi.set(__self__, "plan_id", plan_id)
         pulumi.set(__self__, "usage_type", usage_type)
+        if plan_id is not None:
+            pulumi.set(__self__, "plan_id", plan_id)
 
     @property
     @pulumi.getter(name="billingCycle")
@@ -5351,20 +5352,20 @@ class LogzMonitorPlan(dict):
         return pulumi.get(self, "effective_date")
 
     @property
-    @pulumi.getter(name="planId")
-    def plan_id(self) -> str:
-        """
-        Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
-        """
-        return pulumi.get(self, "plan_id")
-
-    @property
     @pulumi.getter(name="usageType")
     def usage_type(self) -> str:
         """
         Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
         """
         return pulumi.get(self, "usage_type")
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> Optional[str]:
+        """
+        Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "plan_id")
 
 
 @pulumi.output_type
@@ -6317,7 +6318,7 @@ class ScheduledQueryRulesAlertV2Criteria(dict):
                  metric_measure_column: Optional[str] = None,
                  resource_id_column: Optional[str] = None):
         """
-        :param str operator: Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+        :param str operator: Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
         :param str query: The query to run on logs. The results returned by this query are used to populate the alert.
         :param float threshold: Specifies the criteria threshold value that activates the alert.
         :param str time_aggregation_method: The type of aggregation to apply to the data points in aggregation granularity. Possible values are `Average`, `Count`, `Maximum`, `Minimum`,and `Total`.
@@ -6343,7 +6344,7 @@ class ScheduledQueryRulesAlertV2Criteria(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+        Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
         """
         return pulumi.get(self, "operator")
 

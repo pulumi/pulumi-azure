@@ -132,11 +132,11 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly accountName!: pulumi.Output<string>;
     /**
-     * A `autoScale` block that describes the scale settings when using auto scale.
+     * A `autoScale` block that describes the scale settings when using auto scale as defined below.
      */
     public readonly autoScale!: pulumi.Output<outputs.batch.PoolAutoScale | undefined>;
     /**
-     * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+     * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
      */
     public readonly certificates!: pulumi.Output<outputs.batch.PoolCertificate[] | undefined>;
     /**
@@ -144,11 +144,11 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly containerConfiguration!: pulumi.Output<outputs.batch.PoolContainerConfiguration | undefined>;
     /**
-     * A `dataDisks` block describes the data disk settings.
+     * A `dataDisks` block describes the data disk settings as defined below.
      */
     public readonly dataDisks!: pulumi.Output<outputs.batch.PoolDataDisk[] | undefined>;
     /**
-     * A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+     * A `diskEncryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
      */
     public readonly diskEncryptions!: pulumi.Output<outputs.batch.PoolDiskEncryption[] | undefined>;
     /**
@@ -160,7 +160,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly extensions!: pulumi.Output<outputs.batch.PoolExtension[] | undefined>;
     /**
-     * A `fixedScale` block that describes the scale settings when using fixed scale.
+     * A `fixedScale` block that describes the scale settings when using fixed scale as defined below.
      */
     public readonly fixedScale!: pulumi.Output<outputs.batch.PoolFixedScale | undefined>;
     /**
@@ -192,7 +192,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `networkConfiguration` block that describes the network configurations for the Batch pool.
+     * A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below.
      */
     public readonly networkConfiguration!: pulumi.Output<outputs.batch.PoolNetworkConfiguration | undefined>;
     /**
@@ -200,7 +200,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly nodeAgentSkuId!: pulumi.Output<string>;
     /**
-     * A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
+     * A `nodePlacement` block that describes the placement policy for allocating nodes in the pool as defined below.
      */
     public readonly nodePlacements!: pulumi.Output<outputs.batch.PoolNodePlacement[] | undefined>;
     /**
@@ -212,7 +212,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A `startTask` block that describes the start task settings for the Batch pool.
+     * A `startTask` block that describes the start task settings for the Batch pool as defined below.
      */
     public readonly startTask!: pulumi.Output<outputs.batch.PoolStartTask | undefined>;
     public readonly stopPendingResizeOperation!: pulumi.Output<boolean | undefined>;
@@ -221,11 +221,11 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly storageImageReference!: pulumi.Output<outputs.batch.PoolStorageImageReference>;
     /**
-     * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+     * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
      */
     public readonly taskSchedulingPolicies!: pulumi.Output<outputs.batch.PoolTaskSchedulingPolicy[]>;
     /**
-     * A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
+     * A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
      */
     public readonly userAccounts!: pulumi.Output<outputs.batch.PoolUserAccount[] | undefined>;
     /**
@@ -233,7 +233,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly vmSize!: pulumi.Output<string>;
     /**
-     * A `windows` block that describes the Windows configuration in the pool.
+     * A `windows` block that describes the Windows configuration in the pool as defined below.
      */
     public readonly windows!: pulumi.Output<outputs.batch.PoolWindow[] | undefined>;
 
@@ -338,11 +338,11 @@ export interface PoolState {
      */
     accountName?: pulumi.Input<string>;
     /**
-     * A `autoScale` block that describes the scale settings when using auto scale.
+     * A `autoScale` block that describes the scale settings when using auto scale as defined below.
      */
     autoScale?: pulumi.Input<inputs.batch.PoolAutoScale>;
     /**
-     * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+     * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
      */
     certificates?: pulumi.Input<pulumi.Input<inputs.batch.PoolCertificate>[]>;
     /**
@@ -350,11 +350,11 @@ export interface PoolState {
      */
     containerConfiguration?: pulumi.Input<inputs.batch.PoolContainerConfiguration>;
     /**
-     * A `dataDisks` block describes the data disk settings.
+     * A `dataDisks` block describes the data disk settings as defined below.
      */
     dataDisks?: pulumi.Input<pulumi.Input<inputs.batch.PoolDataDisk>[]>;
     /**
-     * A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+     * A `diskEncryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
      */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.batch.PoolDiskEncryption>[]>;
     /**
@@ -366,7 +366,7 @@ export interface PoolState {
      */
     extensions?: pulumi.Input<pulumi.Input<inputs.batch.PoolExtension>[]>;
     /**
-     * A `fixedScale` block that describes the scale settings when using fixed scale.
+     * A `fixedScale` block that describes the scale settings when using fixed scale as defined below.
      */
     fixedScale?: pulumi.Input<inputs.batch.PoolFixedScale>;
     /**
@@ -398,7 +398,7 @@ export interface PoolState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `networkConfiguration` block that describes the network configurations for the Batch pool.
+     * A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below.
      */
     networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration>;
     /**
@@ -406,7 +406,7 @@ export interface PoolState {
      */
     nodeAgentSkuId?: pulumi.Input<string>;
     /**
-     * A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
+     * A `nodePlacement` block that describes the placement policy for allocating nodes in the pool as defined below.
      */
     nodePlacements?: pulumi.Input<pulumi.Input<inputs.batch.PoolNodePlacement>[]>;
     /**
@@ -418,7 +418,7 @@ export interface PoolState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `startTask` block that describes the start task settings for the Batch pool.
+     * A `startTask` block that describes the start task settings for the Batch pool as defined below.
      */
     startTask?: pulumi.Input<inputs.batch.PoolStartTask>;
     stopPendingResizeOperation?: pulumi.Input<boolean>;
@@ -427,11 +427,11 @@ export interface PoolState {
      */
     storageImageReference?: pulumi.Input<inputs.batch.PoolStorageImageReference>;
     /**
-     * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+     * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
      */
     taskSchedulingPolicies?: pulumi.Input<pulumi.Input<inputs.batch.PoolTaskSchedulingPolicy>[]>;
     /**
-     * A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
+     * A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
      */
     userAccounts?: pulumi.Input<pulumi.Input<inputs.batch.PoolUserAccount>[]>;
     /**
@@ -439,7 +439,7 @@ export interface PoolState {
      */
     vmSize?: pulumi.Input<string>;
     /**
-     * A `windows` block that describes the Windows configuration in the pool.
+     * A `windows` block that describes the Windows configuration in the pool as defined below.
      */
     windows?: pulumi.Input<pulumi.Input<inputs.batch.PoolWindow>[]>;
 }
@@ -453,11 +453,11 @@ export interface PoolArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * A `autoScale` block that describes the scale settings when using auto scale.
+     * A `autoScale` block that describes the scale settings when using auto scale as defined below.
      */
     autoScale?: pulumi.Input<inputs.batch.PoolAutoScale>;
     /**
-     * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+     * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
      */
     certificates?: pulumi.Input<pulumi.Input<inputs.batch.PoolCertificate>[]>;
     /**
@@ -465,11 +465,11 @@ export interface PoolArgs {
      */
     containerConfiguration?: pulumi.Input<inputs.batch.PoolContainerConfiguration>;
     /**
-     * A `dataDisks` block describes the data disk settings.
+     * A `dataDisks` block describes the data disk settings as defined below.
      */
     dataDisks?: pulumi.Input<pulumi.Input<inputs.batch.PoolDataDisk>[]>;
     /**
-     * A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+     * A `diskEncryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
      */
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.batch.PoolDiskEncryption>[]>;
     /**
@@ -481,7 +481,7 @@ export interface PoolArgs {
      */
     extensions?: pulumi.Input<pulumi.Input<inputs.batch.PoolExtension>[]>;
     /**
-     * A `fixedScale` block that describes the scale settings when using fixed scale.
+     * A `fixedScale` block that describes the scale settings when using fixed scale as defined below.
      */
     fixedScale?: pulumi.Input<inputs.batch.PoolFixedScale>;
     /**
@@ -513,7 +513,7 @@ export interface PoolArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `networkConfiguration` block that describes the network configurations for the Batch pool.
+     * A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below.
      */
     networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration>;
     /**
@@ -521,7 +521,7 @@ export interface PoolArgs {
      */
     nodeAgentSkuId: pulumi.Input<string>;
     /**
-     * A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
+     * A `nodePlacement` block that describes the placement policy for allocating nodes in the pool as defined below.
      */
     nodePlacements?: pulumi.Input<pulumi.Input<inputs.batch.PoolNodePlacement>[]>;
     /**
@@ -533,7 +533,7 @@ export interface PoolArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A `startTask` block that describes the start task settings for the Batch pool.
+     * A `startTask` block that describes the start task settings for the Batch pool as defined below.
      */
     startTask?: pulumi.Input<inputs.batch.PoolStartTask>;
     stopPendingResizeOperation?: pulumi.Input<boolean>;
@@ -542,11 +542,11 @@ export interface PoolArgs {
      */
     storageImageReference: pulumi.Input<inputs.batch.PoolStorageImageReference>;
     /**
-     * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+     * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
      */
     taskSchedulingPolicies?: pulumi.Input<pulumi.Input<inputs.batch.PoolTaskSchedulingPolicy>[]>;
     /**
-     * A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
+     * A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
      */
     userAccounts?: pulumi.Input<pulumi.Input<inputs.batch.PoolUserAccount>[]>;
     /**
@@ -554,7 +554,7 @@ export interface PoolArgs {
      */
     vmSize: pulumi.Input<string>;
     /**
-     * A `windows` block that describes the Windows configuration in the pool.
+     * A `windows` block that describes the Windows configuration in the pool as defined below.
      */
     windows?: pulumi.Input<pulumi.Input<inputs.batch.PoolWindow>[]>;
 }

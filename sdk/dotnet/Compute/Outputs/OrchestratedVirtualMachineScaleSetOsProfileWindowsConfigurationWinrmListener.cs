@@ -13,6 +13,9 @@ namespace Pulumi.Azure.Compute.Outputs
     [OutputType]
     public sealed class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener
     {
+        /// <summary>
+        /// The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
+        /// </summary>
         public readonly string? CertificateUrl;
         public readonly string Protocol;
 

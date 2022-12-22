@@ -12,9 +12,15 @@ namespace Pulumi.Azure.Compute.Inputs
 
     public sealed class ScaleSetBootDiagnosticsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to enable boot diagnostics for the virtual machine.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Blob endpoint for the storage account to hold the virtual machine's diagnostic files. This must be the root of a storage account, and not a storage container.
+        /// </summary>
         [Input("storageUri", required: true)]
         public Input<string> StorageUri { get; set; } = null!;
 

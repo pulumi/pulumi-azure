@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Compute.Inputs
     {
         [Input("customData")]
         private Input<string>? _customData;
+
+        /// <summary>
+        /// The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+        /// </summary>
         public Input<string>? CustomData
         {
             get => _customData;
@@ -24,9 +28,15 @@ namespace Pulumi.Azure.Compute.Inputs
             }
         }
 
+        /// <summary>
+        /// A `linux_configuration` block as documented below.
+        /// </summary>
         [Input("linuxConfiguration")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationGetArgs>? LinuxConfiguration { get; set; }
 
+        /// <summary>
+        /// A `windows_configuration` block as documented below.
+        /// </summary>
         [Input("windowsConfiguration")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationGetArgs>? WindowsConfiguration { get; set; }
 

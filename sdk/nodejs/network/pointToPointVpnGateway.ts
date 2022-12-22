@@ -127,6 +127,10 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    public readonly routingPreferenceInternetEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
      */
     public readonly scaleUnit!: pulumi.Output<number>;
@@ -161,6 +165,7 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["routingPreferenceInternetEnabled"] = state ? state.routingPreferenceInternetEnabled : undefined;
             resourceInputs["scaleUnit"] = state ? state.scaleUnit : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
@@ -187,6 +192,7 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routingPreferenceInternetEnabled"] = args ? args.routingPreferenceInternetEnabled : undefined;
             resourceInputs["scaleUnit"] = args ? args.scaleUnit : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
@@ -221,6 +227,10 @@ export interface PointToPointVpnGatewayState {
      * The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    routingPreferenceInternetEnabled?: pulumi.Input<boolean>;
     /**
      * The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
      */
@@ -263,6 +273,10 @@ export interface PointToPointVpnGatewayArgs {
      * The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    routingPreferenceInternetEnabled?: pulumi.Input<boolean>;
     /**
      * The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
      */

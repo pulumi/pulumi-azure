@@ -216,7 +216,7 @@ class VirtualMachineConfigurationAssignmentConfiguration(dict):
         :param str assignment_type: The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
         :param str content_hash: The content hash for the Guest Configuration package.
         :param str content_uri: The content URI where the Guest Configuration package is stored.
-        :param Sequence['VirtualMachineConfigurationAssignmentConfigurationParameterArgs'] parameters: One or more `parameter` blocks which define what configuration parameters and values against.
+        :param Sequence['VirtualMachineConfigurationAssignmentConfigurationParameterArgs'] parameters: One or more `parameter` blocks as defined below which define what configuration parameters and values against.
         :param str version: The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         """
         if assignment_type is not None:
@@ -258,7 +258,7 @@ class VirtualMachineConfigurationAssignmentConfiguration(dict):
     @pulumi.getter
     def parameters(self) -> Optional[Sequence['outputs.VirtualMachineConfigurationAssignmentConfigurationParameter']]:
         """
-        One or more `parameter` blocks which define what configuration parameters and values against.
+        One or more `parameter` blocks as defined below which define what configuration parameters and values against.
         """
         return pulumi.get(self, "parameters")
 

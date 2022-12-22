@@ -63,14 +63,14 @@ public final class VirtualMachineConfigurationAssignmentConfigurationArgs extend
     }
 
     /**
-     * One or more `parameter` blocks which define what configuration parameters and values against.
+     * One or more `parameter` blocks as defined below which define what configuration parameters and values against.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<List<VirtualMachineConfigurationAssignmentConfigurationParameterArgs>> parameters;
 
     /**
-     * @return One or more `parameter` blocks which define what configuration parameters and values against.
+     * @return One or more `parameter` blocks as defined below which define what configuration parameters and values against.
      * 
      */
     public Optional<Output<List<VirtualMachineConfigurationAssignmentConfigurationParameterArgs>>> parameters() {
@@ -184,7 +184,7 @@ public final class VirtualMachineConfigurationAssignmentConfigurationArgs extend
         }
 
         /**
-         * @param parameters One or more `parameter` blocks which define what configuration parameters and values against.
+         * @param parameters One or more `parameter` blocks as defined below which define what configuration parameters and values against.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class VirtualMachineConfigurationAssignmentConfigurationArgs extend
         }
 
         /**
-         * @param parameters One or more `parameter` blocks which define what configuration parameters and values against.
+         * @param parameters One or more `parameter` blocks as defined below which define what configuration parameters and values against.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class VirtualMachineConfigurationAssignmentConfigurationArgs extend
         }
 
         /**
-         * @param parameters One or more `parameter` blocks which define what configuration parameters and values against.
+         * @param parameters One or more `parameter` blocks as defined below which define what configuration parameters and values against.
          * 
          * @return builder
          * 

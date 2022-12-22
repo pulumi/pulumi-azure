@@ -61,8 +61,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateGetArgs>? _revokedCertificates;
 
         /// <summary>
-        /// One or more `revoked_certificate` blocks which
-        /// are defined below.
+        /// One or more `revoked_certificate` blocks which are defined below.
         /// </summary>
         public InputList<Inputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateGetArgs> RevokedCertificates
         {
@@ -74,9 +73,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificateGetArgs>? _rootCertificates;
 
         /// <summary>
-        /// One or more `root_certificate` blocks which are
-        /// defined below. These root certificates are used to sign the client certificate
-        /// used by the VPN clients to connect to the gateway.
+        /// One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
         /// </summary>
         public InputList<Inputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificateGetArgs> RootCertificates
         {

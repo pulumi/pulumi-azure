@@ -43,6 +43,7 @@ class KubernetesClusterArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']] = None,
                  microsoft_defender: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']] = None,
+                 monitor_metrics: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
@@ -71,7 +72,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
-        :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: - A `azure_active_directory_role_based_access_control` block as defined below.
+        :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -87,10 +88,11 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterKubeletIdentityArgs'] kubelet_identity: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
-        :param pulumi.Input[bool] local_account_disabled: - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input['KubernetesClusterMicrosoftDefenderArgs'] microsoft_defender: A `microsoft_defender` block as defined below.
+        :param pulumi.Input['KubernetesClusterMonitorMetricsArgs'] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -100,6 +102,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
         :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
@@ -163,6 +166,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
         if microsoft_defender is not None:
             pulumi.set(__self__, "microsoft_defender", microsoft_defender)
+        if monitor_metrics is not None:
+            pulumi.set(__self__, "monitor_metrics", monitor_metrics)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_profile is not None:
@@ -280,7 +285,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="azureActiveDirectoryRoleBasedAccessControl")
     def azure_active_directory_role_based_access_control(self) -> Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]:
         """
-        - A `azure_active_directory_role_based_access_control` block as defined below.
+        A `azure_active_directory_role_based_access_control` block as defined below.
         """
         return pulumi.get(self, "azure_active_directory_role_based_access_control")
 
@@ -481,7 +486,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="localAccountDisabled")
     def local_account_disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         """
         return pulumi.get(self, "local_account_disabled")
 
@@ -524,6 +529,18 @@ class KubernetesClusterArgs:
     @microsoft_defender.setter
     def microsoft_defender(self, value: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']]):
         pulumi.set(self, "microsoft_defender", value)
+
+    @property
+    @pulumi.getter(name="monitorMetrics")
+    def monitor_metrics(self) -> Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']]:
+        """
+        Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+        """
+        return pulumi.get(self, "monitor_metrics")
+
+    @monitor_metrics.setter
+    def monitor_metrics(self, value: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']]):
+        pulumi.set(self, "monitor_metrics", value)
 
     @property
     @pulumi.getter
@@ -636,6 +653,9 @@ class KubernetesClusterArgs:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -798,6 +818,7 @@ class _KubernetesClusterState:
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']] = None,
                  microsoft_defender: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']] = None,
+                 monitor_metrics: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
@@ -828,7 +849,7 @@ class _KubernetesClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
-        :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: - A `azure_active_directory_role_based_access_control` block as defined below.
+        :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
@@ -851,10 +872,11 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterKubeletIdentityArgs'] kubelet_identity: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
-        :param pulumi.Input[bool] local_account_disabled: - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input['KubernetesClusterMicrosoftDefenderArgs'] microsoft_defender: A `microsoft_defender` block as defined below.
+        :param pulumi.Input['KubernetesClusterMonitorMetricsArgs'] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -867,6 +889,7 @@ class _KubernetesClusterState:
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
@@ -943,6 +966,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
         if microsoft_defender is not None:
             pulumi.set(__self__, "microsoft_defender", microsoft_defender)
+        if monitor_metrics is not None:
+            pulumi.set(__self__, "monitor_metrics", monitor_metrics)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_profile is not None:
@@ -1044,7 +1069,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="azureActiveDirectoryRoleBasedAccessControl")
     def azure_active_directory_role_based_access_control(self) -> Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]:
         """
-        - A `azure_active_directory_role_based_access_control` block as defined below.
+        A `azure_active_directory_role_based_access_control` block as defined below.
         """
         return pulumi.get(self, "azure_active_directory_role_based_access_control")
 
@@ -1329,7 +1354,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="localAccountDisabled")
     def local_account_disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         """
         return pulumi.get(self, "local_account_disabled")
 
@@ -1372,6 +1397,18 @@ class _KubernetesClusterState:
     @microsoft_defender.setter
     def microsoft_defender(self, value: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']]):
         pulumi.set(self, "microsoft_defender", value)
+
+    @property
+    @pulumi.getter(name="monitorMetrics")
+    def monitor_metrics(self) -> Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']]:
+        """
+        Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+        """
+        return pulumi.get(self, "monitor_metrics")
+
+    @monitor_metrics.setter
+    def monitor_metrics(self, value: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']]):
+        pulumi.set(self, "monitor_metrics", value)
 
     @property
     @pulumi.getter
@@ -1520,6 +1557,9 @@ class _KubernetesClusterState:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -1690,6 +1730,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']]] = None,
                  microsoft_defender: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']]] = None,
+                 monitor_metrics: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
@@ -1757,7 +1798,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] azure_active_directory_role_based_access_control: - A `azure_active_directory_role_based_access_control` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
@@ -1774,10 +1815,11 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']] kubelet_identity: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
-        :param pulumi.Input[bool] local_account_disabled: - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']] microsoft_defender: A `microsoft_defender` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -1787,6 +1829,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
@@ -1885,6 +1928,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']]] = None,
                  microsoft_defender: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']]] = None,
+                 monitor_metrics: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
@@ -1943,6 +1987,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["microsoft_defender"] = microsoft_defender
+            __props__.__dict__["monitor_metrics"] = monitor_metrics
             __props__.__dict__["name"] = name
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["node_resource_group"] = node_resource_group
@@ -2019,6 +2064,7 @@ class KubernetesCluster(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']]] = None,
             microsoft_defender: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']]] = None,
+            monitor_metrics: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
             node_resource_group: Optional[pulumi.Input[str]] = None,
@@ -2054,7 +2100,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] azure_active_directory_role_based_access_control: - A `azure_active_directory_role_based_access_control` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
@@ -2077,10 +2123,11 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']] kubelet_identity: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
-        :param pulumi.Input[bool] local_account_disabled: - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']] microsoft_defender: A `microsoft_defender` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -2093,6 +2140,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
@@ -2141,6 +2189,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["maintenance_window"] = maintenance_window
         __props__.__dict__["microsoft_defender"] = microsoft_defender
+        __props__.__dict__["monitor_metrics"] = monitor_metrics
         __props__.__dict__["name"] = name
         __props__.__dict__["network_profile"] = network_profile
         __props__.__dict__["node_resource_group"] = node_resource_group
@@ -2203,7 +2252,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="azureActiveDirectoryRoleBasedAccessControl")
     def azure_active_directory_role_based_access_control(self) -> pulumi.Output[Optional['outputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl']]:
         """
-        - A `azure_active_directory_role_based_access_control` block as defined below.
+        A `azure_active_directory_role_based_access_control` block as defined below.
         """
         return pulumi.get(self, "azure_active_directory_role_based_access_control")
 
@@ -2392,7 +2441,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="localAccountDisabled")
     def local_account_disabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         """
         return pulumi.get(self, "local_account_disabled")
 
@@ -2419,6 +2468,14 @@ class KubernetesCluster(pulumi.CustomResource):
         A `microsoft_defender` block as defined below.
         """
         return pulumi.get(self, "microsoft_defender")
+
+    @property
+    @pulumi.getter(name="monitorMetrics")
+    def monitor_metrics(self) -> pulumi.Output[Optional['outputs.KubernetesClusterMonitorMetrics']]:
+        """
+        Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+        """
+        return pulumi.get(self, "monitor_metrics")
 
     @property
     @pulumi.getter
@@ -2519,6 +2576,9 @@ class KubernetesCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @property

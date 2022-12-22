@@ -1961,7 +1961,7 @@ class RulesEngineRuleMatchCondition(dict):
         :param bool negate_condition: can be set to `true` or `false` to negate the given condition. Defaults to `true`.
         :param str selector: match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
         :param Sequence[str] transforms: can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
-        :param Sequence[str] values: can contain one or more strings.
+        :param Sequence[str] values: (array) can contain one or more strings.
         :param str variable: can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
         """
         pulumi.set(__self__, "operator", operator)
@@ -2012,7 +2012,7 @@ class RulesEngineRuleMatchCondition(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
         """
-        can contain one or more strings.
+        (array) can contain one or more strings.
         """
         return pulumi.get(self, "values")
 

@@ -183,10 +183,10 @@ namespace Pulumi.Azure.PrivateLink
         public Output<string?> CustomNetworkInterfaceName { get; private set; } = null!;
 
         /// <summary>
-        /// An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+        /// One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
         /// </summary>
-        [Output("ipConfiguration")]
-        public Output<Outputs.EndpointIpConfiguration?> IpConfiguration { get; private set; } = null!;
+        [Output("ipConfigurations")]
+        public Output<ImmutableArray<Outputs.EndpointIpConfiguration>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -288,11 +288,17 @@ namespace Pulumi.Azure.PrivateLink
         [Input("customNetworkInterfaceName")]
         public Input<string>? CustomNetworkInterfaceName { get; set; }
 
+        [Input("ipConfigurations")]
+        private InputList<Inputs.EndpointIpConfigurationArgs>? _ipConfigurations;
+
         /// <summary>
-        /// An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+        /// One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("ipConfiguration")]
-        public Input<Inputs.EndpointIpConfigurationArgs>? IpConfiguration { get; set; }
+        public InputList<Inputs.EndpointIpConfigurationArgs> IpConfigurations
+        {
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.EndpointIpConfigurationArgs>());
+            set => _ipConfigurations = value;
+        }
 
         /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -364,11 +370,17 @@ namespace Pulumi.Azure.PrivateLink
         [Input("customNetworkInterfaceName")]
         public Input<string>? CustomNetworkInterfaceName { get; set; }
 
+        [Input("ipConfigurations")]
+        private InputList<Inputs.EndpointIpConfigurationGetArgs>? _ipConfigurations;
+
         /// <summary>
-        /// An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+        /// One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("ipConfiguration")]
-        public Input<Inputs.EndpointIpConfigurationGetArgs>? IpConfiguration { get; set; }
+        public InputList<Inputs.EndpointIpConfigurationGetArgs> IpConfigurations
+        {
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.EndpointIpConfigurationGetArgs>());
+            set => _ipConfigurations = value;
+        }
 
         /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.

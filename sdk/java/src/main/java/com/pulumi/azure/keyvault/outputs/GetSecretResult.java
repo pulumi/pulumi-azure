@@ -47,6 +47,10 @@ public final class GetSecretResult {
      * 
      */
     private String version;
+    /**
+     * @return The Versionless ID of the Key Vault Secret. This can be used to always get latest secret value, and enable fetching automatically rotating secrets.
+     * 
+     */
     private String versionlessId;
 
     private GetSecretResult() {}
@@ -105,6 +109,10 @@ public final class GetSecretResult {
     public String version() {
         return this.version;
     }
+    /**
+     * @return The Versionless ID of the Key Vault Secret. This can be used to always get latest secret value, and enable fetching automatically rotating secrets.
+     * 
+     */
     public String versionlessId() {
         return this.versionlessId;
     }

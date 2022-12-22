@@ -69,6 +69,12 @@ namespace Pulumi.Azure.Lighthouse
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// An `eligible_authorization` block as defined below.
+        /// </summary>
+        [Output("eligibleAuthorizations")]
+        public Output<ImmutableArray<Outputs.DefinitionEligibleAuthorization>> EligibleAuthorizations { get; private set; } = null!;
+
+        /// <summary>
         /// A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
         /// </summary>
         [Output("lighthouseDefinitionId")]
@@ -162,6 +168,18 @@ namespace Pulumi.Azure.Lighthouse
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("eligibleAuthorizations")]
+        private InputList<Inputs.DefinitionEligibleAuthorizationArgs>? _eligibleAuthorizations;
+
+        /// <summary>
+        /// An `eligible_authorization` block as defined below.
+        /// </summary>
+        public InputList<Inputs.DefinitionEligibleAuthorizationArgs> EligibleAuthorizations
+        {
+            get => _eligibleAuthorizations ?? (_eligibleAuthorizations = new InputList<Inputs.DefinitionEligibleAuthorizationArgs>());
+            set => _eligibleAuthorizations = value;
+        }
+
         /// <summary>
         /// A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
         /// </summary>
@@ -217,6 +235,18 @@ namespace Pulumi.Azure.Lighthouse
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("eligibleAuthorizations")]
+        private InputList<Inputs.DefinitionEligibleAuthorizationGetArgs>? _eligibleAuthorizations;
+
+        /// <summary>
+        /// An `eligible_authorization` block as defined below.
+        /// </summary>
+        public InputList<Inputs.DefinitionEligibleAuthorizationGetArgs> EligibleAuthorizations
+        {
+            get => _eligibleAuthorizations ?? (_eligibleAuthorizations = new InputList<Inputs.DefinitionEligibleAuthorizationGetArgs>());
+            set => _eligibleAuthorizations = value;
+        }
 
         /// <summary>
         /// A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.

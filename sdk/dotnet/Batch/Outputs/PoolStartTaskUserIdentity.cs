@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class PoolStartTaskUserIdentity
     {
         /// <summary>
-        /// A `auto_user` block that describes the user identity under which the start task runs.
+        /// A `auto_user` block that describes the user identity under which the start task runs as defined below.
         /// </summary>
         public readonly Outputs.PoolStartTaskUserIdentityAutoUser? AutoUser;
         /// <summary>

@@ -30,14 +30,14 @@ public final class NetworkWatcherFlowLogRetentionPolicyArgs extends com.pulumi.r
     }
 
     /**
-     * Boolean flag to enable/disable traffic analytics.
+     * Boolean flag to enable/disable retention.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Boolean flag to enable/disable traffic analytics.
+     * @return Boolean flag to enable/disable retention.
      * 
      */
     public Output<Boolean> enabled() {
@@ -91,7 +91,7 @@ public final class NetworkWatcherFlowLogRetentionPolicyArgs extends com.pulumi.r
         }
 
         /**
-         * @param enabled Boolean flag to enable/disable traffic analytics.
+         * @param enabled Boolean flag to enable/disable retention.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class NetworkWatcherFlowLogRetentionPolicyArgs extends com.pulumi.r
         }
 
         /**
-         * @param enabled Boolean flag to enable/disable traffic analytics.
+         * @param enabled Boolean flag to enable/disable retention.
          * 
          * @return builder
          * 

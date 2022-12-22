@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:appplatform/springCloudAccelerator:SpringCloudAccelerator":
+		r = &SpringCloudAccelerator{}
 	case "azure:appplatform/springCloudActiveDeployment:SpringCloudActiveDeployment":
 		r = &SpringCloudActiveDeployment{}
 	case "azure:appplatform/springCloudApiPortal:SpringCloudApiPortal":
@@ -53,6 +55,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SpringCloudContainerDeployment{}
 	case "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain":
 		r = &SpringCloudCustomDomain{}
+	case "azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal":
+		r = &SpringCloudDevToolPortal{}
 	case "azure:appplatform/springCloudGateway:SpringCloudGateway":
 		r = &SpringCloudGateway{}
 	case "azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain":
@@ -78,6 +82,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appplatform/springCloudAccelerator",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appplatform/springCloudActiveDeployment",
@@ -156,6 +165,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appplatform/springCloudCustomDomain",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appplatform/springCloudDevToolPortal",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.waf.inputs;
 
+import com.pulumi.azure.waf.inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -17,33 +18,52 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs extends
     public static final PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs Empty = new PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs();
 
     /**
-     * One or more Rule IDs
+     * @deprecated
+     * `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider. */
     @Import(name="disabledRules")
     private @Nullable Output<List<String>> disabledRules;
 
     /**
-     * @return One or more Rule IDs
+     * @deprecated
+     * `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider. */
     public Optional<Output<List<String>>> disabledRules() {
         return Optional.ofNullable(this.disabledRules);
     }
 
     /**
-     * The name of the Rule Group
+     * The name of the Rule Group.
      * 
      */
     @Import(name="ruleGroupName", required=true)
     private Output<String> ruleGroupName;
 
     /**
-     * @return The name of the Rule Group
+     * @return The name of the Rule Group.
      * 
      */
     public Output<String> ruleGroupName() {
         return this.ruleGroupName;
+    }
+
+    /**
+     * One or more `rule` block defined below.
+     * 
+     */
+    @Import(name="rules")
+    private @Nullable Output<List<PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs>> rules;
+
+    /**
+     * @return One or more `rule` block defined below.
+     * 
+     */
+    public Optional<Output<List<PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs>>> rules() {
+        return Optional.ofNullable(this.rules);
     }
 
     private PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs() {}
@@ -51,6 +71,7 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs extends
     private PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs(PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs $) {
         this.disabledRules = $.disabledRules;
         this.ruleGroupName = $.ruleGroupName;
+        this.rules = $.rules;
     }
 
     public static Builder builder() {
@@ -72,38 +93,44 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs extends
         }
 
         /**
-         * @param disabledRules One or more Rule IDs
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider. */
         public Builder disabledRules(@Nullable Output<List<String>> disabledRules) {
             $.disabledRules = disabledRules;
             return this;
         }
 
         /**
-         * @param disabledRules One or more Rule IDs
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider. */
         public Builder disabledRules(List<String> disabledRules) {
             return disabledRules(Output.of(disabledRules));
         }
 
         /**
-         * @param disabledRules One or more Rule IDs
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider. */
         public Builder disabledRules(String... disabledRules) {
             return disabledRules(List.of(disabledRules));
         }
 
         /**
-         * @param ruleGroupName The name of the Rule Group
+         * @param ruleGroupName The name of the Rule Group.
          * 
          * @return builder
          * 
@@ -114,13 +141,44 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs extends
         }
 
         /**
-         * @param ruleGroupName The name of the Rule Group
+         * @param ruleGroupName The name of the Rule Group.
          * 
          * @return builder
          * 
          */
         public Builder ruleGroupName(String ruleGroupName) {
             return ruleGroupName(Output.of(ruleGroupName));
+        }
+
+        /**
+         * @param rules One or more `rule` block defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rules(@Nullable Output<List<PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs>> rules) {
+            $.rules = rules;
+            return this;
+        }
+
+        /**
+         * @param rules One or more `rule` block defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rules(List<PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs> rules) {
+            return rules(Output.of(rules));
+        }
+
+        /**
+         * @param rules One or more `rule` block defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rules(PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs... rules) {
+            return rules(List.of(rules));
         }
 
         public PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs build() {

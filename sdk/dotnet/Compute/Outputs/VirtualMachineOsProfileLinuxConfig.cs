@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly bool DisablePasswordAuthentication;
         /// <summary>
-        /// One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+        /// One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineOsProfileLinuxConfigSshKey> SshKeys;
 

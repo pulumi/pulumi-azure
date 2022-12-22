@@ -34,14 +34,14 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     }
 
     /**
-     * Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+     * Specifies a list of destination IP addresses (including CIDR and `*`).
      * 
      */
     @Import(name="destinationAddresses")
     private @Nullable Output<List<String>> destinationAddresses;
 
     /**
-     * @return Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+     * @return Specifies a list of destination IP addresses (including CIDR and `*`).
      * 
      */
     public Optional<Output<List<String>>> destinationAddresses() {
@@ -64,14 +64,14 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     }
 
     /**
-     * Specifies a list of destination FQDNs.
+     * Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
      * 
      */
     @Import(name="destinationFqdns")
     private @Nullable Output<List<String>> destinationFqdns;
 
     /**
-     * @return Specifies a list of destination FQDNs.
+     * @return Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
      * 
      */
     public Optional<Output<List<String>>> destinationFqdns() {
@@ -94,14 +94,14 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     }
 
     /**
-     * The name which should be used for this rule.
+     * The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this rule.
+     * @return The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      * 
      */
     public Output<String> name() {
@@ -109,14 +109,14 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     }
 
     /**
-     * Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+     * One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
      * 
      */
     @Import(name="protocols")
     private @Nullable Output<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs>> protocols;
 
     /**
-     * @return Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+     * @return One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
      * 
      */
     public Optional<Output<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs>>> protocols() {
@@ -239,7 +239,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param destinationAddresses Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+         * @param destinationAddresses Specifies a list of destination IP addresses (including CIDR and `*`).
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param destinationAddresses Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+         * @param destinationAddresses Specifies a list of destination IP addresses (including CIDR and `*`).
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param destinationAddresses Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+         * @param destinationAddresses Specifies a list of destination IP addresses (including CIDR and `*`).
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param destinationFqdns Specifies a list of destination FQDNs.
+         * @param destinationFqdns Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param destinationFqdns Specifies a list of destination FQDNs.
+         * @param destinationFqdns Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param destinationFqdns Specifies a list of destination FQDNs.
+         * @param destinationFqdns Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param name The name which should be used for this rule.
+         * @param name The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param name The name which should be used for this rule.
+         * @param name The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param protocols Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+         * @param protocols One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param protocols Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+         * @param protocols One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param protocols Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+         * @param protocols One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
          * 
          * @return builder
          * 

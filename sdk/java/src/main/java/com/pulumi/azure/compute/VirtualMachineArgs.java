@@ -195,14 +195,14 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * An `os_profile_linux_config` block as defined below.
+     * (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
      * 
      */
     @Import(name="osProfileLinuxConfig")
     private @Nullable Output<VirtualMachineOsProfileLinuxConfigArgs> osProfileLinuxConfig;
 
     /**
-     * @return An `os_profile_linux_config` block as defined below.
+     * @return (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineOsProfileLinuxConfigArgs>> osProfileLinuxConfig() {
@@ -210,14 +210,14 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One or more `os_profile_secrets` blocks.
+     * One or more `os_profile_secrets` blocks as defined below.
      * 
      */
     @Import(name="osProfileSecrets")
     private @Nullable Output<List<VirtualMachineOsProfileSecretArgs>> osProfileSecrets;
 
     /**
-     * @return One or more `os_profile_secrets` blocks.
+     * @return One or more `os_profile_secrets` blocks as defined below.
      * 
      */
     public Optional<Output<List<VirtualMachineOsProfileSecretArgs>>> osProfileSecrets() {
@@ -225,14 +225,14 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * An `os_profile_windows_config` block as defined below.
+     * (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
      * 
      */
     @Import(name="osProfileWindowsConfig")
     private @Nullable Output<VirtualMachineOsProfileWindowsConfigArgs> osProfileWindowsConfig;
 
     /**
-     * @return An `os_profile_windows_config` block as defined below.
+     * @return (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineOsProfileWindowsConfigArgs>> osProfileWindowsConfig() {
@@ -300,14 +300,14 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One or more `storage_data_disk` blocks.
+     * One or more `storage_data_disk` blocks as defined below.
      * 
      */
     @Import(name="storageDataDisks")
     private @Nullable Output<List<VirtualMachineStorageDataDiskArgs>> storageDataDisks;
 
     /**
-     * @return One or more `storage_data_disk` blocks.
+     * @return One or more `storage_data_disk` blocks as defined below.
      * 
      */
     public Optional<Output<List<VirtualMachineStorageDataDiskArgs>>> storageDataDisks() {
@@ -678,7 +678,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param osProfileLinuxConfig An `os_profile_linux_config` block as defined below.
+         * @param osProfileLinuxConfig (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
          * 
          * @return builder
          * 
@@ -689,7 +689,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param osProfileLinuxConfig An `os_profile_linux_config` block as defined below.
+         * @param osProfileLinuxConfig (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
          * 
          * @return builder
          * 
@@ -699,7 +699,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param osProfileSecrets One or more `os_profile_secrets` blocks.
+         * @param osProfileSecrets One or more `os_profile_secrets` blocks as defined below.
          * 
          * @return builder
          * 
@@ -710,7 +710,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param osProfileSecrets One or more `os_profile_secrets` blocks.
+         * @param osProfileSecrets One or more `os_profile_secrets` blocks as defined below.
          * 
          * @return builder
          * 
@@ -720,7 +720,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param osProfileSecrets One or more `os_profile_secrets` blocks.
+         * @param osProfileSecrets One or more `os_profile_secrets` blocks as defined below.
          * 
          * @return builder
          * 
@@ -730,7 +730,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param osProfileWindowsConfig An `os_profile_windows_config` block as defined below.
+         * @param osProfileWindowsConfig (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
          * 
          * @return builder
          * 
@@ -741,7 +741,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param osProfileWindowsConfig An `os_profile_windows_config` block as defined below.
+         * @param osProfileWindowsConfig (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
          * 
          * @return builder
          * 
@@ -835,7 +835,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageDataDisks One or more `storage_data_disk` blocks.
+         * @param storageDataDisks One or more `storage_data_disk` blocks as defined below.
          * 
          * @return builder
          * 
@@ -846,7 +846,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageDataDisks One or more `storage_data_disk` blocks.
+         * @param storageDataDisks One or more `storage_data_disk` blocks as defined below.
          * 
          * @return builder
          * 
@@ -856,7 +856,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageDataDisks One or more `storage_data_disk` blocks.
+         * @param storageDataDisks One or more `storage_data_disk` blocks as defined below.
          * 
          * @return builder
          * 

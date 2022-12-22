@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * });
  * const internal = new azure.network.Subnet("internal", {
  *     resourceGroupName: example.name,
- *     virtualNetworkName: azurerm_virtual_network.example.name,
+ *     virtualNetworkName: mainVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const mainNetworkInterface = new azure.network.NetworkInterface("mainNetworkInterface", {
@@ -158,15 +158,15 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly osProfile!: pulumi.Output<outputs.compute.VirtualMachineOsProfile | undefined>;
     /**
-     * An `osProfileLinuxConfig` block as defined below.
+     * (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
      */
     public readonly osProfileLinuxConfig!: pulumi.Output<outputs.compute.VirtualMachineOsProfileLinuxConfig | undefined>;
     /**
-     * One or more `osProfileSecrets` blocks.
+     * One or more `osProfileSecrets` blocks as defined below.
      */
     public readonly osProfileSecrets!: pulumi.Output<outputs.compute.VirtualMachineOsProfileSecret[] | undefined>;
     /**
-     * An `osProfileWindowsConfig` block as defined below.
+     * (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
      */
     public readonly osProfileWindowsConfig!: pulumi.Output<outputs.compute.VirtualMachineOsProfileWindowsConfig | undefined>;
     /**
@@ -186,7 +186,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * One or more `storageDataDisk` blocks.
+     * One or more `storageDataDisk` blocks as defined below.
      */
     public readonly storageDataDisks!: pulumi.Output<outputs.compute.VirtualMachineStorageDataDisk[]>;
     /**
@@ -340,15 +340,15 @@ export interface VirtualMachineState {
      */
     osProfile?: pulumi.Input<inputs.compute.VirtualMachineOsProfile>;
     /**
-     * An `osProfileLinuxConfig` block as defined below.
+     * (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
      */
     osProfileLinuxConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileLinuxConfig>;
     /**
-     * One or more `osProfileSecrets` blocks.
+     * One or more `osProfileSecrets` blocks as defined below.
      */
     osProfileSecrets?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineOsProfileSecret>[]>;
     /**
-     * An `osProfileWindowsConfig` block as defined below.
+     * (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
      */
     osProfileWindowsConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileWindowsConfig>;
     /**
@@ -368,7 +368,7 @@ export interface VirtualMachineState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * One or more `storageDataDisk` blocks.
+     * One or more `storageDataDisk` blocks as defined below.
      */
     storageDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineStorageDataDisk>[]>;
     /**
@@ -442,15 +442,15 @@ export interface VirtualMachineArgs {
      */
     osProfile?: pulumi.Input<inputs.compute.VirtualMachineOsProfile>;
     /**
-     * An `osProfileLinuxConfig` block as defined below.
+     * (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
      */
     osProfileLinuxConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileLinuxConfig>;
     /**
-     * One or more `osProfileSecrets` blocks.
+     * One or more `osProfileSecrets` blocks as defined below.
      */
     osProfileSecrets?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineOsProfileSecret>[]>;
     /**
-     * An `osProfileWindowsConfig` block as defined below.
+     * (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
      */
     osProfileWindowsConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileWindowsConfig>;
     /**
@@ -470,7 +470,7 @@ export interface VirtualMachineArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * One or more `storageDataDisk` blocks.
+     * One or more `storageDataDisk` blocks as defined below.
      */
     storageDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineStorageDataDisk>[]>;
     /**

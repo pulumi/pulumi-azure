@@ -13,7 +13,13 @@ namespace Pulumi.Azure.Compute.Outputs
     [OutputType]
     public sealed class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret
     {
+        /// <summary>
+        /// One or more `certificate` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate> Certificates;
+        /// <summary>
+        /// The ID of the Key Vault from which all Secrets should be sourced.
+        /// </summary>
         public readonly string KeyVaultId;
 
         [OutputConstructor]

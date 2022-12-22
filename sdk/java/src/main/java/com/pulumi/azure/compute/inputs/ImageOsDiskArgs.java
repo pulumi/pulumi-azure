@@ -62,14 +62,14 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
+     * Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
      * 
      */
     @Import(name="osState")
     private @Nullable Output<String> osState;
 
     /**
-     * @return Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
+     * @return Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
      * 
      */
     public Optional<Output<String>> osState() {
@@ -199,7 +199,7 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osState Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
+         * @param osState Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osState Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
+         * @param osState Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
          * 
          * @return builder
          * 

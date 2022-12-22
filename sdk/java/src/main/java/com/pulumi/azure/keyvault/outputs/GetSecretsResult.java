@@ -15,10 +15,6 @@ public final class GetSecretsResult {
      * 
      */
     private String id;
-    /**
-     * @return The Key Vault ID.
-     * 
-     */
     private String keyVaultId;
     /**
      * @return List containing names of secrets that exist in this Key Vault.
@@ -34,10 +30,6 @@ public final class GetSecretsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The Key Vault ID.
-     * 
-     */
     public String keyVaultId() {
         return this.keyVaultId;
     }

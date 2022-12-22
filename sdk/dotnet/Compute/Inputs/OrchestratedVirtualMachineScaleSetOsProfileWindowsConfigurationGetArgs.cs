@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Compute.Inputs
     {
         [Input("adminPassword", required: true)]
         private Input<string>? _adminPassword;
+
+        /// <summary>
+        /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        /// </summary>
         public Input<string>? AdminPassword
         {
             get => _adminPassword;
@@ -24,12 +28,21 @@ namespace Pulumi.Azure.Compute.Inputs
             }
         }
 
+        /// <summary>
+        /// The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("adminUsername", required: true)]
         public Input<string> AdminUsername { get; set; } = null!;
 
+        /// <summary>
+        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        /// </summary>
         [Input("computerNamePrefix")]
         public Input<string>? ComputerNamePrefix { get; set; }
 
+        /// <summary>
+        /// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
+        /// </summary>
         [Input("enableAutomaticUpdates")]
         public Input<bool>? EnableAutomaticUpdates { get; set; }
 
@@ -51,22 +64,36 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }
 
+        /// <summary>
+        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+        /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }
 
         [Input("secrets")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretGetArgs>? _secrets;
+
+        /// <summary>
+        /// One or more `secret` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretGetArgs> Secrets
         {
             get => _secrets ?? (_secrets = new InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretGetArgs>());
             set => _secrets = value;
         }
 
+        /// <summary>
+        /// Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 
         [Input("winrmListeners")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerGetArgs>? _winrmListeners;
+
+        /// <summary>
+        /// One or more `winrm_listener` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerGetArgs> WinrmListeners
         {
             get => _winrmListeners ?? (_winrmListeners = new InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerGetArgs>());

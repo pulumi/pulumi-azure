@@ -141,7 +141,7 @@ export class ConfigurationKey extends pulumi.CustomResource {
      */
     public readonly contentType!: pulumi.Output<string>;
     /**
-     * The ETag of the key.
+     * (Optional) The ETag of the key.
      */
     public readonly etag!: pulumi.Output<string>;
     /**
@@ -233,7 +233,7 @@ export interface ConfigurationKeyState {
      */
     contentType?: pulumi.Input<string>;
     /**
-     * The ETag of the key.
+     * (Optional) The ETag of the key.
      */
     etag?: pulumi.Input<string>;
     /**
@@ -279,7 +279,7 @@ export interface ConfigurationKeyArgs {
      */
     contentType?: pulumi.Input<string>;
     /**
-     * The ETag of the key.
+     * (Optional) The ETag of the key.
      */
     etag?: pulumi.Input<string>;
     /**

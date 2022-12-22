@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Consumption
         public Output<double> Amount { get; private set; } = null!;
 
         /// <summary>
-        /// The ETag of the Management Group Consumption Budget.
+        /// (Optional) The ETag of the Management Group Consumption Budget.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.Consumption
         public Input<double> Amount { get; set; } = null!;
 
         /// <summary>
-        /// The ETag of the Management Group Consumption Budget.
+        /// (Optional) The ETag of the Management Group Consumption Budget.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.Consumption
         public Input<double>? Amount { get; set; }
 
         /// <summary>
-        /// The ETag of the Management Group Consumption Budget.
+        /// (Optional) The ETag of the Management Group Consumption Budget.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }

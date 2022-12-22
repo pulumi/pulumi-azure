@@ -34,11 +34,11 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetSecretArgs {
     /**
-     * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+     * The ID of the TODO.
      */
     keyVaultId: string;
     /**
-     * Specifies the name of the Key Vault Secret.
+     * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
      */
     name: string;
 }
@@ -77,6 +77,9 @@ export interface GetSecretResult {
      * The current version of the Key Vault Secret.
      */
     readonly version: string;
+    /**
+     * The Versionless ID of the Key Vault Secret. This can be used to always get latest secret value, and enable fetching automatically rotating secrets.
+     */
     readonly versionlessId: string;
 }
 /**
@@ -104,11 +107,11 @@ export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetSecretOutputArgs {
     /**
-     * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+     * The ID of the TODO.
      */
     keyVaultId: pulumi.Input<string>;
     /**
-     * Specifies the name of the Key Vault Secret.
+     * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
      */
     name: pulumi.Input<string>;
 }

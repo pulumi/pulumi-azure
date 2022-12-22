@@ -34,7 +34,7 @@ public final class RulesEngineRuleMatchCondition {
      */
     private @Nullable List<String> transforms;
     /**
-     * @return can contain one or more strings.
+     * @return (array) can contain one or more strings.
      * 
      */
     private @Nullable List<String> values;
@@ -74,7 +74,7 @@ public final class RulesEngineRuleMatchCondition {
         return this.transforms == null ? List.of() : this.transforms;
     }
     /**
-     * @return can contain one or more strings.
+     * @return (array) can contain one or more strings.
      * 
      */
     public List<String> values() {

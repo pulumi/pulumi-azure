@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string? MetricMeasureColumn;
         /// <summary>
-        /// Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+        /// Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
         /// </summary>
         public readonly string Operator;
         /// <summary>

@@ -31,7 +31,7 @@ public final class ScheduledQueryRulesAlertV2Criteria {
      */
     private @Nullable String metricMeasureColumn;
     /**
-     * @return Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+     * @return Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
      * 
      */
     private String operator;
@@ -79,7 +79,7 @@ public final class ScheduledQueryRulesAlertV2Criteria {
         return Optional.ofNullable(this.metricMeasureColumn);
     }
     /**
-     * @return Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+     * @return Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
      * 
      */
     public String operator() {

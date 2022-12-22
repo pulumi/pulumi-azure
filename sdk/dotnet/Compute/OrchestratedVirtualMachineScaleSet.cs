@@ -69,6 +69,9 @@ namespace Pulumi.Azure.Compute
         [Output("automaticInstanceRepair")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair> AutomaticInstanceRepair { get; private set; } = null!;
 
+        /// <summary>
+        /// A `boot_diagnostics` block as defined below.
+        /// </summary>
         [Output("bootDiagnostics")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
 
@@ -78,12 +81,18 @@ namespace Pulumi.Azure.Compute
         [Output("capacityReservationGroupId")]
         public Output<string?> CapacityReservationGroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more `data_disk` blocks as defined below.
+        /// </summary>
         [Output("dataDisks")]
         public Output<ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetDataDisk>> DataDisks { get; private set; } = null!;
 
         [Output("encryptionAtHostEnabled")]
         public Output<bool?> EncryptionAtHostEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("evictionPolicy")]
         public Output<string?> EvictionPolicy { get; private set; } = null!;
 
@@ -93,6 +102,9 @@ namespace Pulumi.Azure.Compute
         [Output("extensionOperationsEnabled")]
         public Output<bool> ExtensionOperationsEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more `extension` blocks as defined below
+        /// </summary>
         [Output("extensions")]
         public Output<ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetExtension>> Extensions { get; private set; } = null!;
 
@@ -102,6 +114,9 @@ namespace Pulumi.Azure.Compute
         [Output("extensionsTimeBudget")]
         public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
 
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         [Output("identity")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetIdentity?> Identity { get; private set; } = null!;
 
@@ -111,6 +126,9 @@ namespace Pulumi.Azure.Compute
         [Output("instances")]
         public Output<int> Instances { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+        /// </summary>
         [Output("licenseType")]
         public Output<string?> LicenseType { get; private set; } = null!;
 
@@ -120,6 +138,9 @@ namespace Pulumi.Azure.Compute
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
+        /// <summary>
+        /// The maximum price you're willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
+        /// </summary>
         [Output("maxBidPrice")]
         public Output<double?> MaxBidPrice { get; private set; } = null!;
 
@@ -129,15 +150,27 @@ namespace Pulumi.Azure.Compute
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more `network_interface` blocks as defined below.
+        /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
+        /// <summary>
+        /// An `os_disk` block as defined below.
+        /// </summary>
         [Output("osDisk")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetOsDisk?> OsDisk { get; private set; } = null!;
 
+        /// <summary>
+        /// An `os_profile` block as defined below.
+        /// </summary>
         [Output("osProfile")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetOsProfile?> OsProfile { get; private set; } = null!;
 
+        /// <summary>
+        /// A `plan` block as documented below.
+        /// </summary>
         [Output("plan")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetPlan?> Plan { get; private set; } = null!;
 
@@ -147,6 +180,9 @@ namespace Pulumi.Azure.Compute
         [Output("platformFaultDomainCount")]
         public Output<int> PlatformFaultDomainCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+        /// </summary>
         [Output("priority")]
         public Output<string?> Priority { get; private set; } = null!;
 
@@ -169,11 +205,14 @@ namespace Pulumi.Azure.Compute
         public Output<bool> SinglePlacementGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+        /// The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
         /// </summary>
         [Output("skuName")]
         public Output<string?> SkuName { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+        /// </summary>
         [Output("sourceImageId")]
         public Output<string?> SourceImageId { get; private set; } = null!;
 
@@ -189,6 +228,9 @@ namespace Pulumi.Azure.Compute
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A `termination_notification` block as defined below.
+        /// </summary>
         [Output("terminationNotification")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetTerminationNotification> TerminationNotification { get; private set; } = null!;
 
@@ -275,6 +317,9 @@ namespace Pulumi.Azure.Compute
         [Input("automaticInstanceRepair")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs>? AutomaticInstanceRepair { get; set; }
 
+        /// <summary>
+        /// A `boot_diagnostics` block as defined below.
+        /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs>? BootDiagnostics { get; set; }
 
@@ -286,6 +331,10 @@ namespace Pulumi.Azure.Compute
 
         [Input("dataDisks")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskArgs>? _dataDisks;
+
+        /// <summary>
+        /// One or more `data_disk` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskArgs> DataDisks
         {
             get => _dataDisks ?? (_dataDisks = new InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskArgs>());
@@ -295,6 +344,9 @@ namespace Pulumi.Azure.Compute
         [Input("encryptionAtHostEnabled")]
         public Input<bool>? EncryptionAtHostEnabled { get; set; }
 
+        /// <summary>
+        /// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
 
@@ -306,6 +358,10 @@ namespace Pulumi.Azure.Compute
 
         [Input("extensions")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionArgs>? _extensions;
+
+        /// <summary>
+        /// One or more `extension` blocks as defined below
+        /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionArgs> Extensions
         {
             get => _extensions ?? (_extensions = new InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionArgs>());
@@ -318,6 +374,9 @@ namespace Pulumi.Azure.Compute
         [Input("extensionsTimeBudget")]
         public Input<string>? ExtensionsTimeBudget { get; set; }
 
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         [Input("identity")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetIdentityArgs>? Identity { get; set; }
 
@@ -327,6 +386,9 @@ namespace Pulumi.Azure.Compute
         [Input("instances")]
         public Input<int>? Instances { get; set; }
 
+        /// <summary>
+        /// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+        /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }
 
@@ -336,6 +398,9 @@ namespace Pulumi.Azure.Compute
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// The maximum price you're willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
+        /// </summary>
         [Input("maxBidPrice")]
         public Input<double>? MaxBidPrice { get; set; }
 
@@ -347,18 +412,31 @@ namespace Pulumi.Azure.Compute
 
         [Input("networkInterfaces")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs>? _networkInterfaces;
+
+        /// <summary>
+        /// One or more `network_interface` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs> NetworkInterfaces
         {
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs>());
             set => _networkInterfaces = value;
         }
 
+        /// <summary>
+        /// An `os_disk` block as defined below.
+        /// </summary>
         [Input("osDisk")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsDiskArgs>? OsDisk { get; set; }
 
+        /// <summary>
+        /// An `os_profile` block as defined below.
+        /// </summary>
         [Input("osProfile")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsProfileArgs>? OsProfile { get; set; }
 
+        /// <summary>
+        /// A `plan` block as documented below.
+        /// </summary>
         [Input("plan")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetPlanArgs>? Plan { get; set; }
 
@@ -368,6 +446,9 @@ namespace Pulumi.Azure.Compute
         [Input("platformFaultDomainCount", required: true)]
         public Input<int> PlatformFaultDomainCount { get; set; } = null!;
 
+        /// <summary>
+        /// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+        /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
 
@@ -390,11 +471,14 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? SinglePlacementGroup { get; set; }
 
         /// <summary>
-        /// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+        /// The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 
+        /// <summary>
+        /// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+        /// </summary>
         [Input("sourceImageId")]
         public Input<string>? SourceImageId { get; set; }
 
@@ -416,6 +500,9 @@ namespace Pulumi.Azure.Compute
             set => _tags = value;
         }
 
+        /// <summary>
+        /// A `termination_notification` block as defined below.
+        /// </summary>
         [Input("terminationNotification")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetTerminationNotificationArgs>? TerminationNotification { get; set; }
 
@@ -470,6 +557,9 @@ namespace Pulumi.Azure.Compute
         [Input("automaticInstanceRepair")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairGetArgs>? AutomaticInstanceRepair { get; set; }
 
+        /// <summary>
+        /// A `boot_diagnostics` block as defined below.
+        /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
 
@@ -481,6 +571,10 @@ namespace Pulumi.Azure.Compute
 
         [Input("dataDisks")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskGetArgs>? _dataDisks;
+
+        /// <summary>
+        /// One or more `data_disk` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskGetArgs> DataDisks
         {
             get => _dataDisks ?? (_dataDisks = new InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskGetArgs>());
@@ -490,6 +584,9 @@ namespace Pulumi.Azure.Compute
         [Input("encryptionAtHostEnabled")]
         public Input<bool>? EncryptionAtHostEnabled { get; set; }
 
+        /// <summary>
+        /// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
 
@@ -501,6 +598,10 @@ namespace Pulumi.Azure.Compute
 
         [Input("extensions")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionGetArgs>? _extensions;
+
+        /// <summary>
+        /// One or more `extension` blocks as defined below
+        /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionGetArgs> Extensions
         {
             get => _extensions ?? (_extensions = new InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionGetArgs>());
@@ -513,6 +614,9 @@ namespace Pulumi.Azure.Compute
         [Input("extensionsTimeBudget")]
         public Input<string>? ExtensionsTimeBudget { get; set; }
 
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         [Input("identity")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetIdentityGetArgs>? Identity { get; set; }
 
@@ -522,6 +626,9 @@ namespace Pulumi.Azure.Compute
         [Input("instances")]
         public Input<int>? Instances { get; set; }
 
+        /// <summary>
+        /// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+        /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }
 
@@ -531,6 +638,9 @@ namespace Pulumi.Azure.Compute
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// The maximum price you're willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
+        /// </summary>
         [Input("maxBidPrice")]
         public Input<double>? MaxBidPrice { get; set; }
 
@@ -542,18 +652,31 @@ namespace Pulumi.Azure.Compute
 
         [Input("networkInterfaces")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceGetArgs>? _networkInterfaces;
+
+        /// <summary>
+        /// One or more `network_interface` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceGetArgs> NetworkInterfaces
         {
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceGetArgs>());
             set => _networkInterfaces = value;
         }
 
+        /// <summary>
+        /// An `os_disk` block as defined below.
+        /// </summary>
         [Input("osDisk")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsDiskGetArgs>? OsDisk { get; set; }
 
+        /// <summary>
+        /// An `os_profile` block as defined below.
+        /// </summary>
         [Input("osProfile")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsProfileGetArgs>? OsProfile { get; set; }
 
+        /// <summary>
+        /// A `plan` block as documented below.
+        /// </summary>
         [Input("plan")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetPlanGetArgs>? Plan { get; set; }
 
@@ -563,6 +686,9 @@ namespace Pulumi.Azure.Compute
         [Input("platformFaultDomainCount")]
         public Input<int>? PlatformFaultDomainCount { get; set; }
 
+        /// <summary>
+        /// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+        /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
 
@@ -585,11 +711,14 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? SinglePlacementGroup { get; set; }
 
         /// <summary>
-        /// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+        /// The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 
+        /// <summary>
+        /// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+        /// </summary>
         [Input("sourceImageId")]
         public Input<string>? SourceImageId { get; set; }
 
@@ -611,6 +740,9 @@ namespace Pulumi.Azure.Compute
             set => _tags = value;
         }
 
+        /// <summary>
+        /// A `termination_notification` block as defined below.
+        /// </summary>
         [Input("terminationNotification")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetTerminationNotificationGetArgs>? TerminationNotification { get; set; }
 

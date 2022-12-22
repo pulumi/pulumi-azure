@@ -20,6 +20,21 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
     public static final AnalyticsWorkspaceArgs Empty = new AnalyticsWorkspaceArgs();
 
     /**
+     * Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+     * 
+     */
+    @Import(name="allowResourceOnlyPermissions")
+    private @Nullable Output<Boolean> allowResourceOnlyPermissions;
+
+    /**
+     * @return Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> allowResourceOnlyPermissions() {
+        return Optional.ofNullable(this.allowResourceOnlyPermissions);
+    }
+
+    /**
      * Is Customer Managed Storage mandatory for query management?
      * 
      */
@@ -187,6 +202,7 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
     private AnalyticsWorkspaceArgs() {}
 
     private AnalyticsWorkspaceArgs(AnalyticsWorkspaceArgs $) {
+        this.allowResourceOnlyPermissions = $.allowResourceOnlyPermissions;
         this.cmkForQueryForced = $.cmkForQueryForced;
         this.dailyQuotaGb = $.dailyQuotaGb;
         this.internetIngestionEnabled = $.internetIngestionEnabled;
@@ -216,6 +232,27 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
 
         public Builder(AnalyticsWorkspaceArgs defaults) {
             $ = new AnalyticsWorkspaceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param allowResourceOnlyPermissions Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowResourceOnlyPermissions(@Nullable Output<Boolean> allowResourceOnlyPermissions) {
+            $.allowResourceOnlyPermissions = allowResourceOnlyPermissions;
+            return this;
+        }
+
+        /**
+         * @param allowResourceOnlyPermissions Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowResourceOnlyPermissions(Boolean allowResourceOnlyPermissions) {
+            return allowResourceOnlyPermissions(Output.of(allowResourceOnlyPermissions));
         }
 
         /**

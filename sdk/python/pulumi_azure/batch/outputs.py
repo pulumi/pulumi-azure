@@ -1559,10 +1559,10 @@ class PoolStartTask(dict):
                  wait_for_success: Optional[bool] = None):
         """
         :param str command_line: The command line executed by the start task.
-        :param 'PoolStartTaskUserIdentityArgs' user_identity: A `user_identity` block that describes the user identity under which the start task runs.
+        :param 'PoolStartTaskUserIdentityArgs' user_identity: A `user_identity` block that describes the user identity under which the start task runs as defined below.
         :param Mapping[str, str] common_environment_properties: A map of strings (key,value) that represents the environment variables to set in the start task.
         :param Sequence['PoolStartTaskContainerArgs'] containers: A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
-        :param Sequence['PoolStartTaskResourceFileArgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        :param Sequence['PoolStartTaskResourceFileArgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
         :param int task_retry_maximum: The number of retry count. Defaults to `1`.
         :param bool wait_for_success: A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
         """
@@ -1591,7 +1591,7 @@ class PoolStartTask(dict):
     @pulumi.getter(name="userIdentity")
     def user_identity(self) -> 'outputs.PoolStartTaskUserIdentity':
         """
-        A `user_identity` block that describes the user identity under which the start task runs.
+        A `user_identity` block that describes the user identity under which the start task runs as defined below.
         """
         return pulumi.get(self, "user_identity")
 
@@ -1615,7 +1615,7 @@ class PoolStartTask(dict):
     @pulumi.getter(name="resourceFiles")
     def resource_files(self) -> Optional[Sequence['outputs.PoolStartTaskResourceFile']]:
         """
-        One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
         """
         return pulumi.get(self, "resource_files")
 
@@ -1931,7 +1931,7 @@ class PoolStartTaskUserIdentity(dict):
                  auto_user: Optional['outputs.PoolStartTaskUserIdentityAutoUser'] = None,
                  user_name: Optional[str] = None):
         """
-        :param 'PoolStartTaskUserIdentityAutoUserArgs' auto_user: A `auto_user` block that describes the user identity under which the start task runs.
+        :param 'PoolStartTaskUserIdentityAutoUserArgs' auto_user: A `auto_user` block that describes the user identity under which the start task runs as defined below.
         :param str user_name: The username to be used by the Batch pool start task.
         """
         if auto_user is not None:
@@ -1943,7 +1943,7 @@ class PoolStartTaskUserIdentity(dict):
     @pulumi.getter(name="autoUser")
     def auto_user(self) -> Optional['outputs.PoolStartTaskUserIdentityAutoUser']:
         """
-        A `auto_user` block that describes the user identity under which the start task runs.
+        A `auto_user` block that describes the user identity under which the start task runs as defined below.
         """
         return pulumi.get(self, "auto_user")
 

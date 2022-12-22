@@ -9,6 +9,7 @@ import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolState;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNodePoolKubeletConfig;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNodePoolLinuxOsConfig;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNodePoolUpgradeSettings;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterNodePoolWindowsProfile;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -615,6 +616,20 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      */
     public Output<Optional<String>> vnetSubnetId() {
         return Codegen.optional(this.vnetSubnetId);
+    }
+    /**
+     * A `windows_profile` block as documented below.
+     * 
+     */
+    @Export(name="windowsProfile", type=KubernetesClusterNodePoolWindowsProfile.class, parameters={})
+    private Output</* @Nullable */ KubernetesClusterNodePoolWindowsProfile> windowsProfile;
+
+    /**
+     * @return A `windows_profile` block as documented below.
+     * 
+     */
+    public Output<Optional<KubernetesClusterNodePoolWindowsProfile>> windowsProfile() {
+        return Codegen.optional(this.windowsProfile);
     }
     /**
      * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.

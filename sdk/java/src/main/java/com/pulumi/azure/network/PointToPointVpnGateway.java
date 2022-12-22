@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -199,6 +200,20 @@ public class PointToPointVpnGateway extends com.pulumi.resources.CustomResource 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="routingPreferenceInternetEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> routingPreferenceInternetEnabled;
+
+    /**
+     * @return Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<Boolean>> routingPreferenceInternetEnabled() {
+        return Codegen.optional(this.routingPreferenceInternetEnabled);
     }
     /**
      * The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.

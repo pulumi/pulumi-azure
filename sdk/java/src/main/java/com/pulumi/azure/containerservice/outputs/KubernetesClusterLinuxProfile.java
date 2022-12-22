@@ -16,7 +16,7 @@ public final class KubernetesClusterLinuxProfile {
      */
     private String adminUsername;
     /**
-     * @return An `ssh_key` block. Only one is currently allowed. Changing this forces a new resource to be created.
+     * @return An `ssh_key` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
      * 
      */
     private KubernetesClusterLinuxProfileSshKey sshKey;
@@ -30,7 +30,7 @@ public final class KubernetesClusterLinuxProfile {
         return this.adminUsername;
     }
     /**
-     * @return An `ssh_key` block. Only one is currently allowed. Changing this forces a new resource to be created.
+     * @return An `ssh_key` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
      * 
      */
     public KubernetesClusterLinuxProfileSshKey sshKey() {

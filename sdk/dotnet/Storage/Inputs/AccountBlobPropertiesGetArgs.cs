@@ -61,6 +61,12 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<bool>? LastAccessTimeEnabled { get; set; }
 
         /// <summary>
+        /// A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+        /// </summary>
+        [Input("restorePolicy")]
+        public Input<Inputs.AccountBlobPropertiesRestorePolicyGetArgs>? RestorePolicy { get; set; }
+
+        /// <summary>
         /// Is versioning enabled? Default to `false`.
         /// </summary>
         [Input("versioningEnabled")]

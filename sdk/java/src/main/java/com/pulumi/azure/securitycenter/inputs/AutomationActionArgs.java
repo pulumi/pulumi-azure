@@ -16,14 +16,14 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
     public static final AutomationActionArgs Empty = new AutomationActionArgs();
 
     /**
-     * A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+     * (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
      * 
      */
     @Import(name="connectionString")
     private @Nullable Output<String> connectionString;
 
     /**
-     * @return A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+     * @return (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
      * 
      */
     public Optional<Output<String>> connectionString() {
@@ -46,14 +46,14 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
+     * (Optional, but required when `type` is `LogicApp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
      * 
      */
     @Import(name="triggerUrl")
     private @Nullable Output<String> triggerUrl;
 
     /**
-     * @return The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
+     * @return (Optional, but required when `type` is `LogicApp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
      * 
      */
     public Optional<Output<String>> triggerUrl() {
@@ -103,7 +103,7 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param connectionString A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+         * @param connectionString (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param connectionString A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+         * @param connectionString (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param triggerUrl The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
+         * @param triggerUrl (Optional, but required when `type` is `LogicApp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param triggerUrl The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
+         * @param triggerUrl (Optional, but required when `type` is `LogicApp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
          * 
          * @return builder
          * 

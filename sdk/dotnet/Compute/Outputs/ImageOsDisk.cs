@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? ManagedDiskId;
         /// <summary>
-        /// Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
+        /// Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
         /// </summary>
         public readonly string? OsState;
         /// <summary>

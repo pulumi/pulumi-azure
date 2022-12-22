@@ -3147,11 +3147,11 @@ type PoolStartTask struct {
 	CommonEnvironmentProperties map[string]string `pulumi:"commonEnvironmentProperties"`
 	// A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
 	Containers []PoolStartTaskContainer `pulumi:"containers"`
-	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node as defined below.
 	ResourceFiles []PoolStartTaskResourceFile `pulumi:"resourceFiles"`
 	// The number of retry count. Defaults to `1`.
 	TaskRetryMaximum *int `pulumi:"taskRetryMaximum"`
-	// A `userIdentity` block that describes the user identity under which the start task runs.
+	// A `userIdentity` block that describes the user identity under which the start task runs as defined below.
 	UserIdentity PoolStartTaskUserIdentity `pulumi:"userIdentity"`
 	// A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
 	WaitForSuccess *bool `pulumi:"waitForSuccess"`
@@ -3175,11 +3175,11 @@ type PoolStartTaskArgs struct {
 	CommonEnvironmentProperties pulumi.StringMapInput `pulumi:"commonEnvironmentProperties"`
 	// A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
 	Containers PoolStartTaskContainerArrayInput `pulumi:"containers"`
-	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node as defined below.
 	ResourceFiles PoolStartTaskResourceFileArrayInput `pulumi:"resourceFiles"`
 	// The number of retry count. Defaults to `1`.
 	TaskRetryMaximum pulumi.IntPtrInput `pulumi:"taskRetryMaximum"`
-	// A `userIdentity` block that describes the user identity under which the start task runs.
+	// A `userIdentity` block that describes the user identity under which the start task runs as defined below.
 	UserIdentity PoolStartTaskUserIdentityInput `pulumi:"userIdentity"`
 	// A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
 	WaitForSuccess pulumi.BoolPtrInput `pulumi:"waitForSuccess"`
@@ -3277,7 +3277,7 @@ func (o PoolStartTaskOutput) Containers() PoolStartTaskContainerArrayOutput {
 	return o.ApplyT(func(v PoolStartTask) []PoolStartTaskContainer { return v.Containers }).(PoolStartTaskContainerArrayOutput)
 }
 
-// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node as defined below.
 func (o PoolStartTaskOutput) ResourceFiles() PoolStartTaskResourceFileArrayOutput {
 	return o.ApplyT(func(v PoolStartTask) []PoolStartTaskResourceFile { return v.ResourceFiles }).(PoolStartTaskResourceFileArrayOutput)
 }
@@ -3287,7 +3287,7 @@ func (o PoolStartTaskOutput) TaskRetryMaximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PoolStartTask) *int { return v.TaskRetryMaximum }).(pulumi.IntPtrOutput)
 }
 
-// A `userIdentity` block that describes the user identity under which the start task runs.
+// A `userIdentity` block that describes the user identity under which the start task runs as defined below.
 func (o PoolStartTaskOutput) UserIdentity() PoolStartTaskUserIdentityOutput {
 	return o.ApplyT(func(v PoolStartTask) PoolStartTaskUserIdentity { return v.UserIdentity }).(PoolStartTaskUserIdentityOutput)
 }
@@ -3351,7 +3351,7 @@ func (o PoolStartTaskPtrOutput) Containers() PoolStartTaskContainerArrayOutput {
 	}).(PoolStartTaskContainerArrayOutput)
 }
 
-// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node as defined below.
 func (o PoolStartTaskPtrOutput) ResourceFiles() PoolStartTaskResourceFileArrayOutput {
 	return o.ApplyT(func(v *PoolStartTask) []PoolStartTaskResourceFile {
 		if v == nil {
@@ -3371,7 +3371,7 @@ func (o PoolStartTaskPtrOutput) TaskRetryMaximum() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// A `userIdentity` block that describes the user identity under which the start task runs.
+// A `userIdentity` block that describes the user identity under which the start task runs as defined below.
 func (o PoolStartTaskPtrOutput) UserIdentity() PoolStartTaskUserIdentityPtrOutput {
 	return o.ApplyT(func(v *PoolStartTask) *PoolStartTaskUserIdentity {
 		if v == nil {
@@ -3791,7 +3791,7 @@ func (o PoolStartTaskResourceFileArrayOutput) Index(i pulumi.IntInput) PoolStart
 }
 
 type PoolStartTaskUserIdentity struct {
-	// A `autoUser` block that describes the user identity under which the start task runs.
+	// A `autoUser` block that describes the user identity under which the start task runs as defined below.
 	AutoUser *PoolStartTaskUserIdentityAutoUser `pulumi:"autoUser"`
 	// The username to be used by the Batch pool start task.
 	UserName *string `pulumi:"userName"`
@@ -3809,7 +3809,7 @@ type PoolStartTaskUserIdentityInput interface {
 }
 
 type PoolStartTaskUserIdentityArgs struct {
-	// A `autoUser` block that describes the user identity under which the start task runs.
+	// A `autoUser` block that describes the user identity under which the start task runs as defined below.
 	AutoUser PoolStartTaskUserIdentityAutoUserPtrInput `pulumi:"autoUser"`
 	// The username to be used by the Batch pool start task.
 	UserName pulumi.StringPtrInput `pulumi:"userName"`
@@ -3892,7 +3892,7 @@ func (o PoolStartTaskUserIdentityOutput) ToPoolStartTaskUserIdentityPtrOutputWit
 	}).(PoolStartTaskUserIdentityPtrOutput)
 }
 
-// A `autoUser` block that describes the user identity under which the start task runs.
+// A `autoUser` block that describes the user identity under which the start task runs as defined below.
 func (o PoolStartTaskUserIdentityOutput) AutoUser() PoolStartTaskUserIdentityAutoUserPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskUserIdentity) *PoolStartTaskUserIdentityAutoUser { return v.AutoUser }).(PoolStartTaskUserIdentityAutoUserPtrOutput)
 }
@@ -3926,7 +3926,7 @@ func (o PoolStartTaskUserIdentityPtrOutput) Elem() PoolStartTaskUserIdentityOutp
 	}).(PoolStartTaskUserIdentityOutput)
 }
 
-// A `autoUser` block that describes the user identity under which the start task runs.
+// A `autoUser` block that describes the user identity under which the start task runs as defined below.
 func (o PoolStartTaskUserIdentityPtrOutput) AutoUser() PoolStartTaskUserIdentityAutoUserPtrOutput {
 	return o.ApplyT(func(v *PoolStartTaskUserIdentity) *PoolStartTaskUserIdentityAutoUser {
 		if v == nil {

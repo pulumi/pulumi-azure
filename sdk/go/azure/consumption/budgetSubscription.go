@@ -124,7 +124,7 @@ type BudgetSubscription struct {
 
 	// The total amount of cost to track with the budget.
 	Amount pulumi.Float64Output `pulumi:"amount"`
-	// The ETag of the Subscription Consumption Budget.
+	// (Optional) The ETag of the Subscription Consumption Budget.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// A `filter` block as defined below.
 	Filter BudgetSubscriptionFilterPtrOutput `pulumi:"filter"`
@@ -183,7 +183,7 @@ func GetBudgetSubscription(ctx *pulumi.Context,
 type budgetSubscriptionState struct {
 	// The total amount of cost to track with the budget.
 	Amount *float64 `pulumi:"amount"`
-	// The ETag of the Subscription Consumption Budget.
+	// (Optional) The ETag of the Subscription Consumption Budget.
 	Etag *string `pulumi:"etag"`
 	// A `filter` block as defined below.
 	Filter *BudgetSubscriptionFilter `pulumi:"filter"`
@@ -202,7 +202,7 @@ type budgetSubscriptionState struct {
 type BudgetSubscriptionState struct {
 	// The total amount of cost to track with the budget.
 	Amount pulumi.Float64PtrInput
-	// The ETag of the Subscription Consumption Budget.
+	// (Optional) The ETag of the Subscription Consumption Budget.
 	Etag pulumi.StringPtrInput
 	// A `filter` block as defined below.
 	Filter BudgetSubscriptionFilterPtrInput
@@ -225,7 +225,7 @@ func (BudgetSubscriptionState) ElementType() reflect.Type {
 type budgetSubscriptionArgs struct {
 	// The total amount of cost to track with the budget.
 	Amount float64 `pulumi:"amount"`
-	// The ETag of the Subscription Consumption Budget.
+	// (Optional) The ETag of the Subscription Consumption Budget.
 	Etag *string `pulumi:"etag"`
 	// A `filter` block as defined below.
 	Filter *BudgetSubscriptionFilter `pulumi:"filter"`
@@ -245,7 +245,7 @@ type budgetSubscriptionArgs struct {
 type BudgetSubscriptionArgs struct {
 	// The total amount of cost to track with the budget.
 	Amount pulumi.Float64Input
-	// The ETag of the Subscription Consumption Budget.
+	// (Optional) The ETag of the Subscription Consumption Budget.
 	Etag pulumi.StringPtrInput
 	// A `filter` block as defined below.
 	Filter BudgetSubscriptionFilterPtrInput
@@ -353,7 +353,7 @@ func (o BudgetSubscriptionOutput) Amount() pulumi.Float64Output {
 	return o.ApplyT(func(v *BudgetSubscription) pulumi.Float64Output { return v.Amount }).(pulumi.Float64Output)
 }
 
-// The ETag of the Subscription Consumption Budget.
+// (Optional) The ETag of the Subscription Consumption Budget.
 func (o BudgetSubscriptionOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetSubscription) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }

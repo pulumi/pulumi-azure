@@ -14,51 +14,99 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+    /**
+     * @return A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * 
+     */
     private @Nullable List<String> applicationGatewayBackendAddressPoolIds;
+    /**
+     * @return A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * 
+     */
     private @Nullable List<String> applicationSecurityGroupIds;
+    /**
+     * @return A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * 
+     */
     private @Nullable List<String> loadBalancerBackendAddressPoolIds;
     /**
-     * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return The Name which should be used for this IP Configuration.
      * 
      */
     private String name;
+    /**
+     * @return Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean primary;
+    /**
+     * @return A `public_ip_address` block as defined below.
+     * 
+     */
     private @Nullable List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses;
+    /**
+     * @return The ID of the Subnet which this IP Configuration should be connected to.
+     * 
+     */
     private @Nullable String subnetId;
     /**
-     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+     * @return The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
      * 
      */
     private @Nullable String version;
 
     private OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration() {}
+    /**
+     * @return A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * 
+     */
     public List<String> applicationGatewayBackendAddressPoolIds() {
         return this.applicationGatewayBackendAddressPoolIds == null ? List.of() : this.applicationGatewayBackendAddressPoolIds;
     }
+    /**
+     * @return A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * 
+     */
     public List<String> applicationSecurityGroupIds() {
         return this.applicationSecurityGroupIds == null ? List.of() : this.applicationSecurityGroupIds;
     }
+    /**
+     * @return A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * 
+     */
     public List<String> loadBalancerBackendAddressPoolIds() {
         return this.loadBalancerBackendAddressPoolIds == null ? List.of() : this.loadBalancerBackendAddressPoolIds;
     }
     /**
-     * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return The Name which should be used for this IP Configuration.
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> primary() {
         return Optional.ofNullable(this.primary);
     }
+    /**
+     * @return A `public_ip_address` block as defined below.
+     * 
+     */
     public List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses() {
         return this.publicIpAddresses == null ? List.of() : this.publicIpAddresses;
     }
+    /**
+     * @return The ID of the Subnet which this IP Configuration should be connected to.
+     * 
+     */
     public Optional<String> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
     /**
-     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+     * @return The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
      * 
      */
     public Optional<String> version() {

@@ -375,12 +375,20 @@ class Policy(pulumi.CustomResource):
                 ],
                 managed_rule_sets=[azure.waf.PolicyManagedRulesManagedRuleSetArgs(
                     type="OWASP",
-                    version="3.1",
+                    version="3.2",
                     rule_group_overrides=[azure.waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs(
                         rule_group_name="REQUEST-920-PROTOCOL-ENFORCEMENT",
-                        disabled_rules=[
-                            "920300",
-                            "920440",
+                        rules=[
+                            azure.waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs(
+                                id="920300",
+                                enabled=True,
+                                action="Log",
+                            ),
+                            azure.waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs(
+                                id="920440",
+                                enabled=True,
+                                action="Block",
+                            ),
                         ],
                     )],
                 )],
@@ -490,12 +498,20 @@ class Policy(pulumi.CustomResource):
                 ],
                 managed_rule_sets=[azure.waf.PolicyManagedRulesManagedRuleSetArgs(
                     type="OWASP",
-                    version="3.1",
+                    version="3.2",
                     rule_group_overrides=[azure.waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs(
                         rule_group_name="REQUEST-920-PROTOCOL-ENFORCEMENT",
-                        disabled_rules=[
-                            "920300",
-                            "920440",
+                        rules=[
+                            azure.waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs(
+                                id="920300",
+                                enabled=True,
+                                action="Log",
+                            ),
+                            azure.waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs(
+                                id="920440",
+                                enabled=True,
+                                action="Block",
+                            ),
                         ],
                     )],
                 )],

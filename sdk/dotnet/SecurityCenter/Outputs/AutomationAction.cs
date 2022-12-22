@@ -14,7 +14,7 @@ namespace Pulumi.Azure.SecurityCenter.Outputs
     public sealed class AutomationAction
     {
         /// <summary>
-        /// A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+        /// (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
         /// </summary>
         public readonly string? ConnectionString;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.SecurityCenter.Outputs
         /// </summary>
         public readonly string ResourceId;
         /// <summary>
-        /// The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+        /// (Optional, but required when `type` is `LogicApp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
         /// </summary>
         public readonly string? TriggerUrl;
         /// <summary>

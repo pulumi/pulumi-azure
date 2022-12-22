@@ -18,6 +18,14 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string AssociatedRouteTable;
         /// <summary>
+        /// The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+        /// </summary>
+        public readonly string? InboundRouteMapId;
+        /// <summary>
+        /// The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+        /// </summary>
+        public readonly string? OutboundRouteMapId;
+        /// <summary>
         /// A `propagated_route_table` block as defined below.
         /// </summary>
         public readonly Outputs.VpnGatewayConnectionRoutingPropagatedRouteTable? PropagatedRouteTable;
@@ -26,9 +34,15 @@ namespace Pulumi.Azure.Network.Outputs
         private VpnGatewayConnectionRouting(
             string associatedRouteTable,
 
+            string? inboundRouteMapId,
+
+            string? outboundRouteMapId,
+
             Outputs.VpnGatewayConnectionRoutingPropagatedRouteTable? propagatedRouteTable)
         {
             AssociatedRouteTable = associatedRouteTable;
+            InboundRouteMapId = inboundRouteMapId;
+            OutboundRouteMapId = outboundRouteMapId;
             PropagatedRouteTable = propagatedRouteTable;
         }
     }

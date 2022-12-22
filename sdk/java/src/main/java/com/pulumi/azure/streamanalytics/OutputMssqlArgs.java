@@ -92,18 +92,18 @@ public final class OutputMssqlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password used together with username, to login to the Microsoft SQL Server.
+     * Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
-    @Import(name="password", required=true)
-    private Output<String> password;
+    @Import(name="password")
+    private @Nullable Output<String> password;
 
     /**
-     * @return Password used together with username, to login to the Microsoft SQL Server.
+     * @return Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
-    public Output<String> password() {
-        return this.password;
+    public Optional<Output<String>> password() {
+        return Optional.ofNullable(this.password);
     }
 
     /**
@@ -167,18 +167,18 @@ public final class OutputMssqlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+     * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
-    @Import(name="user", required=true)
-    private Output<String> user;
+    @Import(name="user")
+    private @Nullable Output<String> user;
 
     /**
-     * @return Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+     * @return Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
-    public Output<String> user() {
-        return this.user;
+    public Optional<Output<String>> user() {
+        return Optional.ofNullable(this.user);
     }
 
     private OutputMssqlArgs() {}
@@ -321,18 +321,18 @@ public final class OutputMssqlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password used together with username, to login to the Microsoft SQL Server.
+         * @param password Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
          * 
          * @return builder
          * 
          */
-        public Builder password(Output<String> password) {
+        public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
 
         /**
-         * @param password Password used together with username, to login to the Microsoft SQL Server.
+         * @param password Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
          * 
          * @return builder
          * 
@@ -426,18 +426,18 @@ public final class OutputMssqlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param user Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+         * @param user Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
          * 
          * @return builder
          * 
          */
-        public Builder user(Output<String> user) {
+        public Builder user(@Nullable Output<String> user) {
             $.user = user;
             return this;
         }
 
         /**
-         * @param user Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+         * @param user Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
          * 
          * @return builder
          * 
@@ -448,12 +448,10 @@ public final class OutputMssqlArgs extends com.pulumi.resources.ResourceArgs {
 
         public OutputMssqlArgs build() {
             $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
             $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
             $.server = Objects.requireNonNull($.server, "expected parameter 'server' to be non-null");
             $.streamAnalyticsJobName = Objects.requireNonNull($.streamAnalyticsJobName, "expected parameter 'streamAnalyticsJobName' to be non-null");
             $.table = Objects.requireNonNull($.table, "expected parameter 'table' to be non-null");
-            $.user = Objects.requireNonNull($.user, "expected parameter 'user' to be non-null");
             return $;
         }
     }

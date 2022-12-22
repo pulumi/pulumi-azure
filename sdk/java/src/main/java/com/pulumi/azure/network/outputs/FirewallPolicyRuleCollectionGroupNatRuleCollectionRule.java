@@ -19,17 +19,17 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
      */
     private @Nullable String destinationAddress;
     /**
-     * @return Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+     * @return Specifies a list of destination ports.
      * 
      */
     private @Nullable String destinationPorts;
     /**
-     * @return The name which should be used for this rule.
+     * @return The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      * 
      */
     private String name;
     /**
-     * @return Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+     * @return One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
      * 
      */
     private List<String> protocols;
@@ -68,21 +68,21 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
         return Optional.ofNullable(this.destinationAddress);
     }
     /**
-     * @return Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+     * @return Specifies a list of destination ports.
      * 
      */
     public Optional<String> destinationPorts() {
         return Optional.ofNullable(this.destinationPorts);
     }
     /**
-     * @return The name which should be used for this rule.
+     * @return The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+     * @return One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
      * 
      */
     public List<String> protocols() {

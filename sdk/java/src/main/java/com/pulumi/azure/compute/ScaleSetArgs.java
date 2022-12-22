@@ -115,14 +115,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+     * (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
      * 
      */
     @Import(name="licenseType")
     private @Nullable Output<String> licenseType;
 
     /**
-     * @return Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+     * @return (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
      * 
      */
     public Optional<Output<String>> licenseType() {
@@ -620,7 +620,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param licenseType Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+         * @param licenseType (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
          * 
          * @return builder
          * 
@@ -631,7 +631,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param licenseType Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+         * @param licenseType (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
          * 
          * @return builder
          * 

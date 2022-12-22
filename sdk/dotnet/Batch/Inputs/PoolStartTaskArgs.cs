@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<Inputs.PoolStartTaskResourceFileArgs>? _resourceFiles;
 
         /// <summary>
-        /// One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        /// One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
         /// </summary>
         public InputList<Inputs.PoolStartTaskResourceFileArgs> ResourceFiles
         {
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.Batch.Inputs
         public Input<int>? TaskRetryMaximum { get; set; }
 
         /// <summary>
-        /// A `user_identity` block that describes the user identity under which the start task runs.
+        /// A `user_identity` block that describes the user identity under which the start task runs as defined below.
         /// </summary>
         [Input("userIdentity", required: true)]
         public Input<Inputs.PoolStartTaskUserIdentityArgs> UserIdentity { get; set; } = null!;

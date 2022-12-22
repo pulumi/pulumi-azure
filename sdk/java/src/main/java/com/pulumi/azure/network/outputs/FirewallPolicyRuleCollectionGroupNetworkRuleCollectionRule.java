@@ -12,12 +12,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
     /**
-     * @return Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+     * @return Specifies a list of destination IP addresses (including CIDR and `*`).
      * 
      */
     private @Nullable List<String> destinationAddresses;
     /**
-     * @return Specifies a list of destination FQDNs.
+     * @return Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
      * 
      */
     private @Nullable List<String> destinationFqdns;
@@ -27,17 +27,17 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
      */
     private @Nullable List<String> destinationIpGroups;
     /**
-     * @return Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+     * @return Specifies a list of destination ports.
      * 
      */
     private List<String> destinationPorts;
     /**
-     * @return The name which should be used for this rule.
+     * @return The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      * 
      */
     private String name;
     /**
-     * @return Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+     * @return One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
      * 
      */
     private List<String> protocols;
@@ -54,14 +54,14 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
 
     private FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule() {}
     /**
-     * @return Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+     * @return Specifies a list of destination IP addresses (including CIDR and `*`).
      * 
      */
     public List<String> destinationAddresses() {
         return this.destinationAddresses == null ? List.of() : this.destinationAddresses;
     }
     /**
-     * @return Specifies a list of destination FQDNs.
+     * @return Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
      * 
      */
     public List<String> destinationFqdns() {
@@ -75,21 +75,21 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
         return this.destinationIpGroups == null ? List.of() : this.destinationIpGroups;
     }
     /**
-     * @return Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+     * @return Specifies a list of destination ports.
      * 
      */
     public List<String> destinationPorts() {
         return this.destinationPorts;
     }
     /**
-     * @return The name which should be used for this rule.
+     * @return The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+     * @return One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
      * 
      */
     public List<String> protocols() {

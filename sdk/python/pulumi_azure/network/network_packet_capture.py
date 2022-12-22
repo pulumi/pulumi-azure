@@ -331,6 +331,8 @@ class NetworkPacketCapture(pulumi.CustomResource):
         """
         Configures Network Packet Capturing against a Virtual Machine using a Network Watcher.
 
+        !> **NOTE:** The `network.NetworkPacketCapture` resource is deprecated and will be removed in favour of `compute.PacketCapture` and `compute.ScaleSetPacketCapture` in version 4.0 of the AzureRM Provider.
+
         ## Example Usage
 
         ```python
@@ -433,6 +435,8 @@ class NetworkPacketCapture(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configures Network Packet Capturing against a Virtual Machine using a Network Watcher.
+
+        !> **NOTE:** The `network.NetworkPacketCapture` resource is deprecated and will be removed in favour of `compute.PacketCapture` and `compute.ScaleSetPacketCapture` in version 4.0 of the AzureRM Provider.
 
         ## Example Usage
 

@@ -83,14 +83,14 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
         return this.automationAccountName;
     }
     /**
-     * The UUID identifying the Automation Job Schedule.
+     * (Optional) The UUID identifying the Automation Job Schedule.
      * 
      */
     @Export(name="jobScheduleId", type=String.class, parameters={})
     private Output<String> jobScheduleId;
 
     /**
-     * @return The UUID identifying the Automation Job Schedule.
+     * @return (Optional) The UUID identifying the Automation Job Schedule.
      * 
      */
     public Output<String> jobScheduleId() {

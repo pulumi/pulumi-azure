@@ -68,7 +68,7 @@ export class JobSchedule extends pulumi.CustomResource {
      */
     public readonly automationAccountName!: pulumi.Output<string>;
     /**
-     * The UUID identifying the Automation Job Schedule.
+     * (Optional) The UUID identifying the Automation Job Schedule.
      */
     public readonly jobScheduleId!: pulumi.Output<string>;
     /**
@@ -148,7 +148,7 @@ export interface JobScheduleState {
      */
     automationAccountName?: pulumi.Input<string>;
     /**
-     * The UUID identifying the Automation Job Schedule.
+     * (Optional) The UUID identifying the Automation Job Schedule.
      */
     jobScheduleId?: pulumi.Input<string>;
     /**
@@ -182,7 +182,7 @@ export interface JobScheduleArgs {
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * The UUID identifying the Automation Job Schedule.
+     * (Optional) The UUID identifying the Automation Job Schedule.
      */
     jobScheduleId?: pulumi.Input<string>;
     /**

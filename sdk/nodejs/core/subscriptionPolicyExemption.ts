@@ -93,7 +93,7 @@ export class SubscriptionPolicyExemption extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the Policy Assignment to be exempted at the specified Scope.
+     * The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
      */
     public readonly policyAssignmentId!: pulumi.Output<string>;
     /**
@@ -182,7 +182,7 @@ export interface SubscriptionPolicyExemptionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Policy Assignment to be exempted at the specified Scope.
+     * The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
      */
     policyAssignmentId?: pulumi.Input<string>;
     /**
@@ -224,7 +224,7 @@ export interface SubscriptionPolicyExemptionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the Policy Assignment to be exempted at the specified Scope.
+     * The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
      */
     policyAssignmentId: pulumi.Input<string>;
     /**

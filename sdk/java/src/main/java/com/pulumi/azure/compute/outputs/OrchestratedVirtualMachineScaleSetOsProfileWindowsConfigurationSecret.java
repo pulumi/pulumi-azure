@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret {
+    /**
+     * @return One or more `certificate` blocks as defined below.
+     * 
+     */
     private List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate> certificates;
+    /**
+     * @return The ID of the Key Vault from which all Secrets should be sourced.
+     * 
+     */
     private String keyVaultId;
 
     private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret() {}
+    /**
+     * @return One or more `certificate` blocks as defined below.
+     * 
+     */
     public List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate> certificates() {
         return this.certificates;
     }
+    /**
+     * @return The ID of the Key Vault from which all Secrets should be sourced.
+     * 
+     */
     public String keyVaultId() {
         return this.keyVaultId;
     }

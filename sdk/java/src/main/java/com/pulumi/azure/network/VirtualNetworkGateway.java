@@ -380,18 +380,14 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return this.type;
     }
     /**
-     * A `vpn_client_configuration` block which
-     * is documented below. In this block the Virtual Network Gateway can be configured
-     * to accept IPSec point-to-site connections.
+     * A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      * 
      */
     @Export(name="vpnClientConfiguration", type=VirtualNetworkGatewayVpnClientConfiguration.class, parameters={})
     private Output</* @Nullable */ VirtualNetworkGatewayVpnClientConfiguration> vpnClientConfiguration;
 
     /**
-     * @return A `vpn_client_configuration` block which
-     * is documented below. In this block the Virtual Network Gateway can be configured
-     * to accept IPSec point-to-site connections.
+     * @return A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      * 
      */
     public Output<Optional<VirtualNetworkGatewayVpnClientConfiguration>> vpnClientConfiguration() {

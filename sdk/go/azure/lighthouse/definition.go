@@ -71,6 +71,8 @@ type Definition struct {
 	Authorizations DefinitionAuthorizationArrayOutput `pulumi:"authorizations"`
 	// A description of the Lighthouse Definition.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// An `eligibleAuthorization` block as defined below.
+	EligibleAuthorizations DefinitionEligibleAuthorizationArrayOutput `pulumi:"eligibleAuthorizations"`
 	// A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
 	LighthouseDefinitionId pulumi.StringOutput `pulumi:"lighthouseDefinitionId"`
 	// The ID of the managing tenant. Changing this forces a new resource to be created.
@@ -125,6 +127,8 @@ type definitionState struct {
 	Authorizations []DefinitionAuthorization `pulumi:"authorizations"`
 	// A description of the Lighthouse Definition.
 	Description *string `pulumi:"description"`
+	// An `eligibleAuthorization` block as defined below.
+	EligibleAuthorizations []DefinitionEligibleAuthorization `pulumi:"eligibleAuthorizations"`
 	// A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
 	LighthouseDefinitionId *string `pulumi:"lighthouseDefinitionId"`
 	// The ID of the managing tenant. Changing this forces a new resource to be created.
@@ -142,6 +146,8 @@ type DefinitionState struct {
 	Authorizations DefinitionAuthorizationArrayInput
 	// A description of the Lighthouse Definition.
 	Description pulumi.StringPtrInput
+	// An `eligibleAuthorization` block as defined below.
+	EligibleAuthorizations DefinitionEligibleAuthorizationArrayInput
 	// A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
 	LighthouseDefinitionId pulumi.StringPtrInput
 	// The ID of the managing tenant. Changing this forces a new resource to be created.
@@ -163,6 +169,8 @@ type definitionArgs struct {
 	Authorizations []DefinitionAuthorization `pulumi:"authorizations"`
 	// A description of the Lighthouse Definition.
 	Description *string `pulumi:"description"`
+	// An `eligibleAuthorization` block as defined below.
+	EligibleAuthorizations []DefinitionEligibleAuthorization `pulumi:"eligibleAuthorizations"`
 	// A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
 	LighthouseDefinitionId *string `pulumi:"lighthouseDefinitionId"`
 	// The ID of the managing tenant. Changing this forces a new resource to be created.
@@ -181,6 +189,8 @@ type DefinitionArgs struct {
 	Authorizations DefinitionAuthorizationArrayInput
 	// A description of the Lighthouse Definition.
 	Description pulumi.StringPtrInput
+	// An `eligibleAuthorization` block as defined below.
+	EligibleAuthorizations DefinitionEligibleAuthorizationArrayInput
 	// A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
 	LighthouseDefinitionId pulumi.StringPtrInput
 	// The ID of the managing tenant. Changing this forces a new resource to be created.
@@ -288,6 +298,11 @@ func (o DefinitionOutput) Authorizations() DefinitionAuthorizationArrayOutput {
 // A description of the Lighthouse Definition.
 func (o DefinitionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Definition) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// An `eligibleAuthorization` block as defined below.
+func (o DefinitionOutput) EligibleAuthorizations() DefinitionEligibleAuthorizationArrayOutput {
+	return o.ApplyT(func(v *Definition) DefinitionEligibleAuthorizationArrayOutput { return v.EligibleAuthorizations }).(DefinitionEligibleAuthorizationArrayOutput)
 }
 
 // A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.

@@ -29,8 +29,7 @@ type GetSecretsArgs struct {
 // A collection of values returned by getSecrets.
 type GetSecretsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The Key Vault ID.
+	Id         string `pulumi:"id"`
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// List containing names of secrets that exist in this Key Vault.
 	Names []string `pulumi:"names"`
@@ -79,7 +78,6 @@ func (o GetSecretsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Key Vault ID.
 func (o GetSecretsResultOutput) KeyVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretsResult) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }

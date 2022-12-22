@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleGetArgs>? _rules;
 
         /// <summary>
-        /// A `rule` (NAT rule) block as defined above.
+        /// A `nat_rule` (NAT rule) block as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleGetArgs> Rules
         {

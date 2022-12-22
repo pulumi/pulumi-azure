@@ -62,9 +62,17 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         return Optional.ofNullable(this.automaticInstanceRepair);
     }
 
+    /**
+     * A `boot_diagnostics` block as defined below.
+     * 
+     */
     @Import(name="bootDiagnostics")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs> bootDiagnostics;
 
+    /**
+     * @return A `boot_diagnostics` block as defined below.
+     * 
+     */
     public Optional<Output<OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs>> bootDiagnostics() {
         return Optional.ofNullable(this.bootDiagnostics);
     }
@@ -84,9 +92,17 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         return Optional.ofNullable(this.capacityReservationGroupId);
     }
 
+    /**
+     * One or more `data_disk` blocks as defined below.
+     * 
+     */
     @Import(name="dataDisks")
     private @Nullable Output<List<OrchestratedVirtualMachineScaleSetDataDiskArgs>> dataDisks;
 
+    /**
+     * @return One or more `data_disk` blocks as defined below.
+     * 
+     */
     public Optional<Output<List<OrchestratedVirtualMachineScaleSetDataDiskArgs>>> dataDisks() {
         return Optional.ofNullable(this.dataDisks);
     }
@@ -98,9 +114,17 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         return Optional.ofNullable(this.encryptionAtHostEnabled);
     }
 
+    /**
+     * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="evictionPolicy")
     private @Nullable Output<String> evictionPolicy;
 
+    /**
+     * @return The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> evictionPolicy() {
         return Optional.ofNullable(this.evictionPolicy);
     }
@@ -120,9 +144,17 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         return Optional.ofNullable(this.extensionOperationsEnabled);
     }
 
+    /**
+     * One or more `extension` blocks as defined below
+     * 
+     */
     @Import(name="extensions")
     private @Nullable Output<List<OrchestratedVirtualMachineScaleSetExtensionArgs>> extensions;
 
+    /**
+     * @return One or more `extension` blocks as defined below
+     * 
+     */
     public Optional<Output<List<OrchestratedVirtualMachineScaleSetExtensionArgs>>> extensions() {
         return Optional.ofNullable(this.extensions);
     }
@@ -142,9 +174,17 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         return Optional.ofNullable(this.extensionsTimeBudget);
     }
 
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
     @Import(name="identity")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetIdentityArgs> identity;
 
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
     public Optional<Output<OrchestratedVirtualMachineScaleSetIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
     }
@@ -164,9 +204,17 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         return Optional.ofNullable(this.instances);
     }
 
+    /**
+     * Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * 
+     */
     @Import(name="licenseType")
     private @Nullable Output<String> licenseType;
 
+    /**
+     * @return Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * 
+     */
     public Optional<Output<String>> licenseType() {
         return Optional.ofNullable(this.licenseType);
     }
@@ -186,9 +234,17 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         return Optional.ofNullable(this.location);
     }
 
+    /**
+     * The maximum price you&#39;re willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
+     * 
+     */
     @Import(name="maxBidPrice")
     private @Nullable Output<Double> maxBidPrice;
 
+    /**
+     * @return The maximum price you&#39;re willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
+     * 
+     */
     public Optional<Output<Double>> maxBidPrice() {
         return Optional.ofNullable(this.maxBidPrice);
     }
@@ -208,30 +264,62 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * One or more `network_interface` blocks as defined below.
+     * 
+     */
     @Import(name="networkInterfaces")
     private @Nullable Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs>> networkInterfaces;
 
+    /**
+     * @return One or more `network_interface` blocks as defined below.
+     * 
+     */
     public Optional<Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs>>> networkInterfaces() {
         return Optional.ofNullable(this.networkInterfaces);
     }
 
+    /**
+     * An `os_disk` block as defined below.
+     * 
+     */
     @Import(name="osDisk")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetOsDiskArgs> osDisk;
 
+    /**
+     * @return An `os_disk` block as defined below.
+     * 
+     */
     public Optional<Output<OrchestratedVirtualMachineScaleSetOsDiskArgs>> osDisk() {
         return Optional.ofNullable(this.osDisk);
     }
 
+    /**
+     * An `os_profile` block as defined below.
+     * 
+     */
     @Import(name="osProfile")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetOsProfileArgs> osProfile;
 
+    /**
+     * @return An `os_profile` block as defined below.
+     * 
+     */
     public Optional<Output<OrchestratedVirtualMachineScaleSetOsProfileArgs>> osProfile() {
         return Optional.ofNullable(this.osProfile);
     }
 
+    /**
+     * A `plan` block as documented below.
+     * 
+     */
     @Import(name="plan")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetPlanArgs> plan;
 
+    /**
+     * @return A `plan` block as documented below.
+     * 
+     */
     public Optional<Output<OrchestratedVirtualMachineScaleSetPlanArgs>> plan() {
         return Optional.ofNullable(this.plan);
     }
@@ -251,9 +339,17 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         return this.platformFaultDomainCount;
     }
 
+    /**
+     * The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+     * 
+     */
     @Import(name="priority")
     private @Nullable Output<String> priority;
 
+    /**
+     * @return The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+     * 
+     */
     public Optional<Output<String>> priority() {
         return Optional.ofNullable(this.priority);
     }
@@ -304,23 +400,31 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
     }
 
     /**
-     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+     * The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+     * @return The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
      * 
      */
     public Optional<Output<String>> skuName() {
         return Optional.ofNullable(this.skuName);
     }
 
+    /**
+     * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+     * 
+     */
     @Import(name="sourceImageId")
     private @Nullable Output<String> sourceImageId;
 
+    /**
+     * @return The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+     * 
+     */
     public Optional<Output<String>> sourceImageId() {
         return Optional.ofNullable(this.sourceImageId);
     }
@@ -355,9 +459,17 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A `termination_notification` block as defined below.
+     * 
+     */
     @Import(name="terminationNotification")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetTerminationNotificationArgs> terminationNotification;
 
+    /**
+     * @return A `termination_notification` block as defined below.
+     * 
+     */
     public Optional<Output<OrchestratedVirtualMachineScaleSetTerminationNotificationArgs>> terminationNotification() {
         return Optional.ofNullable(this.terminationNotification);
     }
@@ -497,11 +609,23 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
             return automaticInstanceRepair(Output.of(automaticInstanceRepair));
         }
 
+        /**
+         * @param bootDiagnostics A `boot_diagnostics` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bootDiagnostics(@Nullable Output<OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs> bootDiagnostics) {
             $.bootDiagnostics = bootDiagnostics;
             return this;
         }
 
+        /**
+         * @param bootDiagnostics A `boot_diagnostics` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bootDiagnostics(OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs bootDiagnostics) {
             return bootDiagnostics(Output.of(bootDiagnostics));
         }
@@ -527,15 +651,33 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
             return capacityReservationGroupId(Output.of(capacityReservationGroupId));
         }
 
+        /**
+         * @param dataDisks One or more `data_disk` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataDisks(@Nullable Output<List<OrchestratedVirtualMachineScaleSetDataDiskArgs>> dataDisks) {
             $.dataDisks = dataDisks;
             return this;
         }
 
+        /**
+         * @param dataDisks One or more `data_disk` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataDisks(List<OrchestratedVirtualMachineScaleSetDataDiskArgs> dataDisks) {
             return dataDisks(Output.of(dataDisks));
         }
 
+        /**
+         * @param dataDisks One or more `data_disk` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataDisks(OrchestratedVirtualMachineScaleSetDataDiskArgs... dataDisks) {
             return dataDisks(List.of(dataDisks));
         }
@@ -549,11 +691,23 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
             return encryptionAtHostEnabled(Output.of(encryptionAtHostEnabled));
         }
 
+        /**
+         * @param evictionPolicy The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder evictionPolicy(@Nullable Output<String> evictionPolicy) {
             $.evictionPolicy = evictionPolicy;
             return this;
         }
 
+        /**
+         * @param evictionPolicy The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder evictionPolicy(String evictionPolicy) {
             return evictionPolicy(Output.of(evictionPolicy));
         }
@@ -579,15 +733,33 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
             return extensionOperationsEnabled(Output.of(extensionOperationsEnabled));
         }
 
+        /**
+         * @param extensions One or more `extension` blocks as defined below
+         * 
+         * @return builder
+         * 
+         */
         public Builder extensions(@Nullable Output<List<OrchestratedVirtualMachineScaleSetExtensionArgs>> extensions) {
             $.extensions = extensions;
             return this;
         }
 
+        /**
+         * @param extensions One or more `extension` blocks as defined below
+         * 
+         * @return builder
+         * 
+         */
         public Builder extensions(List<OrchestratedVirtualMachineScaleSetExtensionArgs> extensions) {
             return extensions(Output.of(extensions));
         }
 
+        /**
+         * @param extensions One or more `extension` blocks as defined below
+         * 
+         * @return builder
+         * 
+         */
         public Builder extensions(OrchestratedVirtualMachineScaleSetExtensionArgs... extensions) {
             return extensions(List.of(extensions));
         }
@@ -613,11 +785,23 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
             return extensionsTimeBudget(Output.of(extensionsTimeBudget));
         }
 
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identity(@Nullable Output<OrchestratedVirtualMachineScaleSetIdentityArgs> identity) {
             $.identity = identity;
             return this;
         }
 
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identity(OrchestratedVirtualMachineScaleSetIdentityArgs identity) {
             return identity(Output.of(identity));
         }
@@ -643,11 +827,23 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
             return instances(Output.of(instances));
         }
 
+        /**
+         * @param licenseType Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder licenseType(@Nullable Output<String> licenseType) {
             $.licenseType = licenseType;
             return this;
         }
 
+        /**
+         * @param licenseType Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder licenseType(String licenseType) {
             return licenseType(Output.of(licenseType));
         }
@@ -673,11 +869,23 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
             return location(Output.of(location));
         }
 
+        /**
+         * @param maxBidPrice The maximum price you&#39;re willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxBidPrice(@Nullable Output<Double> maxBidPrice) {
             $.maxBidPrice = maxBidPrice;
             return this;
         }
 
+        /**
+         * @param maxBidPrice The maximum price you&#39;re willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxBidPrice(Double maxBidPrice) {
             return maxBidPrice(Output.of(maxBidPrice));
         }
@@ -703,42 +911,96 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
             return name(Output.of(name));
         }
 
+        /**
+         * @param networkInterfaces One or more `network_interface` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkInterfaces(@Nullable Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs>> networkInterfaces) {
             $.networkInterfaces = networkInterfaces;
             return this;
         }
 
+        /**
+         * @param networkInterfaces One or more `network_interface` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkInterfaces(List<OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs> networkInterfaces) {
             return networkInterfaces(Output.of(networkInterfaces));
         }
 
+        /**
+         * @param networkInterfaces One or more `network_interface` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkInterfaces(OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs... networkInterfaces) {
             return networkInterfaces(List.of(networkInterfaces));
         }
 
+        /**
+         * @param osDisk An `os_disk` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder osDisk(@Nullable Output<OrchestratedVirtualMachineScaleSetOsDiskArgs> osDisk) {
             $.osDisk = osDisk;
             return this;
         }
 
+        /**
+         * @param osDisk An `os_disk` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder osDisk(OrchestratedVirtualMachineScaleSetOsDiskArgs osDisk) {
             return osDisk(Output.of(osDisk));
         }
 
+        /**
+         * @param osProfile An `os_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder osProfile(@Nullable Output<OrchestratedVirtualMachineScaleSetOsProfileArgs> osProfile) {
             $.osProfile = osProfile;
             return this;
         }
 
+        /**
+         * @param osProfile An `os_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder osProfile(OrchestratedVirtualMachineScaleSetOsProfileArgs osProfile) {
             return osProfile(Output.of(osProfile));
         }
 
+        /**
+         * @param plan A `plan` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder plan(@Nullable Output<OrchestratedVirtualMachineScaleSetPlanArgs> plan) {
             $.plan = plan;
             return this;
         }
 
+        /**
+         * @param plan A `plan` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder plan(OrchestratedVirtualMachineScaleSetPlanArgs plan) {
             return plan(Output.of(plan));
         }
@@ -764,11 +1026,23 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
             return platformFaultDomainCount(Output.of(platformFaultDomainCount));
         }
 
+        /**
+         * @param priority The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(@Nullable Output<String> priority) {
             $.priority = priority;
             return this;
         }
 
+        /**
+         * @param priority The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(String priority) {
             return priority(Output.of(priority));
         }
@@ -837,7 +1111,7 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         }
 
         /**
-         * @param skuName Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+         * @param skuName The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
          * 
          * @return builder
          * 
@@ -848,7 +1122,7 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         }
 
         /**
-         * @param skuName Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+         * @param skuName The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
          * 
          * @return builder
          * 
@@ -857,11 +1131,23 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
             return skuName(Output.of(skuName));
         }
 
+        /**
+         * @param sourceImageId The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceImageId(@Nullable Output<String> sourceImageId) {
             $.sourceImageId = sourceImageId;
             return this;
         }
 
+        /**
+         * @param sourceImageId The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceImageId(String sourceImageId) {
             return sourceImageId(Output.of(sourceImageId));
         }
@@ -908,11 +1194,23 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param terminationNotification A `termination_notification` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder terminationNotification(@Nullable Output<OrchestratedVirtualMachineScaleSetTerminationNotificationArgs> terminationNotification) {
             $.terminationNotification = terminationNotification;
             return this;
         }
 
+        /**
+         * @param terminationNotification A `termination_notification` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder terminationNotification(OrchestratedVirtualMachineScaleSetTerminationNotificationArgs terminationNotification) {
             return terminationNotification(Output.of(terminationNotification));
         }

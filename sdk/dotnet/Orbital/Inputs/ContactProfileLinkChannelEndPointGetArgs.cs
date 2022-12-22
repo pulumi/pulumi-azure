@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Orbital.Inputs
     public sealed class ContactProfileLinkChannelEndPointGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// -(Required) Name of an end point.
+        /// Name of an end point.
         /// </summary>
         [Input("endPointName", required: true)]
         public Input<string> EndPointName { get; set; } = null!;

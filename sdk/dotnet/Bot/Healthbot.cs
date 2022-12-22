@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Bot
         public Output<string> BotManagementPortalUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+        /// Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -66,14 +66,13 @@ namespace Pulumi.Azure.Bot
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-        /// forces a new resource to be created.
+        /// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+        /// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -131,7 +130,7 @@ namespace Pulumi.Azure.Bot
     public sealed class HealthbotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+        /// Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -143,14 +142,13 @@ namespace Pulumi.Azure.Bot
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-        /// forces a new resource to be created.
+        /// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+        /// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -182,7 +180,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? BotManagementPortalUrl { get; set; }
 
         /// <summary>
-        /// Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+        /// Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -194,14 +192,13 @@ namespace Pulumi.Azure.Bot
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-        /// forces a new resource to be created.
+        /// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+        /// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

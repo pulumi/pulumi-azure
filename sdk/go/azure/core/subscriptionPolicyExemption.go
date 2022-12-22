@@ -87,7 +87,7 @@ type SubscriptionPolicyExemption struct {
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
 	// The name of the Policy Exemption. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the Policy Assignment to be exempted at the specified Scope.
+	// The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
 	PolicyAssignmentId pulumi.StringOutput `pulumi:"policyAssignmentId"`
 	// The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
 	PolicyDefinitionReferenceIds pulumi.StringArrayOutput `pulumi:"policyDefinitionReferenceIds"`
@@ -145,7 +145,7 @@ type subscriptionPolicyExemptionState struct {
 	Metadata *string `pulumi:"metadata"`
 	// The name of the Policy Exemption. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Policy Assignment to be exempted at the specified Scope.
+	// The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
 	PolicyAssignmentId *string `pulumi:"policyAssignmentId"`
 	// The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
 	PolicyDefinitionReferenceIds []string `pulumi:"policyDefinitionReferenceIds"`
@@ -166,7 +166,7 @@ type SubscriptionPolicyExemptionState struct {
 	Metadata pulumi.StringPtrInput
 	// The name of the Policy Exemption. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Policy Assignment to be exempted at the specified Scope.
+	// The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
 	PolicyAssignmentId pulumi.StringPtrInput
 	// The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
 	PolicyDefinitionReferenceIds pulumi.StringArrayInput
@@ -191,7 +191,7 @@ type subscriptionPolicyExemptionArgs struct {
 	Metadata *string `pulumi:"metadata"`
 	// The name of the Policy Exemption. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Policy Assignment to be exempted at the specified Scope.
+	// The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
 	PolicyAssignmentId string `pulumi:"policyAssignmentId"`
 	// The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
 	PolicyDefinitionReferenceIds []string `pulumi:"policyDefinitionReferenceIds"`
@@ -213,7 +213,7 @@ type SubscriptionPolicyExemptionArgs struct {
 	Metadata pulumi.StringPtrInput
 	// The name of the Policy Exemption. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Policy Assignment to be exempted at the specified Scope.
+	// The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
 	PolicyAssignmentId pulumi.StringInput
 	// The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
 	PolicyDefinitionReferenceIds pulumi.StringArrayInput
@@ -338,7 +338,7 @@ func (o SubscriptionPolicyExemptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyExemption) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the Policy Assignment to be exempted at the specified Scope.
+// The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
 func (o SubscriptionPolicyExemptionOutput) PolicyAssignmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyExemption) pulumi.StringOutput { return v.PolicyAssignmentId }).(pulumi.StringOutput)
 }

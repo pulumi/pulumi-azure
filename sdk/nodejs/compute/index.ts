@@ -205,10 +205,20 @@ export type OrchestratedVirtualMachineScaleSet = import("./orchestratedVirtualMa
 export const OrchestratedVirtualMachineScaleSet: typeof import("./orchestratedVirtualMachineScaleSet").OrchestratedVirtualMachineScaleSet = null as any;
 utilities.lazyLoad(exports, ["OrchestratedVirtualMachineScaleSet"], () => require("./orchestratedVirtualMachineScaleSet"));
 
+export { PacketCaptureArgs, PacketCaptureState } from "./packetCapture";
+export type PacketCapture = import("./packetCapture").PacketCapture;
+export const PacketCapture: typeof import("./packetCapture").PacketCapture = null as any;
+utilities.lazyLoad(exports, ["PacketCapture"], () => require("./packetCapture"));
+
 export { ScaleSetArgs, ScaleSetState } from "./scaleSet";
 export type ScaleSet = import("./scaleSet").ScaleSet;
 export const ScaleSet: typeof import("./scaleSet").ScaleSet = null as any;
 utilities.lazyLoad(exports, ["ScaleSet"], () => require("./scaleSet"));
+
+export { ScaleSetPacketCaptureArgs, ScaleSetPacketCaptureState } from "./scaleSetPacketCapture";
+export type ScaleSetPacketCapture = import("./scaleSetPacketCapture").ScaleSetPacketCapture;
+export const ScaleSetPacketCapture: typeof import("./scaleSetPacketCapture").ScaleSetPacketCapture = null as any;
+utilities.lazyLoad(exports, ["ScaleSetPacketCapture"], () => require("./scaleSetPacketCapture"));
 
 export { SharedImageArgs, SharedImageState } from "./sharedImage";
 export type SharedImage = import("./sharedImage").SharedImage;
@@ -304,8 +314,12 @@ const _module = {
                 return new ManagedDiskSasToken(name, <any>undefined, { urn })
             case "azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet":
                 return new OrchestratedVirtualMachineScaleSet(name, <any>undefined, { urn })
+            case "azure:compute/packetCapture:PacketCapture":
+                return new PacketCapture(name, <any>undefined, { urn })
             case "azure:compute/scaleSet:ScaleSet":
                 return new ScaleSet(name, <any>undefined, { urn })
+            case "azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture":
+                return new ScaleSetPacketCapture(name, <any>undefined, { urn })
             case "azure:compute/sharedImage:SharedImage":
                 return new SharedImage(name, <any>undefined, { urn })
             case "azure:compute/sharedImageGallery:SharedImageGallery":
@@ -351,7 +365,9 @@ pulumi.runtime.registerResourceModule("azure", "compute/linuxVirtualMachineScale
 pulumi.runtime.registerResourceModule("azure", "compute/managedDisk", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/managedDiskSasToken", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/orchestratedVirtualMachineScaleSet", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/packetCapture", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/scaleSet", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/scaleSetPacketCapture", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/sharedImage", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/sharedImageGallery", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/sharedImageVersion", _module)

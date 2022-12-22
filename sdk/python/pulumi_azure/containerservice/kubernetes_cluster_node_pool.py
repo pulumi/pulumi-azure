@@ -53,6 +53,7 @@ class KubernetesClusterNodePoolArgs:
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
                  upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
                  workload_runtime: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -94,6 +95,7 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs'] windows_profile: A `windows_profile` block as documented below.
         :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
@@ -169,6 +171,8 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "upgrade_settings", upgrade_settings)
         if vnet_subnet_id is not None:
             pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+        if windows_profile is not None:
+            pulumi.set(__self__, "windows_profile", windows_profile)
         if workload_runtime is not None:
             pulumi.set(__self__, "workload_runtime", workload_runtime)
         if zones is not None:
@@ -619,6 +623,18 @@ class KubernetesClusterNodePoolArgs:
         pulumi.set(self, "vnet_subnet_id", value)
 
     @property
+    @pulumi.getter(name="windowsProfile")
+    def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']]:
+        """
+        A `windows_profile` block as documented below.
+        """
+        return pulumi.get(self, "windows_profile")
+
+    @windows_profile.setter
+    def windows_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']]):
+        pulumi.set(self, "windows_profile", value)
+
+    @property
     @pulumi.getter(name="workloadRuntime")
     def workload_runtime(self) -> Optional[pulumi.Input[str]]:
         """
@@ -683,6 +699,7 @@ class _KubernetesClusterNodePoolState:
                  upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
                  workload_runtime: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -724,6 +741,7 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs'] windows_profile: A `windows_profile` block as documented below.
         :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
@@ -801,6 +819,8 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "vm_size", vm_size)
         if vnet_subnet_id is not None:
             pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+        if windows_profile is not None:
+            pulumi.set(__self__, "windows_profile", windows_profile)
         if workload_runtime is not None:
             pulumi.set(__self__, "workload_runtime", workload_runtime)
         if zones is not None:
@@ -1251,6 +1271,18 @@ class _KubernetesClusterNodePoolState:
         pulumi.set(self, "vnet_subnet_id", value)
 
     @property
+    @pulumi.getter(name="windowsProfile")
+    def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']]:
+        """
+        A `windows_profile` block as documented below.
+        """
+        return pulumi.get(self, "windows_profile")
+
+    @windows_profile.setter
+    def windows_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']]):
+        pulumi.set(self, "windows_profile", value)
+
+    @property
     @pulumi.getter(name="workloadRuntime")
     def workload_runtime(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1317,6 +1349,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArgs']]] = None,
                  workload_runtime: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1403,6 +1436,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArgs']] windows_profile: A `windows_profile` block as documented below.
         :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
@@ -1508,6 +1542,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArgs']]] = None,
                  workload_runtime: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1560,6 +1595,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vm_size'")
             __props__.__dict__["vm_size"] = vm_size
             __props__.__dict__["vnet_subnet_id"] = vnet_subnet_id
+            __props__.__dict__["windows_profile"] = windows_profile
             __props__.__dict__["workload_runtime"] = workload_runtime
             __props__.__dict__["zones"] = zones
         super(KubernetesClusterNodePool, __self__).__init__(
@@ -1609,6 +1645,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']]] = None,
             vm_size: Optional[pulumi.Input[str]] = None,
             vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+            windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArgs']]] = None,
             workload_runtime: Optional[pulumi.Input[str]] = None,
             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'KubernetesClusterNodePool':
         """
@@ -1655,6 +1692,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArgs']] windows_profile: A `windows_profile` block as documented below.
         :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
         """
@@ -1699,6 +1737,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__.__dict__["upgrade_settings"] = upgrade_settings
         __props__.__dict__["vm_size"] = vm_size
         __props__.__dict__["vnet_subnet_id"] = vnet_subnet_id
+        __props__.__dict__["windows_profile"] = windows_profile
         __props__.__dict__["workload_runtime"] = workload_runtime
         __props__.__dict__["zones"] = zones
         return KubernetesClusterNodePool(resource_name, opts=opts, __props__=__props__)
@@ -1998,6 +2037,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "vnet_subnet_id")
+
+    @property
+    @pulumi.getter(name="windowsProfile")
+    def windows_profile(self) -> pulumi.Output[Optional['outputs.KubernetesClusterNodePoolWindowsProfile']]:
+        """
+        A `windows_profile` block as documented below.
+        """
+        return pulumi.get(self, "windows_profile")
 
     @property
     @pulumi.getter(name="workloadRuntime")

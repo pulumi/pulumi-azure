@@ -18,9 +18,17 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
 
     public static final OrchestratedVirtualMachineScaleSetExtensionArgs Empty = new OrchestratedVirtualMachineScaleSetExtensionArgs();
 
+    /**
+     * Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to true.
+     * 
+     */
     @Import(name="autoUpgradeMinorVersionEnabled")
     private @Nullable Output<Boolean> autoUpgradeMinorVersionEnabled;
 
+    /**
+     * @return Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to true.
+     * 
+     */
     public Optional<Output<Boolean>> autoUpgradeMinorVersionEnabled() {
         return Optional.ofNullable(this.autoUpgradeMinorVersionEnabled);
     }
@@ -55,31 +63,47 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
         return Optional.ofNullable(this.failureSuppressionEnabled);
     }
 
+    /**
+     * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn&#39;t changed.
+     * 
+     */
     @Import(name="forceExtensionExecutionOnChange")
     private @Nullable Output<String> forceExtensionExecutionOnChange;
 
+    /**
+     * @return A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn&#39;t changed.
+     * 
+     */
     public Optional<Output<String>> forceExtensionExecutionOnChange() {
         return Optional.ofNullable(this.forceExtensionExecutionOnChange);
     }
 
     /**
-     * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * The name for the Virtual Machine Scale Set Extension.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return The name for the Virtual Machine Scale Set Extension.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+     * 
+     */
     @Import(name="protectedSettings")
     private @Nullable Output<String> protectedSettings;
 
+    /**
+     * @return A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+     * 
+     */
     public Optional<Output<String>> protectedSettings() {
         return Optional.ofNullable(this.protectedSettings);
     }
@@ -99,9 +123,17 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
         return Optional.ofNullable(this.protectedSettingsFromKeyVault);
     }
 
+    /**
+     * Specifies the Publisher of the Extension.
+     * 
+     */
     @Import(name="publisher", required=true)
     private Output<String> publisher;
 
+    /**
+     * @return Specifies the Publisher of the Extension.
+     * 
+     */
     public Output<String> publisher() {
         return this.publisher;
     }
@@ -113,16 +145,32 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
         return Optional.ofNullable(this.settings);
     }
 
+    /**
+     * Specifies the Type of the Extension.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return Specifies the Type of the Extension.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
 
+    /**
+     * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+     * 
+     */
     @Import(name="typeHandlerVersion", required=true)
     private Output<String> typeHandlerVersion;
 
+    /**
+     * @return Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+     * 
+     */
     public Output<String> typeHandlerVersion() {
         return this.typeHandlerVersion;
     }
@@ -161,11 +209,23 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
             $ = new OrchestratedVirtualMachineScaleSetExtensionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param autoUpgradeMinorVersionEnabled Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to true.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoUpgradeMinorVersionEnabled(@Nullable Output<Boolean> autoUpgradeMinorVersionEnabled) {
             $.autoUpgradeMinorVersionEnabled = autoUpgradeMinorVersionEnabled;
             return this;
         }
 
+        /**
+         * @param autoUpgradeMinorVersionEnabled Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to true.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoUpgradeMinorVersionEnabled(Boolean autoUpgradeMinorVersionEnabled) {
             return autoUpgradeMinorVersionEnabled(Output.of(autoUpgradeMinorVersionEnabled));
         }
@@ -222,17 +282,29 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
             return failureSuppressionEnabled(Output.of(failureSuppressionEnabled));
         }
 
+        /**
+         * @param forceExtensionExecutionOnChange A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn&#39;t changed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceExtensionExecutionOnChange(@Nullable Output<String> forceExtensionExecutionOnChange) {
             $.forceExtensionExecutionOnChange = forceExtensionExecutionOnChange;
             return this;
         }
 
+        /**
+         * @param forceExtensionExecutionOnChange A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn&#39;t changed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceExtensionExecutionOnChange(String forceExtensionExecutionOnChange) {
             return forceExtensionExecutionOnChange(Output.of(forceExtensionExecutionOnChange));
         }
 
         /**
-         * @param name The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * @param name The name for the Virtual Machine Scale Set Extension.
          * 
          * @return builder
          * 
@@ -243,7 +315,7 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
         }
 
         /**
-         * @param name The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * @param name The name for the Virtual Machine Scale Set Extension.
          * 
          * @return builder
          * 
@@ -252,11 +324,23 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
             return name(Output.of(name));
         }
 
+        /**
+         * @param protectedSettings A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protectedSettings(@Nullable Output<String> protectedSettings) {
             $.protectedSettings = protectedSettings;
             return this;
         }
 
+        /**
+         * @param protectedSettings A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protectedSettings(String protectedSettings) {
             return protectedSettings(Output.of(protectedSettings));
         }
@@ -282,11 +366,23 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
             return protectedSettingsFromKeyVault(Output.of(protectedSettingsFromKeyVault));
         }
 
+        /**
+         * @param publisher Specifies the Publisher of the Extension.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publisher(Output<String> publisher) {
             $.publisher = publisher;
             return this;
         }
 
+        /**
+         * @param publisher Specifies the Publisher of the Extension.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publisher(String publisher) {
             return publisher(Output.of(publisher));
         }
@@ -300,20 +396,44 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
             return settings(Output.of(settings));
         }
 
+        /**
+         * @param type Specifies the Type of the Extension.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Specifies the Type of the Extension.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
+        /**
+         * @param typeHandlerVersion Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+         * 
+         * @return builder
+         * 
+         */
         public Builder typeHandlerVersion(Output<String> typeHandlerVersion) {
             $.typeHandlerVersion = typeHandlerVersion;
             return this;
         }
 
+        /**
+         * @param typeHandlerVersion Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+         * 
+         * @return builder
+         * 
+         */
         public Builder typeHandlerVersion(String typeHandlerVersion) {
             return typeHandlerVersion(Output.of(typeHandlerVersion));
         }

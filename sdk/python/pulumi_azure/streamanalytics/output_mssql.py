@@ -15,37 +15,35 @@ __all__ = ['OutputMssqlArgs', 'OutputMssql']
 class OutputMssqlArgs:
     def __init__(__self__, *,
                  database: pulumi.Input[str],
-                 password: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  server: pulumi.Input[str],
                  stream_analytics_job_name: pulumi.Input[str],
                  table: pulumi.Input[str],
-                 user: pulumi.Input[str],
                  authentication_mode: Optional[pulumi.Input[str]] = None,
                  max_batch_count: Optional[pulumi.Input[float]] = None,
                  max_writer_count: Optional[pulumi.Input[float]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 user: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OutputMssql resource.
         :param pulumi.Input[str] database: The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: Password used together with username, to login to the Microsoft SQL Server.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server: The SQL server url. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table: Table in the database that the output points to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] user: Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
         :param pulumi.Input[float] max_batch_count: The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
         :param pulumi.Input[float] max_writer_count: The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
+        :param pulumi.Input[str] user: Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
         """
         pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server", server)
         pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
         pulumi.set(__self__, "table", table)
-        pulumi.set(__self__, "user", user)
         if authentication_mode is not None:
             pulumi.set(__self__, "authentication_mode", authentication_mode)
         if max_batch_count is not None:
@@ -54,6 +52,10 @@ class OutputMssqlArgs:
             pulumi.set(__self__, "max_writer_count", max_writer_count)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter
@@ -66,18 +68,6 @@ class OutputMssqlArgs:
     @database.setter
     def database(self, value: pulumi.Input[str]):
         pulumi.set(self, "database", value)
-
-    @property
-    @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
-        """
-        Password used together with username, to login to the Microsoft SQL Server.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "password", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -128,18 +118,6 @@ class OutputMssqlArgs:
         pulumi.set(self, "table", value)
 
     @property
-    @pulumi.getter
-    def user(self) -> pulumi.Input[str]:
-        """
-        Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "user")
-
-    @user.setter
-    def user(self, value: pulumi.Input[str]):
-        pulumi.set(self, "user", value)
-
-    @property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -187,6 +165,30 @@ class OutputMssqlArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user", value)
+
 
 @pulumi.input_type
 class _OutputMssqlState:
@@ -209,12 +211,12 @@ class _OutputMssqlState:
         :param pulumi.Input[float] max_batch_count: The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
         :param pulumi.Input[float] max_writer_count: The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: Password used together with username, to login to the Microsoft SQL Server.
+        :param pulumi.Input[str] password: Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server: The SQL server url. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table: Table in the database that the output points to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] user: Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] user: Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
         """
         if authentication_mode is not None:
             pulumi.set(__self__, "authentication_mode", authentication_mode)
@@ -303,7 +305,7 @@ class _OutputMssqlState:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        Password used together with username, to login to the Microsoft SQL Server.
+        Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
         """
         return pulumi.get(self, "password")
 
@@ -363,7 +365,7 @@ class _OutputMssqlState:
     @pulumi.getter
     def user(self) -> Optional[pulumi.Input[str]]:
         """
-        Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+        Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
         """
         return pulumi.get(self, "user")
 
@@ -440,12 +442,12 @@ class OutputMssql(pulumi.CustomResource):
         :param pulumi.Input[float] max_batch_count: The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
         :param pulumi.Input[float] max_writer_count: The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: Password used together with username, to login to the Microsoft SQL Server.
+        :param pulumi.Input[str] password: Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server: The SQL server url. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table: Table in the database that the output points to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] user: Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] user: Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
         """
         ...
     @overload
@@ -539,8 +541,6 @@ class OutputMssql(pulumi.CustomResource):
             __props__.__dict__["max_batch_count"] = max_batch_count
             __props__.__dict__["max_writer_count"] = max_writer_count
             __props__.__dict__["name"] = name
-            if password is None and not opts.urn:
-                raise TypeError("Missing required property 'password'")
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -554,8 +554,6 @@ class OutputMssql(pulumi.CustomResource):
             if table is None and not opts.urn:
                 raise TypeError("Missing required property 'table'")
             __props__.__dict__["table"] = table
-            if user is None and not opts.urn:
-                raise TypeError("Missing required property 'user'")
             __props__.__dict__["user"] = user
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -592,12 +590,12 @@ class OutputMssql(pulumi.CustomResource):
         :param pulumi.Input[float] max_batch_count: The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
         :param pulumi.Input[float] max_writer_count: The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: Password used together with username, to login to the Microsoft SQL Server.
+        :param pulumi.Input[str] password: Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server: The SQL server url. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table: Table in the database that the output points to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] user: Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] user: Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -658,9 +656,9 @@ class OutputMssql(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Output[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
-        Password used together with username, to login to the Microsoft SQL Server.
+        Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
         """
         return pulumi.get(self, "password")
 
@@ -698,9 +696,9 @@ class OutputMssql(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def user(self) -> pulumi.Output[str]:
+    def user(self) -> pulumi.Output[Optional[str]]:
         """
-        Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+        Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
         """
         return pulumi.get(self, "user")
 

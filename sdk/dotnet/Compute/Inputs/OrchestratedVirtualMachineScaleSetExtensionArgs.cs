@@ -12,6 +12,9 @@ namespace Pulumi.Azure.Compute.Inputs
 
     public sealed class OrchestratedVirtualMachineScaleSetExtensionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to true.
+        /// </summary>
         [Input("autoUpgradeMinorVersionEnabled")]
         public Input<bool>? AutoUpgradeMinorVersionEnabled { get; set; }
 
@@ -33,17 +36,24 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("failureSuppressionEnabled")]
         public Input<bool>? FailureSuppressionEnabled { get; set; }
 
+        /// <summary>
+        /// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+        /// </summary>
         [Input("forceExtensionExecutionOnChange")]
         public Input<string>? ForceExtensionExecutionOnChange { get; set; }
 
         /// <summary>
-        /// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// The name for the Virtual Machine Scale Set Extension.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("protectedSettings")]
         private Input<string>? _protectedSettings;
+
+        /// <summary>
+        /// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+        /// </summary>
         public Input<string>? ProtectedSettings
         {
             get => _protectedSettings;
@@ -60,15 +70,24 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("protectedSettingsFromKeyVault")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs>? ProtectedSettingsFromKeyVault { get; set; }
 
+        /// <summary>
+        /// Specifies the Publisher of the Extension.
+        /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 
         [Input("settings")]
         public Input<string>? Settings { get; set; }
 
+        /// <summary>
+        /// Specifies the Type of the Extension.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+        /// </summary>
         [Input("typeHandlerVersion", required: true)]
         public Input<string> TypeHandlerVersion { get; set; } = null!;
 

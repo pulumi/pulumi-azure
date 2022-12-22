@@ -12,21 +12,39 @@ namespace Pulumi.Azure.Compute.Inputs
 
     public sealed class OrchestratedVirtualMachineScaleSetDataDiskGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+        /// </summary>
         [Input("caching", required: true)]
         public Input<string> Caching { get; set; } = null!;
 
+        /// <summary>
+        /// The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+        /// </summary>
         [Input("createOption")]
         public Input<string>? CreateOption { get; set; }
 
+        /// <summary>
+        /// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
 
+        /// <summary>
+        /// The size of the Data Disk which should be created.
+        /// </summary>
         [Input("diskSizeGb", required: true)]
         public Input<int> DiskSizeGb { get; set; } = null!;
 
+        /// <summary>
+        /// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+        /// </summary>
         [Input("lun", required: true)]
         public Input<int> Lun { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+        /// </summary>
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;
 

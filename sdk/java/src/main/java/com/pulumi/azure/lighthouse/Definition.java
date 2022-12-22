@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.lighthouse.DefinitionArgs;
 import com.pulumi.azure.lighthouse.inputs.DefinitionState;
 import com.pulumi.azure.lighthouse.outputs.DefinitionAuthorization;
+import com.pulumi.azure.lighthouse.outputs.DefinitionEligibleAuthorization;
 import com.pulumi.azure.lighthouse.outputs.DefinitionPlan;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -102,6 +103,20 @@ public class Definition extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * An `eligible_authorization` block as defined below.
+     * 
+     */
+    @Export(name="eligibleAuthorizations", type=List.class, parameters={DefinitionEligibleAuthorization.class})
+    private Output</* @Nullable */ List<DefinitionEligibleAuthorization>> eligibleAuthorizations;
+
+    /**
+     * @return An `eligible_authorization` block as defined below.
+     * 
+     */
+    public Output<Optional<List<DefinitionEligibleAuthorization>>> eligibleAuthorizations() {
+        return Codegen.optional(this.eligibleAuthorizations);
     }
     /**
      * A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.

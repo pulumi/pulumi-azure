@@ -61,6 +61,8 @@ import (
 type AnalyticsWorkspace struct {
 	pulumi.CustomResourceState
 
+	// Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+	AllowResourceOnlyPermissions pulumi.BoolPtrOutput `pulumi:"allowResourceOnlyPermissions"`
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced pulumi.BoolPtrOutput `pulumi:"cmkForQueryForced"`
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
@@ -128,6 +130,8 @@ func GetAnalyticsWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AnalyticsWorkspace resources.
 type analyticsWorkspaceState struct {
+	// Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+	AllowResourceOnlyPermissions *bool `pulumi:"allowResourceOnlyPermissions"`
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced *bool `pulumi:"cmkForQueryForced"`
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
@@ -159,6 +163,8 @@ type analyticsWorkspaceState struct {
 }
 
 type AnalyticsWorkspaceState struct {
+	// Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+	AllowResourceOnlyPermissions pulumi.BoolPtrInput
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced pulumi.BoolPtrInput
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
@@ -194,6 +200,8 @@ func (AnalyticsWorkspaceState) ElementType() reflect.Type {
 }
 
 type analyticsWorkspaceArgs struct {
+	// Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+	AllowResourceOnlyPermissions *bool `pulumi:"allowResourceOnlyPermissions"`
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced *bool `pulumi:"cmkForQueryForced"`
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
@@ -220,6 +228,8 @@ type analyticsWorkspaceArgs struct {
 
 // The set of arguments for constructing a AnalyticsWorkspace resource.
 type AnalyticsWorkspaceArgs struct {
+	// Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+	AllowResourceOnlyPermissions pulumi.BoolPtrInput
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced pulumi.BoolPtrInput
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
@@ -329,6 +339,11 @@ func (o AnalyticsWorkspaceOutput) ToAnalyticsWorkspaceOutput() AnalyticsWorkspac
 
 func (o AnalyticsWorkspaceOutput) ToAnalyticsWorkspaceOutputWithContext(ctx context.Context) AnalyticsWorkspaceOutput {
 	return o
+}
+
+// Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+func (o AnalyticsWorkspaceOutput) AllowResourceOnlyPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.BoolPtrOutput { return v.AllowResourceOnlyPermissions }).(pulumi.BoolPtrOutput)
 }
 
 // Is Customer Managed Storage mandatory for query management?

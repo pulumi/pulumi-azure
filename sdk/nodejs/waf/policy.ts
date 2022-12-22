@@ -85,12 +85,20 @@ import * as utilities from "../utilities";
  *         ],
  *         managedRuleSets: [{
  *             type: "OWASP",
- *             version: "3.1",
+ *             version: "3.2",
  *             ruleGroupOverrides: [{
  *                 ruleGroupName: "REQUEST-920-PROTOCOL-ENFORCEMENT",
- *                 disabledRules: [
- *                     "920300",
- *                     "920440",
+ *                 rules: [
+ *                     {
+ *                         id: "920300",
+ *                         enabled: true,
+ *                         action: "Log",
+ *                     },
+ *                     {
+ *                         id: "920440",
+ *                         enabled: true,
+ *                         action: "Block",
+ *                     },
  *                 ],
  *             }],
  *         }],

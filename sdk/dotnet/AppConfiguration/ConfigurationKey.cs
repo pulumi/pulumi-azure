@@ -173,7 +173,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<string> ContentType { get; private set; } = null!;
 
         /// <summary>
-        /// The ETag of the key.
+        /// (Optional) The ETag of the key.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
-        /// The ETag of the key.
+        /// (Optional) The ETag of the key.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
@@ -353,7 +353,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
-        /// The ETag of the key.
+        /// (Optional) The ETag of the key.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }

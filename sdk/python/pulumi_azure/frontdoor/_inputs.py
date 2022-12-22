@@ -1931,7 +1931,7 @@ class RulesEngineRuleMatchConditionArgs:
         :param pulumi.Input[bool] negate_condition: can be set to `true` or `false` to negate the given condition. Defaults to `true`.
         :param pulumi.Input[str] selector: match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: can contain one or more strings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: (array) can contain one or more strings.
         :param pulumi.Input[str] variable: can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
         """
         pulumi.set(__self__, "operator", operator)
@@ -1998,7 +1998,7 @@ class RulesEngineRuleMatchConditionArgs:
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        can contain one or more strings.
+        (array) can contain one or more strings.
         """
         return pulumi.get(self, "values")
 

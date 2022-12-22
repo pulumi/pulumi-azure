@@ -30,7 +30,7 @@ class BudgetManagementGroupArgs:
         :param pulumi.Input[str] management_group_id: The ID of the Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupNotificationArgs']]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input['BudgetManagementGroupTimePeriodArgs'] time_period: A `time_period` block as defined below.
-        :param pulumi.Input[str] etag: The ETag of the Management Group Consumption Budget.
+        :param pulumi.Input[str] etag: (Optional) The ETag of the Management Group Consumption Budget.
         :param pulumi.Input['BudgetManagementGroupFilterArgs'] filter: A `filter` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Management Group Consumption Budget. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`.
@@ -100,7 +100,7 @@ class BudgetManagementGroupArgs:
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[str]]:
         """
-        The ETag of the Management Group Consumption Budget.
+        (Optional) The ETag of the Management Group Consumption Budget.
         """
         return pulumi.get(self, "etag")
 
@@ -159,7 +159,7 @@ class _BudgetManagementGroupState:
         """
         Input properties used for looking up and filtering BudgetManagementGroup resources.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget.
-        :param pulumi.Input[str] etag: The ETag of the Management Group Consumption Budget.
+        :param pulumi.Input[str] etag: (Optional) The ETag of the Management Group Consumption Budget.
         :param pulumi.Input['BudgetManagementGroupFilterArgs'] filter: A `filter` block as defined below.
         :param pulumi.Input[str] management_group_id: The ID of the Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Management Group Consumption Budget. Changing this forces a new resource to be created.
@@ -200,7 +200,7 @@ class _BudgetManagementGroupState:
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[str]]:
         """
-        The ETag of the Management Group Consumption Budget.
+        (Optional) The ETag of the Management Group Consumption Budget.
         """
         return pulumi.get(self, "etag")
 
@@ -361,7 +361,7 @@ class BudgetManagementGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget.
-        :param pulumi.Input[str] etag: The ETag of the Management Group Consumption Budget.
+        :param pulumi.Input[str] etag: (Optional) The ETag of the Management Group Consumption Budget.
         :param pulumi.Input[pulumi.InputType['BudgetManagementGroupFilterArgs']] filter: A `filter` block as defined below.
         :param pulumi.Input[str] management_group_id: The ID of the Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Management Group Consumption Budget. Changing this forces a new resource to be created.
@@ -512,7 +512,7 @@ class BudgetManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget.
-        :param pulumi.Input[str] etag: The ETag of the Management Group Consumption Budget.
+        :param pulumi.Input[str] etag: (Optional) The ETag of the Management Group Consumption Budget.
         :param pulumi.Input[pulumi.InputType['BudgetManagementGroupFilterArgs']] filter: A `filter` block as defined below.
         :param pulumi.Input[str] management_group_id: The ID of the Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Management Group Consumption Budget. Changing this forces a new resource to be created.
@@ -546,7 +546,7 @@ class BudgetManagementGroup(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         """
-        The ETag of the Management Group Consumption Budget.
+        (Optional) The ETag of the Management Group Consumption Budget.
         """
         return pulumi.get(self, "etag")
 

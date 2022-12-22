@@ -17,14 +17,14 @@ public final class VirtualNetworkGatewayCustomRouteArgs extends com.pulumi.resou
     public static final VirtualNetworkGatewayCustomRouteArgs Empty = new VirtualNetworkGatewayCustomRouteArgs();
 
     /**
-     * A list of address blocks reserved for this virtual network in CIDR notation.
+     * A list of address blocks reserved for this virtual network in CIDR notation as defined below.
      * 
      */
     @Import(name="addressPrefixes")
     private @Nullable Output<List<String>> addressPrefixes;
 
     /**
-     * @return A list of address blocks reserved for this virtual network in CIDR notation.
+     * @return A list of address blocks reserved for this virtual network in CIDR notation as defined below.
      * 
      */
     public Optional<Output<List<String>>> addressPrefixes() {
@@ -56,7 +56,7 @@ public final class VirtualNetworkGatewayCustomRouteArgs extends com.pulumi.resou
         }
 
         /**
-         * @param addressPrefixes A list of address blocks reserved for this virtual network in CIDR notation.
+         * @param addressPrefixes A list of address blocks reserved for this virtual network in CIDR notation as defined below.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class VirtualNetworkGatewayCustomRouteArgs extends com.pulumi.resou
         }
 
         /**
-         * @param addressPrefixes A list of address blocks reserved for this virtual network in CIDR notation.
+         * @param addressPrefixes A list of address blocks reserved for this virtual network in CIDR notation as defined below.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class VirtualNetworkGatewayCustomRouteArgs extends com.pulumi.resou
         }
 
         /**
-         * @param addressPrefixes A list of address blocks reserved for this virtual network in CIDR notation.
+         * @param addressPrefixes A list of address blocks reserved for this virtual network in CIDR notation as defined below.
          * 
          * @return builder
          * 

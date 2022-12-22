@@ -19,13 +19,13 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? DestinationAddress { get; set; }
 
         /// <summary>
-        /// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+        /// Specifies a list of destination ports.
         /// </summary>
         [Input("destinationPorts")]
         public Input<string>? DestinationPorts { get; set; }
 
         /// <summary>
-        /// The name which should be used for this rule.
+        /// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        /// One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
         /// </summary>
         public InputList<string> Protocols
         {

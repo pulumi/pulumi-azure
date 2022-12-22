@@ -191,7 +191,7 @@ type ConfigurationKey struct {
 	ConfigurationStoreId pulumi.StringOutput `pulumi:"configurationStoreId"`
 	// The content type of the App Configuration Key. This should only be set when type is set to `kv`.
 	ContentType pulumi.StringOutput `pulumi:"contentType"`
-	// The ETag of the key.
+	// (Optional) The ETag of the key.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The name of the App Configuration Key to create. Changing this forces a new resource to be created.
 	Key pulumi.StringOutput `pulumi:"key"`
@@ -248,7 +248,7 @@ type configurationKeyState struct {
 	ConfigurationStoreId *string `pulumi:"configurationStoreId"`
 	// The content type of the App Configuration Key. This should only be set when type is set to `kv`.
 	ContentType *string `pulumi:"contentType"`
-	// The ETag of the key.
+	// (Optional) The ETag of the key.
 	Etag *string `pulumi:"etag"`
 	// The name of the App Configuration Key to create. Changing this forces a new resource to be created.
 	Key *string `pulumi:"key"`
@@ -271,7 +271,7 @@ type ConfigurationKeyState struct {
 	ConfigurationStoreId pulumi.StringPtrInput
 	// The content type of the App Configuration Key. This should only be set when type is set to `kv`.
 	ContentType pulumi.StringPtrInput
-	// The ETag of the key.
+	// (Optional) The ETag of the key.
 	Etag pulumi.StringPtrInput
 	// The name of the App Configuration Key to create. Changing this forces a new resource to be created.
 	Key pulumi.StringPtrInput
@@ -298,7 +298,7 @@ type configurationKeyArgs struct {
 	ConfigurationStoreId string `pulumi:"configurationStoreId"`
 	// The content type of the App Configuration Key. This should only be set when type is set to `kv`.
 	ContentType *string `pulumi:"contentType"`
-	// The ETag of the key.
+	// (Optional) The ETag of the key.
 	Etag *string `pulumi:"etag"`
 	// The name of the App Configuration Key to create. Changing this forces a new resource to be created.
 	Key string `pulumi:"key"`
@@ -322,7 +322,7 @@ type ConfigurationKeyArgs struct {
 	ConfigurationStoreId pulumi.StringInput
 	// The content type of the App Configuration Key. This should only be set when type is set to `kv`.
 	ContentType pulumi.StringPtrInput
-	// The ETag of the key.
+	// (Optional) The ETag of the key.
 	Etag pulumi.StringPtrInput
 	// The name of the App Configuration Key to create. Changing this forces a new resource to be created.
 	Key pulumi.StringInput
@@ -437,7 +437,7 @@ func (o ConfigurationKeyOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationKey) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// The ETag of the key.
+// (Optional) The ETag of the key.
 func (o ConfigurationKeyOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationKey) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }

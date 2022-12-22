@@ -15,9 +15,17 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
 
     public static final OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs Empty = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs();
 
+    /**
+     * The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
+     * 
+     */
     @Import(name="certificateUrl")
     private @Nullable Output<String> certificateUrl;
 
+    /**
+     * @return The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
+     * 
+     */
     public Optional<Output<String>> certificateUrl() {
         return Optional.ofNullable(this.certificateUrl);
     }
@@ -54,11 +62,23 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
             $ = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param certificateUrl The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateUrl(@Nullable Output<String> certificateUrl) {
             $.certificateUrl = certificateUrl;
             return this;
         }
 
+        /**
+         * @param certificateUrl The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateUrl(String certificateUrl) {
             return certificateUrl(Output.of(certificateUrl));
         }

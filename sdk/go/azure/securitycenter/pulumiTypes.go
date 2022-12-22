@@ -186,11 +186,11 @@ func (o AssessmentStatusPtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 type AutomationAction struct {
-	// A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+	// (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
 	ConnectionString *string `pulumi:"connectionString"`
 	// The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
 	ResourceId string `pulumi:"resourceId"`
-	// The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+	// (Optional, but required when `type` is `LogicApp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
 	TriggerUrl *string `pulumi:"triggerUrl"`
 	// Type of Azure resource to send data to. Must be set to one of: `LogicApp`, `EventHub` or `LogAnalytics`.
 	Type string `pulumi:"type"`
@@ -208,11 +208,11 @@ type AutomationActionInput interface {
 }
 
 type AutomationActionArgs struct {
-	// A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+	// (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
 	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
 	// The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+	// (Optional, but required when `type` is `LogicApp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
 	TriggerUrl pulumi.StringPtrInput `pulumi:"triggerUrl"`
 	// Type of Azure resource to send data to. Must be set to one of: `LogicApp`, `EventHub` or `LogAnalytics`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -269,7 +269,7 @@ func (o AutomationActionOutput) ToAutomationActionOutputWithContext(ctx context.
 	return o
 }
 
-// A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+// (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
 func (o AutomationActionOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationAction) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
@@ -279,7 +279,7 @@ func (o AutomationActionOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationAction) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+// (Optional, but required when `type` is `LogicApp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
 func (o AutomationActionOutput) TriggerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationAction) *string { return v.TriggerUrl }).(pulumi.StringPtrOutput)
 }

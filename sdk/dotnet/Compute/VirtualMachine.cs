@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Compute
     ///     var @internal = new Azure.Network.Subnet("internal", new()
     ///     {
     ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = azurerm_virtual_network.Example.Name,
+    ///         VirtualNetworkName = mainVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
     ///             "10.0.2.0/24",
@@ -192,19 +192,19 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.VirtualMachineOsProfile?> OsProfile { get; private set; } = null!;
 
         /// <summary>
-        /// An `os_profile_linux_config` block as defined below.
+        /// (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
         /// </summary>
         [Output("osProfileLinuxConfig")]
         public Output<Outputs.VirtualMachineOsProfileLinuxConfig?> OsProfileLinuxConfig { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `os_profile_secrets` blocks.
+        /// One or more `os_profile_secrets` blocks as defined below.
         /// </summary>
         [Output("osProfileSecrets")]
         public Output<ImmutableArray<Outputs.VirtualMachineOsProfileSecret>> OsProfileSecrets { get; private set; } = null!;
 
         /// <summary>
-        /// An `os_profile_windows_config` block as defined below.
+        /// (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
         /// </summary>
         [Output("osProfileWindowsConfig")]
         public Output<Outputs.VirtualMachineOsProfileWindowsConfig?> OsProfileWindowsConfig { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `storage_data_disk` blocks.
+        /// One or more `storage_data_disk` blocks as defined below.
         /// </summary>
         [Output("storageDataDisks")]
         public Output<ImmutableArray<Outputs.VirtualMachineStorageDataDisk>> StorageDataDisks { get; private set; } = null!;
@@ -388,7 +388,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.VirtualMachineOsProfileArgs>? OsProfile { get; set; }
 
         /// <summary>
-        /// An `os_profile_linux_config` block as defined below.
+        /// (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
         /// </summary>
         [Input("osProfileLinuxConfig")]
         public Input<Inputs.VirtualMachineOsProfileLinuxConfigArgs>? OsProfileLinuxConfig { get; set; }
@@ -397,7 +397,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.VirtualMachineOsProfileSecretArgs>? _osProfileSecrets;
 
         /// <summary>
-        /// One or more `os_profile_secrets` blocks.
+        /// One or more `os_profile_secrets` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualMachineOsProfileSecretArgs> OsProfileSecrets
         {
@@ -406,7 +406,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// An `os_profile_windows_config` block as defined below.
+        /// (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
         /// </summary>
         [Input("osProfileWindowsConfig")]
         public Input<Inputs.VirtualMachineOsProfileWindowsConfigArgs>? OsProfileWindowsConfig { get; set; }
@@ -439,7 +439,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.VirtualMachineStorageDataDiskArgs>? _storageDataDisks;
 
         /// <summary>
-        /// One or more `storage_data_disk` blocks.
+        /// One or more `storage_data_disk` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualMachineStorageDataDiskArgs> StorageDataDisks
         {
@@ -564,7 +564,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.VirtualMachineOsProfileGetArgs>? OsProfile { get; set; }
 
         /// <summary>
-        /// An `os_profile_linux_config` block as defined below.
+        /// (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
         /// </summary>
         [Input("osProfileLinuxConfig")]
         public Input<Inputs.VirtualMachineOsProfileLinuxConfigGetArgs>? OsProfileLinuxConfig { get; set; }
@@ -573,7 +573,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.VirtualMachineOsProfileSecretGetArgs>? _osProfileSecrets;
 
         /// <summary>
-        /// One or more `os_profile_secrets` blocks.
+        /// One or more `os_profile_secrets` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualMachineOsProfileSecretGetArgs> OsProfileSecrets
         {
@@ -582,7 +582,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// An `os_profile_windows_config` block as defined below.
+        /// (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
         /// </summary>
         [Input("osProfileWindowsConfig")]
         public Input<Inputs.VirtualMachineOsProfileWindowsConfigGetArgs>? OsProfileWindowsConfig { get; set; }
@@ -615,7 +615,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.VirtualMachineStorageDataDiskGetArgs>? _storageDataDisks;
 
         /// <summary>
-        /// One or more `storage_data_disk` blocks.
+        /// One or more `storage_data_disk` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualMachineStorageDataDiskGetArgs> StorageDataDisks
         {

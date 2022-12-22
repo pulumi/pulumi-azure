@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? ManagedDiskId { get; set; }
 
         /// <summary>
-        /// Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
+        /// Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
         /// </summary>
         [Input("osState")]
         public Input<string>? OsState { get; set; }

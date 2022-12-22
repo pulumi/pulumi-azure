@@ -20,6 +20,7 @@ __all__ = [
     'PolicyManagedRulesExclusionExcludedRuleSetRuleGroup',
     'PolicyManagedRulesManagedRuleSet',
     'PolicyManagedRulesManagedRuleSetRuleGroupOverride',
+    'PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule',
     'PolicyPolicySettings',
 ]
 
@@ -548,30 +549,80 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverride(dict):
 
     def __init__(__self__, *,
                  rule_group_name: str,
-                 disabled_rules: Optional[Sequence[str]] = None):
+                 disabled_rules: Optional[Sequence[str]] = None,
+                 rules: Optional[Sequence['outputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule']] = None):
         """
-        :param str rule_group_name: The name of the Rule Group
-        :param Sequence[str] disabled_rules: One or more Rule IDs
+        :param str rule_group_name: The name of the Rule Group.
+        :param Sequence['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs'] rules: One or more `rule` block defined below.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if disabled_rules is not None:
             pulumi.set(__self__, "disabled_rules", disabled_rules)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter(name="ruleGroupName")
     def rule_group_name(self) -> str:
         """
-        The name of the Rule Group
+        The name of the Rule Group.
         """
         return pulumi.get(self, "rule_group_name")
 
     @property
     @pulumi.getter(name="disabledRules")
     def disabled_rules(self) -> Optional[Sequence[str]]:
-        """
-        One or more Rule IDs
-        """
         return pulumi.get(self, "disabled_rules")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule']]:
+        """
+        One or more `rule` block defined below.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 action: Optional[str] = None,
+                 enabled: Optional[bool] = None):
+        """
+        :param str id: Identifier for the managed rule.
+        :param str action: Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+        :param bool enabled: Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+        """
+        pulumi.set(__self__, "id", id)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Identifier for the managed rule.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

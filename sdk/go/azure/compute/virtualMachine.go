@@ -50,7 +50,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVirtualNetwork(ctx, "mainVirtualNetwork", &network.VirtualNetworkArgs{
+//			mainVirtualNetwork, err := network.NewVirtualNetwork(ctx, "mainVirtualNetwork", &network.VirtualNetworkArgs{
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -62,7 +62,7 @@ import (
 //			}
 //			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
 //				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: pulumi.Any(azurerm_virtual_network.Example.Name),
+//				VirtualNetworkName: mainVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
 //				},
@@ -158,11 +158,11 @@ type VirtualMachine struct {
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile VirtualMachineOsProfilePtrOutput `pulumi:"osProfile"`
-	// An `osProfileLinuxConfig` block as defined below.
+	// (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
 	OsProfileLinuxConfig VirtualMachineOsProfileLinuxConfigPtrOutput `pulumi:"osProfileLinuxConfig"`
-	// One or more `osProfileSecrets` blocks.
+	// One or more `osProfileSecrets` blocks as defined below.
 	OsProfileSecrets VirtualMachineOsProfileSecretArrayOutput `pulumi:"osProfileSecrets"`
-	// An `osProfileWindowsConfig` block as defined below.
+	// (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
 	OsProfileWindowsConfig VirtualMachineOsProfileWindowsConfigPtrOutput `pulumi:"osProfileWindowsConfig"`
 	// A `plan` block as defined below.
 	Plan VirtualMachinePlanPtrOutput `pulumi:"plan"`
@@ -172,7 +172,7 @@ type VirtualMachine struct {
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
 	// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// One or more `storageDataDisk` blocks.
+	// One or more `storageDataDisk` blocks as defined below.
 	StorageDataDisks VirtualMachineStorageDataDiskArrayOutput `pulumi:"storageDataDisks"`
 	// A `storageImageReference` block as defined below.
 	StorageImageReference VirtualMachineStorageImageReferenceOutput `pulumi:"storageImageReference"`
@@ -249,11 +249,11 @@ type virtualMachineState struct {
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile *VirtualMachineOsProfile `pulumi:"osProfile"`
-	// An `osProfileLinuxConfig` block as defined below.
+	// (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
 	OsProfileLinuxConfig *VirtualMachineOsProfileLinuxConfig `pulumi:"osProfileLinuxConfig"`
-	// One or more `osProfileSecrets` blocks.
+	// One or more `osProfileSecrets` blocks as defined below.
 	OsProfileSecrets []VirtualMachineOsProfileSecret `pulumi:"osProfileSecrets"`
-	// An `osProfileWindowsConfig` block as defined below.
+	// (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
 	OsProfileWindowsConfig *VirtualMachineOsProfileWindowsConfig `pulumi:"osProfileWindowsConfig"`
 	// A `plan` block as defined below.
 	Plan *VirtualMachinePlan `pulumi:"plan"`
@@ -263,7 +263,7 @@ type virtualMachineState struct {
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// One or more `storageDataDisk` blocks.
+	// One or more `storageDataDisk` blocks as defined below.
 	StorageDataDisks []VirtualMachineStorageDataDisk `pulumi:"storageDataDisks"`
 	// A `storageImageReference` block as defined below.
 	StorageImageReference *VirtualMachineStorageImageReference `pulumi:"storageImageReference"`
@@ -300,11 +300,11 @@ type VirtualMachineState struct {
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile VirtualMachineOsProfilePtrInput
-	// An `osProfileLinuxConfig` block as defined below.
+	// (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
 	OsProfileLinuxConfig VirtualMachineOsProfileLinuxConfigPtrInput
-	// One or more `osProfileSecrets` blocks.
+	// One or more `osProfileSecrets` blocks as defined below.
 	OsProfileSecrets VirtualMachineOsProfileSecretArrayInput
-	// An `osProfileWindowsConfig` block as defined below.
+	// (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
 	OsProfileWindowsConfig VirtualMachineOsProfileWindowsConfigPtrInput
 	// A `plan` block as defined below.
 	Plan VirtualMachinePlanPtrInput
@@ -314,7 +314,7 @@ type VirtualMachineState struct {
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// One or more `storageDataDisk` blocks.
+	// One or more `storageDataDisk` blocks as defined below.
 	StorageDataDisks VirtualMachineStorageDataDiskArrayInput
 	// A `storageImageReference` block as defined below.
 	StorageImageReference VirtualMachineStorageImageReferencePtrInput
@@ -355,11 +355,11 @@ type virtualMachineArgs struct {
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile *VirtualMachineOsProfile `pulumi:"osProfile"`
-	// An `osProfileLinuxConfig` block as defined below.
+	// (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
 	OsProfileLinuxConfig *VirtualMachineOsProfileLinuxConfig `pulumi:"osProfileLinuxConfig"`
-	// One or more `osProfileSecrets` blocks.
+	// One or more `osProfileSecrets` blocks as defined below.
 	OsProfileSecrets []VirtualMachineOsProfileSecret `pulumi:"osProfileSecrets"`
-	// An `osProfileWindowsConfig` block as defined below.
+	// (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
 	OsProfileWindowsConfig *VirtualMachineOsProfileWindowsConfig `pulumi:"osProfileWindowsConfig"`
 	// A `plan` block as defined below.
 	Plan *VirtualMachinePlan `pulumi:"plan"`
@@ -369,7 +369,7 @@ type virtualMachineArgs struct {
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// One or more `storageDataDisk` blocks.
+	// One or more `storageDataDisk` blocks as defined below.
 	StorageDataDisks []VirtualMachineStorageDataDisk `pulumi:"storageDataDisks"`
 	// A `storageImageReference` block as defined below.
 	StorageImageReference *VirtualMachineStorageImageReference `pulumi:"storageImageReference"`
@@ -407,11 +407,11 @@ type VirtualMachineArgs struct {
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile VirtualMachineOsProfilePtrInput
-	// An `osProfileLinuxConfig` block as defined below.
+	// (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
 	OsProfileLinuxConfig VirtualMachineOsProfileLinuxConfigPtrInput
-	// One or more `osProfileSecrets` blocks.
+	// One or more `osProfileSecrets` blocks as defined below.
 	OsProfileSecrets VirtualMachineOsProfileSecretArrayInput
-	// An `osProfileWindowsConfig` block as defined below.
+	// (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
 	OsProfileWindowsConfig VirtualMachineOsProfileWindowsConfigPtrInput
 	// A `plan` block as defined below.
 	Plan VirtualMachinePlanPtrInput
@@ -421,7 +421,7 @@ type VirtualMachineArgs struct {
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// One or more `storageDataDisk` blocks.
+	// One or more `storageDataDisk` blocks as defined below.
 	StorageDataDisks VirtualMachineStorageDataDiskArrayInput
 	// A `storageImageReference` block as defined below.
 	StorageImageReference VirtualMachineStorageImageReferencePtrInput
@@ -577,17 +577,17 @@ func (o VirtualMachineOutput) OsProfile() VirtualMachineOsProfilePtrOutput {
 	return o.ApplyT(func(v *VirtualMachine) VirtualMachineOsProfilePtrOutput { return v.OsProfile }).(VirtualMachineOsProfilePtrOutput)
 }
 
-// An `osProfileLinuxConfig` block as defined below.
+// (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
 func (o VirtualMachineOutput) OsProfileLinuxConfig() VirtualMachineOsProfileLinuxConfigPtrOutput {
 	return o.ApplyT(func(v *VirtualMachine) VirtualMachineOsProfileLinuxConfigPtrOutput { return v.OsProfileLinuxConfig }).(VirtualMachineOsProfileLinuxConfigPtrOutput)
 }
 
-// One or more `osProfileSecrets` blocks.
+// One or more `osProfileSecrets` blocks as defined below.
 func (o VirtualMachineOutput) OsProfileSecrets() VirtualMachineOsProfileSecretArrayOutput {
 	return o.ApplyT(func(v *VirtualMachine) VirtualMachineOsProfileSecretArrayOutput { return v.OsProfileSecrets }).(VirtualMachineOsProfileSecretArrayOutput)
 }
 
-// An `osProfileWindowsConfig` block as defined below.
+// (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
 func (o VirtualMachineOutput) OsProfileWindowsConfig() VirtualMachineOsProfileWindowsConfigPtrOutput {
 	return o.ApplyT(func(v *VirtualMachine) VirtualMachineOsProfileWindowsConfigPtrOutput { return v.OsProfileWindowsConfig }).(VirtualMachineOsProfileWindowsConfigPtrOutput)
 }
@@ -612,7 +612,7 @@ func (o VirtualMachineOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// One or more `storageDataDisk` blocks.
+// One or more `storageDataDisk` blocks as defined below.
 func (o VirtualMachineOutput) StorageDataDisks() VirtualMachineStorageDataDiskArrayOutput {
 	return o.ApplyT(func(v *VirtualMachine) VirtualMachineStorageDataDiskArrayOutput { return v.StorageDataDisks }).(VirtualMachineStorageDataDiskArrayOutput)
 }

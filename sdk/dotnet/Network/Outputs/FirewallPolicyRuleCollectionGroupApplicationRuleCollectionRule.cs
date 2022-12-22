@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+        /// Specifies a list of destination IP addresses (including CIDR and `*`).
         /// </summary>
         public readonly ImmutableArray<string> DestinationAddresses;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DestinationFqdnTags;
         /// <summary>
-        /// Specifies a list of destination FQDNs.
+        /// Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         /// </summary>
         public readonly ImmutableArray<string> DestinationFqdns;
         /// <summary>
@@ -34,11 +34,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DestinationUrls;
         /// <summary>
-        /// The name which should be used for this rule.
+        /// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        /// One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol> Protocols;
         /// <summary>

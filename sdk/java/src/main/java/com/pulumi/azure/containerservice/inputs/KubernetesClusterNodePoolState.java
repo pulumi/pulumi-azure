@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.inputs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolKubeletConfigArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolLinuxOsConfigArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolUpgradeSettingsArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolWindowsProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -579,6 +580,21 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     }
 
     /**
+     * A `windows_profile` block as documented below.
+     * 
+     */
+    @Import(name="windowsProfile")
+    private @Nullable Output<KubernetesClusterNodePoolWindowsProfileArgs> windowsProfile;
+
+    /**
+     * @return A `windows_profile` block as documented below.
+     * 
+     */
+    public Optional<Output<KubernetesClusterNodePoolWindowsProfileArgs>> windowsProfile() {
+        return Optional.ofNullable(this.windowsProfile);
+    }
+
+    /**
      * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
      * 
      */
@@ -648,6 +664,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         this.upgradeSettings = $.upgradeSettings;
         this.vmSize = $.vmSize;
         this.vnetSubnetId = $.vnetSubnetId;
+        this.windowsProfile = $.windowsProfile;
         this.workloadRuntime = $.workloadRuntime;
         this.zones = $.zones;
     }
@@ -1455,6 +1472,27 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
          */
         public Builder vnetSubnetId(String vnetSubnetId) {
             return vnetSubnetId(Output.of(vnetSubnetId));
+        }
+
+        /**
+         * @param windowsProfile A `windows_profile` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder windowsProfile(@Nullable Output<KubernetesClusterNodePoolWindowsProfileArgs> windowsProfile) {
+            $.windowsProfile = windowsProfile;
+            return this;
+        }
+
+        /**
+         * @param windowsProfile A `windows_profile` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder windowsProfile(KubernetesClusterNodePoolWindowsProfileArgs windowsProfile) {
+            return windowsProfile(Output.of(windowsProfile));
         }
 
         /**

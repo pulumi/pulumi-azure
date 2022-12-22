@@ -190,7 +190,7 @@ class ContactProfileLinkChannelEndPointArgs:
                  port: pulumi.Input[str],
                  protocol: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] end_point_name: -(Required) Name of an end point.
+        :param pulumi.Input[str] end_point_name: Name of an end point.
         :param pulumi.Input[str] ip_address: IP address of an end point.
         :param pulumi.Input[str] port: TCP port to listen on to receive data.
         :param pulumi.Input[str] protocol: Protocol of an end point. Possible values are `TCP` and `UDP`.
@@ -204,7 +204,7 @@ class ContactProfileLinkChannelEndPointArgs:
     @pulumi.getter(name="endPointName")
     def end_point_name(self) -> pulumi.Input[str]:
         """
-        -(Required) Name of an end point.
+        Name of an end point.
         """
         return pulumi.get(self, "end_point_name")
 

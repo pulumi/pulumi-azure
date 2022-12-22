@@ -108,6 +108,10 @@ __all__ = [
     'ProfileContainerNetworkInterfaceArgs',
     'ProfileContainerNetworkInterfaceIpConfigurationArgs',
     'RouteFilterRuleArgs',
+    'RouteMapRuleArgs',
+    'RouteMapRuleActionArgs',
+    'RouteMapRuleActionParameterArgs',
+    'RouteMapRuleMatchCriterionArgs',
     'RouteTableRouteArgs',
     'SubnetDelegationArgs',
     'SubnetDelegationServiceDelegationArgs',
@@ -351,7 +355,7 @@ class ApplicationGatewayBackendHttpSettingArgs:
         :param pulumi.Input[int] port: The port which should be used for this Backend HTTP Settings Collection.
         :param pulumi.Input[str] protocol: The Protocol which should be used. Possible values are `Http` and `Https`.
         :param pulumi.Input[str] affinity_cookie_name: The name of the affinity cookie.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]] authentication_certificates: One or more `authentication_certificate` blocks.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
         :param pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs'] connection_draining: A `connection_draining` block as defined below.
         :param pulumi.Input[str] host_name: Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
@@ -453,7 +457,7 @@ class ApplicationGatewayBackendHttpSettingArgs:
     @pulumi.getter(name="authenticationCertificates")
     def authentication_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]]:
         """
-        One or more `authentication_certificate` blocks.
+        One or more `authentication_certificate` blocks as defined below.
         """
         return pulumi.get(self, "authentication_certificates")
 
@@ -1009,7 +1013,7 @@ class ApplicationGatewayHttpListenerArgs:
         :param pulumi.Input[bool] require_sni: Should Server Name Indication be Required? Defaults to `false`.
         :param pulumi.Input[str] ssl_certificate_id: The ID of the associated SSL Certificate.
         :param pulumi.Input[str] ssl_certificate_name: The name of the associated SSL Certificate which should be used for this HTTP Listener.
-        :param pulumi.Input[str] ssl_profile_id: The ID of the associated SSL Certificate.
+        :param pulumi.Input[str] ssl_profile_id: The ID of the associated SSL Profile.
         :param pulumi.Input[str] ssl_profile_name: The name of the associated SSL Profile which should be used for this HTTP Listener.
         """
         pulumi.set(__self__, "frontend_ip_configuration_name", frontend_ip_configuration_name)
@@ -1213,7 +1217,7 @@ class ApplicationGatewayHttpListenerArgs:
     @pulumi.getter(name="sslProfileId")
     def ssl_profile_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the associated SSL Certificate.
+        The ID of the associated SSL Profile.
         """
         return pulumi.get(self, "ssl_profile_id")
 
@@ -5448,7 +5452,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs:
         :param pulumi.Input[str] action: The action to take for the application rules in this collection. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[str] name: The name which should be used for this application rule collection.
         :param pulumi.Input[int] priority: The priority of the application rule collection. The range is `100` - `65000`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs']]] rules: One or more `rule` (application rule) blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs']]] rules: One or more `application_rule` (application rule) blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -5495,7 +5499,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs:
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs']]]:
         """
-        One or more `rule` (application rule) blocks as defined below.
+        One or more `application_rule` (application rule) blocks as defined below.
         """
         return pulumi.get(self, "rules")
 
@@ -5519,13 +5523,13 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
                  terminate_tls: Optional[pulumi.Input[bool]] = None,
                  web_categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] name: The name which should be used for this rule.
+        :param pulumi.Input[str] name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         :param pulumi.Input[str] description: The description which should be used for this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: Specifies a list of destination IP addresses (including CIDR and `*`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdn_tags: Specifies a list of destination FQDN tags.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdns: Specifies a list of destination FQDNs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdns: Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_urls: Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]] protocols: Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]] protocols: One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: Specifies a list of source IP groups.
         :param pulumi.Input[bool] terminate_tls: Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
@@ -5557,7 +5561,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name which should be used for this rule.
+        The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         """
         return pulumi.get(self, "name")
 
@@ -5581,7 +5585,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+        Specifies a list of destination IP addresses (including CIDR and `*`).
         """
         return pulumi.get(self, "destination_addresses")
 
@@ -5605,7 +5609,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @pulumi.getter(name="destinationFqdns")
     def destination_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of destination FQDNs.
+        Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         """
         return pulumi.get(self, "destination_fqdns")
 
@@ -5629,7 +5633,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]]:
         """
-        Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
         """
         return pulumi.get(self, "protocols")
 
@@ -5734,7 +5738,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs:
         :param pulumi.Input[str] action: The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
         :param pulumi.Input[str] name: The name which should be used for this NAT rule collection.
         :param pulumi.Input[int] priority: The priority of the NAT rule collection. The range is `100` - `65000`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs']]] rules: A `rule` (NAT rule) block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs']]] rules: A `nat_rule` (NAT rule) block as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -5781,7 +5785,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs:
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs']]]:
         """
-        A `rule` (NAT rule) block as defined above.
+        A `nat_rule` (NAT rule) block as defined below.
         """
         return pulumi.get(self, "rules")
 
@@ -5803,11 +5807,11 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
                  translated_address: Optional[pulumi.Input[str]] = None,
                  translated_fqdn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The name which should be used for this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        :param pulumi.Input[str] name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
         :param pulumi.Input[int] translated_port: Specifies the translated port.
         :param pulumi.Input[str] destination_address: The destination IP address (including CIDR).
-        :param pulumi.Input[str] destination_ports: Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+        :param pulumi.Input[str] destination_ports: Specifies a list of destination ports.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: Specifies a list of source IP groups.
         :param pulumi.Input[str] translated_address: Specifies the translated address.
@@ -5833,7 +5837,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name which should be used for this rule.
+        The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         """
         return pulumi.get(self, "name")
 
@@ -5845,7 +5849,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
     @pulumi.getter
     def protocols(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
         """
         return pulumi.get(self, "protocols")
 
@@ -5881,7 +5885,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
     @pulumi.getter(name="destinationPorts")
     def destination_ports(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+        Specifies a list of destination ports.
         """
         return pulumi.get(self, "destination_ports")
 
@@ -5949,7 +5953,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs:
         :param pulumi.Input[str] action: The action to take for the network rules in this collection. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[str] name: The name which should be used for this network rule collection.
         :param pulumi.Input[int] priority: The priority of the network rule collection. The range is `100` - `65000`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs']]] rules: One or more `rule` (network rule) blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs']]] rules: One or more `network_rule` (network rule) blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -5996,7 +6000,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs:
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs']]]:
         """
-        One or more `rule` (network rule) blocks as defined above.
+        One or more `network_rule` (network rule) blocks as defined below.
         """
         return pulumi.get(self, "rules")
 
@@ -6017,11 +6021,11 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
                  source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ports: Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-        :param pulumi.Input[str] name: The name which should be used for this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdns: Specifies a list of destination FQDNs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ports: Specifies a list of destination ports.
+        :param pulumi.Input[str] name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: Specifies a list of destination IP addresses (including CIDR and `*`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdns: Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ip_groups: Specifies a list of destination IP groups.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: Specifies a list of source IP groups.
@@ -6044,7 +6048,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
     @pulumi.getter(name="destinationPorts")
     def destination_ports(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+        Specifies a list of destination ports.
         """
         return pulumi.get(self, "destination_ports")
 
@@ -6056,7 +6060,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name which should be used for this rule.
+        The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         """
         return pulumi.get(self, "name")
 
@@ -6068,7 +6072,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
     @pulumi.getter
     def protocols(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
         """
         return pulumi.get(self, "protocols")
 
@@ -6080,7 +6084,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
     @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+        Specifies a list of destination IP addresses (including CIDR and `*`).
         """
         return pulumi.get(self, "destination_addresses")
 
@@ -6092,7 +6096,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
     @pulumi.getter(name="destinationFqdns")
     def destination_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of destination FQDNs.
+        Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         """
         return pulumi.get(self, "destination_fqdns")
 
@@ -7657,7 +7661,7 @@ class NetworkWatcherFlowLogRetentionPolicyArgs:
                  enabled: pulumi.Input[bool]):
         """
         :param pulumi.Input[int] days: The number of days to retain flow log records.
-        :param pulumi.Input[bool] enabled: Boolean flag to enable/disable traffic analytics.
+        :param pulumi.Input[bool] enabled: Boolean flag to enable/disable retention.
         """
         pulumi.set(__self__, "days", days)
         pulumi.set(__self__, "enabled", enabled)
@@ -7678,7 +7682,7 @@ class NetworkWatcherFlowLogRetentionPolicyArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Boolean flag to enable/disable traffic analytics.
+        Boolean flag to enable/disable retention.
         """
         return pulumi.get(self, "enabled")
 
@@ -7843,12 +7847,20 @@ class PointToPointVpnGatewayConnectionConfigurationArgs:
 class PointToPointVpnGatewayConnectionConfigurationRouteArgs:
     def __init__(__self__, *,
                  associated_route_table_id: pulumi.Input[str],
+                 inbound_route_map_id: Optional[pulumi.Input[str]] = None,
+                 outbound_route_map_id: Optional[pulumi.Input[str]] = None,
                  propagated_route_table: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs']] = None):
         """
         :param pulumi.Input[str] associated_route_table_id: The Virtual Hub Route Table resource id associated with this Routing Configuration.
+        :param pulumi.Input[str] inbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+        :param pulumi.Input[str] outbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
         :param pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs'] propagated_route_table: A `propagated_route_table` block as defined below.
         """
         pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
+        if inbound_route_map_id is not None:
+            pulumi.set(__self__, "inbound_route_map_id", inbound_route_map_id)
+        if outbound_route_map_id is not None:
+            pulumi.set(__self__, "outbound_route_map_id", outbound_route_map_id)
         if propagated_route_table is not None:
             pulumi.set(__self__, "propagated_route_table", propagated_route_table)
 
@@ -7863,6 +7875,30 @@ class PointToPointVpnGatewayConnectionConfigurationRouteArgs:
     @associated_route_table_id.setter
     def associated_route_table_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "associated_route_table_id", value)
+
+    @property
+    @pulumi.getter(name="inboundRouteMapId")
+    def inbound_route_map_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+        """
+        return pulumi.get(self, "inbound_route_map_id")
+
+    @inbound_route_map_id.setter
+    def inbound_route_map_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inbound_route_map_id", value)
+
+    @property
+    @pulumi.getter(name="outboundRouteMapId")
+    def outbound_route_map_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+        """
+        return pulumi.get(self, "outbound_route_map_id")
+
+    @outbound_route_map_id.setter
+    def outbound_route_map_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outbound_route_map_id", value)
 
     @property
     @pulumi.getter(name="propagatedRouteTable")
@@ -8076,6 +8112,238 @@ class RouteFilterRuleArgs:
     @rule_type.setter
     def rule_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "rule_type", value)
+
+
+@pulumi.input_type
+class RouteMapRuleArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArgs']]]] = None,
+                 match_criterions: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgs']]]] = None,
+                 next_step_if_matched: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The unique name for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArgs']]] actions: An `action` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgs']]] match_criterions: A `match_criterion` block as defined below.
+        :param pulumi.Input[str] next_step_if_matched: The next step after the rule is evaluated. Possible values are `Continue`, `Terminate` and `Unknown`. Defaults to `Unknown`.
+        """
+        pulumi.set(__self__, "name", name)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if match_criterions is not None:
+            pulumi.set(__self__, "match_criterions", match_criterions)
+        if next_step_if_matched is not None:
+            pulumi.set(__self__, "next_step_if_matched", next_step_if_matched)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The unique name for the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArgs']]]]:
+        """
+        An `action` block as defined below.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="matchCriterions")
+    def match_criterions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgs']]]]:
+        """
+        A `match_criterion` block as defined below.
+        """
+        return pulumi.get(self, "match_criterions")
+
+    @match_criterions.setter
+    def match_criterions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgs']]]]):
+        pulumi.set(self, "match_criterions", value)
+
+    @property
+    @pulumi.getter(name="nextStepIfMatched")
+    def next_step_if_matched(self) -> Optional[pulumi.Input[str]]:
+        """
+        The next step after the rule is evaluated. Possible values are `Continue`, `Terminate` and `Unknown`. Defaults to `Unknown`.
+        """
+        return pulumi.get(self, "next_step_if_matched")
+
+    @next_step_if_matched.setter
+    def next_step_if_matched(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "next_step_if_matched", value)
+
+
+@pulumi.input_type
+class RouteMapRuleActionArgs:
+    def __init__(__self__, *,
+                 parameters: pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]] parameters: A `parameter` block as defined below.
+        :param pulumi.Input[str] type: The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]:
+        """
+        A `parameter` block as defined below.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class RouteMapRuleActionParameterArgs:
+    def __init__(__self__, *,
+                 as_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 communities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 route_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] as_paths: A list of AS paths.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] communities: A list of BGP communities.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] route_prefixes: A list of route prefixes.
+        """
+        if as_paths is not None:
+            pulumi.set(__self__, "as_paths", as_paths)
+        if communities is not None:
+            pulumi.set(__self__, "communities", communities)
+        if route_prefixes is not None:
+            pulumi.set(__self__, "route_prefixes", route_prefixes)
+
+    @property
+    @pulumi.getter(name="asPaths")
+    def as_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of AS paths.
+        """
+        return pulumi.get(self, "as_paths")
+
+    @as_paths.setter
+    def as_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "as_paths", value)
+
+    @property
+    @pulumi.getter
+    def communities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of BGP communities.
+        """
+        return pulumi.get(self, "communities")
+
+    @communities.setter
+    def communities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "communities", value)
+
+    @property
+    @pulumi.getter(name="routePrefixes")
+    def route_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of route prefixes.
+        """
+        return pulumi.get(self, "route_prefixes")
+
+    @route_prefixes.setter
+    def route_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "route_prefixes", value)
+
+
+@pulumi.input_type
+class RouteMapRuleMatchCriterionArgs:
+    def __init__(__self__, *,
+                 match_condition: pulumi.Input[str],
+                 as_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 communities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 route_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] match_condition: The match condition to apply the rule of the Route Map. Possible values are `Contains`, `Equals`, `NotContains`, `NotEquals` and `Unknown`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] as_paths: A list of AS paths which this criterion matches.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] communities: A list of BGP communities which this criterion matches.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] route_prefixes: A list of route prefixes which this criterion matches.
+        """
+        pulumi.set(__self__, "match_condition", match_condition)
+        if as_paths is not None:
+            pulumi.set(__self__, "as_paths", as_paths)
+        if communities is not None:
+            pulumi.set(__self__, "communities", communities)
+        if route_prefixes is not None:
+            pulumi.set(__self__, "route_prefixes", route_prefixes)
+
+    @property
+    @pulumi.getter(name="matchCondition")
+    def match_condition(self) -> pulumi.Input[str]:
+        """
+        The match condition to apply the rule of the Route Map. Possible values are `Contains`, `Equals`, `NotContains`, `NotEquals` and `Unknown`.
+        """
+        return pulumi.get(self, "match_condition")
+
+    @match_condition.setter
+    def match_condition(self, value: pulumi.Input[str]):
+        pulumi.set(self, "match_condition", value)
+
+    @property
+    @pulumi.getter(name="asPaths")
+    def as_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of AS paths which this criterion matches.
+        """
+        return pulumi.get(self, "as_paths")
+
+    @as_paths.setter
+    def as_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "as_paths", value)
+
+    @property
+    @pulumi.getter
+    def communities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of BGP communities which this criterion matches.
+        """
+        return pulumi.get(self, "communities")
+
+    @communities.setter
+    def communities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "communities", value)
+
+    @property
+    @pulumi.getter(name="routePrefixes")
+    def route_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of route prefixes which this criterion matches.
+        """
+        return pulumi.get(self, "route_prefixes")
+
+    @route_prefixes.setter
+    def route_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "route_prefixes", value)
 
 
 @pulumi.input_type
@@ -9416,7 +9684,7 @@ class VirtualNetworkGatewayCustomRouteArgs:
     def __init__(__self__, *,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation as defined below.
         """
         if address_prefixes is not None:
             pulumi.set(__self__, "address_prefixes", address_prefixes)
@@ -9425,7 +9693,7 @@ class VirtualNetworkGatewayCustomRouteArgs:
     @pulumi.getter(name="addressPrefixes")
     def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of address blocks reserved for this virtual network in CIDR notation.
+        A list of address blocks reserved for this virtual network in CIDR notation as defined below.
         """
         return pulumi.get(self, "address_prefixes")
 
@@ -9614,11 +9882,8 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
         :param pulumi.Input[str] aad_tenant: AzureAD Tenant URL
         :param pulumi.Input[str] radius_server_address: The address of the Radius server.
         :param pulumi.Input[str] radius_server_secret: The secret used by the Radius server.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]] revoked_certificates: One or more `revoked_certificate` blocks which
-               are defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]] root_certificates: One or more `root_certificate` blocks which are
-               defined below. These root certificates are used to sign the client certificate
-               used by the VPN clients to connect to the gateway.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]] revoked_certificates: One or more `revoked_certificate` blocks which are defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]] root_certificates: One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_auth_types: List of the vpn authentication types for the virtual network gateway.
                The supported values are `AAD`, `Radius` and `Certificate`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_client_protocols: List of the protocols supported by the vpn client.
@@ -9725,8 +9990,7 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
     @pulumi.getter(name="revokedCertificates")
     def revoked_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]]]:
         """
-        One or more `revoked_certificate` blocks which
-        are defined below.
+        One or more `revoked_certificate` blocks which are defined below.
         """
         return pulumi.get(self, "revoked_certificates")
 
@@ -9738,9 +10002,7 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
     @pulumi.getter(name="rootCertificates")
     def root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]]]:
         """
-        One or more `root_certificate` blocks which are
-        defined below. These root certificates are used to sign the client certificate
-        used by the VPN clients to connect to the gateway.
+        One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
         """
         return pulumi.get(self, "root_certificates")
 
@@ -10229,12 +10491,20 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs:
 class VpnGatewayConnectionRoutingArgs:
     def __init__(__self__, *,
                  associated_route_table: pulumi.Input[str],
+                 inbound_route_map_id: Optional[pulumi.Input[str]] = None,
+                 outbound_route_map_id: Optional[pulumi.Input[str]] = None,
                  propagated_route_table: Optional[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']] = None):
         """
         :param pulumi.Input[str] associated_route_table: The ID of the Route Table associated with this VPN Connection.
+        :param pulumi.Input[str] inbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+        :param pulumi.Input[str] outbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
         :param pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs'] propagated_route_table: A `propagated_route_table` block as defined below.
         """
         pulumi.set(__self__, "associated_route_table", associated_route_table)
+        if inbound_route_map_id is not None:
+            pulumi.set(__self__, "inbound_route_map_id", inbound_route_map_id)
+        if outbound_route_map_id is not None:
+            pulumi.set(__self__, "outbound_route_map_id", outbound_route_map_id)
         if propagated_route_table is not None:
             pulumi.set(__self__, "propagated_route_table", propagated_route_table)
 
@@ -10249,6 +10519,30 @@ class VpnGatewayConnectionRoutingArgs:
     @associated_route_table.setter
     def associated_route_table(self, value: pulumi.Input[str]):
         pulumi.set(self, "associated_route_table", value)
+
+    @property
+    @pulumi.getter(name="inboundRouteMapId")
+    def inbound_route_map_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+        """
+        return pulumi.get(self, "inbound_route_map_id")
+
+    @inbound_route_map_id.setter
+    def inbound_route_map_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inbound_route_map_id", value)
+
+    @property
+    @pulumi.getter(name="outboundRouteMapId")
+    def outbound_route_map_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+        """
+        return pulumi.get(self, "outbound_route_map_id")
+
+    @outbound_route_map_id.setter
+    def outbound_route_map_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outbound_route_map_id", value)
 
     @property
     @pulumi.getter(name="propagatedRouteTable")

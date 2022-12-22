@@ -110,7 +110,7 @@ type ActivityLogAlert struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+	// The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -166,7 +166,7 @@ type activityLogAlertState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+	// The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
 	Scopes []string `pulumi:"scopes"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -185,7 +185,7 @@ type ActivityLogAlertState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+	// The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
 	Scopes pulumi.StringArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -208,7 +208,7 @@ type activityLogAlertArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+	// The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
 	Scopes []string `pulumi:"scopes"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -228,7 +228,7 @@ type ActivityLogAlertArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+	// The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
 	Scopes pulumi.StringArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -351,7 +351,7 @@ func (o ActivityLogAlertOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+// The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
 func (o ActivityLogAlertOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
 }

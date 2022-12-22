@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.waf.outputs;
 
+import com.pulumi.azure.waf.outputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -12,30 +13,46 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyManagedRulesManagedRuleSetRuleGroupOverride {
     /**
-     * @return One or more Rule IDs
+     * @deprecated
+     * `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider. */
     private @Nullable List<String> disabledRules;
     /**
-     * @return The name of the Rule Group
+     * @return The name of the Rule Group.
      * 
      */
     private String ruleGroupName;
+    /**
+     * @return One or more `rule` block defined below.
+     * 
+     */
+    private @Nullable List<PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule> rules;
 
     private PolicyManagedRulesManagedRuleSetRuleGroupOverride() {}
     /**
-     * @return One or more Rule IDs
+     * @deprecated
+     * `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider. */
     public List<String> disabledRules() {
         return this.disabledRules == null ? List.of() : this.disabledRules;
     }
     /**
-     * @return The name of the Rule Group
+     * @return The name of the Rule Group.
      * 
      */
     public String ruleGroupName() {
         return this.ruleGroupName;
+    }
+    /**
+     * @return One or more `rule` block defined below.
+     * 
+     */
+    public List<PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule> rules() {
+        return this.rules == null ? List.of() : this.rules;
     }
 
     public static Builder builder() {
@@ -49,11 +66,13 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverride {
     public static final class Builder {
         private @Nullable List<String> disabledRules;
         private String ruleGroupName;
+        private @Nullable List<PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule> rules;
         public Builder() {}
         public Builder(PolicyManagedRulesManagedRuleSetRuleGroupOverride defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.disabledRules = defaults.disabledRules;
     	      this.ruleGroupName = defaults.ruleGroupName;
+    	      this.rules = defaults.rules;
         }
 
         @CustomType.Setter
@@ -69,10 +88,19 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverride {
             this.ruleGroupName = Objects.requireNonNull(ruleGroupName);
             return this;
         }
+        @CustomType.Setter
+        public Builder rules(@Nullable List<PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule> rules) {
+            this.rules = rules;
+            return this;
+        }
+        public Builder rules(PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule... rules) {
+            return rules(List.of(rules));
+        }
         public PolicyManagedRulesManagedRuleSetRuleGroupOverride build() {
             final var o = new PolicyManagedRulesManagedRuleSetRuleGroupOverride();
             o.disabledRules = disabledRules;
             o.ruleGroupName = ruleGroupName;
+            o.rules = rules;
             return o;
         }
     }

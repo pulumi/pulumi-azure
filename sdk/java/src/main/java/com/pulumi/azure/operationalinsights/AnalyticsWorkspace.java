@@ -73,6 +73,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace")
 public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
     /**
+     * Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+     * 
+     */
+    @Export(name="allowResourceOnlyPermissions", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> allowResourceOnlyPermissions;
+
+    /**
+     * @return Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> allowResourceOnlyPermissions() {
+        return Codegen.optional(this.allowResourceOnlyPermissions);
+    }
+    /**
      * Is Customer Managed Storage mandatory for query management?
      * 
      */

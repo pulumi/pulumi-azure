@@ -136,14 +136,14 @@ public class BudgetSubscription extends com.pulumi.resources.CustomResource {
         return this.amount;
     }
     /**
-     * The ETag of the Subscription Consumption Budget.
+     * (Optional) The ETag of the Subscription Consumption Budget.
      * 
      */
     @Export(name="etag", type=String.class, parameters={})
     private Output<String> etag;
 
     /**
-     * @return The ETag of the Subscription Consumption Budget.
+     * @return (Optional) The ETag of the Subscription Consumption Budget.
      * 
      */
     public Output<String> etag() {

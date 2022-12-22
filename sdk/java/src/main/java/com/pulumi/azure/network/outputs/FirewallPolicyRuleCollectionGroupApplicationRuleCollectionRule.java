@@ -20,7 +20,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
      */
     private @Nullable String description;
     /**
-     * @return Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+     * @return Specifies a list of destination IP addresses (including CIDR and `*`).
      * 
      */
     private @Nullable List<String> destinationAddresses;
@@ -30,7 +30,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
      */
     private @Nullable List<String> destinationFqdnTags;
     /**
-     * @return Specifies a list of destination FQDNs.
+     * @return Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
      * 
      */
     private @Nullable List<String> destinationFqdns;
@@ -40,12 +40,12 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
      */
     private @Nullable List<String> destinationUrls;
     /**
-     * @return The name which should be used for this rule.
+     * @return The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      * 
      */
     private String name;
     /**
-     * @return Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+     * @return One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
      * 
      */
     private @Nullable List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol> protocols;
@@ -79,7 +79,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+     * @return Specifies a list of destination IP addresses (including CIDR and `*`).
      * 
      */
     public List<String> destinationAddresses() {
@@ -93,7 +93,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         return this.destinationFqdnTags == null ? List.of() : this.destinationFqdnTags;
     }
     /**
-     * @return Specifies a list of destination FQDNs.
+     * @return Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
      * 
      */
     public List<String> destinationFqdns() {
@@ -107,14 +107,14 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         return this.destinationUrls == null ? List.of() : this.destinationUrls;
     }
     /**
-     * @return The name which should be used for this rule.
+     * @return The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+     * @return One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
      * 
      */
     public List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol> protocols() {

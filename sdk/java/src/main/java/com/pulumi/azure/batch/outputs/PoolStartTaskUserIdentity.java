@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PoolStartTaskUserIdentity {
     /**
-     * @return A `auto_user` block that describes the user identity under which the start task runs.
+     * @return A `auto_user` block that describes the user identity under which the start task runs as defined below.
      * 
      */
     private @Nullable PoolStartTaskUserIdentityAutoUser autoUser;
@@ -25,7 +25,7 @@ public final class PoolStartTaskUserIdentity {
 
     private PoolStartTaskUserIdentity() {}
     /**
-     * @return A `auto_user` block that describes the user identity under which the start task runs.
+     * @return A `auto_user` block that describes the user identity under which the start task runs as defined below.
      * 
      */
     public Optional<PoolStartTaskUserIdentityAutoUser> autoUser() {

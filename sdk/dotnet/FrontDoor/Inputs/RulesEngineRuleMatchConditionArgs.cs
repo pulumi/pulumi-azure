@@ -46,7 +46,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// can contain one or more strings.
+        /// (array) can contain one or more strings.
         /// </summary>
         public InputList<string> Values
         {

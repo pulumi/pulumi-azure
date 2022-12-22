@@ -6,6 +6,7 @@ package com.pulumi.azure.storage.inputs;
 import com.pulumi.azure.storage.inputs.AccountBlobPropertiesContainerDeleteRetentionPolicyArgs;
 import com.pulumi.azure.storage.inputs.AccountBlobPropertiesCorsRuleArgs;
 import com.pulumi.azure.storage.inputs.AccountBlobPropertiesDeleteRetentionPolicyArgs;
+import com.pulumi.azure.storage.inputs.AccountBlobPropertiesRestorePolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -127,6 +128,21 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+     * 
+     */
+    @Import(name="restorePolicy")
+    private @Nullable Output<AccountBlobPropertiesRestorePolicyArgs> restorePolicy;
+
+    /**
+     * @return A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+     * 
+     */
+    public Optional<Output<AccountBlobPropertiesRestorePolicyArgs>> restorePolicy() {
+        return Optional.ofNullable(this.restorePolicy);
+    }
+
+    /**
      * Is versioning enabled? Default to `false`.
      * 
      */
@@ -151,6 +167,7 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
         this.defaultServiceVersion = $.defaultServiceVersion;
         this.deleteRetentionPolicy = $.deleteRetentionPolicy;
         this.lastAccessTimeEnabled = $.lastAccessTimeEnabled;
+        this.restorePolicy = $.restorePolicy;
         this.versioningEnabled = $.versioningEnabled;
     }
 
@@ -327,6 +344,27 @@ public final class AccountBlobPropertiesArgs extends com.pulumi.resources.Resour
          */
         public Builder lastAccessTimeEnabled(Boolean lastAccessTimeEnabled) {
             return lastAccessTimeEnabled(Output.of(lastAccessTimeEnabled));
+        }
+
+        /**
+         * @param restorePolicy A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restorePolicy(@Nullable Output<AccountBlobPropertiesRestorePolicyArgs> restorePolicy) {
+            $.restorePolicy = restorePolicy;
+            return this;
+        }
+
+        /**
+         * @param restorePolicy A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restorePolicy(AccountBlobPropertiesRestorePolicyArgs restorePolicy) {
+            return restorePolicy(Output.of(restorePolicy));
         }
 
         /**

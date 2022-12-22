@@ -101,7 +101,7 @@ export class Order extends pulumi.CustomResource {
      */
     public /*out*/ readonly serialNumber!: pulumi.Output<string>;
     /**
-     * A `shipmentAddress block as defined below.
+     * A `shipmentAddress` block as defined below.
      */
     public readonly shipmentAddress!: pulumi.Output<outputs.databoxedge.OrderShipmentAddress>;
     /**
@@ -199,7 +199,7 @@ export interface OrderState {
      */
     serialNumber?: pulumi.Input<string>;
     /**
-     * A `shipmentAddress block as defined below.
+     * A `shipmentAddress` block as defined below.
      */
     shipmentAddress?: pulumi.Input<inputs.databoxedge.OrderShipmentAddress>;
     /**
@@ -233,7 +233,7 @@ export interface OrderArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A `shipmentAddress block as defined below.
+     * A `shipmentAddress` block as defined below.
      */
     shipmentAddress: pulumi.Input<inputs.databoxedge.OrderShipmentAddress>;
 }

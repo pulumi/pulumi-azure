@@ -12,9 +12,15 @@ namespace Pulumi.Azure.Compute.Inputs
 
     public sealed class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+        /// </summary>
         [Input("tag", required: true)]
         public Input<string> Tag { get; set; } = null!;
 
+        /// <summary>
+        /// The Type of IP Tag, such as `FirstPartyUsage`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

@@ -66,9 +66,7 @@ class VirtualNetworkGatewayArgs:
         :param pulumi.Input[str] name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_ip_address_enabled: Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs'] vpn_client_configuration: A `vpn_client_configuration` block which
-               is documented below. In this block the Virtual Network Gateway can be configured
-               to accept IPSec point-to-site connections.
+        :param pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs'] vpn_client_configuration: A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -300,9 +298,7 @@ class VirtualNetworkGatewayArgs:
     @pulumi.getter(name="vpnClientConfiguration")
     def vpn_client_configuration(self) -> Optional[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs']]:
         """
-        A `vpn_client_configuration` block which
-        is documented below. In this block the Virtual Network Gateway can be configured
-        to accept IPSec point-to-site connections.
+        A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         """
         return pulumi.get(self, "vpn_client_configuration")
 
@@ -376,9 +372,7 @@ class _VirtualNetworkGatewayState:
                SKU is only supported by an `ExpressRoute` gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
-        :param pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs'] vpn_client_configuration: A `vpn_client_configuration` block which
-               is documented below. In this block the Virtual Network Gateway can be configured
-               to accept IPSec point-to-site connections.
+        :param pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs'] vpn_client_configuration: A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
         if active_active is not None:
@@ -614,9 +608,7 @@ class _VirtualNetworkGatewayState:
     @pulumi.getter(name="vpnClientConfiguration")
     def vpn_client_configuration(self) -> Optional[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs']]:
         """
-        A `vpn_client_configuration` block which
-        is documented below. In this block the Virtual Network Gateway can be configured
-        to accept IPSec point-to-site connections.
+        A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         """
         return pulumi.get(self, "vpn_client_configuration")
 
@@ -772,9 +764,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                SKU is only supported by an `ExpressRoute` gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayVpnClientConfigurationArgs']] vpn_client_configuration: A `vpn_client_configuration` block which
-               is documented below. In this block the Virtual Network Gateway can be configured
-               to accept IPSec point-to-site connections.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayVpnClientConfigurationArgs']] vpn_client_configuration: A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
         ...
@@ -993,9 +983,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                SKU is only supported by an `ExpressRoute` gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayVpnClientConfigurationArgs']] vpn_client_configuration: A `vpn_client_configuration` block which
-               is documented below. In this block the Virtual Network Gateway can be configured
-               to accept IPSec point-to-site connections.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayVpnClientConfigurationArgs']] vpn_client_configuration: A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1159,9 +1147,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     @pulumi.getter(name="vpnClientConfiguration")
     def vpn_client_configuration(self) -> pulumi.Output[Optional['outputs.VirtualNetworkGatewayVpnClientConfiguration']]:
         """
-        A `vpn_client_configuration` block which
-        is documented below. In this block the Virtual Network Gateway can be configured
-        to accept IPSec point-to-site connections.
+        A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         """
         return pulumi.get(self, "vpn_client_configuration")
 

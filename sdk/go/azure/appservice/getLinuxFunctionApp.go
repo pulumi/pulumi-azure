@@ -26,14 +26,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appservice.LookupLinuxFunctionApp(ctx, &appservice.LookupLinuxFunctionAppArgs{
+//			example, err := appservice.LookupLinuxFunctionApp(ctx, &appservice.LookupLinuxFunctionAppArgs{
 //				Name:              "existing",
 //				ResourceGroupName: "existing",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", data.Linux_function_app.Example.Id)
+//			ctx.Export("id", example.Id)
 //			return nil
 //		})
 //	}

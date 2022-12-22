@@ -85,7 +85,7 @@ public final class ApplicationGatewayHttpListener {
      */
     private @Nullable String sslCertificateName;
     /**
-     * @return The ID of the associated SSL Certificate.
+     * @return The ID of the associated SSL Profile.
      * 
      */
     private @Nullable String sslProfileId;
@@ -195,7 +195,7 @@ public final class ApplicationGatewayHttpListener {
         return Optional.ofNullable(this.sslCertificateName);
     }
     /**
-     * @return The ID of the associated SSL Certificate.
+     * @return The ID of the associated SSL Profile.
      * 
      */
     public Optional<String> sslProfileId() {

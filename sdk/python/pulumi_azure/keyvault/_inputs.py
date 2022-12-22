@@ -36,6 +36,7 @@ __all__ = [
     'KeyVaultAccessPolicyArgs',
     'KeyVaultContactArgs',
     'KeyVaultNetworkAclsArgs',
+    'ManagedHardwareSecurityModuleNetworkAclsArgs',
 ]
 
 @pulumi.input_type
@@ -1526,5 +1527,42 @@ class KeyVaultNetworkAclsArgs:
     @virtual_network_subnet_ids.setter
     def virtual_network_subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "virtual_network_subnet_ids", value)
+
+
+@pulumi.input_type
+class ManagedHardwareSecurityModuleNetworkAclsArgs:
+    def __init__(__self__, *,
+                 bypass: pulumi.Input[str],
+                 default_action: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] bypass: Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+        :param pulumi.Input[str] default_action: The Default Action to use. Possible values are `Allow` and `Deny`.
+        """
+        pulumi.set(__self__, "bypass", bypass)
+        pulumi.set(__self__, "default_action", default_action)
+
+    @property
+    @pulumi.getter
+    def bypass(self) -> pulumi.Input[str]:
+        """
+        Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+        """
+        return pulumi.get(self, "bypass")
+
+    @bypass.setter
+    def bypass(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bypass", value)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> pulumi.Input[str]:
+        """
+        The Default Action to use. Possible values are `Allow` and `Deny`.
+        """
+        return pulumi.get(self, "default_action")
+
+    @default_action.setter
+    def default_action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "default_action", value)
 
 

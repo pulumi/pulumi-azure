@@ -274,7 +274,7 @@ type VirtualMachineConfigurationAssignmentConfiguration struct {
 	ContentHash *string `pulumi:"contentHash"`
 	// The content URI where the Guest Configuration package is stored.
 	ContentUri *string `pulumi:"contentUri"`
-	// One or more `parameter` blocks which define what configuration parameters and values against.
+	// One or more `parameter` blocks as defined below which define what configuration parameters and values against.
 	Parameters []VirtualMachineConfigurationAssignmentConfigurationParameter `pulumi:"parameters"`
 	// The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
 	Version *string `pulumi:"version"`
@@ -298,7 +298,7 @@ type VirtualMachineConfigurationAssignmentConfigurationArgs struct {
 	ContentHash pulumi.StringPtrInput `pulumi:"contentHash"`
 	// The content URI where the Guest Configuration package is stored.
 	ContentUri pulumi.StringPtrInput `pulumi:"contentUri"`
-	// One or more `parameter` blocks which define what configuration parameters and values against.
+	// One or more `parameter` blocks as defined below which define what configuration parameters and values against.
 	Parameters VirtualMachineConfigurationAssignmentConfigurationParameterArrayInput `pulumi:"parameters"`
 	// The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
 	Version pulumi.StringPtrInput `pulumi:"version"`
@@ -396,7 +396,7 @@ func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ContentUri() p
 	return o.ApplyT(func(v VirtualMachineConfigurationAssignmentConfiguration) *string { return v.ContentUri }).(pulumi.StringPtrOutput)
 }
 
-// One or more `parameter` blocks which define what configuration parameters and values against.
+// One or more `parameter` blocks as defined below which define what configuration parameters and values against.
 func (o VirtualMachineConfigurationAssignmentConfigurationOutput) Parameters() VirtualMachineConfigurationAssignmentConfigurationParameterArrayOutput {
 	return o.ApplyT(func(v VirtualMachineConfigurationAssignmentConfiguration) []VirtualMachineConfigurationAssignmentConfigurationParameter {
 		return v.Parameters
@@ -462,7 +462,7 @@ func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ContentUri(
 	}).(pulumi.StringPtrOutput)
 }
 
-// One or more `parameter` blocks which define what configuration parameters and values against.
+// One or more `parameter` blocks as defined below which define what configuration parameters and values against.
 func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) Parameters() VirtualMachineConfigurationAssignmentConfigurationParameterArrayOutput {
 	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) []VirtualMachineConfigurationAssignmentConfigurationParameter {
 		if v == nil {

@@ -3415,11 +3415,13 @@ func (o LiveEventPreviewIpAccessControlAllowArrayOutput) Index(i pulumi.IntInput
 }
 
 type ServiceAccountIdentity struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -3435,11 +3437,13 @@ type ServiceAccountIdentityInput interface {
 }
 
 type ServiceAccountIdentityArgs struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3520,6 +3524,11 @@ func (o ServiceAccountIdentityOutput) ToServiceAccountIdentityPtrOutputWithConte
 	}).(ServiceAccountIdentityPtrOutput)
 }
 
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
+func (o ServiceAccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceAccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID associated with this Managed Service Identity.
 func (o ServiceAccountIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceAccountIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -3530,7 +3539,7 @@ func (o ServiceAccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceAccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o ServiceAccountIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceAccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3559,6 +3568,16 @@ func (o ServiceAccountIdentityPtrOutput) Elem() ServiceAccountIdentityOutput {
 	}).(ServiceAccountIdentityOutput)
 }
 
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
+func (o ServiceAccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceAccountIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID associated with this Managed Service Identity.
 func (o ServiceAccountIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceAccountIdentity) *string {
@@ -3579,7 +3598,7 @@ func (o ServiceAccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o ServiceAccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceAccountIdentity) *string {
 		if v == nil {

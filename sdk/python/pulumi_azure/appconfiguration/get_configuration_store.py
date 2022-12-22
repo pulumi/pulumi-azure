@@ -81,6 +81,9 @@ class GetConfigurationStoreResult:
     @property
     @pulumi.getter
     def encryptions(self) -> Sequence['outputs.GetConfigurationStoreEncryptionResult']:
+        """
+        An `encryption` block as defined below.
+        """
         return pulumi.get(self, "encryptions")
 
     @property

@@ -195,7 +195,7 @@ class ContactProfileLinkChannelEndPoint(dict):
                  port: str,
                  protocol: str):
         """
-        :param str end_point_name: -(Required) Name of an end point.
+        :param str end_point_name: Name of an end point.
         :param str ip_address: IP address of an end point.
         :param str port: TCP port to listen on to receive data.
         :param str protocol: Protocol of an end point. Possible values are `TCP` and `UDP`.
@@ -209,7 +209,7 @@ class ContactProfileLinkChannelEndPoint(dict):
     @pulumi.getter(name="endPointName")
     def end_point_name(self) -> str:
         """
-        -(Required) Name of an end point.
+        Name of an end point.
         """
         return pulumi.get(self, "end_point_name")
 

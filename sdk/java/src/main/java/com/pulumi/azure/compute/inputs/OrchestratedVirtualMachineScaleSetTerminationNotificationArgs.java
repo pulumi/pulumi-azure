@@ -16,16 +16,32 @@ public final class OrchestratedVirtualMachineScaleSetTerminationNotificationArgs
 
     public static final OrchestratedVirtualMachineScaleSetTerminationNotificationArgs Empty = new OrchestratedVirtualMachineScaleSetTerminationNotificationArgs();
 
+    /**
+     * Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false` Defaults to `false`.
+     * 
+     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
+    /**
+     * @return Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false` Defaults to `false`.
+     * 
+     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
+    /**
+     * Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in `ISO 8601` format. Defaults to `PT5M`.
+     * 
+     */
     @Import(name="timeout")
     private @Nullable Output<String> timeout;
 
+    /**
+     * @return Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in `ISO 8601` format. Defaults to `PT5M`.
+     * 
+     */
     public Optional<Output<String>> timeout() {
         return Optional.ofNullable(this.timeout);
     }
@@ -55,20 +71,44 @@ public final class OrchestratedVirtualMachineScaleSetTerminationNotificationArgs
             $ = new OrchestratedVirtualMachineScaleSetTerminationNotificationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enabled Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false` Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false` Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
+        /**
+         * @param timeout Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in `ISO 8601` format. Defaults to `PT5M`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeout(@Nullable Output<String> timeout) {
             $.timeout = timeout;
             return this;
         }
 
+        /**
+         * @param timeout Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in `ISO 8601` format. Defaults to `PT5M`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeout(String timeout) {
             return timeout(Output.of(timeout));
         }

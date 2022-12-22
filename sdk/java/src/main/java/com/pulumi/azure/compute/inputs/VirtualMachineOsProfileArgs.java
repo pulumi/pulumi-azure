@@ -16,14 +16,14 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
     public static final VirtualMachineOsProfileArgs Empty = new VirtualMachineOsProfileArgs();
 
     /**
-     * The password associated with the local administrator account.
+     * (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
      * 
      */
     @Import(name="adminPassword")
     private @Nullable Output<String> adminPassword;
 
     /**
-     * @return The password associated with the local administrator account.
+     * @return (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
      * 
      */
     public Optional<Output<String>> adminPassword() {
@@ -103,7 +103,7 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param adminPassword The password associated with the local administrator account.
+         * @param adminPassword (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param adminPassword The password associated with the local administrator account.
+         * @param adminPassword (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
          * 
          * @return builder
          * 

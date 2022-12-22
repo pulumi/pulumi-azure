@@ -215,11 +215,11 @@ export class Standard extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
+     * Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
      */
     public readonly useExtensionBundle!: pulumi.Output<boolean | undefined>;
     /**
-     * The runtime version associated with the Logic App Defaults to `~1`.
+     * The runtime version associated with the Logic App Defaults to `~3`.
      */
     public readonly version!: pulumi.Output<string | undefined>;
     /**
@@ -411,11 +411,11 @@ export interface StandardState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
+     * Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
      */
     useExtensionBundle?: pulumi.Input<boolean>;
     /**
-     * The runtime version associated with the Logic App Defaults to `~1`.
+     * The runtime version associated with the Logic App Defaults to `~3`.
      */
     version?: pulumi.Input<string>;
     /**
@@ -497,11 +497,11 @@ export interface StandardArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
+     * Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
      */
     useExtensionBundle?: pulumi.Input<boolean>;
     /**
-     * The runtime version associated with the Logic App Defaults to `~1`.
+     * The runtime version associated with the Logic App Defaults to `~3`.
      */
     version?: pulumi.Input<string>;
     /**

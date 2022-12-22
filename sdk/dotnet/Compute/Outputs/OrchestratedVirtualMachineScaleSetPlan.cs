@@ -14,10 +14,16 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class OrchestratedVirtualMachineScaleSetPlan
     {
         /// <summary>
-        /// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Product;
+        /// <summary>
+        /// Specifies the publisher of the image. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Publisher;
 
         [OutputConstructor]

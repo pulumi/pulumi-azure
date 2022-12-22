@@ -85,7 +85,7 @@ namespace Pulumi.Azure.Batch
         public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+        /// A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         /// </summary>
         [Output("keyVaultReference")]
         public Output<Outputs.AccountKeyVaultReference?> KeyVaultReference { get; private set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.Batch
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+        /// A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         /// </summary>
         [Input("keyVaultReference")]
         public Input<Inputs.AccountKeyVaultReferenceArgs>? KeyVaultReference { get; set; }
@@ -336,7 +336,7 @@ namespace Pulumi.Azure.Batch
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+        /// A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         /// </summary>
         [Input("keyVaultReference")]
         public Input<Inputs.AccountKeyVaultReferenceGetArgs>? KeyVaultReference { get; set; }

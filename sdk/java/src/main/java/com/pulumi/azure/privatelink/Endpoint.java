@@ -222,18 +222,18 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customNetworkInterfaceName);
     }
     /**
-     * An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+     * One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="ipConfiguration", type=EndpointIpConfiguration.class, parameters={})
-    private Output</* @Nullable */ EndpointIpConfiguration> ipConfiguration;
+    @Export(name="ipConfigurations", type=List.class, parameters={EndpointIpConfiguration.class})
+    private Output</* @Nullable */ List<EndpointIpConfiguration>> ipConfigurations;
 
     /**
-     * @return An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+     * @return One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Optional<EndpointIpConfiguration>> ipConfiguration() {
-        return Codegen.optional(this.ipConfiguration);
+    public Output<Optional<List<EndpointIpConfiguration>>> ipConfigurations() {
+        return Codegen.optional(this.ipConfigurations);
     }
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.

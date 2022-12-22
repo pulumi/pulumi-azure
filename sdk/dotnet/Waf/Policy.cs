@@ -133,16 +133,26 @@ namespace Pulumi.Azure.Waf
     ///                 new Azure.Waf.Inputs.PolicyManagedRulesManagedRuleSetArgs
     ///                 {
     ///                     Type = "OWASP",
-    ///                     Version = "3.1",
+    ///                     Version = "3.2",
     ///                     RuleGroupOverrides = new[]
     ///                     {
     ///                         new Azure.Waf.Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs
     ///                         {
     ///                             RuleGroupName = "REQUEST-920-PROTOCOL-ENFORCEMENT",
-    ///                             DisabledRules = new[]
+    ///                             Rules = new[]
     ///                             {
-    ///                                 "920300",
-    ///                                 "920440",
+    ///                                 new Azure.Waf.Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs
+    ///                                 {
+    ///                                     Id = "920300",
+    ///                                     Enabled = true,
+    ///                                     Action = "Log",
+    ///                                 },
+    ///                                 new Azure.Waf.Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs
+    ///                                 {
+    ///                                     Id = "920440",
+    ///                                     Enabled = true,
+    ///                                     Action = "Block",
+    ///                                 },
     ///                             },
     ///                         },
     ///                     },

@@ -429,7 +429,7 @@ class RunBookDraftContentLinkArgs:
                  version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] uri: The URI of the runbook content.
-        :param pulumi.Input['RunBookDraftContentLinkHashArgs'] hash: A `hash` block as defined blow.
+        :param pulumi.Input['RunBookDraftContentLinkHashArgs'] hash: A `hash` block as defined below.
         :param pulumi.Input[str] version: Specifies the version of the content
         """
         pulumi.set(__self__, "uri", uri)
@@ -454,7 +454,7 @@ class RunBookDraftContentLinkArgs:
     @pulumi.getter
     def hash(self) -> Optional[pulumi.Input['RunBookDraftContentLinkHashArgs']]:
         """
-        A `hash` block as defined blow.
+        A `hash` block as defined below.
         """
         return pulumi.get(self, "hash")
 
@@ -653,7 +653,7 @@ class RunBookPublishContentLinkArgs:
                  version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] uri: The URI of the runbook content.
-        :param pulumi.Input['RunBookPublishContentLinkHashArgs'] hash: A `hash` block as defined blow.
+        :param pulumi.Input['RunBookPublishContentLinkHashArgs'] hash: A `hash` block as defined below.
         :param pulumi.Input[str] version: Specifies the version of the content
         """
         pulumi.set(__self__, "uri", uri)
@@ -678,7 +678,7 @@ class RunBookPublishContentLinkArgs:
     @pulumi.getter
     def hash(self) -> Optional[pulumi.Input['RunBookPublishContentLinkHashArgs']]:
         """
-        A `hash` block as defined blow.
+        A `hash` block as defined below.
         """
         return pulumi.get(self, "hash")
 

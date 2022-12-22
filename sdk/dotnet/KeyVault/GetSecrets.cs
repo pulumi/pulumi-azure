@@ -61,9 +61,6 @@ namespace Pulumi.Azure.KeyVault
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The Key Vault ID.
-        /// </summary>
         public readonly string KeyVaultId;
         /// <summary>
         /// List containing names of secrets that exist in this Key Vault.

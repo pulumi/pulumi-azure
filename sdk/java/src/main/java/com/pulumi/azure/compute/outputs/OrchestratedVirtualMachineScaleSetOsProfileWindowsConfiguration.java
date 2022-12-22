@@ -15,9 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration {
+    /**
+     * @return The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+     * 
+     */
     private String adminPassword;
+    /**
+     * @return The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+     * 
+     */
     private String adminUsername;
+    /**
+     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+     * 
+     */
     private @Nullable String computerNamePrefix;
+    /**
+     * @return Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
+     * 
+     */
     private @Nullable Boolean enableAutomaticUpdates;
     /**
      * @return Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
@@ -34,21 +50,53 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
      * 
      */
     private @Nullable String patchMode;
+    /**
+     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+     * 
+     */
     private @Nullable Boolean provisionVmAgent;
+    /**
+     * @return One or more `secret` blocks as defined below.
+     * 
+     */
     private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> secrets;
+    /**
+     * @return Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+     * 
+     */
     private @Nullable String timezone;
+    /**
+     * @return One or more `winrm_listener` blocks as defined below.
+     * 
+     */
     private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener> winrmListeners;
 
     private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration() {}
+    /**
+     * @return The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+     * 
+     */
     public String adminPassword() {
         return this.adminPassword;
     }
+    /**
+     * @return The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+     * 
+     */
     public String adminUsername() {
         return this.adminUsername;
     }
+    /**
+     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+     * 
+     */
     public Optional<String> computerNamePrefix() {
         return Optional.ofNullable(this.computerNamePrefix);
     }
+    /**
+     * @return Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
+     * 
+     */
     public Optional<Boolean> enableAutomaticUpdates() {
         return Optional.ofNullable(this.enableAutomaticUpdates);
     }
@@ -73,15 +121,31 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     public Optional<String> patchMode() {
         return Optional.ofNullable(this.patchMode);
     }
+    /**
+     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+     * 
+     */
     public Optional<Boolean> provisionVmAgent() {
         return Optional.ofNullable(this.provisionVmAgent);
     }
+    /**
+     * @return One or more `secret` blocks as defined below.
+     * 
+     */
     public List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> secrets() {
         return this.secrets == null ? List.of() : this.secrets;
     }
+    /**
+     * @return Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+     * 
+     */
     public Optional<String> timezone() {
         return Optional.ofNullable(this.timezone);
     }
+    /**
+     * @return One or more `winrm_listener` blocks as defined below.
+     * 
+     */
     public List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener> winrmListeners() {
         return this.winrmListeners == null ? List.of() : this.winrmListeners;
     }

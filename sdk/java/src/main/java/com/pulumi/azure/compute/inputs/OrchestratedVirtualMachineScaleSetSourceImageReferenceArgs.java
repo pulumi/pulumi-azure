@@ -13,36 +13,60 @@ public final class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs ex
 
     public static final OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs Empty = new OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs();
 
+    /**
+     * Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="offer", required=true)
     private Output<String> offer;
 
+    /**
+     * @return Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> offer() {
         return this.offer;
     }
 
+    /**
+     * Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="publisher", required=true)
     private Output<String> publisher;
 
+    /**
+     * @return Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> publisher() {
         return this.publisher;
     }
 
+    /**
+     * Specifies the SKU of the image used to create the virtual machines.
+     * 
+     */
     @Import(name="sku", required=true)
     private Output<String> sku;
 
+    /**
+     * @return Specifies the SKU of the image used to create the virtual machines.
+     * 
+     */
     public Output<String> sku() {
         return this.sku;
     }
 
     /**
-     * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+     * Specifies the version of the image used to create the virtual machines.
      * 
      */
     @Import(name="version", required=true)
     private Output<String> version;
 
     /**
-     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+     * @return Specifies the version of the image used to create the virtual machines.
      * 
      */
     public Output<String> version() {
@@ -76,35 +100,71 @@ public final class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs ex
             $ = new OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param offer Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder offer(Output<String> offer) {
             $.offer = offer;
             return this;
         }
 
+        /**
+         * @param offer Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder offer(String offer) {
             return offer(Output.of(offer));
         }
 
+        /**
+         * @param publisher Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publisher(Output<String> publisher) {
             $.publisher = publisher;
             return this;
         }
 
+        /**
+         * @param publisher Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publisher(String publisher) {
             return publisher(Output.of(publisher));
         }
 
+        /**
+         * @param sku Specifies the SKU of the image used to create the virtual machines.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sku(Output<String> sku) {
             $.sku = sku;
             return this;
         }
 
+        /**
+         * @param sku Specifies the SKU of the image used to create the virtual machines.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sku(String sku) {
             return sku(Output.of(sku));
         }
 
         /**
-         * @param version The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+         * @param version Specifies the version of the image used to create the virtual machines.
          * 
          * @return builder
          * 
@@ -115,7 +175,7 @@ public final class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs ex
         }
 
         /**
-         * @param version The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+         * @param version Specifies the version of the image used to create the virtual machines.
          * 
          * @return builder
          * 

@@ -33,7 +33,7 @@ namespace Pulumi.Azure.AppService
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = data.Linux_function_app.Example.Id,
+        ///         ["id"] = example.Apply(getLinuxFunctionAppResult =&gt; getLinuxFunctionAppResult.Id),
         ///     };
         /// });
         /// ```
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.AppService
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = data.Linux_function_app.Example.Id,
+        ///         ["id"] = example.Apply(getLinuxFunctionAppResult =&gt; getLinuxFunctionAppResult.Id),
         ///     };
         /// });
         /// ```

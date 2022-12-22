@@ -145,9 +145,9 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly customNetworkInterfaceName!: pulumi.Output<string | undefined>;
     /**
-     * An `ipConfiguration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+     * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
      */
-    public readonly ipConfiguration!: pulumi.Output<outputs.privatelink.EndpointIpConfiguration | undefined>;
+    public readonly ipConfigurations!: pulumi.Output<outputs.privatelink.EndpointIpConfiguration[] | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -194,7 +194,7 @@ export class Endpoint extends pulumi.CustomResource {
             const state = argsOrState as EndpointState | undefined;
             resourceInputs["customDnsConfigs"] = state ? state.customDnsConfigs : undefined;
             resourceInputs["customNetworkInterfaceName"] = state ? state.customNetworkInterfaceName : undefined;
-            resourceInputs["ipConfiguration"] = state ? state.ipConfiguration : undefined;
+            resourceInputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
@@ -216,7 +216,7 @@ export class Endpoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subnetId'");
             }
             resourceInputs["customNetworkInterfaceName"] = args ? args.customNetworkInterfaceName : undefined;
-            resourceInputs["ipConfiguration"] = args ? args.ipConfiguration : undefined;
+            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["privateDnsZoneGroup"] = args ? args.privateDnsZoneGroup : undefined;
@@ -243,9 +243,9 @@ export interface EndpointState {
      */
     customNetworkInterfaceName?: pulumi.Input<string>;
     /**
-     * An `ipConfiguration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+     * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
      */
-    ipConfiguration?: pulumi.Input<inputs.privatelink.EndpointIpConfiguration>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointIpConfiguration>[]>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -287,9 +287,9 @@ export interface EndpointArgs {
      */
     customNetworkInterfaceName?: pulumi.Input<string>;
     /**
-     * An `ipConfiguration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+     * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
      */
-    ipConfiguration?: pulumi.Input<inputs.privatelink.EndpointIpConfiguration>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointIpConfiguration>[]>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

@@ -17,23 +17,47 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileArgs extends com.p
 
     public static final OrchestratedVirtualMachineScaleSetOsProfileArgs Empty = new OrchestratedVirtualMachineScaleSetOsProfileArgs();
 
+    /**
+     * The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+     * 
+     */
     @Import(name="customData")
     private @Nullable Output<String> customData;
 
+    /**
+     * @return The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+     * 
+     */
     public Optional<Output<String>> customData() {
         return Optional.ofNullable(this.customData);
     }
 
+    /**
+     * A `linux_configuration` block as documented below.
+     * 
+     */
     @Import(name="linuxConfiguration")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs> linuxConfiguration;
 
+    /**
+     * @return A `linux_configuration` block as documented below.
+     * 
+     */
     public Optional<Output<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs>> linuxConfiguration() {
         return Optional.ofNullable(this.linuxConfiguration);
     }
 
+    /**
+     * A `windows_configuration` block as documented below.
+     * 
+     */
     @Import(name="windowsConfiguration")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs> windowsConfiguration;
 
+    /**
+     * @return A `windows_configuration` block as documented below.
+     * 
+     */
     public Optional<Output<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs>> windowsConfiguration() {
         return Optional.ofNullable(this.windowsConfiguration);
     }
@@ -64,29 +88,65 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileArgs extends com.p
             $ = new OrchestratedVirtualMachineScaleSetOsProfileArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param customData The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customData(@Nullable Output<String> customData) {
             $.customData = customData;
             return this;
         }
 
+        /**
+         * @param customData The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customData(String customData) {
             return customData(Output.of(customData));
         }
 
+        /**
+         * @param linuxConfiguration A `linux_configuration` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder linuxConfiguration(@Nullable Output<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs> linuxConfiguration) {
             $.linuxConfiguration = linuxConfiguration;
             return this;
         }
 
+        /**
+         * @param linuxConfiguration A `linux_configuration` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder linuxConfiguration(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs linuxConfiguration) {
             return linuxConfiguration(Output.of(linuxConfiguration));
         }
 
+        /**
+         * @param windowsConfiguration A `windows_configuration` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder windowsConfiguration(@Nullable Output<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs> windowsConfiguration) {
             $.windowsConfiguration = windowsConfiguration;
             return this;
         }
 
+        /**
+         * @param windowsConfiguration A `windows_configuration` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder windowsConfiguration(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs windowsConfiguration) {
             return windowsConfiguration(Output.of(windowsConfiguration));
         }

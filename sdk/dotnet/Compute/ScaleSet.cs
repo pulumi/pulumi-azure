@@ -206,7 +206,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.ScaleSetIdentity> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+        /// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
         /// </summary>
         [Output("licenseType")]
         public Output<string> LicenseType { get; private set; } = null!;
@@ -423,7 +423,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ScaleSetIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+        /// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }
@@ -632,7 +632,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ScaleSetIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+        /// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }

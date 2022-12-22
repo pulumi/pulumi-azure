@@ -33,14 +33,14 @@ public final class VirtualMachineOsProfileSecretArgs extends com.pulumi.resource
     }
 
     /**
-     * One or more `vault_certificates` blocks.
+     * One or more `vault_certificates` blocks as defined below.
      * 
      */
     @Import(name="vaultCertificates")
     private @Nullable Output<List<VirtualMachineOsProfileSecretVaultCertificateArgs>> vaultCertificates;
 
     /**
-     * @return One or more `vault_certificates` blocks.
+     * @return One or more `vault_certificates` blocks as defined below.
      * 
      */
     public Optional<Output<List<VirtualMachineOsProfileSecretVaultCertificateArgs>>> vaultCertificates() {
@@ -94,7 +94,7 @@ public final class VirtualMachineOsProfileSecretArgs extends com.pulumi.resource
         }
 
         /**
-         * @param vaultCertificates One or more `vault_certificates` blocks.
+         * @param vaultCertificates One or more `vault_certificates` blocks as defined below.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class VirtualMachineOsProfileSecretArgs extends com.pulumi.resource
         }
 
         /**
-         * @param vaultCertificates One or more `vault_certificates` blocks.
+         * @param vaultCertificates One or more `vault_certificates` blocks as defined below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class VirtualMachineOsProfileSecretArgs extends com.pulumi.resource
         }
 
         /**
-         * @param vaultCertificates One or more `vault_certificates` blocks.
+         * @param vaultCertificates One or more `vault_certificates` blocks as defined below.
          * 
          * @return builder
          * 

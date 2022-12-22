@@ -6,9 +6,16 @@ package com.pulumi.azure.privatelink.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointIpConfiguration {
+    /**
+     * @return Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable String memberName;
     /**
      * @return Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
      * 
@@ -20,12 +27,19 @@ public final class EndpointIpConfiguration {
      */
     private String privateIpAddress;
     /**
-     * @return Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id` and in this context is also used for `member_name`. Changing this forces a new resource to be created.
+     * @return Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
      * 
      */
     private String subresourceName;
 
     private EndpointIpConfiguration() {}
+    /**
+     * @return Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> memberName() {
+        return Optional.ofNullable(this.memberName);
+    }
     /**
      * @return Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
      * 
@@ -41,7 +55,7 @@ public final class EndpointIpConfiguration {
         return this.privateIpAddress;
     }
     /**
-     * @return Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id` and in this context is also used for `member_name`. Changing this forces a new resource to be created.
+     * @return Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
      * 
      */
     public String subresourceName() {
@@ -57,17 +71,24 @@ public final class EndpointIpConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String memberName;
         private String name;
         private String privateIpAddress;
         private String subresourceName;
         public Builder() {}
         public Builder(EndpointIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.memberName = defaults.memberName;
     	      this.name = defaults.name;
     	      this.privateIpAddress = defaults.privateIpAddress;
     	      this.subresourceName = defaults.subresourceName;
         }
 
+        @CustomType.Setter
+        public Builder memberName(@Nullable String memberName) {
+            this.memberName = memberName;
+            return this;
+        }
         @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
@@ -85,6 +106,7 @@ public final class EndpointIpConfiguration {
         }
         public EndpointIpConfiguration build() {
             final var o = new EndpointIpConfiguration();
+            o.memberName = memberName;
             o.name = name;
             o.privateIpAddress = privateIpAddress;
             o.subresourceName = subresourceName;

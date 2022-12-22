@@ -14,16 +14,32 @@ public final class OrchestratedVirtualMachineScaleSetIdentityArgs extends com.pu
 
     public static final OrchestratedVirtualMachineScaleSetIdentityArgs Empty = new OrchestratedVirtualMachineScaleSetIdentityArgs();
 
+    /**
+     * Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+     * 
+     */
     @Import(name="identityIds", required=true)
     private Output<List<String>> identityIds;
 
+    /**
+     * @return Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+     * 
+     */
     public Output<List<String>> identityIds() {
         return this.identityIds;
     }
 
+    /**
+     * The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -53,24 +69,54 @@ public final class OrchestratedVirtualMachineScaleSetIdentityArgs extends com.pu
             $ = new OrchestratedVirtualMachineScaleSetIdentityArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param identityIds Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(Output<List<String>> identityIds) {
             $.identityIds = identityIds;
             return this;
         }
 
+        /**
+         * @param identityIds Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(List<String> identityIds) {
             return identityIds(Output.of(identityIds));
         }
 
+        /**
+         * @param identityIds Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
 
+        /**
+         * @param type The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

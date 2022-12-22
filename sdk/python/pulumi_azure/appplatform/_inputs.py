@@ -22,6 +22,7 @@ __all__ = [
     'SpringCloudConfigurationServiceRepositoryArgs',
     'SpringCloudConnectionAuthenticationArgs',
     'SpringCloudContainerDeploymentQuotaArgs',
+    'SpringCloudDevToolPortalSsoArgs',
     'SpringCloudGatewayApiMetadataArgs',
     'SpringCloudGatewayCorsArgs',
     'SpringCloudGatewayQuotaArgs',
@@ -877,6 +878,77 @@ class SpringCloudContainerDeploymentQuotaArgs:
     @memory.setter
     def memory(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "memory", value)
+
+
+@pulumi.input_type
+class SpringCloudDevToolPortalSsoArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 metadata_url: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] client_id: Specifies the public identifier for the application.
+        :param pulumi.Input[str] client_secret: Specifies the secret known only to the application and the authorization server.
+        :param pulumi.Input[str] metadata_url: Specifies the URI of a JSON file with generic OIDC provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Specifies a list of specific actions applications can be allowed to do on a user's behalf.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if metadata_url is not None:
+            pulumi.set(__self__, "metadata_url", metadata_url)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the public identifier for the application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the secret known only to the application and the authorization server.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="metadataUrl")
+    def metadata_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the URI of a JSON file with generic OIDC provider configuration.
+        """
+        return pulumi.get(self, "metadata_url")
+
+    @metadata_url.setter
+    def metadata_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metadata_url", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of specific actions applications can be allowed to do on a user's behalf.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scopes", value)
 
 
 @pulumi.input_type

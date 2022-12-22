@@ -2068,6 +2068,200 @@ func (o SpringCloudContainerDeploymentQuotaPtrOutput) Memory() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type SpringCloudDevToolPortalSso struct {
+	// Specifies the public identifier for the application.
+	ClientId *string `pulumi:"clientId"`
+	// Specifies the secret known only to the application and the authorization server.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// Specifies the URI of a JSON file with generic OIDC provider configuration.
+	MetadataUrl *string `pulumi:"metadataUrl"`
+	// Specifies a list of specific actions applications can be allowed to do on a user's behalf.
+	Scopes []string `pulumi:"scopes"`
+}
+
+// SpringCloudDevToolPortalSsoInput is an input type that accepts SpringCloudDevToolPortalSsoArgs and SpringCloudDevToolPortalSsoOutput values.
+// You can construct a concrete instance of `SpringCloudDevToolPortalSsoInput` via:
+//
+//	SpringCloudDevToolPortalSsoArgs{...}
+type SpringCloudDevToolPortalSsoInput interface {
+	pulumi.Input
+
+	ToSpringCloudDevToolPortalSsoOutput() SpringCloudDevToolPortalSsoOutput
+	ToSpringCloudDevToolPortalSsoOutputWithContext(context.Context) SpringCloudDevToolPortalSsoOutput
+}
+
+type SpringCloudDevToolPortalSsoArgs struct {
+	// Specifies the public identifier for the application.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Specifies the secret known only to the application and the authorization server.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// Specifies the URI of a JSON file with generic OIDC provider configuration.
+	MetadataUrl pulumi.StringPtrInput `pulumi:"metadataUrl"`
+	// Specifies a list of specific actions applications can be allowed to do on a user's behalf.
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+}
+
+func (SpringCloudDevToolPortalSsoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudDevToolPortalSso)(nil)).Elem()
+}
+
+func (i SpringCloudDevToolPortalSsoArgs) ToSpringCloudDevToolPortalSsoOutput() SpringCloudDevToolPortalSsoOutput {
+	return i.ToSpringCloudDevToolPortalSsoOutputWithContext(context.Background())
+}
+
+func (i SpringCloudDevToolPortalSsoArgs) ToSpringCloudDevToolPortalSsoOutputWithContext(ctx context.Context) SpringCloudDevToolPortalSsoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudDevToolPortalSsoOutput)
+}
+
+func (i SpringCloudDevToolPortalSsoArgs) ToSpringCloudDevToolPortalSsoPtrOutput() SpringCloudDevToolPortalSsoPtrOutput {
+	return i.ToSpringCloudDevToolPortalSsoPtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudDevToolPortalSsoArgs) ToSpringCloudDevToolPortalSsoPtrOutputWithContext(ctx context.Context) SpringCloudDevToolPortalSsoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudDevToolPortalSsoOutput).ToSpringCloudDevToolPortalSsoPtrOutputWithContext(ctx)
+}
+
+// SpringCloudDevToolPortalSsoPtrInput is an input type that accepts SpringCloudDevToolPortalSsoArgs, SpringCloudDevToolPortalSsoPtr and SpringCloudDevToolPortalSsoPtrOutput values.
+// You can construct a concrete instance of `SpringCloudDevToolPortalSsoPtrInput` via:
+//
+//	        SpringCloudDevToolPortalSsoArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpringCloudDevToolPortalSsoPtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudDevToolPortalSsoPtrOutput() SpringCloudDevToolPortalSsoPtrOutput
+	ToSpringCloudDevToolPortalSsoPtrOutputWithContext(context.Context) SpringCloudDevToolPortalSsoPtrOutput
+}
+
+type springCloudDevToolPortalSsoPtrType SpringCloudDevToolPortalSsoArgs
+
+func SpringCloudDevToolPortalSsoPtr(v *SpringCloudDevToolPortalSsoArgs) SpringCloudDevToolPortalSsoPtrInput {
+	return (*springCloudDevToolPortalSsoPtrType)(v)
+}
+
+func (*springCloudDevToolPortalSsoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudDevToolPortalSso)(nil)).Elem()
+}
+
+func (i *springCloudDevToolPortalSsoPtrType) ToSpringCloudDevToolPortalSsoPtrOutput() SpringCloudDevToolPortalSsoPtrOutput {
+	return i.ToSpringCloudDevToolPortalSsoPtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudDevToolPortalSsoPtrType) ToSpringCloudDevToolPortalSsoPtrOutputWithContext(ctx context.Context) SpringCloudDevToolPortalSsoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudDevToolPortalSsoPtrOutput)
+}
+
+type SpringCloudDevToolPortalSsoOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudDevToolPortalSsoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudDevToolPortalSso)(nil)).Elem()
+}
+
+func (o SpringCloudDevToolPortalSsoOutput) ToSpringCloudDevToolPortalSsoOutput() SpringCloudDevToolPortalSsoOutput {
+	return o
+}
+
+func (o SpringCloudDevToolPortalSsoOutput) ToSpringCloudDevToolPortalSsoOutputWithContext(ctx context.Context) SpringCloudDevToolPortalSsoOutput {
+	return o
+}
+
+func (o SpringCloudDevToolPortalSsoOutput) ToSpringCloudDevToolPortalSsoPtrOutput() SpringCloudDevToolPortalSsoPtrOutput {
+	return o.ToSpringCloudDevToolPortalSsoPtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudDevToolPortalSsoOutput) ToSpringCloudDevToolPortalSsoPtrOutputWithContext(ctx context.Context) SpringCloudDevToolPortalSsoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudDevToolPortalSso) *SpringCloudDevToolPortalSso {
+		return &v
+	}).(SpringCloudDevToolPortalSsoPtrOutput)
+}
+
+// Specifies the public identifier for the application.
+func (o SpringCloudDevToolPortalSsoOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudDevToolPortalSso) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the secret known only to the application and the authorization server.
+func (o SpringCloudDevToolPortalSsoOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudDevToolPortalSso) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URI of a JSON file with generic OIDC provider configuration.
+func (o SpringCloudDevToolPortalSsoOutput) MetadataUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudDevToolPortalSso) *string { return v.MetadataUrl }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of specific actions applications can be allowed to do on a user's behalf.
+func (o SpringCloudDevToolPortalSsoOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpringCloudDevToolPortalSso) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+type SpringCloudDevToolPortalSsoPtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudDevToolPortalSsoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudDevToolPortalSso)(nil)).Elem()
+}
+
+func (o SpringCloudDevToolPortalSsoPtrOutput) ToSpringCloudDevToolPortalSsoPtrOutput() SpringCloudDevToolPortalSsoPtrOutput {
+	return o
+}
+
+func (o SpringCloudDevToolPortalSsoPtrOutput) ToSpringCloudDevToolPortalSsoPtrOutputWithContext(ctx context.Context) SpringCloudDevToolPortalSsoPtrOutput {
+	return o
+}
+
+func (o SpringCloudDevToolPortalSsoPtrOutput) Elem() SpringCloudDevToolPortalSsoOutput {
+	return o.ApplyT(func(v *SpringCloudDevToolPortalSso) SpringCloudDevToolPortalSso {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudDevToolPortalSso
+		return ret
+	}).(SpringCloudDevToolPortalSsoOutput)
+}
+
+// Specifies the public identifier for the application.
+func (o SpringCloudDevToolPortalSsoPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudDevToolPortalSso) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the secret known only to the application and the authorization server.
+func (o SpringCloudDevToolPortalSsoPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudDevToolPortalSso) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URI of a JSON file with generic OIDC provider configuration.
+func (o SpringCloudDevToolPortalSsoPtrOutput) MetadataUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudDevToolPortalSso) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of specific actions applications can be allowed to do on a user's behalf.
+func (o SpringCloudDevToolPortalSsoPtrOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpringCloudDevToolPortalSso) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(pulumi.StringArrayOutput)
+}
+
 type SpringCloudGatewayApiMetadata struct {
 	// Detailed description of the APIs available on the Gateway instance.
 	Description *string `pulumi:"description"`
@@ -6088,6 +6282,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudConnectionAuthenticationPtrInput)(nil)).Elem(), SpringCloudConnectionAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudContainerDeploymentQuotaInput)(nil)).Elem(), SpringCloudContainerDeploymentQuotaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudContainerDeploymentQuotaPtrInput)(nil)).Elem(), SpringCloudContainerDeploymentQuotaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudDevToolPortalSsoInput)(nil)).Elem(), SpringCloudDevToolPortalSsoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudDevToolPortalSsoPtrInput)(nil)).Elem(), SpringCloudDevToolPortalSsoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayApiMetadataInput)(nil)).Elem(), SpringCloudGatewayApiMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayApiMetadataPtrInput)(nil)).Elem(), SpringCloudGatewayApiMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayCorsInput)(nil)).Elem(), SpringCloudGatewayCorsArgs{})
@@ -6162,6 +6358,8 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudConnectionAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudContainerDeploymentQuotaOutput{})
 	pulumi.RegisterOutputType(SpringCloudContainerDeploymentQuotaPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudDevToolPortalSsoOutput{})
+	pulumi.RegisterOutputType(SpringCloudDevToolPortalSsoPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayApiMetadataOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayApiMetadataPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayCorsOutput{})

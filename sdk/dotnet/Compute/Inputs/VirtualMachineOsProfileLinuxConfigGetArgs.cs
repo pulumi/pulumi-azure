@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.VirtualMachineOsProfileLinuxConfigSshKeyGetArgs>? _sshKeys;
 
         /// <summary>
-        /// One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+        /// One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
         /// </summary>
         public InputList<Inputs.VirtualMachineOsProfileLinuxConfigSshKeyGetArgs> SshKeys
         {

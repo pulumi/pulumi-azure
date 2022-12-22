@@ -15,9 +15,17 @@ public final class OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs extends
 
     public static final OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs Empty = new OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs();
 
+    /**
+     * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. By including a `boot_diagnostics` block without passing the `storage_account_uri` field will cause the API to utilize a Managed Storage Account to store the Boot Diagnostics output.
+     * 
+     */
     @Import(name="storageAccountUri")
     private @Nullable Output<String> storageAccountUri;
 
+    /**
+     * @return The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. By including a `boot_diagnostics` block without passing the `storage_account_uri` field will cause the API to utilize a Managed Storage Account to store the Boot Diagnostics output.
+     * 
+     */
     public Optional<Output<String>> storageAccountUri() {
         return Optional.ofNullable(this.storageAccountUri);
     }
@@ -46,11 +54,23 @@ public final class OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs extends
             $ = new OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param storageAccountUri The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. By including a `boot_diagnostics` block without passing the `storage_account_uri` field will cause the API to utilize a Managed Storage Account to store the Boot Diagnostics output.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageAccountUri(@Nullable Output<String> storageAccountUri) {
             $.storageAccountUri = storageAccountUri;
             return this;
         }
 
+        /**
+         * @param storageAccountUri The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. By including a `boot_diagnostics` block without passing the `storage_account_uri` field will cause the API to utilize a Managed Storage Account to store the Boot Diagnostics output.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageAccountUri(String storageAccountUri) {
             return storageAccountUri(Output.of(storageAccountUri));
         }

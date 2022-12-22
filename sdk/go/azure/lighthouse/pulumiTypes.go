@@ -134,6 +134,421 @@ func (o DefinitionAuthorizationArrayOutput) Index(i pulumi.IntInput) DefinitionA
 	}).(DefinitionAuthorizationOutput)
 }
 
+type DefinitionEligibleAuthorization struct {
+	// A `justInTimeAccessPolicy` block as defined below.
+	JustInTimeAccessPolicy *DefinitionEligibleAuthorizationJustInTimeAccessPolicy `pulumi:"justInTimeAccessPolicy"`
+	// The display name of the Azure Active Directory Principal.
+	PrincipalDisplayName *string `pulumi:"principalDisplayName"`
+	// The Principal ID of the Azure Active Directory.
+	PrincipalId string `pulumi:"principalId"`
+	// The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope.
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+}
+
+// DefinitionEligibleAuthorizationInput is an input type that accepts DefinitionEligibleAuthorizationArgs and DefinitionEligibleAuthorizationOutput values.
+// You can construct a concrete instance of `DefinitionEligibleAuthorizationInput` via:
+//
+//	DefinitionEligibleAuthorizationArgs{...}
+type DefinitionEligibleAuthorizationInput interface {
+	pulumi.Input
+
+	ToDefinitionEligibleAuthorizationOutput() DefinitionEligibleAuthorizationOutput
+	ToDefinitionEligibleAuthorizationOutputWithContext(context.Context) DefinitionEligibleAuthorizationOutput
+}
+
+type DefinitionEligibleAuthorizationArgs struct {
+	// A `justInTimeAccessPolicy` block as defined below.
+	JustInTimeAccessPolicy DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrInput `pulumi:"justInTimeAccessPolicy"`
+	// The display name of the Azure Active Directory Principal.
+	PrincipalDisplayName pulumi.StringPtrInput `pulumi:"principalDisplayName"`
+	// The Principal ID of the Azure Active Directory.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope.
+	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+}
+
+func (DefinitionEligibleAuthorizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefinitionEligibleAuthorization)(nil)).Elem()
+}
+
+func (i DefinitionEligibleAuthorizationArgs) ToDefinitionEligibleAuthorizationOutput() DefinitionEligibleAuthorizationOutput {
+	return i.ToDefinitionEligibleAuthorizationOutputWithContext(context.Background())
+}
+
+func (i DefinitionEligibleAuthorizationArgs) ToDefinitionEligibleAuthorizationOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefinitionEligibleAuthorizationOutput)
+}
+
+// DefinitionEligibleAuthorizationArrayInput is an input type that accepts DefinitionEligibleAuthorizationArray and DefinitionEligibleAuthorizationArrayOutput values.
+// You can construct a concrete instance of `DefinitionEligibleAuthorizationArrayInput` via:
+//
+//	DefinitionEligibleAuthorizationArray{ DefinitionEligibleAuthorizationArgs{...} }
+type DefinitionEligibleAuthorizationArrayInput interface {
+	pulumi.Input
+
+	ToDefinitionEligibleAuthorizationArrayOutput() DefinitionEligibleAuthorizationArrayOutput
+	ToDefinitionEligibleAuthorizationArrayOutputWithContext(context.Context) DefinitionEligibleAuthorizationArrayOutput
+}
+
+type DefinitionEligibleAuthorizationArray []DefinitionEligibleAuthorizationInput
+
+func (DefinitionEligibleAuthorizationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DefinitionEligibleAuthorization)(nil)).Elem()
+}
+
+func (i DefinitionEligibleAuthorizationArray) ToDefinitionEligibleAuthorizationArrayOutput() DefinitionEligibleAuthorizationArrayOutput {
+	return i.ToDefinitionEligibleAuthorizationArrayOutputWithContext(context.Background())
+}
+
+func (i DefinitionEligibleAuthorizationArray) ToDefinitionEligibleAuthorizationArrayOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefinitionEligibleAuthorizationArrayOutput)
+}
+
+type DefinitionEligibleAuthorizationOutput struct{ *pulumi.OutputState }
+
+func (DefinitionEligibleAuthorizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefinitionEligibleAuthorization)(nil)).Elem()
+}
+
+func (o DefinitionEligibleAuthorizationOutput) ToDefinitionEligibleAuthorizationOutput() DefinitionEligibleAuthorizationOutput {
+	return o
+}
+
+func (o DefinitionEligibleAuthorizationOutput) ToDefinitionEligibleAuthorizationOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationOutput {
+	return o
+}
+
+// A `justInTimeAccessPolicy` block as defined below.
+func (o DefinitionEligibleAuthorizationOutput) JustInTimeAccessPolicy() DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput {
+	return o.ApplyT(func(v DefinitionEligibleAuthorization) *DefinitionEligibleAuthorizationJustInTimeAccessPolicy {
+		return v.JustInTimeAccessPolicy
+	}).(DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput)
+}
+
+// The display name of the Azure Active Directory Principal.
+func (o DefinitionEligibleAuthorizationOutput) PrincipalDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefinitionEligibleAuthorization) *string { return v.PrincipalDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The Principal ID of the Azure Active Directory.
+func (o DefinitionEligibleAuthorizationOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v DefinitionEligibleAuthorization) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope.
+func (o DefinitionEligibleAuthorizationOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v DefinitionEligibleAuthorization) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+type DefinitionEligibleAuthorizationArrayOutput struct{ *pulumi.OutputState }
+
+func (DefinitionEligibleAuthorizationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DefinitionEligibleAuthorization)(nil)).Elem()
+}
+
+func (o DefinitionEligibleAuthorizationArrayOutput) ToDefinitionEligibleAuthorizationArrayOutput() DefinitionEligibleAuthorizationArrayOutput {
+	return o
+}
+
+func (o DefinitionEligibleAuthorizationArrayOutput) ToDefinitionEligibleAuthorizationArrayOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationArrayOutput {
+	return o
+}
+
+func (o DefinitionEligibleAuthorizationArrayOutput) Index(i pulumi.IntInput) DefinitionEligibleAuthorizationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DefinitionEligibleAuthorization {
+		return vs[0].([]DefinitionEligibleAuthorization)[vs[1].(int)]
+	}).(DefinitionEligibleAuthorizationOutput)
+}
+
+type DefinitionEligibleAuthorizationJustInTimeAccessPolicy struct {
+	// An `approver` block as defined below.
+	Approvers []DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover `pulumi:"approvers"`
+	// The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to `PT8H`.
+	MaximumActivationDuration *string `pulumi:"maximumActivationDuration"`
+	// The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
+	MultiFactorAuthProvider *string `pulumi:"multiFactorAuthProvider"`
+}
+
+// DefinitionEligibleAuthorizationJustInTimeAccessPolicyInput is an input type that accepts DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs and DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput values.
+// You can construct a concrete instance of `DefinitionEligibleAuthorizationJustInTimeAccessPolicyInput` via:
+//
+//	DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs{...}
+type DefinitionEligibleAuthorizationJustInTimeAccessPolicyInput interface {
+	pulumi.Input
+
+	ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput() DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput
+	ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyOutputWithContext(context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput
+}
+
+type DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs struct {
+	// An `approver` block as defined below.
+	Approvers DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayInput `pulumi:"approvers"`
+	// The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to `PT8H`.
+	MaximumActivationDuration pulumi.StringPtrInput `pulumi:"maximumActivationDuration"`
+	// The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
+	MultiFactorAuthProvider pulumi.StringPtrInput `pulumi:"multiFactorAuthProvider"`
+}
+
+func (DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefinitionEligibleAuthorizationJustInTimeAccessPolicy)(nil)).Elem()
+}
+
+func (i DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput() DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput {
+	return i.ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput)
+}
+
+func (i DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput() DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput {
+	return i.ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput).ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutputWithContext(ctx)
+}
+
+// DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrInput is an input type that accepts DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs, DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtr and DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput values.
+// You can construct a concrete instance of `DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrInput` via:
+//
+//	        DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrInput interface {
+	pulumi.Input
+
+	ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput() DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput
+	ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutputWithContext(context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput
+}
+
+type definitionEligibleAuthorizationJustInTimeAccessPolicyPtrType DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs
+
+func DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtr(v *DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs) DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrInput {
+	return (*definitionEligibleAuthorizationJustInTimeAccessPolicyPtrType)(v)
+}
+
+func (*definitionEligibleAuthorizationJustInTimeAccessPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefinitionEligibleAuthorizationJustInTimeAccessPolicy)(nil)).Elem()
+}
+
+func (i *definitionEligibleAuthorizationJustInTimeAccessPolicyPtrType) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput() DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput {
+	return i.ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *definitionEligibleAuthorizationJustInTimeAccessPolicyPtrType) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput)
+}
+
+type DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefinitionEligibleAuthorizationJustInTimeAccessPolicy)(nil)).Elem()
+}
+
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput() DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput {
+	return o
+}
+
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput {
+	return o
+}
+
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput() DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput {
+	return o.ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefinitionEligibleAuthorizationJustInTimeAccessPolicy) *DefinitionEligibleAuthorizationJustInTimeAccessPolicy {
+		return &v
+	}).(DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput)
+}
+
+// An `approver` block as defined below.
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput) Approvers() DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput {
+	return o.ApplyT(func(v DefinitionEligibleAuthorizationJustInTimeAccessPolicy) []DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover {
+		return v.Approvers
+	}).(DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput)
+}
+
+// The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to `PT8H`.
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput) MaximumActivationDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefinitionEligibleAuthorizationJustInTimeAccessPolicy) *string {
+		return v.MaximumActivationDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput) MultiFactorAuthProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefinitionEligibleAuthorizationJustInTimeAccessPolicy) *string {
+		return v.MultiFactorAuthProvider
+	}).(pulumi.StringPtrOutput)
+}
+
+type DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefinitionEligibleAuthorizationJustInTimeAccessPolicy)(nil)).Elem()
+}
+
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput() DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput {
+	return o
+}
+
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput {
+	return o
+}
+
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput) Elem() DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput {
+	return o.ApplyT(func(v *DefinitionEligibleAuthorizationJustInTimeAccessPolicy) DefinitionEligibleAuthorizationJustInTimeAccessPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DefinitionEligibleAuthorizationJustInTimeAccessPolicy
+		return ret
+	}).(DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput)
+}
+
+// An `approver` block as defined below.
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput) Approvers() DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput {
+	return o.ApplyT(func(v *DefinitionEligibleAuthorizationJustInTimeAccessPolicy) []DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover {
+		if v == nil {
+			return nil
+		}
+		return v.Approvers
+	}).(DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput)
+}
+
+// The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to `PT8H`.
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput) MaximumActivationDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefinitionEligibleAuthorizationJustInTimeAccessPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumActivationDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput) MultiFactorAuthProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefinitionEligibleAuthorizationJustInTimeAccessPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MultiFactorAuthProvider
+	}).(pulumi.StringPtrOutput)
+}
+
+type DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover struct {
+	// The display name of the Azure Active Directory Principal for the approver.
+	PrincipalDisplayName *string `pulumi:"principalDisplayName"`
+	// The Principal ID of the Azure Active Directory principal for the approver.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverInput is an input type that accepts DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs and DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput values.
+// You can construct a concrete instance of `DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverInput` via:
+//
+//	DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs{...}
+type DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverInput interface {
+	pulumi.Input
+
+	ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput() DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput
+	ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutputWithContext(context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput
+}
+
+type DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs struct {
+	// The display name of the Azure Active Directory Principal for the approver.
+	PrincipalDisplayName pulumi.StringPtrInput `pulumi:"principalDisplayName"`
+	// The Principal ID of the Azure Active Directory principal for the approver.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover)(nil)).Elem()
+}
+
+func (i DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput() DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput {
+	return i.ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutputWithContext(context.Background())
+}
+
+func (i DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput)
+}
+
+// DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayInput is an input type that accepts DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArray and DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput values.
+// You can construct a concrete instance of `DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayInput` via:
+//
+//	DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArray{ DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs{...} }
+type DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayInput interface {
+	pulumi.Input
+
+	ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput() DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput
+	ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutputWithContext(context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput
+}
+
+type DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArray []DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverInput
+
+func (DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover)(nil)).Elem()
+}
+
+func (i DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArray) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput() DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput {
+	return i.ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutputWithContext(context.Background())
+}
+
+func (i DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArray) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput)
+}
+
+type DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput struct{ *pulumi.OutputState }
+
+func (DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover)(nil)).Elem()
+}
+
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput() DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput {
+	return o
+}
+
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput {
+	return o
+}
+
+// The display name of the Azure Active Directory Principal for the approver.
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput) PrincipalDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover) *string {
+		return v.PrincipalDisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Principal ID of the Azure Active Directory principal for the approver.
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput struct{ *pulumi.OutputState }
+
+func (DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover)(nil)).Elem()
+}
+
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput() DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput {
+	return o
+}
+
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput {
+	return o
+}
+
+func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput) Index(i pulumi.IntInput) DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover {
+		return vs[0].([]DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover)[vs[1].(int)]
+	}).(DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput)
+}
+
 type DefinitionPlan struct {
 	// The plan name of the marketplace offer.
 	Name string `pulumi:"name"`
@@ -331,10 +746,22 @@ func (o DefinitionPlanPtrOutput) Version() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionAuthorizationInput)(nil)).Elem(), DefinitionAuthorizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionAuthorizationArrayInput)(nil)).Elem(), DefinitionAuthorizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionEligibleAuthorizationInput)(nil)).Elem(), DefinitionEligibleAuthorizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionEligibleAuthorizationArrayInput)(nil)).Elem(), DefinitionEligibleAuthorizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionEligibleAuthorizationJustInTimeAccessPolicyInput)(nil)).Elem(), DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrInput)(nil)).Elem(), DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverInput)(nil)).Elem(), DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayInput)(nil)).Elem(), DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionPlanInput)(nil)).Elem(), DefinitionPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionPlanPtrInput)(nil)).Elem(), DefinitionPlanArgs{})
 	pulumi.RegisterOutputType(DefinitionAuthorizationOutput{})
 	pulumi.RegisterOutputType(DefinitionAuthorizationArrayOutput{})
+	pulumi.RegisterOutputType(DefinitionEligibleAuthorizationOutput{})
+	pulumi.RegisterOutputType(DefinitionEligibleAuthorizationArrayOutput{})
+	pulumi.RegisterOutputType(DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput{})
+	pulumi.RegisterOutputType(DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput{})
+	pulumi.RegisterOutputType(DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput{})
+	pulumi.RegisterOutputType(DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput{})
 	pulumi.RegisterOutputType(DefinitionPlanOutput{})
 	pulumi.RegisterOutputType(DefinitionPlanPtrOutput{})
 }

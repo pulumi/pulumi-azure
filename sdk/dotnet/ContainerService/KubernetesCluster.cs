@@ -93,7 +93,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> AutomaticChannelUpgrade { get; private set; } = null!;
 
         /// <summary>
-        /// - A `azure_active_directory_role_based_access_control` block as defined below.
+        /// A `azure_active_directory_role_based_access_control` block as defined below.
         /// </summary>
         [Output("azureActiveDirectoryRoleBasedAccessControl")]
         public Output<Outputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl?> AzureActiveDirectoryRoleBasedAccessControl { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterLinuxProfile?> LinuxProfile { get; private set; } = null!;
 
         /// <summary>
-        /// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        /// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         /// </summary>
         [Output("localAccountDisabled")]
         public Output<bool?> LocalAccountDisabled { get; private set; } = null!;
@@ -256,6 +256,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("microsoftDefender")]
         public Output<Outputs.KubernetesClusterMicrosoftDefender?> MicrosoftDefender { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+        /// </summary>
+        [Output("monitorMetrics")]
+        public Output<Outputs.KubernetesClusterMonitorMetrics?> MonitorMetrics { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
@@ -329,6 +335,9 @@ namespace Pulumi.Azure.ContainerService
         [Output("privateFqdn")]
         public Output<string> PrivateFqdn { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
@@ -482,7 +491,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? AutomaticChannelUpgrade { get; set; }
 
         /// <summary>
-        /// - A `azure_active_directory_role_based_access_control` block as defined below.
+        /// A `azure_active_directory_role_based_access_control` block as defined below.
         /// </summary>
         [Input("azureActiveDirectoryRoleBasedAccessControl")]
         public Input<Inputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs>? AzureActiveDirectoryRoleBasedAccessControl { get; set; }
@@ -587,7 +596,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterLinuxProfileArgs>? LinuxProfile { get; set; }
 
         /// <summary>
-        /// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        /// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         /// </summary>
         [Input("localAccountDisabled")]
         public Input<bool>? LocalAccountDisabled { get; set; }
@@ -609,6 +618,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("microsoftDefender")]
         public Input<Inputs.KubernetesClusterMicrosoftDefenderArgs>? MicrosoftDefender { get; set; }
+
+        /// <summary>
+        /// Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+        /// </summary>
+        [Input("monitorMetrics")]
+        public Input<Inputs.KubernetesClusterMonitorMetricsArgs>? MonitorMetrics { get; set; }
 
         /// <summary>
         /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
@@ -664,6 +679,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("privateDnsZoneId")]
         public Input<string>? PrivateDnsZoneId { get; set; }
 
+        /// <summary>
+        /// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -778,7 +796,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? AutomaticChannelUpgrade { get; set; }
 
         /// <summary>
-        /// - A `azure_active_directory_role_based_access_control` block as defined below.
+        /// A `azure_active_directory_role_based_access_control` block as defined below.
         /// </summary>
         [Input("azureActiveDirectoryRoleBasedAccessControl")]
         public Input<Inputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlGetArgs>? AzureActiveDirectoryRoleBasedAccessControl { get; set; }
@@ -959,7 +977,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterLinuxProfileGetArgs>? LinuxProfile { get; set; }
 
         /// <summary>
-        /// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        /// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         /// </summary>
         [Input("localAccountDisabled")]
         public Input<bool>? LocalAccountDisabled { get; set; }
@@ -981,6 +999,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("microsoftDefender")]
         public Input<Inputs.KubernetesClusterMicrosoftDefenderGetArgs>? MicrosoftDefender { get; set; }
+
+        /// <summary>
+        /// Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+        /// </summary>
+        [Input("monitorMetrics")]
+        public Input<Inputs.KubernetesClusterMonitorMetricsGetArgs>? MonitorMetrics { get; set; }
 
         /// <summary>
         /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
@@ -1054,6 +1078,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("privateFqdn")]
         public Input<string>? PrivateFqdn { get; set; }
 
+        /// <summary>
+        /// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 

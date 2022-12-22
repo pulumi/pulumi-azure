@@ -778,6 +778,8 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "service_connector_spring_cloud.html.markdown",
 				},
 			},
+			"azurerm_spring_cloud_accelerator":     {Tok: azureResource(azureAppPlatform, "SpringCloudAccelerator")},
+			"azurerm_spring_cloud_dev_tool_portal": {Tok: azureResource(azureAppPlatform, "SpringCloudDevToolPortal")},
 
 			// Automation
 			"azurerm_automation_account":                {Tok: azureResource(azureAutomation, "Account")},
@@ -1009,8 +1011,10 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_virtual_machine_data_disk_attachment": {Tok: azureResource(azureCompute, "DataDiskAttachment")},
-			"azurerm_virtual_machine_scale_set":            {Tok: azureResource(azureCompute, "ScaleSet")},
+			"azurerm_virtual_machine_data_disk_attachment":     {Tok: azureResource(azureCompute, "DataDiskAttachment")},
+			"azurerm_virtual_machine_scale_set":                {Tok: azureResource(azureCompute, "ScaleSet")},
+			"azurerm_virtual_machine_packet_capture":           {Tok: azureResource(azureCompute, "PacketCapture")},
+			"azurerm_virtual_machine_scale_set_packet_capture": {Tok: azureResource(azureCompute, "ScaleSetPacketCapture")},
 
 			"azurerm_managed_disk":         {Tok: azureResource(azureCompute, "ManagedDisk")},
 			"azurerm_snapshot":             {Tok: azureResource(azureCompute, "Snapshot")},
@@ -1836,6 +1840,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_route":        {Tok: azureResource(azureNetwork, "Route")},
 			"azurerm_route_filter": {Tok: azureResource(azureNetwork, "RouteFilter")},
 			"azurerm_route_table":  {Tok: azureResource(azureNetwork, "RouteTable")},
+			"azurerm_route_map":    {Tok: azureResource(azureNetwork, "RouteMap")},
 			"azurerm_subnet": {
 				Tok: azureResource(azureNetwork, "Subnet"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2622,12 +2627,16 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_lb_rule": {
 				Tok: azureDataSource(azureLB, "getLBRule"),
 			},
+			"azurerm_lb_outbound_rule": {
+				Tok: azureDataSource(azureLB, "getLBOutboundRule"),
+			},
 			"azurerm_lb_backend_address_pool": {
 				Tok: azureDataSource(azureLB, "getBackendAddressPool"),
 				Docs: &tfbridge.DocInfo{
 					Source: "loadbalancer_backend_address_pool.html.markdown",
 				},
 			},
+
 			"azurerm_log_analytics_workspace": {
 				Tok: azureDataSource(azureOperationalInsights, "getAnalyticsWorkspace"),
 			},

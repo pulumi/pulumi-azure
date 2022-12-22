@@ -272,13 +272,13 @@ namespace Pulumi.Azure.LogicApps
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
+        /// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         /// </summary>
         [Output("useExtensionBundle")]
         public Output<bool?> UseExtensionBundle { get; private set; } = null!;
 
         /// <summary>
-        /// The runtime version associated with the Logic App Defaults to `~1`.
+        /// The runtime version associated with the Logic App Defaults to `~3`.
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
@@ -470,13 +470,13 @@ namespace Pulumi.Azure.LogicApps
         }
 
         /// <summary>
-        /// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
+        /// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         /// </summary>
         [Input("useExtensionBundle")]
         public Input<bool>? UseExtensionBundle { get; set; }
 
         /// <summary>
-        /// The runtime version associated with the Logic App Defaults to `~1`.
+        /// The runtime version associated with the Logic App Defaults to `~3`.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -668,13 +668,13 @@ namespace Pulumi.Azure.LogicApps
         }
 
         /// <summary>
-        /// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
+        /// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         /// </summary>
         [Input("useExtensionBundle")]
         public Input<bool>? UseExtensionBundle { get; set; }
 
         /// <summary>
-        /// The runtime version associated with the Logic App Defaults to `~1`.
+        /// The runtime version associated with the Logic App Defaults to `~3`.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

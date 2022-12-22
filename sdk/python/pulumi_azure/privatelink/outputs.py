@@ -81,6 +81,8 @@ class EndpointIpConfiguration(dict):
             suggest = "private_ip_address"
         elif key == "subresourceName":
             suggest = "subresource_name"
+        elif key == "memberName":
+            suggest = "member_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EndpointIpConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -96,15 +98,19 @@ class EndpointIpConfiguration(dict):
     def __init__(__self__, *,
                  name: str,
                  private_ip_address: str,
-                 subresource_name: str):
+                 subresource_name: str,
+                 member_name: Optional[str] = None):
         """
         :param str name: Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
         :param str private_ip_address: Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
-        :param str subresource_name: Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id` and in this context is also used for `member_name`. Changing this forces a new resource to be created.
+        :param str subresource_name: Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
+        :param str member_name: Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_ip_address", private_ip_address)
         pulumi.set(__self__, "subresource_name", subresource_name)
+        if member_name is not None:
+            pulumi.set(__self__, "member_name", member_name)
 
     @property
     @pulumi.getter
@@ -126,9 +132,17 @@ class EndpointIpConfiguration(dict):
     @pulumi.getter(name="subresourceName")
     def subresource_name(self) -> str:
         """
-        Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id` and in this context is also used for `member_name`. Changing this forces a new resource to be created.
+        Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subresource_name")
+
+    @property
+    @pulumi.getter(name="memberName")
+    def member_name(self) -> Optional[str]:
+        """
+        Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "member_name")
 
 
 @pulumi.output_type

@@ -84,6 +84,8 @@ __all__ = [
     'OrchestratedVirtualMachineScaleSetPlanArgs',
     'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs',
     'OrchestratedVirtualMachineScaleSetTerminationNotificationArgs',
+    'PacketCaptureFilterArgs',
+    'PacketCaptureStorageLocationArgs',
     'ScaleSetBootDiagnosticsArgs',
     'ScaleSetExtensionArgs',
     'ScaleSetIdentityArgs',
@@ -99,6 +101,9 @@ __all__ = [
     'ScaleSetOsProfileWindowsConfigArgs',
     'ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs',
     'ScaleSetOsProfileWindowsConfigWinrmArgs',
+    'ScaleSetPacketCaptureFilterArgs',
+    'ScaleSetPacketCaptureMachineScopeArgs',
+    'ScaleSetPacketCaptureStorageLocationArgs',
     'ScaleSetPlanArgs',
     'ScaleSetRollingUpgradePolicyArgs',
     'ScaleSetSkuArgs',
@@ -608,7 +613,7 @@ class ImageOsDiskArgs:
         :param pulumi.Input[str] blob_uri: Specifies the URI in Azure storage of the blob that you want to use to create the image.
         :param pulumi.Input[str] caching: Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
         :param pulumi.Input[str] managed_disk_id: Specifies the ID of the managed disk resource that you want to use to create the image.
-        :param pulumi.Input[str] os_state: Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
+        :param pulumi.Input[str] os_state: Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
         :param pulumi.Input[str] os_type: Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
         :param pulumi.Input[int] size_gb: Specifies the size of the image to be created. The target size can't be smaller than the source size.
         """
@@ -665,7 +670,7 @@ class ImageOsDiskArgs:
     @pulumi.getter(name="osState")
     def os_state(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
+        Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
         """
         return pulumi.get(self, "os_state")
 
@@ -3151,6 +3156,10 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  grace_period: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`. Defaults to `false`.
+        :param pulumi.Input[str] grace_period: Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. Defaults to `30` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`).
+        """
         pulumi.set(__self__, "enabled", enabled)
         if grace_period is not None:
             pulumi.set(__self__, "grace_period", grace_period)
@@ -3158,6 +3167,9 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`. Defaults to `false`.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -3167,6 +3179,9 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs:
     @property
     @pulumi.getter(name="gracePeriod")
     def grace_period(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. Defaults to `30` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`).
+        """
         return pulumi.get(self, "grace_period")
 
     @grace_period.setter
@@ -3178,12 +3193,18 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs:
 class OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs:
     def __init__(__self__, *,
                  storage_account_uri: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] storage_account_uri: The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. By including a `boot_diagnostics` block without passing the `storage_account_uri` field will cause the API to utilize a Managed Storage Account to store the Boot Diagnostics output.
+        """
         if storage_account_uri is not None:
             pulumi.set(__self__, "storage_account_uri", storage_account_uri)
 
     @property
     @pulumi.getter(name="storageAccountUri")
     def storage_account_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. By including a `boot_diagnostics` block without passing the `storage_account_uri` field will cause the API to utilize a Managed Storage Account to store the Boot Diagnostics output.
+        """
         return pulumi.get(self, "storage_account_uri")
 
     @storage_account_uri.setter
@@ -3203,6 +3224,14 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
                  ultra_ssd_disk_iops_read_write: Optional[pulumi.Input[int]] = None,
                  ultra_ssd_disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] caching: The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+        :param pulumi.Input[int] disk_size_gb: The size of the Data Disk which should be created.
+        :param pulumi.Input[int] lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+        :param pulumi.Input[str] create_option: The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+        """
         pulumi.set(__self__, "caching", caching)
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         pulumi.set(__self__, "lun", lun)
@@ -3221,6 +3250,9 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @property
     @pulumi.getter
     def caching(self) -> pulumi.Input[str]:
+        """
+        The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+        """
         return pulumi.get(self, "caching")
 
     @caching.setter
@@ -3230,6 +3262,9 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @property
     @pulumi.getter(name="diskSizeGb")
     def disk_size_gb(self) -> pulumi.Input[int]:
+        """
+        The size of the Data Disk which should be created.
+        """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
@@ -3239,6 +3274,9 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @property
     @pulumi.getter
     def lun(self) -> pulumi.Input[int]:
+        """
+        The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+        """
         return pulumi.get(self, "lun")
 
     @lun.setter
@@ -3248,6 +3286,9 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @property
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Input[str]:
+        """
+        The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+        """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
@@ -3257,6 +3298,9 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @property
     @pulumi.getter(name="createOption")
     def create_option(self) -> Optional[pulumi.Input[str]]:
+        """
+        The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+        """
         return pulumi.get(self, "create_option")
 
     @create_option.setter
@@ -3266,6 +3310,9 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @property
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "disk_encryption_set_id")
 
     @disk_encryption_set_id.setter
@@ -3315,9 +3362,15 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
                  protected_settings_from_key_vault: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']] = None,
                  settings: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name for the Virtual Machine Scale Set Extension.
+        :param pulumi.Input[str] publisher: Specifies the Publisher of the Extension.
+        :param pulumi.Input[str] type: Specifies the Type of the Extension.
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+        :param pulumi.Input[bool] auto_upgrade_minor_version_enabled: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to true.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extensions_to_provision_after_vm_creations: An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
         :param pulumi.Input[bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        :param pulumi.Input[str] force_extension_execution_on_change: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+        :param pulumi.Input[str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
         """
         pulumi.set(__self__, "name", name)
@@ -3343,7 +3396,7 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        The name for the Virtual Machine Scale Set Extension.
         """
         return pulumi.get(self, "name")
 
@@ -3354,6 +3407,9 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
     @property
     @pulumi.getter
     def publisher(self) -> pulumi.Input[str]:
+        """
+        Specifies the Publisher of the Extension.
+        """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
@@ -3363,6 +3419,9 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the Type of the Extension.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -3372,6 +3431,9 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
     @property
     @pulumi.getter(name="typeHandlerVersion")
     def type_handler_version(self) -> pulumi.Input[str]:
+        """
+        Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+        """
         return pulumi.get(self, "type_handler_version")
 
     @type_handler_version.setter
@@ -3381,6 +3443,9 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
     @property
     @pulumi.getter(name="autoUpgradeMinorVersionEnabled")
     def auto_upgrade_minor_version_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to true.
+        """
         return pulumi.get(self, "auto_upgrade_minor_version_enabled")
 
     @auto_upgrade_minor_version_enabled.setter
@@ -3414,6 +3479,9 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
     @property
     @pulumi.getter(name="forceExtensionExecutionOnChange")
     def force_extension_execution_on_change(self) -> Optional[pulumi.Input[str]]:
+        """
+        A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+        """
         return pulumi.get(self, "force_extension_execution_on_change")
 
     @force_extension_execution_on_change.setter
@@ -3423,6 +3491,9 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
     @property
     @pulumi.getter(name="protectedSettings")
     def protected_settings(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+        """
         return pulumi.get(self, "protected_settings")
 
     @protected_settings.setter
@@ -3493,12 +3564,19 @@ class OrchestratedVirtualMachineScaleSetIdentityArgs:
     def __init__(__self__, *,
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+        :param pulumi.Input[str] type: The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+        """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+        """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
@@ -3508,6 +3586,9 @@ class OrchestratedVirtualMachineScaleSetIdentityArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -3526,7 +3607,13 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
                  network_security_group_id: Optional[pulumi.Input[str]] = None,
                  primary: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined above.
+        :param pulumi.Input[str] name: The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+        :param pulumi.Input[bool] enable_accelerated_networking: Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
+        :param pulumi.Input[bool] enable_ip_forwarding: Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
+        :param pulumi.Input[str] network_security_group_id: The ID of a Network Security Group which should be assigned to this Network Interface.
+        :param pulumi.Input[bool] primary: Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "name", name)
@@ -3544,6 +3631,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="ipConfigurations")
     def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]]:
+        """
+        One or more `ip_configuration` blocks as defined above.
+        """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
@@ -3554,7 +3644,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -3565,6 +3655,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="dnsServers")
     def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+        """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
@@ -3574,6 +3667,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="enableAcceleratedNetworking")
     def enable_accelerated_networking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
+        """
         return pulumi.get(self, "enable_accelerated_networking")
 
     @enable_accelerated_networking.setter
@@ -3583,6 +3679,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="enableIpForwarding")
     def enable_ip_forwarding(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
+        """
         return pulumi.get(self, "enable_ip_forwarding")
 
     @enable_ip_forwarding.setter
@@ -3592,6 +3691,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="networkSecurityGroupId")
     def network_security_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a Network Security Group which should be assigned to this Network Interface.
+        """
         return pulumi.get(self, "network_security_group_id")
 
     @network_security_group_id.setter
@@ -3601,6 +3703,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
     @property
     @pulumi.getter
     def primary(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
+        """
         return pulumi.get(self, "primary")
 
     @primary.setter
@@ -3620,8 +3725,14 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The Name which should be used for this IP Configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_gateway_backend_address_pool_ids: A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_security_group_ids: A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_backend_address_pool_ids: A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+        :param pulumi.Input[bool] primary: Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]] public_ip_addresses: A `public_ip_address` block as defined below.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet which this IP Configuration should be connected to.
+        :param pulumi.Input[str] version: The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
         """
         pulumi.set(__self__, "name", name)
         if application_gateway_backend_address_pool_ids is not None:
@@ -3643,7 +3754,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        The Name which should be used for this IP Configuration.
         """
         return pulumi.get(self, "name")
 
@@ -3654,6 +3765,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
     @property
     @pulumi.getter(name="applicationGatewayBackendAddressPoolIds")
     def application_gateway_backend_address_pool_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+        """
         return pulumi.get(self, "application_gateway_backend_address_pool_ids")
 
     @application_gateway_backend_address_pool_ids.setter
@@ -3663,6 +3777,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
     @property
     @pulumi.getter(name="applicationSecurityGroupIds")
     def application_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+        """
         return pulumi.get(self, "application_security_group_ids")
 
     @application_security_group_ids.setter
@@ -3672,6 +3789,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
     @property
     @pulumi.getter(name="loadBalancerBackendAddressPoolIds")
     def load_balancer_backend_address_pool_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+        """
         return pulumi.get(self, "load_balancer_backend_address_pool_ids")
 
     @load_balancer_backend_address_pool_ids.setter
@@ -3681,6 +3801,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
     @property
     @pulumi.getter
     def primary(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
+        """
         return pulumi.get(self, "primary")
 
     @primary.setter
@@ -3690,6 +3813,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
     @property
     @pulumi.getter(name="publicIpAddresses")
     def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]]]:
+        """
+        A `public_ip_address` block as defined below.
+        """
         return pulumi.get(self, "public_ip_addresses")
 
     @public_ip_addresses.setter
@@ -3699,6 +3825,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Subnet which this IP Configuration should be connected to.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -3709,7 +3838,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+        The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
         """
         return pulumi.get(self, "version")
 
@@ -3729,7 +3858,11 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
                  sku_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The Name of the Public IP Address Configuration.
+        :param pulumi.Input[str] domain_name_label: The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+        :param pulumi.Input[int] idle_timeout_in_minutes: The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]] ip_tags: One or more `ip_tag` blocks as defined above.
+        :param pulumi.Input[str] public_ip_prefix_id: The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         :param pulumi.Input[str] version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         """
@@ -3751,7 +3884,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        The Name of the Public IP Address Configuration.
         """
         return pulumi.get(self, "name")
 
@@ -3762,6 +3895,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     @property
     @pulumi.getter(name="domainNameLabel")
     def domain_name_label(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+        """
         return pulumi.get(self, "domain_name_label")
 
     @domain_name_label.setter
@@ -3771,6 +3907,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
     def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+        """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
     @idle_timeout_in_minutes.setter
@@ -3780,6 +3919,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     @property
     @pulumi.getter(name="ipTags")
     def ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]]]:
+        """
+        One or more `ip_tag` blocks as defined above.
+        """
         return pulumi.get(self, "ip_tags")
 
     @ip_tags.setter
@@ -3789,6 +3931,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     @property
     @pulumi.getter(name="publicIpPrefixId")
     def public_ip_prefix_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "public_ip_prefix_id")
 
     @public_ip_prefix_id.setter
@@ -3825,12 +3970,19 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     def __init__(__self__, *,
                  tag: pulumi.Input[str],
                  type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] tag: The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+        :param pulumi.Input[str] type: The Type of IP Tag, such as `FirstPartyUsage`.
+        """
         pulumi.set(__self__, "tag", tag)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def tag(self) -> pulumi.Input[str]:
+        """
+        The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+        """
         return pulumi.get(self, "tag")
 
     @tag.setter
@@ -3840,6 +3992,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The Type of IP Tag, such as `FirstPartyUsage`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -3856,6 +4011,13 @@ class OrchestratedVirtualMachineScaleSetOsDiskArgs:
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+        :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+        """
         pulumi.set(__self__, "caching", caching)
         pulumi.set(__self__, "storage_account_type", storage_account_type)
         if diff_disk_settings is not None:
@@ -3870,6 +4032,9 @@ class OrchestratedVirtualMachineScaleSetOsDiskArgs:
     @property
     @pulumi.getter
     def caching(self) -> pulumi.Input[str]:
+        """
+        The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+        """
         return pulumi.get(self, "caching")
 
     @caching.setter
@@ -3879,6 +4044,9 @@ class OrchestratedVirtualMachineScaleSetOsDiskArgs:
     @property
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Input[str]:
+        """
+        The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
@@ -3888,6 +4056,9 @@ class OrchestratedVirtualMachineScaleSetOsDiskArgs:
     @property
     @pulumi.getter(name="diffDiskSettings")
     def diff_disk_settings(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs']]:
+        """
+        A `diff_disk_settings` block as defined above.
+        """
         return pulumi.get(self, "diff_disk_settings")
 
     @diff_disk_settings.setter
@@ -3897,6 +4068,9 @@ class OrchestratedVirtualMachineScaleSetOsDiskArgs:
     @property
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "disk_encryption_set_id")
 
     @disk_encryption_set_id.setter
@@ -3906,6 +4080,9 @@ class OrchestratedVirtualMachineScaleSetOsDiskArgs:
     @property
     @pulumi.getter(name="diskSizeGb")
     def disk_size_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+        """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
@@ -3966,6 +4143,11 @@ class OrchestratedVirtualMachineScaleSetOsProfileArgs:
                  custom_data: Optional[pulumi.Input[str]] = None,
                  linux_configuration: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs']] = None,
                  windows_configuration: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs'] linux_configuration: A `linux_configuration` block as documented below.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs'] windows_configuration: A `windows_configuration` block as documented below.
+        """
         if custom_data is not None:
             pulumi.set(__self__, "custom_data", custom_data)
         if linux_configuration is not None:
@@ -3976,6 +4158,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileArgs:
     @property
     @pulumi.getter(name="customData")
     def custom_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+        """
         return pulumi.get(self, "custom_data")
 
     @custom_data.setter
@@ -3985,6 +4170,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileArgs:
     @property
     @pulumi.getter(name="linuxConfiguration")
     def linux_configuration(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs']]:
+        """
+        A `linux_configuration` block as documented below.
+        """
         return pulumi.get(self, "linux_configuration")
 
     @linux_configuration.setter
@@ -3994,6 +4182,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileArgs:
     @property
     @pulumi.getter(name="windowsConfiguration")
     def windows_configuration(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs']]:
+        """
+        A `windows_configuration` block as documented below.
+        """
         return pulumi.get(self, "windows_configuration")
 
     @windows_configuration.setter
@@ -4014,9 +4205,15 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs']]]] = None):
         """
+        :param pulumi.Input[str] admin_username: The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs']]] admin_ssh_keys: A `admin_ssh_key` block as documented below.
+        :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
         :param pulumi.Input[bool] disable_password_authentication: When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs']]] secrets: One or more `secret` blocks as defined below.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         if admin_password is not None:
@@ -4039,6 +4236,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
     @property
     @pulumi.getter(name="adminUsername")
     def admin_username(self) -> pulumi.Input[str]:
+        """
+        The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "admin_username")
 
     @admin_username.setter
@@ -4048,6 +4248,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
     @property
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
@@ -4057,6 +4260,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
     @property
     @pulumi.getter(name="adminSshKeys")
     def admin_ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs']]]]:
+        """
+        A `admin_ssh_key` block as documented below.
+        """
         return pulumi.get(self, "admin_ssh_keys")
 
     @admin_ssh_keys.setter
@@ -4066,6 +4272,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
     @property
     @pulumi.getter(name="computerNamePrefix")
     def computer_name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        """
         return pulumi.get(self, "computer_name_prefix")
 
     @computer_name_prefix.setter
@@ -4111,6 +4320,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
     @property
     @pulumi.getter(name="provisionVmAgent")
     def provision_vm_agent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+        """
         return pulumi.get(self, "provision_vm_agent")
 
     @provision_vm_agent.setter
@@ -4120,6 +4332,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
     @property
     @pulumi.getter
     def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs']]]]:
+        """
+        One or more `secret` blocks as defined below.
+        """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
@@ -4169,12 +4384,19 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs:
     def __init__(__self__, *,
                  certificates: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs']]],
                  key_vault_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs']]] certificates: One or more `certificate` blocks as defined below.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
+        """
         pulumi.set(__self__, "certificates", certificates)
         pulumi.set(__self__, "key_vault_id", key_vault_id)
 
     @property
     @pulumi.getter
     def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs']]]:
+        """
+        One or more `certificate` blocks as defined below.
+        """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
@@ -4184,6 +4406,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs:
     @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Key Vault from which all Secrets should be sourced.
+        """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
@@ -4228,9 +4453,17 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
                  timezone: Optional[pulumi.Input[str]] = None,
                  winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs']]]] = None):
         """
+        :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] admin_username: The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        :param pulumi.Input[bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs']]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         """
         pulumi.set(__self__, "admin_password", admin_password)
         pulumi.set(__self__, "admin_username", admin_username)
@@ -4256,6 +4489,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @property
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> pulumi.Input[str]:
+        """
+        The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
@@ -4265,6 +4501,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @property
     @pulumi.getter(name="adminUsername")
     def admin_username(self) -> pulumi.Input[str]:
+        """
+        The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "admin_username")
 
     @admin_username.setter
@@ -4274,6 +4513,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @property
     @pulumi.getter(name="computerNamePrefix")
     def computer_name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        """
         return pulumi.get(self, "computer_name_prefix")
 
     @computer_name_prefix.setter
@@ -4283,6 +4525,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @property
     @pulumi.getter(name="enableAutomaticUpdates")
     def enable_automatic_updates(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
+        """
         return pulumi.get(self, "enable_automatic_updates")
 
     @enable_automatic_updates.setter
@@ -4328,6 +4573,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @property
     @pulumi.getter(name="provisionVmAgent")
     def provision_vm_agent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+        """
         return pulumi.get(self, "provision_vm_agent")
 
     @provision_vm_agent.setter
@@ -4337,6 +4585,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @property
     @pulumi.getter
     def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs']]]]:
+        """
+        One or more `secret` blocks as defined below.
+        """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
@@ -4346,6 +4597,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @property
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
@@ -4355,6 +4609,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @property
     @pulumi.getter(name="winrmListeners")
     def winrm_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs']]]]:
+        """
+        One or more `winrm_listener` blocks as defined below.
+        """
         return pulumi.get(self, "winrm_listeners")
 
     @winrm_listeners.setter
@@ -4367,12 +4624,19 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs:
     def __init__(__self__, *,
                  certificates: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs']]],
                  key_vault_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs']]] certificates: One or more `certificate` blocks as defined below.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
+        """
         pulumi.set(__self__, "certificates", certificates)
         pulumi.set(__self__, "key_vault_id", key_vault_id)
 
     @property
     @pulumi.getter
     def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs']]]:
+        """
+        One or more `certificate` blocks as defined below.
+        """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
@@ -4382,6 +4646,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs:
     @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Key Vault from which all Secrets should be sourced.
+        """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
@@ -4395,6 +4662,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCerti
                  store: pulumi.Input[str],
                  url: pulumi.Input[str]):
         """
+        :param pulumi.Input[str] store: The certificate store on the Virtual Machine where the certificate should be added.
         :param pulumi.Input[str] url: The Secret URL of a Key Vault Certificate.
         """
         pulumi.set(__self__, "store", store)
@@ -4403,6 +4671,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCerti
     @property
     @pulumi.getter
     def store(self) -> pulumi.Input[str]:
+        """
+        The certificate store on the Virtual Machine where the certificate should be added.
+        """
         return pulumi.get(self, "store")
 
     @store.setter
@@ -4427,6 +4698,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListen
     def __init__(__self__, *,
                  protocol: pulumi.Input[str],
                  certificate_url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] certificate_url: The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
+        """
         pulumi.set(__self__, "protocol", protocol)
         if certificate_url is not None:
             pulumi.set(__self__, "certificate_url", certificate_url)
@@ -4443,6 +4717,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListen
     @property
     @pulumi.getter(name="certificateUrl")
     def certificate_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
+        """
         return pulumi.get(self, "certificate_url")
 
     @certificate_url.setter
@@ -4457,7 +4734,9 @@ class OrchestratedVirtualMachineScaleSetPlanArgs:
                  product: pulumi.Input[str],
                  publisher: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] product: Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] publisher: Specifies the publisher of the image. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "product", product)
@@ -4467,7 +4746,7 @@ class OrchestratedVirtualMachineScaleSetPlanArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -4478,6 +4757,9 @@ class OrchestratedVirtualMachineScaleSetPlanArgs:
     @property
     @pulumi.getter
     def product(self) -> pulumi.Input[str]:
+        """
+        Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "product")
 
     @product.setter
@@ -4487,6 +4769,9 @@ class OrchestratedVirtualMachineScaleSetPlanArgs:
     @property
     @pulumi.getter
     def publisher(self) -> pulumi.Input[str]:
+        """
+        Specifies the publisher of the image. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
@@ -4502,7 +4787,10 @@ class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs:
                  sku: pulumi.Input[str],
                  version: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] offer: Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] publisher: Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: Specifies the SKU of the image used to create the virtual machines.
+        :param pulumi.Input[str] version: Specifies the version of the image used to create the virtual machines.
         """
         pulumi.set(__self__, "offer", offer)
         pulumi.set(__self__, "publisher", publisher)
@@ -4512,6 +4800,9 @@ class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs:
     @property
     @pulumi.getter
     def offer(self) -> pulumi.Input[str]:
+        """
+        Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "offer")
 
     @offer.setter
@@ -4521,6 +4812,9 @@ class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs:
     @property
     @pulumi.getter
     def publisher(self) -> pulumi.Input[str]:
+        """
+        Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
@@ -4530,6 +4824,9 @@ class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs:
     @property
     @pulumi.getter
     def sku(self) -> pulumi.Input[str]:
+        """
+        Specifies the SKU of the image used to create the virtual machines.
+        """
         return pulumi.get(self, "sku")
 
     @sku.setter
@@ -4540,7 +4837,7 @@ class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+        Specifies the version of the image used to create the virtual machines.
         """
         return pulumi.get(self, "version")
 
@@ -4554,6 +4851,10 @@ class OrchestratedVirtualMachineScaleSetTerminationNotificationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  timeout: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false` Defaults to `false`.
+        :param pulumi.Input[str] timeout: Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in `ISO 8601` format. Defaults to `PT5M`.
+        """
         pulumi.set(__self__, "enabled", enabled)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
@@ -4561,6 +4862,9 @@ class OrchestratedVirtualMachineScaleSetTerminationNotificationArgs:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false` Defaults to `false`.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -4570,6 +4874,9 @@ class OrchestratedVirtualMachineScaleSetTerminationNotificationArgs:
     @property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in `ISO 8601` format. Defaults to `PT5M`.
+        """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
@@ -4578,10 +4885,155 @@ class OrchestratedVirtualMachineScaleSetTerminationNotificationArgs:
 
 
 @pulumi.input_type
+class PacketCaptureFilterArgs:
+    def __init__(__self__, *,
+                 protocol: pulumi.Input[str],
+                 local_ip_address: Optional[pulumi.Input[str]] = None,
+                 local_port: Optional[pulumi.Input[str]] = None,
+                 remote_ip_address: Optional[pulumi.Input[str]] = None,
+                 remote_port: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] protocol: The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] local_ip_address: The local IP Address to be filtered on. Specify `127.0.0.1` for a single address entry, `127.0.0.1-127.0.0.255` for a range and `127.0.0.1;127.0.0.5` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] local_port: The local port to be filtered on. Specify `80` for single port entry, `80-85` for a range and `80;443;` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] remote_ip_address: The remote IP Address to be filtered on. Specify `127.0.0.1` for a single address entry, `127.0.0.1-127.0.0.255` for a range and `127.0.0.1;127.0.0.5` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] remote_port: The remote port to be filtered on. Specify `80` for single port entry, `80-85` for a range and `80;443;` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "protocol", protocol)
+        if local_ip_address is not None:
+            pulumi.set(__self__, "local_ip_address", local_ip_address)
+        if local_port is not None:
+            pulumi.set(__self__, "local_port", local_port)
+        if remote_ip_address is not None:
+            pulumi.set(__self__, "remote_ip_address", remote_ip_address)
+        if remote_port is not None:
+            pulumi.set(__self__, "remote_port", remote_port)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[str]:
+        """
+        The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="localIpAddress")
+    def local_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The local IP Address to be filtered on. Specify `127.0.0.1` for a single address entry, `127.0.0.1-127.0.0.255` for a range and `127.0.0.1;127.0.0.5` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "local_ip_address")
+
+    @local_ip_address.setter
+    def local_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_ip_address", value)
+
+    @property
+    @pulumi.getter(name="localPort")
+    def local_port(self) -> Optional[pulumi.Input[str]]:
+        """
+        The local port to be filtered on. Specify `80` for single port entry, `80-85` for a range and `80;443;` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "local_port")
+
+    @local_port.setter
+    def local_port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_port", value)
+
+    @property
+    @pulumi.getter(name="remoteIpAddress")
+    def remote_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The remote IP Address to be filtered on. Specify `127.0.0.1` for a single address entry, `127.0.0.1-127.0.0.255` for a range and `127.0.0.1;127.0.0.5` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "remote_ip_address")
+
+    @remote_ip_address.setter
+    def remote_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_ip_address", value)
+
+    @property
+    @pulumi.getter(name="remotePort")
+    def remote_port(self) -> Optional[pulumi.Input[str]]:
+        """
+        The remote port to be filtered on. Specify `80` for single port entry, `80-85` for a range and `80;443;` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "remote_port")
+
+    @remote_port.setter
+    def remote_port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_port", value)
+
+
+@pulumi.input_type
+class PacketCaptureStorageLocationArgs:
+    def __init__(__self__, *,
+                 file_path: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 storage_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] file_path: A valid local path on the target Virtual Machine. Must include the name of the capture file (*.cap). For Linux Virtual Machines it must start with `/var/captures`.
+        :param pulumi.Input[str] storage_account_id: The ID of the storage account where the packet capture sessions should be saved to.
+        :param pulumi.Input[str] storage_path: The URI of the storage path where the packet capture sessions are saved to.
+        """
+        if file_path is not None:
+            pulumi.set(__self__, "file_path", file_path)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if storage_path is not None:
+            pulumi.set(__self__, "storage_path", storage_path)
+
+    @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        A valid local path on the target Virtual Machine. Must include the name of the capture file (*.cap). For Linux Virtual Machines it must start with `/var/captures`.
+        """
+        return pulumi.get(self, "file_path")
+
+    @file_path.setter
+    def file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_path", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the storage account where the packet capture sessions should be saved to.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="storagePath")
+    def storage_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the storage path where the packet capture sessions are saved to.
+        """
+        return pulumi.get(self, "storage_path")
+
+    @storage_path.setter
+    def storage_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_path", value)
+
+
+@pulumi.input_type
 class ScaleSetBootDiagnosticsArgs:
     def __init__(__self__, *,
                  storage_uri: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] storage_uri: Blob endpoint for the storage account to hold the virtual machine's diagnostic files. This must be the root of a storage account, and not a storage container.
+        :param pulumi.Input[bool] enabled: Whether to enable boot diagnostics for the virtual machine.
+        """
         pulumi.set(__self__, "storage_uri", storage_uri)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -4589,6 +5041,9 @@ class ScaleSetBootDiagnosticsArgs:
     @property
     @pulumi.getter(name="storageUri")
     def storage_uri(self) -> pulumi.Input[str]:
+        """
+        Blob endpoint for the storage account to hold the virtual machine's diagnostic files. This must be the root of a storage account, and not a storage container.
+        """
         return pulumi.get(self, "storage_uri")
 
     @storage_uri.setter
@@ -4598,6 +5053,9 @@ class ScaleSetBootDiagnosticsArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable boot diagnostics for the virtual machine.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -5251,7 +5709,7 @@ class ScaleSetOsProfileSecretArgs:
                  vault_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretVaultCertificateArgs']]]] = None):
         """
         :param pulumi.Input[str] source_vault_id: Specifies the key vault to use.
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretVaultCertificateArgs']]] vault_certificates: A collection of Vault Certificates as documented below
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretVaultCertificateArgs']]] vault_certificates: (Required, on windows machines) A collection of Vault Certificates as documented below
         """
         pulumi.set(__self__, "source_vault_id", source_vault_id)
         if vault_certificates is not None:
@@ -5273,7 +5731,7 @@ class ScaleSetOsProfileSecretArgs:
     @pulumi.getter(name="vaultCertificates")
     def vault_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretVaultCertificateArgs']]]]:
         """
-        A collection of Vault Certificates as documented below
+        (Required, on windows machines) A collection of Vault Certificates as documented below
         """
         return pulumi.get(self, "vault_certificates")
 
@@ -5494,6 +5952,186 @@ class ScaleSetOsProfileWindowsConfigWinrmArgs:
     @certificate_url.setter
     def certificate_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_url", value)
+
+
+@pulumi.input_type
+class ScaleSetPacketCaptureFilterArgs:
+    def __init__(__self__, *,
+                 protocol: pulumi.Input[str],
+                 local_ip_address: Optional[pulumi.Input[str]] = None,
+                 local_port: Optional[pulumi.Input[str]] = None,
+                 remote_ip_address: Optional[pulumi.Input[str]] = None,
+                 remote_port: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] protocol: The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] local_ip_address: The local IP Address to be filtered on. Specify `127.0.0.1` for a single address entry, `127.0.0.1-127.0.0.255` for a range and `127.0.0.1;127.0.0.5` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] local_port: The local port to be filtered on. Specify `80` for single port entry, `80-85` for a range and `80;443;` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] remote_ip_address: The remote IP Address to be filtered on. Specify `127.0.0.1` for a single address entry, `127.0.0.1-127.0.0.255` for a range and `127.0.0.1;127.0.0.5` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] remote_port: The remote port to be filtered on. Specify `80` for single port entry, `80-85` for a range and `80;443;` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "protocol", protocol)
+        if local_ip_address is not None:
+            pulumi.set(__self__, "local_ip_address", local_ip_address)
+        if local_port is not None:
+            pulumi.set(__self__, "local_port", local_port)
+        if remote_ip_address is not None:
+            pulumi.set(__self__, "remote_ip_address", remote_ip_address)
+        if remote_port is not None:
+            pulumi.set(__self__, "remote_port", remote_port)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[str]:
+        """
+        The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="localIpAddress")
+    def local_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The local IP Address to be filtered on. Specify `127.0.0.1` for a single address entry, `127.0.0.1-127.0.0.255` for a range and `127.0.0.1;127.0.0.5` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "local_ip_address")
+
+    @local_ip_address.setter
+    def local_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_ip_address", value)
+
+    @property
+    @pulumi.getter(name="localPort")
+    def local_port(self) -> Optional[pulumi.Input[str]]:
+        """
+        The local port to be filtered on. Specify `80` for single port entry, `80-85` for a range and `80;443;` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "local_port")
+
+    @local_port.setter
+    def local_port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_port", value)
+
+    @property
+    @pulumi.getter(name="remoteIpAddress")
+    def remote_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The remote IP Address to be filtered on. Specify `127.0.0.1` for a single address entry, `127.0.0.1-127.0.0.255` for a range and `127.0.0.1;127.0.0.5` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "remote_ip_address")
+
+    @remote_ip_address.setter
+    def remote_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_ip_address", value)
+
+    @property
+    @pulumi.getter(name="remotePort")
+    def remote_port(self) -> Optional[pulumi.Input[str]]:
+        """
+        The remote port to be filtered on. Specify `80` for single port entry, `80-85` for a range and `80;443;` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "remote_port")
+
+    @remote_port.setter
+    def remote_port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_port", value)
+
+
+@pulumi.input_type
+class ScaleSetPacketCaptureMachineScopeArgs:
+    def __init__(__self__, *,
+                 exclude_instance_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include_instance_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_instance_ids: A list of Virtual Machine Scale Set instance IDs which should be excluded from running Packet Capture, e.g. `["0", "2"]`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include_instance_ids: A list of Virtual Machine Scale Set instance IDs which should be included for Packet Capture, e.g. `["1", "3"]`. Changing this forces a new resource to be created.
+        """
+        if exclude_instance_ids is not None:
+            pulumi.set(__self__, "exclude_instance_ids", exclude_instance_ids)
+        if include_instance_ids is not None:
+            pulumi.set(__self__, "include_instance_ids", include_instance_ids)
+
+    @property
+    @pulumi.getter(name="excludeInstanceIds")
+    def exclude_instance_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Virtual Machine Scale Set instance IDs which should be excluded from running Packet Capture, e.g. `["0", "2"]`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "exclude_instance_ids")
+
+    @exclude_instance_ids.setter
+    def exclude_instance_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude_instance_ids", value)
+
+    @property
+    @pulumi.getter(name="includeInstanceIds")
+    def include_instance_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Virtual Machine Scale Set instance IDs which should be included for Packet Capture, e.g. `["1", "3"]`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "include_instance_ids")
+
+    @include_instance_ids.setter
+    def include_instance_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include_instance_ids", value)
+
+
+@pulumi.input_type
+class ScaleSetPacketCaptureStorageLocationArgs:
+    def __init__(__self__, *,
+                 file_path: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 storage_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] file_path: A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
+        :param pulumi.Input[str] storage_account_id: The ID of the storage account to save the packet capture session
+        :param pulumi.Input[str] storage_path: The URI of the storage path where the packet capture sessions are saved to.
+        """
+        if file_path is not None:
+            pulumi.set(__self__, "file_path", file_path)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if storage_path is not None:
+            pulumi.set(__self__, "storage_path", storage_path)
+
+    @property
+    @pulumi.getter(name="filePath")
+    def file_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
+        """
+        return pulumi.get(self, "file_path")
+
+    @file_path.setter
+    def file_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_path", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the storage account to save the packet capture session
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="storagePath")
+    def storage_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the storage path where the packet capture sessions are saved to.
+        """
+        return pulumi.get(self, "storage_path")
+
+    @storage_path.setter
+    def storage_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_path", value)
 
 
 @pulumi.input_type
@@ -6394,7 +7032,7 @@ class VirtualMachineOsProfileArgs:
         """
         :param pulumi.Input[str] admin_username: Specifies the name of the local administrator account.
         :param pulumi.Input[str] computer_name: Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] admin_password: The password associated with the local administrator account.
+        :param pulumi.Input[str] admin_password: (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
         :param pulumi.Input[str] custom_data: Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "admin_username", admin_username)
@@ -6432,7 +7070,7 @@ class VirtualMachineOsProfileArgs:
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password associated with the local administrator account.
+        (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
         """
         return pulumi.get(self, "admin_password")
 
@@ -6460,7 +7098,7 @@ class VirtualMachineOsProfileLinuxConfigArgs:
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileLinuxConfigSshKeyArgs']]]] = None):
         """
         :param pulumi.Input[bool] disable_password_authentication: Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileLinuxConfigSshKeyArgs']]] ssh_keys: One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileLinuxConfigSshKeyArgs']]] ssh_keys: One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
         """
         pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
         if ssh_keys is not None:
@@ -6482,7 +7120,7 @@ class VirtualMachineOsProfileLinuxConfigArgs:
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileLinuxConfigSshKeyArgs']]]]:
         """
-        One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+        One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
         """
         return pulumi.get(self, "ssh_keys")
 
@@ -6535,7 +7173,7 @@ class VirtualMachineOsProfileSecretArgs:
                  vault_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileSecretVaultCertificateArgs']]]] = None):
         """
         :param pulumi.Input[str] source_vault_id: Specifies the ID of the Key Vault to use.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileSecretVaultCertificateArgs']]] vault_certificates: One or more `vault_certificates` blocks.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileSecretVaultCertificateArgs']]] vault_certificates: One or more `vault_certificates` blocks as defined below.
         """
         pulumi.set(__self__, "source_vault_id", source_vault_id)
         if vault_certificates is not None:
@@ -6557,7 +7195,7 @@ class VirtualMachineOsProfileSecretArgs:
     @pulumi.getter(name="vaultCertificates")
     def vault_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileSecretVaultCertificateArgs']]]]:
         """
-        One or more `vault_certificates` blocks.
+        One or more `vault_certificates` blocks as defined below.
         """
         return pulumi.get(self, "vault_certificates")
 
@@ -6573,7 +7211,7 @@ class VirtualMachineOsProfileSecretVaultCertificateArgs:
                  certificate_store: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] certificate_url: The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
-        :param pulumi.Input[str] certificate_store: Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+        :param pulumi.Input[str] certificate_store: (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
         """
         pulumi.set(__self__, "certificate_url", certificate_url)
         if certificate_store is not None:
@@ -6595,7 +7233,7 @@ class VirtualMachineOsProfileSecretVaultCertificateArgs:
     @pulumi.getter(name="certificateStore")
     def certificate_store(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+        (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
         """
         return pulumi.get(self, "certificate_store")
 

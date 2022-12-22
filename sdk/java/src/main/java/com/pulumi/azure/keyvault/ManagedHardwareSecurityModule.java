@@ -6,6 +6,7 @@ package com.pulumi.azure.keyvault;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleArgs;
 import com.pulumi.azure.keyvault.inputs.ManagedHardwareSecurityModuleState;
+import com.pulumi.azure.keyvault.outputs.ManagedHardwareSecurityModuleNetworkAcls;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -131,6 +132,34 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * A `network_acls` block as defined below.
+     * 
+     */
+    @Export(name="networkAcls", type=ManagedHardwareSecurityModuleNetworkAcls.class, parameters={})
+    private Output<ManagedHardwareSecurityModuleNetworkAcls> networkAcls;
+
+    /**
+     * @return A `network_acls` block as defined below.
+     * 
+     */
+    public Output<ManagedHardwareSecurityModuleNetworkAcls> networkAcls() {
+        return this.networkAcls;
+    }
+    /**
+     * Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
+        return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
      * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.

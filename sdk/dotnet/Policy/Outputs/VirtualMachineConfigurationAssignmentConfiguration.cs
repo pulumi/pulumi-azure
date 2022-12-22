@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Policy.Outputs
         /// </summary>
         public readonly string? ContentUri;
         /// <summary>
-        /// One or more `parameter` blocks which define what configuration parameters and values against.
+        /// One or more `parameter` blocks as defined below which define what configuration parameters and values against.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineConfigurationAssignmentConfigurationParameter> Parameters;
         /// <summary>

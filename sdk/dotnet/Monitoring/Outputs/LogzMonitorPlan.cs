@@ -22,9 +22,9 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string EffectiveDate;
         /// <summary>
-        /// Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+        /// Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
         /// </summary>
-        public readonly string PlanId;
+        public readonly string? PlanId;
         /// <summary>
         /// Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
             string effectiveDate,
 
-            string planId,
+            string? planId,
 
             string usageType)
         {

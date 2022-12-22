@@ -638,7 +638,7 @@ func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput) Va
 type ReplicatedVMNetworkInterface struct {
 	// Id of the public IP object to use when a failover is done.
 	RecoveryPublicIpAddressId *string `pulumi:"recoveryPublicIpAddressId"`
-	// Id source network interface.
+	// (Required if the networkInterface block is specified) Id source network interface.
 	SourceNetworkInterfaceId *string `pulumi:"sourceNetworkInterfaceId"`
 	// Static IP to assign when a failover is done.
 	TargetStaticIp *string `pulumi:"targetStaticIp"`
@@ -660,7 +660,7 @@ type ReplicatedVMNetworkInterfaceInput interface {
 type ReplicatedVMNetworkInterfaceArgs struct {
 	// Id of the public IP object to use when a failover is done.
 	RecoveryPublicIpAddressId pulumi.StringPtrInput `pulumi:"recoveryPublicIpAddressId"`
-	// Id source network interface.
+	// (Required if the networkInterface block is specified) Id source network interface.
 	SourceNetworkInterfaceId pulumi.StringPtrInput `pulumi:"sourceNetworkInterfaceId"`
 	// Static IP to assign when a failover is done.
 	TargetStaticIp pulumi.StringPtrInput `pulumi:"targetStaticIp"`
@@ -724,7 +724,7 @@ func (o ReplicatedVMNetworkInterfaceOutput) RecoveryPublicIpAddressId() pulumi.S
 	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.RecoveryPublicIpAddressId }).(pulumi.StringPtrOutput)
 }
 
-// Id source network interface.
+// (Required if the networkInterface block is specified) Id source network interface.
 func (o ReplicatedVMNetworkInterfaceOutput) SourceNetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.SourceNetworkInterfaceId }).(pulumi.StringPtrOutput)
 }

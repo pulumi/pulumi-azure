@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorFirewallPolicyManagedRule {
     /**
-     * @return The action to perform when the managed rule is matched. Possible values depends on which DRS version you are using, for DRS `1.0`, `1.1` and `preview-0.1` the possible values include `Allow`, `Block`, `Log`, or `Redirect`. For DRS `2.0` and `2.1` the value must be `AnomalyScoring`.
+     * @return The action to perform for all DRS rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the DRS you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
      * 
      */
     private String action;
@@ -41,7 +41,7 @@ public final class FrontdoorFirewallPolicyManagedRule {
 
     private FrontdoorFirewallPolicyManagedRule() {}
     /**
-     * @return The action to perform when the managed rule is matched. Possible values depends on which DRS version you are using, for DRS `1.0`, `1.1` and `preview-0.1` the possible values include `Allow`, `Block`, `Log`, or `Redirect`. For DRS `2.0` and `2.1` the value must be `AnomalyScoring`.
+     * @return The action to perform for all DRS rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the DRS you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
      * 
      */
     public String action() {

@@ -117,11 +117,13 @@ func (o EndpointCustomDnsConfigArrayOutput) Index(i pulumi.IntInput) EndpointCus
 }
 
 type EndpointIpConfiguration struct {
+	// Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresourceName`. Changing this forces a new resource to be created.
+	MemberName *string `pulumi:"memberName"`
 	// Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
-	// Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId` and in this context is also used for `memberName`. Changing this forces a new resource to be created.
+	// Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
 	SubresourceName string `pulumi:"subresourceName"`
 }
 
@@ -137,11 +139,13 @@ type EndpointIpConfigurationInput interface {
 }
 
 type EndpointIpConfigurationArgs struct {
+	// Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresourceName`. Changing this forces a new resource to be created.
+	MemberName pulumi.StringPtrInput `pulumi:"memberName"`
 	// Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
 	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
-	// Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId` and in this context is also used for `memberName`. Changing this forces a new resource to be created.
+	// Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
 	SubresourceName pulumi.StringInput `pulumi:"subresourceName"`
 }
 
@@ -157,45 +161,29 @@ func (i EndpointIpConfigurationArgs) ToEndpointIpConfigurationOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointIpConfigurationOutput)
 }
 
-func (i EndpointIpConfigurationArgs) ToEndpointIpConfigurationPtrOutput() EndpointIpConfigurationPtrOutput {
-	return i.ToEndpointIpConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i EndpointIpConfigurationArgs) ToEndpointIpConfigurationPtrOutputWithContext(ctx context.Context) EndpointIpConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointIpConfigurationOutput).ToEndpointIpConfigurationPtrOutputWithContext(ctx)
-}
-
-// EndpointIpConfigurationPtrInput is an input type that accepts EndpointIpConfigurationArgs, EndpointIpConfigurationPtr and EndpointIpConfigurationPtrOutput values.
-// You can construct a concrete instance of `EndpointIpConfigurationPtrInput` via:
+// EndpointIpConfigurationArrayInput is an input type that accepts EndpointIpConfigurationArray and EndpointIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `EndpointIpConfigurationArrayInput` via:
 //
-//	        EndpointIpConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type EndpointIpConfigurationPtrInput interface {
+//	EndpointIpConfigurationArray{ EndpointIpConfigurationArgs{...} }
+type EndpointIpConfigurationArrayInput interface {
 	pulumi.Input
 
-	ToEndpointIpConfigurationPtrOutput() EndpointIpConfigurationPtrOutput
-	ToEndpointIpConfigurationPtrOutputWithContext(context.Context) EndpointIpConfigurationPtrOutput
+	ToEndpointIpConfigurationArrayOutput() EndpointIpConfigurationArrayOutput
+	ToEndpointIpConfigurationArrayOutputWithContext(context.Context) EndpointIpConfigurationArrayOutput
 }
 
-type endpointIpConfigurationPtrType EndpointIpConfigurationArgs
+type EndpointIpConfigurationArray []EndpointIpConfigurationInput
 
-func EndpointIpConfigurationPtr(v *EndpointIpConfigurationArgs) EndpointIpConfigurationPtrInput {
-	return (*endpointIpConfigurationPtrType)(v)
+func (EndpointIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointIpConfiguration)(nil)).Elem()
 }
 
-func (*endpointIpConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointIpConfiguration)(nil)).Elem()
+func (i EndpointIpConfigurationArray) ToEndpointIpConfigurationArrayOutput() EndpointIpConfigurationArrayOutput {
+	return i.ToEndpointIpConfigurationArrayOutputWithContext(context.Background())
 }
 
-func (i *endpointIpConfigurationPtrType) ToEndpointIpConfigurationPtrOutput() EndpointIpConfigurationPtrOutput {
-	return i.ToEndpointIpConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *endpointIpConfigurationPtrType) ToEndpointIpConfigurationPtrOutputWithContext(ctx context.Context) EndpointIpConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointIpConfigurationPtrOutput)
+func (i EndpointIpConfigurationArray) ToEndpointIpConfigurationArrayOutputWithContext(ctx context.Context) EndpointIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointIpConfigurationArrayOutput)
 }
 
 type EndpointIpConfigurationOutput struct{ *pulumi.OutputState }
@@ -212,14 +200,9 @@ func (o EndpointIpConfigurationOutput) ToEndpointIpConfigurationOutputWithContex
 	return o
 }
 
-func (o EndpointIpConfigurationOutput) ToEndpointIpConfigurationPtrOutput() EndpointIpConfigurationPtrOutput {
-	return o.ToEndpointIpConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o EndpointIpConfigurationOutput) ToEndpointIpConfigurationPtrOutputWithContext(ctx context.Context) EndpointIpConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointIpConfiguration) *EndpointIpConfiguration {
-		return &v
-	}).(EndpointIpConfigurationPtrOutput)
+// Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresourceName`. Changing this forces a new resource to be created.
+func (o EndpointIpConfigurationOutput) MemberName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointIpConfiguration) *string { return v.MemberName }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
@@ -232,63 +215,29 @@ func (o EndpointIpConfigurationOutput) PrivateIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointIpConfiguration) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
 
-// Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId` and in this context is also used for `memberName`. Changing this forces a new resource to be created.
+// Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
 func (o EndpointIpConfigurationOutput) SubresourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointIpConfiguration) string { return v.SubresourceName }).(pulumi.StringOutput)
 }
 
-type EndpointIpConfigurationPtrOutput struct{ *pulumi.OutputState }
+type EndpointIpConfigurationArrayOutput struct{ *pulumi.OutputState }
 
-func (EndpointIpConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointIpConfiguration)(nil)).Elem()
+func (EndpointIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointIpConfiguration)(nil)).Elem()
 }
 
-func (o EndpointIpConfigurationPtrOutput) ToEndpointIpConfigurationPtrOutput() EndpointIpConfigurationPtrOutput {
+func (o EndpointIpConfigurationArrayOutput) ToEndpointIpConfigurationArrayOutput() EndpointIpConfigurationArrayOutput {
 	return o
 }
 
-func (o EndpointIpConfigurationPtrOutput) ToEndpointIpConfigurationPtrOutputWithContext(ctx context.Context) EndpointIpConfigurationPtrOutput {
+func (o EndpointIpConfigurationArrayOutput) ToEndpointIpConfigurationArrayOutputWithContext(ctx context.Context) EndpointIpConfigurationArrayOutput {
 	return o
 }
 
-func (o EndpointIpConfigurationPtrOutput) Elem() EndpointIpConfigurationOutput {
-	return o.ApplyT(func(v *EndpointIpConfiguration) EndpointIpConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret EndpointIpConfiguration
-		return ret
+func (o EndpointIpConfigurationArrayOutput) Index(i pulumi.IntInput) EndpointIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointIpConfiguration {
+		return vs[0].([]EndpointIpConfiguration)[vs[1].(int)]
 	}).(EndpointIpConfigurationOutput)
-}
-
-// Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
-func (o EndpointIpConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointIpConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
-func (o EndpointIpConfigurationPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointIpConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrivateIpAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId` and in this context is also used for `memberName`. Changing this forces a new resource to be created.
-func (o EndpointIpConfigurationPtrOutput) SubresourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointIpConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SubresourceName
-	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointNetworkInterface struct {
@@ -1613,7 +1562,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDnsConfigInput)(nil)).Elem(), EndpointCustomDnsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDnsConfigArrayInput)(nil)).Elem(), EndpointCustomDnsConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointIpConfigurationInput)(nil)).Elem(), EndpointIpConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointIpConfigurationPtrInput)(nil)).Elem(), EndpointIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointIpConfigurationArrayInput)(nil)).Elem(), EndpointIpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointNetworkInterfaceInput)(nil)).Elem(), EndpointNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointNetworkInterfaceArrayInput)(nil)).Elem(), EndpointNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointPrivateDnsZoneConfigInput)(nil)).Elem(), EndpointPrivateDnsZoneConfigArgs{})
@@ -1635,7 +1584,7 @@ func init() {
 	pulumi.RegisterOutputType(EndpointCustomDnsConfigOutput{})
 	pulumi.RegisterOutputType(EndpointCustomDnsConfigArrayOutput{})
 	pulumi.RegisterOutputType(EndpointIpConfigurationOutput{})
-	pulumi.RegisterOutputType(EndpointIpConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EndpointIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(EndpointPrivateDnsZoneConfigOutput{})

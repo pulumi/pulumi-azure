@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ManagedHardwareSecurityModuleArgs', 'ManagedHardwareSecurityModule']
 
@@ -20,6 +22,8 @@ class ManagedHardwareSecurityModuleArgs:
                  tenant_id: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_acls: Optional[pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs']] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -31,6 +35,8 @@ class ManagedHardwareSecurityModuleArgs:
         :param pulumi.Input[str] tenant_id: The Azure Active Directory Tenant ID that should be used for authenticating requests to the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
+        :param pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
@@ -43,6 +49,10 @@ class ManagedHardwareSecurityModuleArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_acls is not None:
+            pulumi.set(__self__, "network_acls", network_acls)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if purge_protection_enabled is not None:
             pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
         if soft_delete_retention_days is not None:
@@ -123,6 +133,30 @@ class ManagedHardwareSecurityModuleArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="networkAcls")
+    def network_acls(self) -> Optional[pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs']]:
+        """
+        A `network_acls` block as defined below.
+        """
+        return pulumi.get(self, "network_acls")
+
+    @network_acls.setter
+    def network_acls(self, value: Optional[pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs']]):
+        pulumi.set(self, "network_acls", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="purgeProtectionEnabled")
     def purge_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -166,6 +200,8 @@ class _ManagedHardwareSecurityModuleState:
                  hsm_uri: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_acls: Optional[pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs']] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -178,6 +214,8 @@ class _ManagedHardwareSecurityModuleState:
         :param pulumi.Input[str] hsm_uri: The URI of the Key Vault Managed Hardware Security Module, used for performing operations on keys.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
+        :param pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
@@ -193,6 +231,10 @@ class _ManagedHardwareSecurityModuleState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_acls is not None:
+            pulumi.set(__self__, "network_acls", network_acls)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if purge_protection_enabled is not None:
             pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
         if resource_group_name is not None:
@@ -253,6 +295,30 @@ class _ManagedHardwareSecurityModuleState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkAcls")
+    def network_acls(self) -> Optional[pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs']]:
+        """
+        A `network_acls` block as defined below.
+        """
+        return pulumi.get(self, "network_acls")
+
+    @network_acls.setter
+    def network_acls(self, value: Optional[pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs']]):
+        pulumi.set(self, "network_acls", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
 
     @property
     @pulumi.getter(name="purgeProtectionEnabled")
@@ -335,6 +401,8 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
                  admin_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_acls: Optional[pulumi.Input[pulumi.InputType['ManagedHardwareSecurityModuleNetworkAclsArgs']]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -377,6 +445,8 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_object_ids: Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ManagedHardwareSecurityModuleNetworkAclsArgs']] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
@@ -438,6 +508,8 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
                  admin_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_acls: Optional[pulumi.Input[pulumi.InputType['ManagedHardwareSecurityModuleNetworkAclsArgs']]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -458,6 +530,8 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
             __props__.__dict__["admin_object_ids"] = admin_object_ids
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_acls"] = network_acls
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["purge_protection_enabled"] = purge_protection_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -485,6 +559,8 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
             hsm_uri: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            network_acls: Optional[pulumi.Input[pulumi.InputType['ManagedHardwareSecurityModuleNetworkAclsArgs']]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
@@ -502,6 +578,8 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         :param pulumi.Input[str] hsm_uri: The URI of the Key Vault Managed Hardware Security Module, used for performing operations on keys.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ManagedHardwareSecurityModuleNetworkAclsArgs']] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
@@ -517,6 +595,8 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         __props__.__dict__["hsm_uri"] = hsm_uri
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["network_acls"] = network_acls
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["purge_protection_enabled"] = purge_protection_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_name"] = sku_name
@@ -556,6 +636,22 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkAcls")
+    def network_acls(self) -> pulumi.Output['outputs.ManagedHardwareSecurityModuleNetworkAcls']:
+        """
+        A `network_acls` block as defined below.
+        """
+        return pulumi.get(self, "network_acls")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="purgeProtectionEnabled")

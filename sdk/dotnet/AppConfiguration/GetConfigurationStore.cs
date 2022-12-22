@@ -121,6 +121,9 @@ namespace Pulumi.Azure.AppConfiguration
     [OutputType]
     public sealed class GetConfigurationStoreResult
     {
+        /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationStoreEncryptionResult> Encryptions;
         /// <summary>
         /// The Endpoint used to access this App Configuration.

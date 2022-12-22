@@ -115,16 +115,14 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
     }
 
     /**
-     * One or more `revoked_certificate` blocks which
-     * are defined below.
+     * One or more `revoked_certificate` blocks which are defined below.
      * 
      */
     @Import(name="revokedCertificates")
     private @Nullable Output<List<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs>> revokedCertificates;
 
     /**
-     * @return One or more `revoked_certificate` blocks which
-     * are defined below.
+     * @return One or more `revoked_certificate` blocks which are defined below.
      * 
      */
     public Optional<Output<List<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs>>> revokedCertificates() {
@@ -132,18 +130,14 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
     }
 
     /**
-     * One or more `root_certificate` blocks which are
-     * defined below. These root certificates are used to sign the client certificate
-     * used by the VPN clients to connect to the gateway.
+     * One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
      * 
      */
     @Import(name="rootCertificates")
     private @Nullable Output<List<VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs>> rootCertificates;
 
     /**
-     * @return One or more `root_certificate` blocks which are
-     * defined below. These root certificates are used to sign the client certificate
-     * used by the VPN clients to connect to the gateway.
+     * @return One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
      * 
      */
     public Optional<Output<List<VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs>>> rootCertificates() {
@@ -366,8 +360,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param revokedCertificates One or more `revoked_certificate` blocks which
-         * are defined below.
+         * @param revokedCertificates One or more `revoked_certificate` blocks which are defined below.
          * 
          * @return builder
          * 
@@ -378,8 +371,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param revokedCertificates One or more `revoked_certificate` blocks which
-         * are defined below.
+         * @param revokedCertificates One or more `revoked_certificate` blocks which are defined below.
          * 
          * @return builder
          * 
@@ -389,8 +381,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param revokedCertificates One or more `revoked_certificate` blocks which
-         * are defined below.
+         * @param revokedCertificates One or more `revoked_certificate` blocks which are defined below.
          * 
          * @return builder
          * 
@@ -400,9 +391,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param rootCertificates One or more `root_certificate` blocks which are
-         * defined below. These root certificates are used to sign the client certificate
-         * used by the VPN clients to connect to the gateway.
+         * @param rootCertificates One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
          * 
          * @return builder
          * 
@@ -413,9 +402,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param rootCertificates One or more `root_certificate` blocks which are
-         * defined below. These root certificates are used to sign the client certificate
-         * used by the VPN clients to connect to the gateway.
+         * @param rootCertificates One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
          * 
          * @return builder
          * 
@@ -425,9 +412,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param rootCertificates One or more `root_certificate` blocks which are
-         * defined below. These root certificates are used to sign the client certificate
-         * used by the VPN clients to connect to the gateway.
+         * @param rootCertificates One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
          * 
          * @return builder
          * 

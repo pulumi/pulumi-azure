@@ -29,14 +29,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration")
 public class CustomHttpsConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * A `custom_https_configuration` block as defined below.
+     * (Optional) A `custom_https_configuration` block as defined below.
      * 
      */
     @Export(name="customHttpsConfiguration", type=CustomHttpsConfigurationCustomHttpsConfiguration.class, parameters={})
     private Output</* @Nullable */ CustomHttpsConfigurationCustomHttpsConfiguration> customHttpsConfiguration;
 
     /**
-     * @return A `custom_https_configuration` block as defined below.
+     * @return (Optional) A `custom_https_configuration` block as defined below.
      * 
      */
     public Output<Optional<CustomHttpsConfigurationCustomHttpsConfiguration>> customHttpsConfiguration() {

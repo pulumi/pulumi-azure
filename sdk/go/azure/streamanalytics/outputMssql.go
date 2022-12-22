@@ -105,8 +105,8 @@ type OutputMssql struct {
 	MaxWriterCount pulumi.Float64PtrOutput `pulumi:"maxWriterCount"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Password used together with username, to login to the Microsoft SQL Server.
-	Password pulumi.StringOutput `pulumi:"password"`
+	// Password used together with username, to login to the Microsoft SQL Server. Required if `authenticationMode` is `ConnectionString`.
+	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SQL server url. Changing this forces a new resource to be created.
@@ -115,8 +115,8 @@ type OutputMssql struct {
 	StreamAnalyticsJobName pulumi.StringOutput `pulumi:"streamAnalyticsJobName"`
 	// Table in the database that the output points to. Changing this forces a new resource to be created.
 	Table pulumi.StringOutput `pulumi:"table"`
-	// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-	User pulumi.StringOutput `pulumi:"user"`
+	// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authenticationMode` is `ConnectionString`.
+	User pulumi.StringPtrOutput `pulumi:"user"`
 }
 
 // NewOutputMssql registers a new resource with the given unique name, arguments, and options.
@@ -128,9 +128,6 @@ func NewOutputMssql(ctx *pulumi.Context,
 
 	if args.Database == nil {
 		return nil, errors.New("invalid value for required argument 'Database'")
-	}
-	if args.Password == nil {
-		return nil, errors.New("invalid value for required argument 'Password'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -144,11 +141,8 @@ func NewOutputMssql(ctx *pulumi.Context,
 	if args.Table == nil {
 		return nil, errors.New("invalid value for required argument 'Table'")
 	}
-	if args.User == nil {
-		return nil, errors.New("invalid value for required argument 'User'")
-	}
 	if args.Password != nil {
-		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringInput)
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",
@@ -186,7 +180,7 @@ type outputMssqlState struct {
 	MaxWriterCount *float64 `pulumi:"maxWriterCount"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Password used together with username, to login to the Microsoft SQL Server.
+	// Password used together with username, to login to the Microsoft SQL Server. Required if `authenticationMode` is `ConnectionString`.
 	Password *string `pulumi:"password"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -196,7 +190,7 @@ type outputMssqlState struct {
 	StreamAnalyticsJobName *string `pulumi:"streamAnalyticsJobName"`
 	// Table in the database that the output points to. Changing this forces a new resource to be created.
 	Table *string `pulumi:"table"`
-	// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+	// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authenticationMode` is `ConnectionString`.
 	User *string `pulumi:"user"`
 }
 
@@ -211,7 +205,7 @@ type OutputMssqlState struct {
 	MaxWriterCount pulumi.Float64PtrInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Password used together with username, to login to the Microsoft SQL Server.
+	// Password used together with username, to login to the Microsoft SQL Server. Required if `authenticationMode` is `ConnectionString`.
 	Password pulumi.StringPtrInput
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -221,7 +215,7 @@ type OutputMssqlState struct {
 	StreamAnalyticsJobName pulumi.StringPtrInput
 	// Table in the database that the output points to. Changing this forces a new resource to be created.
 	Table pulumi.StringPtrInput
-	// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+	// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authenticationMode` is `ConnectionString`.
 	User pulumi.StringPtrInput
 }
 
@@ -240,8 +234,8 @@ type outputMssqlArgs struct {
 	MaxWriterCount *float64 `pulumi:"maxWriterCount"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Password used together with username, to login to the Microsoft SQL Server.
-	Password string `pulumi:"password"`
+	// Password used together with username, to login to the Microsoft SQL Server. Required if `authenticationMode` is `ConnectionString`.
+	Password *string `pulumi:"password"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SQL server url. Changing this forces a new resource to be created.
@@ -250,8 +244,8 @@ type outputMssqlArgs struct {
 	StreamAnalyticsJobName string `pulumi:"streamAnalyticsJobName"`
 	// Table in the database that the output points to. Changing this forces a new resource to be created.
 	Table string `pulumi:"table"`
-	// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-	User string `pulumi:"user"`
+	// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authenticationMode` is `ConnectionString`.
+	User *string `pulumi:"user"`
 }
 
 // The set of arguments for constructing a OutputMssql resource.
@@ -266,8 +260,8 @@ type OutputMssqlArgs struct {
 	MaxWriterCount pulumi.Float64PtrInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Password used together with username, to login to the Microsoft SQL Server.
-	Password pulumi.StringInput
+	// Password used together with username, to login to the Microsoft SQL Server. Required if `authenticationMode` is `ConnectionString`.
+	Password pulumi.StringPtrInput
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The SQL server url. Changing this forces a new resource to be created.
@@ -276,8 +270,8 @@ type OutputMssqlArgs struct {
 	StreamAnalyticsJobName pulumi.StringInput
 	// Table in the database that the output points to. Changing this forces a new resource to be created.
 	Table pulumi.StringInput
-	// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-	User pulumi.StringInput
+	// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authenticationMode` is `ConnectionString`.
+	User pulumi.StringPtrInput
 }
 
 func (OutputMssqlArgs) ElementType() reflect.Type {
@@ -392,9 +386,9 @@ func (o OutputMssqlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutputMssql) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Password used together with username, to login to the Microsoft SQL Server.
-func (o OutputMssqlOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v *OutputMssql) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
+// Password used together with username, to login to the Microsoft SQL Server. Required if `authenticationMode` is `ConnectionString`.
+func (o OutputMssqlOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputMssql) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -417,9 +411,9 @@ func (o OutputMssqlOutput) Table() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutputMssql) pulumi.StringOutput { return v.Table }).(pulumi.StringOutput)
 }
 
-// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-func (o OutputMssqlOutput) User() pulumi.StringOutput {
-	return o.ApplyT(func(v *OutputMssql) pulumi.StringOutput { return v.User }).(pulumi.StringOutput)
+// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authenticationMode` is `ConnectionString`.
+func (o OutputMssqlOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputMssql) pulumi.StringPtrOutput { return v.User }).(pulumi.StringPtrOutput)
 }
 
 type OutputMssqlArrayOutput struct{ *pulumi.OutputState }

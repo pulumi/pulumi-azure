@@ -73,6 +73,7 @@ from .public_ip import *
 from .public_ip_prefix import *
 from .route import *
 from .route_filter import *
+from .route_map import *
 from .route_server import *
 from .route_server_bgp_connection import *
 from .route_table import *

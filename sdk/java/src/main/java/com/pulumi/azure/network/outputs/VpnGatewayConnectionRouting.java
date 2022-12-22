@@ -18,6 +18,16 @@ public final class VpnGatewayConnectionRouting {
      */
     private String associatedRouteTable;
     /**
+     * @return The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+     * 
+     */
+    private @Nullable String inboundRouteMapId;
+    /**
+     * @return The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+     * 
+     */
+    private @Nullable String outboundRouteMapId;
+    /**
      * @return A `propagated_route_table` block as defined below.
      * 
      */
@@ -30,6 +40,20 @@ public final class VpnGatewayConnectionRouting {
      */
     public String associatedRouteTable() {
         return this.associatedRouteTable;
+    }
+    /**
+     * @return The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+     * 
+     */
+    public Optional<String> inboundRouteMapId() {
+        return Optional.ofNullable(this.inboundRouteMapId);
+    }
+    /**
+     * @return The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+     * 
+     */
+    public Optional<String> outboundRouteMapId() {
+        return Optional.ofNullable(this.outboundRouteMapId);
     }
     /**
      * @return A `propagated_route_table` block as defined below.
@@ -49,17 +73,31 @@ public final class VpnGatewayConnectionRouting {
     @CustomType.Builder
     public static final class Builder {
         private String associatedRouteTable;
+        private @Nullable String inboundRouteMapId;
+        private @Nullable String outboundRouteMapId;
         private @Nullable VpnGatewayConnectionRoutingPropagatedRouteTable propagatedRouteTable;
         public Builder() {}
         public Builder(VpnGatewayConnectionRouting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.associatedRouteTable = defaults.associatedRouteTable;
+    	      this.inboundRouteMapId = defaults.inboundRouteMapId;
+    	      this.outboundRouteMapId = defaults.outboundRouteMapId;
     	      this.propagatedRouteTable = defaults.propagatedRouteTable;
         }
 
         @CustomType.Setter
         public Builder associatedRouteTable(String associatedRouteTable) {
             this.associatedRouteTable = Objects.requireNonNull(associatedRouteTable);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inboundRouteMapId(@Nullable String inboundRouteMapId) {
+            this.inboundRouteMapId = inboundRouteMapId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder outboundRouteMapId(@Nullable String outboundRouteMapId) {
+            this.outboundRouteMapId = outboundRouteMapId;
             return this;
         }
         @CustomType.Setter
@@ -70,6 +108,8 @@ public final class VpnGatewayConnectionRouting {
         public VpnGatewayConnectionRouting build() {
             final var o = new VpnGatewayConnectionRouting();
             o.associatedRouteTable = associatedRouteTable;
+            o.inboundRouteMapId = inboundRouteMapId;
+            o.outboundRouteMapId = outboundRouteMapId;
             o.propagatedRouteTable = propagatedRouteTable;
             return o;
         }

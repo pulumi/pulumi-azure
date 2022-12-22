@@ -113,7 +113,7 @@ type BudgetManagementGroup struct {
 
 	// The total amount of cost to track with the budget.
 	Amount pulumi.Float64Output `pulumi:"amount"`
-	// The ETag of the Management Group Consumption Budget.
+	// (Optional) The ETag of the Management Group Consumption Budget.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// A `filter` block as defined below.
 	Filter BudgetManagementGroupFilterPtrOutput `pulumi:"filter"`
@@ -172,7 +172,7 @@ func GetBudgetManagementGroup(ctx *pulumi.Context,
 type budgetManagementGroupState struct {
 	// The total amount of cost to track with the budget.
 	Amount *float64 `pulumi:"amount"`
-	// The ETag of the Management Group Consumption Budget.
+	// (Optional) The ETag of the Management Group Consumption Budget.
 	Etag *string `pulumi:"etag"`
 	// A `filter` block as defined below.
 	Filter *BudgetManagementGroupFilter `pulumi:"filter"`
@@ -191,7 +191,7 @@ type budgetManagementGroupState struct {
 type BudgetManagementGroupState struct {
 	// The total amount of cost to track with the budget.
 	Amount pulumi.Float64PtrInput
-	// The ETag of the Management Group Consumption Budget.
+	// (Optional) The ETag of the Management Group Consumption Budget.
 	Etag pulumi.StringPtrInput
 	// A `filter` block as defined below.
 	Filter BudgetManagementGroupFilterPtrInput
@@ -214,7 +214,7 @@ func (BudgetManagementGroupState) ElementType() reflect.Type {
 type budgetManagementGroupArgs struct {
 	// The total amount of cost to track with the budget.
 	Amount float64 `pulumi:"amount"`
-	// The ETag of the Management Group Consumption Budget.
+	// (Optional) The ETag of the Management Group Consumption Budget.
 	Etag *string `pulumi:"etag"`
 	// A `filter` block as defined below.
 	Filter *BudgetManagementGroupFilter `pulumi:"filter"`
@@ -234,7 +234,7 @@ type budgetManagementGroupArgs struct {
 type BudgetManagementGroupArgs struct {
 	// The total amount of cost to track with the budget.
 	Amount pulumi.Float64Input
-	// The ETag of the Management Group Consumption Budget.
+	// (Optional) The ETag of the Management Group Consumption Budget.
 	Etag pulumi.StringPtrInput
 	// A `filter` block as defined below.
 	Filter BudgetManagementGroupFilterPtrInput
@@ -342,7 +342,7 @@ func (o BudgetManagementGroupOutput) Amount() pulumi.Float64Output {
 	return o.ApplyT(func(v *BudgetManagementGroup) pulumi.Float64Output { return v.Amount }).(pulumi.Float64Output)
 }
 
-// The ETag of the Management Group Consumption Budget.
+// (Optional) The ETag of the Management Group Consumption Budget.
 func (o BudgetManagementGroupOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetManagementGroup) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
 }

@@ -79,14 +79,14 @@ public final class SqlServerThreatDetectionPolicyArgs extends com.pulumi.resourc
     }
 
     /**
-     * The State of the Policy. Possible values are `Enabled` or `Disabled`.
+     * The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The State of the Policy. Possible values are `Enabled` or `Disabled`.
+     * @return The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`.
      * 
      */
     public Optional<Output<String>> state() {
@@ -258,7 +258,7 @@ public final class SqlServerThreatDetectionPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param state The State of the Policy. Possible values are `Enabled` or `Disabled`.
+         * @param state The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class SqlServerThreatDetectionPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param state The State of the Policy. Possible values are `Enabled` or `Disabled`.
+         * @param state The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`.
          * 
          * @return builder
          * 

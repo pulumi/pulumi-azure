@@ -58,6 +58,7 @@ type LookupConfigurationStoreArgs struct {
 
 // A collection of values returned by getConfigurationStore.
 type LookupConfigurationStoreResult struct {
+	// An `encryption` block as defined below.
 	Encryptions []GetConfigurationStoreEncryption `pulumi:"encryptions"`
 	// The Endpoint used to access this App Configuration.
 	Endpoint string `pulumi:"endpoint"`
@@ -131,6 +132,7 @@ func (o LookupConfigurationStoreResultOutput) ToLookupConfigurationStoreResultOu
 	return o
 }
 
+// An `encryption` block as defined below.
 func (o LookupConfigurationStoreResultOutput) Encryptions() GetConfigurationStoreEncryptionArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationStoreResult) []GetConfigurationStoreEncryption { return v.Encryptions }).(GetConfigurationStoreEncryptionArrayOutput)
 }

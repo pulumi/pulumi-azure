@@ -153,6 +153,10 @@ namespace Pulumi.Azure.Iot
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetIotHubIdentityResult> Identities;
         public readonly string Name;
         public readonly string ResourceGroupName;
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -163,6 +167,8 @@ namespace Pulumi.Azure.Iot
 
             string id,
 
+            ImmutableArray<Outputs.GetIotHubIdentityResult> identities,
+
             string name,
 
             string resourceGroupName,
@@ -171,6 +177,7 @@ namespace Pulumi.Azure.Iot
         {
             Hostname = hostname;
             Id = id;
+            Identities = identities;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Tags = tags;

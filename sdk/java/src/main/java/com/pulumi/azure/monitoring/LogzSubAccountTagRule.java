@@ -62,7 +62,6 @@ import javax.annotation.Nullable;
  *             .plan(LogzMonitorPlanArgs.builder()
  *                 .billingCycle(&#34;MONTHLY&#34;)
  *                 .effectiveDate(&#34;2022-06-06T00:00:00Z&#34;)
- *                 .planId(&#34;100gb14days&#34;)
  *                 .usageType(&#34;COMMITTED&#34;)
  *                 .build())
  *             .user(LogzMonitorUserArgs.builder()

@@ -36,14 +36,14 @@ public final class BudgetManagementGroupArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ETag of the Management Group Consumption Budget.
+     * (Optional) The ETag of the Management Group Consumption Budget.
      * 
      */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
     /**
-     * @return The ETag of the Management Group Consumption Budget.
+     * @return (Optional) The ETag of the Management Group Consumption Budget.
      * 
      */
     public Optional<Output<String>> etag() {
@@ -193,7 +193,7 @@ public final class BudgetManagementGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param etag The ETag of the Management Group Consumption Budget.
+         * @param etag (Optional) The ETag of the Management Group Consumption Budget.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class BudgetManagementGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param etag The ETag of the Management Group Consumption Budget.
+         * @param etag (Optional) The ETag of the Management Group Consumption Budget.
          * 
          * @return builder
          * 

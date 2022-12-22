@@ -20,7 +20,7 @@ class EndpointArgs:
                  resource_group_name: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
                  custom_network_interface_name: Optional[pulumi.Input[str]] = None,
-                 ip_configuration: Optional[pulumi.Input['EndpointIpConfigurationArgs']] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_group: Optional[pulumi.Input['EndpointPrivateDnsZoneGroupArgs']] = None,
@@ -31,7 +31,7 @@ class EndpointArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input['EndpointIpConfigurationArgs'] ip_configuration: An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input['EndpointPrivateDnsZoneGroupArgs'] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
@@ -42,8 +42,8 @@ class EndpointArgs:
         pulumi.set(__self__, "subnet_id", subnet_id)
         if custom_network_interface_name is not None:
             pulumi.set(__self__, "custom_network_interface_name", custom_network_interface_name)
-        if ip_configuration is not None:
-            pulumi.set(__self__, "ip_configuration", ip_configuration)
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -102,16 +102,16 @@ class EndpointArgs:
         pulumi.set(self, "custom_network_interface_name", value)
 
     @property
-    @pulumi.getter(name="ipConfiguration")
-    def ip_configuration(self) -> Optional[pulumi.Input['EndpointIpConfigurationArgs']]:
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]]:
         """
-        An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+        One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "ip_configuration")
+        return pulumi.get(self, "ip_configurations")
 
-    @ip_configuration.setter
-    def ip_configuration(self, value: Optional[pulumi.Input['EndpointIpConfigurationArgs']]):
-        pulumi.set(self, "ip_configuration", value)
+    @ip_configurations.setter
+    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]]):
+        pulumi.set(self, "ip_configurations", value)
 
     @property
     @pulumi.getter
@@ -167,7 +167,7 @@ class _EndpointState:
     def __init__(__self__, *,
                  custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointCustomDnsConfigArgs']]]] = None,
                  custom_network_interface_name: Optional[pulumi.Input[str]] = None,
-                 ip_configuration: Optional[pulumi.Input['EndpointIpConfigurationArgs']] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]] = None,
@@ -180,7 +180,7 @@ class _EndpointState:
         """
         Input properties used for looking up and filtering Endpoint resources.
         :param pulumi.Input[str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input['EndpointIpConfigurationArgs'] ip_configuration: An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input['EndpointPrivateDnsZoneGroupArgs'] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
@@ -193,8 +193,8 @@ class _EndpointState:
             pulumi.set(__self__, "custom_dns_configs", custom_dns_configs)
         if custom_network_interface_name is not None:
             pulumi.set(__self__, "custom_network_interface_name", custom_network_interface_name)
-        if ip_configuration is not None:
-            pulumi.set(__self__, "ip_configuration", ip_configuration)
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -236,16 +236,16 @@ class _EndpointState:
         pulumi.set(self, "custom_network_interface_name", value)
 
     @property
-    @pulumi.getter(name="ipConfiguration")
-    def ip_configuration(self) -> Optional[pulumi.Input['EndpointIpConfigurationArgs']]:
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]]:
         """
-        An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+        One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "ip_configuration")
+        return pulumi.get(self, "ip_configurations")
 
-    @ip_configuration.setter
-    def ip_configuration(self, value: Optional[pulumi.Input['EndpointIpConfigurationArgs']]):
-        pulumi.set(self, "ip_configuration", value)
+    @ip_configurations.setter
+    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]]):
+        pulumi.set(self, "ip_configurations", value)
 
     @property
     @pulumi.getter
@@ -356,7 +356,7 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_network_interface_name: Optional[pulumi.Input[str]] = None,
-                 ip_configuration: Optional[pulumi.Input[pulumi.InputType['EndpointIpConfigurationArgs']]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointIpConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_group: Optional[pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneGroupArgs']]] = None,
@@ -459,7 +459,7 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['EndpointIpConfigurationArgs']] ip_configuration: An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointIpConfigurationArgs']]]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneGroupArgs']] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
@@ -581,7 +581,7 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_network_interface_name: Optional[pulumi.Input[str]] = None,
-                 ip_configuration: Optional[pulumi.Input[pulumi.InputType['EndpointIpConfigurationArgs']]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointIpConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_group: Optional[pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneGroupArgs']]] = None,
@@ -599,7 +599,7 @@ class Endpoint(pulumi.CustomResource):
             __props__ = EndpointArgs.__new__(EndpointArgs)
 
             __props__.__dict__["custom_network_interface_name"] = custom_network_interface_name
-            __props__.__dict__["ip_configuration"] = ip_configuration
+            __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["private_dns_zone_group"] = private_dns_zone_group
@@ -628,7 +628,7 @@ class Endpoint(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointCustomDnsConfigArgs']]]]] = None,
             custom_network_interface_name: Optional[pulumi.Input[str]] = None,
-            ip_configuration: Optional[pulumi.Input[pulumi.InputType['EndpointIpConfigurationArgs']]] = None,
+            ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointIpConfigurationArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceArgs']]]]] = None,
@@ -646,7 +646,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['EndpointIpConfigurationArgs']] ip_configuration: An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointIpConfigurationArgs']]]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneGroupArgs']] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
@@ -661,7 +661,7 @@ class Endpoint(pulumi.CustomResource):
 
         __props__.__dict__["custom_dns_configs"] = custom_dns_configs
         __props__.__dict__["custom_network_interface_name"] = custom_network_interface_name
-        __props__.__dict__["ip_configuration"] = ip_configuration
+        __props__.__dict__["ip_configurations"] = ip_configurations
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["network_interfaces"] = network_interfaces
@@ -687,12 +687,12 @@ class Endpoint(pulumi.CustomResource):
         return pulumi.get(self, "custom_network_interface_name")
 
     @property
-    @pulumi.getter(name="ipConfiguration")
-    def ip_configuration(self) -> pulumi.Output[Optional['outputs.EndpointIpConfiguration']]:
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointIpConfiguration']]]:
         """
-        An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+        One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "ip_configuration")
+        return pulumi.get(self, "ip_configurations")
 
     @property
     @pulumi.getter

@@ -103,6 +103,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Route{}
 	case "azure:network/routeFilter:RouteFilter":
 		r = &RouteFilter{}
+	case "azure:network/routeMap:RouteMap":
+		r = &RouteMapResource{}
 	case "azure:network/routeServer:RouteServer":
 		r = &RouteServer{}
 	case "azure:network/routeServerBgpConnection:RouteServerBgpConnection":
@@ -381,6 +383,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/routeFilter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/routeMap",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

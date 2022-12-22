@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.keyvault.inputs;
 
+import com.pulumi.azure.keyvault.inputs.ManagedHardwareSecurityModuleNetworkAclsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -77,6 +78,36 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * A `network_acls` block as defined below.
+     * 
+     */
+    @Import(name="networkAcls")
+    private @Nullable Output<ManagedHardwareSecurityModuleNetworkAclsArgs> networkAcls;
+
+    /**
+     * @return A `network_acls` block as defined below.
+     * 
+     */
+    public Optional<Output<ManagedHardwareSecurityModuleNetworkAclsArgs>> networkAcls() {
+        return Optional.ofNullable(this.networkAcls);
+    }
+
+    /**
+     * Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
 
     /**
@@ -176,6 +207,8 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
         this.hsmUri = $.hsmUri;
         this.location = $.location;
         this.name = $.name;
+        this.networkAcls = $.networkAcls;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.purgeProtectionEnabled = $.purgeProtectionEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.skuName = $.skuName;
@@ -294,6 +327,48 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param networkAcls A `network_acls` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkAcls(@Nullable Output<ManagedHardwareSecurityModuleNetworkAclsArgs> networkAcls) {
+            $.networkAcls = networkAcls;
+            return this;
+        }
+
+        /**
+         * @param networkAcls A `network_acls` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkAcls(ManagedHardwareSecurityModuleNetworkAclsArgs networkAcls) {
+            return networkAcls(Output.of(networkAcls));
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

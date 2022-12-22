@@ -103,7 +103,7 @@ type Account struct {
 	AccessKeyMetadataWritesEnabled pulumi.BoolPtrOutput `pulumi:"accessKeyMetadataWritesEnabled"`
 	// An `analyticalStorage` block as defined below.
 	AnalyticalStorage AccountAnalyticalStorageOutput `pulumi:"analyticalStorage"`
-	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
 	AnalyticalStorageEnabled pulumi.BoolPtrOutput `pulumi:"analyticalStorageEnabled"`
 	// A `backup` block as defined below.
 	Backup AccountBackupOutput `pulumi:"backup"`
@@ -240,7 +240,7 @@ type accountState struct {
 	AccessKeyMetadataWritesEnabled *bool `pulumi:"accessKeyMetadataWritesEnabled"`
 	// An `analyticalStorage` block as defined below.
 	AnalyticalStorage *AccountAnalyticalStorage `pulumi:"analyticalStorage"`
-	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
 	AnalyticalStorageEnabled *bool `pulumi:"analyticalStorageEnabled"`
 	// A `backup` block as defined below.
 	Backup *AccountBackup `pulumi:"backup"`
@@ -325,7 +325,7 @@ type AccountState struct {
 	AccessKeyMetadataWritesEnabled pulumi.BoolPtrInput
 	// An `analyticalStorage` block as defined below.
 	AnalyticalStorage AccountAnalyticalStoragePtrInput
-	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
 	AnalyticalStorageEnabled pulumi.BoolPtrInput
 	// A `backup` block as defined below.
 	Backup AccountBackupPtrInput
@@ -414,7 +414,7 @@ type accountArgs struct {
 	AccessKeyMetadataWritesEnabled *bool `pulumi:"accessKeyMetadataWritesEnabled"`
 	// An `analyticalStorage` block as defined below.
 	AnalyticalStorage *AccountAnalyticalStorage `pulumi:"analyticalStorage"`
-	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
 	AnalyticalStorageEnabled *bool `pulumi:"analyticalStorageEnabled"`
 	// A `backup` block as defined below.
 	Backup *AccountBackup `pulumi:"backup"`
@@ -480,7 +480,7 @@ type AccountArgs struct {
 	AccessKeyMetadataWritesEnabled pulumi.BoolPtrInput
 	// An `analyticalStorage` block as defined below.
 	AnalyticalStorage AccountAnalyticalStoragePtrInput
-	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
 	AnalyticalStorageEnabled pulumi.BoolPtrInput
 	// A `backup` block as defined below.
 	Backup AccountBackupPtrInput
@@ -637,7 +637,7 @@ func (o AccountOutput) AnalyticalStorage() AccountAnalyticalStorageOutput {
 	return o.ApplyT(func(v *Account) AccountAnalyticalStorageOutput { return v.AnalyticalStorage }).(AccountAnalyticalStorageOutput)
 }
 
-// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
 func (o AccountOutput) AnalyticalStorageEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.AnalyticalStorageEnabled }).(pulumi.BoolPtrOutput)
 }

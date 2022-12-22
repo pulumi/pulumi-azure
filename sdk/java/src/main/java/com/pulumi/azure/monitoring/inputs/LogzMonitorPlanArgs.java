@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class LogzMonitorPlanArgs extends com.pulumi.resources.ResourceArgs {
@@ -44,18 +46,18 @@ public final class LogzMonitorPlanArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+     * Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
      * 
      */
-    @Import(name="planId", required=true)
-    private Output<String> planId;
+    @Import(name="planId")
+    private @Nullable Output<String> planId;
 
     /**
-     * @return Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+     * @return Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
      * 
      */
-    public Output<String> planId() {
-        return this.planId;
+    public Optional<Output<String>> planId() {
+        return Optional.ofNullable(this.planId);
     }
 
     /**
@@ -143,18 +145,18 @@ public final class LogzMonitorPlanArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param planId Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+         * @param planId Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
          * 
          * @return builder
          * 
          */
-        public Builder planId(Output<String> planId) {
+        public Builder planId(@Nullable Output<String> planId) {
             $.planId = planId;
             return this;
         }
 
         /**
-         * @param planId Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+         * @param planId Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
          * 
          * @return builder
          * 
@@ -187,7 +189,6 @@ public final class LogzMonitorPlanArgs extends com.pulumi.resources.ResourceArgs
         public LogzMonitorPlanArgs build() {
             $.billingCycle = Objects.requireNonNull($.billingCycle, "expected parameter 'billingCycle' to be non-null");
             $.effectiveDate = Objects.requireNonNull($.effectiveDate, "expected parameter 'effectiveDate' to be non-null");
-            $.planId = Objects.requireNonNull($.planId, "expected parameter 'planId' to be non-null");
             $.usageType = Objects.requireNonNull($.usageType, "expected parameter 'usageType' to be non-null");
             return $;
         }

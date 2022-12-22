@@ -19,30 +19,62 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
 
     public static final OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs Empty = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs();
 
+    /**
+     * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="adminPassword", required=true)
     private Output<String> adminPassword;
 
+    /**
+     * @return The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> adminPassword() {
         return this.adminPassword;
     }
 
+    /**
+     * The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="adminUsername", required=true)
     private Output<String> adminUsername;
 
+    /**
+     * @return The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> adminUsername() {
         return this.adminUsername;
     }
 
+    /**
+     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+     * 
+     */
     @Import(name="computerNamePrefix")
     private @Nullable Output<String> computerNamePrefix;
 
+    /**
+     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+     * 
+     */
     public Optional<Output<String>> computerNamePrefix() {
         return Optional.ofNullable(this.computerNamePrefix);
     }
 
+    /**
+     * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
+     * 
+     */
     @Import(name="enableAutomaticUpdates")
     private @Nullable Output<Boolean> enableAutomaticUpdates;
 
+    /**
+     * @return Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> enableAutomaticUpdates() {
         return Optional.ofNullable(this.enableAutomaticUpdates);
     }
@@ -92,30 +124,62 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         return Optional.ofNullable(this.patchMode);
     }
 
+    /**
+     * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+     * 
+     */
     @Import(name="provisionVmAgent")
     private @Nullable Output<Boolean> provisionVmAgent;
 
+    /**
+     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+     * 
+     */
     public Optional<Output<Boolean>> provisionVmAgent() {
         return Optional.ofNullable(this.provisionVmAgent);
     }
 
+    /**
+     * One or more `secret` blocks as defined below.
+     * 
+     */
     @Import(name="secrets")
     private @Nullable Output<List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs>> secrets;
 
+    /**
+     * @return One or more `secret` blocks as defined below.
+     * 
+     */
     public Optional<Output<List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs>>> secrets() {
         return Optional.ofNullable(this.secrets);
     }
 
+    /**
+     * Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+     * 
+     */
     @Import(name="timezone")
     private @Nullable Output<String> timezone;
 
+    /**
+     * @return Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+     * 
+     */
     public Optional<Output<String>> timezone() {
         return Optional.ofNullable(this.timezone);
     }
 
+    /**
+     * One or more `winrm_listener` blocks as defined below.
+     * 
+     */
     @Import(name="winrmListeners")
     private @Nullable Output<List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs>> winrmListeners;
 
+    /**
+     * @return One or more `winrm_listener` blocks as defined below.
+     * 
+     */
     public Optional<Output<List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs>>> winrmListeners() {
         return Optional.ofNullable(this.winrmListeners);
     }
@@ -154,38 +218,86 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
             $ = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param adminPassword The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminPassword(Output<String> adminPassword) {
             $.adminPassword = adminPassword;
             return this;
         }
 
+        /**
+         * @param adminPassword The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminPassword(String adminPassword) {
             return adminPassword(Output.of(adminPassword));
         }
 
+        /**
+         * @param adminUsername The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminUsername(Output<String> adminUsername) {
             $.adminUsername = adminUsername;
             return this;
         }
 
+        /**
+         * @param adminUsername The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminUsername(String adminUsername) {
             return adminUsername(Output.of(adminUsername));
         }
 
+        /**
+         * @param computerNamePrefix The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder computerNamePrefix(@Nullable Output<String> computerNamePrefix) {
             $.computerNamePrefix = computerNamePrefix;
             return this;
         }
 
+        /**
+         * @param computerNamePrefix The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder computerNamePrefix(String computerNamePrefix) {
             return computerNamePrefix(Output.of(computerNamePrefix));
         }
 
+        /**
+         * @param enableAutomaticUpdates Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableAutomaticUpdates(@Nullable Output<Boolean> enableAutomaticUpdates) {
             $.enableAutomaticUpdates = enableAutomaticUpdates;
             return this;
         }
 
+        /**
+         * @param enableAutomaticUpdates Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableAutomaticUpdates(Boolean enableAutomaticUpdates) {
             return enableAutomaticUpdates(Output.of(enableAutomaticUpdates));
         }
@@ -253,46 +365,106 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
             return patchMode(Output.of(patchMode));
         }
 
+        /**
+         * @param provisionVmAgent Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder provisionVmAgent(@Nullable Output<Boolean> provisionVmAgent) {
             $.provisionVmAgent = provisionVmAgent;
             return this;
         }
 
+        /**
+         * @param provisionVmAgent Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder provisionVmAgent(Boolean provisionVmAgent) {
             return provisionVmAgent(Output.of(provisionVmAgent));
         }
 
+        /**
+         * @param secrets One or more `secret` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secrets(@Nullable Output<List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs>> secrets) {
             $.secrets = secrets;
             return this;
         }
 
+        /**
+         * @param secrets One or more `secret` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secrets(List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs> secrets) {
             return secrets(Output.of(secrets));
         }
 
+        /**
+         * @param secrets One or more `secret` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secrets(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs... secrets) {
             return secrets(List.of(secrets));
         }
 
+        /**
+         * @param timezone Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+         * 
+         * @return builder
+         * 
+         */
         public Builder timezone(@Nullable Output<String> timezone) {
             $.timezone = timezone;
             return this;
         }
 
+        /**
+         * @param timezone Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+         * 
+         * @return builder
+         * 
+         */
         public Builder timezone(String timezone) {
             return timezone(Output.of(timezone));
         }
 
+        /**
+         * @param winrmListeners One or more `winrm_listener` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder winrmListeners(@Nullable Output<List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs>> winrmListeners) {
             $.winrmListeners = winrmListeners;
             return this;
         }
 
+        /**
+         * @param winrmListeners One or more `winrm_listener` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder winrmListeners(List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs> winrmListeners) {
             return winrmListeners(Output.of(winrmListeners));
         }
 
+        /**
+         * @param winrmListeners One or more `winrm_listener` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder winrmListeners(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs... winrmListeners) {
             return winrmListeners(List.of(winrmListeners));
         }

@@ -6,6 +6,8 @@ package com.pulumi.azure.monitoring.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class LogzMonitorPlan {
@@ -20,10 +22,10 @@ public final class LogzMonitorPlan {
      */
     private String effectiveDate;
     /**
-     * @return Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+     * @return Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
      * 
      */
-    private String planId;
+    private @Nullable String planId;
     /**
      * @return Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
      * 
@@ -46,11 +48,11 @@ public final class LogzMonitorPlan {
         return this.effectiveDate;
     }
     /**
-     * @return Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+     * @return Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
      * 
      */
-    public String planId() {
-        return this.planId;
+    public Optional<String> planId() {
+        return Optional.ofNullable(this.planId);
     }
     /**
      * @return Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
@@ -71,7 +73,7 @@ public final class LogzMonitorPlan {
     public static final class Builder {
         private String billingCycle;
         private String effectiveDate;
-        private String planId;
+        private @Nullable String planId;
         private String usageType;
         public Builder() {}
         public Builder(LogzMonitorPlan defaults) {
@@ -93,8 +95,8 @@ public final class LogzMonitorPlan {
             return this;
         }
         @CustomType.Setter
-        public Builder planId(String planId) {
-            this.planId = Objects.requireNonNull(planId);
+        public Builder planId(@Nullable String planId) {
+            this.planId = planId;
             return this;
         }
         @CustomType.Setter

@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .get_spring_cloud_app import *
 from .get_spring_cloud_service import *
+from .spring_cloud_accelerator import *
 from .spring_cloud_active_deployment import *
 from .spring_cloud_api_portal import *
 from .spring_cloud_api_portal_custom_domain import *
@@ -23,6 +24,7 @@ from .spring_cloud_configuration_service import *
 from .spring_cloud_connection import *
 from .spring_cloud_container_deployment import *
 from .spring_cloud_custom_domain import *
+from .spring_cloud_dev_tool_portal import *
 from .spring_cloud_gateway import *
 from .spring_cloud_gateway_custom_domain import *
 from .spring_cloud_gateway_route_config import *

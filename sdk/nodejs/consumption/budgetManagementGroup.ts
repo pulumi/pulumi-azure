@@ -103,7 +103,7 @@ export class BudgetManagementGroup extends pulumi.CustomResource {
      */
     public readonly amount!: pulumi.Output<number>;
     /**
-     * The ETag of the Management Group Consumption Budget.
+     * (Optional) The ETag of the Management Group Consumption Budget.
      */
     public readonly etag!: pulumi.Output<string>;
     /**
@@ -189,7 +189,7 @@ export interface BudgetManagementGroupState {
      */
     amount?: pulumi.Input<number>;
     /**
-     * The ETag of the Management Group Consumption Budget.
+     * (Optional) The ETag of the Management Group Consumption Budget.
      */
     etag?: pulumi.Input<string>;
     /**
@@ -227,7 +227,7 @@ export interface BudgetManagementGroupArgs {
      */
     amount: pulumi.Input<number>;
     /**
-     * The ETag of the Management Group Consumption Budget.
+     * (Optional) The ETag of the Management Group Consumption Budget.
      */
     etag?: pulumi.Input<string>;
     /**

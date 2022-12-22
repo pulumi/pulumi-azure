@@ -51,14 +51,14 @@ class PoolArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input['PoolAutoScaleArgs'] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]] certificates: One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+        :param pulumi.Input['PoolAutoScaleArgs'] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]] certificates: One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
         :param pulumi.Input['PoolContainerConfigurationArgs'] container_configuration: The container configuration used in the pool's VMs.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolDataDiskArgs']]] data_disks: A `data_disks` block describes the data disk settings.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolDiskEncryptionArgs']]] disk_encryptions: A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolDataDiskArgs']]] data_disks: A `data_disks` block describes the data disk settings as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolDiskEncryptionArgs']]] disk_encryptions: A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
         :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolExtensionArgs']]] extensions: An `extensions` block as defined below.
-        :param pulumi.Input['PoolFixedScaleArgs'] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
+        :param pulumi.Input['PoolFixedScaleArgs'] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
         :param pulumi.Input['PoolIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] inter_node_communication: Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
         :param pulumi.Input[str] license_type: The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
@@ -66,13 +66,13 @@ class PoolArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
         :param pulumi.Input[Sequence[pulumi.Input['PoolMountArgs']]] mounts: A `mount` block defined as below.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input['PoolNetworkConfigurationArgs'] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+        :param pulumi.Input['PoolNetworkConfigurationArgs'] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         :param pulumi.Input[str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
-        :param pulumi.Input['PoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]] windows: A `windows` block that describes the Windows configuration in the pool.
+        :param pulumi.Input['PoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "node_agent_sku_id", node_agent_sku_id)
@@ -190,7 +190,7 @@ class PoolArgs:
     @pulumi.getter(name="autoScale")
     def auto_scale(self) -> Optional[pulumi.Input['PoolAutoScaleArgs']]:
         """
-        A `auto_scale` block that describes the scale settings when using auto scale.
+        A `auto_scale` block that describes the scale settings when using auto scale as defined below.
         """
         return pulumi.get(self, "auto_scale")
 
@@ -202,7 +202,7 @@ class PoolArgs:
     @pulumi.getter
     def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]]]:
         """
-        One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+        One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
         """
         return pulumi.get(self, "certificates")
 
@@ -226,7 +226,7 @@ class PoolArgs:
     @pulumi.getter(name="dataDisks")
     def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolDataDiskArgs']]]]:
         """
-        A `data_disks` block describes the data disk settings.
+        A `data_disks` block describes the data disk settings as defined below.
         """
         return pulumi.get(self, "data_disks")
 
@@ -238,7 +238,7 @@ class PoolArgs:
     @pulumi.getter(name="diskEncryptions")
     def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolDiskEncryptionArgs']]]]:
         """
-        A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
         """
         return pulumi.get(self, "disk_encryptions")
 
@@ -274,7 +274,7 @@ class PoolArgs:
     @pulumi.getter(name="fixedScale")
     def fixed_scale(self) -> Optional[pulumi.Input['PoolFixedScaleArgs']]:
         """
-        A `fixed_scale` block that describes the scale settings when using fixed scale.
+        A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
         """
         return pulumi.get(self, "fixed_scale")
 
@@ -370,7 +370,7 @@ class PoolArgs:
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['PoolNetworkConfigurationArgs']]:
         """
-        A `network_configuration` block that describes the network configurations for the Batch pool.
+        A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
         """
         return pulumi.get(self, "network_configuration")
 
@@ -382,7 +382,7 @@ class PoolArgs:
     @pulumi.getter(name="nodePlacements")
     def node_placements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]]]:
         """
-        A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+        A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         """
         return pulumi.get(self, "node_placements")
 
@@ -406,7 +406,7 @@ class PoolArgs:
     @pulumi.getter(name="startTask")
     def start_task(self) -> Optional[pulumi.Input['PoolStartTaskArgs']]:
         """
-        A `start_task` block that describes the start task settings for the Batch pool.
+        A `start_task` block that describes the start task settings for the Batch pool as defined below.
         """
         return pulumi.get(self, "start_task")
 
@@ -427,7 +427,7 @@ class PoolArgs:
     @pulumi.getter(name="taskSchedulingPolicies")
     def task_scheduling_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]]]:
         """
-        A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+        A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
         """
         return pulumi.get(self, "task_scheduling_policies")
 
@@ -439,7 +439,7 @@ class PoolArgs:
     @pulumi.getter(name="userAccounts")
     def user_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]]]:
         """
-        A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+        A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         """
         return pulumi.get(self, "user_accounts")
 
@@ -451,7 +451,7 @@ class PoolArgs:
     @pulumi.getter
     def windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]]]:
         """
-        A `windows` block that describes the Windows configuration in the pool.
+        A `windows` block that describes the Windows configuration in the pool as defined below.
         """
         return pulumi.get(self, "windows")
 
@@ -494,14 +494,14 @@ class _PoolState:
         """
         Input properties used for looking up and filtering Pool resources.
         :param pulumi.Input[str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
-        :param pulumi.Input['PoolAutoScaleArgs'] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]] certificates: One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+        :param pulumi.Input['PoolAutoScaleArgs'] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]] certificates: One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
         :param pulumi.Input['PoolContainerConfigurationArgs'] container_configuration: The container configuration used in the pool's VMs.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolDataDiskArgs']]] data_disks: A `data_disks` block describes the data disk settings.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolDiskEncryptionArgs']]] disk_encryptions: A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolDataDiskArgs']]] data_disks: A `data_disks` block describes the data disk settings as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolDiskEncryptionArgs']]] disk_encryptions: A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
         :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolExtensionArgs']]] extensions: An `extensions` block as defined below.
-        :param pulumi.Input['PoolFixedScaleArgs'] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
+        :param pulumi.Input['PoolFixedScaleArgs'] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
         :param pulumi.Input['PoolIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] inter_node_communication: Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
         :param pulumi.Input[str] license_type: The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
@@ -509,17 +509,17 @@ class _PoolState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
         :param pulumi.Input[Sequence[pulumi.Input['PoolMountArgs']]] mounts: A `mount` block defined as below.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input['PoolNetworkConfigurationArgs'] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool.
+        :param pulumi.Input['PoolNetworkConfigurationArgs'] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
         :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         :param pulumi.Input[str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input['PoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool.
+        :param pulumi.Input['PoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
         :param pulumi.Input['PoolStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]] windows: A `windows` block that describes the Windows configuration in the pool.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -594,7 +594,7 @@ class _PoolState:
     @pulumi.getter(name="autoScale")
     def auto_scale(self) -> Optional[pulumi.Input['PoolAutoScaleArgs']]:
         """
-        A `auto_scale` block that describes the scale settings when using auto scale.
+        A `auto_scale` block that describes the scale settings when using auto scale as defined below.
         """
         return pulumi.get(self, "auto_scale")
 
@@ -606,7 +606,7 @@ class _PoolState:
     @pulumi.getter
     def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]]]:
         """
-        One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+        One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
         """
         return pulumi.get(self, "certificates")
 
@@ -630,7 +630,7 @@ class _PoolState:
     @pulumi.getter(name="dataDisks")
     def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolDataDiskArgs']]]]:
         """
-        A `data_disks` block describes the data disk settings.
+        A `data_disks` block describes the data disk settings as defined below.
         """
         return pulumi.get(self, "data_disks")
 
@@ -642,7 +642,7 @@ class _PoolState:
     @pulumi.getter(name="diskEncryptions")
     def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolDiskEncryptionArgs']]]]:
         """
-        A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
         """
         return pulumi.get(self, "disk_encryptions")
 
@@ -678,7 +678,7 @@ class _PoolState:
     @pulumi.getter(name="fixedScale")
     def fixed_scale(self) -> Optional[pulumi.Input['PoolFixedScaleArgs']]:
         """
-        A `fixed_scale` block that describes the scale settings when using fixed scale.
+        A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
         """
         return pulumi.get(self, "fixed_scale")
 
@@ -774,7 +774,7 @@ class _PoolState:
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['PoolNetworkConfigurationArgs']]:
         """
-        A `network_configuration` block that describes the network configurations for the Batch pool.
+        A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
         """
         return pulumi.get(self, "network_configuration")
 
@@ -798,7 +798,7 @@ class _PoolState:
     @pulumi.getter(name="nodePlacements")
     def node_placements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolNodePlacementArgs']]]]:
         """
-        A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+        A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         """
         return pulumi.get(self, "node_placements")
 
@@ -834,7 +834,7 @@ class _PoolState:
     @pulumi.getter(name="startTask")
     def start_task(self) -> Optional[pulumi.Input['PoolStartTaskArgs']]:
         """
-        A `start_task` block that describes the start task settings for the Batch pool.
+        A `start_task` block that describes the start task settings for the Batch pool as defined below.
         """
         return pulumi.get(self, "start_task")
 
@@ -867,7 +867,7 @@ class _PoolState:
     @pulumi.getter(name="taskSchedulingPolicies")
     def task_scheduling_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]]]:
         """
-        A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+        A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
         """
         return pulumi.get(self, "task_scheduling_policies")
 
@@ -879,7 +879,7 @@ class _PoolState:
     @pulumi.getter(name="userAccounts")
     def user_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]]]:
         """
-        A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+        A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         """
         return pulumi.get(self, "user_accounts")
 
@@ -903,7 +903,7 @@ class _PoolState:
     @pulumi.getter
     def windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]]]:
         """
-        A `windows` block that describes the Windows configuration in the pool.
+        A `windows` block that describes the Windows configuration in the pool as defined below.
         """
         return pulumi.get(self, "windows")
 
@@ -1038,14 +1038,14 @@ class Pool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['PoolAutoScaleArgs']] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolCertificateArgs']]]] certificates: One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+        :param pulumi.Input[pulumi.InputType['PoolAutoScaleArgs']] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolCertificateArgs']]]] certificates: One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
         :param pulumi.Input[pulumi.InputType['PoolContainerConfigurationArgs']] container_configuration: The container configuration used in the pool's VMs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolDataDiskArgs']]]] data_disks: A `data_disks` block describes the data disk settings.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolDiskEncryptionArgs']]]] disk_encryptions: A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolDataDiskArgs']]]] data_disks: A `data_disks` block describes the data disk settings as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolDiskEncryptionArgs']]]] disk_encryptions: A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
         :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolExtensionArgs']]]] extensions: An `extensions` block as defined below.
-        :param pulumi.Input[pulumi.InputType['PoolFixedScaleArgs']] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
+        :param pulumi.Input[pulumi.InputType['PoolFixedScaleArgs']] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
         :param pulumi.Input[pulumi.InputType['PoolIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] inter_node_communication: Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
         :param pulumi.Input[str] license_type: The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
@@ -1053,17 +1053,17 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolMountArgs']]]] mounts: A `mount` block defined as below.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['PoolNetworkConfigurationArgs']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool.
+        :param pulumi.Input[pulumi.InputType['PoolNetworkConfigurationArgs']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
         :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolNodePlacementArgs']]]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolNodePlacementArgs']]]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         :param pulumi.Input[str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['PoolStartTaskArgs']] start_task: A `start_task` block that describes the start task settings for the Batch pool.
+        :param pulumi.Input[pulumi.InputType['PoolStartTaskArgs']] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
         :param pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolTaskSchedulingPolicyArgs']]]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolUserAccountArgs']]]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolTaskSchedulingPolicyArgs']]]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolUserAccountArgs']]]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolWindowArgs']]]] windows: A `windows` block that describes the Windows configuration in the pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolWindowArgs']]]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
         """
         ...
     @overload
@@ -1296,14 +1296,14 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['PoolAutoScaleArgs']] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolCertificateArgs']]]] certificates: One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+        :param pulumi.Input[pulumi.InputType['PoolAutoScaleArgs']] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolCertificateArgs']]]] certificates: One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
         :param pulumi.Input[pulumi.InputType['PoolContainerConfigurationArgs']] container_configuration: The container configuration used in the pool's VMs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolDataDiskArgs']]]] data_disks: A `data_disks` block describes the data disk settings.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolDiskEncryptionArgs']]]] disk_encryptions: A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolDataDiskArgs']]]] data_disks: A `data_disks` block describes the data disk settings as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolDiskEncryptionArgs']]]] disk_encryptions: A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
         :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolExtensionArgs']]]] extensions: An `extensions` block as defined below.
-        :param pulumi.Input[pulumi.InputType['PoolFixedScaleArgs']] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
+        :param pulumi.Input[pulumi.InputType['PoolFixedScaleArgs']] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
         :param pulumi.Input[pulumi.InputType['PoolIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] inter_node_communication: Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
         :param pulumi.Input[str] license_type: The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
@@ -1311,17 +1311,17 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolMountArgs']]]] mounts: A `mount` block defined as below.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['PoolNetworkConfigurationArgs']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool.
+        :param pulumi.Input[pulumi.InputType['PoolNetworkConfigurationArgs']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
         :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolNodePlacementArgs']]]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolNodePlacementArgs']]]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         :param pulumi.Input[str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['PoolStartTaskArgs']] start_task: A `start_task` block that describes the start task settings for the Batch pool.
+        :param pulumi.Input[pulumi.InputType['PoolStartTaskArgs']] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
         :param pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolTaskSchedulingPolicyArgs']]]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolUserAccountArgs']]]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolTaskSchedulingPolicyArgs']]]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolUserAccountArgs']]]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolWindowArgs']]]] windows: A `windows` block that describes the Windows configuration in the pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolWindowArgs']]]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1369,7 +1369,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="autoScale")
     def auto_scale(self) -> pulumi.Output[Optional['outputs.PoolAutoScale']]:
         """
-        A `auto_scale` block that describes the scale settings when using auto scale.
+        A `auto_scale` block that describes the scale settings when using auto scale as defined below.
         """
         return pulumi.get(self, "auto_scale")
 
@@ -1377,7 +1377,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter
     def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.PoolCertificate']]]:
         """
-        One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+        One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
         """
         return pulumi.get(self, "certificates")
 
@@ -1393,7 +1393,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="dataDisks")
     def data_disks(self) -> pulumi.Output[Optional[Sequence['outputs.PoolDataDisk']]]:
         """
-        A `data_disks` block describes the data disk settings.
+        A `data_disks` block describes the data disk settings as defined below.
         """
         return pulumi.get(self, "data_disks")
 
@@ -1401,7 +1401,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="diskEncryptions")
     def disk_encryptions(self) -> pulumi.Output[Optional[Sequence['outputs.PoolDiskEncryption']]]:
         """
-        A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
         """
         return pulumi.get(self, "disk_encryptions")
 
@@ -1425,7 +1425,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="fixedScale")
     def fixed_scale(self) -> pulumi.Output[Optional['outputs.PoolFixedScale']]:
         """
-        A `fixed_scale` block that describes the scale settings when using fixed scale.
+        A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
         """
         return pulumi.get(self, "fixed_scale")
 
@@ -1489,7 +1489,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output[Optional['outputs.PoolNetworkConfiguration']]:
         """
-        A `network_configuration` block that describes the network configurations for the Batch pool.
+        A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
         """
         return pulumi.get(self, "network_configuration")
 
@@ -1505,7 +1505,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="nodePlacements")
     def node_placements(self) -> pulumi.Output[Optional[Sequence['outputs.PoolNodePlacement']]]:
         """
-        A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+        A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         """
         return pulumi.get(self, "node_placements")
 
@@ -1529,7 +1529,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="startTask")
     def start_task(self) -> pulumi.Output[Optional['outputs.PoolStartTask']]:
         """
-        A `start_task` block that describes the start task settings for the Batch pool.
+        A `start_task` block that describes the start task settings for the Batch pool as defined below.
         """
         return pulumi.get(self, "start_task")
 
@@ -1550,7 +1550,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="taskSchedulingPolicies")
     def task_scheduling_policies(self) -> pulumi.Output[Sequence['outputs.PoolTaskSchedulingPolicy']]:
         """
-        A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+        A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
         """
         return pulumi.get(self, "task_scheduling_policies")
 
@@ -1558,7 +1558,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="userAccounts")
     def user_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.PoolUserAccount']]]:
         """
-        A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+        A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         """
         return pulumi.get(self, "user_accounts")
 
@@ -1574,7 +1574,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter
     def windows(self) -> pulumi.Output[Optional[Sequence['outputs.PoolWindow']]]:
         """
-        A `windows` block that describes the Windows configuration in the pool.
+        A `windows` block that describes the Windows configuration in the pool as defined below.
         """
         return pulumi.get(self, "windows")
 

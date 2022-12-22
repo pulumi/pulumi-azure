@@ -16,6 +16,7 @@ __all__ = [
     'AccountBlobPropertiesContainerDeleteRetentionPolicyArgs',
     'AccountBlobPropertiesCorsRuleArgs',
     'AccountBlobPropertiesDeleteRetentionPolicyArgs',
+    'AccountBlobPropertiesRestorePolicyArgs',
     'AccountCustomDomainArgs',
     'AccountCustomerManagedKeyArgs',
     'AccountIdentityArgs',
@@ -204,6 +205,7 @@ class AccountBlobPropertiesArgs:
                  default_service_version: Optional[pulumi.Input[str]] = None,
                  delete_retention_policy: Optional[pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgs']] = None,
                  last_access_time_enabled: Optional[pulumi.Input[bool]] = None,
+                 restore_policy: Optional[pulumi.Input['AccountBlobPropertiesRestorePolicyArgs']] = None,
                  versioning_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] change_feed_enabled: Is the blob service properties for change feed events enabled? Default to `false`.
@@ -213,6 +215,7 @@ class AccountBlobPropertiesArgs:
         :param pulumi.Input[str] default_service_version: The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
         :param pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgs'] delete_retention_policy: A `delete_retention_policy` block as defined below.
         :param pulumi.Input[bool] last_access_time_enabled: Is the last access time based tracking enabled? Default to `false`.
+        :param pulumi.Input['AccountBlobPropertiesRestorePolicyArgs'] restore_policy: A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
         :param pulumi.Input[bool] versioning_enabled: Is versioning enabled? Default to `false`.
         """
         if change_feed_enabled is not None:
@@ -229,6 +232,8 @@ class AccountBlobPropertiesArgs:
             pulumi.set(__self__, "delete_retention_policy", delete_retention_policy)
         if last_access_time_enabled is not None:
             pulumi.set(__self__, "last_access_time_enabled", last_access_time_enabled)
+        if restore_policy is not None:
+            pulumi.set(__self__, "restore_policy", restore_policy)
         if versioning_enabled is not None:
             pulumi.set(__self__, "versioning_enabled", versioning_enabled)
 
@@ -315,6 +320,18 @@ class AccountBlobPropertiesArgs:
     @last_access_time_enabled.setter
     def last_access_time_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "last_access_time_enabled", value)
+
+    @property
+    @pulumi.getter(name="restorePolicy")
+    def restore_policy(self) -> Optional[pulumi.Input['AccountBlobPropertiesRestorePolicyArgs']]:
+        """
+        A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+        """
+        return pulumi.get(self, "restore_policy")
+
+    @restore_policy.setter
+    def restore_policy(self, value: Optional[pulumi.Input['AccountBlobPropertiesRestorePolicyArgs']]):
+        pulumi.set(self, "restore_policy", value)
 
     @property
     @pulumi.getter(name="versioningEnabled")
@@ -456,6 +473,28 @@ class AccountBlobPropertiesDeleteRetentionPolicyArgs:
 
     @days.setter
     def days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "days", value)
+
+
+@pulumi.input_type
+class AccountBlobPropertiesRestorePolicyArgs:
+    def __init__(__self__, *,
+                 days: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] days: Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `delete_retention_policy`.
+        """
+        pulumi.set(__self__, "days", days)
+
+    @property
+    @pulumi.getter
+    def days(self) -> pulumi.Input[int]:
+        """
+        Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `delete_retention_policy`.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: pulumi.Input[int]):
         pulumi.set(self, "days", value)
 
 

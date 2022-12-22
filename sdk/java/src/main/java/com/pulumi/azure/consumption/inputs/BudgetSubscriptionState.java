@@ -36,14 +36,14 @@ public final class BudgetSubscriptionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ETag of the Subscription Consumption Budget.
+     * (Optional) The ETag of the Subscription Consumption Budget.
      * 
      */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
     /**
-     * @return The ETag of the Subscription Consumption Budget.
+     * @return (Optional) The ETag of the Subscription Consumption Budget.
      * 
      */
     public Optional<Output<String>> etag() {
@@ -193,7 +193,7 @@ public final class BudgetSubscriptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param etag The ETag of the Subscription Consumption Budget.
+         * @param etag (Optional) The ETag of the Subscription Consumption Budget.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class BudgetSubscriptionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param etag The ETag of the Subscription Consumption Budget.
+         * @param etag (Optional) The ETag of the Subscription Consumption Budget.
          * 
          * @return builder
          * 

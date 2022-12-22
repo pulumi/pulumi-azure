@@ -19,30 +19,62 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
 
     public static final OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs Empty = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs();
 
+    /**
+     * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="adminPassword")
     private @Nullable Output<String> adminPassword;
 
+    /**
+     * @return The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> adminPassword() {
         return Optional.ofNullable(this.adminPassword);
     }
 
+    /**
+     * A `admin_ssh_key` block as documented below.
+     * 
+     */
     @Import(name="adminSshKeys")
     private @Nullable Output<List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs>> adminSshKeys;
 
+    /**
+     * @return A `admin_ssh_key` block as documented below.
+     * 
+     */
     public Optional<Output<List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs>>> adminSshKeys() {
         return Optional.ofNullable(this.adminSshKeys);
     }
 
+    /**
+     * The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="adminUsername", required=true)
     private Output<String> adminUsername;
 
+    /**
+     * @return The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> adminUsername() {
         return this.adminUsername;
     }
 
+    /**
+     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+     * 
+     */
     @Import(name="computerNamePrefix")
     private @Nullable Output<String> computerNamePrefix;
 
+    /**
+     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+     * 
+     */
     public Optional<Output<String>> computerNamePrefix() {
         return Optional.ofNullable(this.computerNamePrefix);
     }
@@ -92,16 +124,32 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         return Optional.ofNullable(this.patchMode);
     }
 
+    /**
+     * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+     * 
+     */
     @Import(name="provisionVmAgent")
     private @Nullable Output<Boolean> provisionVmAgent;
 
+    /**
+     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+     * 
+     */
     public Optional<Output<Boolean>> provisionVmAgent() {
         return Optional.ofNullable(this.provisionVmAgent);
     }
 
+    /**
+     * One or more `secret` blocks as defined below.
+     * 
+     */
     @Import(name="secrets")
     private @Nullable Output<List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs>> secrets;
 
+    /**
+     * @return One or more `secret` blocks as defined below.
+     * 
+     */
     public Optional<Output<List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs>>> secrets() {
         return Optional.ofNullable(this.secrets);
     }
@@ -138,42 +186,96 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
             $ = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param adminPassword The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminPassword(@Nullable Output<String> adminPassword) {
             $.adminPassword = adminPassword;
             return this;
         }
 
+        /**
+         * @param adminPassword The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminPassword(String adminPassword) {
             return adminPassword(Output.of(adminPassword));
         }
 
+        /**
+         * @param adminSshKeys A `admin_ssh_key` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminSshKeys(@Nullable Output<List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs>> adminSshKeys) {
             $.adminSshKeys = adminSshKeys;
             return this;
         }
 
+        /**
+         * @param adminSshKeys A `admin_ssh_key` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminSshKeys(List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs> adminSshKeys) {
             return adminSshKeys(Output.of(adminSshKeys));
         }
 
+        /**
+         * @param adminSshKeys A `admin_ssh_key` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminSshKeys(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs... adminSshKeys) {
             return adminSshKeys(List.of(adminSshKeys));
         }
 
+        /**
+         * @param adminUsername The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminUsername(Output<String> adminUsername) {
             $.adminUsername = adminUsername;
             return this;
         }
 
+        /**
+         * @param adminUsername The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder adminUsername(String adminUsername) {
             return adminUsername(Output.of(adminUsername));
         }
 
+        /**
+         * @param computerNamePrefix The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder computerNamePrefix(@Nullable Output<String> computerNamePrefix) {
             $.computerNamePrefix = computerNamePrefix;
             return this;
         }
 
+        /**
+         * @param computerNamePrefix The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder computerNamePrefix(String computerNamePrefix) {
             return computerNamePrefix(Output.of(computerNamePrefix));
         }
@@ -241,24 +343,54 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
             return patchMode(Output.of(patchMode));
         }
 
+        /**
+         * @param provisionVmAgent Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder provisionVmAgent(@Nullable Output<Boolean> provisionVmAgent) {
             $.provisionVmAgent = provisionVmAgent;
             return this;
         }
 
+        /**
+         * @param provisionVmAgent Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder provisionVmAgent(Boolean provisionVmAgent) {
             return provisionVmAgent(Output.of(provisionVmAgent));
         }
 
+        /**
+         * @param secrets One or more `secret` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secrets(@Nullable Output<List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs>> secrets) {
             $.secrets = secrets;
             return this;
         }
 
+        /**
+         * @param secrets One or more `secret` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secrets(List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs> secrets) {
             return secrets(Output.of(secrets));
         }
 
+        /**
+         * @param secrets One or more `secret` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secrets(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs... secrets) {
             return secrets(List.of(secrets));
         }

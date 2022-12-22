@@ -22,7 +22,7 @@ public final class ApplicationGatewayBackendHttpSetting {
      */
     private @Nullable String affinityCookieName;
     /**
-     * @return One or more `authentication_certificate` blocks.
+     * @return One or more `authentication_certificate` blocks as defined below.
      * 
      */
     private @Nullable List<ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates;
@@ -101,7 +101,7 @@ public final class ApplicationGatewayBackendHttpSetting {
         return Optional.ofNullable(this.affinityCookieName);
     }
     /**
-     * @return One or more `authentication_certificate` blocks.
+     * @return One or more `authentication_certificate` blocks as defined below.
      * 
      */
     public List<ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates() {

@@ -116,13 +116,21 @@ import (
 //					ManagedRuleSets: waf.PolicyManagedRulesManagedRuleSetArray{
 //						&waf.PolicyManagedRulesManagedRuleSetArgs{
 //							Type:    pulumi.String("OWASP"),
-//							Version: pulumi.String("3.1"),
+//							Version: pulumi.String("3.2"),
 //							RuleGroupOverrides: waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray{
 //								&waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs{
 //									RuleGroupName: pulumi.String("REQUEST-920-PROTOCOL-ENFORCEMENT"),
-//									DisabledRules: pulumi.StringArray{
-//										pulumi.String("920300"),
-//										pulumi.String("920440"),
+//									Rules: waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArray{
+//										&waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs{
+//											Id:      pulumi.String("920300"),
+//											Enabled: pulumi.Bool(true),
+//											Action:  pulumi.String("Log"),
+//										},
+//										&waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs{
+//											Id:      pulumi.String("920440"),
+//											Enabled: pulumi.Bool(true),
+//											Action:  pulumi.String("Block"),
+//										},
 //									},
 //								},
 //							},

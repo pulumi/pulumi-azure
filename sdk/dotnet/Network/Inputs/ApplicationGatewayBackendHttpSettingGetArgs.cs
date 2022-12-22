@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificateGetArgs>? _authenticationCertificates;
 
         /// <summary>
-        /// One or more `authentication_certificate` blocks.
+        /// One or more `authentication_certificate` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificateGetArgs> AuthenticationCertificates
         {

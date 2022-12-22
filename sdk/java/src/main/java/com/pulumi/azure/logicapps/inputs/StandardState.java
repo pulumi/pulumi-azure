@@ -368,14 +368,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
+     * Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
      * 
      */
     @Import(name="useExtensionBundle")
     private @Nullable Output<Boolean> useExtensionBundle;
 
     /**
-     * @return Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
+     * @return Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> useExtensionBundle() {
@@ -383,14 +383,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The runtime version associated with the Logic App Defaults to `~1`.
+     * The runtime version associated with the Logic App Defaults to `~3`.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The runtime version associated with the Logic App Defaults to `~1`.
+     * @return The runtime version associated with the Logic App Defaults to `~3`.
      * 
      */
     public Optional<Output<String>> version() {
@@ -965,7 +965,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useExtensionBundle Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
+         * @param useExtensionBundle Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -976,7 +976,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useExtensionBundle Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
+         * @param useExtensionBundle Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -986,7 +986,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The runtime version associated with the Logic App Defaults to `~1`.
+         * @param version The runtime version associated with the Logic App Defaults to `~3`.
          * 
          * @return builder
          * 
@@ -997,7 +997,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The runtime version associated with the Logic App Defaults to `~1`.
+         * @param version The runtime version associated with the Logic App Defaults to `~3`.
          * 
          * @return builder
          * 

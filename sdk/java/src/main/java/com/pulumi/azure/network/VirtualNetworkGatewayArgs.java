@@ -274,18 +274,14 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `vpn_client_configuration` block which
-     * is documented below. In this block the Virtual Network Gateway can be configured
-     * to accept IPSec point-to-site connections.
+     * A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      * 
      */
     @Import(name="vpnClientConfiguration")
     private @Nullable Output<VirtualNetworkGatewayVpnClientConfigurationArgs> vpnClientConfiguration;
 
     /**
-     * @return A `vpn_client_configuration` block which
-     * is documented below. In this block the Virtual Network Gateway can be configured
-     * to accept IPSec point-to-site connections.
+     * @return A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      * 
      */
     public Optional<Output<VirtualNetworkGatewayVpnClientConfigurationArgs>> vpnClientConfiguration() {
@@ -698,9 +694,7 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpnClientConfiguration A `vpn_client_configuration` block which
-         * is documented below. In this block the Virtual Network Gateway can be configured
-         * to accept IPSec point-to-site connections.
+         * @param vpnClientConfiguration A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
          * 
          * @return builder
          * 
@@ -711,9 +705,7 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpnClientConfiguration A `vpn_client_configuration` block which
-         * is documented below. In this block the Virtual Network Gateway can be configured
-         * to accept IPSec point-to-site connections.
+         * @param vpnClientConfiguration A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
          * 
          * @return builder
          * 

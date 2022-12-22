@@ -140,14 +140,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+     * A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
      * 
      */
     @Export(name="keyVaultReference", type=AccountKeyVaultReference.class, parameters={})
     private Output</* @Nullable */ AccountKeyVaultReference> keyVaultReference;
 
     /**
-     * @return A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+     * @return A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
      * 
      */
     public Output<Optional<AccountKeyVaultReference>> keyVaultReference() {

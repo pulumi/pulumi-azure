@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<int> Days { get; set; } = null!;
 
         /// <summary>
-        /// Boolean flag to enable/disable traffic analytics.
+        /// Boolean flag to enable/disable retention.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

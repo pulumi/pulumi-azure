@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Orbital.Outputs
     public sealed class ContactProfileLinkChannelEndPoint
     {
         /// <summary>
-        /// -(Required) Name of an end point.
+        /// Name of an end point.
         /// </summary>
         public readonly string EndPointName;
         /// <summary>

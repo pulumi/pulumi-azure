@@ -110,7 +110,7 @@ namespace Pulumi.Azure.Core
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Policy Assignment to be exempted at the specified Scope.
+        /// The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
         /// </summary>
         [Output("policyAssignmentId")]
         public Output<string> PolicyAssignmentId { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Policy Assignment to be exempted at the specified Scope.
+        /// The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
         /// </summary>
         [Input("policyAssignmentId", required: true)]
         public Input<string> PolicyAssignmentId { get; set; } = null!;
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Policy Assignment to be exempted at the specified Scope.
+        /// The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
         /// </summary>
         [Input("policyAssignmentId")]
         public Input<string>? PolicyAssignmentId { get; set; }

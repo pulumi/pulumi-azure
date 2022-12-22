@@ -223,14 +223,14 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return this.diskMbpsReadWrite;
     }
     /**
-     * Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source&#39;s size. The size can only be increased.
+     * (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source&#39;s size. The size can only be increased.
      * 
      */
     @Export(name="diskSizeGb", type=Integer.class, parameters={})
     private Output<Integer> diskSizeGb;
 
     /**
-     * @return Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source&#39;s size. The size can only be increased.
+     * @return (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source&#39;s size. The size can only be increased.
      * 
      */
     public Output<Integer> diskSizeGb() {

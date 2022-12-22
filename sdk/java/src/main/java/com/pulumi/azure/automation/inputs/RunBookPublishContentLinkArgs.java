@@ -17,14 +17,14 @@ public final class RunBookPublishContentLinkArgs extends com.pulumi.resources.Re
     public static final RunBookPublishContentLinkArgs Empty = new RunBookPublishContentLinkArgs();
 
     /**
-     * A `hash` block as defined blow.
+     * A `hash` block as defined below.
      * 
      */
     @Import(name="hash")
     private @Nullable Output<RunBookPublishContentLinkHashArgs> hash;
 
     /**
-     * @return A `hash` block as defined blow.
+     * @return A `hash` block as defined below.
      * 
      */
     public Optional<Output<RunBookPublishContentLinkHashArgs>> hash() {
@@ -88,7 +88,7 @@ public final class RunBookPublishContentLinkArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hash A `hash` block as defined blow.
+         * @param hash A `hash` block as defined below.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class RunBookPublishContentLinkArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hash A `hash` block as defined blow.
+         * @param hash A `hash` block as defined below.
          * 
          * @return builder
          * 

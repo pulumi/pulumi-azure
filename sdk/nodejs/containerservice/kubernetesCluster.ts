@@ -91,7 +91,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly automaticChannelUpgrade!: pulumi.Output<string | undefined>;
     /**
-     * - A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+     * A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
      */
     public readonly azureActiveDirectoryRoleBasedAccessControl!: pulumi.Output<outputs.containerservice.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl | undefined>;
     /**
@@ -184,7 +184,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly linuxProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterLinuxProfile | undefined>;
     /**
-     * - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+     * If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      */
     public readonly localAccountDisabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -199,6 +199,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * A `microsoftDefender` block as defined below.
      */
     public readonly microsoftDefender!: pulumi.Output<outputs.containerservice.KubernetesClusterMicrosoftDefender | undefined>;
+    /**
+     * Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
+     */
+    public readonly monitorMetrics!: pulumi.Output<outputs.containerservice.KubernetesClusterMonitorMetrics | undefined>;
     /**
      * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      */
@@ -247,6 +251,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
     public /*out*/ readonly privateFqdn!: pulumi.Output<string>;
+    /**
+     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+     */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -338,6 +345,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             resourceInputs["microsoftDefender"] = state ? state.microsoftDefender : undefined;
+            resourceInputs["monitorMetrics"] = state ? state.monitorMetrics : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
             resourceInputs["nodeResourceGroup"] = state ? state.nodeResourceGroup : undefined;
@@ -396,6 +404,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             resourceInputs["microsoftDefender"] = args ? args.microsoftDefender : undefined;
+            resourceInputs["monitorMetrics"] = args ? args.monitorMetrics : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["nodeResourceGroup"] = args ? args.nodeResourceGroup : undefined;
@@ -455,7 +464,7 @@ export interface KubernetesClusterState {
      */
     automaticChannelUpgrade?: pulumi.Input<string>;
     /**
-     * - A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+     * A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
      */
     azureActiveDirectoryRoleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl>;
     /**
@@ -548,7 +557,7 @@ export interface KubernetesClusterState {
      */
     linuxProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterLinuxProfile>;
     /**
-     * - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+     * If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      */
     localAccountDisabled?: pulumi.Input<boolean>;
     /**
@@ -563,6 +572,10 @@ export interface KubernetesClusterState {
      * A `microsoftDefender` block as defined below.
      */
     microsoftDefender?: pulumi.Input<inputs.containerservice.KubernetesClusterMicrosoftDefender>;
+    /**
+     * Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
+     */
+    monitorMetrics?: pulumi.Input<inputs.containerservice.KubernetesClusterMonitorMetrics>;
     /**
      * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      */
@@ -611,6 +624,9 @@ export interface KubernetesClusterState {
      * The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
     privateFqdn?: pulumi.Input<string>;
+    /**
+     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -679,7 +695,7 @@ export interface KubernetesClusterArgs {
      */
     automaticChannelUpgrade?: pulumi.Input<string>;
     /**
-     * - A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+     * A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
      */
     azureActiveDirectoryRoleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl>;
     /**
@@ -748,7 +764,7 @@ export interface KubernetesClusterArgs {
      */
     linuxProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterLinuxProfile>;
     /**
-     * - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+     * If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      */
     localAccountDisabled?: pulumi.Input<boolean>;
     /**
@@ -763,6 +779,10 @@ export interface KubernetesClusterArgs {
      * A `microsoftDefender` block as defined below.
      */
     microsoftDefender?: pulumi.Input<inputs.containerservice.KubernetesClusterMicrosoftDefender>;
+    /**
+     * Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
+     */
+    monitorMetrics?: pulumi.Input<inputs.containerservice.KubernetesClusterMonitorMetrics>;
     /**
      * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      */
@@ -799,6 +819,9 @@ export interface KubernetesClusterArgs {
      * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
      */
     privateDnsZoneId?: pulumi.Input<string>;
+    /**
+     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.

@@ -811,6 +811,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appplatform/springCloudAccelerator",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudAccelerator:SpringCloudAccelerator": "SpringCloudAccelerator"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appplatform/springCloudActiveDeployment",
   "fqn": "pulumi_azure.appplatform",
   "classes": {
@@ -935,6 +943,14 @@ _utilities.register(
   "fqn": "pulumi_azure.appplatform",
   "classes": {
    "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain": "SpringCloudCustomDomain"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appplatform/springCloudDevToolPortal",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal": "SpringCloudDevToolPortal"
   }
  },
  {
@@ -2107,10 +2123,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "compute/packetCapture",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/packetCapture:PacketCapture": "PacketCapture"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "compute/scaleSet",
   "fqn": "pulumi_azure.compute",
   "classes": {
    "azure:compute/scaleSet:ScaleSet": "ScaleSet"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "compute/scaleSetPacketCapture",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture": "ScaleSetPacketCapture"
   }
  },
  {
@@ -5759,6 +5791,14 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/routeFilter:RouteFilter": "RouteFilter"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/routeMap",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/routeMap:RouteMap": "RouteMap"
   }
  },
  {

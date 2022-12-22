@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  * 
  *         var internal = new Subnet(&#34;internal&#34;, SubnetArgs.builder()        
  *             .resourceGroupName(example.name())
- *             .virtualNetworkName(azurerm_virtual_network.example().name())
+ *             .virtualNetworkName(mainVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
@@ -301,42 +301,42 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.osProfile);
     }
     /**
-     * An `os_profile_linux_config` block as defined below.
+     * (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
      * 
      */
     @Export(name="osProfileLinuxConfig", type=VirtualMachineOsProfileLinuxConfig.class, parameters={})
     private Output</* @Nullable */ VirtualMachineOsProfileLinuxConfig> osProfileLinuxConfig;
 
     /**
-     * @return An `os_profile_linux_config` block as defined below.
+     * @return (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
      * 
      */
     public Output<Optional<VirtualMachineOsProfileLinuxConfig>> osProfileLinuxConfig() {
         return Codegen.optional(this.osProfileLinuxConfig);
     }
     /**
-     * One or more `os_profile_secrets` blocks.
+     * One or more `os_profile_secrets` blocks as defined below.
      * 
      */
     @Export(name="osProfileSecrets", type=List.class, parameters={VirtualMachineOsProfileSecret.class})
     private Output</* @Nullable */ List<VirtualMachineOsProfileSecret>> osProfileSecrets;
 
     /**
-     * @return One or more `os_profile_secrets` blocks.
+     * @return One or more `os_profile_secrets` blocks as defined below.
      * 
      */
     public Output<Optional<List<VirtualMachineOsProfileSecret>>> osProfileSecrets() {
         return Codegen.optional(this.osProfileSecrets);
     }
     /**
-     * An `os_profile_windows_config` block as defined below.
+     * (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
      * 
      */
     @Export(name="osProfileWindowsConfig", type=VirtualMachineOsProfileWindowsConfig.class, parameters={})
     private Output</* @Nullable */ VirtualMachineOsProfileWindowsConfig> osProfileWindowsConfig;
 
     /**
-     * @return An `os_profile_windows_config` block as defined below.
+     * @return (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
      * 
      */
     public Output<Optional<VirtualMachineOsProfileWindowsConfig>> osProfileWindowsConfig() {
@@ -399,14 +399,14 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * One or more `storage_data_disk` blocks.
+     * One or more `storage_data_disk` blocks as defined below.
      * 
      */
     @Export(name="storageDataDisks", type=List.class, parameters={VirtualMachineStorageDataDisk.class})
     private Output<List<VirtualMachineStorageDataDisk>> storageDataDisks;
 
     /**
-     * @return One or more `storage_data_disk` blocks.
+     * @return One or more `storage_data_disk` blocks as defined below.
      * 
      */
     public Output<List<VirtualMachineStorageDataDisk>> storageDataDisks() {

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.FrontDoor
     public partial class CustomHttpsConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `custom_https_configuration` block as defined below.
+        /// (Optional) A `custom_https_configuration` block as defined below.
         /// </summary>
         [Output("customHttpsConfiguration")]
         public Output<Outputs.CustomHttpsConfigurationCustomHttpsConfiguration?> CustomHttpsConfigurationConfig { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Azure.FrontDoor
     public sealed class CustomHttpsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `custom_https_configuration` block as defined below.
+        /// (Optional) A `custom_https_configuration` block as defined below.
         /// </summary>
         [Input("customHttpsConfiguration")]
         public Input<Inputs.CustomHttpsConfigurationCustomHttpsConfigurationArgs>? CustomHttpsConfigurationConfig { get; set; }
@@ -112,7 +112,7 @@ namespace Pulumi.Azure.FrontDoor
     public sealed class CustomHttpsConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `custom_https_configuration` block as defined below.
+        /// (Optional) A `custom_https_configuration` block as defined below.
         /// </summary>
         [Input("customHttpsConfiguration")]
         public Input<Inputs.CustomHttpsConfigurationCustomHttpsConfigurationGetArgs>? CustomHttpsConfigurationConfig { get; set; }

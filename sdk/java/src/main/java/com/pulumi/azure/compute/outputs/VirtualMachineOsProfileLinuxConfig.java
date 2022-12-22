@@ -18,7 +18,7 @@ public final class VirtualMachineOsProfileLinuxConfig {
      */
     private Boolean disablePasswordAuthentication;
     /**
-     * @return One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+     * @return One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
      * 
      */
     private @Nullable List<VirtualMachineOsProfileLinuxConfigSshKey> sshKeys;
@@ -32,7 +32,7 @@ public final class VirtualMachineOsProfileLinuxConfig {
         return this.disablePasswordAuthentication;
     }
     /**
-     * @return One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+     * @return One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
      * 
      */
     public List<VirtualMachineOsProfileLinuxConfigSshKey> sshKeys() {

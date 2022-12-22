@@ -59,6 +59,10 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+     */
+    public readonly allowResourceOnlyPermissions!: pulumi.Output<boolean | undefined>;
+    /**
      * Is Customer Managed Storage mandatory for query management?
      */
     public readonly cmkForQueryForced!: pulumi.Output<boolean | undefined>;
@@ -128,6 +132,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnalyticsWorkspaceState | undefined;
+            resourceInputs["allowResourceOnlyPermissions"] = state ? state.allowResourceOnlyPermissions : undefined;
             resourceInputs["cmkForQueryForced"] = state ? state.cmkForQueryForced : undefined;
             resourceInputs["dailyQuotaGb"] = state ? state.dailyQuotaGb : undefined;
             resourceInputs["internetIngestionEnabled"] = state ? state.internetIngestionEnabled : undefined;
@@ -147,6 +152,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["allowResourceOnlyPermissions"] = args ? args.allowResourceOnlyPermissions : undefined;
             resourceInputs["cmkForQueryForced"] = args ? args.cmkForQueryForced : undefined;
             resourceInputs["dailyQuotaGb"] = args ? args.dailyQuotaGb : undefined;
             resourceInputs["internetIngestionEnabled"] = args ? args.internetIngestionEnabled : undefined;
@@ -173,6 +179,10 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AnalyticsWorkspace resources.
  */
 export interface AnalyticsWorkspaceState {
+    /**
+     * Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+     */
+    allowResourceOnlyPermissions?: pulumi.Input<boolean>;
     /**
      * Is Customer Managed Storage mandatory for query management?
      */
@@ -235,6 +245,10 @@ export interface AnalyticsWorkspaceState {
  * The set of arguments for constructing a AnalyticsWorkspace resource.
  */
 export interface AnalyticsWorkspaceArgs {
+    /**
+     * Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+     */
+    allowResourceOnlyPermissions?: pulumi.Input<boolean>;
     /**
      * Is Customer Managed Storage mandatory for query management?
      */

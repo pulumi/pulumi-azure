@@ -33,9 +33,6 @@ export interface GetSecretsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The Key Vault ID.
-     */
     readonly keyVaultId: string;
     /**
      * List containing names of secrets that exist in this Key Vault.

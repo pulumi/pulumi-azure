@@ -62,14 +62,13 @@ type Healthbot struct {
 
 	// The management portal url.
 	BotManagementPortalUrl pulumi.StringOutput `pulumi:"botManagementPortalUrl"`
-	// Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+	// Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-	// forces a new resource to be created.
+	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+	// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the service.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -112,14 +111,13 @@ func GetHealthbot(ctx *pulumi.Context,
 type healthbotState struct {
 	// The management portal url.
 	BotManagementPortalUrl *string `pulumi:"botManagementPortalUrl"`
-	// Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+	// Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-	// forces a new resource to be created.
+	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+	// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the service.
 	Tags map[string]string `pulumi:"tags"`
@@ -128,14 +126,13 @@ type healthbotState struct {
 type HealthbotState struct {
 	// The management portal url.
 	BotManagementPortalUrl pulumi.StringPtrInput
-	// Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+	// Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-	// forces a new resource to be created.
+	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+	// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the service.
 	Tags pulumi.StringMapInput
@@ -146,14 +143,13 @@ func (HealthbotState) ElementType() reflect.Type {
 }
 
 type healthbotArgs struct {
-	// Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+	// Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-	// forces a new resource to be created.
+	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+	// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the service.
 	Tags map[string]string `pulumi:"tags"`
@@ -161,14 +157,13 @@ type healthbotArgs struct {
 
 // The set of arguments for constructing a Healthbot resource.
 type HealthbotArgs struct {
-	// Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+	// Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies The name of the Healthbot Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-	// forces a new resource to be created.
+	// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+	// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
 	SkuName pulumi.StringInput
 	// A mapping of tags which should be assigned to the service.
 	Tags pulumi.StringMapInput
@@ -266,7 +261,7 @@ func (o HealthbotOutput) BotManagementPortalUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Healthbot) pulumi.StringOutput { return v.BotManagementPortalUrl }).(pulumi.StringOutput)
 }
 
-// Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+// Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
 func (o HealthbotOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Healthbot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -276,13 +271,12 @@ func (o HealthbotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Healthbot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-// forces a new resource to be created.
+// Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
 func (o HealthbotOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Healthbot) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+// The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
 func (o HealthbotOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Healthbot) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }
