@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPlacementGroup(args: GetPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:proximity/getPlacementGroup:getPlacementGroup", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -59,9 +56,24 @@ export interface GetPlacementGroupResult {
     readonly resourceGroupName: string;
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Proximity Placement Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.proximity.getPlacementGroup({
+ *     name: "tf-appsecuritygroup",
+ *     resourceGroupName: "my-resource-group",
+ * });
+ * export const proximityPlacementGroupId = example.then(example => example.id);
+ * ```
+ */
 export function getPlacementGroupOutput(args: GetPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupResult> {
-    return pulumi.output(args).apply(a => getPlacementGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getPlacementGroup(a, opts))
 }
 
 /**

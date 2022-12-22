@@ -467,6 +467,8 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
             __props__.__dict__["primary_key"] = None
             __props__.__dict__["secondary_connection_string"] = None
             __props__.__dict__["secondary_key"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["primaryConnectionString", "primaryKey", "secondaryConnectionString", "secondaryKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(HybridConnectionAuthorizationRule, __self__).__init__(
             'azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule',
             resource_name,

@@ -118,6 +118,13 @@ func NewSqlServer(ctx *pulumi.Context,
 	if args.Version == nil {
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
+	if args.AdministratorLoginPassword != nil {
+		args.AdministratorLoginPassword = pulumi.ToSecret(args.AdministratorLoginPassword).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"administratorLoginPassword",
+	})
+	opts = append(opts, secrets)
 	var resource SqlServer
 	err := ctx.RegisterResource("azure:sql/sqlServer:SqlServer", name, args, &resource, opts...)
 	if err != nil {

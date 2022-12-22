@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Core
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["currentSubscriptionDisplayName"] = current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.DisplayName),
+        ///         ["currentSubscriptionDisplayName"] = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.DisplayName),
         ///     };
         /// });
         /// ```
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Core
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["currentSubscriptionDisplayName"] = current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.DisplayName),
+        ///         ["currentSubscriptionDisplayName"] = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.DisplayName),
         ///     };
         /// });
         /// ```

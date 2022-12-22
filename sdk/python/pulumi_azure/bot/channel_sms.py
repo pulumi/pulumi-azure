@@ -356,7 +356,9 @@ class ChannelSms(pulumi.CustomResource):
             __props__.__dict__["sms_channel_account_security_id"] = sms_channel_account_security_id
             if sms_channel_auth_token is None and not opts.urn:
                 raise TypeError("Missing required property 'sms_channel_auth_token'")
-            __props__.__dict__["sms_channel_auth_token"] = sms_channel_auth_token
+            __props__.__dict__["sms_channel_auth_token"] = None if sms_channel_auth_token is None else pulumi.Output.secret(sms_channel_auth_token)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["smsChannelAuthToken"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ChannelSms, __self__).__init__(
             'azure:bot/channelSms:ChannelSms',
             resource_name,

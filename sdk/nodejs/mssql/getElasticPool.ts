@@ -24,11 +24,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getElasticPool(args: GetElasticPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticPoolResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:mssql/getElasticPool:getElasticPool", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -105,9 +102,25 @@ export interface GetElasticPoolResult {
      */
     readonly zoneRedundant: boolean;
 }
-
+/**
+ * Use this data source to access information about an existing SQL elastic pool.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.mssql.getElasticPool({
+ *     name: "mssqlelasticpoolname",
+ *     resourceGroupName: "example-resources",
+ *     serverName: "example-sql-server",
+ * });
+ * export const elasticpoolId = example.then(example => example.id);
+ * ```
+ */
 export function getElasticPoolOutput(args: GetElasticPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticPoolResult> {
-    return pulumi.output(args).apply(a => getElasticPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getElasticPool(a, opts))
 }
 
 /**

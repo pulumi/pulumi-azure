@@ -52,8 +52,8 @@ import (
 //			_, err = kusto.NewClusterPrincipalAssignment(ctx, "exampleClusterPrincipalAssignment", &kusto.ClusterPrincipalAssignmentArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				ClusterName:       exampleCluster.Name,
-//				TenantId:          pulumi.String(current.TenantId),
-//				PrincipalId:       pulumi.String(current.ClientId),
+//				TenantId:          *pulumi.String(current.TenantId),
+//				PrincipalId:       *pulumi.String(current.ClientId),
 //				PrincipalType:     pulumi.String("App"),
 //				Role:              pulumi.String("AllDatabasesAdmin"),
 //			})

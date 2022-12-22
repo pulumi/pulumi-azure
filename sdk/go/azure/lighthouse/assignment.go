@@ -33,7 +33,7 @@ import (
 //				return err
 //			}
 //			_, err = lighthouse.NewAssignment(ctx, "example", &lighthouse.AssignmentArgs{
-//				Scope:                  pulumi.String(primary.Id),
+//				Scope:                  *pulumi.String(primary.Id),
 //				LighthouseDefinitionId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000"),
 //			})
 //			if err != nil {

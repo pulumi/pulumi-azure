@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewFunctionJavascriptUda(ctx, "exampleFunctionJavascriptUda", &streamanalytics.FunctionJavascriptUdaArgs{
-//				StreamAnalyticsJobId: pulumi.String(exampleJob.Id),
+//				StreamAnalyticsJobId: *pulumi.String(exampleJob.Id),
 //				Script: pulumi.String(fmt.Sprintf(`function main() {
 //	    this.init = function () {
 //	        this.state = 0;

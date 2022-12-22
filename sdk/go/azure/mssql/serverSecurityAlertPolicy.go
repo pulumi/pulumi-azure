@@ -126,6 +126,13 @@ func NewServerSecurityAlertPolicy(ctx *pulumi.Context,
 	if args.State == nil {
 		return nil, errors.New("invalid value for required argument 'State'")
 	}
+	if args.StorageAccountAccessKey != nil {
+		args.StorageAccountAccessKey = pulumi.ToSecret(args.StorageAccountAccessKey).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"storageAccountAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource ServerSecurityAlertPolicy
 	err := ctx.RegisterResource("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy", name, args, &resource, opts...)
 	if err != nil {

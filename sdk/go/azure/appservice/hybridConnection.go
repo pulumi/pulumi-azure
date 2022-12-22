@@ -144,6 +144,10 @@ func NewHybridConnection(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sendKeyValue",
+	})
+	opts = append(opts, secrets)
 	var resource HybridConnection
 	err := ctx.RegisterResource("azure:appservice/hybridConnection:HybridConnection", name, args, &resource, opts...)
 	if err != nil {

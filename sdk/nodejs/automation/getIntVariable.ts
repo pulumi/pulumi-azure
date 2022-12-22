@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIntVariable(args: GetIntVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetIntVariableResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:automation/getIntVariable:getIntVariable", {
         "automationAccountName": args.automationAccountName,
         "name": args.name,
@@ -76,9 +73,25 @@ export interface GetIntVariableResult {
      */
     readonly value: number;
 }
-
+/**
+ * Use this data source to access information about an existing Automation Int Variable.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.automation.getIntVariable({
+ *     name: "tfex-example-var",
+ *     resourceGroupName: "tfex-example-rg",
+ *     automationAccountName: "tfex-example-account",
+ * });
+ * export const variableId = example.then(example => example.id);
+ * ```
+ */
 export function getIntVariableOutput(args: GetIntVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntVariableResult> {
-    return pulumi.output(args).apply(a => getIntVariable(a, opts))
+    return pulumi.output(args).apply((a: any) => getIntVariable(a, opts))
 }
 
 /**

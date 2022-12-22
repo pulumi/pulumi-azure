@@ -18,11 +18,21 @@ namespace Pulumi.Azure.DataFactory.Inputs
         [Input("keyVaultLicense")]
         public Input<Inputs.IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseGetArgs>? KeyVaultLicense { get; set; }
 
+        [Input("license")]
+        private Input<string>? _license;
+
         /// <summary>
         /// The license used for the Component.
         /// </summary>
-        [Input("license")]
-        public Input<string>? License { get; set; }
+        public Input<string>? License
+        {
+            get => _license;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _license = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Component Name installed for the Azure-SSIS Integration Runtime.

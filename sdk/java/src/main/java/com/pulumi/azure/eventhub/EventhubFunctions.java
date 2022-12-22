@@ -1170,7 +1170,7 @@ public final class EventhubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1213,7 +1213,7 @@ public final class EventhubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1256,7 +1256,7 @@ public final class EventhubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1299,7 +1299,7 @@ public final class EventhubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

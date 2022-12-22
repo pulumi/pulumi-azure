@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  */
 export function getPolicyDefintion(args?: GetPolicyDefintionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefintionResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:policy/getPolicyDefintion:getPolicyDefintion", {
         "displayName": args.displayName,
         "managementGroupName": args.managementGroupName,
@@ -91,9 +88,23 @@ export interface GetPolicyDefintionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.policy.getPolicyDefintion({
+ *     displayName: "Allowed resource types",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getPolicyDefintionOutput(args?: GetPolicyDefintionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefintionResult> {
-    return pulumi.output(args).apply(a => getPolicyDefintion(a, opts))
+    return pulumi.output(args).apply((a: any) => getPolicyDefintion(a, opts))
 }
 
 /**

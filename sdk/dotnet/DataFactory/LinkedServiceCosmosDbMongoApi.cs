@@ -139,6 +139,10 @@ namespace Pulumi.Azure.DataFactory
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "connectionString",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -186,11 +190,21 @@ namespace Pulumi.Azure.DataFactory
             set => _annotations = value;
         }
 
+        [Input("connectionString")]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The connection string.
         /// </summary>
-        [Input("connectionString")]
-        public Input<string>? ConnectionString { get; set; }
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -273,11 +287,21 @@ namespace Pulumi.Azure.DataFactory
             set => _annotations = value;
         }
 
+        [Input("connectionString")]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The connection string.
         /// </summary>
-        [Input("connectionString")]
-        public Input<string>? ConnectionString { get; set; }
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.

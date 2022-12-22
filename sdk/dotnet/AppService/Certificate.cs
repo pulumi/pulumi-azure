@@ -166,6 +166,11 @@ namespace Pulumi.Azure.AppService
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "password",
+                    "pfxBlob",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -213,17 +218,37 @@ namespace Pulumi.Azure.AppService
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// The password to access the certificate's private key. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("pfxBlob")]
+        private Input<string>? _pfxBlob;
 
         /// <summary>
         /// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("pfxBlob")]
-        public Input<string>? PfxBlob { get; set; }
+        public Input<string>? PfxBlob
+        {
+            get => _pfxBlob;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _pfxBlob = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
@@ -307,17 +332,37 @@ namespace Pulumi.Azure.AppService
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// The password to access the certificate's private key. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("pfxBlob")]
+        private Input<string>? _pfxBlob;
 
         /// <summary>
         /// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("pfxBlob")]
-        public Input<string>? PfxBlob { get; set; }
+        public Input<string>? PfxBlob
+        {
+            get => _pfxBlob;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _pfxBlob = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.

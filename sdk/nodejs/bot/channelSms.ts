@@ -135,9 +135,11 @@ export class ChannelSms extends pulumi.CustomResource {
             resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["smsChannelAccountSecurityId"] = args ? args.smsChannelAccountSecurityId : undefined;
-            resourceInputs["smsChannelAuthToken"] = args ? args.smsChannelAuthToken : undefined;
+            resourceInputs["smsChannelAuthToken"] = args?.smsChannelAuthToken ? pulumi.secret(args.smsChannelAuthToken) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["smsChannelAuthToken"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ChannelSms.__pulumiType, name, resourceInputs, opts);
     }
 }

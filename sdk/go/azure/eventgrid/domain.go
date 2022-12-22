@@ -112,6 +112,11 @@ func NewDomain(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryAccessKey",
+		"secondaryAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource Domain
 	err := ctx.RegisterResource("azure:eventgrid/domain:Domain", name, args, &resource, opts...)
 	if err != nil {

@@ -25,11 +25,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEncryptionScope(args: GetEncryptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionScopeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:storage/getEncryptionScope:getEncryptionScope", {
         "name": args.name,
         "storageAccountId": args.storageAccountId,
@@ -69,9 +66,28 @@ export interface GetEncryptionScopeResult {
     readonly source: string;
     readonly storageAccountId: string;
 }
-
+/**
+ * Use this data source to access information about an existing Storage Encryption Scope.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleAccount = azure.storage.getAccount({
+ *     name: "storageaccountname",
+ *     resourceGroupName: "resourcegroupname",
+ * });
+ * const exampleEncryptionScope = exampleAccount.then(exampleAccount => azure.storage.getEncryptionScope({
+ *     name: "existingStorageES",
+ *     storageAccountId: exampleAccount.id,
+ * }));
+ * export const id = exampleEncryptionScope.then(exampleEncryptionScope => exampleEncryptionScope.id);
+ * ```
+ */
 export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionScopeResult> {
-    return pulumi.output(args).apply(a => getEncryptionScope(a, opts))
+    return pulumi.output(args).apply((a: any) => getEncryptionScope(a, opts))
 }
 
 /**

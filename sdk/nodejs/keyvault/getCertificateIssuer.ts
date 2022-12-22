@@ -27,11 +27,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCertificateIssuer(args: GetCertificateIssuerArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateIssuerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:keyvault/getCertificateIssuer:getCertificateIssuer", {
         "keyVaultId": args.keyVaultId,
         "name": args.name,
@@ -79,9 +76,28 @@ export interface GetCertificateIssuerResult {
      */
     readonly providerName: string;
 }
-
+/**
+ * Use this data source to access information about an existing Key Vault Certificate Issuer.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleKeyVault = azure.keyvault.getKeyVault({
+ *     name: "mykeyvault",
+ *     resourceGroupName: "some-resource-group",
+ * });
+ * const exampleCertificateIssuer = exampleKeyVault.then(exampleKeyVault => azure.keyvault.getCertificateIssuer({
+ *     name: "existing",
+ *     keyVaultId: exampleKeyVault.id,
+ * }));
+ * export const id = exampleCertificateIssuer.then(exampleCertificateIssuer => exampleCertificateIssuer.id);
+ * ```
+ */
 export function getCertificateIssuerOutput(args: GetCertificateIssuerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateIssuerResult> {
-    return pulumi.output(args).apply(a => getCertificateIssuer(a, opts))
+    return pulumi.output(args).apply((a: any) => getCertificateIssuer(a, opts))
 }
 
 /**

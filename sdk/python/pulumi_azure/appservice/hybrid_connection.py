@@ -460,6 +460,8 @@ class HybridConnection(pulumi.CustomResource):
             __props__.__dict__["send_key_value"] = None
             __props__.__dict__["service_bus_namespace"] = None
             __props__.__dict__["service_bus_suffix"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["sendKeyValue"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(HybridConnection, __self__).__init__(
             'azure:appservice/hybridConnection:HybridConnection',
             resource_name,

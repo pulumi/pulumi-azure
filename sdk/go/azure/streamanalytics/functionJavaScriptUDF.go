@@ -44,8 +44,8 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewFunctionJavaScriptUDF(ctx, "exampleFunctionJavaScriptUDF", &streamanalytics.FunctionJavaScriptUDFArgs{
-//				StreamAnalyticsJobName: pulumi.String(exampleJob.Name),
-//				ResourceGroupName:      pulumi.String(exampleJob.ResourceGroupName),
+//				StreamAnalyticsJobName: *pulumi.String(exampleJob.Name),
+//				ResourceGroupName:      *pulumi.String(exampleJob.ResourceGroupName),
 //				Script:                 pulumi.String(fmt.Sprintf("function getRandomNumber(in) {\n  return in;\n}\n")),
 //				Inputs: streamanalytics.FunctionJavaScriptUDFInputTypeArray{
 //					&streamanalytics.FunctionJavaScriptUDFInputTypeArgs{

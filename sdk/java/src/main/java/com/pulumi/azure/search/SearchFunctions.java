@@ -27,7 +27,7 @@ public final class SearchFunctions {
      * import com.pulumi.azure.core.ResourceGroup;
      * import com.pulumi.azure.core.ResourceGroupArgs;
      * import com.pulumi.azure.search.SearchFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.search.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -71,7 +71,7 @@ public final class SearchFunctions {
      * import com.pulumi.azure.core.ResourceGroup;
      * import com.pulumi.azure.core.ResourceGroupArgs;
      * import com.pulumi.azure.search.SearchFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.search.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -115,7 +115,7 @@ public final class SearchFunctions {
      * import com.pulumi.azure.core.ResourceGroup;
      * import com.pulumi.azure.core.ResourceGroupArgs;
      * import com.pulumi.azure.search.SearchFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.search.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -159,7 +159,7 @@ public final class SearchFunctions {
      * import com.pulumi.azure.core.ResourceGroup;
      * import com.pulumi.azure.core.ResourceGroupArgs;
      * import com.pulumi.azure.search.SearchFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.search.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

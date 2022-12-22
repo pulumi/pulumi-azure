@@ -353,6 +353,17 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 	if args.VirtualNetworkGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualNetworkGatewayId'")
 	}
+	if args.AuthorizationKey != nil {
+		args.AuthorizationKey = pulumi.ToSecret(args.AuthorizationKey).(pulumi.StringPtrInput)
+	}
+	if args.SharedKey != nil {
+		args.SharedKey = pulumi.ToSecret(args.SharedKey).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"authorizationKey",
+		"sharedKey",
+	})
+	opts = append(opts, secrets)
 	var resource VirtualNetworkGatewayConnection
 	err := ctx.RegisterResource("azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection", name, args, &resource, opts...)
 	if err != nil {

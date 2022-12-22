@@ -30,11 +30,21 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("cacheEnabled")]
         public Input<bool>? CacheEnabled { get; set; }
 
+        [Input("contextAccessToken", required: true)]
+        private Input<string>? _contextAccessToken;
+
         /// <summary>
         /// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
         /// </summary>
-        [Input("contextAccessToken", required: true)]
-        public Input<string> ContextAccessToken { get; set; } = null!;
+        public Input<string>? ContextAccessToken
+        {
+            get => _contextAccessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _contextAccessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The URL (absolute or relative) of the source context for this step.
@@ -75,7 +85,11 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public InputMap<string> SecretArguments
         {
             get => _secretArguments ?? (_secretArguments = new InputMap<string>());
-            set => _secretArguments = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _secretArguments = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>

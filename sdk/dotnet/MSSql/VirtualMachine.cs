@@ -167,6 +167,11 @@ namespace Pulumi.Azure.MSSql
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "sqlConnectivityUpdatePassword",
+                    "sqlConnectivityUpdateUsername",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -232,17 +237,37 @@ namespace Pulumi.Azure.MSSql
         [Input("sqlConnectivityType")]
         public Input<string>? SqlConnectivityType { get; set; }
 
+        [Input("sqlConnectivityUpdatePassword")]
+        private Input<string>? _sqlConnectivityUpdatePassword;
+
         /// <summary>
         /// The SQL Server sysadmin login password.
         /// </summary>
-        [Input("sqlConnectivityUpdatePassword")]
-        public Input<string>? SqlConnectivityUpdatePassword { get; set; }
+        public Input<string>? SqlConnectivityUpdatePassword
+        {
+            get => _sqlConnectivityUpdatePassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sqlConnectivityUpdatePassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("sqlConnectivityUpdateUsername")]
+        private Input<string>? _sqlConnectivityUpdateUsername;
 
         /// <summary>
         /// The SQL Server sysadmin login to create.
         /// </summary>
-        [Input("sqlConnectivityUpdateUsername")]
-        public Input<string>? SqlConnectivityUpdateUsername { get; set; }
+        public Input<string>? SqlConnectivityUpdateUsername
+        {
+            get => _sqlConnectivityUpdateUsername;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sqlConnectivityUpdateUsername = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// A `sql_instance` block as defined below.
@@ -330,17 +355,37 @@ namespace Pulumi.Azure.MSSql
         [Input("sqlConnectivityType")]
         public Input<string>? SqlConnectivityType { get; set; }
 
+        [Input("sqlConnectivityUpdatePassword")]
+        private Input<string>? _sqlConnectivityUpdatePassword;
+
         /// <summary>
         /// The SQL Server sysadmin login password.
         /// </summary>
-        [Input("sqlConnectivityUpdatePassword")]
-        public Input<string>? SqlConnectivityUpdatePassword { get; set; }
+        public Input<string>? SqlConnectivityUpdatePassword
+        {
+            get => _sqlConnectivityUpdatePassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sqlConnectivityUpdatePassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("sqlConnectivityUpdateUsername")]
+        private Input<string>? _sqlConnectivityUpdateUsername;
 
         /// <summary>
         /// The SQL Server sysadmin login to create.
         /// </summary>
-        [Input("sqlConnectivityUpdateUsername")]
-        public Input<string>? SqlConnectivityUpdateUsername { get; set; }
+        public Input<string>? SqlConnectivityUpdateUsername
+        {
+            get => _sqlConnectivityUpdateUsername;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sqlConnectivityUpdateUsername = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// A `sql_instance` block as defined below.

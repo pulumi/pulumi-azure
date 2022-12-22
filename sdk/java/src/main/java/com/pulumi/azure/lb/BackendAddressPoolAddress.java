@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.network.NetworkFunctions;
- * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+ * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
  * import com.pulumi.azure.lb.LbFunctions;
  * import com.pulumi.azure.lb.inputs.GetLBArgs;
  * import com.pulumi.azure.lb.inputs.GetBackendAddressPoolArgs;

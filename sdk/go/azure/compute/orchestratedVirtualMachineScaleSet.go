@@ -136,6 +136,13 @@ func NewOrchestratedVirtualMachineScaleSet(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.UserDataBase64 != nil {
+		args.UserDataBase64 = pulumi.ToSecret(args.UserDataBase64).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"userDataBase64",
+	})
+	opts = append(opts, secrets)
 	var resource OrchestratedVirtualMachineScaleSet
 	err := ctx.RegisterResource("azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet", name, args, &resource, opts...)
 	if err != nil {

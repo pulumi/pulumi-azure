@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDicomService(args: GetDicomServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDicomServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:healthcare/getDicomService:getDicomService", {
         "name": args.name,
         "workspaceId": args.workspaceId,
@@ -77,9 +74,24 @@ export interface GetDicomServiceResult {
     readonly tags: {[key: string]: string};
     readonly workspaceId: string;
 }
-
+/**
+ * Use this data source to access information about an existing Healthcare DICOM Service
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.healthcare.getDicomService({
+ *     name: "example-healthcare_dicom_service",
+ *     workspaceId: data.azurerm_healthcare_workspace.example.id,
+ * });
+ * export const azurermHealthcareDicomService = example.then(example => example.id);
+ * ```
+ */
 export function getDicomServiceOutput(args: GetDicomServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDicomServiceResult> {
-    return pulumi.output(args).apply(a => getDicomService(a, opts))
+    return pulumi.output(args).apply((a: any) => getDicomService(a, opts))
 }
 
 /**

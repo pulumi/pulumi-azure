@@ -110,6 +110,13 @@ func NewIotHubCertificate(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.CertificateContent != nil {
+		args.CertificateContent = pulumi.ToSecret(args.CertificateContent).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"certificateContent",
+	})
+	opts = append(opts, secrets)
 	var resource IotHubCertificate
 	err := ctx.RegisterResource("azure:iot/iotHubCertificate:IotHubCertificate", name, args, &resource, opts...)
 	if err != nil {

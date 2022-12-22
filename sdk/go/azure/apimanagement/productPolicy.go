@@ -38,9 +38,9 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewProductPolicy(ctx, "exampleProductPolicy", &apimanagement.ProductPolicyArgs{
-//				ProductId:         pulumi.String(exampleProduct.ProductId),
-//				ApiManagementName: pulumi.String(exampleProduct.ApiManagementName),
-//				ResourceGroupName: pulumi.String(exampleProduct.ResourceGroupName),
+//				ProductId:         *pulumi.String(exampleProduct.ProductId),
+//				ApiManagementName: *pulumi.String(exampleProduct.ApiManagementName),
+//				ResourceGroupName: *pulumi.String(exampleProduct.ResourceGroupName),
 //				XmlContent:        pulumi.String(fmt.Sprintf("<policies>\n  <inbound>\n    <find-and-replace from=\"xyz\" to=\"abc\" />\n  </inbound>\n</policies>\n")),
 //			})
 //			if err != nil {

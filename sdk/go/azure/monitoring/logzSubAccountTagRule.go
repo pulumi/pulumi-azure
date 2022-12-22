@@ -56,18 +56,18 @@ import (
 //			exampleLogzSubAccount, err := monitoring.NewLogzSubAccount(ctx, "exampleLogzSubAccount", &monitoring.LogzSubAccountArgs{
 //				LogzMonitorId: exampleLogzMonitor.ID(),
 //				User: &monitoring.LogzSubAccountUserArgs{
-//					Email: exampleLogzMonitor.User.ApplyT(func(user monitoring.LogzMonitorUser) (string, error) {
-//						return user.Email, nil
-//					}).(pulumi.StringOutput),
-//					FirstName: exampleLogzMonitor.User.ApplyT(func(user monitoring.LogzMonitorUser) (string, error) {
-//						return user.FirstName, nil
-//					}).(pulumi.StringOutput),
-//					LastName: exampleLogzMonitor.User.ApplyT(func(user monitoring.LogzMonitorUser) (string, error) {
-//						return user.LastName, nil
-//					}).(pulumi.StringOutput),
-//					PhoneNumber: exampleLogzMonitor.User.ApplyT(func(user monitoring.LogzMonitorUser) (string, error) {
-//						return user.PhoneNumber, nil
-//					}).(pulumi.StringOutput),
+//					Email: exampleLogzMonitor.User.ApplyT(func(user monitoring.LogzMonitorUser) (*string, error) {
+//						return &user.Email, nil
+//					}).(pulumi.StringPtrOutput),
+//					FirstName: exampleLogzMonitor.User.ApplyT(func(user monitoring.LogzMonitorUser) (*string, error) {
+//						return &user.FirstName, nil
+//					}).(pulumi.StringPtrOutput),
+//					LastName: exampleLogzMonitor.User.ApplyT(func(user monitoring.LogzMonitorUser) (*string, error) {
+//						return &user.LastName, nil
+//					}).(pulumi.StringPtrOutput),
+//					PhoneNumber: exampleLogzMonitor.User.ApplyT(func(user monitoring.LogzMonitorUser) (*string, error) {
+//						return &user.PhoneNumber, nil
+//					}).(pulumi.StringPtrOutput),
 //				},
 //			})
 //			if err != nil {

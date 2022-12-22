@@ -120,6 +120,10 @@ namespace Pulumi.Azure.Network
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "authorizationKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -171,11 +175,21 @@ namespace Pulumi.Azure.Network
 
     public sealed class ExpressRouteCircuitAuthorizationState : global::Pulumi.ResourceArgs
     {
+        [Input("authorizationKey")]
+        private Input<string>? _authorizationKey;
+
         /// <summary>
         /// The Authorization Key.
         /// </summary>
-        [Input("authorizationKey")]
-        public Input<string>? AuthorizationKey { get; set; }
+        public Input<string>? AuthorizationKey
+        {
+            get => _authorizationKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _authorizationKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The authorization use status.

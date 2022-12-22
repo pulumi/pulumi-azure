@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewVirtualMachine(ctx, "exampleMssql/virtualMachineVirtualMachine", &mssql.VirtualMachineArgs{
-//				VirtualMachineId:              pulumi.String(exampleVirtualMachine.Id),
+//				VirtualMachineId:              *pulumi.String(exampleVirtualMachine.Id),
 //				SqlLicenseType:                pulumi.String("PAYG"),
 //				RServicesEnabled:              pulumi.Bool(true),
 //				SqlConnectivityPort:           pulumi.Int(1433),
@@ -115,6 +115,17 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	if args.VirtualMachineId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMachineId'")
 	}
+	if args.SqlConnectivityUpdatePassword != nil {
+		args.SqlConnectivityUpdatePassword = pulumi.ToSecret(args.SqlConnectivityUpdatePassword).(pulumi.StringPtrInput)
+	}
+	if args.SqlConnectivityUpdateUsername != nil {
+		args.SqlConnectivityUpdateUsername = pulumi.ToSecret(args.SqlConnectivityUpdateUsername).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sqlConnectivityUpdatePassword",
+		"sqlConnectivityUpdateUsername",
+	})
+	opts = append(opts, secrets)
 	var resource VirtualMachine
 	err := ctx.RegisterResource("azure:mssql/virtualMachine:VirtualMachine", name, args, &resource, opts...)
 	if err != nil {

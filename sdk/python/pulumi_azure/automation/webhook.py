@@ -481,7 +481,9 @@ class Webhook(pulumi.CustomResource):
             if runbook_name is None and not opts.urn:
                 raise TypeError("Missing required property 'runbook_name'")
             __props__.__dict__["runbook_name"] = runbook_name
-            __props__.__dict__["uri"] = uri
+            __props__.__dict__["uri"] = None if uri is None else pulumi.Output.secret(uri)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["uri"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Webhook, __self__).__init__(
             'azure:automation/webhook:Webhook',
             resource_name,

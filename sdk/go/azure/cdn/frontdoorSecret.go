@@ -43,7 +43,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			frontdoor, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+//			frontdoor, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
 //				DisplayName: pulumi.StringRef("Microsoft.Azure.Cdn"),
 //			}, nil)
 //			if err != nil {
@@ -52,7 +52,7 @@ import (
 //			_, err = keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:                pulumi.Any(azurerm_resource_group.Example.Location),
 //				ResourceGroupName:       pulumi.Any(azurerm_resource_group.Example.Name),
-//				TenantId:                pulumi.String(current.TenantId),
+//				TenantId:                *pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("premium"),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
 //				NetworkAcls: &keyvault.KeyVaultNetworkAclsArgs{
@@ -64,15 +64,15 @@ import (
 //				},
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: pulumi.String(current.TenantId),
-//						ObjectId: pulumi.String(frontdoor.ObjectId),
+//						TenantId: *pulumi.String(current.TenantId),
+//						ObjectId: *pulumi.String(frontdoor.ObjectId),
 //						SecretPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //						},
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: pulumi.String(current.TenantId),
-//						ObjectId: pulumi.String(current.ObjectId),
+//						TenantId: *pulumi.String(current.TenantId),
+//						ObjectId: *pulumi.String(current.ObjectId),
 //						CertificatePermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //							pulumi.String("Import"),

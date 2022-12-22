@@ -1072,6 +1072,8 @@ class Cache(pulumi.CustomResource):
             __props__.__dict__["secondary_access_key"] = None
             __props__.__dict__["secondary_connection_string"] = None
             __props__.__dict__["ssl_port"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["primaryAccessKey", "primaryConnectionString", "secondaryAccessKey", "secondaryConnectionString"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cache, __self__).__init__(
             'azure:redis/cache:Cache',
             resource_name,

@@ -24,11 +24,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:netapp/getSnapshot:getSnapshot", {
         "accountName": args.accountName,
         "name": args.name,
@@ -82,9 +79,27 @@ export interface GetSnapshotResult {
     readonly resourceGroupName: string;
     readonly volumeName: string;
 }
-
+/**
+ * Uses this data source to access information about an existing NetApp Snapshot.
+ *
+ * ## NetApp Snapshot Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const test = azure.netapp.getSnapshot({
+ *     resourceGroupName: "acctestRG",
+ *     name: "acctestnetappsnapshot",
+ *     accountName: "acctestnetappaccount",
+ *     poolName: "acctestnetapppool",
+ *     volumeName: "acctestnetappvolume",
+ * });
+ * export const netappSnapshotId = data.azurerm_netapp_snapshot.example.id;
+ * ```
+ */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
-    return pulumi.output(args).apply(a => getSnapshot(a, opts))
+    return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
 }
 
 /**

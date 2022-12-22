@@ -805,7 +805,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["notes"] = notes
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -822,6 +822,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["username"] = username
             __props__.__dict__["fqdn"] = None
             __props__.__dict__["unique_identifier"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LinuxVirtualMachine, __self__).__init__(
             'azure:devtest/linuxVirtualMachine:LinuxVirtualMachine',
             resource_name,

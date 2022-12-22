@@ -12,17 +12,37 @@ namespace Pulumi.Azure.ApiManagement.Inputs
 
     public sealed class ServiceCertificateArgs : global::Pulumi.ResourceArgs
     {
+        [Input("certificatePassword")]
+        private Input<string>? _certificatePassword;
+
         /// <summary>
         /// The password for the certificate.
         /// </summary>
-        [Input("certificatePassword")]
-        public Input<string>? CertificatePassword { get; set; }
+        public Input<string>? CertificatePassword
+        {
+            get => _certificatePassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificatePassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("encodedCertificate", required: true)]
+        private Input<string>? _encodedCertificate;
 
         /// <summary>
         /// The Base64 Encoded PFX or Base64 Encoded X.509 Certificate.
         /// </summary>
-        [Input("encodedCertificate", required: true)]
-        public Input<string> EncodedCertificate { get; set; } = null!;
+        public Input<string>? EncodedCertificate
+        {
+            get => _encodedCertificate;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _encodedCertificate = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.

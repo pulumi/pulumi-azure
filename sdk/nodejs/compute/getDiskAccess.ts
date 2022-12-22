@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDiskAccess(args: GetDiskAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getDiskAccess:getDiskAccess", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -63,9 +60,24 @@ export interface GetDiskAccessResult {
     readonly resourceGroupName: string;
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Disk Access.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.compute.getDiskAccess({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getDiskAccessOutput(args: GetDiskAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskAccessResult> {
-    return pulumi.output(args).apply(a => getDiskAccess(a, opts))
+    return pulumi.output(args).apply((a: any) => getDiskAccess(a, opts))
 }
 
 /**

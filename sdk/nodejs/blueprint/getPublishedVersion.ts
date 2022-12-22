@@ -24,11 +24,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPublishedVersion(args: GetPublishedVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPublishedVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:blueprint/getPublishedVersion:getPublishedVersion", {
         "blueprintName": args.blueprintName,
         "scopeId": args.scopeId,
@@ -84,9 +81,27 @@ export interface GetPublishedVersionResult {
     readonly type: string;
     readonly version: string;
 }
-
+/**
+ * Use this data source to access information about an existing Blueprint Published Version
+ *
+ * > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getSubscription({});
+ * const test = current.then(current => azure.blueprint.getPublishedVersion({
+ *     scopeId: current.id,
+ *     blueprintName: "exampleBluePrint",
+ *     version: "dev_v2.3",
+ * }));
+ * ```
+ */
 export function getPublishedVersionOutput(args: GetPublishedVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublishedVersionResult> {
-    return pulumi.output(args).apply(a => getPublishedVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getPublishedVersion(a, opts))
 }
 
 /**

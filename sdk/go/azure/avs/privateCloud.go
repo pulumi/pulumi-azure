@@ -84,6 +84,17 @@ func NewPrivateCloud(ctx *pulumi.Context,
 	if args.SkuName == nil {
 		return nil, errors.New("invalid value for required argument 'SkuName'")
 	}
+	if args.NsxtPassword != nil {
+		args.NsxtPassword = pulumi.ToSecret(args.NsxtPassword).(pulumi.StringPtrInput)
+	}
+	if args.VcenterPassword != nil {
+		args.VcenterPassword = pulumi.ToSecret(args.VcenterPassword).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"nsxtPassword",
+		"vcenterPassword",
+	})
+	opts = append(opts, secrets)
 	var resource PrivateCloud
 	err := ctx.RegisterResource("azure:avs/privateCloud:PrivateCloud", name, args, &resource, opts...)
 	if err != nil {

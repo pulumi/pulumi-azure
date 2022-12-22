@@ -121,6 +121,10 @@ namespace Pulumi.Azure.Bot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "smsChannelAuthToken",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -174,11 +178,21 @@ namespace Pulumi.Azure.Bot
         [Input("smsChannelAccountSecurityId", required: true)]
         public Input<string> SmsChannelAccountSecurityId { get; set; } = null!;
 
+        [Input("smsChannelAuthToken", required: true)]
+        private Input<string>? _smsChannelAuthToken;
+
         /// <summary>
         /// The authorization token for the SMS Channel.
         /// </summary>
-        [Input("smsChannelAuthToken", required: true)]
-        public Input<string> SmsChannelAuthToken { get; set; } = null!;
+        public Input<string>? SmsChannelAuthToken
+        {
+            get => _smsChannelAuthToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _smsChannelAuthToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ChannelSmsArgs()
         {
@@ -218,11 +232,21 @@ namespace Pulumi.Azure.Bot
         [Input("smsChannelAccountSecurityId")]
         public Input<string>? SmsChannelAccountSecurityId { get; set; }
 
+        [Input("smsChannelAuthToken")]
+        private Input<string>? _smsChannelAuthToken;
+
         /// <summary>
         /// The authorization token for the SMS Channel.
         /// </summary>
-        [Input("smsChannelAuthToken")]
-        public Input<string>? SmsChannelAuthToken { get; set; }
+        public Input<string>? SmsChannelAuthToken
+        {
+            get => _smsChannelAuthToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _smsChannelAuthToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ChannelSmsState()
         {

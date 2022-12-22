@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRestorableDatabaseAccounts(args: GetRestorableDatabaseAccountsArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorableDatabaseAccountsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", {
         "location": args.location,
         "name": args.name,
@@ -66,9 +63,24 @@ export interface GetRestorableDatabaseAccountsResult {
     readonly location: string;
     readonly name: string;
 }
-
+/**
+ * Use this data source to access information about Cosmos DB Restorable Database Accounts.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.cosmosdb.getRestorableDatabaseAccounts({
+ *     name: "example-ca",
+ *     location: "West Europe",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getRestorableDatabaseAccountsOutput(args: GetRestorableDatabaseAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorableDatabaseAccountsResult> {
-    return pulumi.output(args).apply(a => getRestorableDatabaseAccounts(a, opts))
+    return pulumi.output(args).apply((a: any) => getRestorableDatabaseAccounts(a, opts))
 }
 
 /**

@@ -294,6 +294,8 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["sslPort"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["primaryAccessKey", "primaryConnectionString", "secondaryAccessKey", "secondaryConnectionString"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Cache.__pulumiType, name, resourceInputs, opts);
     }
 }

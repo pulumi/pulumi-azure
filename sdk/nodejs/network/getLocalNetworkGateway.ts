@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLocalNetworkGateway(args: GetLocalNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalNetworkGatewayResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getLocalNetworkGateway:getLocalNetworkGateway", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -83,9 +80,24 @@ export interface GetLocalNetworkGatewayResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Local Network Gateway.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getLocalNetworkGateway({
+ *     name: "existing-local-network-gateway",
+ *     resourceGroupName: "existing-resources",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getLocalNetworkGatewayOutput(args: GetLocalNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNetworkGatewayResult> {
-    return pulumi.output(args).apply(a => getLocalNetworkGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getLocalNetworkGateway(a, opts))
 }
 
 /**

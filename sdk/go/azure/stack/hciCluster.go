@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApplication, err := azuread.LookupApplication(ctx, &GetApplicationArgs{
+//			exampleApplication, err := azuread.LookupApplication(ctx, &azuread.LookupApplicationArgs{
 //				DisplayName: pulumi.StringRef("Allowed resource types"),
 //			}, nil)
 //			if err != nil {
@@ -48,8 +48,8 @@ import (
 //			_, err = stack.NewHciCluster(ctx, "exampleHciCluster", &stack.HciClusterArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
-//				ClientId:          pulumi.String(exampleApplication.ApplicationId),
-//				TenantId:          pulumi.String(current.TenantId),
+//				ClientId:          *pulumi.String(exampleApplication.ApplicationId),
+//				TenantId:          *pulumi.String(current.TenantId),
 //			})
 //			if err != nil {
 //				return err

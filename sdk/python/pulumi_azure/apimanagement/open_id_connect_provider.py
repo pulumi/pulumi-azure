@@ -411,10 +411,10 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             __props__.__dict__["api_management_name"] = api_management_name
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
-            __props__.__dict__["client_id"] = client_id
+            __props__.__dict__["client_id"] = None if client_id is None else pulumi.Output.secret(client_id)
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
-            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
             __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
@@ -426,6 +426,8 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientId", "clientSecret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OpenIdConnectProvider, __self__).__init__(
             'azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider',
             resource_name,

@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:logicapps/getStandard:getStandard", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -93,9 +90,24 @@ export interface GetStandardResult {
     readonly version: string;
     readonly virtualNetworkSubnetId: string;
 }
-
+/**
+ * Use this data source to access information about an existing Logic App Standard instance.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.logicapps.getStandard({
+ *     name: "logicappstd",
+ *     resourceGroupName: "example-rg",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardResult> {
-    return pulumi.output(args).apply(a => getStandard(a, opts))
+    return pulumi.output(args).apply((a: any) => getStandard(a, opts))
 }
 
 /**

@@ -35,16 +35,16 @@ import (
 //				return err
 //			}
 //			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
-//				ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       pulumi.String(exampleAccount.Name),
+//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:       *pulumi.String(exampleAccount.Name),
 //				Throughput:        pulumi.Int(400),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
-//				ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       pulumi.String(exampleAccount.Name),
+//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:       *pulumi.String(exampleAccount.Name),
 //				DatabaseName:      exampleSqlDatabase.Name,
 //				PartitionKeyPath:  pulumi.String("/id"),
 //			})

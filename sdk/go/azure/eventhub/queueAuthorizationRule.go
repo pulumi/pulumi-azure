@@ -115,6 +115,15 @@ func NewQueueAuthorizationRule(ctx *pulumi.Context,
 	if args.QueueId == nil {
 		return nil, errors.New("invalid value for required argument 'QueueId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryConnectionString",
+		"primaryConnectionStringAlias",
+		"primaryKey",
+		"secondaryConnectionString",
+		"secondaryConnectionStringAlias",
+		"secondaryKey",
+	})
+	opts = append(opts, secrets)
 	var resource QueueAuthorizationRule
 	err := ctx.RegisterResource("azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {

@@ -39,8 +39,8 @@ import (
 //				return err
 //			}
 //			exampleSubscriptionPolicyAssignment, err := core.NewSubscriptionPolicyAssignment(ctx, "exampleSubscriptionPolicyAssignment", &core.SubscriptionPolicyAssignmentArgs{
-//				SubscriptionId:     pulumi.String(exampleSubscription.Id),
-//				PolicyDefinitionId: pulumi.String(examplePolicySetDefinition.Id),
+//				SubscriptionId:     *pulumi.String(exampleSubscription.Id),
+//				PolicyDefinitionId: *pulumi.String(examplePolicySetDefinition.Id),
 //				Location:           pulumi.String("westus"),
 //				Identity: &core.SubscriptionPolicyAssignmentIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
@@ -50,7 +50,7 @@ import (
 //				return err
 //			}
 //			_, err = core.NewSubscriptionPolicyExemption(ctx, "exampleSubscriptionPolicyExemption", &core.SubscriptionPolicyExemptionArgs{
-//				SubscriptionId:     pulumi.String(exampleSubscription.Id),
+//				SubscriptionId:     *pulumi.String(exampleSubscription.Id),
 //				PolicyAssignmentId: exampleSubscriptionPolicyAssignment.ID(),
 //				ExemptionCategory:  pulumi.String("Mitigated"),
 //			})

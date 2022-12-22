@@ -127,6 +127,13 @@ func NewWebhook(ctx *pulumi.Context,
 	if args.RunbookName == nil {
 		return nil, errors.New("invalid value for required argument 'RunbookName'")
 	}
+	if args.Uri != nil {
+		args.Uri = pulumi.ToSecret(args.Uri).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"uri",
+	})
+	opts = append(opts, secrets)
 	var resource Webhook
 	err := ctx.RegisterResource("azure:automation/webhook:Webhook", name, args, &resource, opts...)
 	if err != nil {

@@ -42,7 +42,7 @@ import (
 //			}
 //			exampleGroupPolicyAssignment, err := management.NewGroupPolicyAssignment(ctx, "exampleGroupPolicyAssignment", &management.GroupPolicyAssignmentArgs{
 //				ManagementGroupId:  exampleGroup.ID(),
-//				PolicyDefinitionId: pulumi.String(examplePolicySetDefinition.Id),
+//				PolicyDefinitionId: *pulumi.String(examplePolicySetDefinition.Id),
 //				Location:           pulumi.String("westus"),
 //				Identity: &management.GroupPolicyAssignmentIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),

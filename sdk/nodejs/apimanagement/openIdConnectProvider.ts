@@ -142,8 +142,8 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["clientId"] = args?.clientId ? pulumi.secret(args.clientId) : undefined;
+            resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["metadataEndpoint"] = args ? args.metadataEndpoint : undefined;
@@ -151,6 +151,8 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["clientId", "clientSecret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OpenIdConnectProvider.__pulumiType, name, resourceInputs, opts);
     }
 }

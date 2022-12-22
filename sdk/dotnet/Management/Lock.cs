@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Management
     /// 
     ///     var subscription_level = new Azure.Management.Lock("subscription-level", new()
     ///     {
-    ///         Scope = current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         Scope = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         LockLevel = "CanNotDelete",
     ///         Notes = "Items can't be deleted in this subscription!",
     ///     });

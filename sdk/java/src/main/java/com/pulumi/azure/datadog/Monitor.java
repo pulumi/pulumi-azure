@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.authorization.AuthorizationFunctions;
  * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
  * import com.pulumi.azure.authorization.Assignment;
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Assignment(&#34;example&#34;, AssignmentArgs.builder()        
- *             .scope(primary.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .roleDefinitionId(monitoringReader.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.roleDefinitionId()))
  *             .principalId(azurerm_datadog_monitor.example().identity()[0].principal_id())
  *             .build());

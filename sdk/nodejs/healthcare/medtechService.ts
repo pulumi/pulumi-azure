@@ -37,6 +37,7 @@ import * as utilities from "../utilities";
  *                 }
  *               ]
  * }
+ *
  * `,
  *     eventhubConsumerGroupName: "tfex-eventhub-consumer-group.name",
  *     eventhubName: "tfex-eventhub.name",

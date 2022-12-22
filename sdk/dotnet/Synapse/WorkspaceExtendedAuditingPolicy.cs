@@ -143,6 +143,10 @@ namespace Pulumi.Azure.Synapse
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "storageAccountAccessKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -178,11 +182,21 @@ namespace Pulumi.Azure.Synapse
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }
 
+        [Input("storageAccountAccessKey")]
+        private Input<string>? _storageAccountAccessKey;
+
         /// <summary>
         /// The access key to use for the auditing storage account.
         /// </summary>
-        [Input("storageAccountAccessKey")]
-        public Input<string>? StorageAccountAccessKey { get; set; }
+        public Input<string>? StorageAccountAccessKey
+        {
+            get => _storageAccountAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Is `storage_account_access_key` value the storage's secondary key?
@@ -222,11 +236,21 @@ namespace Pulumi.Azure.Synapse
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }
 
+        [Input("storageAccountAccessKey")]
+        private Input<string>? _storageAccountAccessKey;
+
         /// <summary>
         /// The access key to use for the auditing storage account.
         /// </summary>
-        [Input("storageAccountAccessKey")]
-        public Input<string>? StorageAccountAccessKey { get; set; }
+        public Input<string>? StorageAccountAccessKey
+        {
+            get => _storageAccountAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Is `storage_account_access_key` value the storage's secondary key?

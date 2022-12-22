@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Authorization
     /// 
     ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
     ///     {
-    ///         Scope = primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         RoleDefinitionName = "Reader",
     ///         PrincipalId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///     });
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.Authorization
     ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("exampleRoleDefinition", new()
     ///     {
     ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
-    ///         Scope = primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         Permissions = new[]
     ///         {
     ///             new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
@@ -65,14 +65,14 @@ namespace Pulumi.Azure.Authorization
     ///         },
     ///         AssignableScopes = new[]
     ///         {
-    ///             primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///             primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         },
     ///     });
     /// 
     ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
     ///     {
     ///         Name = "00000000-0000-0000-0000-000000000000",
-    ///         Scope = primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         RoleDefinitionId = exampleRoleDefinition.RoleDefinitionResourceId,
     ///         PrincipalId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///     });
@@ -95,7 +95,7 @@ namespace Pulumi.Azure.Authorization
     ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("exampleRoleDefinition", new()
     ///     {
     ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
-    ///         Scope = primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         Permissions = new[]
     ///         {
     ///             new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
@@ -109,14 +109,14 @@ namespace Pulumi.Azure.Authorization
     ///         },
     ///         AssignableScopes = new[]
     ///         {
-    ///             primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///             primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         },
     ///     });
     /// 
     ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
     ///     {
     ///         Name = "00000000-0000-0000-0000-000000000000",
-    ///         Scope = primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         RoleDefinitionId = exampleRoleDefinition.RoleDefinitionResourceId,
     ///         PrincipalId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///     });
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Authorization
     ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("exampleRoleDefinition", new()
     ///     {
     ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
-    ///         Scope = primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         Permissions = new[]
     ///         {
     ///             new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
@@ -158,7 +158,7 @@ namespace Pulumi.Azure.Authorization
     ///         },
     ///         AssignableScopes = new[]
     ///         {
-    ///             primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///             primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         },
     ///     });
     /// 

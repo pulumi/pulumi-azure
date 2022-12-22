@@ -54,7 +54,7 @@ import (
 //				return err
 //			}
 //			_, err = core.NewSubscriptionCostManagementExport(ctx, "exampleSubscriptionCostManagementExport", &core.SubscriptionCostManagementExportArgs{
-//				SubscriptionId:            pulumi.String(exampleSubscription.Id),
+//				SubscriptionId:            *pulumi.String(exampleSubscription.Id),
 //				RecurrenceType:            pulumi.String("Monthly"),
 //				RecurrencePeriodStartDate: pulumi.String("2020-08-18T00:00:00Z"),
 //				RecurrencePeriodEndDate:   pulumi.String("2020-09-18T00:00:00Z"),

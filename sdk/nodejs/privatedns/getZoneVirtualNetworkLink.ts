@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getZoneVirtualNetworkLink(args: GetZoneVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneVirtualNetworkLinkResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", {
         "name": args.name,
         "privateDnsZoneName": args.privateDnsZoneName,
@@ -76,9 +73,25 @@ export interface GetZoneVirtualNetworkLinkResult {
      */
     readonly virtualNetworkId: string;
 }
-
+/**
+ * Use this data source to access information about an existing Private DNS zone Virtual Network Link. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.privatedns.getZoneVirtualNetworkLink({
+ *     name: "test",
+ *     resourceGroupName: "test-rg",
+ *     privateDnsZoneName: "test-zone",
+ * });
+ * export const privateDnsARecordId = example.then(example => example.id);
+ * ```
+ */
 export function getZoneVirtualNetworkLinkOutput(args: GetZoneVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneVirtualNetworkLinkResult> {
-    return pulumi.output(args).apply(a => getZoneVirtualNetworkLink(a, opts))
+    return pulumi.output(args).apply((a: any) => getZoneVirtualNetworkLink(a, opts))
 }
 
 /**

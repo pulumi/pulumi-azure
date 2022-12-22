@@ -167,6 +167,8 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["dscPrimaryAccessKey", "dscSecondaryAccessKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }
 }

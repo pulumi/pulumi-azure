@@ -36,10 +36,10 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewGroupUser(ctx, "exampleGroupUser", &apimanagement.GroupUserArgs{
-//				UserId:            pulumi.String(exampleUser.Id),
+//				UserId:            *pulumi.String(exampleUser.Id),
 //				GroupName:         pulumi.String("example-group"),
-//				ResourceGroupName: pulumi.String(exampleUser.ResourceGroupName),
-//				ApiManagementName: pulumi.String(exampleUser.ApiManagementName),
+//				ResourceGroupName: *pulumi.String(exampleUser.ResourceGroupName),
+//				ApiManagementName: *pulumi.String(exampleUser.ApiManagementName),
 //			})
 //			if err != nil {
 //				return err

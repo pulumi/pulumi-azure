@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
+ * import com.pulumi.azure.core.inputs.GetResourceGroupArgs;
  * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
  * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
  * import com.pulumi.azure.streamanalytics.FunctionJavaScriptUDF;
@@ -47,13 +47,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleResourceGroup = CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
+ *         final var exampleResourceGroup = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
  *             .name(&#34;example-resources&#34;)
  *             .build());
  * 
  *         final var exampleJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
  *             .name(&#34;example-job&#34;)
- *             .resourceGroupName(exampleResourceGroup.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.name()))
+ *             .resourceGroupName(exampleResourceGroup.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.name()))
  *             .build());
  * 
  *         var exampleFunctionJavaScriptUDF = new FunctionJavaScriptUDF(&#34;exampleFunctionJavaScriptUDF&#34;, FunctionJavaScriptUDFArgs.builder()        

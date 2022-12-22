@@ -77,9 +77,9 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewOutputCosmosdb(ctx, "exampleOutputCosmosdb", &streamanalytics.OutputCosmosdbArgs{
-//				StreamAnalyticsJobId: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-//					return exampleJob.Id, nil
-//				}).(pulumi.StringOutput),
+//				StreamAnalyticsJobId: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
+//					return &exampleJob.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				CosmosdbAccountKey:    exampleAccount.PrimaryKey,
 //				CosmosdbSqlDatabaseId: exampleSqlDatabase.ID(),
 //				ContainerName:         exampleSqlContainer.Name,
@@ -141,6 +141,13 @@ func NewOutputCosmosdb(ctx *pulumi.Context,
 	if args.StreamAnalyticsJobId == nil {
 		return nil, errors.New("invalid value for required argument 'StreamAnalyticsJobId'")
 	}
+	if args.CosmosdbAccountKey != nil {
+		args.CosmosdbAccountKey = pulumi.ToSecret(args.CosmosdbAccountKey).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"cosmosdbAccountKey",
+	})
+	opts = append(opts, secrets)
 	var resource OutputCosmosdb
 	err := ctx.RegisterResource("azure:streamanalytics/outputCosmosdb:OutputCosmosdb", name, args, &resource, opts...)
 	if err != nil {

@@ -25,7 +25,7 @@ public final class MachinelearningFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.machinelearning.MachinelearningFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
+     * import com.pulumi.azure.machinelearning.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -64,7 +64,7 @@ public final class MachinelearningFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.machinelearning.MachinelearningFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
+     * import com.pulumi.azure.machinelearning.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -103,7 +103,7 @@ public final class MachinelearningFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.machinelearning.MachinelearningFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
+     * import com.pulumi.azure.machinelearning.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -142,7 +142,7 @@ public final class MachinelearningFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.machinelearning.MachinelearningFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
+     * import com.pulumi.azure.machinelearning.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

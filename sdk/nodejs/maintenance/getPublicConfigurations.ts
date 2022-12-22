@@ -20,16 +20,13 @@ import * as utilities from "../utilities";
  *     scope: "SQLManagedInstance",
  *     recurEvery: "Monday-Thursday",
  * });
- * export const name = existing.then(existing => existing.configs?[0]?.name);
+ * export const name = existing.then(existing => existing.configs?.[0]?.name);
  * ```
  */
 export function getPublicConfigurations(args?: GetPublicConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicConfigurationsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:maintenance/getPublicConfigurations:getPublicConfigurations", {
         "location": args.location,
         "recurEvery": args.recurEvery,
@@ -77,9 +74,25 @@ export interface GetPublicConfigurationsResult {
     readonly recurEvery?: string;
     readonly scope?: string;
 }
-
+/**
+ * Use this data source to access information about existing Public Maintenance Configurations.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const existing = azure.maintenance.getPublicConfigurations({
+ *     location: "West Europe",
+ *     scope: "SQLManagedInstance",
+ *     recurEvery: "Monday-Thursday",
+ * });
+ * export const name = existing.then(existing => existing.configs?.[0]?.name);
+ * ```
+ */
 export function getPublicConfigurationsOutput(args?: GetPublicConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicConfigurationsResult> {
-    return pulumi.output(args).apply(a => getPublicConfigurations(a, opts))
+    return pulumi.output(args).apply((a: any) => getPublicConfigurations(a, opts))
 }
 
 /**

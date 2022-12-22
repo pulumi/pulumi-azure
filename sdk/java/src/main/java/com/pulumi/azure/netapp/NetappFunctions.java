@@ -37,7 +37,7 @@ public final class NetappFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.netapp.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -76,7 +76,7 @@ public final class NetappFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.netapp.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -115,7 +115,7 @@ public final class NetappFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.netapp.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -154,7 +154,7 @@ public final class NetappFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.netapp.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -193,7 +193,7 @@ public final class NetappFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
-     * import com.pulumi.azure.batch.inputs.GetPoolArgs;
+     * import com.pulumi.azure.netapp.inputs.GetPoolArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -233,7 +233,7 @@ public final class NetappFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
-     * import com.pulumi.azure.batch.inputs.GetPoolArgs;
+     * import com.pulumi.azure.netapp.inputs.GetPoolArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -273,7 +273,7 @@ public final class NetappFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
-     * import com.pulumi.azure.batch.inputs.GetPoolArgs;
+     * import com.pulumi.azure.netapp.inputs.GetPoolArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -313,7 +313,7 @@ public final class NetappFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
-     * import com.pulumi.azure.batch.inputs.GetPoolArgs;
+     * import com.pulumi.azure.netapp.inputs.GetPoolArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -353,7 +353,7 @@ public final class NetappFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSnapshotArgs;
+     * import com.pulumi.azure.netapp.inputs.GetSnapshotArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -395,7 +395,7 @@ public final class NetappFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSnapshotArgs;
+     * import com.pulumi.azure.netapp.inputs.GetSnapshotArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -437,7 +437,7 @@ public final class NetappFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSnapshotArgs;
+     * import com.pulumi.azure.netapp.inputs.GetSnapshotArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -479,7 +479,7 @@ public final class NetappFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.netapp.NetappFunctions;
-     * import com.pulumi.azure.compute.inputs.GetSnapshotArgs;
+     * import com.pulumi.azure.netapp.inputs.GetSnapshotArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

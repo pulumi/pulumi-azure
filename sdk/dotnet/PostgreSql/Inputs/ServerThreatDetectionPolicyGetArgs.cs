@@ -54,11 +54,21 @@ namespace Pulumi.Azure.PostgreSql.Inputs
         [Input("retentionDays")]
         public Input<int>? RetentionDays { get; set; }
 
+        [Input("storageAccountAccessKey")]
+        private Input<string>? _storageAccountAccessKey;
+
         /// <summary>
         /// Specifies the identifier key of the Threat Detection audit storage account.
         /// </summary>
-        [Input("storageAccountAccessKey")]
-        public Input<string>? StorageAccountAccessKey { get; set; }
+        public Input<string>? StorageAccountAccessKey
+        {
+            get => _storageAccountAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.

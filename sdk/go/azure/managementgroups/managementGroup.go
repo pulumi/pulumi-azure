@@ -36,7 +36,7 @@ import (
 //			exampleParent, err := management.NewGroup(ctx, "exampleParent", &management.GroupArgs{
 //				DisplayName: pulumi.String("ParentGroup"),
 //				SubscriptionIds: pulumi.StringArray{
-//					pulumi.String(current.SubscriptionId),
+//					*pulumi.String(current.SubscriptionId),
 //				},
 //			})
 //			if err != nil {
@@ -46,7 +46,7 @@ import (
 //				DisplayName:             pulumi.String("ChildGroup"),
 //				ParentManagementGroupId: exampleParent.ID(),
 //				SubscriptionIds: pulumi.StringArray{
-//					pulumi.String(current.SubscriptionId),
+//					*pulumi.String(current.SubscriptionId),
 //				},
 //			})
 //			if err != nil {

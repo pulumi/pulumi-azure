@@ -39,13 +39,13 @@ namespace Pulumi.Azure.AppService
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleServicePlan.Location,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = ,
+    ///         SiteConfig = null,
     ///     });
     /// 
     ///     var exampleWindowsWebAppSlot = new Azure.AppService.WindowsWebAppSlot("exampleWindowsWebAppSlot", new()
     ///     {
     ///         AppServiceId = exampleWindowsWebApp.Id,
-    ///         SiteConfig = ,
+    ///         SiteConfig = null,
     ///     });
     /// 
     /// });
@@ -253,6 +253,10 @@ namespace Pulumi.Azure.AppService
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "customDomainVerificationId",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -494,11 +498,21 @@ namespace Pulumi.Azure.AppService
             set => _connectionStrings = value;
         }
 
+        [Input("customDomainVerificationId")]
+        private Input<string>? _customDomainVerificationId;
+
         /// <summary>
         /// The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         /// </summary>
-        [Input("customDomainVerificationId")]
-        public Input<string>? CustomDomainVerificationId { get; set; }
+        public Input<string>? CustomDomainVerificationId
+        {
+            get => _customDomainVerificationId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _customDomainVerificationId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The default hostname of the Windows Web App Slot.

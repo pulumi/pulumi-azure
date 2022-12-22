@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getConfidentialLedger(args: GetConfidentialLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetConfidentialLedgerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getConfidentialLedger:getConfidentialLedger", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -81,9 +78,24 @@ export interface GetConfidentialLedgerResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Gets information about an existing Confidential Ledger.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.compute.getConfidentialLedger({
+ *     name: "example-ledger",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const ledgerEndpoint = current.then(current => current.ledgerEndpoint);
+ * ```
+ */
 export function getConfidentialLedgerOutput(args: GetConfidentialLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfidentialLedgerResult> {
-    return pulumi.output(args).apply(a => getConfidentialLedger(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfidentialLedger(a, opts))
 }
 
 /**

@@ -43,7 +43,7 @@ import (
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Scope: &network.NetworkManagerScopeArgs{
 //					SubscriptionIds: pulumi.StringArray{
-//						pulumi.String(current.Id),
+//						*pulumi.String(current.Id),
 //					},
 //				},
 //				ScopeAccesses: pulumi.StringArray{

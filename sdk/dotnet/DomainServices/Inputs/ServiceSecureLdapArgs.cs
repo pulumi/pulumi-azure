@@ -30,17 +30,37 @@ namespace Pulumi.Azure.DomainServices.Inputs
         [Input("externalAccessEnabled")]
         public Input<bool>? ExternalAccessEnabled { get; set; }
 
+        [Input("pfxCertificate", required: true)]
+        private Input<string>? _pfxCertificate;
+
         /// <summary>
         /// The certificate/private key to use for LDAPS, as a base64-encoded TripleDES-SHA1 encrypted PKCS#12 bundle (PFX file).
         /// </summary>
-        [Input("pfxCertificate", required: true)]
-        public Input<string> PfxCertificate { get; set; } = null!;
+        public Input<string>? PfxCertificate
+        {
+            get => _pfxCertificate;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _pfxCertificate = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("pfxCertificatePassword", required: true)]
+        private Input<string>? _pfxCertificatePassword;
 
         /// <summary>
         /// The password to use for decrypting the PKCS#12 bundle (PFX file).
         /// </summary>
-        [Input("pfxCertificatePassword", required: true)]
-        public Input<string> PfxCertificatePassword { get; set; } = null!;
+        public Input<string>? PfxCertificatePassword
+        {
+            get => _pfxCertificatePassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _pfxCertificatePassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("publicCertificate")]
         public Input<string>? PublicCertificate { get; set; }

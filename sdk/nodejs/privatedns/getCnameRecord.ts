@@ -19,11 +19,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCnameRecord(args: GetCnameRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetCnameRecordResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getCnameRecord:getCnameRecord", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -78,9 +75,22 @@ export interface GetCnameRecordResult {
     readonly ttl: number;
     readonly zoneName: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.privatedns.CnameRecord("example", {
+ *     zoneName: "test-zone",
+ *     resourceGroupName: "test-rg",
+ * });
+ * export const privateDnsCnameRecordId = example.id;
+ * ```
+ */
 export function getCnameRecordOutput(args: GetCnameRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCnameRecordResult> {
-    return pulumi.output(args).apply(a => getCnameRecord(a, opts))
+    return pulumi.output(args).apply((a: any) => getCnameRecord(a, opts))
 }
 
 /**

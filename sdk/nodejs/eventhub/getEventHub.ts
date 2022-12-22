@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:eventhub/getEventHub:getEventHub", {
         "name": args.name,
         "namespaceName": args.namespaceName,
@@ -72,9 +69,25 @@ export interface GetEventHubResult {
     readonly partitionIds: string[];
     readonly resourceGroupName: string;
 }
-
+/**
+ * Use this data source to access information about an existing EventHub.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.eventhub.getEventHub({
+ *     name: "search-eventhub",
+ *     resourceGroupName: "search-service",
+ *     namespaceName: "search-eventhubns",
+ * });
+ * export const eventhubId = example.then(example => example.id);
+ * ```
+ */
 export function getEventHubOutput(args: GetEventHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubResult> {
-    return pulumi.output(args).apply(a => getEventHub(a, opts))
+    return pulumi.output(args).apply((a: any) => getEventHub(a, opts))
 }
 
 /**

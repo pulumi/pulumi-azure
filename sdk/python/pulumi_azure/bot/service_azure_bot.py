@@ -748,14 +748,14 @@ class ServiceAzureBot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceAzureBotArgs.__new__(ServiceAzureBotArgs)
 
-            __props__.__dict__["developer_app_insights_api_key"] = developer_app_insights_api_key
+            __props__.__dict__["developer_app_insights_api_key"] = None if developer_app_insights_api_key is None else pulumi.Output.secret(developer_app_insights_api_key)
             __props__.__dict__["developer_app_insights_application_id"] = developer_app_insights_application_id
             __props__.__dict__["developer_app_insights_key"] = developer_app_insights_key
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["location"] = location
             __props__.__dict__["luis_app_ids"] = luis_app_ids
-            __props__.__dict__["luis_key"] = luis_key
+            __props__.__dict__["luis_key"] = None if luis_key is None else pulumi.Output.secret(luis_key)
             if microsoft_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'microsoft_app_id'")
             __props__.__dict__["microsoft_app_id"] = microsoft_app_id
@@ -771,6 +771,8 @@ class ServiceAzureBot(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["streaming_endpoint_enabled"] = streaming_endpoint_enabled
             __props__.__dict__["tags"] = tags
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["developerAppInsightsApiKey", "luisKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceAzureBot, __self__).__init__(
             'azure:bot/serviceAzureBot:ServiceAzureBot',
             resource_name,

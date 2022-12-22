@@ -12,17 +12,37 @@ namespace Pulumi.Azure.DataBricks.Inputs
 
     public sealed class WorkspaceStorageAccountIdentityArgs : global::Pulumi.ResourceArgs
     {
+        [Input("principalId")]
+        private Input<string>? _principalId;
+
         /// <summary>
         /// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
         /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
+        public Input<string>? PrincipalId
+        {
+            get => _principalId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _principalId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("tenantId")]
+        private Input<string>? _tenantId;
 
         /// <summary>
         /// The UUID of the tenant where the internal databricks storage account was created.
         /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
+        public Input<string>? TenantId
+        {
+            get => _tenantId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tenantId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The type of the internal databricks storage account.

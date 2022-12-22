@@ -40,7 +40,7 @@ public final class DatashareFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -79,7 +79,7 @@ public final class DatashareFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -118,7 +118,7 @@ public final class DatashareFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -157,7 +157,7 @@ public final class DatashareFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -820,7 +820,7 @@ public final class DatashareFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
      * import com.pulumi.azure.datashare.inputs.GetShareArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -865,7 +865,7 @@ public final class DatashareFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
      * import com.pulumi.azure.datashare.inputs.GetShareArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -910,7 +910,7 @@ public final class DatashareFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
      * import com.pulumi.azure.datashare.inputs.GetShareArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -955,7 +955,7 @@ public final class DatashareFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.datashare.DatashareFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.datashare.inputs.GetAccountArgs;
      * import com.pulumi.azure.datashare.inputs.GetShareArgs;
      * import java.util.List;
      * import java.util.ArrayList;

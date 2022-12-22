@@ -158,6 +158,13 @@ namespace Pulumi.Azure.Relay
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "primaryConnectionString",
+                    "primaryKey",
+                    "secondaryConnectionString",
+                    "secondaryKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -261,17 +268,37 @@ namespace Pulumi.Azure.Relay
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
+        [Input("primaryConnectionString")]
+        private Input<string>? _primaryConnectionString;
+
         /// <summary>
         /// The Primary Connection String for the Azure Relay Hybrid Connection Authorization Rule.
         /// </summary>
-        [Input("primaryConnectionString")]
-        public Input<string>? PrimaryConnectionString { get; set; }
+        public Input<string>? PrimaryConnectionString
+        {
+            get => _primaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("primaryKey")]
+        private Input<string>? _primaryKey;
 
         /// <summary>
         /// The Primary Key for the Azure Relay Hybrid Connection Authorization Rule.
         /// </summary>
-        [Input("primaryKey")]
-        public Input<string>? PrimaryKey { get; set; }
+        public Input<string>? PrimaryKey
+        {
+            get => _primaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the Resource Group where the Azure Relay Hybrid Connection Authorization Rule should exist. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
@@ -279,17 +306,37 @@ namespace Pulumi.Azure.Relay
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("secondaryConnectionString")]
+        private Input<string>? _secondaryConnectionString;
+
         /// <summary>
         /// The Secondary Connection String for the Azure Relay Hybrid Connection Authorization Rule.
         /// </summary>
-        [Input("secondaryConnectionString")]
-        public Input<string>? SecondaryConnectionString { get; set; }
+        public Input<string>? SecondaryConnectionString
+        {
+            get => _secondaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("secondaryKey")]
+        private Input<string>? _secondaryKey;
 
         /// <summary>
         /// The Secondary Key for the Azure Relay Hybrid Connection Authorization Rule.
         /// </summary>
-        [Input("secondaryKey")]
-        public Input<string>? SecondaryKey { get; set; }
+        public Input<string>? SecondaryKey
+        {
+            get => _secondaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Grants send access to this Authorization Rule. Defaults to `false`.

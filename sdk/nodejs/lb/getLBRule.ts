@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing Load Balancer Rule.
  */
 export function getLBRule(args: GetLBRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetLBRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:lb/getLBRule:getLBRule", {
         "loadbalancerId": args.loadbalancerId,
         "name": args.name,
@@ -88,9 +85,11 @@ export interface GetLBRuleResult {
      */
     readonly protocol: string;
 }
-
+/**
+ * Use this data source to access information about an existing Load Balancer Rule.
+ */
 export function getLBRuleOutput(args: GetLBRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLBRuleResult> {
-    return pulumi.output(args).apply(a => getLBRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getLBRule(a, opts))
 }
 
 /**

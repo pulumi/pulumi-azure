@@ -13,19 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const policy = pulumi.output(azure.siterecovery.getReplicationPolicy({
+ * const policy = azure.siterecovery.getReplicationPolicy({
  *     name: "replication-policy",
  *     recoveryVaultName: "tfex-recovery_vault",
  *     resourceGroupName: "tfex-resource_group",
- * }));
+ * });
  * ```
  */
 export function getReplicationPolicy(args: GetReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", {
         "name": args.name,
         "recoveryVaultName": args.recoveryVaultName,
@@ -71,9 +68,24 @@ export interface GetReplicationPolicyResult {
     readonly recoveryVaultName: string;
     readonly resourceGroupName: string;
 }
-
+/**
+ * Use this data source to access information about an existing Azure Site Recovery replication policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const policy = azure.siterecovery.getReplicationPolicy({
+ *     name: "replication-policy",
+ *     recoveryVaultName: "tfex-recovery_vault",
+ *     resourceGroupName: "tfex-resource_group",
+ * });
+ * ```
+ */
 export function getReplicationPolicyOutput(args: GetReplicationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationPolicyResult> {
-    return pulumi.output(args).apply(a => getReplicationPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getReplicationPolicy(a, opts))
 }
 
 /**

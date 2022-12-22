@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getScheduledQueryRulesAlert(args: GetScheduledQueryRulesAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRulesAlertResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -109,9 +106,24 @@ export interface GetScheduledQueryRulesAlertResult {
      */
     readonly triggers: outputs.monitoring.GetScheduledQueryRulesAlertTrigger[];
 }
-
+/**
+ * Use this data source to access the properties of an AlertingAction scheduled query rule.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.monitoring.getScheduledQueryRulesAlert({
+ *     resourceGroupName: "example-rg",
+ *     name: "tfex-queryrule",
+ * });
+ * export const queryRuleId = example.then(example => example.id);
+ * ```
+ */
 export function getScheduledQueryRulesAlertOutput(args: GetScheduledQueryRulesAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRulesAlertResult> {
-    return pulumi.output(args).apply(a => getScheduledQueryRulesAlert(a, opts))
+    return pulumi.output(args).apply((a: any) => getScheduledQueryRulesAlert(a, opts))
 }
 
 /**

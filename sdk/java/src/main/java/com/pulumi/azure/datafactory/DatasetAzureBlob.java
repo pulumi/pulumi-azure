@@ -31,7 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.storage.StorageFunctions;
- * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+ * import com.pulumi.azure.storage.inputs.GetAccountArgs;
  * import com.pulumi.azure.datafactory.Factory;
  * import com.pulumi.azure.datafactory.FactoryArgs;
  * import com.pulumi.azure.datafactory.LinkedServiceAzureBlobStorage;

@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Management
     ///     var exampleGroupSubscriptionAssociation = new Azure.Management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation", new()
     ///     {
     ///         ManagementGroupId = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
-    ///         SubscriptionId = exampleSubscription.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         SubscriptionId = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///     });
     /// 
     /// });

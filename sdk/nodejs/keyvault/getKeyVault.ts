@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getKeyVault(args: GetKeyVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyVaultResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:keyvault/getKeyVault:getKeyVault", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -108,9 +105,24 @@ export interface GetKeyVaultResult {
      */
     readonly vaultUri: string;
 }
-
+/**
+ * Use this data source to access information about an existing Key Vault.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.keyvault.getKeyVault({
+ *     name: "mykeyvault",
+ *     resourceGroupName: "some-resource-group",
+ * });
+ * export const vaultUri = example.then(example => example.vaultUri);
+ * ```
+ */
 export function getKeyVaultOutput(args: GetKeyVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyVaultResult> {
-    return pulumi.output(args).apply(a => getKeyVault(a, opts))
+    return pulumi.output(args).apply((a: any) => getKeyVault(a, opts))
 }
 
 /**

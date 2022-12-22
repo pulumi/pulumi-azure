@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Lighthouse
     /// 
     ///     var example = new Azure.Lighthouse.Assignment("example", new()
     ///     {
-    ///         Scope = primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         LighthouseDefinitionId = "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000",
     ///     });
     /// 

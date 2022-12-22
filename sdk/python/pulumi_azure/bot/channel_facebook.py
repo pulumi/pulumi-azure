@@ -357,7 +357,7 @@ class ChannelFacebook(pulumi.CustomResource):
             __props__.__dict__["facebook_application_id"] = facebook_application_id
             if facebook_application_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'facebook_application_secret'")
-            __props__.__dict__["facebook_application_secret"] = facebook_application_secret
+            __props__.__dict__["facebook_application_secret"] = None if facebook_application_secret is None else pulumi.Output.secret(facebook_application_secret)
             __props__.__dict__["location"] = location
             if pages is None and not opts.urn:
                 raise TypeError("Missing required property 'pages'")
@@ -365,6 +365,8 @@ class ChannelFacebook(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["facebookApplicationSecret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ChannelFacebook, __self__).__init__(
             'azure:bot/channelFacebook:ChannelFacebook',
             resource_name,

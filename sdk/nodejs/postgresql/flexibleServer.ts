@@ -222,7 +222,7 @@ export class FlexibleServer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            resourceInputs["administratorPassword"] = args ? args.administratorPassword : undefined;
+            resourceInputs["administratorPassword"] = args?.administratorPassword ? pulumi.secret(args.administratorPassword) : undefined;
             resourceInputs["authentication"] = args ? args.authentication : undefined;
             resourceInputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
             resourceInputs["createMode"] = args ? args.createMode : undefined;
@@ -245,6 +245,8 @@ export class FlexibleServer extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["administratorPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(FlexibleServer.__pulumiType, name, resourceInputs, opts);
     }
 }

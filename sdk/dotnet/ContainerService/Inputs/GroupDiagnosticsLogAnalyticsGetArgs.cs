@@ -36,11 +36,21 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
 
+        [Input("workspaceKey", required: true)]
+        private Input<string>? _workspaceKey;
+
         /// <summary>
         /// The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("workspaceKey", required: true)]
-        public Input<string> WorkspaceKey { get; set; } = null!;
+        public Input<string>? WorkspaceKey
+        {
+            get => _workspaceKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _workspaceKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public GroupDiagnosticsLogAnalyticsGetArgs()
         {

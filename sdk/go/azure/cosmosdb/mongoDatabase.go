@@ -35,8 +35,8 @@ import (
 //				return err
 //			}
 //			_, err = cosmosdb.NewMongoDatabase(ctx, "exampleMongoDatabase", &cosmosdb.MongoDatabaseArgs{
-//				ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       pulumi.String(exampleAccount.Name),
+//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:       *pulumi.String(exampleAccount.Name),
 //				Throughput:        pulumi.Int(400),
 //			})
 //			if err != nil {

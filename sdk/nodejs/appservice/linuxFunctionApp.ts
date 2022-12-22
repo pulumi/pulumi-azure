@@ -300,7 +300,7 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
             resourceInputs["servicePlanId"] = args ? args.servicePlanId : undefined;
             resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
             resourceInputs["stickySettings"] = args ? args.stickySettings : undefined;
-            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["storageKeyVaultSecretId"] = args ? args.storageKeyVaultSecretId : undefined;
@@ -317,6 +317,8 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
             resourceInputs["siteCredentials"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["customDomainVerificationId", "storageAccountAccessKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LinuxFunctionApp.__pulumiType, name, resourceInputs, opts);
     }
 }

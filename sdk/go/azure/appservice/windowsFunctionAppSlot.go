@@ -170,6 +170,14 @@ func NewWindowsFunctionAppSlot(ctx *pulumi.Context,
 	if args.SiteConfig == nil {
 		return nil, errors.New("invalid value for required argument 'SiteConfig'")
 	}
+	if args.StorageAccountAccessKey != nil {
+		args.StorageAccountAccessKey = pulumi.ToSecret(args.StorageAccountAccessKey).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"customDomainVerificationId",
+		"storageAccountAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource WindowsFunctionAppSlot
 	err := ctx.RegisterResource("azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot", name, args, &resource, opts...)
 	if err != nil {

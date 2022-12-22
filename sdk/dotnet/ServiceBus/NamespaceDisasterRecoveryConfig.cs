@@ -144,6 +144,13 @@ namespace Pulumi.Azure.ServiceBus
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "defaultPrimaryKey",
+                    "defaultSecondaryKey",
+                    "primaryConnectionStringAlias",
+                    "secondaryConnectionStringAlias",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -205,17 +212,37 @@ namespace Pulumi.Azure.ServiceBus
         [Input("aliasAuthorizationRuleId")]
         public Input<string>? AliasAuthorizationRuleId { get; set; }
 
+        [Input("defaultPrimaryKey")]
+        private Input<string>? _defaultPrimaryKey;
+
         /// <summary>
         /// The primary access key for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
-        [Input("defaultPrimaryKey")]
-        public Input<string>? DefaultPrimaryKey { get; set; }
+        public Input<string>? DefaultPrimaryKey
+        {
+            get => _defaultPrimaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _defaultPrimaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("defaultSecondaryKey")]
+        private Input<string>? _defaultSecondaryKey;
 
         /// <summary>
         /// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
-        [Input("defaultSecondaryKey")]
-        public Input<string>? DefaultSecondaryKey { get; set; }
+        public Input<string>? DefaultSecondaryKey
+        {
+            get => _defaultSecondaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _defaultSecondaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
@@ -229,11 +256,21 @@ namespace Pulumi.Azure.ServiceBus
         [Input("partnerNamespaceId")]
         public Input<string>? PartnerNamespaceId { get; set; }
 
+        [Input("primaryConnectionStringAlias")]
+        private Input<string>? _primaryConnectionStringAlias;
+
         /// <summary>
         /// The alias Primary Connection String for the ServiceBus Namespace.
         /// </summary>
-        [Input("primaryConnectionStringAlias")]
-        public Input<string>? PrimaryConnectionStringAlias { get; set; }
+        public Input<string>? PrimaryConnectionStringAlias
+        {
+            get => _primaryConnectionStringAlias;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryConnectionStringAlias = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
@@ -241,11 +278,21 @@ namespace Pulumi.Azure.ServiceBus
         [Input("primaryNamespaceId")]
         public Input<string>? PrimaryNamespaceId { get; set; }
 
+        [Input("secondaryConnectionStringAlias")]
+        private Input<string>? _secondaryConnectionStringAlias;
+
         /// <summary>
         /// The alias Secondary Connection String for the ServiceBus Namespace
         /// </summary>
-        [Input("secondaryConnectionStringAlias")]
-        public Input<string>? SecondaryConnectionStringAlias { get; set; }
+        public Input<string>? SecondaryConnectionStringAlias
+        {
+            get => _secondaryConnectionStringAlias;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryConnectionStringAlias = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public NamespaceDisasterRecoveryConfigState()
         {

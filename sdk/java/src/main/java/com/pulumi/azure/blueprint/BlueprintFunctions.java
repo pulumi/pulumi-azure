@@ -31,7 +31,7 @@ public final class BlueprintFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import com.pulumi.azure.management.inputs.GetGroupArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
      * import java.util.List;
@@ -80,7 +80,7 @@ public final class BlueprintFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import com.pulumi.azure.management.inputs.GetGroupArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
      * import java.util.List;
@@ -129,7 +129,7 @@ public final class BlueprintFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import com.pulumi.azure.management.inputs.GetGroupArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
      * import java.util.List;
@@ -178,7 +178,7 @@ public final class BlueprintFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
      * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import com.pulumi.azure.management.inputs.GetGroupArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
      * import java.util.List;
@@ -226,7 +226,7 @@ public final class BlueprintFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetPublishedVersionArgs;
      * import java.util.List;
@@ -245,7 +245,7 @@ public final class BlueprintFunctions {
      *         final var current = CoreFunctions.getSubscription();
      * 
      *         final var test = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
-     *             .scopeId(current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+     *             .scopeId(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
      *             .blueprintName(&#34;exampleBluePrint&#34;)
      *             .version(&#34;dev_v2.3&#34;)
      *             .build());
@@ -271,7 +271,7 @@ public final class BlueprintFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetPublishedVersionArgs;
      * import java.util.List;
@@ -290,7 +290,7 @@ public final class BlueprintFunctions {
      *         final var current = CoreFunctions.getSubscription();
      * 
      *         final var test = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
-     *             .scopeId(current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+     *             .scopeId(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
      *             .blueprintName(&#34;exampleBluePrint&#34;)
      *             .version(&#34;dev_v2.3&#34;)
      *             .build());
@@ -316,7 +316,7 @@ public final class BlueprintFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetPublishedVersionArgs;
      * import java.util.List;
@@ -335,7 +335,7 @@ public final class BlueprintFunctions {
      *         final var current = CoreFunctions.getSubscription();
      * 
      *         final var test = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
-     *             .scopeId(current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+     *             .scopeId(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
      *             .blueprintName(&#34;exampleBluePrint&#34;)
      *             .version(&#34;dev_v2.3&#34;)
      *             .build());
@@ -361,7 +361,7 @@ public final class BlueprintFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
      * import com.pulumi.azure.blueprint.BlueprintFunctions;
      * import com.pulumi.azure.blueprint.inputs.GetPublishedVersionArgs;
      * import java.util.List;
@@ -380,7 +380,7 @@ public final class BlueprintFunctions {
      *         final var current = CoreFunctions.getSubscription();
      * 
      *         final var test = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
-     *             .scopeId(current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+     *             .scopeId(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
      *             .blueprintName(&#34;exampleBluePrint&#34;)
      *             .version(&#34;dev_v2.3&#34;)
      *             .build());

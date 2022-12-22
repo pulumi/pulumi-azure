@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBudgetSubscription(args: GetBudgetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetSubscriptionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:consumption/getBudgetSubscription:getBudgetSubscription", {
         "name": args.name,
         "subscriptionId": args.subscriptionId,
@@ -82,9 +79,24 @@ export interface GetBudgetSubscriptionResult {
      */
     readonly timePeriods: outputs.consumption.GetBudgetSubscriptionTimePeriod[];
 }
-
+/**
+ * Use this data source to access information about an existing Consumption Budget for a specific subscription.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.consumption.getBudgetSubscription({
+ *     name: "existing",
+ *     subscriptionId: "/subscriptions/00000000-0000-0000-0000-000000000000/",
+ * });
+ * export const id = data.azurerm_consumption_budget.example.id;
+ * ```
+ */
 export function getBudgetSubscriptionOutput(args: GetBudgetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetSubscriptionResult> {
-    return pulumi.output(args).apply(a => getBudgetSubscription(a, opts))
+    return pulumi.output(args).apply((a: any) => getBudgetSubscription(a, opts))
 }
 
 /**

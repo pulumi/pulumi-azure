@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.portal.Dashboard;
@@ -166,7 +166,7 @@ import javax.annotation.Nullable;
  *         }
  *     }
  * }
- * &#34;, mdContent,videoLink,current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.subscriptionId())))
+ * &#34;, mdContent,videoLink,current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.subscriptionId())))
  *             .build());
  * 
  *     }

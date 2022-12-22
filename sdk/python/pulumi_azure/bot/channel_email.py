@@ -313,11 +313,13 @@ class ChannelEmail(pulumi.CustomResource):
             __props__.__dict__["email_address"] = email_address
             if email_password is None and not opts.urn:
                 raise TypeError("Missing required property 'email_password'")
-            __props__.__dict__["email_password"] = email_password
+            __props__.__dict__["email_password"] = None if email_password is None else pulumi.Output.secret(email_password)
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["emailPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ChannelEmail, __self__).__init__(
             'azure:bot/channelEmail:ChannelEmail',
             resource_name,

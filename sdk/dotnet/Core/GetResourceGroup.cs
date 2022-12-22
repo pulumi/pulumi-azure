@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Core
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = example.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Id),
+        ///         ["id"] = example.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Id),
         ///     };
         /// });
         /// ```
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Core
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = example.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Id),
+        ///         ["id"] = example.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Id),
         ///     };
         /// });
         /// ```

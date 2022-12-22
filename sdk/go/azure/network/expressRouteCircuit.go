@@ -110,6 +110,10 @@ func NewExpressRouteCircuit(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"serviceKey",
+	})
+	opts = append(opts, secrets)
 	var resource ExpressRouteCircuit
 	err := ctx.RegisterResource("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, args, &resource, opts...)
 	if err != nil {

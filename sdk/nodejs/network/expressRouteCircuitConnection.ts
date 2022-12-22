@@ -169,12 +169,14 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
             }
             resourceInputs["addressPrefixIpv4"] = args ? args.addressPrefixIpv4 : undefined;
             resourceInputs["addressPrefixIpv6"] = args ? args.addressPrefixIpv6 : undefined;
-            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            resourceInputs["authorizationKey"] = args?.authorizationKey ? pulumi.secret(args.authorizationKey) : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["peerPeeringId"] = args ? args.peerPeeringId : undefined;
             resourceInputs["peeringId"] = args ? args.peeringId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["authorizationKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ExpressRouteCircuitConnection.__pulumiType, name, resourceInputs, opts);
     }
 }

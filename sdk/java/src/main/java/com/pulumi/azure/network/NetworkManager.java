@@ -31,7 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.network.NetworkManager;
  * import com.pulumi.azure.network.NetworkManagerArgs;
  * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .scope(NetworkManagerScopeArgs.builder()
- *                 .subscriptionIds(current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *                 .build())
  *             .scopeAccesses(            
  *                 &#34;Connectivity&#34;,

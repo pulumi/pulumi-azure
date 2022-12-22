@@ -20,15 +20,12 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "existing-resource-group",
  * });
  * export const azurermDataProtectionBackupVaultId = data.azurerm_vpn_gateway.example.id;
- * export const azurermDataProtectionBackupVaultPrincipalId = example.then(example => example.identities?[0]?.principalId);
+ * export const azurermDataProtectionBackupVaultPrincipalId = example.then(example => example.identities?.[0]?.principalId);
  * ```
  */
 export function getBackupVault(args: GetBackupVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupVaultResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:dataprotection/getBackupVault:getBackupVault", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -80,9 +77,25 @@ export interface GetBackupVaultResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Backup Vault.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.dataprotection.getBackupVault({
+ *     name: "existing-backup-vault",
+ *     resourceGroupName: "existing-resource-group",
+ * });
+ * export const azurermDataProtectionBackupVaultId = data.azurerm_vpn_gateway.example.id;
+ * export const azurermDataProtectionBackupVaultPrincipalId = example.then(example => example.identities?.[0]?.principalId);
+ * ```
+ */
 export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupVaultResult> {
-    return pulumi.output(args).apply(a => getBackupVault(a, opts))
+    return pulumi.output(args).apply((a: any) => getBackupVault(a, opts))
 }
 
 /**

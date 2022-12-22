@@ -105,9 +105,9 @@ import (
 //					},
 //				},
 //				LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
-//					exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (string, error) {
-//						return frontendIpConfigurations[0].Id, nil
-//					}).(pulumi.StringOutput),
+//					exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
+//						return &frontendIpConfigurations[0].Id, nil
+//					}).(pulumi.StringPtrOutput),
 //				},
 //			})
 //			if err != nil {
@@ -170,9 +170,9 @@ import (
 //				return err
 //			}
 //			_, err = privatelink.NewEndpoint(ctx, "exampleEndpoint", &privatelink.EndpointArgs{
-//				Location:          pulumi.String(exampleResourceGroup.Location),
-//				ResourceGroupName: pulumi.String(exampleResourceGroup.Name),
-//				SubnetId:          pulumi.String(subnet.Id),
+//				Location:          *pulumi.String(exampleResourceGroup.Location),
+//				ResourceGroupName: *pulumi.String(exampleResourceGroup.Name),
+//				SubnetId:          *pulumi.String(subnet.Id),
 //				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
 //					Name:                           pulumi.String("example-privateserviceconnection"),
 //					PrivateConnectionResourceAlias: pulumi.String("example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice"),

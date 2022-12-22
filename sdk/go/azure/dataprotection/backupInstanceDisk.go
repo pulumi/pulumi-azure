@@ -61,9 +61,9 @@ import (
 //			_, err = authorization.NewAssignment(ctx, "example1", &authorization.AssignmentArgs{
 //				Scope:              exampleResourceGroup.ID(),
 //				RoleDefinitionName: pulumi.String("Disk Snapshot Contributor"),
-//				PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringOutput),
+//				PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
@@ -71,9 +71,9 @@ import (
 //			_, err = authorization.NewAssignment(ctx, "example2", &authorization.AssignmentArgs{
 //				Scope:              exampleManagedDisk.ID(),
 //				RoleDefinitionName: pulumi.String("Disk Backup Reader"),
-//				PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringOutput),
+//				PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

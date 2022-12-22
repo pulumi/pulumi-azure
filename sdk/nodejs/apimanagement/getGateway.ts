@@ -26,11 +26,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:apimanagement/getGateway:getGateway", {
         "apiManagementId": args.apiManagementId,
         "name": args.name,
@@ -73,9 +70,27 @@ export interface GetGatewayResult {
      */
     readonly name: string;
 }
-
+/**
+ * Use this data source to access information about an existing API Management Gateway.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleService = azure.apimanagement.getService({
+ *     name: "example-apim",
+ *     resourceGroupName: "example-rg",
+ * });
+ * const exampleGateway = exampleService.then(exampleService => azure.apimanagement.getGateway({
+ *     name: "example-api-gateway",
+ *     apiManagementId: exampleService.id,
+ * }));
+ * ```
+ */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
-    return pulumi.output(args).apply(a => getGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getGateway(a, opts))
 }
 
 /**

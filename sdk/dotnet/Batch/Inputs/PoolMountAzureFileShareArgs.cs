@@ -12,11 +12,21 @@ namespace Pulumi.Azure.Batch.Inputs
 
     public sealed class PoolMountAzureFileShareArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accountKey", required: true)]
+        private Input<string>? _accountKey;
+
         /// <summary>
         /// The Azure Storage Account key.
         /// </summary>
-        [Input("accountKey", required: true)]
-        public Input<string> AccountKey { get; set; } = null!;
+        public Input<string>? AccountKey
+        {
+            get => _accountKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accountKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Azure Storage Account name.

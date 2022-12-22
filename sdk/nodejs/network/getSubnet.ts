@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getSubnet:getSubnet", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -91,9 +88,25 @@ export interface GetSubnetResult {
     readonly serviceEndpoints: string[];
     readonly virtualNetworkName: string;
 }
-
+/**
+ * Use this data source to access information about an existing Subnet within a Virtual Network.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getSubnet({
+ *     name: "backend",
+ *     virtualNetworkName: "production",
+ *     resourceGroupName: "networking",
+ * });
+ * export const subnetId = example.then(example => example.id);
+ * ```
+ */
 export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
-    return pulumi.output(args).apply(a => getSubnet(a, opts))
+    return pulumi.output(args).apply((a: any) => getSubnet(a, opts))
 }
 
 /**

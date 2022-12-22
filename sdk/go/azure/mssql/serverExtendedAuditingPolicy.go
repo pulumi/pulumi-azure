@@ -142,11 +142,11 @@ import (
 //				return err
 //			}
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-//				Scope:              pulumi.String(primary.Id),
+//				Scope:              *pulumi.String(primary.Id),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
-//				PrincipalId: exampleServer.Identity.ApplyT(func(identity mssql.ServerIdentity) (string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringOutput),
+//				PrincipalId: exampleServer.Identity.ApplyT(func(identity mssql.ServerIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
@@ -253,6 +253,17 @@ func NewServerExtendedAuditingPolicy(ctx *pulumi.Context,
 	if args.ServerId == nil {
 		return nil, errors.New("invalid value for required argument 'ServerId'")
 	}
+	if args.StorageAccountAccessKey != nil {
+		args.StorageAccountAccessKey = pulumi.ToSecret(args.StorageAccountAccessKey).(pulumi.StringPtrInput)
+	}
+	if args.StorageAccountSubscriptionId != nil {
+		args.StorageAccountSubscriptionId = pulumi.ToSecret(args.StorageAccountSubscriptionId).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"storageAccountAccessKey",
+		"storageAccountSubscriptionId",
+	})
+	opts = append(opts, secrets)
 	var resource ServerExtendedAuditingPolicy
 	err := ctx.RegisterResource("azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy", name, args, &resource, opts...)
 	if err != nil {

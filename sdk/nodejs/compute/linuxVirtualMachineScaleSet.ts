@@ -410,7 +410,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
-            resourceInputs["adminPassword"] = args ? args.adminPassword : undefined;
+            resourceInputs["adminPassword"] = args?.adminPassword ? pulumi.secret(args.adminPassword) : undefined;
             resourceInputs["adminSshKeys"] = args ? args.adminSshKeys : undefined;
             resourceInputs["adminUsername"] = args ? args.adminUsername : undefined;
             resourceInputs["automaticInstanceRepair"] = args ? args.automaticInstanceRepair : undefined;
@@ -418,7 +418,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
             resourceInputs["capacityReservationGroupId"] = args ? args.capacityReservationGroupId : undefined;
             resourceInputs["computerNamePrefix"] = args ? args.computerNamePrefix : undefined;
-            resourceInputs["customData"] = args ? args.customData : undefined;
+            resourceInputs["customData"] = args?.customData ? pulumi.secret(args.customData) : undefined;
             resourceInputs["dataDisks"] = args ? args.dataDisks : undefined;
             resourceInputs["disablePasswordAuthentication"] = args ? args.disablePasswordAuthentication : undefined;
             resourceInputs["doNotRunExtensionsOnOverprovisionedMachines"] = args ? args.doNotRunExtensionsOnOverprovisionedMachines : undefined;
@@ -466,6 +466,8 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["uniqueId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["adminPassword", "customData"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LinuxVirtualMachineScaleSet.__pulumiType, name, resourceInputs, opts);
     }
 }

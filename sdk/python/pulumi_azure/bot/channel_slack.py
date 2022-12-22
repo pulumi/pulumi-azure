@@ -419,16 +419,18 @@ class ChannelSlack(pulumi.CustomResource):
             __props__.__dict__["client_id"] = client_id
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
-            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
             __props__.__dict__["landing_page_url"] = landing_page_url
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["signing_secret"] = signing_secret
+            __props__.__dict__["signing_secret"] = None if signing_secret is None else pulumi.Output.secret(signing_secret)
             if verification_token is None and not opts.urn:
                 raise TypeError("Missing required property 'verification_token'")
-            __props__.__dict__["verification_token"] = verification_token
+            __props__.__dict__["verification_token"] = None if verification_token is None else pulumi.Output.secret(verification_token)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientSecret", "signingSecret", "verificationToken"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ChannelSlack, __self__).__init__(
             'azure:bot/channelSlack:ChannelSlack',
             resource_name,

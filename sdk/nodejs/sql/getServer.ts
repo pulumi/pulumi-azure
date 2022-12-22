@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:sql/getServer:getServer", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -81,9 +78,22 @@ export interface GetServerResult {
      */
     readonly version: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.sql.getServer({
+ *     name: "examplesqlservername",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const sqlServerId = example.then(example => example.id);
+ * ```
+ */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
-    return pulumi.output(args).apply(a => getServer(a, opts))
+    return pulumi.output(args).apply((a: any) => getServer(a, opts))
 }
 
 /**

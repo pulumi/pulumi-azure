@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             SubscriptionIds = new[]
     ///             {
-    ///                 current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///                 current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///             },
     ///         },
     ///         ScopeAccesses = new[]

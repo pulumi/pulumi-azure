@@ -12,11 +12,21 @@ namespace Pulumi.Azure.Batch.Inputs
 
     public sealed class PoolMountAzureBlobFileSystemArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accountKey")]
+        private Input<string>? _accountKey;
+
         /// <summary>
         /// The Azure Storage Account key. This property is mutually exclusive with both `sas_key` and `identity_id`; exactly one must be specified.
         /// </summary>
-        [Input("accountKey")]
-        public Input<string>? AccountKey { get; set; }
+        public Input<string>? AccountKey
+        {
+            get => _accountKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accountKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Azure Storage Account name.
@@ -48,11 +58,21 @@ namespace Pulumi.Azure.Batch.Inputs
         [Input("relativeMountPath", required: true)]
         public Input<string> RelativeMountPath { get; set; } = null!;
 
+        [Input("sasKey")]
+        private Input<string>? _sasKey;
+
         /// <summary>
         /// The Azure Storage SAS token. This property is mutually exclusive with both `account_key` and `identity_id`; exactly one must be specified.
         /// </summary>
-        [Input("sasKey")]
-        public Input<string>? SasKey { get; set; }
+        public Input<string>? SasKey
+        {
+            get => _sasKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sasKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public PoolMountAzureBlobFileSystemArgs()
         {

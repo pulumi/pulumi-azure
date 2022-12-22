@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDatasetBlobStorage(args: GetDatasetBlobStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetBlobStorageResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", {
         "dataShareId": args.dataShareId,
         "name": args.name,
@@ -82,9 +79,24 @@ export interface GetDatasetBlobStorageResult {
      */
     readonly storageAccounts: outputs.datashare.GetDatasetBlobStorageStorageAccount[];
 }
-
+/**
+ * Use this data source to access information about an existing Data Share Blob Storage Dataset.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.datashare.getDatasetBlobStorage({
+ *     name: "example-dsbsds",
+ *     dataShareId: "example-share-id",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getDatasetBlobStorageOutput(args: GetDatasetBlobStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetBlobStorageResult> {
-    return pulumi.output(args).apply(a => getDatasetBlobStorage(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatasetBlobStorage(a, opts))
 }
 
 /**

@@ -78,7 +78,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
 //				DisplayName: pulumi.StringRef("Windows Virtual Desktop"),
 //			}, nil)
 //			if err != nil {
@@ -88,7 +88,7 @@ import (
 //				Name:                         exampleRandomUuid.Result,
 //				Scope:                        exampleResourceGroup.ID(),
 //				RoleDefinitionId:             exampleRoleDefinition.RoleDefinitionResourceId,
-//				PrincipalId:                  pulumi.String(exampleServicePrincipal.Id),
+//				PrincipalId:                  *pulumi.String(exampleServicePrincipal.Id),
 //				SkipServicePrincipalAadCheck: pulumi.Bool(true),
 //			})
 //			if err != nil {

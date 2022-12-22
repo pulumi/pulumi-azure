@@ -165,6 +165,13 @@ func NewFunctionAppSlot(ctx *pulumi.Context,
 	if args.StorageAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
 	}
+	if args.StorageAccountAccessKey != nil {
+		args.StorageAccountAccessKey = pulumi.ToSecret(args.StorageAccountAccessKey).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"storageAccountAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource FunctionAppSlot
 	err := ctx.RegisterResource("azure:appservice/functionAppSlot:FunctionAppSlot", name, args, &resource, opts...)
 	if err != nil {

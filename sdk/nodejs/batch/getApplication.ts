@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:batch/getApplication:getApplication", {
         "accountName": args.accountName,
         "name": args.name,
@@ -79,9 +76,25 @@ export interface GetApplicationResult {
     readonly name: string;
     readonly resourceGroupName: string;
 }
-
+/**
+ * Use this data source to access information about an existing Batch Application instance.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.batch.getApplication({
+ *     name: "testapplication",
+ *     resourceGroupName: "test",
+ *     accountName: "testbatchaccount",
+ * });
+ * export const batchApplicationId = example.then(example => example.id);
+ * ```
+ */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply(a => getApplication(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }
 
 /**

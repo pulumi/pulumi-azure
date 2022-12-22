@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:databasemigration/getProject:getProject", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -80,9 +77,25 @@ export interface GetProjectResult {
      */
     readonly targetPlatform: string;
 }
-
+/**
+ * Use this data source to access information about an existing Database Migration Project.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.databasemigration.getProject({
+ *     name: "example-dbms-project",
+ *     resourceGroupName: "example-rg",
+ *     serviceName: "example-dbms",
+ * });
+ * export const name = example.then(example => example.name);
+ * ```
+ */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
-    return pulumi.output(args).apply(a => getProject(a, opts))
+    return pulumi.output(args).apply((a: any) => getProject(a, opts))
 }
 
 /**

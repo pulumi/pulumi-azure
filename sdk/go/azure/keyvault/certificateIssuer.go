@@ -42,7 +42,7 @@ import (
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				SkuName:           pulumi.String("standard"),
-//				TenantId:          pulumi.String(current.TenantId),
+//				TenantId:          *pulumi.String(current.TenantId),
 //			})
 //			if err != nil {
 //				return err
@@ -104,6 +104,13 @@ func NewCertificateIssuer(ctx *pulumi.Context,
 	if args.ProviderName == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderName'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource CertificateIssuer
 	err := ctx.RegisterResource("azure:keyvault/certificateIssuer:CertificateIssuer", name, args, &resource, opts...)
 	if err != nil {

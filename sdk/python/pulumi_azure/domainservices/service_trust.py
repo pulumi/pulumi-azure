@@ -301,13 +301,15 @@ class ServiceTrust(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             if trusted_domain_dns_ips is None and not opts.urn:
                 raise TypeError("Missing required property 'trusted_domain_dns_ips'")
             __props__.__dict__["trusted_domain_dns_ips"] = trusted_domain_dns_ips
             if trusted_domain_fqdn is None and not opts.urn:
                 raise TypeError("Missing required property 'trusted_domain_fqdn'")
             __props__.__dict__["trusted_domain_fqdn"] = trusted_domain_fqdn
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceTrust, __self__).__init__(
             'azure:domainservices/serviceTrust:ServiceTrust',
             resource_name,

@@ -718,7 +718,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
             __props__.__dict__["cmk_key_vault_url"] = cmk_key_vault_url
             __props__.__dict__["description"] = description
-            __props__.__dict__["developer_app_insights_api_key"] = developer_app_insights_api_key
+            __props__.__dict__["developer_app_insights_api_key"] = None if developer_app_insights_api_key is None else pulumi.Output.secret(developer_app_insights_api_key)
             __props__.__dict__["developer_app_insights_application_id"] = developer_app_insights_application_id
             __props__.__dict__["developer_app_insights_key"] = developer_app_insights_key
             __props__.__dict__["display_name"] = display_name
@@ -742,6 +742,8 @@ class ChannelsRegistration(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["streaming_endpoint_enabled"] = streaming_endpoint_enabled
             __props__.__dict__["tags"] = tags
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["developerAppInsightsApiKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ChannelsRegistration, __self__).__init__(
             'azure:bot/channelsRegistration:ChannelsRegistration',
             resource_name,

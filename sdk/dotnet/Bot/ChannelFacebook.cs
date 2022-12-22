@@ -128,6 +128,10 @@ namespace Pulumi.Azure.Bot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "facebookApplicationSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -163,11 +167,21 @@ namespace Pulumi.Azure.Bot
         [Input("facebookApplicationId", required: true)]
         public Input<string> FacebookApplicationId { get; set; } = null!;
 
+        [Input("facebookApplicationSecret", required: true)]
+        private Input<string>? _facebookApplicationSecret;
+
         /// <summary>
         /// The Facebook Application Secret for the Facebook Channel.
         /// </summary>
-        [Input("facebookApplicationSecret", required: true)]
-        public Input<string> FacebookApplicationSecret { get; set; } = null!;
+        public Input<string>? FacebookApplicationSecret
+        {
+            get => _facebookApplicationSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _facebookApplicationSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -213,11 +227,21 @@ namespace Pulumi.Azure.Bot
         [Input("facebookApplicationId")]
         public Input<string>? FacebookApplicationId { get; set; }
 
+        [Input("facebookApplicationSecret")]
+        private Input<string>? _facebookApplicationSecret;
+
         /// <summary>
         /// The Facebook Application Secret for the Facebook Channel.
         /// </summary>
-        [Input("facebookApplicationSecret")]
-        public Input<string>? FacebookApplicationSecret { get; set; }
+        public Input<string>? FacebookApplicationSecret
+        {
+            get => _facebookApplicationSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _facebookApplicationSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.authorization.RoleDefinition;
  * import com.pulumi.azure.authorization.RoleDefinitionArgs;
  * import com.pulumi.azure.authorization.inputs.RoleDefinitionPermissionArgs;
@@ -47,13 +47,13 @@ import javax.annotation.Nullable;
  *         final var primary = CoreFunctions.getSubscription();
  * 
  *         var example = new RoleDefinition(&#34;example&#34;, RoleDefinitionArgs.builder()        
- *             .scope(primary.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .description(&#34;This is a custom role created&#34;)
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions(&#34;*&#34;)
  *                 .notActions()
  *                 .build())
- *             .assignableScopes(primary.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .assignableScopes(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .build());
  * 
  *     }

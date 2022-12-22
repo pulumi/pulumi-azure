@@ -132,6 +132,10 @@ namespace Pulumi.Azure.Bot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "cognitiveServiceAccessKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -161,11 +165,21 @@ namespace Pulumi.Azure.Bot
         [Input("botName", required: true)]
         public Input<string> BotName { get; set; } = null!;
 
+        [Input("cognitiveServiceAccessKey", required: true)]
+        private Input<string>? _cognitiveServiceAccessKey;
+
         /// <summary>
         /// The access key to access the Cognitive Service.
         /// </summary>
-        [Input("cognitiveServiceAccessKey", required: true)]
-        public Input<string> CognitiveServiceAccessKey { get; set; } = null!;
+        public Input<string>? CognitiveServiceAccessKey
+        {
+            get => _cognitiveServiceAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _cognitiveServiceAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the supported Azure location where the Cognitive Service resource exists.
@@ -211,11 +225,21 @@ namespace Pulumi.Azure.Bot
         [Input("botName")]
         public Input<string>? BotName { get; set; }
 
+        [Input("cognitiveServiceAccessKey")]
+        private Input<string>? _cognitiveServiceAccessKey;
+
         /// <summary>
         /// The access key to access the Cognitive Service.
         /// </summary>
-        [Input("cognitiveServiceAccessKey")]
-        public Input<string>? CognitiveServiceAccessKey { get; set; }
+        public Input<string>? CognitiveServiceAccessKey
+        {
+            get => _cognitiveServiceAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _cognitiveServiceAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the supported Azure location where the Cognitive Service resource exists.

@@ -726,7 +726,7 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LinkedServiceAzureDatabricksArgs.__new__(LinkedServiceAzureDatabricksArgs)
 
-            __props__.__dict__["access_token"] = access_token
+            __props__.__dict__["access_token"] = None if access_token is None else pulumi.Output.secret(access_token)
             if adb_domain is None and not opts.urn:
                 raise TypeError("Missing required property 'adb_domain'")
             __props__.__dict__["adb_domain"] = adb_domain
@@ -744,6 +744,8 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["new_cluster_config"] = new_cluster_config
             __props__.__dict__["parameters"] = parameters
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LinkedServiceAzureDatabricks, __self__).__init__(
             'azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks',
             resource_name,

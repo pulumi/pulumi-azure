@@ -35,15 +35,15 @@ import (
 //				return err
 //			}
 //			exampleGremlinDatabase, err := cosmosdb.NewGremlinDatabase(ctx, "exampleGremlinDatabase", &cosmosdb.GremlinDatabaseArgs{
-//				ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       pulumi.String(exampleAccount.Name),
+//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:       *pulumi.String(exampleAccount.Name),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cosmosdb.NewGremlinGraph(ctx, "exampleGremlinGraph", &cosmosdb.GremlinGraphArgs{
-//				ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       pulumi.String(exampleAccount.Name),
+//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:       *pulumi.String(exampleAccount.Name),
 //				DatabaseName:      exampleGremlinDatabase.Name,
 //				PartitionKeyPath:  pulumi.String("/Example"),
 //				Throughput:        pulumi.Int(400),

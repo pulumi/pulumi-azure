@@ -104,6 +104,10 @@ namespace Pulumi.Azure.ApiManagement
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "appSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -139,11 +143,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
+        [Input("appSecret", required: true)]
+        private Input<string>? _appSecret;
+
         /// <summary>
         /// App Secret for Facebook.
         /// </summary>
-        [Input("appSecret", required: true)]
-        public Input<string> AppSecret { get; set; } = null!;
+        public Input<string>? AppSecret
+        {
+            get => _appSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _appSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
@@ -171,11 +185,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("appId")]
         public Input<string>? AppId { get; set; }
 
+        [Input("appSecret")]
+        private Input<string>? _appSecret;
+
         /// <summary>
         /// App Secret for Facebook.
         /// </summary>
-        [Input("appSecret")]
-        public Input<string>? AppSecret { get; set; }
+        public Input<string>? AppSecret
+        {
+            get => _appSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _appSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.

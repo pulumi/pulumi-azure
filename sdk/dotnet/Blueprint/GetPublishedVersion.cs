@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Blueprint
         /// 
         ///     var test = Azure.Blueprint.GetPublishedVersion.Invoke(new()
         ///     {
-        ///         ScopeId = current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+        ///         ScopeId = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
         ///         BlueprintName = "exampleBluePrint",
         ///         Version = "dev_v2.3",
         ///     });
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Blueprint
         /// 
         ///     var test = Azure.Blueprint.GetPublishedVersion.Invoke(new()
         ///     {
-        ///         ScopeId = current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+        ///         ScopeId = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
         ///         BlueprintName = "exampleBluePrint",
         ///         Version = "dev_v2.3",
         ///     });

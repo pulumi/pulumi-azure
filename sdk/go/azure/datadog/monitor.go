@@ -89,8 +89,8 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:            pulumi.String(primary.Id),
-//				RoleDefinitionId: pulumi.String(monitoringReader.RoleDefinitionId),
+//				Scope:            *pulumi.String(primary.Id),
+//				RoleDefinitionId: *pulumi.String(monitoringReader.RoleDefinitionId),
 //				PrincipalId:      pulumi.Any(azurerm_datadog_monitor.Example.Identity[0].Principal_id),
 //			})
 //			if err != nil {

@@ -30,17 +30,37 @@ namespace Pulumi.Azure.Bot.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("key")]
+        private Input<string>? _key;
+
         /// <summary>
         /// Primary key for accessing this site
         /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
+        public Input<string>? Key
+        {
+            get => _key;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _key = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("key2")]
+        private Input<string>? _key2;
 
         /// <summary>
         /// Secondary key for accessing this site
         /// </summary>
-        [Input("key2")]
-        public Input<string>? Key2 { get; set; }
+        public Input<string>? Key2
+        {
+            get => _key2;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _key2 = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the site

@@ -26,11 +26,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDefinition(args: GetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:blueprint/getDefinition:getDefinition", {
         "name": args.name,
         "scopeId": args.scopeId,
@@ -86,9 +83,29 @@ export interface GetDefinitionResult {
      */
     readonly versions: string[];
 }
-
+/**
+ * Use this data source to access information about an existing Azure Blueprint Definition
+ *
+ * > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const root = current.then(current => azure.management.getGroup({
+ *     name: current.tenantId,
+ * }));
+ * const example = root.then(root => azure.blueprint.getDefinition({
+ *     name: "exampleManagementGroupBP",
+ *     scopeId: root.id,
+ * }));
+ * ```
+ */
 export function getDefinitionOutput(args: GetDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefinitionResult> {
-    return pulumi.output(args).apply(a => getDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getDefinition(a, opts))
 }
 
 /**

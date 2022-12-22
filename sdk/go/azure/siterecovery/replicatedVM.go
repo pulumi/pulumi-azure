@@ -241,9 +241,9 @@ import (
 //				TargetRecoveryProtectionContainerId:   secondaryProtectionContainer.ID(),
 //				ManagedDisks: siterecovery.ReplicatedVMManagedDiskArray{
 //					&siterecovery.ReplicatedVMManagedDiskArgs{
-//						DiskId: vmVirtualMachine.StorageOsDisk.ApplyT(func(storageOsDisk compute.VirtualMachineStorageOsDisk) (string, error) {
-//							return storageOsDisk.ManagedDiskId, nil
-//						}).(pulumi.StringOutput),
+//						DiskId: vmVirtualMachine.StorageOsDisk.ApplyT(func(storageOsDisk compute.VirtualMachineStorageOsDisk) (*string, error) {
+//							return &storageOsDisk.ManagedDiskId, nil
+//						}).(pulumi.StringPtrOutput),
 //						StagingStorageAccountId: primaryAccount.ID(),
 //						TargetResourceGroupId:   secondaryResourceGroup.ID(),
 //						TargetDiskType:          pulumi.String("Premium_LRS"),

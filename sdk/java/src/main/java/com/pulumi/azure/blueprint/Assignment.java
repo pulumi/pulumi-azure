@@ -31,7 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.blueprint.BlueprintFunctions;
  * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
  * import com.pulumi.azure.blueprint.inputs.GetPublishedVersionArgs;
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  *         final var exampleDefinition = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
  *             .name(&#34;exampleBlueprint&#34;)
- *             .scopeId(exampleSubscription.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .scopeId(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .build());
  * 
  *         final var examplePublishedVersion = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
@@ -84,19 +84,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var operator = new Assignment(&#34;operator&#34;, AssignmentArgs.builder()        
- *             .scope(exampleSubscription.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .scope(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .roleDefinitionName(&#34;Blueprint Operator&#34;)
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
  *         var owner = new Assignment(&#34;owner&#34;, AssignmentArgs.builder()        
- *             .scope(exampleSubscription.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .scope(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .roleDefinitionName(&#34;Owner&#34;)
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
- *             .targetSubscriptionId(exampleSubscription.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .targetSubscriptionId(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .versionId(examplePublishedVersion.applyValue(getPublishedVersionResult -&gt; getPublishedVersionResult.id()))
  *             .location(exampleResourceGroup.location())
  *             .lockMode(&#34;AllResourcesDoNotDelete&#34;)

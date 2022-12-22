@@ -564,6 +564,8 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             __props__.__dict__["primary_shared_key"] = None
             __props__.__dict__["secondary_shared_key"] = None
             __props__.__dict__["workspace_id"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["primarySharedKey", "secondarySharedKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AnalyticsWorkspace, __self__).__init__(
             'azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace',
             resource_name,

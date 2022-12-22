@@ -3927,7 +3927,7 @@ public final class NetworkFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
-     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+     * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -3966,7 +3966,7 @@ public final class NetworkFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
-     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+     * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -4005,7 +4005,7 @@ public final class NetworkFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
-     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+     * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -4044,7 +4044,7 @@ public final class NetworkFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.network.NetworkFunctions;
-     * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+     * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

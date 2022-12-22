@@ -578,6 +578,8 @@ class EventGridTopic(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["primary_access_key"] = None
             __props__.__dict__["secondary_access_key"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["primaryAccessKey", "secondaryAccessKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EventGridTopic, __self__).__init__(
             'azure:eventhub/eventGridTopic:EventGridTopic',
             resource_name,

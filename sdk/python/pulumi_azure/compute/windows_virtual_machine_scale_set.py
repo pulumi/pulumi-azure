@@ -2204,7 +2204,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["additional_unattend_contents"] = additional_unattend_contents
             if admin_password is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_password'")
-            __props__.__dict__["admin_password"] = admin_password
+            __props__.__dict__["admin_password"] = None if admin_password is None else pulumi.Output.secret(admin_password)
             if admin_username is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_username'")
             __props__.__dict__["admin_username"] = admin_username
@@ -2213,7 +2213,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
             __props__.__dict__["computer_name_prefix"] = computer_name_prefix
-            __props__.__dict__["custom_data"] = custom_data
+            __props__.__dict__["custom_data"] = None if custom_data is None else pulumi.Output.secret(custom_data)
             __props__.__dict__["data_disks"] = data_disks
             __props__.__dict__["do_not_run_extensions_on_overprovisioned_machines"] = do_not_run_extensions_on_overprovisioned_machines
             __props__.__dict__["edge_zone"] = edge_zone
@@ -2281,6 +2281,8 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["zone_balance"] = zone_balance
             __props__.__dict__["zones"] = zones
             __props__.__dict__["unique_id"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["adminPassword", "customData"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(WindowsVirtualMachineScaleSet, __self__).__init__(
             'azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet',
             resource_name,

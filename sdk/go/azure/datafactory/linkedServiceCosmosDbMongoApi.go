@@ -102,6 +102,13 @@ func NewLinkedServiceCosmosDbMongoApi(ctx *pulumi.Context,
 	if args.DataFactoryId == nil {
 		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
+	if args.ConnectionString != nil {
+		args.ConnectionString = pulumi.ToSecret(args.ConnectionString).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"connectionString",
+	})
+	opts = append(opts, secrets)
 	var resource LinkedServiceCosmosDbMongoApi
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi", name, args, &resource, opts...)
 	if err != nil {

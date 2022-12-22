@@ -63,8 +63,8 @@ import (
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				ClusterName:       exampleCluster.Name,
 //				DatabaseName:      exampleDatabase.Name,
-//				TenantId:          pulumi.String(current.TenantId),
-//				PrincipalId:       pulumi.String(current.ClientId),
+//				TenantId:          *pulumi.String(current.TenantId),
+//				PrincipalId:       *pulumi.String(current.ClientId),
 //				PrincipalType:     pulumi.String("App"),
 //				Role:              pulumi.String("Viewer"),
 //			})

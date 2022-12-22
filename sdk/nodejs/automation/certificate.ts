@@ -126,7 +126,7 @@ export class Certificate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["base64"] = args ? args.base64 : undefined;
+            resourceInputs["base64"] = args?.base64 ? pulumi.secret(args.base64) : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["exportable"] = args ? args.exportable : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -134,6 +134,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["thumbprint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["base64"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }

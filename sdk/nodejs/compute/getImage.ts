@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getImage:getImage", {
         "name": args.name,
         "nameRegex": args.nameRegex,
@@ -94,9 +91,24 @@ export interface GetImageResult {
      */
     readonly zoneResilient: boolean;
 }
-
+/**
+ * Use this data source to access information about an existing Image.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const search = azure.compute.getImage({
+ *     name: "search-api",
+ *     resourceGroupName: "packerimages",
+ * });
+ * export const imageId = search.then(search => search.id);
+ * ```
+ */
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
-    return pulumi.output(args).apply(a => getImage(a, opts))
+    return pulumi.output(args).apply((a: any) => getImage(a, opts))
 }
 
 /**

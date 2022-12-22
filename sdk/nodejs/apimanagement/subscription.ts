@@ -156,15 +156,17 @@ export class Subscription extends pulumi.CustomResource {
             resourceInputs["apiId"] = args ? args.apiId : undefined;
             resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["primaryKey"] = args ? args.primaryKey : undefined;
+            resourceInputs["primaryKey"] = args?.primaryKey ? pulumi.secret(args.primaryKey) : undefined;
             resourceInputs["productId"] = args ? args.productId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["secondaryKey"] = args ? args.secondaryKey : undefined;
+            resourceInputs["secondaryKey"] = args?.secondaryKey ? pulumi.secret(args.secondaryKey) : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             resourceInputs["userId"] = args ? args.userId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["primaryKey", "secondaryKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Subscription.__pulumiType, name, resourceInputs, opts);
     }
 }

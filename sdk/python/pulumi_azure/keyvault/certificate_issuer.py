@@ -382,10 +382,12 @@ class CertificateIssuer(pulumi.CustomResource):
             __props__.__dict__["key_vault_id"] = key_vault_id
             __props__.__dict__["name"] = name
             __props__.__dict__["org_id"] = org_id
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             if provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_name'")
             __props__.__dict__["provider_name"] = provider_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CertificateIssuer, __self__).__init__(
             'azure:keyvault/certificateIssuer:CertificateIssuer',
             resource_name,

@@ -80,7 +80,7 @@ import (
 //			_, err = synapse.NewRoleAssignment(ctx, "exampleRoleAssignment", &synapse.RoleAssignmentArgs{
 //				SynapseWorkspaceId: exampleWorkspace.ID(),
 //				RoleName:           pulumi.String("Synapse SQL Administrator"),
-//				PrincipalId:        pulumi.String(current.ObjectId),
+//				PrincipalId:        *pulumi.String(current.ObjectId),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleFirewallRule,
 //			}))

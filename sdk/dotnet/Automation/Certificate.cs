@@ -127,6 +127,10 @@ namespace Pulumi.Azure.Automation
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "base64",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -156,11 +160,21 @@ namespace Pulumi.Azure.Automation
         [Input("automationAccountName", required: true)]
         public Input<string> AutomationAccountName { get; set; } = null!;
 
+        [Input("base64", required: true)]
+        private Input<string>? _base64;
+
         /// <summary>
         /// Base64 encoded value of the certificate. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("base64", required: true)]
-        public Input<string> Base64 { get; set; } = null!;
+        public Input<string>? Base64
+        {
+            get => _base64;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _base64 = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The description of this Automation Certificate.
@@ -200,11 +214,21 @@ namespace Pulumi.Azure.Automation
         [Input("automationAccountName")]
         public Input<string>? AutomationAccountName { get; set; }
 
+        [Input("base64")]
+        private Input<string>? _base64;
+
         /// <summary>
         /// Base64 encoded value of the certificate. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("base64")]
-        public Input<string>? Base64 { get; set; }
+        public Input<string>? Base64
+        {
+            get => _base64;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _base64 = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The description of this Automation Certificate.

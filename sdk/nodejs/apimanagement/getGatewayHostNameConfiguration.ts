@@ -30,11 +30,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGatewayHostNameConfiguration(args: GetGatewayHostNameConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayHostNameConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", {
         "apiManagementId": args.apiManagementId,
         "gatewayName": args.gatewayName,
@@ -97,9 +94,33 @@ export interface GetGatewayHostNameConfigurationResult {
      */
     readonly tls11Enabled: boolean;
 }
-
+/**
+ * Use this data source to access information about an existing API Management Gateway Host Configuration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleService = azure.apimanagement.getService({
+ *     name: "example-apim",
+ *     resourceGroupName: "example-resources",
+ * });
+ * const exampleGateway = azure.apimanagement.getGateway({
+ *     name: "example-gateway",
+ *     apiManagementId: data.azurerm_api_management.main.id,
+ * });
+ * const exampleGatewayHostNameConfiguration = Promise.all([exampleService, exampleGateway]).then(([exampleService, exampleGateway]) => azure.apimanagement.getGatewayHostNameConfiguration({
+ *     name: "example-host-configuration",
+ *     apiManagementId: exampleService.id,
+ *     gatewayName: exampleGateway.name,
+ * }));
+ * export const hostName = exampleGatewayHostNameConfiguration.then(exampleGatewayHostNameConfiguration => exampleGatewayHostNameConfiguration.hostName);
+ * ```
+ */
 export function getGatewayHostNameConfigurationOutput(args: GetGatewayHostNameConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayHostNameConfigurationResult> {
-    return pulumi.output(args).apply(a => getGatewayHostNameConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getGatewayHostNameConfiguration(a, opts))
 }
 
 /**

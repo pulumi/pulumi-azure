@@ -203,7 +203,7 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import com.pulumi.azure.containerservice.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -244,7 +244,7 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import com.pulumi.azure.containerservice.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -285,7 +285,7 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import com.pulumi.azure.containerservice.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -326,7 +326,7 @@ public final class ContainerserviceFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import com.pulumi.azure.containerservice.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

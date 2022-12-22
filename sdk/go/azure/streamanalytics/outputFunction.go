@@ -149,6 +149,13 @@ func NewOutputFunction(ctx *pulumi.Context,
 	if args.StreamAnalyticsJobName == nil {
 		return nil, errors.New("invalid value for required argument 'StreamAnalyticsJobName'")
 	}
+	if args.ApiKey != nil {
+		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"apiKey",
+	})
+	opts = append(opts, secrets)
 	var resource OutputFunction
 	err := ctx.RegisterResource("azure:streamanalytics/outputFunction:OutputFunction", name, args, &resource, opts...)
 	if err != nil {

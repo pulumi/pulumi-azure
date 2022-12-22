@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicAuthorizationRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule", {
         "name": args.name,
         "namespaceName": args.namespaceName,
@@ -104,9 +101,26 @@ export interface GetTopicAuthorizationRuleResult {
     readonly topicId?: string;
     readonly topicName?: string;
 }
-
+/**
+ * Use this data source to access information about a ServiceBus Topic Authorization Rule within a ServiceBus Topic.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.servicebus.getTopicAuthorizationRule({
+ *     name: "example-tfex_name",
+ *     resourceGroupName: "example-resources",
+ *     namespaceName: "example-namespace",
+ *     topicName: "example-servicebus_topic",
+ * });
+ * export const servicebusAuthorizationRuleId = data.azurem_servicebus_topic_authorization_rule.example.id;
+ * ```
+ */
 export function getTopicAuthorizationRuleOutput(args: GetTopicAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicAuthorizationRuleResult> {
-    return pulumi.output(args).apply(a => getTopicAuthorizationRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getTopicAuthorizationRule(a, opts))
 }
 
 /**

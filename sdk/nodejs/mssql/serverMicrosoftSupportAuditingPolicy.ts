@@ -202,10 +202,12 @@ export class ServerMicrosoftSupportAuditingPolicy extends pulumi.CustomResource 
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["logMonitoringEnabled"] = args ? args.logMonitoringEnabled : undefined;
             resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
-            resourceInputs["storageAccountSubscriptionId"] = args ? args.storageAccountSubscriptionId : undefined;
+            resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
+            resourceInputs["storageAccountSubscriptionId"] = args?.storageAccountSubscriptionId ? pulumi.secret(args.storageAccountSubscriptionId) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey", "storageAccountSubscriptionId"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServerMicrosoftSupportAuditingPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -44,7 +44,7 @@ import (
 //				Location:          pulumi.String("global"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Sku:               pulumi.String("F0"),
-//				MicrosoftAppId:    pulumi.String(current.ClientId),
+//				MicrosoftAppId:    *pulumi.String(current.ClientId),
 //			})
 //			if err != nil {
 //				return err
@@ -119,6 +119,13 @@ func NewChannelFacebook(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.FacebookApplicationSecret != nil {
+		args.FacebookApplicationSecret = pulumi.ToSecret(args.FacebookApplicationSecret).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"facebookApplicationSecret",
+	})
+	opts = append(opts, secrets)
 	var resource ChannelFacebook
 	err := ctx.RegisterResource("azure:bot/channelFacebook:ChannelFacebook", name, args, &resource, opts...)
 	if err != nil {

@@ -95,6 +95,11 @@ func NewServer(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryKey",
+		"secondaryKey",
+	})
+	opts = append(opts, secrets)
 	var resource Server
 	err := ctx.RegisterResource("azure:fluidrelay/server:Server", name, args, &resource, opts...)
 	if err != nil {

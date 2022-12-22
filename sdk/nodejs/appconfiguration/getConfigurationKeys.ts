@@ -24,11 +24,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getConfigurationKeys(args: GetConfigurationKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationKeysResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", {
         "configurationStoreId": args.configurationStoreId,
         "key": args.key,
@@ -76,9 +73,25 @@ export interface GetConfigurationKeysResult {
      */
     readonly label?: string;
 }
-
+/**
+ * Use this data source to access information about existing Azure App Configuration Keys.
+ *
+ * > **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const test = azure.appconfiguration.getConfigurationKeys({
+ *     configurationStoreId: azurerm_app_configuration.appconf.id,
+ * });
+ * export const value = test.then(test => test.items);
+ * ```
+ */
 export function getConfigurationKeysOutput(args: GetConfigurationKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationKeysResult> {
-    return pulumi.output(args).apply(a => getConfigurationKeys(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfigurationKeys(a, opts))
 }
 
 /**

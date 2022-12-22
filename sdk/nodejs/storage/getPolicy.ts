@@ -25,11 +25,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:storage/getPolicy:getPolicy", {
         "storageAccountId": args.storageAccountId,
     }, opts);
@@ -59,9 +56,26 @@ export interface GetPolicyResult {
     readonly rules: outputs.storage.GetPolicyRule[];
     readonly storageAccountId: string;
 }
-
+/**
+ * Use this data source to access information about an existing Storage Management Policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleAccount = azure.storage.getAccount({
+ *     name: "storageaccountname",
+ *     resourceGroupName: "resourcegroupname",
+ * });
+ * const examplePolicy = exampleAccount.then(exampleAccount => azure.storage.getPolicy({
+ *     storageAccountId: exampleAccount.id,
+ * }));
+ * ```
+ */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    return pulumi.output(args).apply(a => getPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
 }
 
 /**

@@ -76,7 +76,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
 //				DisplayName: pulumi.StringRef("Azure Cosmos DB"),
 //			}, nil)
 //			if err != nil {
@@ -85,7 +85,7 @@ import (
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
 //				Scope:              exampleVirtualNetwork.ID(),
 //				RoleDefinitionName: pulumi.String("Network Contributor"),
-//				PrincipalId:        pulumi.String(exampleServicePrincipal.ObjectId),
+//				PrincipalId:        *pulumi.String(exampleServicePrincipal.ObjectId),
 //			})
 //			if err != nil {
 //				return err
@@ -165,6 +165,13 @@ func NewCassandraCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.DefaultAdminPassword != nil {
+		args.DefaultAdminPassword = pulumi.ToSecret(args.DefaultAdminPassword).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"defaultAdminPassword",
+	})
+	opts = append(opts, secrets)
 	var resource CassandraCluster
 	err := ctx.RegisterResource("azure:cosmosdb/cassandraCluster:CassandraCluster", name, args, &resource, opts...)
 	if err != nil {

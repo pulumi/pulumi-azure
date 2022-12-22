@@ -355,7 +355,7 @@ export class ManagedInstance extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vcores'");
             }
             resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword ? pulumi.secret(args.administratorLoginPassword) : undefined;
             resourceInputs["collation"] = args ? args.collation : undefined;
             resourceInputs["dnsZonePartnerId"] = args ? args.dnsZonePartnerId : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -376,6 +376,8 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["administratorLoginPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ManagedInstance.__pulumiType, name, resourceInputs, opts);
     }
 }

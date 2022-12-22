@@ -13,11 +13,8 @@ import * as utilities from "../utilities";
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
     pulumi.log.warn("getRoleDefinition is deprecated: azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition")
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:role/getRoleDefinition:getRoleDefinition", {
         "name": args.name,
         "roleDefinitionId": args.roleDefinitionId,
@@ -71,9 +68,12 @@ export interface GetRoleDefinitionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Use this data source to access information about an existing Role Definition.
+ */
+/** @deprecated azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition */
 export function getRoleDefinitionOutput(args?: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {
-    return pulumi.output(args).apply(a => getRoleDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getRoleDefinition(a, opts))
 }
 
 /**

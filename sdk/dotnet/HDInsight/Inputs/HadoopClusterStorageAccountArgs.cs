@@ -18,11 +18,21 @@ namespace Pulumi.Azure.HDInsight.Inputs
         [Input("isDefault", required: true)]
         public Input<bool> IsDefault { get; set; } = null!;
 
+        [Input("storageAccountKey", required: true)]
+        private Input<string>? _storageAccountKey;
+
         /// <summary>
         /// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("storageAccountKey", required: true)]
-        public Input<string> StorageAccountKey { get; set; } = null!;
+        public Input<string>? StorageAccountKey
+        {
+            get => _storageAccountKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the Storage Container. Changing this forces a new resource to be created.

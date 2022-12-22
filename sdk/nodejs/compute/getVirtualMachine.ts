@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getVirtualMachine:getVirtualMachine", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -81,9 +78,24 @@ export interface GetVirtualMachineResult {
     readonly publicIpAddresses: string[];
     readonly resourceGroupName: string;
 }
-
+/**
+ * Use this data source to access information about an existing Virtual Machine.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.compute.getVirtualMachine({
+ *     name: "production",
+ *     resourceGroupName: "networking",
+ * });
+ * export const virtualMachineId = example.then(example => example.id);
+ * ```
+ */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
-    return pulumi.output(args).apply(a => getVirtualMachine(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))
 }
 
 /**

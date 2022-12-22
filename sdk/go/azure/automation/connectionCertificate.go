@@ -69,7 +69,7 @@ import (
 //				ResourceGroupName:         exampleResourceGroup.Name,
 //				AutomationAccountName:     exampleAccount.Name,
 //				AutomationCertificateName: exampleCertificate.Name,
-//				SubscriptionId:            pulumi.String(exampleClientConfig.SubscriptionId),
+//				SubscriptionId:            *pulumi.String(exampleClientConfig.SubscriptionId),
 //			})
 //			if err != nil {
 //				return err

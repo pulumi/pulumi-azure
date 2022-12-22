@@ -184,7 +184,7 @@ export class CassandraCluster extends pulumi.CustomResource {
             }
             resourceInputs["authenticationMethod"] = args ? args.authenticationMethod : undefined;
             resourceInputs["clientCertificatePems"] = args ? args.clientCertificatePems : undefined;
-            resourceInputs["defaultAdminPassword"] = args ? args.defaultAdminPassword : undefined;
+            resourceInputs["defaultAdminPassword"] = args?.defaultAdminPassword ? pulumi.secret(args.defaultAdminPassword) : undefined;
             resourceInputs["delegatedManagementSubnetId"] = args ? args.delegatedManagementSubnetId : undefined;
             resourceInputs["externalGossipCertificatePems"] = args ? args.externalGossipCertificatePems : undefined;
             resourceInputs["externalSeedNodeIpAddresses"] = args ? args.externalSeedNodeIpAddresses : undefined;
@@ -198,6 +198,8 @@ export class CassandraCluster extends pulumi.CustomResource {
             resourceInputs["version"] = args ? args.version : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["defaultAdminPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CassandraCluster.__pulumiType, name, resourceInputs, opts);
     }
 }

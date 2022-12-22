@@ -217,7 +217,7 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
             if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            resourceInputs["accessToken"] = args ? args.accessToken : undefined;
+            resourceInputs["accessToken"] = args?.accessToken ? pulumi.secret(args.accessToken) : undefined;
             resourceInputs["adbDomain"] = args ? args.adbDomain : undefined;
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
@@ -233,6 +233,8 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["accessToken"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LinkedServiceAzureDatabricks.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -24,11 +24,21 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("score", required: true)]
         public Input<int> Score { get; set; } = null!;
 
+        [Input("secret", required: true)]
+        private Input<string>? _secret;
+
         /// <summary>
         /// The Secret used to communicate with the Radius Server.
         /// </summary>
-        [Input("secret", required: true)]
-        public Input<string> Secret { get; set; } = null!;
+        public Input<string>? Secret
+        {
+            get => _secret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public VpnServerConfigurationRadiusServerGetArgs()
         {

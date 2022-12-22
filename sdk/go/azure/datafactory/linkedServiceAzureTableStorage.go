@@ -48,9 +48,9 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceAzureTableStorage(ctx, "exampleLinkedServiceAzureTableStorage", &datafactory.LinkedServiceAzureTableStorageArgs{
 //				DataFactoryId: exampleFactory.ID(),
-//				ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
-//					return exampleAccount.PrimaryConnectionString, nil
-//				}).(pulumi.StringOutput),
+//				ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (*string, error) {
+//					return &exampleAccount.PrimaryConnectionString, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
@@ -105,6 +105,13 @@ func NewLinkedServiceAzureTableStorage(ctx *pulumi.Context,
 	if args.DataFactoryId == nil {
 		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
+	if args.ConnectionString != nil {
+		args.ConnectionString = pulumi.ToSecret(args.ConnectionString).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"connectionString",
+	})
+	opts = append(opts, secrets)
 	var resource LinkedServiceAzureTableStorage
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceAzureTableStorage:LinkedServiceAzureTableStorage", name, args, &resource, opts...)
 	if err != nil {

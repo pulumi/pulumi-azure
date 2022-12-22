@@ -77,12 +77,12 @@ import (
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				ClusterName:       exampleCluster.Name,
 //				DatabaseName:      exampleDatabase.Name,
-//				TenantId: exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (string, error) {
-//					return identity.TenantId, nil
-//				}).(pulumi.StringOutput),
-//				PrincipalId: exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringOutput),
+//				TenantId: exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {
+//					return &identity.TenantId, nil
+//				}).(pulumi.StringPtrOutput),
+//				PrincipalId: exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
 //				PrincipalType: pulumi.String("App"),
 //				Role:          pulumi.String("Viewer"),
 //			})
@@ -152,6 +152,13 @@ func NewLinkedServiceKusto(ctx *pulumi.Context,
 	if args.KustoEndpoint == nil {
 		return nil, errors.New("invalid value for required argument 'KustoEndpoint'")
 	}
+	if args.ServicePrincipalKey != nil {
+		args.ServicePrincipalKey = pulumi.ToSecret(args.ServicePrincipalKey).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"servicePrincipalKey",
+	})
+	opts = append(opts, secrets)
 	var resource LinkedServiceKusto
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceKusto:LinkedServiceKusto", name, args, &resource, opts...)
 	if err != nil {

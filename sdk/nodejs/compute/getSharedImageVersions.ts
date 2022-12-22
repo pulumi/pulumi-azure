@@ -15,19 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.compute.getSharedImageVersions({
+ * const example = azure.compute.getSharedImageVersions({
  *     galleryName: "my-image-gallery",
  *     imageName: "my-image",
  *     resourceGroupName: "example-resources",
- * }));
+ * });
  * ```
  */
 export function getSharedImageVersions(args: GetSharedImageVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedImageVersionsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getSharedImageVersions:getSharedImageVersions", {
         "galleryName": args.galleryName,
         "imageName": args.imageName,
@@ -75,9 +72,24 @@ export interface GetSharedImageVersionsResult {
     readonly resourceGroupName: string;
     readonly tagsFilter?: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about existing Versions of a Shared Image within a Shared Image Gallery.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.compute.getSharedImageVersions({
+ *     galleryName: "my-image-gallery",
+ *     imageName: "my-image",
+ *     resourceGroupName: "example-resources",
+ * });
+ * ```
+ */
 export function getSharedImageVersionsOutput(args: GetSharedImageVersionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedImageVersionsResult> {
-    return pulumi.output(args).apply(a => getSharedImageVersions(a, opts))
+    return pulumi.output(args).apply((a: any) => getSharedImageVersions(a, opts))
 }
 
 /**

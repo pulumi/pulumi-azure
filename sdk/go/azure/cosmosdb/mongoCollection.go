@@ -35,15 +35,15 @@ import (
 //				return err
 //			}
 //			exampleMongoDatabase, err := cosmosdb.NewMongoDatabase(ctx, "exampleMongoDatabase", &cosmosdb.MongoDatabaseArgs{
-//				ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       pulumi.String(exampleAccount.Name),
+//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:       *pulumi.String(exampleAccount.Name),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cosmosdb.NewMongoCollection(ctx, "exampleMongoCollection", &cosmosdb.MongoCollectionArgs{
-//				ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       pulumi.String(exampleAccount.Name),
+//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:       *pulumi.String(exampleAccount.Name),
 //				DatabaseName:      exampleMongoDatabase.Name,
 //				DefaultTtlSeconds: pulumi.Int(777),
 //				ShardKey:          pulumi.String("uniqueKey"),

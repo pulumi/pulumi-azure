@@ -44,7 +44,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         SkuName = "Basic",
     ///         EnableNonSslPort = false,
     ///         MinimumTlsVersion = "1.2",
-    ///         RedisConfiguration = ,
+    ///         RedisConfiguration = null,
     ///     });
     /// 
     ///     var exampleRedisCache = new Azure.ApiManagement.RedisCache("exampleRedisCache", new()
@@ -129,6 +129,10 @@ namespace Pulumi.Azure.ApiManagement
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "connectionString",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -164,11 +168,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("cacheLocation")]
         public Input<string>? CacheLocation { get; set; }
 
+        [Input("connectionString", required: true)]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The connection string to the Cache for Redis.
         /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<string> ConnectionString { get; set; } = null!;
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The description of the API Management Redis Cache.
@@ -208,11 +222,21 @@ namespace Pulumi.Azure.ApiManagement
         [Input("cacheLocation")]
         public Input<string>? CacheLocation { get; set; }
 
+        [Input("connectionString")]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The connection string to the Cache for Redis.
         /// </summary>
-        [Input("connectionString")]
-        public Input<string>? ConnectionString { get; set; }
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The description of the API Management Redis Cache.

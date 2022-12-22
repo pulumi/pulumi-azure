@@ -449,7 +449,7 @@ class EndpointEventhub(pulumi.CustomResource):
             __props__ = EndpointEventhubArgs.__new__(EndpointEventhubArgs)
 
             __props__.__dict__["authentication_type"] = authentication_type
-            __props__.__dict__["connection_string"] = connection_string
+            __props__.__dict__["connection_string"] = None if connection_string is None else pulumi.Output.secret(connection_string)
             __props__.__dict__["endpoint_uri"] = endpoint_uri
             __props__.__dict__["entity_path"] = entity_path
             __props__.__dict__["identity_id"] = identity_id
@@ -460,6 +460,8 @@ class EndpointEventhub(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionString"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EndpointEventhub, __self__).__init__(
             'azure:iot/endpointEventhub:EndpointEventhub',
             resource_name,

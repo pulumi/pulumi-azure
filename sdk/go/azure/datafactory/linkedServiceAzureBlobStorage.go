@@ -48,9 +48,9 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceAzureBlobStorage(ctx, "exampleLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
 //				DataFactoryId: exampleFactory.ID(),
-//				ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
-//					return exampleAccount.PrimaryConnectionString, nil
-//				}).(pulumi.StringOutput),
+//				ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (*string, error) {
+//					return &exampleAccount.PrimaryConnectionString, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
@@ -96,7 +96,7 @@ import (
 //			testKeyVault, err := keyvault.NewKeyVault(ctx, "testKeyVault", &keyvault.KeyVaultArgs{
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				TenantId:          pulumi.String(current.TenantId),
+//				TenantId:          *pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("standard"),
 //			})
 //			if err != nil {
@@ -197,6 +197,21 @@ func NewLinkedServiceAzureBlobStorage(ctx *pulumi.Context,
 	if args.DataFactoryId == nil {
 		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
+	if args.ConnectionString != nil {
+		args.ConnectionString = pulumi.ToSecret(args.ConnectionString).(pulumi.StringPtrInput)
+	}
+	if args.SasUri != nil {
+		args.SasUri = pulumi.ToSecret(args.SasUri).(pulumi.StringPtrInput)
+	}
+	if args.ServiceEndpoint != nil {
+		args.ServiceEndpoint = pulumi.ToSecret(args.ServiceEndpoint).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"connectionString",
+		"sasUri",
+		"serviceEndpoint",
+	})
+	opts = append(opts, secrets)
 	var resource LinkedServiceAzureBlobStorage
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage", name, args, &resource, opts...)
 	if err != nil {

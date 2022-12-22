@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFirewallPolicy(args: GetFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getFirewallPolicy:getFirewallPolicy", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -71,9 +68,24 @@ export interface GetFirewallPolicyResult {
     readonly threatIntelligenceAllowlists: outputs.network.GetFirewallPolicyThreatIntelligenceAllowlist[];
     readonly threatIntelligenceMode: string;
 }
-
+/**
+ * Use this data source to access information about an existing Firewall Policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getFirewallPolicy({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getFirewallPolicyOutput(args: GetFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyResult> {
-    return pulumi.output(args).apply(a => getFirewallPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getFirewallPolicy(a, opts))
 }
 
 /**

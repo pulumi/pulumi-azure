@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTxtRecord(args: GetTxtRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetTxtRecordResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getTxtRecord:getTxtRecord", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -79,9 +76,22 @@ export interface GetTxtRecordResult {
     readonly ttl: number;
     readonly zoneName: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.privatedns.TxtRecord("example", {
+ *     zoneName: "test-zone",
+ *     resourceGroupName: "test-rg",
+ * });
+ * export const privateDnsTxtRecordId = example.id;
+ * ```
+ */
 export function getTxtRecordOutput(args: GetTxtRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTxtRecordResult> {
-    return pulumi.output(args).apply(a => getTxtRecord(a, opts))
+    return pulumi.output(args).apply((a: any) => getTxtRecord(a, opts))
 }
 
 /**

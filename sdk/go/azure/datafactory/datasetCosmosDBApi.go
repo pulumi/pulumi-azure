@@ -51,7 +51,7 @@ import (
 //			}
 //			exampleLinkedServiceCosmosDb, err := datafactory.NewLinkedServiceCosmosDb(ctx, "exampleLinkedServiceCosmosDb", &datafactory.LinkedServiceCosmosDbArgs{
 //				DataFactoryId:   exampleFactory.ID(),
-//				AccountEndpoint: pulumi.String(exampleAccount.Endpoint),
+//				AccountEndpoint: *pulumi.String(exampleAccount.Endpoint),
 //				Database:        pulumi.String("foo"),
 //			})
 //			if err != nil {

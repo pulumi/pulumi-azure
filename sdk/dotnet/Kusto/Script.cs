@@ -172,6 +172,11 @@ namespace Pulumi.Azure.Kusto
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "sasToken",
+                    "scriptContent",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -219,17 +224,37 @@ namespace Pulumi.Azure.Kusto
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("sasToken")]
+        private Input<string>? _sasToken;
+
         /// <summary>
         /// The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("sasToken")]
-        public Input<string>? SasToken { get; set; }
+        public Input<string>? SasToken
+        {
+            get => _sasToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sasToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("scriptContent")]
+        private Input<string>? _scriptContent;
 
         /// <summary>
         /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("scriptContent")]
-        public Input<string>? ScriptContent { get; set; }
+        public Input<string>? ScriptContent
+        {
+            get => _scriptContent;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _scriptContent = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
@@ -269,17 +294,37 @@ namespace Pulumi.Azure.Kusto
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("sasToken")]
+        private Input<string>? _sasToken;
+
         /// <summary>
         /// The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("sasToken")]
-        public Input<string>? SasToken { get; set; }
+        public Input<string>? SasToken
+        {
+            get => _sasToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sasToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("scriptContent")]
+        private Input<string>? _scriptContent;
 
         /// <summary>
         /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("scriptContent")]
-        public Input<string>? ScriptContent { get; set; }
+        public Input<string>? ScriptContent
+        {
+            get => _scriptContent;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _scriptContent = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The url to the KQL script blob file.  Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.

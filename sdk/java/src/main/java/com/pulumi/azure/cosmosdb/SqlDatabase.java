@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
- * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.GetAccountArgs;
  * import com.pulumi.azure.cosmosdb.SqlDatabase;
  * import com.pulumi.azure.cosmosdb.SqlDatabaseArgs;
  * import java.util.List;

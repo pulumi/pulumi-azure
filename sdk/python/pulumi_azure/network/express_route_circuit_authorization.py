@@ -294,6 +294,8 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["authorization_key"] = None
             __props__.__dict__["authorization_use_status"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["authorizationKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ExpressRouteCircuitAuthorization, __self__).__init__(
             'azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization',
             resource_name,

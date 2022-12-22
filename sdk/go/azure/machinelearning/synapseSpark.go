@@ -56,7 +56,7 @@ import (
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:               exampleResourceGroup.Location,
 //				ResourceGroupName:      exampleResourceGroup.Name,
-//				TenantId:               pulumi.String(current.TenantId),
+//				TenantId:               *pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("standard"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
 //			})

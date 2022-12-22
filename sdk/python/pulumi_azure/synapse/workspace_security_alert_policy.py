@@ -471,11 +471,13 @@ class WorkspaceSecurityAlertPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_state'")
             __props__.__dict__["policy_state"] = policy_state
             __props__.__dict__["retention_days"] = retention_days
-            __props__.__dict__["storage_account_access_key"] = storage_account_access_key
+            __props__.__dict__["storage_account_access_key"] = None if storage_account_access_key is None else pulumi.Output.secret(storage_account_access_key)
             __props__.__dict__["storage_endpoint"] = storage_endpoint
             if synapse_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'synapse_workspace_id'")
             __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["storageAccountAccessKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(WorkspaceSecurityAlertPolicy, __self__).__init__(
             'azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy',
             resource_name,

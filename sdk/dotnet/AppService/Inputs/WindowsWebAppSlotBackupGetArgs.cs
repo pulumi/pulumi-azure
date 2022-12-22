@@ -30,11 +30,21 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("schedule", required: true)]
         public Input<Inputs.WindowsWebAppSlotBackupScheduleGetArgs> Schedule { get; set; } = null!;
 
+        [Input("storageAccountUrl", required: true)]
+        private Input<string>? _storageAccountUrl;
+
         /// <summary>
         /// The SAS URL to the container.
         /// </summary>
-        [Input("storageAccountUrl", required: true)]
-        public Input<string> StorageAccountUrl { get; set; } = null!;
+        public Input<string>? StorageAccountUrl
+        {
+            get => _storageAccountUrl;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountUrl = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public WindowsWebAppSlotBackupGetArgs()
         {

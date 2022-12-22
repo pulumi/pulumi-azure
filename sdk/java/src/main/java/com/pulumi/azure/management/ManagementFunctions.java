@@ -28,7 +28,7 @@ public final class ManagementFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import com.pulumi.azure.management.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -66,7 +66,7 @@ public final class ManagementFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import com.pulumi.azure.management.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -104,7 +104,7 @@ public final class ManagementFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import com.pulumi.azure.management.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -142,7 +142,7 @@ public final class ManagementFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import com.pulumi.azure.management.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -180,7 +180,7 @@ public final class ManagementFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import com.pulumi.azure.management.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -218,7 +218,7 @@ public final class ManagementFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.management.ManagementFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+     * import com.pulumi.azure.management.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

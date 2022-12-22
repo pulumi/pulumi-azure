@@ -133,6 +133,13 @@ func NewSqlPoolExtendedAuditingPolicy(ctx *pulumi.Context,
 	if args.SqlPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'SqlPoolId'")
 	}
+	if args.StorageAccountAccessKey != nil {
+		args.StorageAccountAccessKey = pulumi.ToSecret(args.StorageAccountAccessKey).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"storageAccountAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource SqlPoolExtendedAuditingPolicy
 	err := ctx.RegisterResource("azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy", name, args, &resource, opts...)
 	if err != nil {

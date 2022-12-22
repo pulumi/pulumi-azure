@@ -56,12 +56,12 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewOutputBlob(ctx, "exampleOutputBlob", &streamanalytics.OutputBlobArgs{
-//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-//					return exampleJob.Name, nil
-//				}).(pulumi.StringOutput),
-//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-//					return exampleJob.ResourceGroupName, nil
-//				}).(pulumi.StringOutput),
+//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
+//					return &exampleJob.Name, nil
+//				}).(pulumi.StringPtrOutput),
+//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
+//					return &exampleJob.ResourceGroupName, nil
+//				}).(pulumi.StringPtrOutput),
 //				StorageAccountName:   exampleAccount.Name,
 //				StorageAccountKey:    exampleAccount.PrimaryAccessKey,
 //				StorageContainerName: exampleContainer.Name,
@@ -154,6 +154,13 @@ func NewOutputBlob(ctx *pulumi.Context,
 	if args.TimeFormat == nil {
 		return nil, errors.New("invalid value for required argument 'TimeFormat'")
 	}
+	if args.StorageAccountKey != nil {
+		args.StorageAccountKey = pulumi.ToSecret(args.StorageAccountKey).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"storageAccountKey",
+	})
+	opts = append(opts, secrets)
 	var resource OutputBlob
 	err := ctx.RegisterResource("azure:streamanalytics/outputBlob:OutputBlob", name, args, &resource, opts...)
 	if err != nil {

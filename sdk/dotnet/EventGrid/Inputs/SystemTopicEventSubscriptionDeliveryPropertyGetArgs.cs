@@ -36,11 +36,21 @@ namespace Pulumi.Azure.EventGrid.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        [Input("value")]
+        private Input<string>? _value;
+
         /// <summary>
         /// If the `type` is `Static`, then provide the value to use.
         /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public SystemTopicEventSubscriptionDeliveryPropertyGetArgs()
         {

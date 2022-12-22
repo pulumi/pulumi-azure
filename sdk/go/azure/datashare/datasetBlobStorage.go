@@ -70,15 +70,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePrincipal := azuread.LookupServicePrincipalOutput(ctx, GetServicePrincipalOutputArgs{
+//			exampleServicePrincipal := azuread.LookupServicePrincipalOutput(ctx, azuread.GetServicePrincipalOutputArgs{
 //				DisplayName: exampleAccount.Name,
 //			}, nil)
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
 //				Scope:              exampleStorage / accountAccount.Id,
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Reader"),
-//				PrincipalId: exampleServicePrincipal.ApplyT(func(exampleServicePrincipal GetServicePrincipalResult) (string, error) {
-//					return exampleServicePrincipal.ObjectId, nil
-//				}).(pulumi.StringOutput),
+//				PrincipalId: exampleServicePrincipal.ApplyT(func(exampleServicePrincipal azuread.GetServicePrincipalResult) (*string, error) {
+//					return &exampleServicePrincipal.ObjectId, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

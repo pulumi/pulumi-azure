@@ -163,6 +163,8 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["primarySharedKey", "secondarySharedKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(AnalyticsWorkspace.__pulumiType, name, resourceInputs, opts);
     }
 }

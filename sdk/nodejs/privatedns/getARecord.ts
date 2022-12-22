@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getARecord(args: GetARecordArgs, opts?: pulumi.InvokeOptions): Promise<GetARecordResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getARecord:getARecord", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -78,9 +75,23 @@ export interface GetARecordResult {
     readonly ttl: number;
     readonly zoneName: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.privatedns.getARecord({
+ *     name: "test",
+ *     zoneName: "test-zone",
+ *     resourceGroupName: "test-rg",
+ * });
+ * export const privateDnsARecordId = example.then(example => example.id);
+ * ```
+ */
 export function getARecordOutput(args: GetARecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetARecordResult> {
-    return pulumi.output(args).apply(a => getARecord(a, opts))
+    return pulumi.output(args).apply((a: any) => getARecord(a, opts))
 }
 
 /**

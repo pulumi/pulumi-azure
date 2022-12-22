@@ -312,6 +312,13 @@ func NewManagedInstanceSecurityAlertPolicy(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.StorageAccountAccessKey != nil {
+		args.StorageAccountAccessKey = pulumi.ToSecret(args.StorageAccountAccessKey).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"storageAccountAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource ManagedInstanceSecurityAlertPolicy
 	err := ctx.RegisterResource("azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy", name, args, &resource, opts...)
 	if err != nil {

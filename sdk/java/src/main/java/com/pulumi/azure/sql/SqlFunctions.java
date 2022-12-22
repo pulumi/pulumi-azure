@@ -29,7 +29,7 @@ public final class SqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import com.pulumi.azure.sql.inputs.GetDatabaseArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -67,7 +67,7 @@ public final class SqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import com.pulumi.azure.sql.inputs.GetDatabaseArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -105,7 +105,7 @@ public final class SqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import com.pulumi.azure.sql.inputs.GetDatabaseArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -143,7 +143,7 @@ public final class SqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import com.pulumi.azure.sql.inputs.GetDatabaseArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -181,7 +181,7 @@ public final class SqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import com.pulumi.azure.sql.inputs.GetServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -218,7 +218,7 @@ public final class SqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import com.pulumi.azure.sql.inputs.GetServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -255,7 +255,7 @@ public final class SqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import com.pulumi.azure.sql.inputs.GetServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -292,7 +292,7 @@ public final class SqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.sql.SqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import com.pulumi.azure.sql.inputs.GetServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

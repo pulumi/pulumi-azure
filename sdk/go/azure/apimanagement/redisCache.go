@@ -113,6 +113,13 @@ func NewRedisCache(ctx *pulumi.Context,
 	if args.ConnectionString == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionString'")
 	}
+	if args.ConnectionString != nil {
+		args.ConnectionString = pulumi.ToSecret(args.ConnectionString).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"connectionString",
+	})
+	opts = append(opts, secrets)
 	var resource RedisCache
 	err := ctx.RegisterResource("azure:apimanagement/redisCache:RedisCache", name, args, &resource, opts...)
 	if err != nil {

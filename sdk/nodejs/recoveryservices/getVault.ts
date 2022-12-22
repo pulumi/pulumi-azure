@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const vault = pulumi.output(azure.recoveryservices.getVault({
+ * const vault = azure.recoveryservices.getVault({
  *     name: "tfex-recovery_vault",
  *     resourceGroupName: "tfex-resource_group",
- * }));
+ * });
  * ```
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:recoveryservices/getVault:getVault", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -68,9 +65,23 @@ export interface GetVaultResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Recovery Services Vault.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const vault = azure.recoveryservices.getVault({
+ *     name: "tfex-recovery_vault",
+ *     resourceGroupName: "tfex-resource_group",
+ * });
+ * ```
+ */
 export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
-    return pulumi.output(args).apply(a => getVault(a, opts))
+    return pulumi.output(args).apply((a: any) => getVault(a, opts))
 }
 
 /**

@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Core
     ///     var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", new()
     ///     {
     ///         PolicyDefinitionId = exampleDefinition.Id,
-    ///         SubscriptionId = current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         SubscriptionId = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///     });
     /// 
     /// });

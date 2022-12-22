@@ -182,7 +182,7 @@ export class ReferenceInputMssql extends pulumi.CustomResource {
             resourceInputs["deltaSnapshotQuery"] = args ? args.deltaSnapshotQuery : undefined;
             resourceInputs["fullSnapshotQuery"] = args ? args.fullSnapshotQuery : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["refreshIntervalDuration"] = args ? args.refreshIntervalDuration : undefined;
             resourceInputs["refreshType"] = args ? args.refreshType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -192,6 +192,8 @@ export class ReferenceInputMssql extends pulumi.CustomResource {
             resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ReferenceInputMssql.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -212,6 +212,10 @@ namespace Pulumi.Azure.PostgreSql
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "administratorLoginPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -241,11 +245,21 @@ namespace Pulumi.Azure.PostgreSql
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
 
+        [Input("administratorLoginPassword")]
+        private Input<string>? _administratorLoginPassword;
+
         /// <summary>
         /// The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
         /// </summary>
-        [Input("administratorLoginPassword")]
-        public Input<string>? AdministratorLoginPassword { get; set; }
+        public Input<string>? AdministratorLoginPassword
+        {
+            get => _administratorLoginPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _administratorLoginPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
@@ -381,11 +395,21 @@ namespace Pulumi.Azure.PostgreSql
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
 
+        [Input("administratorLoginPassword")]
+        private Input<string>? _administratorLoginPassword;
+
         /// <summary>
         /// The Password associated with the `administrator_login` for the PostgreSQL Server. Required when `create_mode` is `Default`.
         /// </summary>
-        [Input("administratorLoginPassword")]
-        public Input<string>? AdministratorLoginPassword { get; set; }
+        public Input<string>? AdministratorLoginPassword
+        {
+            get => _administratorLoginPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _administratorLoginPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.

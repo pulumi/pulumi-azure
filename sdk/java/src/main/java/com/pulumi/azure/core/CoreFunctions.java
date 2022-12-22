@@ -412,7 +412,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
+     * import com.pulumi.azure.core.inputs.GetResourceGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -426,11 +426,11 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
+     *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.id()));
      *     }
      * }
      * ```
@@ -450,7 +450,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
+     * import com.pulumi.azure.core.inputs.GetResourceGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -464,11 +464,11 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
+     *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.id()));
      *     }
      * }
      * ```
@@ -488,7 +488,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
+     * import com.pulumi.azure.core.inputs.GetResourceGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -502,11 +502,11 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
+     *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.id()));
      *     }
      * }
      * ```
@@ -526,7 +526,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
+     * import com.pulumi.azure.core.inputs.GetResourceGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -540,11 +540,11 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
+     *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.id()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.id()));
      *     }
      * }
      * ```
@@ -634,7 +634,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -650,7 +650,7 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
+     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.displayName()));
      *     }
      * }
      * ```
@@ -670,7 +670,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -686,7 +686,7 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
+     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.displayName()));
      *     }
      * }
      * ```
@@ -706,7 +706,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -722,7 +722,7 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
+     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.displayName()));
      *     }
      * }
      * ```
@@ -742,7 +742,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -758,7 +758,7 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
+     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.displayName()));
      *     }
      * }
      * ```
@@ -778,7 +778,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -794,7 +794,7 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
+     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.displayName()));
      *     }
      * }
      * ```
@@ -814,7 +814,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.core.CoreFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -830,7 +830,7 @@ public final class CoreFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = CoreFunctions.getSubscription();
      * 
-     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.displayName()));
+     *         ctx.export(&#34;currentSubscriptionDisplayName&#34;, current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.displayName()));
      *     }
      * }
      * ```

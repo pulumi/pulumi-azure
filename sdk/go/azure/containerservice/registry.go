@@ -109,7 +109,7 @@ import (
 //				},
 //				Encryption: &containerservice.RegistryEncryptionArgs{
 //					Enabled:          pulumi.Bool(true),
-//					KeyVaultKeyId:    pulumi.String(exampleKey.Id),
+//					KeyVaultKeyId:    *pulumi.String(exampleKey.Id),
 //					IdentityClientId: exampleUserAssignedIdentity.ClientId,
 //				},
 //			})
@@ -171,9 +171,9 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-//				PrincipalId: exampleKubernetesCluster.KubeletIdentity.ApplyT(func(kubeletIdentity containerservice.KubernetesClusterKubeletIdentity) (string, error) {
-//					return kubeletIdentity.ObjectId, nil
-//				}).(pulumi.StringOutput),
+//				PrincipalId: exampleKubernetesCluster.KubeletIdentity.ApplyT(func(kubeletIdentity containerservice.KubernetesClusterKubeletIdentity) (*string, error) {
+//					return &kubeletIdentity.ObjectId, nil
+//				}).(pulumi.StringPtrOutput),
 //				RoleDefinitionName:           pulumi.String("AcrPull"),
 //				Scope:                        exampleRegistry.ID(),
 //				SkipServicePrincipalAadCheck: pulumi.Bool(true),
@@ -258,6 +258,10 @@ func NewRegistry(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"adminPassword",
+	})
+	opts = append(opts, secrets)
 	var resource Registry
 	err := ctx.RegisterResource("azure:containerservice/registry:Registry", name, args, &resource, opts...)
 	if err != nil {

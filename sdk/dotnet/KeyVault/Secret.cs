@@ -167,6 +167,10 @@ namespace Pulumi.Azure.KeyVault
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "value",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -232,11 +236,21 @@ namespace Pulumi.Azure.KeyVault
             set => _tags = value;
         }
 
+        [Input("value", required: true)]
+        private Input<string>? _value;
+
         /// <summary>
         /// Specifies the value of the Key Vault Secret.
         /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public SecretArgs()
         {
@@ -300,11 +314,21 @@ namespace Pulumi.Azure.KeyVault
             set => _tags = value;
         }
 
+        [Input("value")]
+        private Input<string>? _value;
+
         /// <summary>
         /// Specifies the value of the Key Vault Secret.
         /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The current version of the Key Vault Secret.

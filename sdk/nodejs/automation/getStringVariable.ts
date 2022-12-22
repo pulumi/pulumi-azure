@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStringVariable(args: GetStringVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetStringVariableResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:automation/getStringVariable:getStringVariable", {
         "automationAccountName": args.automationAccountName,
         "name": args.name,
@@ -76,9 +73,25 @@ export interface GetStringVariableResult {
      */
     readonly value: string;
 }
-
+/**
+ * Use this data source to access information about an existing Automation String Variable.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.automation.getStringVariable({
+ *     name: "tfex-example-var",
+ *     resourceGroupName: "tfex-example-rg",
+ *     automationAccountName: "tfex-example-account",
+ * });
+ * export const variableId = example.then(example => example.id);
+ * ```
+ */
 export function getStringVariableOutput(args: GetStringVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStringVariableResult> {
-    return pulumi.output(args).apply(a => getStringVariable(a, opts))
+    return pulumi.output(args).apply((a: any) => getStringVariable(a, opts))
 }
 
 /**

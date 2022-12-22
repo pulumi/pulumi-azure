@@ -1072,7 +1072,7 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["administrator_login"] = administrator_login
             if administrator_login_password is None and not opts.urn:
                 raise TypeError("Missing required property 'administrator_login_password'")
-            __props__.__dict__["administrator_login_password"] = administrator_login_password
+            __props__.__dict__["administrator_login_password"] = None if administrator_login_password is None else pulumi.Output.secret(administrator_login_password)
             __props__.__dict__["collation"] = collation
             __props__.__dict__["dns_zone_partner_id"] = dns_zone_partner_id
             __props__.__dict__["identity"] = identity
@@ -1103,6 +1103,8 @@ class ManagedInstance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vcores'")
             __props__.__dict__["vcores"] = vcores
             __props__.__dict__["fqdn"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorLoginPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ManagedInstance, __self__).__init__(
             'azure:sql/managedInstance:ManagedInstance',
             resource_name,

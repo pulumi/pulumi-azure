@@ -151,6 +151,11 @@ namespace Pulumi.Azure.Batch
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "certificate",
+                    "password",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -180,11 +185,21 @@ namespace Pulumi.Azure.Batch
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        [Input("certificate", required: true)]
+        private Input<string>? _certificate;
+
         /// <summary>
         /// The base64-encoded contents of the certificate.
         /// </summary>
-        [Input("certificate", required: true)]
-        public Input<string> BatchCertificate { get; set; } = null!;
+        public Input<string>? BatchCertificate
+        {
+            get => _certificate;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificate = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The format of the certificate. Possible values are `Cer` or `Pfx`.
@@ -192,11 +207,21 @@ namespace Pulumi.Azure.Batch
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
@@ -227,11 +252,21 @@ namespace Pulumi.Azure.Batch
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
 
+        [Input("certificate")]
+        private Input<string>? _certificate;
+
         /// <summary>
         /// The base64-encoded contents of the certificate.
         /// </summary>
-        [Input("certificate")]
-        public Input<string>? BatchCertificate { get; set; }
+        public Input<string>? BatchCertificate
+        {
+            get => _certificate;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificate = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The format of the certificate. Possible values are `Cer` or `Pfx`.
@@ -245,11 +280,21 @@ namespace Pulumi.Azure.Batch
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The public key of the certificate.

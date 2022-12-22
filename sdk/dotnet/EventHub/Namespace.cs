@@ -175,6 +175,13 @@ namespace Pulumi.Azure.EventHub
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "defaultPrimaryConnectionString",
+                    "defaultPrimaryKey",
+                    "defaultSecondaryConnectionString",
+                    "defaultSecondaryKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -298,31 +305,71 @@ namespace Pulumi.Azure.EventHub
         [Input("customerManagedKey")]
         public Input<Inputs.NamespaceCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
 
+        [Input("defaultPrimaryConnectionString")]
+        private Input<string>? _defaultPrimaryConnectionString;
+
         /// <summary>
         /// The primary connection string for the authorization
         /// rule `RootManageSharedAccessKey`.
         /// </summary>
-        [Input("defaultPrimaryConnectionString")]
-        public Input<string>? DefaultPrimaryConnectionString { get; set; }
+        public Input<string>? DefaultPrimaryConnectionString
+        {
+            get => _defaultPrimaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _defaultPrimaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("defaultPrimaryKey")]
+        private Input<string>? _defaultPrimaryKey;
 
         /// <summary>
         /// The primary access key for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
-        [Input("defaultPrimaryKey")]
-        public Input<string>? DefaultPrimaryKey { get; set; }
+        public Input<string>? DefaultPrimaryKey
+        {
+            get => _defaultPrimaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _defaultPrimaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("defaultSecondaryConnectionString")]
+        private Input<string>? _defaultSecondaryConnectionString;
 
         /// <summary>
         /// The secondary connection string for the
         /// authorization rule `RootManageSharedAccessKey`.
         /// </summary>
-        [Input("defaultSecondaryConnectionString")]
-        public Input<string>? DefaultSecondaryConnectionString { get; set; }
+        public Input<string>? DefaultSecondaryConnectionString
+        {
+            get => _defaultSecondaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _defaultSecondaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("defaultSecondaryKey")]
+        private Input<string>? _defaultSecondaryKey;
 
         /// <summary>
         /// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
-        [Input("defaultSecondaryKey")]
-        public Input<string>? DefaultSecondaryKey { get; set; }
+        public Input<string>? DefaultSecondaryKey
+        {
+            get => _defaultSecondaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _defaultSecondaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// An `identity` block as defined below.

@@ -19,15 +19,12 @@ import * as utilities from "../utilities";
  *     name: "example-private-endpoint",
  *     resourceGroupName: "example-rg",
  * });
- * export const privateEndpointStatus = example.then(example => example.privateServiceConnections?[0]?.status);
+ * export const privateEndpointStatus = example.then(example => example.privateServiceConnections?.[0]?.status);
  * ```
  */
 export function getEndpointConnection(args: GetEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatelink/getEndpointConnection:getEndpointConnection", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -68,9 +65,24 @@ export interface GetEndpointConnectionResult {
     readonly privateServiceConnections: outputs.privatelink.GetEndpointConnectionPrivateServiceConnection[];
     readonly resourceGroupName: string;
 }
-
+/**
+ * Use this data source to access the connection status information about an existing Private Endpoint Connection.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.privatelink.getEndpointConnection({
+ *     name: "example-private-endpoint",
+ *     resourceGroupName: "example-rg",
+ * });
+ * export const privateEndpointStatus = example.then(example => example.privateServiceConnections?.[0]?.status);
+ * ```
+ */
 export function getEndpointConnectionOutput(args: GetEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointConnectionResult> {
-    return pulumi.output(args).apply(a => getEndpointConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getEndpointConnection(a, opts))
 }
 
 /**

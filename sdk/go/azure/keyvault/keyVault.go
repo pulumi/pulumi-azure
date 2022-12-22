@@ -46,14 +46,14 @@ import (
 //				Location:                 exampleResourceGroup.Location,
 //				ResourceGroupName:        exampleResourceGroup.Name,
 //				EnabledForDiskEncryption: pulumi.Bool(true),
-//				TenantId:                 pulumi.String(current.TenantId),
+//				TenantId:                 *pulumi.String(current.TenantId),
 //				SoftDeleteRetentionDays:  pulumi.Int(7),
 //				PurgeProtectionEnabled:   pulumi.Bool(false),
 //				SkuName:                  pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: pulumi.String(current.TenantId),
-//						ObjectId: pulumi.String(current.ObjectId),
+//						TenantId: *pulumi.String(current.TenantId),
+//						ObjectId: *pulumi.String(current.ObjectId),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //						},

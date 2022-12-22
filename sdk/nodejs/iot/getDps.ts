@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.iot.getDps({
+ * const example = azure.iot.getDps({
  *     name: "iot_hub_dps_test",
  *     resourceGroupName: "iothub_dps_rg",
- * }));
+ * });
  * ```
  */
 export function getDps(args: GetDpsArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:iot/getDps:getDps", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -79,9 +76,23 @@ export interface GetDpsResult {
     readonly serviceOperationsHostName: string;
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing IotHub Device Provisioning Service.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.iot.getDps({
+ *     name: "iot_hub_dps_test",
+ *     resourceGroupName: "iothub_dps_rg",
+ * });
+ * ```
+ */
 export function getDpsOutput(args: GetDpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsResult> {
-    return pulumi.output(args).apply(a => getDps(a, opts))
+    return pulumi.output(args).apply((a: any) => getDps(a, opts))
 }
 
 /**

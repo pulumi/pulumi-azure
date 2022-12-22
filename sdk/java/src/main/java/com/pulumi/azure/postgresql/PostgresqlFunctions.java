@@ -28,7 +28,7 @@ public final class PostgresqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
-     * import com.pulumi.azure.mysql.inputs.GetFlexibleServerArgs;
+     * import com.pulumi.azure.postgresql.inputs.GetFlexibleServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -67,7 +67,7 @@ public final class PostgresqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
-     * import com.pulumi.azure.mysql.inputs.GetFlexibleServerArgs;
+     * import com.pulumi.azure.postgresql.inputs.GetFlexibleServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -106,7 +106,7 @@ public final class PostgresqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
-     * import com.pulumi.azure.mysql.inputs.GetFlexibleServerArgs;
+     * import com.pulumi.azure.postgresql.inputs.GetFlexibleServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -145,7 +145,7 @@ public final class PostgresqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
-     * import com.pulumi.azure.mysql.inputs.GetFlexibleServerArgs;
+     * import com.pulumi.azure.postgresql.inputs.GetFlexibleServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -184,7 +184,7 @@ public final class PostgresqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import com.pulumi.azure.postgresql.inputs.GetServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -223,7 +223,7 @@ public final class PostgresqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import com.pulumi.azure.postgresql.inputs.GetServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -262,7 +262,7 @@ public final class PostgresqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import com.pulumi.azure.postgresql.inputs.GetServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -301,7 +301,7 @@ public final class PostgresqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.postgresql.PostgresqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import com.pulumi.azure.postgresql.inputs.GetServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

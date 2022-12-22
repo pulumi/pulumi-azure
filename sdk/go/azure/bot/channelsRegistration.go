@@ -42,7 +42,7 @@ import (
 //				Location:          pulumi.String("global"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Sku:               pulumi.String("F0"),
-//				MicrosoftAppId:    pulumi.String(current.ClientId),
+//				MicrosoftAppId:    *pulumi.String(current.ClientId),
 //			})
 //			if err != nil {
 //				return err
@@ -119,6 +119,13 @@ func NewChannelsRegistration(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.DeveloperAppInsightsApiKey != nil {
+		args.DeveloperAppInsightsApiKey = pulumi.ToSecret(args.DeveloperAppInsightsApiKey).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"developerAppInsightsApiKey",
+	})
+	opts = append(opts, secrets)
 	var resource ChannelsRegistration
 	err := ctx.RegisterResource("azure:bot/channelsRegistration:ChannelsRegistration", name, args, &resource, opts...)
 	if err != nil {

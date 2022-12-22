@@ -135,6 +135,13 @@ func NewServer(ctx *pulumi.Context,
 	if args.Version == nil {
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
+	if args.AdministratorLoginPassword != nil {
+		args.AdministratorLoginPassword = pulumi.ToSecret(args.AdministratorLoginPassword).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"administratorLoginPassword",
+	})
+	opts = append(opts, secrets)
 	var resource Server
 	err := ctx.RegisterResource("azure:postgresql/server:Server", name, args, &resource, opts...)
 	if err != nil {

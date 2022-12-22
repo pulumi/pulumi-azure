@@ -134,6 +134,13 @@ namespace Pulumi.Azure.Relay
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "primaryConnectionString",
+                    "primaryKey",
+                    "secondaryConnectionString",
+                    "secondaryKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -219,17 +226,37 @@ namespace Pulumi.Azure.Relay
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("primaryConnectionString")]
+        private Input<string>? _primaryConnectionString;
+
         /// <summary>
         /// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
-        [Input("primaryConnectionString")]
-        public Input<string>? PrimaryConnectionString { get; set; }
+        public Input<string>? PrimaryConnectionString
+        {
+            get => _primaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("primaryKey")]
+        private Input<string>? _primaryKey;
 
         /// <summary>
         /// The primary access key for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
-        [Input("primaryKey")]
-        public Input<string>? PrimaryKey { get; set; }
+        public Input<string>? PrimaryKey
+        {
+            get => _primaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created.
@@ -237,17 +264,37 @@ namespace Pulumi.Azure.Relay
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("secondaryConnectionString")]
+        private Input<string>? _secondaryConnectionString;
+
         /// <summary>
         /// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
-        [Input("secondaryConnectionString")]
-        public Input<string>? SecondaryConnectionString { get; set; }
+        public Input<string>? SecondaryConnectionString
+        {
+            get => _secondaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("secondaryKey")]
+        private Input<string>? _secondaryKey;
 
         /// <summary>
         /// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         /// </summary>
-        [Input("secondaryKey")]
-        public Input<string>? SecondaryKey { get; set; }
+        public Input<string>? SecondaryKey
+        {
+            get => _secondaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the SKU to use. At this time the only supported value is `Standard`.

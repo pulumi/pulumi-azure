@@ -27,11 +27,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCertificateData(args: GetCertificateDataArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateDataResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:keyvault/getCertificateData:getCertificateData", {
         "keyVaultId": args.keyVaultId,
         "name": args.name,
@@ -97,9 +94,30 @@ export interface GetCertificateDataResult {
     readonly tags: {[key: string]: string};
     readonly version: string;
 }
-
+/**
+ * Use this data source to access data stored in an existing Key Vault Certificate.
+ *
+ * > **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleKeyVault = azure.keyvault.getKeyVault({
+ *     name: "examplekv",
+ *     resourceGroupName: "some-resource-group",
+ * });
+ * const exampleCertificateData = exampleKeyVault.then(exampleKeyVault => azure.keyvault.getCertificateData({
+ *     name: "secret-sauce",
+ *     keyVaultId: exampleKeyVault.id,
+ * }));
+ * export const examplePem = exampleCertificateData.then(exampleCertificateData => exampleCertificateData.pem);
+ * ```
+ */
 export function getCertificateDataOutput(args: GetCertificateDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateDataResult> {
-    return pulumi.output(args).apply(a => getCertificateData(a, opts))
+    return pulumi.output(args).apply((a: any) => getCertificateData(a, opts))
 }
 
 /**

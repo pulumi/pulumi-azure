@@ -150,6 +150,10 @@ func NewLinuxWebAppSlot(ctx *pulumi.Context,
 	if args.SiteConfig == nil {
 		return nil, errors.New("invalid value for required argument 'SiteConfig'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"customDomainVerificationId",
+	})
+	opts = append(opts, secrets)
 	var resource LinuxWebAppSlot
 	err := ctx.RegisterResource("azure:appservice/linuxWebAppSlot:LinuxWebAppSlot", name, args, &resource, opts...)
 	if err != nil {

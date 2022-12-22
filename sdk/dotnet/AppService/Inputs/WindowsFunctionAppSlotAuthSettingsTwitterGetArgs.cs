@@ -18,11 +18,21 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("consumerKey", required: true)]
         public Input<string> ConsumerKey { get; set; } = null!;
 
+        [Input("consumerSecret")]
+        private Input<string>? _consumerSecret;
+
         /// <summary>
         /// The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
         /// </summary>
-        [Input("consumerSecret")]
-        public Input<string>? ConsumerSecret { get; set; }
+        public Input<string>? ConsumerSecret
+        {
+            get => _consumerSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _consumerSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.

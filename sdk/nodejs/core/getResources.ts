@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  */
 export function getResources(args?: GetResourcesArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcesResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:core/getResources:getResources", {
         "name": args.name,
         "requiredTags": args.requiredTags,
@@ -69,9 +66,11 @@ export interface GetResourcesResult {
      */
     readonly type: string;
 }
-
+/**
+ * Use this data source to access information about existing resources.
+ */
 export function getResourcesOutput(args?: GetResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcesResult> {
-    return pulumi.output(args).apply(a => getResources(a, opts))
+    return pulumi.output(args).apply((a: any) => getResources(a, opts))
 }
 
 /**

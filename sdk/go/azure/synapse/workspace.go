@@ -125,7 +125,7 @@ import (
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:               exampleResourceGroup.Location,
 //				ResourceGroupName:      exampleResourceGroup.Name,
-//				TenantId:               pulumi.String(current.TenantId),
+//				TenantId:               *pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("standard"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
 //			})
@@ -134,8 +134,8 @@ import (
 //			}
 //			deployer, err := keyvault.NewAccessPolicy(ctx, "deployer", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   pulumi.String(current.TenantId),
-//				ObjectId:   pulumi.String(current.ObjectId),
+//				TenantId:   *pulumi.String(current.TenantId),
+//				ObjectId:   *pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Create"),
 //					pulumi.String("Get"),
@@ -182,12 +182,12 @@ import (
 //			}
 //			workspacePolicy, err := keyvault.NewAccessPolicy(ctx, "workspacePolicy", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId: exampleWorkspace.Identity.ApplyT(func(identity synapse.WorkspaceIdentity) (string, error) {
-//					return identity.TenantId, nil
-//				}).(pulumi.StringOutput),
-//				ObjectId: exampleWorkspace.Identity.ApplyT(func(identity synapse.WorkspaceIdentity) (string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringOutput),
+//				TenantId: exampleWorkspace.Identity.ApplyT(func(identity synapse.WorkspaceIdentity) (*string, error) {
+//					return &identity.TenantId, nil
+//				}).(pulumi.StringPtrOutput),
+//				ObjectId: exampleWorkspace.Identity.ApplyT(func(identity synapse.WorkspaceIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //					pulumi.String("WrapKey"),
@@ -296,6 +296,13 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.StorageDataLakeGen2FilesystemId == nil {
 		return nil, errors.New("invalid value for required argument 'StorageDataLakeGen2FilesystemId'")
 	}
+	if args.SqlAdministratorLoginPassword != nil {
+		args.SqlAdministratorLoginPassword = pulumi.ToSecret(args.SqlAdministratorLoginPassword).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sqlAdministratorLoginPassword",
+	})
+	opts = append(opts, secrets)
 	var resource Workspace
 	err := ctx.RegisterResource("azure:synapse/workspace:Workspace", name, args, &resource, opts...)
 	if err != nil {

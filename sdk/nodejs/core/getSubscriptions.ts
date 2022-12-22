@@ -17,16 +17,13 @@ import * as utilities from "../utilities";
  *
  * const available = azure.core.getSubscriptions({});
  * export const availableSubscriptions = available.then(available => available.subscriptions);
- * export const firstAvailableSubscriptionDisplayName = available.then(available => available.subscriptions?[0]?.displayName);
+ * export const firstAvailableSubscriptionDisplayName = available.then(available => available.subscriptions?.[0]?.displayName);
  * ```
  */
 export function getSubscriptions(args?: GetSubscriptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:core/getSubscriptions:getSubscriptions", {
         "displayNameContains": args.displayNameContains,
         "displayNamePrefix": args.displayNamePrefix,
@@ -62,9 +59,22 @@ export interface GetSubscriptionsResult {
      */
     readonly subscriptions: outputs.core.GetSubscriptionsSubscription[];
 }
-
+/**
+ * Use this data source to access information about all the Subscriptions currently available.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const available = azure.core.getSubscriptions({});
+ * export const availableSubscriptions = available.then(available => available.subscriptions);
+ * export const firstAvailableSubscriptionDisplayName = available.then(available => available.subscriptions?.[0]?.displayName);
+ * ```
+ */
 export function getSubscriptionsOutput(args?: GetSubscriptionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionsResult> {
-    return pulumi.output(args).apply(a => getSubscriptions(a, opts))
+    return pulumi.output(args).apply((a: any) => getSubscriptions(a, opts))
 }
 
 /**

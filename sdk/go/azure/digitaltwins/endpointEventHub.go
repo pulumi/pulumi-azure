@@ -124,6 +124,21 @@ func NewEndpointEventHub(ctx *pulumi.Context,
 	if args.EventhubSecondaryConnectionString == nil {
 		return nil, errors.New("invalid value for required argument 'EventhubSecondaryConnectionString'")
 	}
+	if args.DeadLetterStorageSecret != nil {
+		args.DeadLetterStorageSecret = pulumi.ToSecret(args.DeadLetterStorageSecret).(pulumi.StringPtrInput)
+	}
+	if args.EventhubPrimaryConnectionString != nil {
+		args.EventhubPrimaryConnectionString = pulumi.ToSecret(args.EventhubPrimaryConnectionString).(pulumi.StringInput)
+	}
+	if args.EventhubSecondaryConnectionString != nil {
+		args.EventhubSecondaryConnectionString = pulumi.ToSecret(args.EventhubSecondaryConnectionString).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"deadLetterStorageSecret",
+		"eventhubPrimaryConnectionString",
+		"eventhubSecondaryConnectionString",
+	})
+	opts = append(opts, secrets)
 	var resource EndpointEventHub
 	err := ctx.RegisterResource("azure:digitaltwins/endpointEventHub:EndpointEventHub", name, args, &resource, opts...)
 	if err != nil {

@@ -48,14 +48,14 @@ namespace Pulumi.Azure.AppService
     ///         Location = exampleResourceGroup.Location,
     ///         ServicePlanId = exampleServicePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
-    ///         SiteConfig = ,
+    ///         SiteConfig = null,
     ///     });
     /// 
     ///     var exampleLinuxFunctionAppSlot = new Azure.AppService.LinuxFunctionAppSlot("exampleLinuxFunctionAppSlot", new()
     ///     {
     ///         FunctionAppId = exampleLinuxFunctionApp.Id,
     ///         StorageAccountName = exampleAccount.Name,
-    ///         SiteConfig = ,
+    ///         SiteConfig = null,
     ///     });
     /// 
     /// });
@@ -293,6 +293,11 @@ namespace Pulumi.Azure.AppService
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "customDomainVerificationId",
+                    "storageAccountAccessKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -436,11 +441,21 @@ namespace Pulumi.Azure.AppService
         [Input("siteConfig", required: true)]
         public Input<Inputs.LinuxFunctionAppSlotSiteConfigArgs> SiteConfig { get; set; } = null!;
 
+        [Input("storageAccountAccessKey")]
+        private Input<string>? _storageAccountAccessKey;
+
         /// <summary>
         /// The access key which will be used to access the storage account for the Function App Slot.
         /// </summary>
-        [Input("storageAccountAccessKey")]
-        public Input<string>? StorageAccountAccessKey { get; set; }
+        public Input<string>? StorageAccountAccessKey
+        {
+            get => _storageAccountAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The backend storage account name which will be used by this Function App Slot.
@@ -564,11 +579,21 @@ namespace Pulumi.Azure.AppService
         [Input("contentShareForceDisabled")]
         public Input<bool>? ContentShareForceDisabled { get; set; }
 
+        [Input("customDomainVerificationId")]
+        private Input<string>? _customDomainVerificationId;
+
         /// <summary>
         /// The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         /// </summary>
-        [Input("customDomainVerificationId")]
-        public Input<string>? CustomDomainVerificationId { get; set; }
+        public Input<string>? CustomDomainVerificationId
+        {
+            get => _customDomainVerificationId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _customDomainVerificationId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
@@ -684,11 +709,21 @@ namespace Pulumi.Azure.AppService
             set => _siteCredentials = value;
         }
 
+        [Input("storageAccountAccessKey")]
+        private Input<string>? _storageAccountAccessKey;
+
         /// <summary>
         /// The access key which will be used to access the storage account for the Function App Slot.
         /// </summary>
-        [Input("storageAccountAccessKey")]
-        public Input<string>? StorageAccountAccessKey { get; set; }
+        public Input<string>? StorageAccountAccessKey
+        {
+            get => _storageAccountAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _storageAccountAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The backend storage account name which will be used by this Function App Slot.

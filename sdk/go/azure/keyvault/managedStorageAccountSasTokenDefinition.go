@@ -117,9 +117,9 @@ import (
 //			_, err = keyvault.NewManagedStorageAccountSasTokenDefinition(ctx, "exampleManagedStorageAccountSasTokenDefinition", &keyvault.ManagedStorageAccountSasTokenDefinitionArgs{
 //				ValidityPeriod:          pulumi.String("P1D"),
 //				ManagedStorageAccountId: pulumi.Any(azurerm_key_vault_managed_storage_account.Example.Id),
-//				SasTemplateUri: exampleAccountSAS.ApplyT(func(exampleAccountSAS storage.GetAccountSASResult) (string, error) {
-//					return exampleAccountSAS.Sas, nil
-//				}).(pulumi.StringOutput),
+//				SasTemplateUri: exampleAccountSAS.ApplyT(func(exampleAccountSAS storage.GetAccountSASResult) (*string, error) {
+//					return &exampleAccountSAS.Sas, nil
+//				}).(pulumi.StringPtrOutput),
 //				SasType: pulumi.String("account"),
 //			})
 //			if err != nil {

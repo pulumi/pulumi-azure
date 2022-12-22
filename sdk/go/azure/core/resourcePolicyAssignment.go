@@ -60,7 +60,7 @@ import (
 //				return err
 //			}
 //			_, err = core.NewResourcePolicyAssignment(ctx, "exampleResourcePolicyAssignment", &core.ResourcePolicyAssignmentArgs{
-//				ResourceId:         pulumi.String(exampleVirtualNetwork.Id),
+//				ResourceId:         *pulumi.String(exampleVirtualNetwork.Id),
 //				PolicyDefinitionId: exampleDefinition.ID(),
 //			})
 //			if err != nil {

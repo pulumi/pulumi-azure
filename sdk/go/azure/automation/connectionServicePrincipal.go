@@ -60,8 +60,8 @@ import (
 //				ResourceGroupName:     exampleResourceGroup.Name,
 //				AutomationAccountName: exampleAccount.Name,
 //				ApplicationId:         pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				TenantId:              pulumi.String(exampleClientConfig.TenantId),
-//				SubscriptionId:        pulumi.String(exampleClientConfig.SubscriptionId),
+//				TenantId:              *pulumi.String(exampleClientConfig.TenantId),
+//				SubscriptionId:        *pulumi.String(exampleClientConfig.SubscriptionId),
 //				CertificateThumbprint: readFileOrPanic("automation_certificate_test.thumb"),
 //			})
 //			if err != nil {

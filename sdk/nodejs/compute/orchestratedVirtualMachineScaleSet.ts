@@ -240,12 +240,14 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["terminationNotification"] = args ? args.terminationNotification : undefined;
-            resourceInputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
+            resourceInputs["userDataBase64"] = args?.userDataBase64 ? pulumi.secret(args.userDataBase64) : undefined;
             resourceInputs["zoneBalance"] = args ? args.zoneBalance : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["uniqueId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["userDataBase64"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OrchestratedVirtualMachineScaleSet.__pulumiType, name, resourceInputs, opts);
     }
 }

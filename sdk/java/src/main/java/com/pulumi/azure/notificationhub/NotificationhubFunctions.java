@@ -188,7 +188,7 @@ public final class NotificationhubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import com.pulumi.azure.notificationhub.inputs.GetNamespaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -227,7 +227,7 @@ public final class NotificationhubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import com.pulumi.azure.notificationhub.inputs.GetNamespaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -266,7 +266,7 @@ public final class NotificationhubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import com.pulumi.azure.notificationhub.inputs.GetNamespaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -305,7 +305,7 @@ public final class NotificationhubFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.notificationhub.NotificationhubFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import com.pulumi.azure.notificationhub.inputs.GetNamespaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

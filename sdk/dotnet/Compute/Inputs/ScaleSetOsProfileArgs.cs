@@ -12,11 +12,21 @@ namespace Pulumi.Azure.Compute.Inputs
 
     public sealed class ScaleSetOsProfileArgs : global::Pulumi.ResourceArgs
     {
+        [Input("adminPassword")]
+        private Input<string>? _adminPassword;
+
         /// <summary>
         /// Specifies the administrator password to use for all the instances of virtual machines in a scale set.
         /// </summary>
-        [Input("adminPassword")]
-        public Input<string>? AdminPassword { get; set; }
+        public Input<string>? AdminPassword
+        {
+            get => _adminPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _adminPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the administrator account name to use for all the instances of virtual machines in the scale set.

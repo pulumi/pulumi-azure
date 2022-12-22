@@ -15,19 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.batch.getPool({
+ * const example = azure.batch.getPool({
  *     accountName: "testbatchaccount",
  *     name: "testbatchpool",
  *     resourceGroupName: "test",
- * }));
+ * });
  * ```
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:batch/getPool:getPool", {
         "accountName": args.accountName,
         "name": args.name,
@@ -151,9 +148,24 @@ export interface GetPoolResult {
      */
     readonly windows: outputs.batch.GetPoolWindow[];
 }
-
+/**
+ * Use this data source to access information about an existing Batch pool
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.batch.getPool({
+ *     accountName: "testbatchaccount",
+ *     name: "testbatchpool",
+ *     resourceGroupName: "test",
+ * });
+ * ```
+ */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
-    return pulumi.output(args).apply(a => getPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getPool(a, opts))
 }
 
 /**

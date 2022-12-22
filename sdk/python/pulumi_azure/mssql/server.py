@@ -657,7 +657,7 @@ class Server(pulumi.CustomResource):
             __props__ = ServerArgs.__new__(ServerArgs)
 
             __props__.__dict__["administrator_login"] = administrator_login
-            __props__.__dict__["administrator_login_password"] = administrator_login_password
+            __props__.__dict__["administrator_login_password"] = None if administrator_login_password is None else pulumi.Output.secret(administrator_login_password)
             __props__.__dict__["azuread_administrator"] = azuread_administrator
             __props__.__dict__["connection_policy"] = connection_policy
             __props__.__dict__["identity"] = identity
@@ -676,6 +676,8 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["fully_qualified_domain_name"] = None
             __props__.__dict__["restorable_dropped_database_ids"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorLoginPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Server, __self__).__init__(
             'azure:mssql/server:Server',
             resource_name,

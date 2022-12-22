@@ -76,7 +76,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
 //				DisplayName: pulumi.StringRef("Azure Cosmos DB"),
 //			}, nil)
 //			if err != nil {
@@ -85,7 +85,7 @@ import (
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
 //				Scope:              exampleVirtualNetwork.ID(),
 //				RoleDefinitionName: pulumi.String("Network Contributor"),
-//				PrincipalId:        pulumi.String(exampleServicePrincipal.ObjectId),
+//				PrincipalId:        *pulumi.String(exampleServicePrincipal.ObjectId),
 //			})
 //			if err != nil {
 //				return err

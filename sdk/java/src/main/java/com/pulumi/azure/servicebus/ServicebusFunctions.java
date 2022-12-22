@@ -46,7 +46,7 @@ public final class ServicebusFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -85,7 +85,7 @@ public final class ServicebusFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -124,7 +124,7 @@ public final class ServicebusFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -163,7 +163,7 @@ public final class ServicebusFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -202,7 +202,7 @@ public final class ServicebusFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceAuthorizationRuleArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -242,7 +242,7 @@ public final class ServicebusFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceAuthorizationRuleArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -282,7 +282,7 @@ public final class ServicebusFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceAuthorizationRuleArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -322,7 +322,7 @@ public final class ServicebusFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetNamespaceAuthorizationRuleArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetNamespaceAuthorizationRuleArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -698,7 +698,7 @@ public final class ServicebusFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -712,7 +712,7 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ServicebusFunctions.getSubscription(GetBudgetSubscriptionArgs.builder()
+     *         final var example = ServicebusFunctions.getSubscription(GetSubscriptionArgs.builder()
      *             .name(&#34;examplesubscription&#34;)
      *             .resourceGroupName(&#34;exampleresources&#34;)
      *             .namespaceName(&#34;examplenamespace&#34;)
@@ -739,7 +739,7 @@ public final class ServicebusFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -753,7 +753,7 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ServicebusFunctions.getSubscription(GetBudgetSubscriptionArgs.builder()
+     *         final var example = ServicebusFunctions.getSubscription(GetSubscriptionArgs.builder()
      *             .name(&#34;examplesubscription&#34;)
      *             .resourceGroupName(&#34;exampleresources&#34;)
      *             .namespaceName(&#34;examplenamespace&#34;)
@@ -780,7 +780,7 @@ public final class ServicebusFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -794,7 +794,7 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ServicebusFunctions.getSubscription(GetBudgetSubscriptionArgs.builder()
+     *         final var example = ServicebusFunctions.getSubscription(GetSubscriptionArgs.builder()
      *             .name(&#34;examplesubscription&#34;)
      *             .resourceGroupName(&#34;exampleresources&#34;)
      *             .namespaceName(&#34;examplenamespace&#34;)
@@ -821,7 +821,7 @@ public final class ServicebusFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetSubscriptionArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -835,7 +835,7 @@ public final class ServicebusFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ServicebusFunctions.getSubscription(GetBudgetSubscriptionArgs.builder()
+     *         final var example = ServicebusFunctions.getSubscription(GetSubscriptionArgs.builder()
      *             .name(&#34;examplesubscription&#34;)
      *             .resourceGroupName(&#34;exampleresources&#34;)
      *             .namespaceName(&#34;examplenamespace&#34;)
@@ -862,7 +862,7 @@ public final class ServicebusFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetTopicArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetTopicArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -902,7 +902,7 @@ public final class ServicebusFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetTopicArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetTopicArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -942,7 +942,7 @@ public final class ServicebusFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetTopicArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetTopicArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -982,7 +982,7 @@ public final class ServicebusFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.servicebus.ServicebusFunctions;
-     * import com.pulumi.azure.eventgrid.inputs.GetTopicArgs;
+     * import com.pulumi.azure.servicebus.inputs.GetTopicArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

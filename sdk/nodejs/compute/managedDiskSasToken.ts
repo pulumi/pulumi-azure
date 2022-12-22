@@ -121,6 +121,8 @@ export class ManagedDiskSasToken extends pulumi.CustomResource {
             resourceInputs["sasUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["sasUrl"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ManagedDiskSasToken.__pulumiType, name, resourceInputs, opts);
     }
 }

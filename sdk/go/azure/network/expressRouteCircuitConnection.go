@@ -163,6 +163,13 @@ func NewExpressRouteCircuitConnection(ctx *pulumi.Context,
 	if args.PeeringId == nil {
 		return nil, errors.New("invalid value for required argument 'PeeringId'")
 	}
+	if args.AuthorizationKey != nil {
+		args.AuthorizationKey = pulumi.ToSecret(args.AuthorizationKey).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"authorizationKey",
+	})
+	opts = append(opts, secrets)
 	var resource ExpressRouteCircuitConnection
 	err := ctx.RegisterResource("azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection", name, args, &resource, opts...)
 	if err != nil {
