@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServicePlan(args: GetServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetServicePlanResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getServicePlan:getServicePlan", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -101,9 +98,24 @@ export interface GetServicePlanResult {
      */
     readonly zoneBalancingEnabled: boolean;
 }
-
+/**
+ * Use this data source to access information about an existing Service Plan.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appservice.getServicePlan({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getServicePlanOutput(args: GetServicePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServicePlanResult> {
-    return pulumi.output(args).apply(a => getServicePlan(a, opts))
+    return pulumi.output(args).apply((a: any) => getServicePlan(a, opts))
 }
 
 /**

@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:batch/getCertificate:getCertificate", {
         "accountName": args.accountName,
         "name": args.name,
@@ -80,9 +77,25 @@ export interface GetCertificateResult {
      */
     readonly thumbprintAlgorithm: string;
 }
-
+/**
+ * Use this data source to access information about an existing certificate in a Batch Account.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.batch.getCertificate({
+ *     name: "SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
+ *     accountName: "examplebatchaccount",
+ *     resourceGroupName: "example",
+ * });
+ * export const thumbprint = example.then(example => example.thumbprint);
+ * ```
+ */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
-    return pulumi.output(args).apply(a => getCertificate(a, opts))
+    return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }
 
 /**

@@ -155,6 +155,8 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
+        const secretOpts = { additionalSecretOutputs: ["primaryConnectionString", "primaryConnectionStringAlias", "primaryKey", "secondaryConnectionString", "secondaryConnectionStringAlias", "secondaryKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(NamespaceAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }
 }

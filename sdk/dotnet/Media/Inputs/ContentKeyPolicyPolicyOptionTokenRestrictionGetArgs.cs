@@ -30,29 +30,69 @@ namespace Pulumi.Azure.Media.Inputs
         [Input("openIdConnectDiscoveryDocument")]
         public Input<string>? OpenIdConnectDiscoveryDocument { get; set; }
 
+        [Input("primaryRsaTokenKeyExponent")]
+        private Input<string>? _primaryRsaTokenKeyExponent;
+
         /// <summary>
         /// The RSA Parameter exponent.
         /// </summary>
-        [Input("primaryRsaTokenKeyExponent")]
-        public Input<string>? PrimaryRsaTokenKeyExponent { get; set; }
+        public Input<string>? PrimaryRsaTokenKeyExponent
+        {
+            get => _primaryRsaTokenKeyExponent;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryRsaTokenKeyExponent = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("primaryRsaTokenKeyModulus")]
+        private Input<string>? _primaryRsaTokenKeyModulus;
 
         /// <summary>
         /// The RSA Parameter modulus.
         /// </summary>
-        [Input("primaryRsaTokenKeyModulus")]
-        public Input<string>? PrimaryRsaTokenKeyModulus { get; set; }
+        public Input<string>? PrimaryRsaTokenKeyModulus
+        {
+            get => _primaryRsaTokenKeyModulus;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryRsaTokenKeyModulus = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("primarySymmetricTokenKey")]
+        private Input<string>? _primarySymmetricTokenKey;
 
         /// <summary>
         /// The key value of the key. Specifies a symmetric key for token validation.
         /// </summary>
-        [Input("primarySymmetricTokenKey")]
-        public Input<string>? PrimarySymmetricTokenKey { get; set; }
+        public Input<string>? PrimarySymmetricTokenKey
+        {
+            get => _primarySymmetricTokenKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primarySymmetricTokenKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("primaryX509TokenKeyRaw")]
+        private Input<string>? _primaryX509TokenKeyRaw;
 
         /// <summary>
         /// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
         /// </summary>
-        [Input("primaryX509TokenKeyRaw")]
-        public Input<string>? PrimaryX509TokenKeyRaw { get; set; }
+        public Input<string>? PrimaryX509TokenKeyRaw
+        {
+            get => _primaryX509TokenKeyRaw;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryX509TokenKeyRaw = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("requiredClaims")]
         private InputList<Inputs.ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimGetArgs>? _requiredClaims;

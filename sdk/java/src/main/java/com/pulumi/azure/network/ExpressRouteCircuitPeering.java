@@ -15,6 +15,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -421,6 +422,9 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "sharedKey"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getMedtechService(args: GetMedtechServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetMedtechServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:healthcare/getMedtechService:getMedtechService", {
         "name": args.name,
         "workspaceId": args.workspaceId,
@@ -79,9 +76,24 @@ export interface GetMedtechServiceResult {
     readonly name: string;
     readonly workspaceId: string;
 }
-
+/**
+ * Use this data source to access information about an existing Healthcare Med Tech Service
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.healthcare.getMedtechService({
+ *     name: "tfexmedtech",
+ *     workspaceId: "tfexwks",
+ * });
+ * export const azurermHealthcareMedtechServiceId = example.then(example => example.id);
+ * ```
+ */
 export function getMedtechServiceOutput(args: GetMedtechServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMedtechServiceResult> {
-    return pulumi.output(args).apply(a => getMedtechService(a, opts))
+    return pulumi.output(args).apply((a: any) => getMedtechService(a, opts))
 }
 
 /**

@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getScheduledQueryRulesLog(args: GetScheduledQueryRulesLogArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRulesLogResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -84,9 +81,24 @@ export interface GetScheduledQueryRulesLogResult {
     readonly resourceGroupName: string;
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access the properties of a LogToMetricAction scheduled query rule.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.monitoring.getScheduledQueryRulesLog({
+ *     resourceGroupName: "example-rg",
+ *     name: "tfex-queryrule",
+ * });
+ * export const queryRuleId = example.then(example => example.id);
+ * ```
+ */
 export function getScheduledQueryRulesLogOutput(args: GetScheduledQueryRulesLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRulesLogResult> {
-    return pulumi.output(args).apply(a => getScheduledQueryRulesLog(a, opts))
+    return pulumi.output(args).apply((a: any) => getScheduledQueryRulesLog(a, opts))
 }
 
 /**

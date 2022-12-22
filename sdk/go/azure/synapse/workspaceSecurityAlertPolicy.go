@@ -145,6 +145,13 @@ func NewWorkspaceSecurityAlertPolicy(ctx *pulumi.Context,
 	if args.SynapseWorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'SynapseWorkspaceId'")
 	}
+	if args.StorageAccountAccessKey != nil {
+		args.StorageAccountAccessKey = pulumi.ToSecret(args.StorageAccountAccessKey).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"storageAccountAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource WorkspaceSecurityAlertPolicy
 	err := ctx.RegisterResource("azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy", name, args, &resource, opts...)
 	if err != nil {

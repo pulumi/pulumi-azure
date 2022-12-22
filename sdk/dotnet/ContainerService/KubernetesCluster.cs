@@ -421,6 +421,13 @@ namespace Pulumi.Azure.ContainerService
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "kubeAdminConfigRaw",
+                    "kubeAdminConfigs",
+                    "kubeConfigRaw",
+                    "kubeConfigs",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -869,11 +876,21 @@ namespace Pulumi.Azure.ContainerService
         [Input("keyVaultSecretsProvider")]
         public Input<Inputs.KubernetesClusterKeyVaultSecretsProviderGetArgs>? KeyVaultSecretsProvider { get; set; }
 
+        [Input("kubeAdminConfigRaw")]
+        private Input<string>? _kubeAdminConfigRaw;
+
         /// <summary>
         /// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         /// </summary>
-        [Input("kubeAdminConfigRaw")]
-        public Input<string>? KubeAdminConfigRaw { get; set; }
+        public Input<string>? KubeAdminConfigRaw
+        {
+            get => _kubeAdminConfigRaw;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _kubeAdminConfigRaw = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("kubeAdminConfigs")]
         private InputList<Inputs.KubernetesClusterKubeAdminConfigGetArgs>? _kubeAdminConfigs;
@@ -884,14 +901,28 @@ namespace Pulumi.Azure.ContainerService
         public InputList<Inputs.KubernetesClusterKubeAdminConfigGetArgs> KubeAdminConfigs
         {
             get => _kubeAdminConfigs ?? (_kubeAdminConfigs = new InputList<Inputs.KubernetesClusterKubeAdminConfigGetArgs>());
-            set => _kubeAdminConfigs = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableArray.Create<Inputs.KubernetesClusterKubeAdminConfigGetArgs>());
+                _kubeAdminConfigs = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
+
+        [Input("kubeConfigRaw")]
+        private Input<string>? _kubeConfigRaw;
 
         /// <summary>
         /// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
         /// </summary>
-        [Input("kubeConfigRaw")]
-        public Input<string>? KubeConfigRaw { get; set; }
+        public Input<string>? KubeConfigRaw
+        {
+            get => _kubeConfigRaw;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _kubeConfigRaw = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("kubeConfigs")]
         private InputList<Inputs.KubernetesClusterKubeConfigGetArgs>? _kubeConfigs;
@@ -902,7 +933,11 @@ namespace Pulumi.Azure.ContainerService
         public InputList<Inputs.KubernetesClusterKubeConfigGetArgs> KubeConfigs
         {
             get => _kubeConfigs ?? (_kubeConfigs = new InputList<Inputs.KubernetesClusterKubeConfigGetArgs>());
-            set => _kubeConfigs = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableArray.Create<Inputs.KubernetesClusterKubeConfigGetArgs>());
+                _kubeConfigs = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>

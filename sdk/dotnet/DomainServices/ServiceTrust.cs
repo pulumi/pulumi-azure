@@ -106,6 +106,10 @@ namespace Pulumi.Azure.DomainServices
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "password",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -141,11 +145,21 @@ namespace Pulumi.Azure.DomainServices
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("password", required: true)]
+        private Input<string>? _password;
+
         /// <summary>
         /// The password of the inbound trust set in the on-premise Active Directory Domain Service.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("trustedDomainDnsIps", required: true)]
         private InputList<string>? _trustedDomainDnsIps;
@@ -185,11 +199,21 @@ namespace Pulumi.Azure.DomainServices
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// The password of the inbound trust set in the on-premise Active Directory Domain Service.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("trustedDomainDnsIps")]
         private InputList<string>? _trustedDomainDnsIps;

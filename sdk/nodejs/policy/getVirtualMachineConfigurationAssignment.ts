@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVirtualMachineConfigurationAssignment(args: GetVirtualMachineConfigurationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineConfigurationAssignmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -88,9 +85,25 @@ export interface GetVirtualMachineConfigurationAssignmentResult {
     readonly resourceGroupName: string;
     readonly virtualMachineName: string;
 }
-
+/**
+ * Use this data source to access information about an existing Guest Configuration Policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.policy.getVirtualMachineConfigurationAssignment({
+ *     name: "AzureWindowsBaseline",
+ *     resourceGroupName: "example-RG",
+ *     virtualMachineName: "example-vm",
+ * });
+ * export const complianceStatus = example.then(example => example.complianceStatus);
+ * ```
+ */
 export function getVirtualMachineConfigurationAssignmentOutput(args: GetVirtualMachineConfigurationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineConfigurationAssignmentResult> {
-    return pulumi.output(args).apply(a => getVirtualMachineConfigurationAssignment(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualMachineConfigurationAssignment(a, opts))
 }
 
 /**

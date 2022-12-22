@@ -34,7 +34,7 @@ public final class BatchFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.batch.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -73,7 +73,7 @@ public final class BatchFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.batch.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -112,7 +112,7 @@ public final class BatchFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.batch.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -151,7 +151,7 @@ public final class BatchFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.batch.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -350,7 +350,7 @@ public final class BatchFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import com.pulumi.azure.batch.inputs.GetCertificateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -390,7 +390,7 @@ public final class BatchFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import com.pulumi.azure.batch.inputs.GetCertificateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -430,7 +430,7 @@ public final class BatchFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import com.pulumi.azure.batch.inputs.GetCertificateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -470,7 +470,7 @@ public final class BatchFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.batch.BatchFunctions;
-     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import com.pulumi.azure.batch.inputs.GetCertificateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

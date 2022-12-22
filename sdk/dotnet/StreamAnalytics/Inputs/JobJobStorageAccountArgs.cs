@@ -12,11 +12,21 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
 
     public sealed class JobJobStorageAccountArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accountKey", required: true)]
+        private Input<string>? _accountKey;
+
         /// <summary>
         /// The account key for the Azure storage account.
         /// </summary>
-        [Input("accountKey", required: true)]
-        public Input<string> AccountKey { get; set; } = null!;
+        public Input<string>? AccountKey
+        {
+            get => _accountKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accountKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the Azure storage account.

@@ -409,7 +409,7 @@ class LinkedServiceAzureTableStorage(pulumi.CustomResource):
             __props__.__dict__["annotations"] = annotations
             if connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_string'")
-            __props__.__dict__["connection_string"] = connection_string
+            __props__.__dict__["connection_string"] = None if connection_string is None else pulumi.Output.secret(connection_string)
             if data_factory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_id'")
             __props__.__dict__["data_factory_id"] = data_factory_id
@@ -417,6 +417,8 @@ class LinkedServiceAzureTableStorage(pulumi.CustomResource):
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionString"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LinkedServiceAzureTableStorage, __self__).__init__(
             'azure:datafactory/linkedServiceAzureTableStorage:LinkedServiceAzureTableStorage',
             resource_name,

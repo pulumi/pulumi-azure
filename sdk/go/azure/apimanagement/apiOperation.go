@@ -38,9 +38,9 @@ import (
 //			}
 //			_, err = apimanagement.NewApiOperation(ctx, "exampleApiOperation", &apimanagement.ApiOperationArgs{
 //				OperationId:       pulumi.String("user-delete"),
-//				ApiName:           pulumi.String(exampleApi.Name),
-//				ApiManagementName: pulumi.String(exampleApi.ApiManagementName),
-//				ResourceGroupName: pulumi.String(exampleApi.ResourceGroupName),
+//				ApiName:           *pulumi.String(exampleApi.Name),
+//				ApiManagementName: *pulumi.String(exampleApi.ApiManagementName),
+//				ResourceGroupName: *pulumi.String(exampleApi.ResourceGroupName),
 //				DisplayName:       pulumi.String("Delete User Operation"),
 //				Method:            pulumi.String("DELETE"),
 //				UrlTemplate:       pulumi.String("/users/{id}/delete"),

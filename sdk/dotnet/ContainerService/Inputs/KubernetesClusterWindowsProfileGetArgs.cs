@@ -12,11 +12,21 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class KubernetesClusterWindowsProfileGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("adminPassword")]
+        private Input<string>? _adminPassword;
+
         /// <summary>
         /// The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
         /// </summary>
-        [Input("adminPassword")]
-        public Input<string>? AdminPassword { get; set; }
+        public Input<string>? AdminPassword
+        {
+            get => _adminPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _adminPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Admin Username for Windows VMs. Changing this forces a new resource to be created.

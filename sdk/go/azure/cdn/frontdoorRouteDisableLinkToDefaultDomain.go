@@ -32,8 +32,8 @@ import (
 //			_, err := cdn.NewFrontdoorRouteDisableLinkToDefaultDomain(ctx, "example", &cdn.FrontdoorRouteDisableLinkToDefaultDomainArgs{
 //				CdnFrontdoorRouteId: pulumi.Any(azurerm_cdn_frontdoor_route.Example.Id),
 //				CdnFrontdoorCustomDomainIds: pulumi.StringArray{
-//					pulumi.Any(azurerm_cdn_frontdoor_custom_domain.Contoso.Id),
-//					pulumi.Any(azurerm_cdn_frontdoor_custom_domain.Fabrikam.Id),
+//					azurerm_cdn_frontdoor_custom_domain.Contoso.Id,
+//					azurerm_cdn_frontdoor_custom_domain.Fabrikam.Id,
 //				},
 //			})
 //			if err != nil {

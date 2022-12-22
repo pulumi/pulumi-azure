@@ -130,12 +130,14 @@ export class RedisCache extends pulumi.CustomResource {
             }
             resourceInputs["apiManagementId"] = args ? args.apiManagementId : undefined;
             resourceInputs["cacheLocation"] = args ? args.cacheLocation : undefined;
-            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["connectionString"] = args?.connectionString ? pulumi.secret(args.connectionString) : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["redisCacheId"] = args ? args.redisCacheId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["connectionString"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(RedisCache.__pulumiType, name, resourceInputs, opts);
     }
 }

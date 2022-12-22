@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.kusto.getCluster({
+ * const example = azure.kusto.getCluster({
  *     name: "kustocluster",
  *     resourceGroupName: "test_resource_group",
- * }));
+ * });
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:kusto/getCluster:getCluster", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -66,9 +63,23 @@ export interface GetClusterResult {
      */
     readonly uri: string;
 }
-
+/**
+ * Use this data source to access information about an existing Kusto (also known as Azure Data Explorer) Cluster
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.kusto.getCluster({
+ *     name: "kustocluster",
+ *     resourceGroupName: "test_resource_group",
+ * });
+ * ```
+ */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply(a => getCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }
 
 /**

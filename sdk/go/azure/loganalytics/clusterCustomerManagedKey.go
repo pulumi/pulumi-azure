@@ -52,12 +52,12 @@ import (
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				TenantId:          pulumi.String(current.TenantId),
+//				TenantId:          *pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("premium"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: pulumi.String(current.TenantId),
-//						ObjectId: pulumi.String(current.ObjectId),
+//						TenantId: *pulumi.String(current.TenantId),
+//						ObjectId: *pulumi.String(current.ObjectId),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Create"),
 //							pulumi.String("Get"),
@@ -67,12 +67,12 @@ import (
 //						},
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: exampleCluster.Identity.ApplyT(func(identity loganalytics.ClusterIdentity) (string, error) {
-//							return identity.TenantId, nil
-//						}).(pulumi.StringOutput),
-//						ObjectId: exampleCluster.Identity.ApplyT(func(identity loganalytics.ClusterIdentity) (string, error) {
-//							return identity.PrincipalId, nil
-//						}).(pulumi.StringOutput),
+//						TenantId: exampleCluster.Identity.ApplyT(func(identity loganalytics.ClusterIdentity) (*string, error) {
+//							return &identity.TenantId, nil
+//						}).(pulumi.StringPtrOutput),
+//						ObjectId: exampleCluster.Identity.ApplyT(func(identity loganalytics.ClusterIdentity) (*string, error) {
+//							return &identity.PrincipalId, nil
+//						}).(pulumi.StringPtrOutput),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //							pulumi.String("Unwrapkey"),

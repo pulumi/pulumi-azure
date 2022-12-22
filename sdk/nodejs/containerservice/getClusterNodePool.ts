@@ -24,11 +24,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getClusterNodePool(args: GetClusterNodePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterNodePoolResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:containerservice/getClusterNodePool:getClusterNodePool", {
         "kubernetesClusterName": args.kubernetesClusterName,
         "name": args.name,
@@ -158,9 +155,25 @@ export interface GetClusterNodePoolResult {
      */
     readonly zones: string[];
 }
-
+/**
+ * Use this data source to access information about an existing Kubernetes Cluster Node Pool.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.containerservice.getClusterNodePool({
+ *     name: "existing",
+ *     kubernetesClusterName: "existing-cluster",
+ *     resourceGroupName: "existing-resource-group",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getClusterNodePoolOutput(args: GetClusterNodePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterNodePoolResult> {
-    return pulumi.output(args).apply(a => getClusterNodePool(a, opts))
+    return pulumi.output(args).apply((a: any) => getClusterNodePool(a, opts))
 }
 
 /**

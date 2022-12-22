@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.authorization.Assignment;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import java.util.List;
@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *         final var exampleClientConfig = CoreFunctions.getClientConfig();
  * 
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
- *             .scope(primary.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .roleDefinitionName(&#34;Reader&#34;)
  *             .principalId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .build());
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.authorization.RoleDefinition;
  * import com.pulumi.azure.authorization.RoleDefinitionArgs;
  * import com.pulumi.azure.authorization.inputs.RoleDefinitionPermissionArgs;
@@ -91,17 +91,17 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRoleDefinition = new RoleDefinition(&#34;exampleRoleDefinition&#34;, RoleDefinitionArgs.builder()        
  *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .scope(primary.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions(&#34;Microsoft.Resources/subscriptions/resourceGroups/read&#34;)
  *                 .notActions()
  *                 .build())
- *             .assignableScopes(primary.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .assignableScopes(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .build());
  * 
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
  *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .scope(primary.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
  *             .principalId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .build());
@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.authorization.RoleDefinition;
  * import com.pulumi.azure.authorization.RoleDefinitionArgs;
  * import com.pulumi.azure.authorization.inputs.RoleDefinitionPermissionArgs;
@@ -142,17 +142,17 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRoleDefinition = new RoleDefinition(&#34;exampleRoleDefinition&#34;, RoleDefinitionArgs.builder()        
  *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .scope(primary.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions(&#34;Microsoft.Resources/subscriptions/resourceGroups/read&#34;)
  *                 .notActions()
  *                 .build())
- *             .assignableScopes(primary.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .assignableScopes(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .build());
  * 
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
  *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .scope(primary.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
  *             .principalId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .build());
@@ -168,9 +168,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.management.ManagementFunctions;
- * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+ * import com.pulumi.azure.management.inputs.GetGroupArgs;
  * import com.pulumi.azure.authorization.RoleDefinition;
  * import com.pulumi.azure.authorization.RoleDefinitionArgs;
  * import com.pulumi.azure.authorization.inputs.RoleDefinitionPermissionArgs;
@@ -199,12 +199,12 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRoleDefinition = new RoleDefinition(&#34;exampleRoleDefinition&#34;, RoleDefinitionArgs.builder()        
  *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .scope(primary.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions(&#34;Microsoft.Resources/subscriptions/resourceGroups/read&#34;)
  *                 .notActions()
  *                 .build())
- *             .assignableScopes(primary.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .assignableScopes(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .build());
  * 
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        

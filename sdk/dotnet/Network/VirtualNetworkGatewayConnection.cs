@@ -428,6 +428,11 @@ namespace Pulumi.Azure.Network
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "authorizationKey",
+                    "sharedKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -451,13 +456,23 @@ namespace Pulumi.Azure.Network
 
     public sealed class VirtualNetworkGatewayConnectionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("authorizationKey")]
+        private Input<string>? _authorizationKey;
+
         /// <summary>
         /// The authorization key associated with the
         /// Express Route Circuit. This field is required only if the type is an
         /// ExpressRoute connection.
         /// </summary>
-        [Input("authorizationKey")]
-        public Input<string>? AuthorizationKey { get; set; }
+        public Input<string>? AuthorizationKey
+        {
+            get => _authorizationKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _authorizationKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
@@ -581,12 +596,22 @@ namespace Pulumi.Azure.Network
         [Input("routingWeight")]
         public Input<int>? RoutingWeight { get; set; }
 
+        [Input("sharedKey")]
+        private Input<string>? _sharedKey;
+
         /// <summary>
         /// The shared IPSec key. A key could be provided if a
         /// Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         /// </summary>
-        [Input("sharedKey")]
-        public Input<string>? SharedKey { get; set; }
+        public Input<string>? SharedKey
+        {
+            get => _sharedKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sharedKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -636,13 +661,23 @@ namespace Pulumi.Azure.Network
 
     public sealed class VirtualNetworkGatewayConnectionState : global::Pulumi.ResourceArgs
     {
+        [Input("authorizationKey")]
+        private Input<string>? _authorizationKey;
+
         /// <summary>
         /// The authorization key associated with the
         /// Express Route Circuit. This field is required only if the type is an
         /// ExpressRoute connection.
         /// </summary>
-        [Input("authorizationKey")]
-        public Input<string>? AuthorizationKey { get; set; }
+        public Input<string>? AuthorizationKey
+        {
+            get => _authorizationKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _authorizationKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
@@ -766,12 +801,22 @@ namespace Pulumi.Azure.Network
         [Input("routingWeight")]
         public Input<int>? RoutingWeight { get; set; }
 
+        [Input("sharedKey")]
+        private Input<string>? _sharedKey;
+
         /// <summary>
         /// The shared IPSec key. A key could be provided if a
         /// Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         /// </summary>
-        [Input("sharedKey")]
-        public Input<string>? SharedKey { get; set; }
+        public Input<string>? SharedKey
+        {
+            get => _sharedKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sharedKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

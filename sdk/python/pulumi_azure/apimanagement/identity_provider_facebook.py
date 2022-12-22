@@ -272,10 +272,12 @@ class IdentityProviderFacebook(pulumi.CustomResource):
             __props__.__dict__["app_id"] = app_id
             if app_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'app_secret'")
-            __props__.__dict__["app_secret"] = app_secret
+            __props__.__dict__["app_secret"] = None if app_secret is None else pulumi.Output.secret(app_secret)
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["appSecret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(IdentityProviderFacebook, __self__).__init__(
             'azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook',
             resource_name,

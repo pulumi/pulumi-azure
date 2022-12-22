@@ -139,9 +139,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetResourceGroupArgs;
+ * import com.pulumi.azure.core.inputs.GetResourceGroupArgs;
  * import com.pulumi.azure.network.NetworkFunctions;
- * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+ * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
  * import com.pulumi.azure.network.inputs.GetSubnetArgs;
  * import com.pulumi.azure.privatelink.Endpoint;
  * import com.pulumi.azure.privatelink.EndpointArgs;
@@ -159,24 +159,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleResourceGroup = CoreFunctions.getResourceGroup(GetBudgetResourceGroupArgs.builder()
+ *         final var exampleResourceGroup = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
  *             .name(&#34;example-resources&#34;)
  *             .build());
  * 
  *         final var vnet = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
  *             .name(&#34;example-network&#34;)
- *             .resourceGroupName(exampleResourceGroup.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.name()))
+ *             .resourceGroupName(exampleResourceGroup.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.name()))
  *             .build());
  * 
  *         final var subnet = NetworkFunctions.getSubnet(GetSubnetArgs.builder()
  *             .name(&#34;default&#34;)
  *             .virtualNetworkName(vnet.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.name()))
- *             .resourceGroupName(exampleResourceGroup.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.name()))
+ *             .resourceGroupName(exampleResourceGroup.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.name()))
  *             .build());
  * 
  *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
- *             .location(exampleResourceGroup.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.location()))
- *             .resourceGroupName(exampleResourceGroup.applyValue(getBudgetResourceGroupResult -&gt; getBudgetResourceGroupResult.name()))
+ *             .location(exampleResourceGroup.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.location()))
+ *             .resourceGroupName(exampleResourceGroup.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.name()))
  *             .subnetId(subnet.applyValue(getSubnetResult -&gt; getSubnetResult.id()))
  *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
  *                 .name(&#34;example-privateserviceconnection&#34;)

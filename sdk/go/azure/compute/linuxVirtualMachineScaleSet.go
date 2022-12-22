@@ -255,6 +255,17 @@ func NewLinuxVirtualMachineScaleSet(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.AdminPassword != nil {
+		args.AdminPassword = pulumi.ToSecret(args.AdminPassword).(pulumi.StringPtrInput)
+	}
+	if args.CustomData != nil {
+		args.CustomData = pulumi.ToSecret(args.CustomData).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"adminPassword",
+		"customData",
+	})
+	opts = append(opts, secrets)
 	var resource LinuxVirtualMachineScaleSet
 	err := ctx.RegisterResource("azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet", name, args, &resource, opts...)
 	if err != nil {

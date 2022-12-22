@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Core
     /// 
     ///     var exampleSubscriptionCostManagementExport = new Azure.Core.SubscriptionCostManagementExport("exampleSubscriptionCostManagementExport", new()
     ///     {
-    ///         SubscriptionId = exampleSubscription.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         SubscriptionId = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         RecurrenceType = "Monthly",
     ///         RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
     ///         RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",

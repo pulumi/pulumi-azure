@@ -166,6 +166,10 @@ namespace Pulumi.Azure.StreamAnalytics
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "password",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -219,11 +223,21 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("password", required: true)]
+        private Input<string>? _password;
+
         /// <summary>
         /// Password used together with username, to login to the Microsoft SQL Server.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -293,11 +307,21 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// Password used together with username, to login to the Microsoft SQL Server.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.

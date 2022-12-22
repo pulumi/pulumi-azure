@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Role
     /// 
     ///     var example = new Azure.Authorization.RoleDefinition("example", new()
     ///     {
-    ///         Scope = primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         Description = "This is a custom role created",
     ///         Permissions = new[]
     ///         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Role
     ///         },
     ///         AssignableScopes = new[]
     ///         {
-    ///             primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///             primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         },
     ///     });
     /// 

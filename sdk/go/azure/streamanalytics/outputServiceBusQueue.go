@@ -55,12 +55,12 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewOutputServiceBusQueue(ctx, "exampleOutputServiceBusQueue", &streamanalytics.OutputServiceBusQueueArgs{
-//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-//					return exampleJob.Name, nil
-//				}).(pulumi.StringOutput),
-//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-//					return exampleJob.ResourceGroupName, nil
-//				}).(pulumi.StringOutput),
+//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
+//					return &exampleJob.Name, nil
+//				}).(pulumi.StringPtrOutput),
+//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
+//					return &exampleJob.ResourceGroupName, nil
+//				}).(pulumi.StringPtrOutput),
 //				QueueName:              exampleQueue.Name,
 //				ServicebusNamespace:    exampleNamespace.Name,
 //				SharedAccessPolicyKey:  exampleNamespace.DefaultPrimaryKey,
@@ -143,6 +143,13 @@ func NewOutputServiceBusQueue(ctx *pulumi.Context,
 	if args.StreamAnalyticsJobName == nil {
 		return nil, errors.New("invalid value for required argument 'StreamAnalyticsJobName'")
 	}
+	if args.SharedAccessPolicyKey != nil {
+		args.SharedAccessPolicyKey = pulumi.ToSecret(args.SharedAccessPolicyKey).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sharedAccessPolicyKey",
+	})
+	opts = append(opts, secrets)
 	var resource OutputServiceBusQueue
 	err := ctx.RegisterResource("azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue", name, args, &resource, opts...)
 	if err != nil {

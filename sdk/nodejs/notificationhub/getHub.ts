@@ -24,11 +24,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:notificationhub/getHub:getHub", {
         "name": args.name,
         "namespaceName": args.namespaceName,
@@ -82,9 +79,25 @@ export interface GetHubResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.notificationhub.getHub({
+ *     name: "notification-hub",
+ *     namespaceName: "namespace-name",
+ *     resourceGroupName: "resource-group-name",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubResult> {
-    return pulumi.output(args).apply(a => getHub(a, opts))
+    return pulumi.output(args).apply((a: any) => getHub(a, opts))
 }
 
 /**

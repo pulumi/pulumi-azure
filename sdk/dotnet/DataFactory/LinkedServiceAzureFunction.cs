@@ -143,6 +143,10 @@ namespace Pulumi.Azure.DataFactory
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "key",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -208,11 +212,21 @@ namespace Pulumi.Azure.DataFactory
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
 
+        [Input("key")]
+        private Input<string>? _key;
+
         /// <summary>
         /// The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
         /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
+        public Input<string>? Key
+        {
+            get => _key;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _key = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
@@ -295,11 +309,21 @@ namespace Pulumi.Azure.DataFactory
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
 
+        [Input("key")]
+        private Input<string>? _key;
+
         /// <summary>
         /// The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
         /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
+        public Input<string>? Key
+        {
+            get => _key;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _key = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.

@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.policy.PolicyFunctions;
  * import com.pulumi.azure.policy.inputs.GetPolicySetDefinitionArgs;
  * import com.pulumi.azure.core.SubscriptionPolicyAssignment;
@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment(&#34;exampleSubscriptionPolicyAssignment&#34;, SubscriptionPolicyAssignmentArgs.builder()        
- *             .subscriptionId(exampleSubscription.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .subscriptionId(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .policyDefinitionId(examplePolicySetDefinition.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
  *             .location(&#34;westus&#34;)
  *             .identity(SubscriptionPolicyAssignmentIdentityArgs.builder()
@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubscriptionPolicyExemption = new SubscriptionPolicyExemption(&#34;exampleSubscriptionPolicyExemption&#34;, SubscriptionPolicyExemptionArgs.builder()        
- *             .subscriptionId(exampleSubscription.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .subscriptionId(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .policyAssignmentId(exampleSubscriptionPolicyAssignment.id())
  *             .exemptionCategory(&#34;Mitigated&#34;)
  *             .build());

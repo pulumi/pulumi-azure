@@ -216,12 +216,14 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
             resourceInputs["logMonitoringEnabled"] = args ? args.logMonitoringEnabled : undefined;
             resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
             resourceInputs["storageAccountAccessKeyIsSecondary"] = args ? args.storageAccountAccessKeyIsSecondary : undefined;
-            resourceInputs["storageAccountSubscriptionId"] = args ? args.storageAccountSubscriptionId : undefined;
+            resourceInputs["storageAccountSubscriptionId"] = args?.storageAccountSubscriptionId ? pulumi.secret(args.storageAccountSubscriptionId) : undefined;
             resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey", "storageAccountSubscriptionId"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServerExtendedAuditingPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -120,6 +120,13 @@ func NewNamespace(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"defaultPrimaryConnectionString",
+		"defaultPrimaryKey",
+		"defaultSecondaryConnectionString",
+		"defaultSecondaryKey",
+	})
+	opts = append(opts, secrets)
 	var resource Namespace
 	err := ctx.RegisterResource("azure:servicebus/namespace:Namespace", name, args, &resource, opts...)
 	if err != nil {

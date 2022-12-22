@@ -508,8 +508,8 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["key_vault_secret_id"] = key_vault_secret_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            __props__.__dict__["password"] = password
-            __props__.__dict__["pfx_blob"] = pfx_blob
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
+            __props__.__dict__["pfx_blob"] = None if pfx_blob is None else pulumi.Output.secret(pfx_blob)
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -521,6 +521,8 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["issuer"] = None
             __props__.__dict__["subject_name"] = None
             __props__.__dict__["thumbprint"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "pfxBlob"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'azure:appservice/certificate:Certificate',
             resource_name,

@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getManagedInstance(args: GetManagedInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:mssql/getManagedInstance:getManagedInstance", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -127,9 +124,23 @@ export interface GetManagedInstanceResult {
      */
     readonly vcores: number;
 }
-
+/**
+ * Use this data source to access information about an existing Microsoft SQL Azure Managed Instance.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.mssql.getManagedInstance({
+ *     name: "managedsqlinstance",
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ * });
+ * ```
+ */
 export function getManagedInstanceOutput(args: GetManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceResult> {
-    return pulumi.output(args).apply(a => getManagedInstance(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagedInstance(a, opts))
 }
 
 /**

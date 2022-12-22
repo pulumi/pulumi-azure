@@ -128,6 +128,11 @@ func NewEnterpriseDatabase(ctx *pulumi.Context,
 	if args.ClusterId == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryAccessKey",
+		"secondaryAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource EnterpriseDatabase
 	err := ctx.RegisterResource("azure:redis/enterpriseDatabase:EnterpriseDatabase", name, args, &resource, opts...)
 	if err != nil {

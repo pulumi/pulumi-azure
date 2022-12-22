@@ -12,23 +12,53 @@ namespace Pulumi.Azure.AppConfiguration.Inputs
 
     public sealed class ConfigurationStoreSecondaryWriteKeyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("connectionString")]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
         /// </summary>
-        [Input("connectionString")]
-        public Input<string>? ConnectionString { get; set; }
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("id")]
+        private Input<string>? _id;
 
         /// <summary>
         /// The ID of the Access Key.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        public Input<string>? Id
+        {
+            get => _id;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _id = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("secret")]
+        private Input<string>? _secret;
 
         /// <summary>
         /// The Secret of the Access Key.
         /// </summary>
-        [Input("secret")]
-        public Input<string>? Secret { get; set; }
+        public Input<string>? Secret
+        {
+            get => _secret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ConfigurationStoreSecondaryWriteKeyArgs()
         {

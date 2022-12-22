@@ -53,7 +53,7 @@ import (
 //			}
 //			exampleResourcePolicyAssignment, err := core.NewResourcePolicyAssignment(ctx, "exampleResourcePolicyAssignment", &core.ResourcePolicyAssignmentArgs{
 //				ResourceId:         exampleVirtualNetwork.ID(),
-//				PolicyDefinitionId: pulumi.String(examplePolicySetDefinition.Id),
+//				PolicyDefinitionId: *pulumi.String(examplePolicySetDefinition.Id),
 //				Location:           exampleResourceGroup.Location,
 //				Identity: &core.ResourcePolicyAssignmentIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),

@@ -159,6 +159,8 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["secondaryKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["primaryConnectionString", "primaryConnectionStringAlias", "primaryKey", "secondaryConnectionString", "secondaryConnectionStringAlias", "secondaryKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(NamespaceAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }
 }

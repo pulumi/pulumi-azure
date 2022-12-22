@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.lighthouse.Assignment;
  * import com.pulumi.azure.lighthouse.AssignmentArgs;
  * import java.util.List;
@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *         final var primary = CoreFunctions.getSubscription();
  * 
  *         var example = new Assignment(&#34;example&#34;, AssignmentArgs.builder()        
- *             .scope(primary.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .lighthouseDefinitionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000&#34;)
  *             .build());
  * 

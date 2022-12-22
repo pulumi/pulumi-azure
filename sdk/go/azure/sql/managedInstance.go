@@ -335,6 +335,13 @@ func NewManagedInstance(ctx *pulumi.Context,
 	if args.Vcores == nil {
 		return nil, errors.New("invalid value for required argument 'Vcores'")
 	}
+	if args.AdministratorLoginPassword != nil {
+		args.AdministratorLoginPassword = pulumi.ToSecret(args.AdministratorLoginPassword).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"administratorLoginPassword",
+	})
+	opts = append(opts, secrets)
 	var resource ManagedInstance
 	err := ctx.RegisterResource("azure:sql/managedInstance:ManagedInstance", name, args, &resource, opts...)
 	if err != nil {

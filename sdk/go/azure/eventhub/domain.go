@@ -108,6 +108,11 @@ func NewDomain(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryAccessKey",
+		"secondaryAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource Domain
 	err := ctx.RegisterResource("azure:eventhub/domain:Domain", name, args, &resource, opts...)
 	if err != nil {

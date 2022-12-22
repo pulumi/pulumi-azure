@@ -42,7 +42,7 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewOutputPowerbi(ctx, "exampleOutputPowerbi", &streamanalytics.OutputPowerbiArgs{
-//				StreamAnalyticsJobId: pulumi.String(exampleJob.Id),
+//				StreamAnalyticsJobId: *pulumi.String(exampleJob.Id),
 //				Dataset:              pulumi.String("example-dataset"),
 //				Table:                pulumi.String("example-table"),
 //				GroupId:              pulumi.String("00000000-0000-0000-0000-000000000000"),

@@ -320,13 +320,15 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sqlAadAdmin"] = args ? args.sqlAadAdmin : undefined;
             resourceInputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
-            resourceInputs["sqlAdministratorLoginPassword"] = args ? args.sqlAdministratorLoginPassword : undefined;
+            resourceInputs["sqlAdministratorLoginPassword"] = args?.sqlAdministratorLoginPassword ? pulumi.secret(args.sqlAdministratorLoginPassword) : undefined;
             resourceInputs["sqlIdentityControlEnabled"] = args ? args.sqlIdentityControlEnabled : undefined;
             resourceInputs["storageDataLakeGen2FilesystemId"] = args ? args.storageDataLakeGen2FilesystemId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["connectivityEndpoints"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["sqlAdministratorLoginPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }

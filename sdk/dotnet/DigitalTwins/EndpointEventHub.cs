@@ -131,6 +131,12 @@ namespace Pulumi.Azure.DigitalTwins
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "deadLetterStorageSecret",
+                    "eventhubPrimaryConnectionString",
+                    "eventhubSecondaryConnectionString",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -154,11 +160,21 @@ namespace Pulumi.Azure.DigitalTwins
 
     public sealed class EndpointEventHubArgs : global::Pulumi.ResourceArgs
     {
+        [Input("deadLetterStorageSecret")]
+        private Input<string>? _deadLetterStorageSecret;
+
         /// <summary>
         /// The storage secret of the dead-lettering, whose format is `https://&lt;storageAccountname&gt;.blob.core.windows.net/&lt;containerName&gt;?&lt;SASToken&gt;`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
         /// </summary>
-        [Input("deadLetterStorageSecret")]
-        public Input<string>? DeadLetterStorageSecret { get; set; }
+        public Input<string>? DeadLetterStorageSecret
+        {
+            get => _deadLetterStorageSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _deadLetterStorageSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
@@ -166,17 +182,37 @@ namespace Pulumi.Azure.DigitalTwins
         [Input("digitalTwinsId", required: true)]
         public Input<string> DigitalTwinsId { get; set; } = null!;
 
+        [Input("eventhubPrimaryConnectionString", required: true)]
+        private Input<string>? _eventhubPrimaryConnectionString;
+
         /// <summary>
         /// The primary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
         /// </summary>
-        [Input("eventhubPrimaryConnectionString", required: true)]
-        public Input<string> EventhubPrimaryConnectionString { get; set; } = null!;
+        public Input<string>? EventhubPrimaryConnectionString
+        {
+            get => _eventhubPrimaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _eventhubPrimaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("eventhubSecondaryConnectionString", required: true)]
+        private Input<string>? _eventhubSecondaryConnectionString;
 
         /// <summary>
         /// The secondary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
         /// </summary>
-        [Input("eventhubSecondaryConnectionString", required: true)]
-        public Input<string> EventhubSecondaryConnectionString { get; set; } = null!;
+        public Input<string>? EventhubSecondaryConnectionString
+        {
+            get => _eventhubSecondaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _eventhubSecondaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name which should be used for this Digital Twins Event Hub Endpoint. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
@@ -192,11 +228,21 @@ namespace Pulumi.Azure.DigitalTwins
 
     public sealed class EndpointEventHubState : global::Pulumi.ResourceArgs
     {
+        [Input("deadLetterStorageSecret")]
+        private Input<string>? _deadLetterStorageSecret;
+
         /// <summary>
         /// The storage secret of the dead-lettering, whose format is `https://&lt;storageAccountname&gt;.blob.core.windows.net/&lt;containerName&gt;?&lt;SASToken&gt;`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
         /// </summary>
-        [Input("deadLetterStorageSecret")]
-        public Input<string>? DeadLetterStorageSecret { get; set; }
+        public Input<string>? DeadLetterStorageSecret
+        {
+            get => _deadLetterStorageSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _deadLetterStorageSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
@@ -204,17 +250,37 @@ namespace Pulumi.Azure.DigitalTwins
         [Input("digitalTwinsId")]
         public Input<string>? DigitalTwinsId { get; set; }
 
+        [Input("eventhubPrimaryConnectionString")]
+        private Input<string>? _eventhubPrimaryConnectionString;
+
         /// <summary>
         /// The primary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
         /// </summary>
-        [Input("eventhubPrimaryConnectionString")]
-        public Input<string>? EventhubPrimaryConnectionString { get; set; }
+        public Input<string>? EventhubPrimaryConnectionString
+        {
+            get => _eventhubPrimaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _eventhubPrimaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("eventhubSecondaryConnectionString")]
+        private Input<string>? _eventhubSecondaryConnectionString;
 
         /// <summary>
         /// The secondary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
         /// </summary>
-        [Input("eventhubSecondaryConnectionString")]
-        public Input<string>? EventhubSecondaryConnectionString { get; set; }
+        public Input<string>? EventhubSecondaryConnectionString
+        {
+            get => _eventhubSecondaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _eventhubSecondaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name which should be used for this Digital Twins Event Hub Endpoint. Changing this forces a new Digital Twins Event Hub Endpoint to be created.

@@ -37,7 +37,8 @@ import * as utilities from "../utilities";
  *               }
  *             ]
  *   }
- *   `,
+ *   
+ * `,
  *     destinationFhirServiceId: "fhir_service_id",
  *     destinationIdentityResolutionType: "Create",
  *     location: "east us",

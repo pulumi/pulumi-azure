@@ -118,6 +118,11 @@ func NewAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryAccessKey",
+		"secondaryAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource Account
 	err := ctx.RegisterResource("azure:batch/account:Account", name, args, &resource, opts...)
 	if err != nil {

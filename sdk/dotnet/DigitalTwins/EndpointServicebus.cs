@@ -126,6 +126,12 @@ namespace Pulumi.Azure.DigitalTwins
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "deadLetterStorageSecret",
+                    "servicebusPrimaryConnectionString",
+                    "servicebusSecondaryConnectionString",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -149,11 +155,21 @@ namespace Pulumi.Azure.DigitalTwins
 
     public sealed class EndpointServicebusArgs : global::Pulumi.ResourceArgs
     {
+        [Input("deadLetterStorageSecret")]
+        private Input<string>? _deadLetterStorageSecret;
+
         /// <summary>
         /// The storage secret of the dead-lettering, whose format is `https://&lt;storageAccountname&gt;.blob.core.windows.net/&lt;containerName&gt;?&lt;SASToken&gt;`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
         /// </summary>
-        [Input("deadLetterStorageSecret")]
-        public Input<string>? DeadLetterStorageSecret { get; set; }
+        public Input<string>? DeadLetterStorageSecret
+        {
+            get => _deadLetterStorageSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _deadLetterStorageSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the Digital Twins Instance. Changing this forces a new Digital Twins Service Bus Endpoint to be created.
@@ -167,17 +183,37 @@ namespace Pulumi.Azure.DigitalTwins
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("servicebusPrimaryConnectionString", required: true)]
+        private Input<string>? _servicebusPrimaryConnectionString;
+
         /// <summary>
         /// The primary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission. .
         /// </summary>
-        [Input("servicebusPrimaryConnectionString", required: true)]
-        public Input<string> ServicebusPrimaryConnectionString { get; set; } = null!;
+        public Input<string>? ServicebusPrimaryConnectionString
+        {
+            get => _servicebusPrimaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _servicebusPrimaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("servicebusSecondaryConnectionString", required: true)]
+        private Input<string>? _servicebusSecondaryConnectionString;
 
         /// <summary>
         /// The secondary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission.
         /// </summary>
-        [Input("servicebusSecondaryConnectionString", required: true)]
-        public Input<string> ServicebusSecondaryConnectionString { get; set; } = null!;
+        public Input<string>? ServicebusSecondaryConnectionString
+        {
+            get => _servicebusSecondaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _servicebusSecondaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public EndpointServicebusArgs()
         {
@@ -187,11 +223,21 @@ namespace Pulumi.Azure.DigitalTwins
 
     public sealed class EndpointServicebusState : global::Pulumi.ResourceArgs
     {
+        [Input("deadLetterStorageSecret")]
+        private Input<string>? _deadLetterStorageSecret;
+
         /// <summary>
         /// The storage secret of the dead-lettering, whose format is `https://&lt;storageAccountname&gt;.blob.core.windows.net/&lt;containerName&gt;?&lt;SASToken&gt;`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
         /// </summary>
-        [Input("deadLetterStorageSecret")]
-        public Input<string>? DeadLetterStorageSecret { get; set; }
+        public Input<string>? DeadLetterStorageSecret
+        {
+            get => _deadLetterStorageSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _deadLetterStorageSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the Digital Twins Instance. Changing this forces a new Digital Twins Service Bus Endpoint to be created.
@@ -205,17 +251,37 @@ namespace Pulumi.Azure.DigitalTwins
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("servicebusPrimaryConnectionString")]
+        private Input<string>? _servicebusPrimaryConnectionString;
+
         /// <summary>
         /// The primary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission. .
         /// </summary>
-        [Input("servicebusPrimaryConnectionString")]
-        public Input<string>? ServicebusPrimaryConnectionString { get; set; }
+        public Input<string>? ServicebusPrimaryConnectionString
+        {
+            get => _servicebusPrimaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _servicebusPrimaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("servicebusSecondaryConnectionString")]
+        private Input<string>? _servicebusSecondaryConnectionString;
 
         /// <summary>
         /// The secondary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission.
         /// </summary>
-        [Input("servicebusSecondaryConnectionString")]
-        public Input<string>? ServicebusSecondaryConnectionString { get; set; }
+        public Input<string>? ServicebusSecondaryConnectionString
+        {
+            get => _servicebusSecondaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _servicebusSecondaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public EndpointServicebusState()
         {

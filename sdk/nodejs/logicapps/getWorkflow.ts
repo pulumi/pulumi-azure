@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:logicapps/getWorkflow:getWorkflow", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -107,9 +104,24 @@ export interface GetWorkflowResult {
      */
     readonly workflowVersion: string;
 }
-
+/**
+ * Use this data source to access information about an existing Logic App Workflow.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.logicapps.getWorkflow({
+ *     name: "workflow1",
+ *     resourceGroupName: "my-resource-group",
+ * });
+ * export const accessEndpoint = example.then(example => example.accessEndpoint);
+ * ```
+ */
 export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
-    return pulumi.output(args).apply(a => getWorkflow(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkflow(a, opts))
 }
 
 /**

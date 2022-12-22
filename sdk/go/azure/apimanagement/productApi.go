@@ -52,10 +52,10 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewProductApi(ctx, "exampleProductApi", &apimanagement.ProductApiArgs{
-//				ApiName:           pulumi.String(exampleApi.Name),
-//				ProductId:         pulumi.String(exampleProduct.ProductId),
-//				ApiManagementName: pulumi.String(exampleService.Name),
-//				ResourceGroupName: pulumi.String(exampleService.ResourceGroupName),
+//				ApiName:           *pulumi.String(exampleApi.Name),
+//				ProductId:         *pulumi.String(exampleProduct.ProductId),
+//				ApiManagementName: *pulumi.String(exampleService.Name),
+//				ResourceGroupName: *pulumi.String(exampleService.ResourceGroupName),
 //			})
 //			if err != nil {
 //				return err

@@ -141,6 +141,11 @@ namespace Pulumi.Azure.FluidRelay
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "primaryKey",
+                    "secondaryKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -250,11 +255,21 @@ namespace Pulumi.Azure.FluidRelay
             set => _ordererEndpoints = value;
         }
 
+        [Input("primaryKey")]
+        private Input<string>? _primaryKey;
+
         /// <summary>
         /// The primary key for this server.
         /// </summary>
-        [Input("primaryKey")]
-        public Input<string>? PrimaryKey { get; set; }
+        public Input<string>? PrimaryKey
+        {
+            get => _primaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
@@ -262,11 +277,21 @@ namespace Pulumi.Azure.FluidRelay
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("secondaryKey")]
+        private Input<string>? _secondaryKey;
+
         /// <summary>
         /// The secondary key for this server.
         /// </summary>
-        [Input("secondaryKey")]
-        public Input<string>? SecondaryKey { get; set; }
+        public Input<string>? SecondaryKey
+        {
+            get => _secondaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("serviceEndpoints")]
         private InputList<string>? _serviceEndpoints;

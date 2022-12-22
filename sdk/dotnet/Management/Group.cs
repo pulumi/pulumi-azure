@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Management
     ///         DisplayName = "ParentGroup",
     ///         SubscriptionIds = new[]
     ///         {
-    ///             current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.SubscriptionId),
+    ///             current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.SubscriptionId),
     ///         },
     ///     });
     /// 
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Management
     ///         ParentManagementGroupId = exampleParent.Id,
     ///         SubscriptionIds = new[]
     ///         {
-    ///             current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.SubscriptionId),
+    ///             current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.SubscriptionId),
     ///         },
     ///     });
     /// 

@@ -26,9 +26,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.management.ManagementFunctions;
- * import com.pulumi.azure.apimanagement.inputs.GetGroupArgs;
+ * import com.pulumi.azure.management.inputs.GetGroupArgs;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.management.GroupSubscriptionAssociation;
  * import com.pulumi.azure.management.GroupSubscriptionAssociationArgs;
  * import java.util.List;
@@ -48,13 +48,13 @@ import javax.annotation.Nullable;
  *             .name(&#34;exampleManagementGroup&#34;)
  *             .build());
  * 
- *         final var exampleSubscription = CoreFunctions.getSubscription(GetBudgetSubscriptionArgs.builder()
+ *         final var exampleSubscription = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
  *             .subscriptionId(&#34;12345678-1234-1234-1234-123456789012&#34;)
  *             .build());
  * 
  *         var exampleGroupSubscriptionAssociation = new GroupSubscriptionAssociation(&#34;exampleGroupSubscriptionAssociation&#34;, GroupSubscriptionAssociationArgs.builder()        
  *             .managementGroupId(exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()))
- *             .subscriptionId(exampleSubscription.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .subscriptionId(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .build());
  * 
  *     }

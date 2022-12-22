@@ -181,11 +181,17 @@ namespace Pulumi.Azure.Storage
 
     public sealed class GetAccountSASArgs : global::Pulumi.InvokeArgs
     {
+        [Input("connectionString", required: true)]
+        private string? _connectionString;
+
         /// <summary>
         /// The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
         /// </summary>
-        [Input("connectionString", required: true)]
-        public string ConnectionString { get; set; } = null!;
+        public string? ConnectionString
+        {
+            get => _connectionString;
+            set => _connectionString = value;
+        }
 
         /// <summary>
         /// The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
@@ -243,11 +249,21 @@ namespace Pulumi.Azure.Storage
 
     public sealed class GetAccountSASInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("connectionString", required: true)]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
         /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<string> ConnectionString { get; set; } = null!;
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.

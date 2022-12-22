@@ -37,7 +37,7 @@ public final class CosmosdbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.cosmosdb.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -76,7 +76,7 @@ public final class CosmosdbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.cosmosdb.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -115,7 +115,7 @@ public final class CosmosdbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.cosmosdb.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -154,7 +154,7 @@ public final class CosmosdbFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.cosmosdb.CosmosdbFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.cosmosdb.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAuthorizationRule(args: GetAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:eventhub/getAuthorizationRule:getAuthorizationRule", {
         "eventhubName": args.eventhubName,
         "listen": args.listen,
@@ -103,9 +100,25 @@ export interface GetAuthorizationRuleResult {
     readonly secondaryKey: string;
     readonly send?: boolean;
 }
-
+/**
+ * Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const test = azure.eventhub.getAuthorizationRule({
+ *     name: "test",
+ *     namespaceName: azurerm_eventhub_namespace.test.name,
+ *     eventhubName: azurerm_eventhub.test.name,
+ *     resourceGroupName: azurerm_resource_group.test.name,
+ * });
+ * ```
+ */
 export function getAuthorizationRuleOutput(args: GetAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationRuleResult> {
-    return pulumi.output(args).apply(a => getAuthorizationRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getAuthorizationRule(a, opts))
 }
 
 /**

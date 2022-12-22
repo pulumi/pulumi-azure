@@ -205,7 +205,7 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetCertificateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -250,7 +250,7 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetCertificateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -295,7 +295,7 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetCertificateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -340,7 +340,7 @@ public final class KeyvaultFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.keyvault.KeyvaultFunctions;
      * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
-     * import com.pulumi.azure.appservice.inputs.GetCertificateArgs;
+     * import com.pulumi.azure.keyvault.inputs.GetCertificateArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

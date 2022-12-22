@@ -49,9 +49,9 @@ import (
 //			}
 //			_, err = connections.NewApiConnection(ctx, "exampleApiConnection", &connections.ApiConnectionArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				ManagedApiId: exampleManagedApi.ApplyT(func(exampleManagedApi connections.GetManagedApiResult) (string, error) {
-//					return exampleManagedApi.Id, nil
-//				}).(pulumi.StringOutput),
+//				ManagedApiId: exampleManagedApi.ApplyT(func(exampleManagedApi connections.GetManagedApiResult) (*string, error) {
+//					return &exampleManagedApi.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				DisplayName: pulumi.String("Example 1"),
 //				ParameterValues: pulumi.StringMap{
 //					"connectionString": exampleNamespace.DefaultPrimaryConnectionString,

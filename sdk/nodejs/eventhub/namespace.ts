@@ -192,6 +192,8 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["defaultSecondaryKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["defaultPrimaryConnectionString", "defaultPrimaryKey", "defaultSecondaryConnectionString", "defaultSecondaryKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Namespace.__pulumiType, name, resourceInputs, opts);
     }
 }

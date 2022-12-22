@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEnvironmentV3(args: GetEnvironmentV3Args, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentV3Result> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getEnvironmentV3:getEnvironmentV3", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -123,9 +120,24 @@ export interface GetEnvironmentV3Result {
     readonly windowsOutboundIpAddresses: string[];
     readonly zoneRedundant: boolean;
 }
-
+/**
+ * Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appservice.getEnvironmentV3({
+ *     name: "example-ASE",
+ *     resourceGroupName: "example-resource-group",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getEnvironmentV3Output(args: GetEnvironmentV3OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentV3Result> {
-    return pulumi.output(args).apply(a => getEnvironmentV3(a, opts))
+    return pulumi.output(args).apply((a: any) => getEnvironmentV3(a, opts))
 }
 
 /**

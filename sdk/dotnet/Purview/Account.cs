@@ -151,6 +151,11 @@ namespace Pulumi.Azure.Purview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "atlasKafkaEndpointPrimaryConnectionString",
+                    "atlasKafkaEndpointSecondaryConnectionString",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -230,17 +235,37 @@ namespace Pulumi.Azure.Purview
 
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
+        [Input("atlasKafkaEndpointPrimaryConnectionString")]
+        private Input<string>? _atlasKafkaEndpointPrimaryConnectionString;
+
         /// <summary>
         /// Atlas Kafka endpoint primary connection string.
         /// </summary>
-        [Input("atlasKafkaEndpointPrimaryConnectionString")]
-        public Input<string>? AtlasKafkaEndpointPrimaryConnectionString { get; set; }
+        public Input<string>? AtlasKafkaEndpointPrimaryConnectionString
+        {
+            get => _atlasKafkaEndpointPrimaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _atlasKafkaEndpointPrimaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("atlasKafkaEndpointSecondaryConnectionString")]
+        private Input<string>? _atlasKafkaEndpointSecondaryConnectionString;
 
         /// <summary>
         /// Atlas Kafka endpoint secondary connection string.
         /// </summary>
-        [Input("atlasKafkaEndpointSecondaryConnectionString")]
-        public Input<string>? AtlasKafkaEndpointSecondaryConnectionString { get; set; }
+        public Input<string>? AtlasKafkaEndpointSecondaryConnectionString
+        {
+            get => _atlasKafkaEndpointSecondaryConnectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _atlasKafkaEndpointSecondaryConnectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Catalog endpoint.

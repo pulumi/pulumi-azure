@@ -170,6 +170,14 @@ func NewLinuxFunctionAppSlot(ctx *pulumi.Context,
 	if args.SiteConfig == nil {
 		return nil, errors.New("invalid value for required argument 'SiteConfig'")
 	}
+	if args.StorageAccountAccessKey != nil {
+		args.StorageAccountAccessKey = pulumi.ToSecret(args.StorageAccountAccessKey).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"customDomainVerificationId",
+		"storageAccountAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource LinuxFunctionAppSlot
 	err := ctx.RegisterResource("azure:appservice/linuxFunctionAppSlot:LinuxFunctionAppSlot", name, args, &resource, opts...)
 	if err != nil {

@@ -50,7 +50,7 @@ import (
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				TenantId:          pulumi.String(current.TenantId),
+//				TenantId:          *pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("premium"),
 //			})
 //			if err != nil {
@@ -124,7 +124,7 @@ import (
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:               exampleResourceGroup.Location,
 //				ResourceGroupName:      exampleResourceGroup.Name,
-//				TenantId:               pulumi.String(current.TenantId),
+//				TenantId:               *pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("premium"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
 //			})
@@ -133,8 +133,8 @@ import (
 //			}
 //			exampleAccessPolicy, err := keyvault.NewAccessPolicy(ctx, "exampleAccessPolicy", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   pulumi.String(current.TenantId),
-//				ObjectId:   pulumi.String(current.ObjectId),
+//				TenantId:   *pulumi.String(current.TenantId),
+//				ObjectId:   *pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Create"),
 //					pulumi.String("Get"),
@@ -247,7 +247,7 @@ import (
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:               exampleResourceGroup.Location,
 //				ResourceGroupName:      exampleResourceGroup.Name,
-//				TenantId:               pulumi.String(current.TenantId),
+//				TenantId:               *pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("premium"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
 //			})
@@ -263,7 +263,7 @@ import (
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "example-identity", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   pulumi.String(current.TenantId),
+//				TenantId:   *pulumi.String(current.TenantId),
 //				ObjectId:   exampleUserAssignedIdentity.PrincipalId,
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("WrapKey"),
@@ -286,8 +286,8 @@ import (
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "example-sp", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   pulumi.String(current.TenantId),
-//				ObjectId:   pulumi.String(current.ObjectId),
+//				TenantId:   *pulumi.String(current.TenantId),
+//				ObjectId:   *pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //					pulumi.String("Create"),
@@ -299,7 +299,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			test, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+//			test, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
 //				DisplayName: pulumi.StringRef("Azure Cosmos DB"),
 //			}, nil)
 //			if err != nil {
@@ -307,8 +307,8 @@ import (
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "example-cosmosdb", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   pulumi.String(current.TenantId),
-//				ObjectId:   pulumi.String(test.ObjectId),
+//				TenantId:   *pulumi.String(current.TenantId),
+//				ObjectId:   *pulumi.String(test.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //					pulumi.String("Recover"),

@@ -40,18 +40,18 @@ import (
 //			}, nil)
 //			exampleApi, err := apimanagement.NewApi(ctx, "exampleApi", &apimanagement.ApiArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				ApiManagementName: exampleService.ApplyT(func(exampleService apimanagement.GetServiceResult) (string, error) {
-//					return exampleService.Name, nil
-//				}).(pulumi.StringOutput),
+//				ApiManagementName: exampleService.ApplyT(func(exampleService apimanagement.GetServiceResult) (*string, error) {
+//					return &exampleService.Name, nil
+//				}).(pulumi.StringPtrOutput),
 //				Revision: pulumi.String("1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apimanagement.NewTag(ctx, "exampleTag", &apimanagement.TagArgs{
-//				ApiManagementId: exampleService.ApplyT(func(exampleService apimanagement.GetServiceResult) (string, error) {
-//					return exampleService.Id, nil
-//				}).(pulumi.StringOutput),
+//				ApiManagementId: exampleService.ApplyT(func(exampleService apimanagement.GetServiceResult) (*string, error) {
+//					return &exampleService.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

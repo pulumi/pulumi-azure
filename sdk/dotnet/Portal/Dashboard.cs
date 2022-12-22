@@ -96,7 +96,7 @@ namespace Pulumi.Azure.Portal
     ///                         ""inputs"": [
     ///                             {{
     ///                                 ""name"": ""ComponentId"",
-    ///                                 ""value"": ""/subscriptions/{current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.SubscriptionId)}/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp""
+    ///                                 ""value"": ""/subscriptions/{current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.SubscriptionId)}/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp""
     ///                             }}
     ///                         ],
     ///                         ""type"": ""Extension/AppInsightsExtension/PartType/AppMapGalPt"",

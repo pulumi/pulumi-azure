@@ -142,10 +142,10 @@ export class LinkedServiceCosmosDb extends pulumi.CustomResource {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
             resourceInputs["accountEndpoint"] = args ? args.accountEndpoint : undefined;
-            resourceInputs["accountKey"] = args ? args.accountKey : undefined;
+            resourceInputs["accountKey"] = args?.accountKey ? pulumi.secret(args.accountKey) : undefined;
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["connectionString"] = args?.connectionString ? pulumi.secret(args.connectionString) : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -154,6 +154,8 @@ export class LinkedServiceCosmosDb extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["accountKey", "connectionString"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LinkedServiceCosmosDb.__pulumiType, name, resourceInputs, opts);
     }
 }

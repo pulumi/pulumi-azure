@@ -40,7 +40,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
 //				DisplayName: pulumi.StringRef("Azure Spring Cloud Domain-Management"),
 //			}, nil)
 //			if err != nil {
@@ -49,12 +49,12 @@ import (
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				TenantId:          pulumi.String(current.TenantId),
+//				TenantId:          *pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: pulumi.String(current.TenantId),
-//						ObjectId: pulumi.String(current.ObjectId),
+//						TenantId: *pulumi.String(current.TenantId),
+//						ObjectId: *pulumi.String(current.ObjectId),
 //						SecretPermissions: pulumi.StringArray{
 //							pulumi.String("Set"),
 //						},
@@ -66,8 +66,8 @@ import (
 //						},
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: pulumi.String(current.TenantId),
-//						ObjectId: pulumi.String(exampleServicePrincipal.ObjectId),
+//						TenantId: *pulumi.String(current.TenantId),
+//						ObjectId: *pulumi.String(exampleServicePrincipal.ObjectId),
 //						SecretPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //							pulumi.String("List"),

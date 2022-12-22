@@ -152,6 +152,10 @@ namespace Pulumi.Azure.Automation
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "uri",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -229,11 +233,21 @@ namespace Pulumi.Azure.Automation
         [Input("runbookName", required: true)]
         public Input<string> RunbookName { get; set; } = null!;
 
+        [Input("uri")]
+        private Input<string>? _uri;
+
         /// <summary>
         /// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("uri")]
-        public Input<string>? Uri { get; set; }
+        public Input<string>? Uri
+        {
+            get => _uri;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _uri = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public WebhookArgs()
         {
@@ -297,11 +311,21 @@ namespace Pulumi.Azure.Automation
         [Input("runbookName")]
         public Input<string>? RunbookName { get; set; }
 
+        [Input("uri")]
+        private Input<string>? _uri;
+
         /// <summary>
         /// URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("uri")]
-        public Input<string>? Uri { get; set; }
+        public Input<string>? Uri
+        {
+            get => _uri;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _uri = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public WebhookState()
         {

@@ -42,9 +42,9 @@ import (
 //				SkuName:                 pulumi.String("Standard_B1"),
 //				PurgeProtectionEnabled:  pulumi.Bool(false),
 //				SoftDeleteRetentionDays: pulumi.Int(90),
-//				TenantId:                pulumi.String(current.TenantId),
+//				TenantId:                *pulumi.String(current.TenantId),
 //				AdminObjectIds: pulumi.StringArray{
-//					pulumi.String(current.ObjectId),
+//					*pulumi.String(current.ObjectId),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Env": pulumi.String("Test"),

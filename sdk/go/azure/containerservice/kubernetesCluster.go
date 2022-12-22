@@ -55,9 +55,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("clientCertificate", exampleKubernetesCluster.KubeConfigs.ApplyT(func(kubeConfigs []containerservice.KubernetesClusterKubeConfig) (string, error) {
-//				return kubeConfigs[0].ClientCertificate, nil
-//			}).(pulumi.StringOutput))
+//			ctx.Export("clientCertificate", exampleKubernetesCluster.KubeConfigs.ApplyT(func(kubeConfigs []containerservice.KubernetesClusterKubeConfig) (*string, error) {
+//				return &kubeConfigs[0].ClientCertificate, nil
+//			}).(pulumi.StringPtrOutput))
 //			ctx.Export("kubeConfig", exampleKubernetesCluster.KubeConfigRaw)
 //			return nil
 //		})
@@ -202,6 +202,13 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"kubeAdminConfigRaw",
+		"kubeAdminConfigs",
+		"kubeConfigRaw",
+		"kubeConfigs",
+	})
+	opts = append(opts, secrets)
 	var resource KubernetesCluster
 	err := ctx.RegisterResource("azure:containerservice/kubernetesCluster:KubernetesCluster", name, args, &resource, opts...)
 	if err != nil {

@@ -136,6 +136,13 @@ func NewEndpointEventhub(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.ConnectionString != nil {
+		args.ConnectionString = pulumi.ToSecret(args.ConnectionString).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"connectionString",
+	})
+	opts = append(opts, secrets)
 	var resource EndpointEventhub
 	err := ctx.RegisterResource("azure:iot/endpointEventhub:EndpointEventhub", name, args, &resource, opts...)
 	if err != nil {

@@ -44,7 +44,7 @@ import (
 //			}
 //			exampleResourceGroupPolicyAssignment, err := core.NewResourceGroupPolicyAssignment(ctx, "exampleResourceGroupPolicyAssignment", &core.ResourceGroupPolicyAssignmentArgs{
 //				ResourceGroupId:    exampleResourceGroup.ID(),
-//				PolicyDefinitionId: pulumi.String(examplePolicyDefintion.Id),
+//				PolicyDefinitionId: *pulumi.String(examplePolicyDefintion.Id),
 //				Parameters: exampleResourceGroup.Location.ApplyT(func(location string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
@@ -58,7 +58,7 @@ import (
 //						return _zero, err
 //					}
 //					json0 := string(tmpJSON0)
-//					return json0, nil
+//					return pulumi.String(json0), nil
 //				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {

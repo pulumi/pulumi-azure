@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:eventhub/getCluster:getCluster", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -65,9 +62,24 @@ export interface GetClusterResult {
      */
     readonly skuName: string;
 }
-
+/**
+ * Use this data source to access information about an existing EventHub.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.eventhub.getCluster({
+ *     name: "search-eventhub",
+ *     resourceGroupName: "search-service",
+ * });
+ * export const eventhubId = example.then(example => example.id);
+ * ```
+ */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply(a => getCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }
 
 /**

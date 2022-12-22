@@ -595,7 +595,7 @@ class PrivateCloud(pulumi.CustomResource):
             if network_subnet_cidr is None and not opts.urn:
                 raise TypeError("Missing required property 'network_subnet_cidr'")
             __props__.__dict__["network_subnet_cidr"] = network_subnet_cidr
-            __props__.__dict__["nsxt_password"] = nsxt_password
+            __props__.__dict__["nsxt_password"] = None if nsxt_password is None else pulumi.Output.secret(nsxt_password)
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -603,7 +603,7 @@ class PrivateCloud(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["vcenter_password"] = vcenter_password
+            __props__.__dict__["vcenter_password"] = None if vcenter_password is None else pulumi.Output.secret(vcenter_password)
             __props__.__dict__["circuits"] = None
             __props__.__dict__["hcx_cloud_manager_endpoint"] = None
             __props__.__dict__["management_subnet_cidr"] = None
@@ -613,6 +613,8 @@ class PrivateCloud(pulumi.CustomResource):
             __props__.__dict__["vcenter_certificate_thumbprint"] = None
             __props__.__dict__["vcsa_endpoint"] = None
             __props__.__dict__["vmotion_subnet_cidr"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["nsxtPassword", "vcenterPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(PrivateCloud, __self__).__init__(
             'azure:avs/privateCloud:PrivateCloud',
             resource_name,

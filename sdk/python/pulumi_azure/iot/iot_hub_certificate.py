@@ -304,7 +304,7 @@ class IotHubCertificate(pulumi.CustomResource):
 
             if certificate_content is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_content'")
-            __props__.__dict__["certificate_content"] = certificate_content
+            __props__.__dict__["certificate_content"] = None if certificate_content is None else pulumi.Output.secret(certificate_content)
             if iot_dps_name is None and not opts.urn:
                 raise TypeError("Missing required property 'iot_dps_name'")
             __props__.__dict__["iot_dps_name"] = iot_dps_name
@@ -313,6 +313,8 @@ class IotHubCertificate(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["certificateContent"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(IotHubCertificate, __self__).__init__(
             'azure:iot/iotHubCertificate:IotHubCertificate',
             resource_name,

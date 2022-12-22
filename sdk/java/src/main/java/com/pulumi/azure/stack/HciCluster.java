@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuread.AzureadFunctions;
- * import com.pulumi.azure.batch.inputs.GetApplicationArgs;
+ * import com.pulumi.azuread.inputs.GetApplicationArgs;
  * import com.pulumi.azure.core.CoreFunctions;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;

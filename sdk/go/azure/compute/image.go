@@ -70,9 +70,9 @@ import (
 //				OsDisk: &compute.ImageOsDiskArgs{
 //					OsType:  pulumi.String("Linux"),
 //					OsState: pulumi.String("Generalized"),
-//					BlobUri: exampleVirtualMachine.StorageOsDisk.ApplyT(func(storageOsDisk compute.VirtualMachineStorageOsDisk) (string, error) {
-//						return storageOsDisk.VhdUri, nil
-//					}).(pulumi.StringOutput),
+//					BlobUri: exampleVirtualMachine.StorageOsDisk.ApplyT(func(storageOsDisk compute.VirtualMachineStorageOsDisk) (*string, error) {
+//						return &storageOsDisk.VhdUri, nil
+//					}).(pulumi.StringPtrOutput),
 //					SizeGb: pulumi.Int(30),
 //				},
 //			})

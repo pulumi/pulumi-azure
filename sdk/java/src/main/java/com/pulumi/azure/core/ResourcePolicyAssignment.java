@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.network.NetworkFunctions;
- * import com.pulumi.azure.devtest.inputs.GetVirtualNetworkArgs;
+ * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
  * import com.pulumi.azure.policy.Definition;
  * import com.pulumi.azure.policy.DefinitionArgs;
  * import com.pulumi.azure.core.ResourcePolicyAssignment;

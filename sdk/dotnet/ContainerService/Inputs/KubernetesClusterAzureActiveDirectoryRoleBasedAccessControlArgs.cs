@@ -48,11 +48,21 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("serverAppId")]
         public Input<string>? ServerAppId { get; set; }
 
+        [Input("serverAppSecret")]
+        private Input<string>? _serverAppSecret;
+
         /// <summary>
         /// The Server Secret of an Azure Active Directory Application.
         /// </summary>
-        [Input("serverAppSecret")]
-        public Input<string>? ServerAppSecret { get; set; }
+        public Input<string>? ServerAppSecret
+        {
+            get => _serverAppSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _serverAppSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.

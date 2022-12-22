@@ -198,17 +198,19 @@ export class Certificate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["data"] = args ? args.data : undefined;
+            resourceInputs["data"] = args?.data ? pulumi.secret(args.data) : undefined;
             resourceInputs["keyVaultIdentityClientId"] = args ? args.keyVaultIdentityClientId : undefined;
             resourceInputs["keyVaultSecretId"] = args ? args.keyVaultSecretId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["expiration"] = undefined /*out*/;
             resourceInputs["subject"] = undefined /*out*/;
             resourceInputs["thumbprint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["data", "password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }

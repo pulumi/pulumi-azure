@@ -34,7 +34,7 @@ import (
 //			}
 //			_, err = core.NewTenantTemplateDeployment(ctx, "exampleTenantTemplateDeployment", &core.TenantTemplateDeploymentArgs{
 //				Location:              pulumi.String("West Europe"),
-//				TemplateSpecVersionId: pulumi.String(exampleTemplateSpecVersion.Id),
+//				TemplateSpecVersionId: *pulumi.String(exampleTemplateSpecVersion.Id),
 //			})
 //			if err != nil {
 //				return err

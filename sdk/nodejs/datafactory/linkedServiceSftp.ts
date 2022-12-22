@@ -179,12 +179,14 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
             resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["skipHostKeyValidation"] = args ? args.skipHostKeyValidation : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LinkedServiceSftp.__pulumiType, name, resourceInputs, opts);
     }
 }

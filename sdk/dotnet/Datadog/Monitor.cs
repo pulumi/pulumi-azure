@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Datadog
     /// 
     ///     var example = new Azure.Authorization.Assignment("example", new()
     ///     {
-    ///         Scope = primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         RoleDefinitionId = monitoringReader.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
     ///         PrincipalId = azurerm_datadog_monitor.Example.Identity[0].Principal_id,
     ///     });

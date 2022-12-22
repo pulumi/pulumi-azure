@@ -73,9 +73,9 @@ import (
 //				Username:            pulumi.String("exampleuser99"),
 //				SshKey:              readFileOrPanic("~/.ssh/id_rsa.pub"),
 //				LabVirtualNetworkId: exampleVirtualNetwork.ID(),
-//				LabSubnetName: exampleVirtualNetwork.Subnet.ApplyT(func(subnet devtest.VirtualNetworkSubnet) (string, error) {
-//					return subnet.Name, nil
-//				}).(pulumi.StringOutput),
+//				LabSubnetName: exampleVirtualNetwork.Subnet.ApplyT(func(subnet devtest.VirtualNetworkSubnet) (*string, error) {
+//					return &subnet.Name, nil
+//				}).(pulumi.StringPtrOutput),
 //				StorageType: pulumi.String("Premium"),
 //				Notes:       pulumi.String("Some notes about this Virtual Machine."),
 //				GalleryImageReference: &devtest.LinuxVirtualMachineGalleryImageReferenceArgs{
@@ -177,6 +177,13 @@ func NewLinuxVirtualMachine(ctx *pulumi.Context,
 	if args.Username == nil {
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource LinuxVirtualMachine
 	err := ctx.RegisterResource("azure:devtest/linuxVirtualMachine:LinuxVirtualMachine", name, args, &resource, opts...)
 	if err != nil {

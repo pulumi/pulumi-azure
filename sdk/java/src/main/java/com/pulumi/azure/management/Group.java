@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.management.Group;
  * import com.pulumi.azure.management.GroupArgs;
  * import java.util.List;
@@ -48,13 +48,13 @@ import javax.annotation.Nullable;
  * 
  *         var exampleParent = new Group(&#34;exampleParent&#34;, GroupArgs.builder()        
  *             .displayName(&#34;ParentGroup&#34;)
- *             .subscriptionIds(current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.subscriptionId()))
+ *             .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.subscriptionId()))
  *             .build());
  * 
  *         var exampleChild = new Group(&#34;exampleChild&#34;, GroupArgs.builder()        
  *             .displayName(&#34;ChildGroup&#34;)
  *             .parentManagementGroupId(exampleParent.id())
- *             .subscriptionIds(current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.subscriptionId()))
+ *             .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.subscriptionId()))
  *             .build());
  * 
  *     }

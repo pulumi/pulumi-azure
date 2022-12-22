@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Consumption
     /// 
     ///     var exampleBudgetSubscription = new Azure.Consumption.BudgetSubscription("exampleBudgetSubscription", new()
     ///     {
-    ///         SubscriptionId = current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         SubscriptionId = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         Amount = 1000,
     ///         TimeGrain = "Monthly",
     ///         TimePeriod = new Azure.Consumption.Inputs.BudgetSubscriptionTimePeriodArgs

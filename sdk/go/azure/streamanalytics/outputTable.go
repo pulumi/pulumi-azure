@@ -55,12 +55,12 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewOutputTable(ctx, "exampleOutputTable", &streamanalytics.OutputTableArgs{
-//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-//					return exampleJob.Name, nil
-//				}).(pulumi.StringOutput),
-//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-//					return exampleJob.ResourceGroupName, nil
-//				}).(pulumi.StringOutput),
+//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
+//					return &exampleJob.Name, nil
+//				}).(pulumi.StringPtrOutput),
+//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
+//					return &exampleJob.ResourceGroupName, nil
+//				}).(pulumi.StringPtrOutput),
 //				StorageAccountName: exampleAccount.Name,
 //				StorageAccountKey:  exampleAccount.PrimaryAccessKey,
 //				Table:              exampleTable.Name,
@@ -142,6 +142,13 @@ func NewOutputTable(ctx *pulumi.Context,
 	if args.Table == nil {
 		return nil, errors.New("invalid value for required argument 'Table'")
 	}
+	if args.StorageAccountKey != nil {
+		args.StorageAccountKey = pulumi.ToSecret(args.StorageAccountKey).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"storageAccountKey",
+	})
+	opts = append(opts, secrets)
 	var resource OutputTable
 	err := ctx.RegisterResource("azure:streamanalytics/outputTable:OutputTable", name, args, &resource, opts...)
 	if err != nil {

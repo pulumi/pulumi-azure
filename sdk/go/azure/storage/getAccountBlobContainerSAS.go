@@ -72,9 +72,9 @@ import (
 //				ContentLanguage:    pulumi.String("en-US"),
 //				ContentType:        pulumi.String("application/json"),
 //			}, nil)
-//			ctx.Export("sasUrlQueryString", example.ApplyT(func(example storage.GetAccountBlobContainerSASResult) (string, error) {
-//				return example.Sas, nil
-//			}).(pulumi.StringOutput))
+//			ctx.Export("sasUrlQueryString", example.ApplyT(func(example storage.GetAccountBlobContainerSASResult) (*string, error) {
+//				return &example.Sas, nil
+//			}).(pulumi.StringPtrOutput))
 //			return nil
 //		})
 //	}

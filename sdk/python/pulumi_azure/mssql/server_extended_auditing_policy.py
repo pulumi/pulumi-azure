@@ -569,10 +569,12 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
             __props__.__dict__["server_id"] = server_id
-            __props__.__dict__["storage_account_access_key"] = storage_account_access_key
+            __props__.__dict__["storage_account_access_key"] = None if storage_account_access_key is None else pulumi.Output.secret(storage_account_access_key)
             __props__.__dict__["storage_account_access_key_is_secondary"] = storage_account_access_key_is_secondary
-            __props__.__dict__["storage_account_subscription_id"] = storage_account_subscription_id
+            __props__.__dict__["storage_account_subscription_id"] = None if storage_account_subscription_id is None else pulumi.Output.secret(storage_account_subscription_id)
             __props__.__dict__["storage_endpoint"] = storage_endpoint
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["storageAccountAccessKey", "storageAccountSubscriptionId"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServerExtendedAuditingPolicy, __self__).__init__(
             'azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy',
             resource_name,

@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.storage.Account;
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubscriptionCostManagementExport = new SubscriptionCostManagementExport(&#34;exampleSubscriptionCostManagementExport&#34;, SubscriptionCostManagementExportArgs.builder()        
- *             .subscriptionId(exampleSubscription.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .subscriptionId(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .recurrenceType(&#34;Monthly&#34;)
  *             .recurrencePeriodStartDate(&#34;2020-08-18T00:00:00Z&#34;)
  *             .recurrencePeriodEndDate(&#34;2020-09-18T00:00:00Z&#34;)

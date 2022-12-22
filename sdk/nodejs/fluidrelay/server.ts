@@ -151,6 +151,8 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["storageEndpoints"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["primaryKey", "secondaryKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Server.__pulumiType, name, resourceInputs, opts);
     }
 }

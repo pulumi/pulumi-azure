@@ -41,13 +41,13 @@ import (
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:                exampleResourceGroup.Location,
 //				ResourceGroupName:       exampleResourceGroup.Name,
-//				TenantId:                pulumi.String(current.TenantId),
+//				TenantId:                *pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("premium"),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: pulumi.String(current.TenantId),
-//						ObjectId: pulumi.String(current.ObjectId),
+//						TenantId: *pulumi.String(current.TenantId),
+//						ObjectId: *pulumi.String(current.ObjectId),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Create"),
 //							pulumi.String("Get"),
@@ -127,6 +127,13 @@ func NewSecret(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
+	if args.Value != nil {
+		args.Value = pulumi.ToSecret(args.Value).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"value",
+	})
+	opts = append(opts, secrets)
 	var resource Secret
 	err := ctx.RegisterResource("azure:keyvault/secret:Secret", name, args, &resource, opts...)
 	if err != nil {

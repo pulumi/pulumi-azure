@@ -12,11 +12,21 @@ namespace Pulumi.Azure.NotificationHub.Inputs
 
     public sealed class HubGcmCredentialArgs : global::Pulumi.ResourceArgs
     {
+        [Input("apiKey", required: true)]
+        private Input<string>? _apiKey;
+
         /// <summary>
         /// The API Key associated with the Google Cloud Messaging service.
         /// </summary>
-        [Input("apiKey", required: true)]
-        public Input<string> ApiKey { get; set; } = null!;
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public HubGcmCredentialArgs()
         {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  */
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:authorization/getRoleDefinition:getRoleDefinition", {
         "name": args.name,
         "roleDefinitionId": args.roleDefinitionId,
@@ -69,9 +66,11 @@ export interface GetRoleDefinitionResult {
      */
     readonly type: string;
 }
-
+/**
+ * Use this data source to access information about an existing Role Definition.
+ */
 export function getRoleDefinitionOutput(args?: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {
-    return pulumi.output(args).apply(a => getRoleDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getRoleDefinition(a, opts))
 }
 
 /**

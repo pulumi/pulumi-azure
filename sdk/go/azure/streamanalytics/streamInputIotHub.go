@@ -53,18 +53,18 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewStreamInputIotHub(ctx, "exampleStreamInputIotHub", &streamanalytics.StreamInputIotHubArgs{
-//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-//					return exampleJob.Name, nil
-//				}).(pulumi.StringOutput),
-//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-//					return exampleJob.ResourceGroupName, nil
-//				}).(pulumi.StringOutput),
+//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
+//					return &exampleJob.Name, nil
+//				}).(pulumi.StringPtrOutput),
+//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
+//					return &exampleJob.ResourceGroupName, nil
+//				}).(pulumi.StringPtrOutput),
 //				Endpoint:                  pulumi.String("messages/events"),
 //				EventhubConsumerGroupName: pulumi.String(fmt.Sprintf("$Default")),
 //				IothubNamespace:           exampleIoTHub.Name,
-//				SharedAccessPolicyKey: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (string, error) {
-//					return sharedAccessPolicies[0].PrimaryKey, nil
-//				}).(pulumi.StringOutput),
+//				SharedAccessPolicyKey: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (*string, error) {
+//					return &sharedAccessPolicies[0].PrimaryKey, nil
+//				}).(pulumi.StringPtrOutput),
 //				SharedAccessPolicyName: pulumi.String("iothubowner"),
 //				Serialization: &streamanalytics.StreamInputIotHubSerializationArgs{
 //					Type:     pulumi.String("Json"),
@@ -143,6 +143,13 @@ func NewStreamInputIotHub(ctx *pulumi.Context,
 	if args.StreamAnalyticsJobName == nil {
 		return nil, errors.New("invalid value for required argument 'StreamAnalyticsJobName'")
 	}
+	if args.SharedAccessPolicyKey != nil {
+		args.SharedAccessPolicyKey = pulumi.ToSecret(args.SharedAccessPolicyKey).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sharedAccessPolicyKey",
+	})
+	opts = append(opts, secrets)
 	var resource StreamInputIotHub
 	err := ctx.RegisterResource("azure:streamanalytics/streamInputIotHub:StreamInputIotHub", name, args, &resource, opts...)
 	if err != nil {

@@ -98,6 +98,13 @@ func NewNamespace(ctx *pulumi.Context,
 	if args.SkuName == nil {
 		return nil, errors.New("invalid value for required argument 'SkuName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryConnectionString",
+		"primaryKey",
+		"secondaryConnectionString",
+		"secondaryKey",
+	})
+	opts = append(opts, secrets)
 	var resource Namespace
 	err := ctx.RegisterResource("azure:relay/namespace:Namespace", name, args, &resource, opts...)
 	if err != nil {

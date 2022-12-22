@@ -47,7 +47,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceDataLakeStorageGen2(ctx, "exampleLinkedServiceDataLakeStorageGen2", &datafactory.LinkedServiceDataLakeStorageGen2Args{
 //				DataFactoryId:       exampleFactory.ID(),
-//				ServicePrincipalId:  pulumi.String(current.ClientId),
+//				ServicePrincipalId:  *pulumi.String(current.ClientId),
 //				ServicePrincipalKey: pulumi.String("exampleKey"),
 //				Tenant:              pulumi.String("11111111-1111-1111-1111-111111111111"),
 //				Url:                 pulumi.String("https://datalakestoragegen2"),

@@ -160,9 +160,11 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["runOnWorkerGroup"] = args ? args.runOnWorkerGroup : undefined;
             resourceInputs["runbookName"] = args ? args.runbookName : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["uri"] = args?.uri ? pulumi.secret(args.uri) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["uri"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Webhook.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -187,7 +187,7 @@ public final class PrivatelinkFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatelink.PrivatelinkFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.privatelink.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -226,7 +226,7 @@ public final class PrivatelinkFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatelink.PrivatelinkFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.privatelink.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -265,7 +265,7 @@ public final class PrivatelinkFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatelink.PrivatelinkFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.privatelink.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -304,7 +304,7 @@ public final class PrivatelinkFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatelink.PrivatelinkFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.privatelink.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

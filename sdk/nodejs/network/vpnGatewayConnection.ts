@@ -52,11 +52,11 @@ import * as utilities from "../utilities";
  *     vpnLinks: [
  *         {
  *             name: "link1",
- *             vpnSiteLinkId: exampleVpnSite.links.apply(links => links?[0]?.id),
+ *             vpnSiteLinkId: exampleVpnSite.links.apply(links => links?.[0]?.id),
  *         },
  *         {
  *             name: "link2",
- *             vpnSiteLinkId: exampleVpnSite.links.apply(links => links?[1]?.id),
+ *             vpnSiteLinkId: exampleVpnSite.links.apply(links => links?.[1]?.id),
  *         },
  *     ],
  * });

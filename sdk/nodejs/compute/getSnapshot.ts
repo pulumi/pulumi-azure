@@ -15,18 +15,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.compute.getSnapshot({
+ * const example = azure.compute.getSnapshot({
  *     name: "my-snapshot",
  *     resourceGroupName: "my-resource-group",
- * }));
+ * });
  * ```
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getSnapshot:getSnapshot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -82,9 +79,23 @@ export interface GetSnapshotResult {
      */
     readonly trustedLaunchEnabled: boolean;
 }
-
+/**
+ * Use this data source to access information about an existing Snapshot.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.compute.getSnapshot({
+ *     name: "my-snapshot",
+ *     resourceGroupName: "my-resource-group",
+ * });
+ * ```
+ */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
-    return pulumi.output(args).apply(a => getSnapshot(a, opts))
+    return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
 }
 
 /**

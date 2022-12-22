@@ -36,11 +36,21 @@ namespace Pulumi.Azure.ContainerService.Inputs
             set => _noProxies = value;
         }
 
+        [Input("trustedCa")]
+        private Input<string>? _trustedCa;
+
         /// <summary>
         /// The base64 encoded alternative CA certificate content in PEM format.
         /// </summary>
-        [Input("trustedCa")]
-        public Input<string>? TrustedCa { get; set; }
+        public Input<string>? TrustedCa
+        {
+            get => _trustedCa;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _trustedCa = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public KubernetesClusterHttpProxyConfigArgs()
         {

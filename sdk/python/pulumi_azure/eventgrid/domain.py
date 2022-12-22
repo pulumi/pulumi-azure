@@ -642,6 +642,8 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["secondary_access_key"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/domain:Domain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["primaryAccessKey", "secondaryAccessKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Domain, __self__).__init__(
             'azure:eventgrid/domain:Domain',
             resource_name,

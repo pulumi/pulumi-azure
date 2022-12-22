@@ -522,15 +522,17 @@ class Subscription(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["primary_key"] = primary_key
+            __props__.__dict__["primary_key"] = None if primary_key is None else pulumi.Output.secret(primary_key)
             __props__.__dict__["product_id"] = product_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["secondary_key"] = secondary_key
+            __props__.__dict__["secondary_key"] = None if secondary_key is None else pulumi.Output.secret(secondary_key)
             __props__.__dict__["state"] = state
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["user_id"] = user_id
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["primaryKey", "secondaryKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Subscription, __self__).__init__(
             'azure:apimanagement/subscription:Subscription',
             resource_name,

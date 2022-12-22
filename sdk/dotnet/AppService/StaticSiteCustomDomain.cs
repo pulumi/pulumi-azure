@@ -112,6 +112,10 @@ namespace Pulumi.Azure.AppService
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "validationToken",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -173,11 +177,21 @@ namespace Pulumi.Azure.AppService
         [Input("staticSiteId")]
         public Input<string>? StaticSiteId { get; set; }
 
+        [Input("validationToken")]
+        private Input<string>? _validationToken;
+
         /// <summary>
         /// Token to be used with `dns-txt-token` validation.
         /// </summary>
-        [Input("validationToken")]
-        public Input<string>? ValidationToken { get; set; }
+        public Input<string>? ValidationToken
+        {
+            get => _validationToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _validationToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.

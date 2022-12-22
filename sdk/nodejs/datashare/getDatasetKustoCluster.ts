@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDatasetKustoCluster(args: GetDatasetKustoClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetKustoClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", {
         "name": args.name,
         "shareId": args.shareId,
@@ -69,9 +66,24 @@ export interface GetDatasetKustoClusterResult {
     readonly name: string;
     readonly shareId: string;
 }
-
+/**
+ * Use this data source to access information about an existing Data Share Kusto Cluster Dataset.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.datashare.getDatasetKustoCluster({
+ *     name: "example-dskc",
+ *     shareId: "example-share-id",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getDatasetKustoClusterOutput(args: GetDatasetKustoClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetKustoClusterResult> {
-    return pulumi.output(args).apply(a => getDatasetKustoCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatasetKustoCluster(a, opts))
 }
 
 /**

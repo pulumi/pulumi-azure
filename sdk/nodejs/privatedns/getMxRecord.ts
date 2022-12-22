@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getMxRecord(args: GetMxRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetMxRecordResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getMxRecord:getMxRecord", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -79,9 +76,22 @@ export interface GetMxRecordResult {
     readonly ttl: number;
     readonly zoneName: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.privatedns.MxRecord("example", {
+ *     zoneName: "test-zone",
+ *     resourceGroupName: "test-rg",
+ * });
+ * export const privateDnsMxRecordId = example.id;
+ * ```
+ */
 export function getMxRecordOutput(args: GetMxRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMxRecordResult> {
-    return pulumi.output(args).apply(a => getMxRecord(a, opts))
+    return pulumi.output(args).apply((a: any) => getMxRecord(a, opts))
 }
 
 /**

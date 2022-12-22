@@ -29,12 +29,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceProviderRegistration("example", {
- *     features: [{
- *         name: "AKS-DataPlaneAutoApprove",
- *         registered: true,
- *     }],
- * });
+ * const example = new azure.core.ResourceProviderRegistration("example", {features: [{
+ *     name: "AKS-DataPlaneAutoApprove",
+ *     registered: true,
+ * }]});
  * ```
  *
  * ## Import

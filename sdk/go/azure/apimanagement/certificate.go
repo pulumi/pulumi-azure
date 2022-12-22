@@ -122,7 +122,7 @@ import (
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				TenantId:          pulumi.String(current.TenantId),
+//				TenantId:          *pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("standard"),
 //			})
 //			if err != nil {
@@ -130,12 +130,12 @@ import (
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "exampleAccessPolicy", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId: exampleService.Identity.ApplyT(func(identity apimanagement.ServiceIdentity) (string, error) {
-//					return identity.TenantId, nil
-//				}).(pulumi.StringOutput),
-//				ObjectId: exampleService.Identity.ApplyT(func(identity apimanagement.ServiceIdentity) (string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringOutput),
+//				TenantId: exampleService.Identity.ApplyT(func(identity apimanagement.ServiceIdentity) (*string, error) {
+//					return &identity.TenantId, nil
+//				}).(pulumi.StringPtrOutput),
+//				ObjectId: exampleService.Identity.ApplyT(func(identity apimanagement.ServiceIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
 //				SecretPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //				},
@@ -231,6 +231,17 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Data != nil {
+		args.Data = pulumi.ToSecret(args.Data).(pulumi.StringPtrInput)
+	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"data",
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource Certificate
 	err := ctx.RegisterResource("azure:apimanagement/certificate:Certificate", name, args, &resource, opts...)
 	if err != nil {

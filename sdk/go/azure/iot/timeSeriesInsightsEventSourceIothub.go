@@ -82,12 +82,12 @@ import (
 //				Location:      exampleResourceGroup.Location,
 //				EnvironmentId: exampleTimeSeriesInsightsGen2Environment.ID(),
 //				IothubName:    exampleIoTHub.Name,
-//				SharedAccessKey: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (string, error) {
-//					return sharedAccessPolicies[0].PrimaryKey, nil
-//				}).(pulumi.StringOutput),
-//				SharedAccessKeyName: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (string, error) {
-//					return sharedAccessPolicies[0].KeyName, nil
-//				}).(pulumi.StringOutput),
+//				SharedAccessKey: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (*string, error) {
+//					return &sharedAccessPolicies[0].PrimaryKey, nil
+//				}).(pulumi.StringPtrOutput),
+//				SharedAccessKeyName: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (*string, error) {
+//					return &sharedAccessPolicies[0].KeyName, nil
+//				}).(pulumi.StringPtrOutput),
 //				ConsumerGroupName:     exampleConsumerGroup.Name,
 //				EventSourceResourceId: exampleIoTHub.ID(),
 //			})
@@ -159,6 +159,13 @@ func NewTimeSeriesInsightsEventSourceIothub(ctx *pulumi.Context,
 	if args.SharedAccessKeyName == nil {
 		return nil, errors.New("invalid value for required argument 'SharedAccessKeyName'")
 	}
+	if args.SharedAccessKey != nil {
+		args.SharedAccessKey = pulumi.ToSecret(args.SharedAccessKey).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sharedAccessKey",
+	})
+	opts = append(opts, secrets)
 	var resource TimeSeriesInsightsEventSourceIothub
 	err := ctx.RegisterResource("azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub", name, args, &resource, opts...)
 	if err != nil {

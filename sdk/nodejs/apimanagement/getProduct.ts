@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:apimanagement/getProduct:getProduct", {
         "apiManagementName": args.apiManagementName,
         "productId": args.productId,
@@ -92,9 +89,25 @@ export interface GetProductResult {
      */
     readonly terms: string;
 }
-
+/**
+ * Use this data source to access information about an existing API Management Product.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.apimanagement.getProduct({
+ *     productId: "my-product",
+ *     apiManagementName: "example-apim",
+ *     resourceGroupName: "search-service",
+ * });
+ * export const productTerms = example.then(example => example.terms);
+ * ```
+ */
 export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
-    return pulumi.output(args).apply(a => getProduct(a, opts))
+    return pulumi.output(args).apply((a: any) => getProduct(a, opts))
 }
 
 /**

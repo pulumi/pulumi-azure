@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing API Management User.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:apimanagement/getUser:getUser", {
         "apiManagementName": args.apiManagementName,
         "resourceGroupName": args.resourceGroupName,
@@ -70,9 +67,11 @@ export interface GetUserResult {
     readonly state: string;
     readonly userId: string;
 }
-
+/**
+ * Use this data source to access information about an existing API Management User.
+ */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
-    return pulumi.output(args).apply(a => getUser(a, opts))
+    return pulumi.output(args).apply((a: any) => getUser(a, opts))
 }
 
 /**

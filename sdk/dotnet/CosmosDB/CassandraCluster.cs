@@ -205,6 +205,10 @@ namespace Pulumi.Azure.CosmosDB
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "defaultAdminPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -246,11 +250,21 @@ namespace Pulumi.Azure.CosmosDB
             set => _clientCertificatePems = value;
         }
 
+        [Input("defaultAdminPassword", required: true)]
+        private Input<string>? _defaultAdminPassword;
+
         /// <summary>
         /// The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("defaultAdminPassword", required: true)]
-        public Input<string> DefaultAdminPassword { get; set; } = null!;
+        public Input<string>? DefaultAdminPassword
+        {
+            get => _defaultAdminPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _defaultAdminPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
@@ -362,11 +376,21 @@ namespace Pulumi.Azure.CosmosDB
             set => _clientCertificatePems = value;
         }
 
+        [Input("defaultAdminPassword")]
+        private Input<string>? _defaultAdminPassword;
+
         /// <summary>
         /// The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("defaultAdminPassword")]
-        public Input<string>? DefaultAdminPassword { get; set; }
+        public Input<string>? DefaultAdminPassword
+        {
+            get => _defaultAdminPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _defaultAdminPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.

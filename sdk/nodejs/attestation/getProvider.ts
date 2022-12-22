@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing Attestation Provider.
  */
 export function getProvider(args: GetProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:attestation/getProvider:getProvider", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -60,9 +57,11 @@ export interface GetProviderResult {
      */
     readonly trustModel: string;
 }
-
+/**
+ * Use this data source to access information about an existing Attestation Provider.
+ */
 export function getProviderOutput(args: GetProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderResult> {
-    return pulumi.output(args).apply(a => getProvider(a, opts))
+    return pulumi.output(args).apply((a: any) => getProvider(a, opts))
 }
 
 /**

@@ -377,7 +377,7 @@ public final class HealthcareFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.healthcare.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -417,7 +417,7 @@ public final class HealthcareFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.healthcare.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -457,7 +457,7 @@ public final class HealthcareFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.healthcare.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -497,7 +497,7 @@ public final class HealthcareFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
-     * import com.pulumi.azure.apimanagement.inputs.GetServiceArgs;
+     * import com.pulumi.azure.healthcare.inputs.GetServiceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -537,7 +537,7 @@ public final class HealthcareFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
+     * import com.pulumi.azure.healthcare.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -576,7 +576,7 @@ public final class HealthcareFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
+     * import com.pulumi.azure.healthcare.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -615,7 +615,7 @@ public final class HealthcareFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
+     * import com.pulumi.azure.healthcare.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -654,7 +654,7 @@ public final class HealthcareFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.healthcare.HealthcareFunctions;
-     * import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
+     * import com.pulumi.azure.healthcare.inputs.GetWorkspaceArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

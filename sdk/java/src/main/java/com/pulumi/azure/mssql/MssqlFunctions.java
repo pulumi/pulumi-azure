@@ -38,7 +38,7 @@ public final class MssqlFunctions {
      * import com.pulumi.azure.mssql.Server;
      * import com.pulumi.azure.mssql.ServerArgs;
      * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import com.pulumi.azure.mssql.inputs.GetDatabaseArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -93,7 +93,7 @@ public final class MssqlFunctions {
      * import com.pulumi.azure.mssql.Server;
      * import com.pulumi.azure.mssql.ServerArgs;
      * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import com.pulumi.azure.mssql.inputs.GetDatabaseArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -148,7 +148,7 @@ public final class MssqlFunctions {
      * import com.pulumi.azure.mssql.Server;
      * import com.pulumi.azure.mssql.ServerArgs;
      * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import com.pulumi.azure.mssql.inputs.GetDatabaseArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -203,7 +203,7 @@ public final class MssqlFunctions {
      * import com.pulumi.azure.mssql.Server;
      * import com.pulumi.azure.mssql.ServerArgs;
      * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.kusto.inputs.GetDatabaseArgs;
+     * import com.pulumi.azure.mssql.inputs.GetDatabaseArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

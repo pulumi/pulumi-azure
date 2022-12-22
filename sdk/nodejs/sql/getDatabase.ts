@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:sql/getDatabase:getDatabase", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -108,9 +105,23 @@ export interface GetDatabaseResult {
      */
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.sql.getDatabase({
+ *     name: "example_db",
+ *     serverName: "example_db_server",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const sqlDatabaseId = example.then(example => example.id);
+ * ```
+ */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
-    return pulumi.output(args).apply(a => getDatabase(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatabase(a, opts))
 }
 
 /**

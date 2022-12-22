@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCertificateOrder(args: GetCertificateOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateOrderResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getCertificateOrder:getCertificateOrder", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -127,9 +124,24 @@ export interface GetCertificateOrderResult {
      */
     readonly validityInYears: number;
 }
-
+/**
+ * Use this data source to access information about an existing App Service Certificate Order.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appservice.getCertificateOrder({
+ *     name: "example-cert-order",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const certificateOrderId = example.then(example => example.id);
+ * ```
+ */
 export function getCertificateOrderOutput(args: GetCertificateOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateOrderResult> {
-    return pulumi.output(args).apply(a => getCertificateOrder(a, opts))
+    return pulumi.output(args).apply((a: any) => getCertificateOrder(a, opts))
 }
 
 /**

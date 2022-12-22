@@ -71,6 +71,17 @@ func NewSourceCodeToken(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	if args.Token != nil {
+		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringInput)
+	}
+	if args.TokenSecret != nil {
+		args.TokenSecret = pulumi.ToSecret(args.TokenSecret).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"token",
+		"tokenSecret",
+	})
+	opts = append(opts, secrets)
 	var resource SourceCodeToken
 	err := ctx.RegisterResource("azure:appservice/sourceCodeToken:SourceCodeToken", name, args, &resource, opts...)
 	if err != nil {

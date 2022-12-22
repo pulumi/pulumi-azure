@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Blueprint
     ///     var exampleDefinition = Azure.Blueprint.GetDefinition.Invoke(new()
     ///     {
     ///         Name = "exampleBlueprint",
-    ///         ScopeId = exampleSubscription.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         ScopeId = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///     });
     /// 
     ///     var examplePublishedVersion = Azure.Blueprint.GetPublishedVersion.Invoke(new()
@@ -59,21 +59,21 @@ namespace Pulumi.Azure.Blueprint
     /// 
     ///     var @operator = new Azure.Authorization.Assignment("operator", new()
     ///     {
-    ///         Scope = exampleSubscription.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         Scope = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         RoleDefinitionName = "Blueprint Operator",
     ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
     ///     });
     /// 
     ///     var owner = new Azure.Authorization.Assignment("owner", new()
     ///     {
-    ///         Scope = exampleSubscription.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         Scope = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         RoleDefinitionName = "Owner",
     ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
     ///     });
     /// 
     ///     var exampleAssignment = new Azure.Blueprint.Assignment("exampleAssignment", new()
     ///     {
-    ///         TargetSubscriptionId = exampleSubscription.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         TargetSubscriptionId = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         VersionId = examplePublishedVersion.Apply(getPublishedVersionResult =&gt; getPublishedVersionResult.Id),
     ///         Location = exampleResourceGroup.Location,
     ///         LockMode = "AllResourcesDoNotDelete",

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
  */
 export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:keyvault/getSecrets:getSecrets", {
         "keyVaultId": args.keyVaultId,
     }, opts);
@@ -45,9 +42,11 @@ export interface GetSecretsResult {
      */
     readonly names: string[];
 }
-
+/**
+ * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
+ */
 export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretsResult> {
-    return pulumi.output(args).apply(a => getSecrets(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecrets(a, opts))
 }
 
 /**

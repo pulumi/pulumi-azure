@@ -742,7 +742,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["route_filter_id"] = route_filter_id
             __props__.__dict__["secondary_peer_address_prefix"] = secondary_peer_address_prefix
-            __props__.__dict__["shared_key"] = shared_key
+            __props__.__dict__["shared_key"] = None if shared_key is None else pulumi.Output.secret(shared_key)
             if vlan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vlan_id'")
             __props__.__dict__["vlan_id"] = vlan_id
@@ -750,6 +750,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             __props__.__dict__["gateway_manager_etag"] = None
             __props__.__dict__["primary_azure_port"] = None
             __props__.__dict__["secondary_azure_port"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["sharedKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ExpressRouteCircuitPeering, __self__).__init__(
             'azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering',
             resource_name,

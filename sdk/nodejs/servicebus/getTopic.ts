@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:servicebus/getTopic:getTopic", {
         "name": args.name,
         "namespaceId": args.namespaceId,
@@ -107,9 +104,25 @@ export interface GetTopicResult {
      */
     readonly supportOrdering: boolean;
 }
-
+/**
+ * Use this data source to access information about an existing Service Bus Topic.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.servicebus.getTopic({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ *     namespaceName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
-    return pulumi.output(args).apply(a => getTopic(a, opts))
+    return pulumi.output(args).apply((a: any) => getTopic(a, opts))
 }
 
 /**

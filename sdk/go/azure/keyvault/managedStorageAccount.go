@@ -51,12 +51,12 @@ import (
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				TenantId:          pulumi.String(current.TenantId),
+//				TenantId:          *pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: pulumi.String(current.TenantId),
-//						ObjectId: pulumi.String(current.ObjectId),
+//						TenantId: *pulumi.String(current.TenantId),
+//						ObjectId: *pulumi.String(current.ObjectId),
 //						SecretPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //							pulumi.String("Delete"),
@@ -114,7 +114,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			test, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+//			test, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
 //				ApplicationId: pulumi.StringRef("cfa8b339-82a2-471a-a3c9-0fc0be7a4093"),
 //			}, nil)
 //			if err != nil {
@@ -138,12 +138,12 @@ import (
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				TenantId:          pulumi.String(current.TenantId),
+//				TenantId:          *pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: pulumi.String(current.TenantId),
-//						ObjectId: pulumi.String(current.ObjectId),
+//						TenantId: *pulumi.String(current.TenantId),
+//						ObjectId: *pulumi.String(current.ObjectId),
 //						SecretPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //							pulumi.String("Delete"),
@@ -167,7 +167,7 @@ import (
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Account Key Operator Service Role"),
-//				PrincipalId:        pulumi.String(test.Id),
+//				PrincipalId:        *pulumi.String(test.Id),
 //			})
 //			if err != nil {
 //				return err

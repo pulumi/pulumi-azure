@@ -117,13 +117,15 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["certificateContent"] = args ? args.certificateContent : undefined;
+            resourceInputs["certificateContent"] = args?.certificateContent ? pulumi.secret(args.certificateContent) : undefined;
             resourceInputs["iothubName"] = args ? args.iothubName : undefined;
             resourceInputs["isVerified"] = args ? args.isVerified : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["certificateContent"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }

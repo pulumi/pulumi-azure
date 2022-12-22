@@ -24,17 +24,37 @@ namespace Pulumi.Azure.Iot.Inputs
         [Input("permissions")]
         public Input<string>? Permissions { get; set; }
 
+        [Input("primaryKey")]
+        private Input<string>? _primaryKey;
+
         /// <summary>
         /// The primary key.
         /// </summary>
-        [Input("primaryKey")]
-        public Input<string>? PrimaryKey { get; set; }
+        public Input<string>? PrimaryKey
+        {
+            get => _primaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("secondaryKey")]
+        private Input<string>? _secondaryKey;
 
         /// <summary>
         /// The secondary key.
         /// </summary>
-        [Input("secondaryKey")]
-        public Input<string>? SecondaryKey { get; set; }
+        public Input<string>? SecondaryKey
+        {
+            get => _secondaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public IoTHubSharedAccessPolicyGetArgs()
         {

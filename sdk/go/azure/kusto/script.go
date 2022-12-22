@@ -97,9 +97,9 @@ import (
 //			_, err = kusto.NewScript(ctx, "exampleScript", &kusto.ScriptArgs{
 //				DatabaseId: exampleDatabase.ID(),
 //				Url:        exampleBlob.ID(),
-//				SasToken: exampleAccountBlobContainerSAS.ApplyT(func(exampleAccountBlobContainerSAS storage.GetAccountBlobContainerSASResult) (string, error) {
-//					return exampleAccountBlobContainerSAS.Sas, nil
-//				}).(pulumi.StringOutput),
+//				SasToken: exampleAccountBlobContainerSAS.ApplyT(func(exampleAccountBlobContainerSAS storage.GetAccountBlobContainerSASResult) (*string, error) {
+//					return &exampleAccountBlobContainerSAS.Sas, nil
+//				}).(pulumi.StringPtrOutput),
 //				ContinueOnErrorsEnabled:       pulumi.Bool(true),
 //				ForceAnUpdateWhenValueChanged: pulumi.String("first"),
 //			})
@@ -150,6 +150,17 @@ func NewScript(ctx *pulumi.Context,
 	if args.DatabaseId == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseId'")
 	}
+	if args.SasToken != nil {
+		args.SasToken = pulumi.ToSecret(args.SasToken).(pulumi.StringPtrInput)
+	}
+	if args.ScriptContent != nil {
+		args.ScriptContent = pulumi.ToSecret(args.ScriptContent).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sasToken",
+		"scriptContent",
+	})
+	opts = append(opts, secrets)
 	var resource Script
 	err := ctx.RegisterResource("azure:kusto/script:Script", name, args, &resource, opts...)
 	if err != nil {

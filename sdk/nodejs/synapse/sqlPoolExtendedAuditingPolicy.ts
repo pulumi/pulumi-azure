@@ -140,11 +140,13 @@ export class SqlPoolExtendedAuditingPolicy extends pulumi.CustomResource {
             resourceInputs["logMonitoringEnabled"] = args ? args.logMonitoringEnabled : undefined;
             resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             resourceInputs["sqlPoolId"] = args ? args.sqlPoolId : undefined;
-            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
             resourceInputs["storageAccountAccessKeyIsSecondary"] = args ? args.storageAccountAccessKeyIsSecondary : undefined;
             resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SqlPoolExtendedAuditingPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

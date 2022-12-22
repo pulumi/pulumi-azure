@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.policy.Definition;
  * import com.pulumi.azure.policy.DefinitionArgs;
  * import com.pulumi.azure.core.SubscriptionPolicyAssignment;
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment(&#34;exampleSubscriptionPolicyAssignment&#34;, SubscriptionPolicyAssignmentArgs.builder()        
  *             .policyDefinitionId(exampleDefinition.id())
- *             .subscriptionId(current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .subscriptionId(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .build());
  * 
  *     }

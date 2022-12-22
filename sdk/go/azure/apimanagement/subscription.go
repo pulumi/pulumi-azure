@@ -51,10 +51,10 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewSubscription(ctx, "exampleSubscription", &apimanagement.SubscriptionArgs{
-//				ApiManagementName: pulumi.String(exampleService.Name),
-//				ResourceGroupName: pulumi.String(exampleService.ResourceGroupName),
-//				UserId:            pulumi.String(exampleUser.Id),
-//				ProductId:         pulumi.String(exampleProduct.Id),
+//				ApiManagementName: *pulumi.String(exampleService.Name),
+//				ResourceGroupName: *pulumi.String(exampleService.ResourceGroupName),
+//				UserId:            *pulumi.String(exampleUser.Id),
+//				ProductId:         *pulumi.String(exampleProduct.Id),
 //				DisplayName:       pulumi.String("Parser API"),
 //			})
 //			if err != nil {
@@ -118,6 +118,17 @@ func NewSubscription(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.PrimaryKey != nil {
+		args.PrimaryKey = pulumi.ToSecret(args.PrimaryKey).(pulumi.StringPtrInput)
+	}
+	if args.SecondaryKey != nil {
+		args.SecondaryKey = pulumi.ToSecret(args.SecondaryKey).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryKey",
+		"secondaryKey",
+	})
+	opts = append(opts, secrets)
 	var resource Subscription
 	err := ctx.RegisterResource("azure:apimanagement/subscription:Subscription", name, args, &resource, opts...)
 	if err != nil {

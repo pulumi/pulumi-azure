@@ -461,6 +461,11 @@ namespace Pulumi.Azure.Compute
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "adminPassword",
+                    "customData",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -490,11 +495,21 @@ namespace Pulumi.Azure.Compute
         [Input("additionalCapabilities")]
         public Input<Inputs.LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs>? AdditionalCapabilities { get; set; }
 
+        [Input("adminPassword")]
+        private Input<string>? _adminPassword;
+
         /// <summary>
         /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("adminPassword")]
-        public Input<string>? AdminPassword { get; set; }
+        public Input<string>? AdminPassword
+        {
+            get => _adminPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _adminPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("adminSshKeys")]
         private InputList<Inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs>? _adminSshKeys;
@@ -544,11 +559,21 @@ namespace Pulumi.Azure.Compute
         [Input("computerNamePrefix")]
         public Input<string>? ComputerNamePrefix { get; set; }
 
+        [Input("customData")]
+        private Input<string>? _customData;
+
         /// <summary>
         /// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         /// </summary>
-        [Input("customData")]
-        public Input<string>? CustomData { get; set; }
+        public Input<string>? CustomData
+        {
+            get => _customData;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _customData = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("dataDisks")]
         private InputList<Inputs.LinuxVirtualMachineScaleSetDataDiskArgs>? _dataDisks;
@@ -864,11 +889,21 @@ namespace Pulumi.Azure.Compute
         [Input("additionalCapabilities")]
         public Input<Inputs.LinuxVirtualMachineScaleSetAdditionalCapabilitiesGetArgs>? AdditionalCapabilities { get; set; }
 
+        [Input("adminPassword")]
+        private Input<string>? _adminPassword;
+
         /// <summary>
         /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("adminPassword")]
-        public Input<string>? AdminPassword { get; set; }
+        public Input<string>? AdminPassword
+        {
+            get => _adminPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _adminPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("adminSshKeys")]
         private InputList<Inputs.LinuxVirtualMachineScaleSetAdminSshKeyGetArgs>? _adminSshKeys;
@@ -918,11 +953,21 @@ namespace Pulumi.Azure.Compute
         [Input("computerNamePrefix")]
         public Input<string>? ComputerNamePrefix { get; set; }
 
+        [Input("customData")]
+        private Input<string>? _customData;
+
         /// <summary>
         /// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         /// </summary>
-        [Input("customData")]
-        public Input<string>? CustomData { get; set; }
+        public Input<string>? CustomData
+        {
+            get => _customData;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _customData = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("dataDisks")]
         private InputList<Inputs.LinuxVirtualMachineScaleSetDataDiskGetArgs>? _dataDisks;

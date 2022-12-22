@@ -24,11 +24,21 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("protectedSettings")]
+        private Input<string>? _protectedSettings;
+
         /// <summary>
         /// The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
         /// </summary>
-        [Input("protectedSettings")]
-        public Input<string>? ProtectedSettings { get; set; }
+        public Input<string>? ProtectedSettings
+        {
+            get => _protectedSettings;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _protectedSettings = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("provisionAfterExtensions")]
         private InputList<string>? _provisionAfterExtensions;

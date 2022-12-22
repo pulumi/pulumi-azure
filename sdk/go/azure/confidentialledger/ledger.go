@@ -44,8 +44,8 @@ import (
 //				LedgerType:        pulumi.String("Private"),
 //				AzureadBasedServicePrincipals: confidentialledger.LedgerAzureadBasedServicePrincipalArray{
 //					&confidentialledger.LedgerAzureadBasedServicePrincipalArgs{
-//						PrincipalId:    pulumi.String(current.ObjectId),
-//						TenantId:       pulumi.String(current.TenantId),
+//						PrincipalId:    *pulumi.String(current.ObjectId),
+//						TenantId:       *pulumi.String(current.TenantId),
 //						LedgerRoleName: pulumi.String("Administrator"),
 //					},
 //				},

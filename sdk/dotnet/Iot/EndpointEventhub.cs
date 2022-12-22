@@ -160,6 +160,10 @@ namespace Pulumi.Azure.Iot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "connectionString",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -189,11 +193,21 @@ namespace Pulumi.Azure.Iot
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
 
+        [Input("connectionString")]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
         /// </summary>
-        [Input("connectionString")]
-        public Input<string>? ConnectionString { get; set; }
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
@@ -245,11 +259,21 @@ namespace Pulumi.Azure.Iot
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
 
+        [Input("connectionString")]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
         /// </summary>
-        [Input("connectionString")]
-        public Input<string>? ConnectionString { get; set; }
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.

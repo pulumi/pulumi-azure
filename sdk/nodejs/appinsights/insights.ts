@@ -214,6 +214,8 @@ export class Insights extends pulumi.CustomResource {
             resourceInputs["instrumentationKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["connectionString", "instrumentationKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Insights.__pulumiType, name, resourceInputs, opts);
     }
 }

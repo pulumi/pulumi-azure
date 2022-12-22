@@ -51,8 +51,8 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewGatewayApi(ctx, "exampleGatewayApi", &apimanagement.GatewayApiArgs{
-//				GatewayId: pulumi.String(exampleGateway.Id),
-//				ApiId:     pulumi.String(exampleApi.Id),
+//				GatewayId: *pulumi.String(exampleGateway.Id),
+//				ApiId:     *pulumi.String(exampleApi.Id),
 //			})
 //			if err != nil {
 //				return err

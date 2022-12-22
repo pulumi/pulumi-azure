@@ -95,9 +95,9 @@ import (
 //			}
 //			databaseContributor, err := authorization.NewAssignment(ctx, "databaseContributor", &authorization.AssignmentArgs{
 //				Scope: exampleDatabase.ID(),
-//				PrincipalId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringOutput),
+//				PrincipalId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
 //				RoleDefinitionName: pulumi.String("Contributor"),
 //			})
 //			if err != nil {
@@ -105,9 +105,9 @@ import (
 //			}
 //			eventhubDataOwner, err := authorization.NewAssignment(ctx, "eventhubDataOwner", &authorization.AssignmentArgs{
 //				Scope: exampleEventHub.ID(),
-//				PrincipalId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringOutput),
+//				PrincipalId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
 //				RoleDefinitionName: pulumi.String("Azure Event Hubs Data Owner"),
 //			})
 //			if err != nil {
@@ -117,12 +117,12 @@ import (
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				ClusterName:       exampleCluster.Name,
 //				DatabaseName:      exampleDatabase.Name,
-//				TenantId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (string, error) {
-//					return identity.TenantId, nil
-//				}).(pulumi.StringOutput),
-//				PrincipalId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringOutput),
+//				TenantId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
+//					return &identity.TenantId, nil
+//				}).(pulumi.StringPtrOutput),
+//				PrincipalId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
 //				PrincipalType: pulumi.String("App"),
 //				Role:          pulumi.String("Admin"),
 //			})

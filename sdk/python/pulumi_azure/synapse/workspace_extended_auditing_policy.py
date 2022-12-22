@@ -371,12 +371,14 @@ class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
 
             __props__.__dict__["log_monitoring_enabled"] = log_monitoring_enabled
             __props__.__dict__["retention_in_days"] = retention_in_days
-            __props__.__dict__["storage_account_access_key"] = storage_account_access_key
+            __props__.__dict__["storage_account_access_key"] = None if storage_account_access_key is None else pulumi.Output.secret(storage_account_access_key)
             __props__.__dict__["storage_account_access_key_is_secondary"] = storage_account_access_key_is_secondary
             __props__.__dict__["storage_endpoint"] = storage_endpoint
             if synapse_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'synapse_workspace_id'")
             __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["storageAccountAccessKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(WorkspaceExtendedAuditingPolicy, __self__).__init__(
             'azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy',
             resource_name,

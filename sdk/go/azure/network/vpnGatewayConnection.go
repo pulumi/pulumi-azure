@@ -82,15 +82,15 @@ import (
 //				VpnLinks: network.VpnGatewayConnectionVpnLinkArray{
 //					&network.VpnGatewayConnectionVpnLinkArgs{
 //						Name: pulumi.String("link1"),
-//						VpnSiteLinkId: exampleVpnSite.Links.ApplyT(func(links []network.VpnSiteLink) (string, error) {
-//							return links[0].Id, nil
-//						}).(pulumi.StringOutput),
+//						VpnSiteLinkId: exampleVpnSite.Links.ApplyT(func(links []network.VpnSiteLink) (*string, error) {
+//							return &links[0].Id, nil
+//						}).(pulumi.StringPtrOutput),
 //					},
 //					&network.VpnGatewayConnectionVpnLinkArgs{
 //						Name: pulumi.String("link2"),
-//						VpnSiteLinkId: exampleVpnSite.Links.ApplyT(func(links []network.VpnSiteLink) (string, error) {
-//							return links[1].Id, nil
-//						}).(pulumi.StringOutput),
+//						VpnSiteLinkId: exampleVpnSite.Links.ApplyT(func(links []network.VpnSiteLink) (*string, error) {
+//							return &links[1].Id, nil
+//						}).(pulumi.StringPtrOutput),
 //					},
 //				},
 //			})

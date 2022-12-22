@@ -24,11 +24,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getExpressRouteCircuit(args: GetExpressRouteCircuitArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -84,9 +81,25 @@ export interface GetExpressRouteCircuitResult {
      */
     readonly sku: outputs.network.GetExpressRouteCircuitSku;
 }
-
+/**
+ * Use this data source to access information about an existing ExpressRoute circuit.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getExpressRouteCircuit({
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ *     name: azurerm_express_route_circuit.example.name,
+ * });
+ * export const expressRouteCircuitId = example.then(example => example.id);
+ * export const serviceKey = example.then(example => example.serviceKey);
+ * ```
+ */
 export function getExpressRouteCircuitOutput(args: GetExpressRouteCircuitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitResult> {
-    return pulumi.output(args).apply(a => getExpressRouteCircuit(a, opts))
+    return pulumi.output(args).apply((a: any) => getExpressRouteCircuit(a, opts))
 }
 
 /**

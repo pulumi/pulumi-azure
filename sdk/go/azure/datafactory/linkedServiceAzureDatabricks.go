@@ -208,6 +208,13 @@ func NewLinkedServiceAzureDatabricks(ctx *pulumi.Context,
 	if args.DataFactoryId == nil {
 		return nil, errors.New("invalid value for required argument 'DataFactoryId'")
 	}
+	if args.AccessToken != nil {
+		args.AccessToken = pulumi.ToSecret(args.AccessToken).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"accessToken",
+	})
+	opts = append(opts, secrets)
 	var resource LinkedServiceAzureDatabricks
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks", name, args, &resource, opts...)
 	if err != nil {

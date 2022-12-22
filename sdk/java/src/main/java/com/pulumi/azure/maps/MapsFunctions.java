@@ -25,7 +25,7 @@ public final class MapsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.maps.MapsFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.maps.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -64,7 +64,7 @@ public final class MapsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.maps.MapsFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.maps.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -103,7 +103,7 @@ public final class MapsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.maps.MapsFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.maps.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -142,7 +142,7 @@ public final class MapsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.maps.MapsFunctions;
-     * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+     * import com.pulumi.azure.maps.inputs.GetAccountArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

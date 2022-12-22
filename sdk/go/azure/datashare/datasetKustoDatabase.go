@@ -75,9 +75,9 @@ import (
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
 //				Scope:              exampleCluster.ID(),
 //				RoleDefinitionName: pulumi.String("Contributor"),
-//				PrincipalId: exampleAccount.Identity.ApplyT(func(identity datashare.AccountIdentity) (string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringOutput),
+//				PrincipalId: exampleAccount.Identity.ApplyT(func(identity datashare.AccountIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

@@ -25,11 +25,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:containerservice/getGroup:getGroup", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -94,9 +91,26 @@ export interface GetGroupResult {
      */
     readonly zones?: string[];
 }
-
+/**
+ * Use this data source to access information about an existing Container Group instance.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.containerservice.getGroup({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * export const ipAddress = example.then(example => example.ipAddress);
+ * export const fqdn = example.then(example => example.fqdn);
+ * ```
+ */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
-    return pulumi.output(args).apply(a => getGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getGroup(a, opts))
 }
 
 /**

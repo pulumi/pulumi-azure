@@ -128,6 +128,10 @@ namespace Pulumi.Azure.ApiManagement
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "value",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -193,11 +197,21 @@ namespace Pulumi.Azure.ApiManagement
             set => _tags = value;
         }
 
+        [Input("value")]
+        private Input<string>? _value;
+
         /// <summary>
         /// The value of this API Management Named Value.
         /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// A `value_from_key_vault` block as defined below.
@@ -255,11 +269,21 @@ namespace Pulumi.Azure.ApiManagement
             set => _tags = value;
         }
 
+        [Input("value")]
+        private Input<string>? _value;
+
         /// <summary>
         /// The value of this API Management Named Value.
         /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
+        public Input<string>? Value
+        {
+            get => _value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _value = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// A `value_from_key_vault` block as defined below.

@@ -15,17 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.compute.getImages({
+ * const example = azure.compute.getImages({
  *     resourceGroupName: "example-resources",
- * }));
+ * });
  * ```
  */
 export function getImages(args: GetImagesArgs, opts?: pulumi.InvokeOptions): Promise<GetImagesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getImages:getImages", {
         "resourceGroupName": args.resourceGroupName,
         "tagsFilter": args.tagsFilter,
@@ -61,9 +58,22 @@ export interface GetImagesResult {
     readonly resourceGroupName: string;
     readonly tagsFilter?: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about existing Images within a Resource Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.compute.getImages({
+ *     resourceGroupName: "example-resources",
+ * });
+ * ```
+ */
 export function getImagesOutput(args: GetImagesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagesResult> {
-    return pulumi.output(args).apply(a => getImages(a, opts))
+    return pulumi.output(args).apply((a: any) => getImages(a, opts))
 }
 
 /**

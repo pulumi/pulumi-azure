@@ -12,11 +12,21 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class RegistryTaskFileStepArgs : global::Pulumi.ResourceArgs
     {
+        [Input("contextAccessToken")]
+        private Input<string>? _contextAccessToken;
+
         /// <summary>
         /// The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
         /// </summary>
-        [Input("contextAccessToken")]
-        public Input<string>? ContextAccessToken { get; set; }
+        public Input<string>? ContextAccessToken
+        {
+            get => _contextAccessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _contextAccessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The URL (absolute or relative) of the source context for this step.
@@ -33,7 +43,11 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public InputMap<string> SecretValues
         {
             get => _secretValues ?? (_secretValues = new InputMap<string>());
-            set => _secretValues = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _secretValues = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>

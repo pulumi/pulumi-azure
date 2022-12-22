@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.CoreFunctions;
- * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.management.Lock;
  * import com.pulumi.azure.management.LockArgs;
  * import java.util.List;
@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getSubscription();
  * 
  *         var subscription_level = new Lock(&#34;subscription-level&#34;, LockArgs.builder()        
- *             .scope(current.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .scope(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .lockLevel(&#34;CanNotDelete&#34;)
  *             .notes(&#34;Items can&#39;t be deleted in this subscription!&#34;)
  *             .build());

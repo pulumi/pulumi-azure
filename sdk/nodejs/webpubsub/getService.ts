@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.webpubsub.getService({
+ * const example = azure.webpubsub.getService({
  *     name: "test-webpubsub",
  *     resourceGroupName: "wps-resource-group",
- * }));
+ * });
  * ```
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:webpubsub/getService:getService", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -97,9 +94,23 @@ export interface GetServiceResult {
     readonly tlsClientCertEnabled: boolean;
     readonly version: string;
 }
-
+/**
+ * Use this data source to access information about an existing Azure Web Pubsub service.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.webpubsub.getService({
+ *     name: "test-webpubsub",
+ *     resourceGroupName: "wps-resource-group",
+ * });
+ * ```
+ */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply(a => getService(a, opts))
+    return pulumi.output(args).apply((a: any) => getService(a, opts))
 }
 
 /**

@@ -184,7 +184,7 @@ public final class MysqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mysql.MysqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import com.pulumi.azure.mysql.inputs.GetServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -223,7 +223,7 @@ public final class MysqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mysql.MysqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import com.pulumi.azure.mysql.inputs.GetServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -262,7 +262,7 @@ public final class MysqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mysql.MysqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import com.pulumi.azure.mysql.inputs.GetServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -301,7 +301,7 @@ public final class MysqlFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.mysql.MysqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetServerArgs;
+     * import com.pulumi.azure.mysql.inputs.GetServerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

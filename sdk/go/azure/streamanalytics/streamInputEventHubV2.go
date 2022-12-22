@@ -68,9 +68,9 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewStreamInputEventHubV2(ctx, "exampleStreamInputEventHubV2", &streamanalytics.StreamInputEventHubV2Args{
-//				StreamAnalyticsJobId: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-//					return exampleJob.Id, nil
-//				}).(pulumi.StringOutput),
+//				StreamAnalyticsJobId: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
+//					return &exampleJob.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				EventhubConsumerGroupName: exampleConsumerGroup.Name,
 //				EventhubName:              exampleEventHub.Name,
 //				ServicebusNamespace:       exampleEventHubNamespace.Name,
@@ -143,6 +143,13 @@ func NewStreamInputEventHubV2(ctx *pulumi.Context,
 	if args.StreamAnalyticsJobId == nil {
 		return nil, errors.New("invalid value for required argument 'StreamAnalyticsJobId'")
 	}
+	if args.SharedAccessPolicyKey != nil {
+		args.SharedAccessPolicyKey = pulumi.ToSecret(args.SharedAccessPolicyKey).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"sharedAccessPolicyKey",
+	})
+	opts = append(opts, secrets)
 	var resource StreamInputEventHubV2
 	err := ctx.RegisterResource("azure:streamanalytics/streamInputEventHubV2:StreamInputEventHubV2", name, args, &resource, opts...)
 	if err != nil {

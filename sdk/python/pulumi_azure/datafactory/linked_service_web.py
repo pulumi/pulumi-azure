@@ -501,11 +501,13 @@ class LinkedServiceWeb(pulumi.CustomResource):
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
             __props__.__dict__["username"] = username
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LinkedServiceWeb, __self__).__init__(
             'azure:datafactory/linkedServiceWeb:LinkedServiceWeb',
             resource_name,

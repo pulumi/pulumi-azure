@@ -136,7 +136,7 @@ export class ChannelDirectLineSpeech extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["botName"] = args ? args.botName : undefined;
-            resourceInputs["cognitiveServiceAccessKey"] = args ? args.cognitiveServiceAccessKey : undefined;
+            resourceInputs["cognitiveServiceAccessKey"] = args?.cognitiveServiceAccessKey ? pulumi.secret(args.cognitiveServiceAccessKey) : undefined;
             resourceInputs["cognitiveServiceLocation"] = args ? args.cognitiveServiceLocation : undefined;
             resourceInputs["customSpeechModelId"] = args ? args.customSpeechModelId : undefined;
             resourceInputs["customVoiceDeploymentId"] = args ? args.customVoiceDeploymentId : undefined;
@@ -144,6 +144,8 @@ export class ChannelDirectLineSpeech extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["cognitiveServiceAccessKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ChannelDirectLineSpeech.__pulumiType, name, resourceInputs, opts);
     }
 }

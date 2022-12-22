@@ -13,19 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.cdn.getFrontdoorEndpoint({
+ * const example = azure.cdn.getFrontdoorEndpoint({
  *     name: "existing-endpoint",
  *     profileName: "existing-cdn-profile",
  *     resourceGroupName: "existing-resources",
- * }));
+ * });
  * ```
  */
 export function getFrontdoorEndpoint(args: GetFrontdoorEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorEndpointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", {
         "name": args.name,
         "profileName": args.profileName,
@@ -75,9 +72,24 @@ export interface GetFrontdoorEndpointResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Front Door (standard/premium) Endpoint.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.cdn.getFrontdoorEndpoint({
+ *     name: "existing-endpoint",
+ *     profileName: "existing-cdn-profile",
+ *     resourceGroupName: "existing-resources",
+ * });
+ * ```
+ */
 export function getFrontdoorEndpointOutput(args: GetFrontdoorEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontdoorEndpointResult> {
-    return pulumi.output(args).apply(a => getFrontdoorEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getFrontdoorEndpoint(a, opts))
 }
 
 /**

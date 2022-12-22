@@ -147,7 +147,7 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
             }
             resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["connectionString"] = args?.connectionString ? pulumi.secret(args.connectionString) : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["fileShare"] = args ? args.fileShare : undefined;
@@ -156,10 +156,12 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
             resourceInputs["keyVaultPassword"] = args ? args.keyVaultPassword : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["userId"] = args ? args.userId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["connectionString", "password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LinkedServiceAzureFileStorage.__pulumiType, name, resourceInputs, opts);
     }
 }

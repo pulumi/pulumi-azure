@@ -48,9 +48,9 @@ import (
 //			}
 //			exampleLinkedServiceAzureBlobStorage, err := datafactory.NewLinkedServiceAzureBlobStorage(ctx, "exampleLinkedServiceAzureBlobStorage", &datafactory.LinkedServiceAzureBlobStorageArgs{
 //				DataFactoryId: exampleFactory.ID(),
-//				ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
-//					return exampleAccount.PrimaryConnectionString, nil
-//				}).(pulumi.StringOutput),
+//				ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (*string, error) {
+//					return &exampleAccount.PrimaryConnectionString, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

@@ -342,6 +342,12 @@ public class Namespace extends com.pulumi.resources.CustomResource {
             .aliases(List.of(
                 Output.of(Alias.builder().type("azure:eventhub/namespace:Namespace").build())
             ))
+            .additionalSecretOutputs(List.of(
+                "defaultPrimaryConnectionString",
+                "defaultPrimaryKey",
+                "defaultSecondaryConnectionString",
+                "defaultSecondaryKey"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:synapse/getWorkspace:getWorkspace", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -75,9 +72,24 @@ export interface GetWorkspaceResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Synapse Workspace.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.synapse.getWorkspace({
+ *     name: "existing",
+ *     resourceGroupName: "example-resource-group",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
-    return pulumi.output(args).apply(a => getWorkspace(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))
 }
 
 /**

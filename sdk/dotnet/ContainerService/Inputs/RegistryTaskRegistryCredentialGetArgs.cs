@@ -21,7 +21,11 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public InputList<Inputs.RegistryTaskRegistryCredentialCustomGetArgs> Customs
         {
             get => _customs ?? (_customs = new InputList<Inputs.RegistryTaskRegistryCredentialCustomGetArgs>());
-            set => _customs = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableArray.Create<Inputs.RegistryTaskRegistryCredentialCustomGetArgs>());
+                _customs = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>

@@ -221,6 +221,11 @@ namespace Pulumi.Azure.AppInsights
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "connectionString",
+                    "instrumentationKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -361,11 +366,21 @@ namespace Pulumi.Azure.AppInsights
         [Input("applicationType")]
         public Input<string>? ApplicationType { get; set; }
 
+        [Input("connectionString")]
+        private Input<string>? _connectionString;
+
         /// <summary>
         /// The Connection String for this Application Insights component. (Sensitive)
         /// </summary>
-        [Input("connectionString")]
-        public Input<string>? ConnectionString { get; set; }
+        public Input<string>? ConnectionString
+        {
+            get => _connectionString;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _connectionString = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the Application Insights component daily data volume cap in GB.
@@ -391,11 +406,21 @@ namespace Pulumi.Azure.AppInsights
         [Input("forceCustomerStorageForProfiler")]
         public Input<bool>? ForceCustomerStorageForProfiler { get; set; }
 
+        [Input("instrumentationKey")]
+        private Input<string>? _instrumentationKey;
+
         /// <summary>
         /// The Instrumentation Key for this Application Insights component. (Sensitive)
         /// </summary>
-        [Input("instrumentationKey")]
-        public Input<string>? InstrumentationKey { get; set; }
+        public Input<string>? InstrumentationKey
+        {
+            get => _instrumentationKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _instrumentationKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.

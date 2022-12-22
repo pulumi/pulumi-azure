@@ -81,7 +81,7 @@ import (
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:                exampleResourceGroup.Location,
 //				ResourceGroupName:       exampleResourceGroup.Name,
-//				TenantId:                pulumi.String(current.TenantId),
+//				TenantId:                *pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("standard"),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
 //				PurgeProtectionEnabled:  pulumi.Bool(true),
@@ -91,7 +91,7 @@ import (
 //			}
 //			server, err := keyvault.NewAccessPolicy(ctx, "server", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   pulumi.String(current.TenantId),
+//				TenantId:   *pulumi.String(current.TenantId),
 //				ObjectId:   exampleUserAssignedIdentity.PrincipalId,
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
@@ -107,8 +107,8 @@ import (
 //			}
 //			client, err := keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   pulumi.String(current.TenantId),
-//				ObjectId:   pulumi.String(current.ObjectId),
+//				TenantId:   *pulumi.String(current.TenantId),
+//				ObjectId:   *pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //					pulumi.String("Create"),

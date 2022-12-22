@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLinuxFunctionApp(args: GetLinuxFunctionAppArgs, opts?: pulumi.InvokeOptions): Promise<GetLinuxFunctionAppResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -190,9 +187,24 @@ export interface GetLinuxFunctionAppResult {
      */
     readonly virtualNetworkSubnetId: string;
 }
-
+/**
+ * Use this data source to access information about an existing Linux Function App.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appservice.getLinuxFunctionApp({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = data.linux_function_app.example.id;
+ * ```
+ */
 export function getLinuxFunctionAppOutput(args: GetLinuxFunctionAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinuxFunctionAppResult> {
-    return pulumi.output(args).apply(a => getLinuxFunctionApp(a, opts))
+    return pulumi.output(args).apply((a: any) => getLinuxFunctionApp(a, opts))
 }
 
 /**

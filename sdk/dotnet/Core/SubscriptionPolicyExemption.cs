@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Core
     /// 
     ///     var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", new()
     ///     {
-    ///         SubscriptionId = exampleSubscription.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         SubscriptionId = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         PolicyDefinitionId = examplePolicySetDefinition.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
     ///         Location = "westus",
     ///         Identity = new Azure.Core.Inputs.SubscriptionPolicyAssignmentIdentityArgs
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Core
     /// 
     ///     var exampleSubscriptionPolicyExemption = new Azure.Core.SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption", new()
     ///     {
-    ///         SubscriptionId = exampleSubscription.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         SubscriptionId = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         PolicyAssignmentId = exampleSubscriptionPolicyAssignment.Id,
     ///         ExemptionCategory = "Mitigated",
     ///     });

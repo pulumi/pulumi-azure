@@ -12,11 +12,21 @@ namespace Pulumi.Azure.Network.Inputs
 
     public sealed class ApplicationGatewaySslCertificateGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("data")]
+        private Input<string>? _data;
+
         /// <summary>
         /// PFX certificate. Required if `key_vault_secret_id` is not set.
         /// </summary>
-        [Input("data")]
-        public Input<string>? Data { get; set; }
+        public Input<string>? Data
+        {
+            get => _data;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _data = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the Rewrite Rule Set
@@ -36,11 +46,21 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// Password for the pfx file specified in data.  Required if `data` is set.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Public Certificate Data associated with the SSL Certificate.

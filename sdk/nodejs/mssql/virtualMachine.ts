@@ -172,8 +172,8 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["rServicesEnabled"] = args ? args.rServicesEnabled : undefined;
             resourceInputs["sqlConnectivityPort"] = args ? args.sqlConnectivityPort : undefined;
             resourceInputs["sqlConnectivityType"] = args ? args.sqlConnectivityType : undefined;
-            resourceInputs["sqlConnectivityUpdatePassword"] = args ? args.sqlConnectivityUpdatePassword : undefined;
-            resourceInputs["sqlConnectivityUpdateUsername"] = args ? args.sqlConnectivityUpdateUsername : undefined;
+            resourceInputs["sqlConnectivityUpdatePassword"] = args?.sqlConnectivityUpdatePassword ? pulumi.secret(args.sqlConnectivityUpdatePassword) : undefined;
+            resourceInputs["sqlConnectivityUpdateUsername"] = args?.sqlConnectivityUpdateUsername ? pulumi.secret(args.sqlConnectivityUpdateUsername) : undefined;
             resourceInputs["sqlInstance"] = args ? args.sqlInstance : undefined;
             resourceInputs["sqlLicenseType"] = args ? args.sqlLicenseType : undefined;
             resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
@@ -181,6 +181,8 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["sqlConnectivityUpdatePassword", "sqlConnectivityUpdateUsername"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VirtualMachine.__pulumiType, name, resourceInputs, opts);
     }
 }

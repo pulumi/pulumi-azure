@@ -386,7 +386,7 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
             __props__.__dict__["bot_name"] = bot_name
             if cognitive_service_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'cognitive_service_access_key'")
-            __props__.__dict__["cognitive_service_access_key"] = cognitive_service_access_key
+            __props__.__dict__["cognitive_service_access_key"] = None if cognitive_service_access_key is None else pulumi.Output.secret(cognitive_service_access_key)
             if cognitive_service_location is None and not opts.urn:
                 raise TypeError("Missing required property 'cognitive_service_location'")
             __props__.__dict__["cognitive_service_location"] = cognitive_service_location
@@ -396,6 +396,8 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["cognitiveServiceAccessKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ChannelDirectLineSpeech, __self__).__init__(
             'azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech',
             resource_name,

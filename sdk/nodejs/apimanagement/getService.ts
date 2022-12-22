@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:apimanagement/getService:getService", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -135,9 +132,24 @@ export interface GetServiceResult {
      */
     readonly tenantAccesses: outputs.apimanagement.GetServiceTenantAccess[];
 }
-
+/**
+ * Use this data source to access information about an existing API Management Service.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.apimanagement.getService({
+ *     name: "search-api",
+ *     resourceGroupName: "search-service",
+ * });
+ * export const apiManagementId = example.then(example => example.id);
+ * ```
+ */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply(a => getService(a, opts))
+    return pulumi.output(args).apply((a: any) => getService(a, opts))
 }
 
 /**

@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRouteFilter(args: GetRouteFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getRouteFilter:getRouteFilter", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -74,9 +71,24 @@ export interface GetRouteFilterResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Route Filter.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getRouteFilter({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getRouteFilterOutput(args: GetRouteFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterResult> {
-    return pulumi.output(args).apply(a => getRouteFilter(a, opts))
+    return pulumi.output(args).apply((a: any) => getRouteFilter(a, opts))
 }
 
 /**

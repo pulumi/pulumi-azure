@@ -51,7 +51,7 @@ import (
 //				AutomationAccountName: exampleAccount.Name,
 //				CertificateAssetName:  pulumi.String("cert1"),
 //				SubscriptionName:      pulumi.String("subs1"),
-//				SubscriptionId:        pulumi.String(exampleClientConfig.SubscriptionId),
+//				SubscriptionId:        *pulumi.String(exampleClientConfig.SubscriptionId),
 //			})
 //			if err != nil {
 //				return err

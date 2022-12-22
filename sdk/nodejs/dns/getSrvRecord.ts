@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSrvRecord(args: GetSrvRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetSrvRecordResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:dns/getSrvRecord:getSrvRecord", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -79,9 +76,22 @@ export interface GetSrvRecordResult {
     readonly ttl: number;
     readonly zoneName: string;
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.dns.SrvRecord("example", {
+ *     zoneName: "test-zone",
+ *     resourceGroupName: "test-rg",
+ * });
+ * export const dnsSrvRecordId = example.id;
+ * ```
+ */
 export function getSrvRecordOutput(args: GetSrvRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSrvRecordResult> {
-    return pulumi.output(args).apply(a => getSrvRecord(a, opts))
+    return pulumi.output(args).apply((a: any) => getSrvRecord(a, opts))
 }
 
 /**

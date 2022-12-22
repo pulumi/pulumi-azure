@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTrafficManager(args: GetTrafficManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getTrafficManager:getTrafficManager", {
         "name": args.name,
     }, opts);
@@ -51,9 +48,24 @@ export interface GetTrafficManagerResult {
     readonly id: string;
     readonly name: string;
 }
-
+/**
+ * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
+ *
+ * ## Example Usage
+ * ### World)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getTrafficManager({
+ *     name: "World",
+ * });
+ * export const locationCode = example.then(example => example.id);
+ * ```
+ */
 export function getTrafficManagerOutput(args: GetTrafficManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficManagerResult> {
-    return pulumi.output(args).apply(a => getTrafficManager(a, opts))
+    return pulumi.output(args).apply((a: any) => getTrafficManager(a, opts))
 }
 
 /**

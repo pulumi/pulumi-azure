@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:batch/getAccount:getAccount", {
         "encryption": args.encryption,
         "name": args.name,
@@ -97,9 +94,24 @@ export interface GetAccountResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Batch Account.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.batch.getAccount({
+ *     name: "testbatchaccount",
+ *     resourceGroupName: "test",
+ * });
+ * export const poolAllocationMode = example.then(example => example.poolAllocationMode);
+ * ```
+ */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
-    return pulumi.output(args).apply(a => getAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }
 
 /**

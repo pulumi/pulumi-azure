@@ -25,7 +25,7 @@ public final class HdinsightFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.hdinsight.HdinsightFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
+     * import com.pulumi.azure.hdinsight.inputs.GetClusterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -64,7 +64,7 @@ public final class HdinsightFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.hdinsight.HdinsightFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
+     * import com.pulumi.azure.hdinsight.inputs.GetClusterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -103,7 +103,7 @@ public final class HdinsightFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.hdinsight.HdinsightFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
+     * import com.pulumi.azure.hdinsight.inputs.GetClusterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -142,7 +142,7 @@ public final class HdinsightFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.hdinsight.HdinsightFunctions;
-     * import com.pulumi.azure.eventhub.inputs.GetClusterArgs;
+     * import com.pulumi.azure.hdinsight.inputs.GetClusterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

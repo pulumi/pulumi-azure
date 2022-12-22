@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:storage/getShare:getShare", {
         "acls": args.acls,
         "metadata": args.metadata,
@@ -82,9 +79,24 @@ export interface GetShareResult {
     readonly resourceManagerId: string;
     readonly storageAccountName: string;
 }
-
+/**
+ * Use this data source to access information about an existing File Share.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.storage.getShare({
+ *     name: "existing",
+ *     storageAccountName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {
-    return pulumi.output(args).apply(a => getShare(a, opts))
+    return pulumi.output(args).apply((a: any) => getShare(a, opts))
 }
 
 /**

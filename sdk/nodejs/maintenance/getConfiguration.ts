@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:maintenance/getConfiguration:getConfiguration", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -83,9 +80,24 @@ export interface GetConfigurationResult {
      */
     readonly windows: outputs.maintenance.GetConfigurationWindow[];
 }
-
+/**
+ * Use this data source to access information about an existing Maintenance Configuration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const existing = azure.maintenance.getConfiguration({
+ *     name: "example-mc",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const id = azurerm_maintenance_configuration.existing.id;
+ * ```
+ */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
-    return pulumi.output(args).apply(a => getConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfiguration(a, opts))
 }
 
 /**

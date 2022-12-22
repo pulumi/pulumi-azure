@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.storage.StorageFunctions;
- * import com.pulumi.azure.automation.inputs.GetAccountArgs;
+ * import com.pulumi.azure.storage.inputs.GetAccountArgs;
  * import com.pulumi.azure.keyvault.KeyvaultFunctions;
  * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
  * import com.pulumi.azure.monitoring.DiagnosticSetting;

@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:cdn/getProfile:getProfile", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -69,9 +66,24 @@ export interface GetProfileResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing CDN Profile.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.cdn.getProfile({
+ *     name: "myfirstcdnprofile",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const cdnProfileId = example.then(example => example.id);
+ * ```
+ */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
-    return pulumi.output(args).apply(a => getProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getProfile(a, opts))
 }
 
 /**

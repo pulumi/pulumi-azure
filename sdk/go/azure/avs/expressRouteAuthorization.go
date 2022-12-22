@@ -95,6 +95,10 @@ func NewExpressRouteAuthorization(ctx *pulumi.Context,
 	if args.PrivateCloudId == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateCloudId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"expressRouteAuthorizationKey",
+	})
+	opts = append(opts, secrets)
 	var resource ExpressRouteAuthorization
 	err := ctx.RegisterResource("azure:avs/expressRouteAuthorization:ExpressRouteAuthorization", name, args, &resource, opts...)
 	if err != nil {

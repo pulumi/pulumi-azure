@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVpnGateway(args: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getVpnGateway:getVpnGateway", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -79,9 +76,24 @@ export interface GetVpnGatewayResult {
      */
     readonly virtualHubId: string;
 }
-
+/**
+ * Use this data source to access information about an existing VPN Gateway within a Virtual Hub.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getVpnGateway({
+ *     name: "existing-local-vpn_gateway",
+ *     resourceGroupName: "existing-vpn_gateway",
+ * });
+ * export const azurermVpnGatewayId = example.then(example => example.id);
+ * ```
+ */
 export function getVpnGatewayOutput(args: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
-    return pulumi.output(args).apply(a => getVpnGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpnGateway(a, opts))
 }
 
 /**

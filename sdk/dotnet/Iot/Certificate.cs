@@ -118,6 +118,10 @@ namespace Pulumi.Azure.Iot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "certificateContent",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -141,11 +145,21 @@ namespace Pulumi.Azure.Iot
 
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
+        [Input("certificateContent", required: true)]
+        private Input<string>? _certificateContent;
+
         /// <summary>
         /// The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
         /// </summary>
-        [Input("certificateContent", required: true)]
-        public Input<string> CertificateContent { get; set; } = null!;
+        public Input<string>? CertificateContent
+        {
+            get => _certificateContent;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificateContent = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the IoTHub that this certificate will be attached to. Changing this forces a new resource to be created.
@@ -179,11 +193,21 @@ namespace Pulumi.Azure.Iot
 
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
+        [Input("certificateContent")]
+        private Input<string>? _certificateContent;
+
         /// <summary>
         /// The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
         /// </summary>
-        [Input("certificateContent")]
-        public Input<string>? CertificateContent { get; set; }
+        public Input<string>? CertificateContent
+        {
+            get => _certificateContent;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _certificateContent = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the IoTHub that this certificate will be attached to. Changing this forces a new resource to be created.

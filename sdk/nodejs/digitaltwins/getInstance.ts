@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:digitaltwins/getInstance:getInstance", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -69,9 +66,24 @@ export interface GetInstanceResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Digital Twins instance.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.digitaltwins.getInstance({
+ *     name: "existing-digital-twins",
+ *     resourceGroupName: "existing-resgroup",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
-    return pulumi.output(args).apply(a => getInstance(a, opts))
+    return pulumi.output(args).apply((a: any) => getInstance(a, opts))
 }
 
 /**

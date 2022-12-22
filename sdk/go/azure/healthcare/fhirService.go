@@ -55,7 +55,7 @@ import (
 //					Audience:  pulumi.String("https://tfexfhir.fhir.azurehealthcareapis.com"),
 //				},
 //				AccessPolicyObjectIds: pulumi.StringArray{
-//					pulumi.String(current.ObjectId),
+//					*pulumi.String(current.ObjectId),
 //				},
 //				Identity: &healthcare.FhirServiceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),

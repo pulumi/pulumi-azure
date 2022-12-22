@@ -5,11 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 export function getSoaRecord(args: GetSoaRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetSoaRecordResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatedns/getSoaRecord:getSoaRecord", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -90,9 +87,8 @@ export interface GetSoaRecordResult {
     readonly ttl: number;
     readonly zoneName: string;
 }
-
 export function getSoaRecordOutput(args: GetSoaRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSoaRecordResult> {
-    return pulumi.output(args).apply(a => getSoaRecord(a, opts))
+    return pulumi.output(args).apply((a: any) => getSoaRecord(a, opts))
 }
 
 /**

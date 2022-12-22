@@ -12,11 +12,21 @@ namespace Pulumi.Azure.Bot.Inputs
 
     public sealed class ChannelFacebookPageArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accessToken", required: true)]
+        private Input<string>? _accessToken;
+
         /// <summary>
         /// The Facebook Page Access Token for the Facebook Channel.
         /// </summary>
-        [Input("accessToken", required: true)]
-        public Input<string> AccessToken { get; set; } = null!;
+        public Input<string>? AccessToken
+        {
+            get => _accessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Facebook Page ID for the Facebook Channel.

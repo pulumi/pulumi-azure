@@ -85,7 +85,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
 //				DisplayName: pulumi.StringRef("HPC Cache Resource Provider"),
 //			}, nil)
 //			if err != nil {
@@ -94,7 +94,7 @@ import (
 //			_, err = authorization.NewAssignment(ctx, "exampleStorageAccountContrib", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Account Contributor"),
-//				PrincipalId:        pulumi.String(exampleServicePrincipal.ObjectId),
+//				PrincipalId:        *pulumi.String(exampleServicePrincipal.ObjectId),
 //			})
 //			if err != nil {
 //				return err
@@ -102,7 +102,7 @@ import (
 //			_, err = authorization.NewAssignment(ctx, "exampleStorageBlobDataContrib", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
-//				PrincipalId:        pulumi.String(exampleServicePrincipal.ObjectId),
+//				PrincipalId:        *pulumi.String(exampleServicePrincipal.ObjectId),
 //			})
 //			if err != nil {
 //				return err

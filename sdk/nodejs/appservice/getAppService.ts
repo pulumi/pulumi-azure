@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAppService(args: GetAppServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:appservice/getAppService:getAppService", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -129,9 +126,22 @@ export interface GetAppServiceResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.appservice.getAppService({
+ *     name: "search-app-service",
+ *     resourceGroupName: "search-service",
+ * });
+ * export const appServiceId = example.then(example => example.id);
+ * ```
+ */
 export function getAppServiceOutput(args: GetAppServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceResult> {
-    return pulumi.output(args).apply(a => getAppService(a, opts))
+    return pulumi.output(args).apply((a: any) => getAppService(a, opts))
 }
 
 /**

@@ -163,11 +163,13 @@ export class WorkspaceSecurityAlertPolicy extends pulumi.CustomResource {
             resourceInputs["emailAddresses"] = args ? args.emailAddresses : undefined;
             resourceInputs["policyState"] = args ? args.policyState : undefined;
             resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
-            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
             resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
             resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(WorkspaceSecurityAlertPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

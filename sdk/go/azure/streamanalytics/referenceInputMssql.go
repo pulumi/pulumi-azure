@@ -58,12 +58,12 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewReferenceInputMssql(ctx, "exampleReferenceInputMssql", &streamanalytics.ReferenceInputMssqlArgs{
-//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-//					return exampleJob.ResourceGroupName, nil
-//				}).(pulumi.StringOutput),
-//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-//					return exampleJob.Name, nil
-//				}).(pulumi.StringOutput),
+//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
+//					return &exampleJob.ResourceGroupName, nil
+//				}).(pulumi.StringPtrOutput),
+//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
+//					return &exampleJob.Name, nil
+//				}).(pulumi.StringPtrOutput),
 //				Server:                  exampleServer.FullyQualifiedDomainName,
 //				Database:                exampleDatabase.Name,
 //				Username:                pulumi.String("exampleuser"),
@@ -150,6 +150,13 @@ func NewReferenceInputMssql(ctx *pulumi.Context,
 	if args.Username == nil {
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource ReferenceInputMssql
 	err := ctx.RegisterResource("azure:streamanalytics/referenceInputMssql:ReferenceInputMssql", name, args, &resource, opts...)
 	if err != nil {

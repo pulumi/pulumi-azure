@@ -1494,6 +1494,8 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["secondary_readonly_sql_connection_string"] = None
             __props__.__dict__["secondary_sql_connection_string"] = None
             __props__.__dict__["write_endpoints"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionStrings", "primaryKey", "primaryReadonlyKey", "primaryReadonlySqlConnectionString", "primarySqlConnectionString", "secondaryKey", "secondaryReadonlyKey", "secondaryReadonlySqlConnectionString", "secondarySqlConnectionString"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Account, __self__).__init__(
             'azure:cosmosdb/account:Account',
             resource_name,

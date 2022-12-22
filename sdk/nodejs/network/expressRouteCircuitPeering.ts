@@ -244,7 +244,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["routeFilterId"] = args ? args.routeFilterId : undefined;
             resourceInputs["secondaryPeerAddressPrefix"] = args ? args.secondaryPeerAddressPrefix : undefined;
-            resourceInputs["sharedKey"] = args ? args.sharedKey : undefined;
+            resourceInputs["sharedKey"] = args?.sharedKey ? pulumi.secret(args.sharedKey) : undefined;
             resourceInputs["vlanId"] = args ? args.vlanId : undefined;
             resourceInputs["azureAsn"] = undefined /*out*/;
             resourceInputs["gatewayManagerEtag"] = undefined /*out*/;
@@ -252,6 +252,8 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             resourceInputs["secondaryAzurePort"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["sharedKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ExpressRouteCircuitPeering.__pulumiType, name, resourceInputs, opts);
     }
 }

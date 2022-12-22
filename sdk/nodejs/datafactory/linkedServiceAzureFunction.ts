@@ -145,13 +145,15 @@ export class LinkedServiceAzureFunction extends pulumi.CustomResource {
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["key"] = args?.key ? pulumi.secret(args.key) : undefined;
             resourceInputs["keyVaultKey"] = args ? args.keyVaultKey : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["key"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LinkedServiceAzureFunction.__pulumiType, name, resourceInputs, opts);
     }
 }

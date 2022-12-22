@@ -41,7 +41,7 @@ import (
 //			}
 //			_, err = management.NewGroupTemplateDeployment(ctx, "exampleGroupTemplateDeployment", &management.GroupTemplateDeploymentArgs{
 //				Location:          pulumi.String("West Europe"),
-//				ManagementGroupId: pulumi.String(exampleGroup.Id),
+//				ManagementGroupId: *pulumi.String(exampleGroup.Id),
 //				TemplateContent: pulumi.String(fmt.Sprintf(`{
 //	  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
 //	  "contentVersion": "1.0.0.0",
@@ -127,7 +127,7 @@ import (
 //			}
 //			_, err = management.NewGroupTemplateDeployment(ctx, "exampleGroupTemplateDeployment", &management.GroupTemplateDeploymentArgs{
 //				Location:          pulumi.String("West Europe"),
-//				ManagementGroupId: pulumi.String(exampleGroup.Id),
+//				ManagementGroupId: *pulumi.String(exampleGroup.Id),
 //				TemplateContent:   readFileOrPanic("templates/example-deploy-template.json"),
 //				ParametersContent: readFileOrPanic("templates/example-deploy-params.json"),
 //			})
@@ -169,8 +169,8 @@ import (
 //			}
 //			_, err = management.NewGroupTemplateDeployment(ctx, "exampleGroupTemplateDeployment", &management.GroupTemplateDeploymentArgs{
 //				Location:              pulumi.String("West Europe"),
-//				ManagementGroupId:     pulumi.String(exampleGroup.Id),
-//				TemplateSpecVersionId: pulumi.String(exampleTemplateSpecVersion.Id),
+//				ManagementGroupId:     *pulumi.String(exampleGroup.Id),
+//				TemplateSpecVersionId: *pulumi.String(exampleTemplateSpecVersion.Id),
 //			})
 //			if err != nil {
 //				return err

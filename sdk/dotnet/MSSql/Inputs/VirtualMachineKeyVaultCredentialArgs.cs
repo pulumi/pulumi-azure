@@ -12,11 +12,21 @@ namespace Pulumi.Azure.MSSql.Inputs
 
     public sealed class VirtualMachineKeyVaultCredentialArgs : global::Pulumi.ResourceArgs
     {
+        [Input("keyVaultUrl", required: true)]
+        private Input<string>? _keyVaultUrl;
+
         /// <summary>
         /// The Azure Key Vault url. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("keyVaultUrl", required: true)]
-        public Input<string> KeyVaultUrl { get; set; } = null!;
+        public Input<string>? KeyVaultUrl
+        {
+            get => _keyVaultUrl;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _keyVaultUrl = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The credential name.
@@ -24,17 +34,37 @@ namespace Pulumi.Azure.MSSql.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("servicePrincipalName", required: true)]
+        private Input<string>? _servicePrincipalName;
+
         /// <summary>
         /// The service principal name to access key vault. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("servicePrincipalName", required: true)]
-        public Input<string> ServicePrincipalName { get; set; } = null!;
+        public Input<string>? ServicePrincipalName
+        {
+            get => _servicePrincipalName;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _servicePrincipalName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("servicePrincipalSecret", required: true)]
+        private Input<string>? _servicePrincipalSecret;
 
         /// <summary>
         /// The service principal name secret to access key vault. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("servicePrincipalSecret", required: true)]
-        public Input<string> ServicePrincipalSecret { get; set; } = null!;
+        public Input<string>? ServicePrincipalSecret
+        {
+            get => _servicePrincipalSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _servicePrincipalSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public VirtualMachineKeyVaultCredentialArgs()
         {

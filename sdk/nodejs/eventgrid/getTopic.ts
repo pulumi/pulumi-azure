@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = pulumi.output(azure.eventgrid.getTopic({
+ * const example = azure.eventgrid.getTopic({
  *     name: "my-eventgrid-topic",
  *     resourceGroupName: "example-resources",
- * }));
+ * });
  * ```
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:eventgrid/getTopic:getTopic", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -72,9 +69,23 @@ export interface GetTopicResult {
     readonly secondaryAccessKey: string;
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing EventGrid Topic
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.eventgrid.getTopic({
+ *     name: "my-eventgrid-topic",
+ *     resourceGroupName: "example-resources",
+ * });
+ * ```
+ */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
-    return pulumi.output(args).apply(a => getTopic(a, opts))
+    return pulumi.output(args).apply((a: any) => getTopic(a, opts))
 }
 
 /**

@@ -58,7 +58,7 @@ import (
 //			}
 //			_, err = core.NewSubscriptionPolicyAssignment(ctx, "exampleSubscriptionPolicyAssignment", &core.SubscriptionPolicyAssignmentArgs{
 //				PolicyDefinitionId: exampleDefinition.ID(),
-//				SubscriptionId:     pulumi.String(current.Id),
+//				SubscriptionId:     *pulumi.String(current.Id),
 //			})
 //			if err != nil {
 //				return err

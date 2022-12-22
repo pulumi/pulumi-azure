@@ -257,6 +257,17 @@ func NewWindowsVirtualMachine(ctx *pulumi.Context,
 	if args.Size == nil {
 		return nil, errors.New("invalid value for required argument 'Size'")
 	}
+	if args.AdminPassword != nil {
+		args.AdminPassword = pulumi.ToSecret(args.AdminPassword).(pulumi.StringInput)
+	}
+	if args.CustomData != nil {
+		args.CustomData = pulumi.ToSecret(args.CustomData).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"adminPassword",
+		"customData",
+	})
+	opts = append(opts, secrets)
 	var resource WindowsVirtualMachine
 	err := ctx.RegisterResource("azure:compute/windowsVirtualMachine:WindowsVirtualMachine", name, args, &resource, opts...)
 	if err != nil {

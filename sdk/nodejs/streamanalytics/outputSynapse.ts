@@ -163,7 +163,7 @@ export class OutputSynapse extends pulumi.CustomResource {
             }
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["server"] = args ? args.server : undefined;
             resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
@@ -171,6 +171,8 @@ export class OutputSynapse extends pulumi.CustomResource {
             resourceInputs["user"] = args ? args.user : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OutputSynapse.__pulumiType, name, resourceInputs, opts);
     }
 }

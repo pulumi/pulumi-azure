@@ -244,6 +244,10 @@ namespace Pulumi.Azure.DataFactory
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "accessToken",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -267,11 +271,21 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class LinkedServiceAzureDatabricksArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accessToken")]
+        private Input<string>? _accessToken;
+
         /// <summary>
         /// Authenticate to ADB via an access token.
         /// </summary>
-        [Input("accessToken")]
-        public Input<string>? AccessToken { get; set; }
+        public Input<string>? AccessToken
+        {
+            get => _accessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The domain URL of the databricks instance.
@@ -377,11 +391,21 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class LinkedServiceAzureDatabricksState : global::Pulumi.ResourceArgs
     {
+        [Input("accessToken")]
+        private Input<string>? _accessToken;
+
         /// <summary>
         /// Authenticate to ADB via an access token.
         /// </summary>
-        [Input("accessToken")]
-        public Input<string>? AccessToken { get; set; }
+        public Input<string>? AccessToken
+        {
+            get => _accessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The domain URL of the databricks instance.

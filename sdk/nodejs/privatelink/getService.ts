@@ -23,11 +23,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:privatelink/getService:getService", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -94,9 +91,24 @@ export interface GetServiceResult {
      */
     readonly visibilitySubscriptionIds: string[];
 }
-
+/**
+ * Use this data source to access information about an existing Private Link Service.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.privatelink.getService({
+ *     name: "myPrivateLinkService",
+ *     resourceGroupName: "PrivateLinkServiceRG",
+ * });
+ * export const privateLinkServiceId = example.then(example => example.id);
+ * ```
+ */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply(a => getService(a, opts))
+    return pulumi.output(args).apply((a: any) => getService(a, opts))
 }
 
 /**

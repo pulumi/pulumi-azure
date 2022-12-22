@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSshPublicKey(args: GetSshPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetSshPublicKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:compute/getSshPublicKey:getSshPublicKey", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -67,9 +64,24 @@ export interface GetSshPublicKeyResult {
     readonly resourceGroupName: string;
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing SSH Public Key.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.compute.getSshPublicKey({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getSshPublicKeyOutput(args: GetSshPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshPublicKeyResult> {
-    return pulumi.output(args).apply(a => getSshPublicKey(a, opts))
+    return pulumi.output(args).apply((a: any) => getSshPublicKey(a, opts))
 }
 
 /**

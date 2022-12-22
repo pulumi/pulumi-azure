@@ -473,11 +473,13 @@ class Secret(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
-            __props__.__dict__["value"] = value
+            __props__.__dict__["value"] = None if value is None else pulumi.Output.secret(value)
             __props__.__dict__["resource_id"] = None
             __props__.__dict__["resource_versionless_id"] = None
             __props__.__dict__["version"] = None
             __props__.__dict__["versionless_id"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["value"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Secret, __self__).__init__(
             'azure:keyvault/secret:Secret',
             resource_name,

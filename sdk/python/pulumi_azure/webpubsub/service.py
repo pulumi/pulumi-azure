@@ -725,6 +725,8 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["secondary_connection_string"] = None
             __props__.__dict__["server_port"] = None
             __props__.__dict__["version"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["primaryAccessKey", "primaryConnectionString", "secondaryAccessKey", "secondaryConnectionString"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Service, __self__).__init__(
             'azure:webpubsub/service:Service',
             resource_name,

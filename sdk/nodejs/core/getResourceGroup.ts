@@ -20,11 +20,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:core/getResourceGroup:getResourceGroup", {
         "name": args.name,
     }, opts);
@@ -58,9 +55,23 @@ export interface GetResourceGroupResult {
      */
     readonly tags: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing Resource Group.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.core.getResourceGroup({
+ *     name: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupResult> {
-    return pulumi.output(args).apply(a => getResourceGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getResourceGroup(a, opts))
 }
 
 /**

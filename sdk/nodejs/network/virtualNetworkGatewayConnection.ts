@@ -343,7 +343,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             if ((!args || args.virtualNetworkGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkGatewayId'");
             }
-            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            resourceInputs["authorizationKey"] = args?.authorizationKey ? pulumi.secret(args.authorizationKey) : undefined;
             resourceInputs["connectionMode"] = args ? args.connectionMode : undefined;
             resourceInputs["connectionProtocol"] = args ? args.connectionProtocol : undefined;
             resourceInputs["customBgpAddresses"] = args ? args.customBgpAddresses : undefined;
@@ -361,7 +361,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["peerVirtualNetworkGatewayId"] = args ? args.peerVirtualNetworkGatewayId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["routingWeight"] = args ? args.routingWeight : undefined;
-            resourceInputs["sharedKey"] = args ? args.sharedKey : undefined;
+            resourceInputs["sharedKey"] = args?.sharedKey ? pulumi.secret(args.sharedKey) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trafficSelectorPolicy"] = args ? args.trafficSelectorPolicy : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -369,6 +369,8 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["virtualNetworkGatewayId"] = args ? args.virtualNetworkGatewayId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["authorizationKey", "sharedKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VirtualNetworkGatewayConnection.__pulumiType, name, resourceInputs, opts);
     }
 }

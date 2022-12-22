@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIotHub(args: GetIotHubArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:iot/getIotHub:getIotHub", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -67,9 +64,24 @@ export interface GetIotHubResult {
     readonly resourceGroupName: string;
     readonly tags?: {[key: string]: string};
 }
-
+/**
+ * Use this data source to access information about an existing IoTHub.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.iot.getIotHub({
+ *     name: "existing",
+ *     resourceGroupName: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * ```
+ */
 export function getIotHubOutput(args: GetIotHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResult> {
-    return pulumi.output(args).apply(a => getIotHub(a, opts))
+    return pulumi.output(args).apply((a: any) => getIotHub(a, opts))
 }
 
 /**

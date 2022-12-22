@@ -198,7 +198,7 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.dns.inputs.GetARecordArgs;
+     * import com.pulumi.azure.privatedns.inputs.GetARecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -236,7 +236,7 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.dns.inputs.GetARecordArgs;
+     * import com.pulumi.azure.privatedns.inputs.GetARecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -274,7 +274,7 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.dns.inputs.GetARecordArgs;
+     * import com.pulumi.azure.privatedns.inputs.GetARecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -312,7 +312,7 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.privatedns.PrivatednsFunctions;
-     * import com.pulumi.azure.dns.inputs.GetARecordArgs;
+     * import com.pulumi.azure.privatedns.inputs.GetARecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

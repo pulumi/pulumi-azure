@@ -43,8 +43,8 @@ import (
 //				return err
 //			}
 //			_, err = management.NewGroupSubscriptionAssociation(ctx, "exampleGroupSubscriptionAssociation", &management.GroupSubscriptionAssociationArgs{
-//				ManagementGroupId: pulumi.String(exampleGroup.Id),
-//				SubscriptionId:    pulumi.String(exampleSubscription.Id),
+//				ManagementGroupId: *pulumi.String(exampleGroup.Id),
+//				SubscriptionId:    *pulumi.String(exampleSubscription.Id),
 //			})
 //			if err != nil {
 //				return err

@@ -21,11 +21,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:servicebus/getNamespace:getNamespace", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -95,9 +92,24 @@ export interface GetNamespaceResult {
      */
     readonly zoneRedundant: boolean;
 }
-
+/**
+ * Use this data source to access information about an existing ServiceBus Namespace.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.servicebus.getNamespace({
+ *     name: "examplenamespace",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const location = example.then(example => example.location);
+ * ```
+ */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
-    return pulumi.output(args).apply(a => getNamespace(a, opts))
+    return pulumi.output(args).apply((a: any) => getNamespace(a, opts))
 }
 
 /**

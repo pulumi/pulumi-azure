@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  *     "category": "General"
  *     }
  *
+ *
  * `,
  *     mode: "Indexed",
  *     parameters: ` {
@@ -33,6 +34,7 @@ import * as utilities from "../utilities";
  *       }
  *     }
  *   }
+ *
  * `,
  *     policyRule: ` {
  *     "if": {
@@ -45,6 +47,7 @@ import * as utilities from "../utilities";
  *       "effect": "audit"
  *     }
  *   }
+ *
  * `,
  *     policyType: "Custom",
  * });

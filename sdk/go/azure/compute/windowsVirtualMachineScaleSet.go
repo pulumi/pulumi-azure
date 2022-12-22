@@ -265,6 +265,17 @@ func NewWindowsVirtualMachineScaleSet(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.AdminPassword != nil {
+		args.AdminPassword = pulumi.ToSecret(args.AdminPassword).(pulumi.StringInput)
+	}
+	if args.CustomData != nil {
+		args.CustomData = pulumi.ToSecret(args.CustomData).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"adminPassword",
+		"customData",
+	})
+	opts = append(opts, secrets)
 	var resource WindowsVirtualMachineScaleSet
 	err := ctx.RegisterResource("azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet", name, args, &resource, opts...)
 	if err != nil {

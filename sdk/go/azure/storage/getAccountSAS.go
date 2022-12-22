@@ -80,9 +80,9 @@ import (
 //					Filter:  pulumi.Bool(false),
 //				},
 //			}, nil)
-//			ctx.Export("sasUrlQueryString", exampleAccountSAS.ApplyT(func(exampleAccountSAS storage.GetAccountSASResult) (string, error) {
-//				return exampleAccountSAS.Sas, nil
-//			}).(pulumi.StringOutput))
+//			ctx.Export("sasUrlQueryString", exampleAccountSAS.ApplyT(func(exampleAccountSAS storage.GetAccountSASResult) (*string, error) {
+//				return &exampleAccountSAS.Sas, nil
+//			}).(pulumi.StringPtrOutput))
 //			return nil
 //		})
 //	}

@@ -220,6 +220,10 @@ namespace Pulumi.Azure.DevTest
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "password",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -309,11 +313,21 @@ namespace Pulumi.Azure.DevTest
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
@@ -437,11 +451,21 @@ namespace Pulumi.Azure.DevTest
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.

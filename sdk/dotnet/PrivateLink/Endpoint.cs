@@ -135,20 +135,20 @@ namespace Pulumi.Azure.PrivateLink
     ///     var vnet = Azure.Network.GetVirtualNetwork.Invoke(new()
     ///     {
     ///         Name = "example-network",
-    ///         ResourceGroupName = exampleResourceGroup.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Name),
+    ///         ResourceGroupName = exampleResourceGroup.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Name),
     ///     });
     /// 
     ///     var subnet = Azure.Network.GetSubnet.Invoke(new()
     ///     {
     ///         Name = "default",
     ///         VirtualNetworkName = vnet.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.Name),
-    ///         ResourceGroupName = exampleResourceGroup.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Name),
+    ///         ResourceGroupName = exampleResourceGroup.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Name),
     ///     });
     /// 
     ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("exampleEndpoint", new()
     ///     {
-    ///         Location = exampleResourceGroup.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Location),
-    ///         ResourceGroupName = exampleResourceGroup.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Name),
+    ///         Location = exampleResourceGroup.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Location),
+    ///         ResourceGroupName = exampleResourceGroup.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Name),
     ///         SubnetId = subnet.Apply(getSubnetResult =&gt; getSubnetResult.Id),
     ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
     ///         {

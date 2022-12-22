@@ -173,7 +173,7 @@ export class ChannelsRegistration extends pulumi.CustomResource {
             }
             resourceInputs["cmkKeyVaultUrl"] = args ? args.cmkKeyVaultUrl : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["developerAppInsightsApiKey"] = args ? args.developerAppInsightsApiKey : undefined;
+            resourceInputs["developerAppInsightsApiKey"] = args?.developerAppInsightsApiKey ? pulumi.secret(args.developerAppInsightsApiKey) : undefined;
             resourceInputs["developerAppInsightsApplicationId"] = args ? args.developerAppInsightsApplicationId : undefined;
             resourceInputs["developerAppInsightsKey"] = args ? args.developerAppInsightsKey : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
@@ -190,6 +190,8 @@ export class ChannelsRegistration extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["developerAppInsightsApiKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ChannelsRegistration.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -22,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRegistryToken(args: GetRegistryTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryTokenResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:containerservice/getRegistryToken:getRegistryToken", {
         "containerRegistryName": args.containerRegistryName,
         "name": args.name,
@@ -72,9 +69,25 @@ export interface GetRegistryTokenResult {
      */
     readonly scopeMapId: string;
 }
-
+/**
+ * Use this data source to access information about an existing Container Registry token.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.containerservice.getRegistryToken({
+ *     name: "exampletoken",
+ *     resourceGroupName: "example-resource-group",
+ *     containerRegistryName: "example-registry",
+ * });
+ * export const scopeMapId = example.then(example => example.scopeMapId);
+ * ```
+ */
 export function getRegistryTokenOutput(args: GetRegistryTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryTokenResult> {
-    return pulumi.output(args).apply(a => getRegistryToken(a, opts))
+    return pulumi.output(args).apply((a: any) => getRegistryToken(a, opts))
 }
 
 /**

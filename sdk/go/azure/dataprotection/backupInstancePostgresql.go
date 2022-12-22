@@ -94,13 +94,13 @@ import (
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:                exampleResourceGroup.Location,
 //				ResourceGroupName:       exampleResourceGroup.Name,
-//				TenantId:                pulumi.String(current.TenantId),
+//				TenantId:                *pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("premium"),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: pulumi.String(current.TenantId),
-//						ObjectId: pulumi.String(current.ObjectId),
+//						TenantId: *pulumi.String(current.TenantId),
+//						ObjectId: *pulumi.String(current.ObjectId),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Create"),
 //							pulumi.String("Get"),
@@ -114,12 +114,12 @@ import (
 //						},
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (string, error) {
-//							return identity.TenantId, nil
-//						}).(pulumi.StringOutput),
-//						ObjectId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (string, error) {
-//							return identity.PrincipalId, nil
-//						}).(pulumi.StringOutput),
+//						TenantId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
+//							return &identity.TenantId, nil
+//						}).(pulumi.StringPtrOutput),
+//						ObjectId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
+//							return &identity.PrincipalId, nil
+//						}).(pulumi.StringPtrOutput),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Create"),
 //							pulumi.String("Get"),
@@ -163,9 +163,9 @@ import (
 //			_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
 //				Scope:              exampleServer.ID(),
 //				RoleDefinitionName: pulumi.String("Reader"),
-//				PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringOutput),
+//				PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
+//					return &identity.PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
