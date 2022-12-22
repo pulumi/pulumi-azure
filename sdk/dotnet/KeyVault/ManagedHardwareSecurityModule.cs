@@ -83,6 +83,18 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A `network_acls` block as defined below.
+        /// </summary>
+        [Output("networkAcls")]
+        public Output<Outputs.ManagedHardwareSecurityModuleNetworkAcls> NetworkAcls { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("purgeProtectionEnabled")]
@@ -189,6 +201,18 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// A `network_acls` block as defined below.
+        /// </summary>
+        [Input("networkAcls")]
+        public Input<Inputs.ManagedHardwareSecurityModuleNetworkAclsArgs>? NetworkAcls { get; set; }
+
+        /// <summary>
+        /// Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("purgeProtectionEnabled")]
@@ -267,6 +291,18 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A `network_acls` block as defined below.
+        /// </summary>
+        [Input("networkAcls")]
+        public Input<Inputs.ManagedHardwareSecurityModuleNetworkAclsGetArgs>? NetworkAcls { get; set; }
+
+        /// <summary>
+        /// Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.

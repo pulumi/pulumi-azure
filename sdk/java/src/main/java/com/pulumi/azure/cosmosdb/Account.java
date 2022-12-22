@@ -147,14 +147,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.analyticalStorage;
     }
     /**
-     * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
      * 
      */
     @Export(name="analyticalStorageEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> analyticalStorageEnabled;
 
     /**
-     * @return Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> analyticalStorageEnabled() {

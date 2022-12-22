@@ -102,9 +102,9 @@ export class OutputMssql extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Password used together with username, to login to the Microsoft SQL Server.
+     * Password used together with username, to login to the Microsoft SQL Server. Required if `authenticationMode` is `ConnectionString`.
      */
-    public readonly password!: pulumi.Output<string>;
+    public readonly password!: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
@@ -122,9 +122,9 @@ export class OutputMssql extends pulumi.CustomResource {
      */
     public readonly table!: pulumi.Output<string>;
     /**
-     * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+     * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authenticationMode` is `ConnectionString`.
      */
-    public readonly user!: pulumi.Output<string>;
+    public readonly user!: pulumi.Output<string | undefined>;
 
     /**
      * Create a OutputMssql resource with the given unique name, arguments, and options.
@@ -155,9 +155,6 @@ export class OutputMssql extends pulumi.CustomResource {
             if ((!args || args.database === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'password'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -169,9 +166,6 @@ export class OutputMssql extends pulumi.CustomResource {
             }
             if ((!args || args.table === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'table'");
-            }
-            if ((!args || args.user === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'user'");
             }
             resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
@@ -217,7 +211,7 @@ export interface OutputMssqlState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Password used together with username, to login to the Microsoft SQL Server.
+     * Password used together with username, to login to the Microsoft SQL Server. Required if `authenticationMode` is `ConnectionString`.
      */
     password?: pulumi.Input<string>;
     /**
@@ -237,7 +231,7 @@ export interface OutputMssqlState {
      */
     table?: pulumi.Input<string>;
     /**
-     * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+     * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authenticationMode` is `ConnectionString`.
      */
     user?: pulumi.Input<string>;
 }
@@ -267,9 +261,9 @@ export interface OutputMssqlArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Password used together with username, to login to the Microsoft SQL Server.
+     * Password used together with username, to login to the Microsoft SQL Server. Required if `authenticationMode` is `ConnectionString`.
      */
-    password: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
@@ -287,7 +281,7 @@ export interface OutputMssqlArgs {
      */
     table: pulumi.Input<string>;
     /**
-     * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+     * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authenticationMode` is `ConnectionString`.
      */
-    user: pulumi.Input<string>;
+    user?: pulumi.Input<string>;
 }

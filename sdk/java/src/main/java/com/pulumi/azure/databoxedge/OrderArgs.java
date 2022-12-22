@@ -61,14 +61,14 @@ public final class OrderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `shipment_address block as defined below.
+     * A `shipment_address` block as defined below.
      * 
      */
     @Import(name="shipmentAddress", required=true)
     private Output<OrderShipmentAddressArgs> shipmentAddress;
 
     /**
-     * @return A `shipment_address block as defined below.
+     * @return A `shipment_address` block as defined below.
      * 
      */
     public Output<OrderShipmentAddressArgs> shipmentAddress() {
@@ -166,7 +166,7 @@ public final class OrderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param shipmentAddress A `shipment_address block as defined below.
+         * @param shipmentAddress A `shipment_address` block as defined below.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class OrderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param shipmentAddress A `shipment_address block as defined below.
+         * @param shipmentAddress A `shipment_address` block as defined below.
          * 
          * @return builder
          * 

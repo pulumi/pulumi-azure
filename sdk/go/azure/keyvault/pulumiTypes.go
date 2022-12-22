@@ -3844,6 +3844,162 @@ func (o KeyVaultNetworkAclsPtrOutput) VirtualNetworkSubnetIds() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
+type ManagedHardwareSecurityModuleNetworkAcls struct {
+	// Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+	Bypass string `pulumi:"bypass"`
+	// The Default Action to use. Possible values are `Allow` and `Deny`.
+	DefaultAction string `pulumi:"defaultAction"`
+}
+
+// ManagedHardwareSecurityModuleNetworkAclsInput is an input type that accepts ManagedHardwareSecurityModuleNetworkAclsArgs and ManagedHardwareSecurityModuleNetworkAclsOutput values.
+// You can construct a concrete instance of `ManagedHardwareSecurityModuleNetworkAclsInput` via:
+//
+//	ManagedHardwareSecurityModuleNetworkAclsArgs{...}
+type ManagedHardwareSecurityModuleNetworkAclsInput interface {
+	pulumi.Input
+
+	ToManagedHardwareSecurityModuleNetworkAclsOutput() ManagedHardwareSecurityModuleNetworkAclsOutput
+	ToManagedHardwareSecurityModuleNetworkAclsOutputWithContext(context.Context) ManagedHardwareSecurityModuleNetworkAclsOutput
+}
+
+type ManagedHardwareSecurityModuleNetworkAclsArgs struct {
+	// Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+	Bypass pulumi.StringInput `pulumi:"bypass"`
+	// The Default Action to use. Possible values are `Allow` and `Deny`.
+	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
+}
+
+func (ManagedHardwareSecurityModuleNetworkAclsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHardwareSecurityModuleNetworkAcls)(nil)).Elem()
+}
+
+func (i ManagedHardwareSecurityModuleNetworkAclsArgs) ToManagedHardwareSecurityModuleNetworkAclsOutput() ManagedHardwareSecurityModuleNetworkAclsOutput {
+	return i.ToManagedHardwareSecurityModuleNetworkAclsOutputWithContext(context.Background())
+}
+
+func (i ManagedHardwareSecurityModuleNetworkAclsArgs) ToManagedHardwareSecurityModuleNetworkAclsOutputWithContext(ctx context.Context) ManagedHardwareSecurityModuleNetworkAclsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHardwareSecurityModuleNetworkAclsOutput)
+}
+
+func (i ManagedHardwareSecurityModuleNetworkAclsArgs) ToManagedHardwareSecurityModuleNetworkAclsPtrOutput() ManagedHardwareSecurityModuleNetworkAclsPtrOutput {
+	return i.ToManagedHardwareSecurityModuleNetworkAclsPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedHardwareSecurityModuleNetworkAclsArgs) ToManagedHardwareSecurityModuleNetworkAclsPtrOutputWithContext(ctx context.Context) ManagedHardwareSecurityModuleNetworkAclsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHardwareSecurityModuleNetworkAclsOutput).ToManagedHardwareSecurityModuleNetworkAclsPtrOutputWithContext(ctx)
+}
+
+// ManagedHardwareSecurityModuleNetworkAclsPtrInput is an input type that accepts ManagedHardwareSecurityModuleNetworkAclsArgs, ManagedHardwareSecurityModuleNetworkAclsPtr and ManagedHardwareSecurityModuleNetworkAclsPtrOutput values.
+// You can construct a concrete instance of `ManagedHardwareSecurityModuleNetworkAclsPtrInput` via:
+//
+//	        ManagedHardwareSecurityModuleNetworkAclsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedHardwareSecurityModuleNetworkAclsPtrInput interface {
+	pulumi.Input
+
+	ToManagedHardwareSecurityModuleNetworkAclsPtrOutput() ManagedHardwareSecurityModuleNetworkAclsPtrOutput
+	ToManagedHardwareSecurityModuleNetworkAclsPtrOutputWithContext(context.Context) ManagedHardwareSecurityModuleNetworkAclsPtrOutput
+}
+
+type managedHardwareSecurityModuleNetworkAclsPtrType ManagedHardwareSecurityModuleNetworkAclsArgs
+
+func ManagedHardwareSecurityModuleNetworkAclsPtr(v *ManagedHardwareSecurityModuleNetworkAclsArgs) ManagedHardwareSecurityModuleNetworkAclsPtrInput {
+	return (*managedHardwareSecurityModuleNetworkAclsPtrType)(v)
+}
+
+func (*managedHardwareSecurityModuleNetworkAclsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedHardwareSecurityModuleNetworkAcls)(nil)).Elem()
+}
+
+func (i *managedHardwareSecurityModuleNetworkAclsPtrType) ToManagedHardwareSecurityModuleNetworkAclsPtrOutput() ManagedHardwareSecurityModuleNetworkAclsPtrOutput {
+	return i.ToManagedHardwareSecurityModuleNetworkAclsPtrOutputWithContext(context.Background())
+}
+
+func (i *managedHardwareSecurityModuleNetworkAclsPtrType) ToManagedHardwareSecurityModuleNetworkAclsPtrOutputWithContext(ctx context.Context) ManagedHardwareSecurityModuleNetworkAclsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHardwareSecurityModuleNetworkAclsPtrOutput)
+}
+
+type ManagedHardwareSecurityModuleNetworkAclsOutput struct{ *pulumi.OutputState }
+
+func (ManagedHardwareSecurityModuleNetworkAclsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHardwareSecurityModuleNetworkAcls)(nil)).Elem()
+}
+
+func (o ManagedHardwareSecurityModuleNetworkAclsOutput) ToManagedHardwareSecurityModuleNetworkAclsOutput() ManagedHardwareSecurityModuleNetworkAclsOutput {
+	return o
+}
+
+func (o ManagedHardwareSecurityModuleNetworkAclsOutput) ToManagedHardwareSecurityModuleNetworkAclsOutputWithContext(ctx context.Context) ManagedHardwareSecurityModuleNetworkAclsOutput {
+	return o
+}
+
+func (o ManagedHardwareSecurityModuleNetworkAclsOutput) ToManagedHardwareSecurityModuleNetworkAclsPtrOutput() ManagedHardwareSecurityModuleNetworkAclsPtrOutput {
+	return o.ToManagedHardwareSecurityModuleNetworkAclsPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedHardwareSecurityModuleNetworkAclsOutput) ToManagedHardwareSecurityModuleNetworkAclsPtrOutputWithContext(ctx context.Context) ManagedHardwareSecurityModuleNetworkAclsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedHardwareSecurityModuleNetworkAcls) *ManagedHardwareSecurityModuleNetworkAcls {
+		return &v
+	}).(ManagedHardwareSecurityModuleNetworkAclsPtrOutput)
+}
+
+// Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+func (o ManagedHardwareSecurityModuleNetworkAclsOutput) Bypass() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedHardwareSecurityModuleNetworkAcls) string { return v.Bypass }).(pulumi.StringOutput)
+}
+
+// The Default Action to use. Possible values are `Allow` and `Deny`.
+func (o ManagedHardwareSecurityModuleNetworkAclsOutput) DefaultAction() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedHardwareSecurityModuleNetworkAcls) string { return v.DefaultAction }).(pulumi.StringOutput)
+}
+
+type ManagedHardwareSecurityModuleNetworkAclsPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedHardwareSecurityModuleNetworkAclsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedHardwareSecurityModuleNetworkAcls)(nil)).Elem()
+}
+
+func (o ManagedHardwareSecurityModuleNetworkAclsPtrOutput) ToManagedHardwareSecurityModuleNetworkAclsPtrOutput() ManagedHardwareSecurityModuleNetworkAclsPtrOutput {
+	return o
+}
+
+func (o ManagedHardwareSecurityModuleNetworkAclsPtrOutput) ToManagedHardwareSecurityModuleNetworkAclsPtrOutputWithContext(ctx context.Context) ManagedHardwareSecurityModuleNetworkAclsPtrOutput {
+	return o
+}
+
+func (o ManagedHardwareSecurityModuleNetworkAclsPtrOutput) Elem() ManagedHardwareSecurityModuleNetworkAclsOutput {
+	return o.ApplyT(func(v *ManagedHardwareSecurityModuleNetworkAcls) ManagedHardwareSecurityModuleNetworkAcls {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedHardwareSecurityModuleNetworkAcls
+		return ret
+	}).(ManagedHardwareSecurityModuleNetworkAclsOutput)
+}
+
+// Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+func (o ManagedHardwareSecurityModuleNetworkAclsPtrOutput) Bypass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHardwareSecurityModuleNetworkAcls) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bypass
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Default Action to use. Possible values are `Allow` and `Deny`.
+func (o ManagedHardwareSecurityModuleNetworkAclsPtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHardwareSecurityModuleNetworkAcls) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultAction
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetCertificateCertificatePolicy struct {
 	// A `issuerParameters` block as defined below.
 	IssuerParameters []GetCertificateCertificatePolicyIssuerParameter `pulumi:"issuerParameters"`
@@ -5316,6 +5472,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultContactArrayInput)(nil)).Elem(), KeyVaultContactArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultNetworkAclsInput)(nil)).Elem(), KeyVaultNetworkAclsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultNetworkAclsPtrInput)(nil)).Elem(), KeyVaultNetworkAclsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedHardwareSecurityModuleNetworkAclsInput)(nil)).Elem(), ManagedHardwareSecurityModuleNetworkAclsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedHardwareSecurityModuleNetworkAclsPtrInput)(nil)).Elem(), ManagedHardwareSecurityModuleNetworkAclsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateCertificatePolicyInput)(nil)).Elem(), GetCertificateCertificatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateCertificatePolicyArrayInput)(nil)).Elem(), GetCertificateCertificatePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateCertificatePolicyIssuerParameterInput)(nil)).Elem(), GetCertificateCertificatePolicyIssuerParameterArgs{})
@@ -5388,6 +5546,8 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultContactArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultNetworkAclsOutput{})
 	pulumi.RegisterOutputType(KeyVaultNetworkAclsPtrOutput{})
+	pulumi.RegisterOutputType(ManagedHardwareSecurityModuleNetworkAclsOutput{})
+	pulumi.RegisterOutputType(ManagedHardwareSecurityModuleNetworkAclsPtrOutput{})
 	pulumi.RegisterOutputType(GetCertificateCertificatePolicyOutput{})
 	pulumi.RegisterOutputType(GetCertificateCertificatePolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetCertificateCertificatePolicyIssuerParameterOutput{})

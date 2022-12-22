@@ -107,7 +107,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<Outputs.AccountAnalyticalStorage> AnalyticalStorage { get; private set; } = null!;
 
         /// <summary>
-        /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
         /// </summary>
         [Output("analyticalStorageEnabled")]
         public Output<bool?> AnalyticalStorageEnabled { get; private set; } = null!;
@@ -411,7 +411,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.AccountAnalyticalStorageArgs>? AnalyticalStorage { get; set; }
 
         /// <summary>
-        /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
         /// </summary>
         [Input("analyticalStorageEnabled")]
         public Input<bool>? AnalyticalStorageEnabled { get; set; }
@@ -635,7 +635,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.AccountAnalyticalStorageGetArgs>? AnalyticalStorage { get; set; }
 
         /// <summary>
-        /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
         /// </summary>
         [Input("analyticalStorageEnabled")]
         public Input<bool>? AnalyticalStorageEnabled { get; set; }

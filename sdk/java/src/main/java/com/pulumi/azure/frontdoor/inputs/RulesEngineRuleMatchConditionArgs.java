@@ -78,14 +78,14 @@ public final class RulesEngineRuleMatchConditionArgs extends com.pulumi.resource
     }
 
     /**
-     * can contain one or more strings.
+     * (array) can contain one or more strings.
      * 
      */
     @Import(name="values")
     private @Nullable Output<List<String>> values;
 
     /**
-     * @return can contain one or more strings.
+     * @return (array) can contain one or more strings.
      * 
      */
     public Optional<Output<List<String>>> values() {
@@ -231,7 +231,7 @@ public final class RulesEngineRuleMatchConditionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param values can contain one or more strings.
+         * @param values (array) can contain one or more strings.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class RulesEngineRuleMatchConditionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param values can contain one or more strings.
+         * @param values (array) can contain one or more strings.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class RulesEngineRuleMatchConditionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param values can contain one or more strings.
+         * @param values (array) can contain one or more strings.
          * 
          * @return builder
          * 

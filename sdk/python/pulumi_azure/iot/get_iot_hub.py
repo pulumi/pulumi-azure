@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetIotHubResult',
@@ -21,13 +22,16 @@ class GetIotHubResult:
     """
     A collection of values returned by getIotHub.
     """
-    def __init__(__self__, hostname=None, id=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, hostname=None, id=None, identities=None, name=None, resource_group_name=None, tags=None):
         if hostname and not isinstance(hostname, str):
             raise TypeError("Expected argument 'hostname' to be a str")
         pulumi.set(__self__, "hostname", hostname)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -56,6 +60,14 @@ class GetIotHubResult:
 
     @property
     @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetIotHubIdentityResult']:
+        """
+        A `identity` block as defined below.
+        """
+        return pulumi.get(self, "identities")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
 
@@ -78,6 +90,7 @@ class AwaitableGetIotHubResult(GetIotHubResult):
         return GetIotHubResult(
             hostname=self.hostname,
             id=self.id,
+            identities=self.identities,
             name=self.name,
             resource_group_name=self.resource_group_name,
             tags=self.tags)
@@ -116,6 +129,7 @@ def get_iot_hub(name: Optional[str] = None,
     return AwaitableGetIotHubResult(
         hostname=__ret__.hostname,
         id=__ret__.id,
+        identities=__ret__.identities,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags)

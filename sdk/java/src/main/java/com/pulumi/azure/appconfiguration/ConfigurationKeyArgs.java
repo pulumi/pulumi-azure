@@ -48,14 +48,14 @@ public final class ConfigurationKeyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ETag of the key.
+     * (Optional) The ETag of the key.
      * 
      */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
     /**
-     * @return The ETag of the key.
+     * @return (Optional) The ETag of the key.
      * 
      */
     public Optional<Output<String>> etag() {
@@ -243,7 +243,7 @@ public final class ConfigurationKeyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param etag The ETag of the key.
+         * @param etag (Optional) The ETag of the key.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class ConfigurationKeyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param etag The ETag of the key.
+         * @param etag (Optional) The ETag of the key.
          * 
          * @return builder
          * 

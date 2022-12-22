@@ -18,14 +18,14 @@ public final class CustomHttpsConfigurationState extends com.pulumi.resources.Re
     public static final CustomHttpsConfigurationState Empty = new CustomHttpsConfigurationState();
 
     /**
-     * A `custom_https_configuration` block as defined below.
+     * (Optional) A `custom_https_configuration` block as defined below.
      * 
      */
     @Import(name="customHttpsConfiguration")
     private @Nullable Output<CustomHttpsConfigurationCustomHttpsConfigurationArgs> customHttpsConfiguration;
 
     /**
-     * @return A `custom_https_configuration` block as defined below.
+     * @return (Optional) A `custom_https_configuration` block as defined below.
      * 
      */
     public Optional<Output<CustomHttpsConfigurationCustomHttpsConfigurationArgs>> customHttpsConfiguration() {
@@ -89,7 +89,7 @@ public final class CustomHttpsConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param customHttpsConfiguration A `custom_https_configuration` block as defined below.
+         * @param customHttpsConfiguration (Optional) A `custom_https_configuration` block as defined below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class CustomHttpsConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param customHttpsConfiguration A `custom_https_configuration` block as defined below.
+         * @param customHttpsConfiguration (Optional) A `custom_https_configuration` block as defined below.
          * 
          * @return builder
          * 

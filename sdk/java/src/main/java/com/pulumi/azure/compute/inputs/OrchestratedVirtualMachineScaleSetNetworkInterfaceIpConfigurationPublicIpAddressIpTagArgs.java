@@ -13,16 +13,32 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
 
     public static final OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs Empty = new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs();
 
+    /**
+     * The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+     * 
+     */
     @Import(name="tag", required=true)
     private Output<String> tag;
 
+    /**
+     * @return The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+     * 
+     */
     public Output<String> tag() {
         return this.tag;
     }
 
+    /**
+     * The Type of IP Tag, such as `FirstPartyUsage`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return The Type of IP Tag, such as `FirstPartyUsage`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -52,20 +68,44 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
             $ = new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param tag The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tag(Output<String> tag) {
             $.tag = tag;
             return this;
         }
 
+        /**
+         * @param tag The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tag(String tag) {
             return tag(Output.of(tag));
         }
 
+        /**
+         * @param type The Type of IP Tag, such as `FirstPartyUsage`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The Type of IP Tag, such as `FirstPartyUsage`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

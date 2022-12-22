@@ -35,7 +35,7 @@ public final class KubernetesClusterNetworkProfile {
      */
     private @Nullable List<String> ipVersions;
     /**
-     * @return A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `standard`.
+     * @return A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`.
      * 
      */
     private @Nullable KubernetesClusterNetworkProfileLoadBalancerProfile loadBalancerProfile;
@@ -45,7 +45,7 @@ public final class KubernetesClusterNetworkProfile {
      */
     private @Nullable String loadBalancerSku;
     /**
-     * @return A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+     * @return A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
      * 
      */
     private @Nullable KubernetesClusterNetworkProfileNatGatewayProfile natGatewayProfile;
@@ -60,7 +60,7 @@ public final class KubernetesClusterNetworkProfile {
      */
     private String networkPlugin;
     /**
-     * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+     * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String networkPluginMode;
@@ -125,7 +125,7 @@ public final class KubernetesClusterNetworkProfile {
         return this.ipVersions == null ? List.of() : this.ipVersions;
     }
     /**
-     * @return A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `standard`.
+     * @return A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`.
      * 
      */
     public Optional<KubernetesClusterNetworkProfileLoadBalancerProfile> loadBalancerProfile() {
@@ -139,7 +139,7 @@ public final class KubernetesClusterNetworkProfile {
         return Optional.ofNullable(this.loadBalancerSku);
     }
     /**
-     * @return A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+     * @return A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
      * 
      */
     public Optional<KubernetesClusterNetworkProfileNatGatewayProfile> natGatewayProfile() {
@@ -160,7 +160,7 @@ public final class KubernetesClusterNetworkProfile {
         return this.networkPlugin;
     }
     /**
-     * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+     * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> networkPluginMode() {

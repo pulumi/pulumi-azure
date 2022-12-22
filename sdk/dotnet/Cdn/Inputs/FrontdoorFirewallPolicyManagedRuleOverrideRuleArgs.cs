@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
+        /// The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;

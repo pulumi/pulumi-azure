@@ -16,16 +16,32 @@ public final class ScaleSetBootDiagnosticsArgs extends com.pulumi.resources.Reso
 
     public static final ScaleSetBootDiagnosticsArgs Empty = new ScaleSetBootDiagnosticsArgs();
 
+    /**
+     * Whether to enable boot diagnostics for the virtual machine.
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return Whether to enable boot diagnostics for the virtual machine.
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
+    /**
+     * Blob endpoint for the storage account to hold the virtual machine&#39;s diagnostic files. This must be the root of a storage account, and not a storage container.
+     * 
+     */
     @Import(name="storageUri", required=true)
     private Output<String> storageUri;
 
+    /**
+     * @return Blob endpoint for the storage account to hold the virtual machine&#39;s diagnostic files. This must be the root of a storage account, and not a storage container.
+     * 
+     */
     public Output<String> storageUri() {
         return this.storageUri;
     }
@@ -55,20 +71,44 @@ public final class ScaleSetBootDiagnosticsArgs extends com.pulumi.resources.Reso
             $ = new ScaleSetBootDiagnosticsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enabled Whether to enable boot diagnostics for the virtual machine.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Whether to enable boot diagnostics for the virtual machine.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
+        /**
+         * @param storageUri Blob endpoint for the storage account to hold the virtual machine&#39;s diagnostic files. This must be the root of a storage account, and not a storage container.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageUri(Output<String> storageUri) {
             $.storageUri = storageUri;
             return this;
         }
 
+        /**
+         * @param storageUri Blob endpoint for the storage account to hold the virtual machine&#39;s diagnostic files. This must be the root of a storage account, and not a storage container.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageUri(String storageUri) {
             return storageUri(Output.of(storageUri));
         }

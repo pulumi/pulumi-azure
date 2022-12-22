@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class ContactProfileLinkChannelEndPoint {
     /**
-     * @return -(Required) Name of an end point.
+     * @return Name of an end point.
      * 
      */
     private String endPointName;
@@ -32,7 +32,7 @@ public final class ContactProfileLinkChannelEndPoint {
 
     private ContactProfileLinkChannelEndPoint() {}
     /**
-     * @return -(Required) Name of an end point.
+     * @return Name of an end point.
      * 
      */
     public String endPointName() {

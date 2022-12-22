@@ -6,6 +6,7 @@ package com.pulumi.azure.network.inputs;
 import com.pulumi.azure.network.inputs.PointToPointVpnGatewayConnectionConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -95,6 +96,21 @@ public final class PointToPointVpnGatewayState extends com.pulumi.resources.Reso
     }
 
     /**
+     * Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="routingPreferenceInternetEnabled")
+    private @Nullable Output<Boolean> routingPreferenceInternetEnabled;
+
+    /**
+     * @return Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> routingPreferenceInternetEnabled() {
+        return Optional.ofNullable(this.routingPreferenceInternetEnabled);
+    }
+
+    /**
      * The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
      * 
      */
@@ -162,6 +178,7 @@ public final class PointToPointVpnGatewayState extends com.pulumi.resources.Reso
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
+        this.routingPreferenceInternetEnabled = $.routingPreferenceInternetEnabled;
         this.scaleUnit = $.scaleUnit;
         this.tags = $.tags;
         this.virtualHubId = $.virtualHubId;
@@ -299,6 +316,27 @@ public final class PointToPointVpnGatewayState extends com.pulumi.resources.Reso
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param routingPreferenceInternetEnabled Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingPreferenceInternetEnabled(@Nullable Output<Boolean> routingPreferenceInternetEnabled) {
+            $.routingPreferenceInternetEnabled = routingPreferenceInternetEnabled;
+            return this;
+        }
+
+        /**
+         * @param routingPreferenceInternetEnabled Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingPreferenceInternetEnabled(Boolean routingPreferenceInternetEnabled) {
+            return routingPreferenceInternetEnabled(Output.of(routingPreferenceInternetEnabled));
         }
 
         /**

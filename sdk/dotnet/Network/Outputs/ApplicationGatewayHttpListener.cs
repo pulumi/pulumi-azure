@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? SslCertificateName;
         /// <summary>
-        /// The ID of the associated SSL Certificate.
+        /// The ID of the associated SSL Profile.
         /// </summary>
         public readonly string? SslProfileId;
         /// <summary>

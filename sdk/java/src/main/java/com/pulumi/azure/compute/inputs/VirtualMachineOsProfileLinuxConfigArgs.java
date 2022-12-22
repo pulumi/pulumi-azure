@@ -33,14 +33,14 @@ public final class VirtualMachineOsProfileLinuxConfigArgs extends com.pulumi.res
     }
 
     /**
-     * One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+     * One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
      * 
      */
     @Import(name="sshKeys")
     private @Nullable Output<List<VirtualMachineOsProfileLinuxConfigSshKeyArgs>> sshKeys;
 
     /**
-     * @return One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+     * @return One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
      * 
      */
     public Optional<Output<List<VirtualMachineOsProfileLinuxConfigSshKeyArgs>>> sshKeys() {
@@ -94,7 +94,7 @@ public final class VirtualMachineOsProfileLinuxConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param sshKeys One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+         * @param sshKeys One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class VirtualMachineOsProfileLinuxConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param sshKeys One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+         * @param sshKeys One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class VirtualMachineOsProfileLinuxConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param sshKeys One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+         * @param sshKeys One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
          * 
          * @return builder
          * 

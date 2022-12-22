@@ -108,7 +108,7 @@ export class BudgetResourceGroup extends pulumi.CustomResource {
      */
     public readonly amount!: pulumi.Output<number>;
     /**
-     * The ETag of the Resource Group Consumption Budget
+     * (Optional) The ETag of the Resource Group Consumption Budget
      */
     public readonly etag!: pulumi.Output<string>;
     /**
@@ -194,7 +194,7 @@ export interface BudgetResourceGroupState {
      */
     amount?: pulumi.Input<number>;
     /**
-     * The ETag of the Resource Group Consumption Budget
+     * (Optional) The ETag of the Resource Group Consumption Budget
      */
     etag?: pulumi.Input<string>;
     /**
@@ -232,7 +232,7 @@ export interface BudgetResourceGroupArgs {
      */
     amount: pulumi.Input<number>;
     /**
-     * The ETag of the Resource Group Consumption Budget
+     * (Optional) The ETag of the Resource Group Consumption Budget
      */
     etag?: pulumi.Input<string>;
     /**

@@ -464,7 +464,7 @@ def get_linux_function_app(name: Optional[str] = None,
 
     example = azure.appservice.get_linux_function_app(name="existing",
         resource_group_name="existing")
-    pulumi.export("id", data["linux_function_app"]["example"]["id"])
+    pulumi.export("id", example.id)
     ```
 
 
@@ -530,7 +530,7 @@ def get_linux_function_app_output(name: Optional[pulumi.Input[str]] = None,
 
     example = azure.appservice.get_linux_function_app(name="existing",
         resource_group_name="existing")
-    pulumi.export("id", data["linux_function_app"]["example"]["id"])
+    pulumi.export("id", example.id)
     ```
 
 

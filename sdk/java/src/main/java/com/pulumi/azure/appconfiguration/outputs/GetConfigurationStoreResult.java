@@ -19,6 +19,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConfigurationStoreResult {
+    /**
+     * @return An `encryption` block as defined below.
+     * 
+     */
     private List<GetConfigurationStoreEncryption> encryptions;
     /**
      * @return The Endpoint used to access this App Configuration.
@@ -91,6 +95,10 @@ public final class GetConfigurationStoreResult {
     private Map<String,String> tags;
 
     private GetConfigurationStoreResult() {}
+    /**
+     * @return An `encryption` block as defined below.
+     * 
+     */
     public List<GetConfigurationStoreEncryption> encryptions() {
         return this.encryptions;
     }

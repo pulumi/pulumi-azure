@@ -1070,7 +1070,7 @@ func (o RunBookDraftPtrOutput) Parameters() RunBookDraftParameterArrayOutput {
 }
 
 type RunBookDraftContentLink struct {
-	// A `hash` block as defined blow.
+	// A `hash` block as defined below.
 	Hash *RunBookDraftContentLinkHash `pulumi:"hash"`
 	// The URI of the runbook content.
 	Uri string `pulumi:"uri"`
@@ -1090,7 +1090,7 @@ type RunBookDraftContentLinkInput interface {
 }
 
 type RunBookDraftContentLinkArgs struct {
-	// A `hash` block as defined blow.
+	// A `hash` block as defined below.
 	Hash RunBookDraftContentLinkHashPtrInput `pulumi:"hash"`
 	// The URI of the runbook content.
 	Uri pulumi.StringInput `pulumi:"uri"`
@@ -1175,7 +1175,7 @@ func (o RunBookDraftContentLinkOutput) ToRunBookDraftContentLinkPtrOutputWithCon
 	}).(RunBookDraftContentLinkPtrOutput)
 }
 
-// A `hash` block as defined blow.
+// A `hash` block as defined below.
 func (o RunBookDraftContentLinkOutput) Hash() RunBookDraftContentLinkHashPtrOutput {
 	return o.ApplyT(func(v RunBookDraftContentLink) *RunBookDraftContentLinkHash { return v.Hash }).(RunBookDraftContentLinkHashPtrOutput)
 }
@@ -1214,7 +1214,7 @@ func (o RunBookDraftContentLinkPtrOutput) Elem() RunBookDraftContentLinkOutput {
 	}).(RunBookDraftContentLinkOutput)
 }
 
-// A `hash` block as defined blow.
+// A `hash` block as defined below.
 func (o RunBookDraftContentLinkPtrOutput) Hash() RunBookDraftContentLinkHashPtrOutput {
 	return o.ApplyT(func(v *RunBookDraftContentLink) *RunBookDraftContentLinkHash {
 		if v == nil {
@@ -1643,7 +1643,7 @@ func (o RunBookJobScheduleArrayOutput) Index(i pulumi.IntInput) RunBookJobSchedu
 }
 
 type RunBookPublishContentLink struct {
-	// A `hash` block as defined blow.
+	// A `hash` block as defined below.
 	Hash *RunBookPublishContentLinkHash `pulumi:"hash"`
 	// The URI of the runbook content.
 	Uri string `pulumi:"uri"`
@@ -1663,7 +1663,7 @@ type RunBookPublishContentLinkInput interface {
 }
 
 type RunBookPublishContentLinkArgs struct {
-	// A `hash` block as defined blow.
+	// A `hash` block as defined below.
 	Hash RunBookPublishContentLinkHashPtrInput `pulumi:"hash"`
 	// The URI of the runbook content.
 	Uri pulumi.StringInput `pulumi:"uri"`
@@ -1748,7 +1748,7 @@ func (o RunBookPublishContentLinkOutput) ToRunBookPublishContentLinkPtrOutputWit
 	}).(RunBookPublishContentLinkPtrOutput)
 }
 
-// A `hash` block as defined blow.
+// A `hash` block as defined below.
 func (o RunBookPublishContentLinkOutput) Hash() RunBookPublishContentLinkHashPtrOutput {
 	return o.ApplyT(func(v RunBookPublishContentLink) *RunBookPublishContentLinkHash { return v.Hash }).(RunBookPublishContentLinkHashPtrOutput)
 }
@@ -1787,7 +1787,7 @@ func (o RunBookPublishContentLinkPtrOutput) Elem() RunBookPublishContentLinkOutp
 	}).(RunBookPublishContentLinkOutput)
 }
 
-// A `hash` block as defined blow.
+// A `hash` block as defined below.
 func (o RunBookPublishContentLinkPtrOutput) Hash() RunBookPublishContentLinkHashPtrOutput {
 	return o.ApplyT(func(v *RunBookPublishContentLink) *RunBookPublishContentLinkHash {
 		if v == nil {

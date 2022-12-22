@@ -118,14 +118,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog")
 public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
     /**
-     * Boolean flag to enable/disable traffic analytics.
+     * Should Network Flow Logging be Enabled?
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output<Boolean> enabled;
 
     /**
-     * @return Boolean flag to enable/disable traffic analytics.
+     * @return Should Network Flow Logging be Enabled?
      * 
      */
     public Output<Boolean> enabled() {

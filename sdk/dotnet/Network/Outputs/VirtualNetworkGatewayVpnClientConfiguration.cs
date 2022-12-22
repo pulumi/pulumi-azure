@@ -41,14 +41,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? RadiusServerSecret;
         /// <summary>
-        /// One or more `revoked_certificate` blocks which
-        /// are defined below.
+        /// One or more `revoked_certificate` blocks which are defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> RevokedCertificates;
         /// <summary>
-        /// One or more `root_certificate` blocks which are
-        /// defined below. These root certificates are used to sign the client certificate
-        /// used by the VPN clients to connect to the gateway.
+        /// One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificate> RootCertificates;
         /// <summary>

@@ -415,6 +415,8 @@ type AccountBlobProperties struct {
 	DeleteRetentionPolicy *AccountBlobPropertiesDeleteRetentionPolicy `pulumi:"deleteRetentionPolicy"`
 	// Is the last access time based tracking enabled? Default to `false`.
 	LastAccessTimeEnabled *bool `pulumi:"lastAccessTimeEnabled"`
+	// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set and `versioningEnabled` set to `true`.
+	RestorePolicy *AccountBlobPropertiesRestorePolicy `pulumi:"restorePolicy"`
 	// Is versioning enabled? Default to `false`.
 	VersioningEnabled *bool `pulumi:"versioningEnabled"`
 }
@@ -445,6 +447,8 @@ type AccountBlobPropertiesArgs struct {
 	DeleteRetentionPolicy AccountBlobPropertiesDeleteRetentionPolicyPtrInput `pulumi:"deleteRetentionPolicy"`
 	// Is the last access time based tracking enabled? Default to `false`.
 	LastAccessTimeEnabled pulumi.BoolPtrInput `pulumi:"lastAccessTimeEnabled"`
+	// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set and `versioningEnabled` set to `true`.
+	RestorePolicy AccountBlobPropertiesRestorePolicyPtrInput `pulumi:"restorePolicy"`
 	// Is versioning enabled? Default to `false`.
 	VersioningEnabled pulumi.BoolPtrInput `pulumi:"versioningEnabled"`
 }
@@ -565,6 +569,11 @@ func (o AccountBlobPropertiesOutput) LastAccessTimeEnabled() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v AccountBlobProperties) *bool { return v.LastAccessTimeEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set and `versioningEnabled` set to `true`.
+func (o AccountBlobPropertiesOutput) RestorePolicy() AccountBlobPropertiesRestorePolicyPtrOutput {
+	return o.ApplyT(func(v AccountBlobProperties) *AccountBlobPropertiesRestorePolicy { return v.RestorePolicy }).(AccountBlobPropertiesRestorePolicyPtrOutput)
+}
+
 // Is versioning enabled? Default to `false`.
 func (o AccountBlobPropertiesOutput) VersioningEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *bool { return v.VersioningEnabled }).(pulumi.BoolPtrOutput)
@@ -662,6 +671,16 @@ func (o AccountBlobPropertiesPtrOutput) LastAccessTimeEnabled() pulumi.BoolPtrOu
 		}
 		return v.LastAccessTimeEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set and `versioningEnabled` set to `true`.
+func (o AccountBlobPropertiesPtrOutput) RestorePolicy() AccountBlobPropertiesRestorePolicyPtrOutput {
+	return o.ApplyT(func(v *AccountBlobProperties) *AccountBlobPropertiesRestorePolicy {
+		if v == nil {
+			return nil
+		}
+		return v.RestorePolicy
+	}).(AccountBlobPropertiesRestorePolicyPtrOutput)
 }
 
 // Is versioning enabled? Default to `false`.
@@ -1081,6 +1100,143 @@ func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) Days() pulumi.IntPt
 			return nil
 		}
 		return v.Days
+	}).(pulumi.IntPtrOutput)
+}
+
+type AccountBlobPropertiesRestorePolicy struct {
+	// Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `deleteRetentionPolicy`.
+	Days int `pulumi:"days"`
+}
+
+// AccountBlobPropertiesRestorePolicyInput is an input type that accepts AccountBlobPropertiesRestorePolicyArgs and AccountBlobPropertiesRestorePolicyOutput values.
+// You can construct a concrete instance of `AccountBlobPropertiesRestorePolicyInput` via:
+//
+//	AccountBlobPropertiesRestorePolicyArgs{...}
+type AccountBlobPropertiesRestorePolicyInput interface {
+	pulumi.Input
+
+	ToAccountBlobPropertiesRestorePolicyOutput() AccountBlobPropertiesRestorePolicyOutput
+	ToAccountBlobPropertiesRestorePolicyOutputWithContext(context.Context) AccountBlobPropertiesRestorePolicyOutput
+}
+
+type AccountBlobPropertiesRestorePolicyArgs struct {
+	// Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `deleteRetentionPolicy`.
+	Days pulumi.IntInput `pulumi:"days"`
+}
+
+func (AccountBlobPropertiesRestorePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountBlobPropertiesRestorePolicy)(nil)).Elem()
+}
+
+func (i AccountBlobPropertiesRestorePolicyArgs) ToAccountBlobPropertiesRestorePolicyOutput() AccountBlobPropertiesRestorePolicyOutput {
+	return i.ToAccountBlobPropertiesRestorePolicyOutputWithContext(context.Background())
+}
+
+func (i AccountBlobPropertiesRestorePolicyArgs) ToAccountBlobPropertiesRestorePolicyOutputWithContext(ctx context.Context) AccountBlobPropertiesRestorePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesRestorePolicyOutput)
+}
+
+func (i AccountBlobPropertiesRestorePolicyArgs) ToAccountBlobPropertiesRestorePolicyPtrOutput() AccountBlobPropertiesRestorePolicyPtrOutput {
+	return i.ToAccountBlobPropertiesRestorePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i AccountBlobPropertiesRestorePolicyArgs) ToAccountBlobPropertiesRestorePolicyPtrOutputWithContext(ctx context.Context) AccountBlobPropertiesRestorePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesRestorePolicyOutput).ToAccountBlobPropertiesRestorePolicyPtrOutputWithContext(ctx)
+}
+
+// AccountBlobPropertiesRestorePolicyPtrInput is an input type that accepts AccountBlobPropertiesRestorePolicyArgs, AccountBlobPropertiesRestorePolicyPtr and AccountBlobPropertiesRestorePolicyPtrOutput values.
+// You can construct a concrete instance of `AccountBlobPropertiesRestorePolicyPtrInput` via:
+//
+//	        AccountBlobPropertiesRestorePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountBlobPropertiesRestorePolicyPtrInput interface {
+	pulumi.Input
+
+	ToAccountBlobPropertiesRestorePolicyPtrOutput() AccountBlobPropertiesRestorePolicyPtrOutput
+	ToAccountBlobPropertiesRestorePolicyPtrOutputWithContext(context.Context) AccountBlobPropertiesRestorePolicyPtrOutput
+}
+
+type accountBlobPropertiesRestorePolicyPtrType AccountBlobPropertiesRestorePolicyArgs
+
+func AccountBlobPropertiesRestorePolicyPtr(v *AccountBlobPropertiesRestorePolicyArgs) AccountBlobPropertiesRestorePolicyPtrInput {
+	return (*accountBlobPropertiesRestorePolicyPtrType)(v)
+}
+
+func (*accountBlobPropertiesRestorePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountBlobPropertiesRestorePolicy)(nil)).Elem()
+}
+
+func (i *accountBlobPropertiesRestorePolicyPtrType) ToAccountBlobPropertiesRestorePolicyPtrOutput() AccountBlobPropertiesRestorePolicyPtrOutput {
+	return i.ToAccountBlobPropertiesRestorePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *accountBlobPropertiesRestorePolicyPtrType) ToAccountBlobPropertiesRestorePolicyPtrOutputWithContext(ctx context.Context) AccountBlobPropertiesRestorePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesRestorePolicyPtrOutput)
+}
+
+type AccountBlobPropertiesRestorePolicyOutput struct{ *pulumi.OutputState }
+
+func (AccountBlobPropertiesRestorePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountBlobPropertiesRestorePolicy)(nil)).Elem()
+}
+
+func (o AccountBlobPropertiesRestorePolicyOutput) ToAccountBlobPropertiesRestorePolicyOutput() AccountBlobPropertiesRestorePolicyOutput {
+	return o
+}
+
+func (o AccountBlobPropertiesRestorePolicyOutput) ToAccountBlobPropertiesRestorePolicyOutputWithContext(ctx context.Context) AccountBlobPropertiesRestorePolicyOutput {
+	return o
+}
+
+func (o AccountBlobPropertiesRestorePolicyOutput) ToAccountBlobPropertiesRestorePolicyPtrOutput() AccountBlobPropertiesRestorePolicyPtrOutput {
+	return o.ToAccountBlobPropertiesRestorePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o AccountBlobPropertiesRestorePolicyOutput) ToAccountBlobPropertiesRestorePolicyPtrOutputWithContext(ctx context.Context) AccountBlobPropertiesRestorePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountBlobPropertiesRestorePolicy) *AccountBlobPropertiesRestorePolicy {
+		return &v
+	}).(AccountBlobPropertiesRestorePolicyPtrOutput)
+}
+
+// Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `deleteRetentionPolicy`.
+func (o AccountBlobPropertiesRestorePolicyOutput) Days() pulumi.IntOutput {
+	return o.ApplyT(func(v AccountBlobPropertiesRestorePolicy) int { return v.Days }).(pulumi.IntOutput)
+}
+
+type AccountBlobPropertiesRestorePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountBlobPropertiesRestorePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountBlobPropertiesRestorePolicy)(nil)).Elem()
+}
+
+func (o AccountBlobPropertiesRestorePolicyPtrOutput) ToAccountBlobPropertiesRestorePolicyPtrOutput() AccountBlobPropertiesRestorePolicyPtrOutput {
+	return o
+}
+
+func (o AccountBlobPropertiesRestorePolicyPtrOutput) ToAccountBlobPropertiesRestorePolicyPtrOutputWithContext(ctx context.Context) AccountBlobPropertiesRestorePolicyPtrOutput {
+	return o
+}
+
+func (o AccountBlobPropertiesRestorePolicyPtrOutput) Elem() AccountBlobPropertiesRestorePolicyOutput {
+	return o.ApplyT(func(v *AccountBlobPropertiesRestorePolicy) AccountBlobPropertiesRestorePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret AccountBlobPropertiesRestorePolicy
+		return ret
+	}).(AccountBlobPropertiesRestorePolicyOutput)
+}
+
+// Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `deleteRetentionPolicy`.
+func (o AccountBlobPropertiesRestorePolicyPtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountBlobPropertiesRestorePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Days
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -8605,6 +8761,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountBlobPropertiesCorsRuleArrayInput)(nil)).Elem(), AccountBlobPropertiesCorsRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountBlobPropertiesDeleteRetentionPolicyInput)(nil)).Elem(), AccountBlobPropertiesDeleteRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountBlobPropertiesDeleteRetentionPolicyPtrInput)(nil)).Elem(), AccountBlobPropertiesDeleteRetentionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountBlobPropertiesRestorePolicyInput)(nil)).Elem(), AccountBlobPropertiesRestorePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountBlobPropertiesRestorePolicyPtrInput)(nil)).Elem(), AccountBlobPropertiesRestorePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomDomainInput)(nil)).Elem(), AccountCustomDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomDomainPtrInput)(nil)).Elem(), AccountCustomDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyInput)(nil)).Elem(), AccountCustomerManagedKeyArgs{})
@@ -8716,6 +8874,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountBlobPropertiesCorsRuleArrayOutput{})
 	pulumi.RegisterOutputType(AccountBlobPropertiesDeleteRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(AccountBlobPropertiesRestorePolicyOutput{})
+	pulumi.RegisterOutputType(AccountBlobPropertiesRestorePolicyPtrOutput{})
 	pulumi.RegisterOutputType(AccountCustomDomainOutput{})
 	pulumi.RegisterOutputType(AccountCustomDomainPtrOutput{})
 	pulumi.RegisterOutputType(AccountCustomerManagedKeyOutput{})

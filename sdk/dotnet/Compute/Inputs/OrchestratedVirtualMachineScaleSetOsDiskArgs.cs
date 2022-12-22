@@ -12,18 +12,33 @@ namespace Pulumi.Azure.Compute.Inputs
 
     public sealed class OrchestratedVirtualMachineScaleSetOsDiskArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+        /// </summary>
         [Input("caching", required: true)]
         public Input<string> Caching { get; set; } = null!;
 
+        /// <summary>
+        /// A `diff_disk_settings` block as defined above.
+        /// </summary>
         [Input("diffDiskSettings")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs>? DiffDiskSettings { get; set; }
 
+        /// <summary>
+        /// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
 
+        /// <summary>
+        /// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+        /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
 
+        /// <summary>
+        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;
 

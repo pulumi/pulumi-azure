@@ -12,6 +12,9 @@ namespace Pulumi.Azure.Compute.Inputs
 
     public sealed class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The certificate store on the Virtual Machine where the certificate should be added.
+        /// </summary>
         [Input("store", required: true)]
         public Input<string> Store { get; set; } = null!;
 

@@ -14,12 +14,19 @@ namespace Pulumi.Azure.Compute.Inputs
     {
         [Input("certificates", required: true)]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateGetArgs>? _certificates;
+
+        /// <summary>
+        /// One or more `certificate` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateGetArgs> Certificates
         {
             get => _certificates ?? (_certificates = new InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateGetArgs>());
             set => _certificates = value;
         }
 
+        /// <summary>
+        /// The ID of the Key Vault from which all Secrets should be sourced.
+        /// </summary>
         [Input("keyVaultId", required: true)]
         public Input<string> KeyVaultId { get; set; } = null!;
 

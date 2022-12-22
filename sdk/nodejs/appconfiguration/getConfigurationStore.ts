@@ -49,6 +49,9 @@ export interface GetConfigurationStoreArgs {
  * A collection of values returned by getConfigurationStore.
  */
 export interface GetConfigurationStoreResult {
+    /**
+     * An `encryption` block as defined below.
+     */
     readonly encryptions: outputs.appconfiguration.GetConfigurationStoreEncryption[];
     /**
      * The Endpoint used to access this App Configuration.

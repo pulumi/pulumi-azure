@@ -19,6 +19,18 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> AssociatedRouteTable { get; set; } = null!;
 
         /// <summary>
+        /// The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+        /// </summary>
+        [Input("inboundRouteMapId")]
+        public Input<string>? InboundRouteMapId { get; set; }
+
+        /// <summary>
+        /// The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+        /// </summary>
+        [Input("outboundRouteMapId")]
+        public Input<string>? OutboundRouteMapId { get; set; }
+
+        /// <summary>
         /// A `propagated_route_table` block as defined below.
         /// </summary>
         [Input("propagatedRouteTable")]

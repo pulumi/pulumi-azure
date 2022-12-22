@@ -20,6 +20,7 @@ class DefinitionArgs:
                  managing_tenant_id: pulumi.Input[str],
                  scope: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 eligible_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationArgs']]]] = None,
                  lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input['DefinitionPlanArgs']] = None):
@@ -29,6 +30,7 @@ class DefinitionArgs:
         :param pulumi.Input[str] managing_tenant_id: The ID of the managing tenant. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: The ID of the managed subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of the Lighthouse Definition.
+        :param pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationArgs']]] eligible_authorizations: An `eligible_authorization` block as defined below.
         :param pulumi.Input[str] lighthouse_definition_id: A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Lighthouse Definition. Changing this forces a new resource to be created.
         :param pulumi.Input['DefinitionPlanArgs'] plan: A `plan` block as defined below.
@@ -38,6 +40,8 @@ class DefinitionArgs:
         pulumi.set(__self__, "scope", scope)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if eligible_authorizations is not None:
+            pulumi.set(__self__, "eligible_authorizations", eligible_authorizations)
         if lighthouse_definition_id is not None:
             pulumi.set(__self__, "lighthouse_definition_id", lighthouse_definition_id)
         if name is not None:
@@ -94,6 +98,18 @@ class DefinitionArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="eligibleAuthorizations")
+    def eligible_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationArgs']]]]:
+        """
+        An `eligible_authorization` block as defined below.
+        """
+        return pulumi.get(self, "eligible_authorizations")
+
+    @eligible_authorizations.setter
+    def eligible_authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationArgs']]]]):
+        pulumi.set(self, "eligible_authorizations", value)
+
+    @property
     @pulumi.getter(name="lighthouseDefinitionId")
     def lighthouse_definition_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -135,6 +151,7 @@ class _DefinitionState:
     def __init__(__self__, *,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 eligible_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationArgs']]]] = None,
                  lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
                  managing_tenant_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -144,6 +161,7 @@ class _DefinitionState:
         Input properties used for looking up and filtering Definition resources.
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]] authorizations: An authorization block as defined below.
         :param pulumi.Input[str] description: A description of the Lighthouse Definition.
+        :param pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationArgs']]] eligible_authorizations: An `eligible_authorization` block as defined below.
         :param pulumi.Input[str] lighthouse_definition_id: A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managing_tenant_id: The ID of the managing tenant. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Lighthouse Definition. Changing this forces a new resource to be created.
@@ -154,6 +172,8 @@ class _DefinitionState:
             pulumi.set(__self__, "authorizations", authorizations)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if eligible_authorizations is not None:
+            pulumi.set(__self__, "eligible_authorizations", eligible_authorizations)
         if lighthouse_definition_id is not None:
             pulumi.set(__self__, "lighthouse_definition_id", lighthouse_definition_id)
         if managing_tenant_id is not None:
@@ -188,6 +208,18 @@ class _DefinitionState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="eligibleAuthorizations")
+    def eligible_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationArgs']]]]:
+        """
+        An `eligible_authorization` block as defined below.
+        """
+        return pulumi.get(self, "eligible_authorizations")
+
+    @eligible_authorizations.setter
+    def eligible_authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationArgs']]]]):
+        pulumi.set(self, "eligible_authorizations", value)
 
     @property
     @pulumi.getter(name="lighthouseDefinitionId")
@@ -257,6 +289,7 @@ class Definition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 eligible_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionEligibleAuthorizationArgs']]]]] = None,
                  lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
                  managing_tenant_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -296,6 +329,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]] authorizations: An authorization block as defined below.
         :param pulumi.Input[str] description: A description of the Lighthouse Definition.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionEligibleAuthorizationArgs']]]] eligible_authorizations: An `eligible_authorization` block as defined below.
         :param pulumi.Input[str] lighthouse_definition_id: A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managing_tenant_id: The ID of the managing tenant. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Lighthouse Definition. Changing this forces a new resource to be created.
@@ -354,6 +388,7 @@ class Definition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 eligible_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionEligibleAuthorizationArgs']]]]] = None,
                  lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
                  managing_tenant_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -372,6 +407,7 @@ class Definition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'authorizations'")
             __props__.__dict__["authorizations"] = authorizations
             __props__.__dict__["description"] = description
+            __props__.__dict__["eligible_authorizations"] = eligible_authorizations
             __props__.__dict__["lighthouse_definition_id"] = lighthouse_definition_id
             if managing_tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'managing_tenant_id'")
@@ -393,6 +429,7 @@ class Definition(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            eligible_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionEligibleAuthorizationArgs']]]]] = None,
             lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
             managing_tenant_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -407,6 +444,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]] authorizations: An authorization block as defined below.
         :param pulumi.Input[str] description: A description of the Lighthouse Definition.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionEligibleAuthorizationArgs']]]] eligible_authorizations: An `eligible_authorization` block as defined below.
         :param pulumi.Input[str] lighthouse_definition_id: A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managing_tenant_id: The ID of the managing tenant. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Lighthouse Definition. Changing this forces a new resource to be created.
@@ -419,6 +457,7 @@ class Definition(pulumi.CustomResource):
 
         __props__.__dict__["authorizations"] = authorizations
         __props__.__dict__["description"] = description
+        __props__.__dict__["eligible_authorizations"] = eligible_authorizations
         __props__.__dict__["lighthouse_definition_id"] = lighthouse_definition_id
         __props__.__dict__["managing_tenant_id"] = managing_tenant_id
         __props__.__dict__["name"] = name
@@ -441,6 +480,14 @@ class Definition(pulumi.CustomResource):
         A description of the Lighthouse Definition.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="eligibleAuthorizations")
+    def eligible_authorizations(self) -> pulumi.Output[Optional[Sequence['outputs.DefinitionEligibleAuthorization']]]:
+        """
+        An `eligible_authorization` block as defined below.
+        """
+        return pulumi.get(self, "eligible_authorizations")
 
     @property
     @pulumi.getter(name="lighthouseDefinitionId")

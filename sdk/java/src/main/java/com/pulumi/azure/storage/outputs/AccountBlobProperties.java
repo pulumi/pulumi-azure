@@ -6,6 +6,7 @@ package com.pulumi.azure.storage.outputs;
 import com.pulumi.azure.storage.outputs.AccountBlobPropertiesContainerDeleteRetentionPolicy;
 import com.pulumi.azure.storage.outputs.AccountBlobPropertiesCorsRule;
 import com.pulumi.azure.storage.outputs.AccountBlobPropertiesDeleteRetentionPolicy;
+import com.pulumi.azure.storage.outputs.AccountBlobPropertiesRestorePolicy;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -52,6 +53,11 @@ public final class AccountBlobProperties {
      * 
      */
     private @Nullable Boolean lastAccessTimeEnabled;
+    /**
+     * @return A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+     * 
+     */
+    private @Nullable AccountBlobPropertiesRestorePolicy restorePolicy;
     /**
      * @return Is versioning enabled? Default to `false`.
      * 
@@ -109,6 +115,13 @@ public final class AccountBlobProperties {
         return Optional.ofNullable(this.lastAccessTimeEnabled);
     }
     /**
+     * @return A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+     * 
+     */
+    public Optional<AccountBlobPropertiesRestorePolicy> restorePolicy() {
+        return Optional.ofNullable(this.restorePolicy);
+    }
+    /**
      * @return Is versioning enabled? Default to `false`.
      * 
      */
@@ -132,6 +145,7 @@ public final class AccountBlobProperties {
         private @Nullable String defaultServiceVersion;
         private @Nullable AccountBlobPropertiesDeleteRetentionPolicy deleteRetentionPolicy;
         private @Nullable Boolean lastAccessTimeEnabled;
+        private @Nullable AccountBlobPropertiesRestorePolicy restorePolicy;
         private @Nullable Boolean versioningEnabled;
         public Builder() {}
         public Builder(AccountBlobProperties defaults) {
@@ -143,6 +157,7 @@ public final class AccountBlobProperties {
     	      this.defaultServiceVersion = defaults.defaultServiceVersion;
     	      this.deleteRetentionPolicy = defaults.deleteRetentionPolicy;
     	      this.lastAccessTimeEnabled = defaults.lastAccessTimeEnabled;
+    	      this.restorePolicy = defaults.restorePolicy;
     	      this.versioningEnabled = defaults.versioningEnabled;
         }
 
@@ -185,6 +200,11 @@ public final class AccountBlobProperties {
             return this;
         }
         @CustomType.Setter
+        public Builder restorePolicy(@Nullable AccountBlobPropertiesRestorePolicy restorePolicy) {
+            this.restorePolicy = restorePolicy;
+            return this;
+        }
+        @CustomType.Setter
         public Builder versioningEnabled(@Nullable Boolean versioningEnabled) {
             this.versioningEnabled = versioningEnabled;
             return this;
@@ -198,6 +218,7 @@ public final class AccountBlobProperties {
             o.defaultServiceVersion = defaultServiceVersion;
             o.deleteRetentionPolicy = deleteRetentionPolicy;
             o.lastAccessTimeEnabled = lastAccessTimeEnabled;
+            o.restorePolicy = restorePolicy;
             o.versioningEnabled = versioningEnabled;
             return o;
         }

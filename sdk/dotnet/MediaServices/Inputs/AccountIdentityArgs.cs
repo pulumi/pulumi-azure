@@ -12,6 +12,18 @@ namespace Pulumi.Azure.MediaServices.Inputs
 
     public sealed class AccountIdentityArgs : global::Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
+        /// </summary>
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
         /// <summary>
         /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
@@ -25,7 +37,7 @@ namespace Pulumi.Azure.MediaServices.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

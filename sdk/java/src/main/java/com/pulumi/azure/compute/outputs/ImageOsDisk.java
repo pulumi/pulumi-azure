@@ -28,7 +28,7 @@ public final class ImageOsDisk {
      */
     private @Nullable String managedDiskId;
     /**
-     * @return Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
+     * @return Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
      * 
      */
     private @Nullable String osState;
@@ -66,7 +66,7 @@ public final class ImageOsDisk {
         return Optional.ofNullable(this.managedDiskId);
     }
     /**
-     * @return Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
+     * @return Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
      * 
      */
     public Optional<String> osState() {

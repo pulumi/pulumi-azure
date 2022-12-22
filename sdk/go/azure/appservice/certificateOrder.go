@@ -95,7 +95,7 @@ type CertificateOrder struct {
 	SignedCertificateThumbprint pulumi.StringOutput `pulumi:"signedCertificateThumbprint"`
 	// Current order status.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A mapping of tags to assign to the resource.
+	// (Optional) A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Duration in years (must be between `1` and `3`).  Defaults to `1`.
 	ValidityInYears pulumi.IntPtrOutput `pulumi:"validityInYears"`
@@ -167,7 +167,7 @@ type certificateOrderState struct {
 	SignedCertificateThumbprint *string `pulumi:"signedCertificateThumbprint"`
 	// Current order status.
 	Status *string `pulumi:"status"`
-	// A mapping of tags to assign to the resource.
+	// (Optional) A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Duration in years (must be between `1` and `3`).  Defaults to `1`.
 	ValidityInYears *int `pulumi:"validityInYears"`
@@ -208,7 +208,7 @@ type CertificateOrderState struct {
 	SignedCertificateThumbprint pulumi.StringPtrInput
 	// Current order status.
 	Status pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// (Optional) A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Duration in years (must be between `1` and `3`).  Defaults to `1`.
 	ValidityInYears pulumi.IntPtrInput
@@ -235,7 +235,7 @@ type certificateOrderArgs struct {
 	ProductType *string `pulumi:"productType"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A mapping of tags to assign to the resource.
+	// (Optional) A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Duration in years (must be between `1` and `3`).  Defaults to `1`.
 	ValidityInYears *int `pulumi:"validityInYears"`
@@ -259,7 +259,7 @@ type CertificateOrderArgs struct {
 	ProductType pulumi.StringPtrInput
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A mapping of tags to assign to the resource.
+	// (Optional) A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Duration in years (must be between `1` and `3`).  Defaults to `1`.
 	ValidityInYears pulumi.IntPtrInput
@@ -437,7 +437,7 @@ func (o CertificateOrderOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateOrder) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// A mapping of tags to assign to the resource.
+// (Optional) A mapping of tags to assign to the resource.
 func (o CertificateOrderOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CertificateOrder) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

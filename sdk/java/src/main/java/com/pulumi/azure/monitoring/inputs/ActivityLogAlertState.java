@@ -111,14 +111,14 @@ public final class ActivityLogAlertState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+     * The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
      * 
      */
     @Import(name="scopes")
     private @Nullable Output<List<String>> scopes;
 
     /**
-     * @return The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+     * @return The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
      * 
      */
     public Optional<Output<List<String>>> scopes() {
@@ -308,7 +308,7 @@ public final class ActivityLogAlertState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param scopes The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+         * @param scopes The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class ActivityLogAlertState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param scopes The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+         * @param scopes The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class ActivityLogAlertState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param scopes The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+         * @param scopes The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
          * 
          * @return builder
          * 

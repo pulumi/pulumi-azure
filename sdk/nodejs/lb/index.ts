@@ -25,6 +25,11 @@ export const getLB: typeof import("./getLB").getLB = null as any;
 export const getLBOutput: typeof import("./getLB").getLBOutput = null as any;
 utilities.lazyLoad(exports, ["getLB","getLBOutput"], () => require("./getLB"));
 
+export { GetLBOutboundRuleArgs, GetLBOutboundRuleResult, GetLBOutboundRuleOutputArgs } from "./getLBOutboundRule";
+export const getLBOutboundRule: typeof import("./getLBOutboundRule").getLBOutboundRule = null as any;
+export const getLBOutboundRuleOutput: typeof import("./getLBOutboundRule").getLBOutboundRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getLBOutboundRule","getLBOutboundRuleOutput"], () => require("./getLBOutboundRule"));
+
 export { GetLBRuleArgs, GetLBRuleResult, GetLBRuleOutputArgs } from "./getLBRule";
 export const getLBRule: typeof import("./getLBRule").getLBRule = null as any;
 export const getLBRuleOutput: typeof import("./getLBRule").getLBRuleOutput = null as any;

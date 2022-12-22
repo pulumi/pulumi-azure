@@ -17,7 +17,7 @@ public final class ReplicatedVMNetworkInterface {
      */
     private @Nullable String recoveryPublicIpAddressId;
     /**
-     * @return Id source network interface.
+     * @return (Required if the network_interface block is specified) Id source network interface.
      * 
      */
     private @Nullable String sourceNetworkInterfaceId;
@@ -41,7 +41,7 @@ public final class ReplicatedVMNetworkInterface {
         return Optional.ofNullable(this.recoveryPublicIpAddressId);
     }
     /**
-     * @return Id source network interface.
+     * @return (Required if the network_interface block is specified) Id source network interface.
      * 
      */
     public Optional<String> sourceNetworkInterfaceId() {

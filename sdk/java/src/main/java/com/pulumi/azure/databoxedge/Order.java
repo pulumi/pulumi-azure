@@ -179,14 +179,14 @@ public class Order extends com.pulumi.resources.CustomResource {
         return this.serialNumber;
     }
     /**
-     * A `shipment_address block as defined below.
+     * A `shipment_address` block as defined below.
      * 
      */
     @Export(name="shipmentAddress", type=OrderShipmentAddress.class, parameters={})
     private Output<OrderShipmentAddress> shipmentAddress;
 
     /**
-     * @return A `shipment_address block as defined below.
+     * @return A `shipment_address` block as defined below.
      * 
      */
     public Output<OrderShipmentAddress> shipmentAddress() {

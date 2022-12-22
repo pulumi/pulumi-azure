@@ -7730,7 +7730,7 @@ func (o KubernetesClusterKubeletIdentityPtrOutput) UserAssignedIdentityId() pulu
 type KubernetesClusterLinuxProfile struct {
 	// The Admin Username for the Cluster. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
-	// An `sshKey` block. Only one is currently allowed. Changing this forces a new resource to be created.
+	// An `sshKey` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
 	SshKey KubernetesClusterLinuxProfileSshKey `pulumi:"sshKey"`
 }
 
@@ -7748,7 +7748,7 @@ type KubernetesClusterLinuxProfileInput interface {
 type KubernetesClusterLinuxProfileArgs struct {
 	// The Admin Username for the Cluster. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-	// An `sshKey` block. Only one is currently allowed. Changing this forces a new resource to be created.
+	// An `sshKey` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
 	SshKey KubernetesClusterLinuxProfileSshKeyInput `pulumi:"sshKey"`
 }
 
@@ -7834,7 +7834,7 @@ func (o KubernetesClusterLinuxProfileOutput) AdminUsername() pulumi.StringOutput
 	return o.ApplyT(func(v KubernetesClusterLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// An `sshKey` block. Only one is currently allowed. Changing this forces a new resource to be created.
+// An `sshKey` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
 func (o KubernetesClusterLinuxProfileOutput) SshKey() KubernetesClusterLinuxProfileSshKeyOutput {
 	return o.ApplyT(func(v KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfileSshKey { return v.SshKey }).(KubernetesClusterLinuxProfileSshKeyOutput)
 }
@@ -7873,7 +7873,7 @@ func (o KubernetesClusterLinuxProfilePtrOutput) AdminUsername() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// An `sshKey` block. Only one is currently allowed. Changing this forces a new resource to be created.
+// An `sshKey` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
 func (o KubernetesClusterLinuxProfilePtrOutput) SshKey() KubernetesClusterLinuxProfileSshKeyPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterLinuxProfile) *KubernetesClusterLinuxProfileSshKey {
 		if v == nil {
@@ -7884,7 +7884,7 @@ func (o KubernetesClusterLinuxProfilePtrOutput) SshKey() KubernetesClusterLinuxP
 }
 
 type KubernetesClusterLinuxProfileSshKey struct {
-	// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
+	// The Public SSH Key used to access the cluster.
 	KeyData string `pulumi:"keyData"`
 }
 
@@ -7900,7 +7900,7 @@ type KubernetesClusterLinuxProfileSshKeyInput interface {
 }
 
 type KubernetesClusterLinuxProfileSshKeyArgs struct {
-	// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
+	// The Public SSH Key used to access the cluster.
 	KeyData pulumi.StringInput `pulumi:"keyData"`
 }
 
@@ -7981,7 +7981,7 @@ func (o KubernetesClusterLinuxProfileSshKeyOutput) ToKubernetesClusterLinuxProfi
 	}).(KubernetesClusterLinuxProfileSshKeyPtrOutput)
 }
 
-// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
+// The Public SSH Key used to access the cluster.
 func (o KubernetesClusterLinuxProfileSshKeyOutput) KeyData() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterLinuxProfileSshKey) string { return v.KeyData }).(pulumi.StringOutput)
 }
@@ -8010,7 +8010,7 @@ func (o KubernetesClusterLinuxProfileSshKeyPtrOutput) Elem() KubernetesClusterLi
 	}).(KubernetesClusterLinuxProfileSshKeyOutput)
 }
 
-// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
+// The Public SSH Key used to access the cluster.
 func (o KubernetesClusterLinuxProfileSshKeyPtrOutput) KeyData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterLinuxProfileSshKey) *string {
 		if v == nil {
@@ -8529,6 +8529,158 @@ func (o KubernetesClusterMicrosoftDefenderPtrOutput) LogAnalyticsWorkspaceId() p
 	}).(pulumi.StringPtrOutput)
 }
 
+type KubernetesClusterMonitorMetrics struct {
+	// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+	AnnotationsAllowed *string `pulumi:"annotationsAllowed"`
+	LabelsAllowed      *string `pulumi:"labelsAllowed"`
+}
+
+// KubernetesClusterMonitorMetricsInput is an input type that accepts KubernetesClusterMonitorMetricsArgs and KubernetesClusterMonitorMetricsOutput values.
+// You can construct a concrete instance of `KubernetesClusterMonitorMetricsInput` via:
+//
+//	KubernetesClusterMonitorMetricsArgs{...}
+type KubernetesClusterMonitorMetricsInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMonitorMetricsOutput() KubernetesClusterMonitorMetricsOutput
+	ToKubernetesClusterMonitorMetricsOutputWithContext(context.Context) KubernetesClusterMonitorMetricsOutput
+}
+
+type KubernetesClusterMonitorMetricsArgs struct {
+	// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+	AnnotationsAllowed pulumi.StringPtrInput `pulumi:"annotationsAllowed"`
+	LabelsAllowed      pulumi.StringPtrInput `pulumi:"labelsAllowed"`
+}
+
+func (KubernetesClusterMonitorMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMonitorMetrics)(nil)).Elem()
+}
+
+func (i KubernetesClusterMonitorMetricsArgs) ToKubernetesClusterMonitorMetricsOutput() KubernetesClusterMonitorMetricsOutput {
+	return i.ToKubernetesClusterMonitorMetricsOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMonitorMetricsArgs) ToKubernetesClusterMonitorMetricsOutputWithContext(ctx context.Context) KubernetesClusterMonitorMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMonitorMetricsOutput)
+}
+
+func (i KubernetesClusterMonitorMetricsArgs) ToKubernetesClusterMonitorMetricsPtrOutput() KubernetesClusterMonitorMetricsPtrOutput {
+	return i.ToKubernetesClusterMonitorMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterMonitorMetricsArgs) ToKubernetesClusterMonitorMetricsPtrOutputWithContext(ctx context.Context) KubernetesClusterMonitorMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMonitorMetricsOutput).ToKubernetesClusterMonitorMetricsPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterMonitorMetricsPtrInput is an input type that accepts KubernetesClusterMonitorMetricsArgs, KubernetesClusterMonitorMetricsPtr and KubernetesClusterMonitorMetricsPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterMonitorMetricsPtrInput` via:
+//
+//	        KubernetesClusterMonitorMetricsArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterMonitorMetricsPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterMonitorMetricsPtrOutput() KubernetesClusterMonitorMetricsPtrOutput
+	ToKubernetesClusterMonitorMetricsPtrOutputWithContext(context.Context) KubernetesClusterMonitorMetricsPtrOutput
+}
+
+type kubernetesClusterMonitorMetricsPtrType KubernetesClusterMonitorMetricsArgs
+
+func KubernetesClusterMonitorMetricsPtr(v *KubernetesClusterMonitorMetricsArgs) KubernetesClusterMonitorMetricsPtrInput {
+	return (*kubernetesClusterMonitorMetricsPtrType)(v)
+}
+
+func (*kubernetesClusterMonitorMetricsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterMonitorMetrics)(nil)).Elem()
+}
+
+func (i *kubernetesClusterMonitorMetricsPtrType) ToKubernetesClusterMonitorMetricsPtrOutput() KubernetesClusterMonitorMetricsPtrOutput {
+	return i.ToKubernetesClusterMonitorMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterMonitorMetricsPtrType) ToKubernetesClusterMonitorMetricsPtrOutputWithContext(ctx context.Context) KubernetesClusterMonitorMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterMonitorMetricsPtrOutput)
+}
+
+type KubernetesClusterMonitorMetricsOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMonitorMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterMonitorMetrics)(nil)).Elem()
+}
+
+func (o KubernetesClusterMonitorMetricsOutput) ToKubernetesClusterMonitorMetricsOutput() KubernetesClusterMonitorMetricsOutput {
+	return o
+}
+
+func (o KubernetesClusterMonitorMetricsOutput) ToKubernetesClusterMonitorMetricsOutputWithContext(ctx context.Context) KubernetesClusterMonitorMetricsOutput {
+	return o
+}
+
+func (o KubernetesClusterMonitorMetricsOutput) ToKubernetesClusterMonitorMetricsPtrOutput() KubernetesClusterMonitorMetricsPtrOutput {
+	return o.ToKubernetesClusterMonitorMetricsPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterMonitorMetricsOutput) ToKubernetesClusterMonitorMetricsPtrOutputWithContext(ctx context.Context) KubernetesClusterMonitorMetricsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterMonitorMetrics) *KubernetesClusterMonitorMetrics {
+		return &v
+	}).(KubernetesClusterMonitorMetricsPtrOutput)
+}
+
+// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+func (o KubernetesClusterMonitorMetricsOutput) AnnotationsAllowed() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterMonitorMetrics) *string { return v.AnnotationsAllowed }).(pulumi.StringPtrOutput)
+}
+
+func (o KubernetesClusterMonitorMetricsOutput) LabelsAllowed() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterMonitorMetrics) *string { return v.LabelsAllowed }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterMonitorMetricsPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterMonitorMetricsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterMonitorMetrics)(nil)).Elem()
+}
+
+func (o KubernetesClusterMonitorMetricsPtrOutput) ToKubernetesClusterMonitorMetricsPtrOutput() KubernetesClusterMonitorMetricsPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterMonitorMetricsPtrOutput) ToKubernetesClusterMonitorMetricsPtrOutputWithContext(ctx context.Context) KubernetesClusterMonitorMetricsPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterMonitorMetricsPtrOutput) Elem() KubernetesClusterMonitorMetricsOutput {
+	return o.ApplyT(func(v *KubernetesClusterMonitorMetrics) KubernetesClusterMonitorMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterMonitorMetrics
+		return ret
+	}).(KubernetesClusterMonitorMetricsOutput)
+}
+
+// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+func (o KubernetesClusterMonitorMetricsPtrOutput) AnnotationsAllowed() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMonitorMetrics) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AnnotationsAllowed
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KubernetesClusterMonitorMetricsPtrOutput) LabelsAllowed() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterMonitorMetrics) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LabelsAllowed
+	}).(pulumi.StringPtrOutput)
+}
+
 type KubernetesClusterNetworkProfile struct {
 	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 	DnsServiceIp *string `pulumi:"dnsServiceIp"`
@@ -8538,17 +8690,17 @@ type KubernetesClusterNetworkProfile struct {
 	EbpfDataPlane *string `pulumi:"ebpfDataPlane"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 	IpVersions []string `pulumi:"ipVersions"`
-	// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `standard`.
+	// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`.
 	LoadBalancerProfile *KubernetesClusterNetworkProfileLoadBalancerProfile `pulumi:"loadBalancerProfile"`
 	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
 	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
-	// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+	// A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
 	NatGatewayProfile *KubernetesClusterNetworkProfileNatGatewayProfile `pulumi:"natGatewayProfile"`
 	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 	NetworkMode *string `pulumi:"networkMode"`
 	// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
 	NetworkPlugin string `pulumi:"networkPlugin"`
-	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
 	NetworkPluginMode *string `pulumi:"networkPluginMode"`
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
@@ -8584,17 +8736,17 @@ type KubernetesClusterNetworkProfileArgs struct {
 	EbpfDataPlane pulumi.StringPtrInput `pulumi:"ebpfDataPlane"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 	IpVersions pulumi.StringArrayInput `pulumi:"ipVersions"`
-	// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `standard`.
+	// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`.
 	LoadBalancerProfile KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput `pulumi:"loadBalancerProfile"`
 	// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
 	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
-	// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+	// A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
 	NatGatewayProfile KubernetesClusterNetworkProfileNatGatewayProfilePtrInput `pulumi:"natGatewayProfile"`
 	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
 	// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
 	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
-	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+	// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
 	NetworkPluginMode pulumi.StringPtrInput `pulumi:"networkPluginMode"`
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
 	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
@@ -8707,7 +8859,7 @@ func (o KubernetesClusterNetworkProfileOutput) IpVersions() pulumi.StringArrayOu
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.IpVersions }).(pulumi.StringArrayOutput)
 }
 
-// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `standard`.
+// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`.
 func (o KubernetesClusterNetworkProfileOutput) LoadBalancerProfile() KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile {
 		return v.LoadBalancerProfile
@@ -8719,7 +8871,7 @@ func (o KubernetesClusterNetworkProfileOutput) LoadBalancerSku() pulumi.StringPt
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
-// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+// A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
 func (o KubernetesClusterNetworkProfileOutput) NatGatewayProfile() KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileNatGatewayProfile {
 		return v.NatGatewayProfile
@@ -8736,7 +8888,7 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringOutp
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) string { return v.NetworkPlugin }).(pulumi.StringOutput)
 }
 
-// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPluginMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPluginMode }).(pulumi.StringPtrOutput)
 }
@@ -8835,7 +8987,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) IpVersions() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `standard`.
+// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`.
 func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerProfile() KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileLoadBalancerProfile {
 		if v == nil {
@@ -8855,7 +9007,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) LoadBalancerSku() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+// A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
 func (o KubernetesClusterNetworkProfilePtrOutput) NatGatewayProfile() KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileNatGatewayProfile {
 		if v == nil {
@@ -8885,7 +9037,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPlugin() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPluginMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -10691,6 +10843,143 @@ func (o KubernetesClusterNodePoolUpgradeSettingsPtrOutput) MaxSurge() pulumi.Str
 		}
 		return &v.MaxSurge
 	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterNodePoolWindowsProfile struct {
+	// Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to `true`. Changing this forces a new resource to be created.
+	OutboundNatEnabled *bool `pulumi:"outboundNatEnabled"`
+}
+
+// KubernetesClusterNodePoolWindowsProfileInput is an input type that accepts KubernetesClusterNodePoolWindowsProfileArgs and KubernetesClusterNodePoolWindowsProfileOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodePoolWindowsProfileInput` via:
+//
+//	KubernetesClusterNodePoolWindowsProfileArgs{...}
+type KubernetesClusterNodePoolWindowsProfileInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodePoolWindowsProfileOutput() KubernetesClusterNodePoolWindowsProfileOutput
+	ToKubernetesClusterNodePoolWindowsProfileOutputWithContext(context.Context) KubernetesClusterNodePoolWindowsProfileOutput
+}
+
+type KubernetesClusterNodePoolWindowsProfileArgs struct {
+	// Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to `true`. Changing this forces a new resource to be created.
+	OutboundNatEnabled pulumi.BoolPtrInput `pulumi:"outboundNatEnabled"`
+}
+
+func (KubernetesClusterNodePoolWindowsProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePoolWindowsProfile)(nil)).Elem()
+}
+
+func (i KubernetesClusterNodePoolWindowsProfileArgs) ToKubernetesClusterNodePoolWindowsProfileOutput() KubernetesClusterNodePoolWindowsProfileOutput {
+	return i.ToKubernetesClusterNodePoolWindowsProfileOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodePoolWindowsProfileArgs) ToKubernetesClusterNodePoolWindowsProfileOutputWithContext(ctx context.Context) KubernetesClusterNodePoolWindowsProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolWindowsProfileOutput)
+}
+
+func (i KubernetesClusterNodePoolWindowsProfileArgs) ToKubernetesClusterNodePoolWindowsProfilePtrOutput() KubernetesClusterNodePoolWindowsProfilePtrOutput {
+	return i.ToKubernetesClusterNodePoolWindowsProfilePtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodePoolWindowsProfileArgs) ToKubernetesClusterNodePoolWindowsProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolWindowsProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolWindowsProfileOutput).ToKubernetesClusterNodePoolWindowsProfilePtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterNodePoolWindowsProfilePtrInput is an input type that accepts KubernetesClusterNodePoolWindowsProfileArgs, KubernetesClusterNodePoolWindowsProfilePtr and KubernetesClusterNodePoolWindowsProfilePtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodePoolWindowsProfilePtrInput` via:
+//
+//	        KubernetesClusterNodePoolWindowsProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterNodePoolWindowsProfilePtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodePoolWindowsProfilePtrOutput() KubernetesClusterNodePoolWindowsProfilePtrOutput
+	ToKubernetesClusterNodePoolWindowsProfilePtrOutputWithContext(context.Context) KubernetesClusterNodePoolWindowsProfilePtrOutput
+}
+
+type kubernetesClusterNodePoolWindowsProfilePtrType KubernetesClusterNodePoolWindowsProfileArgs
+
+func KubernetesClusterNodePoolWindowsProfilePtr(v *KubernetesClusterNodePoolWindowsProfileArgs) KubernetesClusterNodePoolWindowsProfilePtrInput {
+	return (*kubernetesClusterNodePoolWindowsProfilePtrType)(v)
+}
+
+func (*kubernetesClusterNodePoolWindowsProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNodePoolWindowsProfile)(nil)).Elem()
+}
+
+func (i *kubernetesClusterNodePoolWindowsProfilePtrType) ToKubernetesClusterNodePoolWindowsProfilePtrOutput() KubernetesClusterNodePoolWindowsProfilePtrOutput {
+	return i.ToKubernetesClusterNodePoolWindowsProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterNodePoolWindowsProfilePtrType) ToKubernetesClusterNodePoolWindowsProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolWindowsProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolWindowsProfilePtrOutput)
+}
+
+type KubernetesClusterNodePoolWindowsProfileOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodePoolWindowsProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePoolWindowsProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodePoolWindowsProfileOutput) ToKubernetesClusterNodePoolWindowsProfileOutput() KubernetesClusterNodePoolWindowsProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolWindowsProfileOutput) ToKubernetesClusterNodePoolWindowsProfileOutputWithContext(ctx context.Context) KubernetesClusterNodePoolWindowsProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolWindowsProfileOutput) ToKubernetesClusterNodePoolWindowsProfilePtrOutput() KubernetesClusterNodePoolWindowsProfilePtrOutput {
+	return o.ToKubernetesClusterNodePoolWindowsProfilePtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterNodePoolWindowsProfileOutput) ToKubernetesClusterNodePoolWindowsProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolWindowsProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNodePoolWindowsProfile) *KubernetesClusterNodePoolWindowsProfile {
+		return &v
+	}).(KubernetesClusterNodePoolWindowsProfilePtrOutput)
+}
+
+// Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to `true`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolWindowsProfileOutput) OutboundNatEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolWindowsProfile) *bool { return v.OutboundNatEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type KubernetesClusterNodePoolWindowsProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodePoolWindowsProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNodePoolWindowsProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodePoolWindowsProfilePtrOutput) ToKubernetesClusterNodePoolWindowsProfilePtrOutput() KubernetesClusterNodePoolWindowsProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolWindowsProfilePtrOutput) ToKubernetesClusterNodePoolWindowsProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolWindowsProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolWindowsProfilePtrOutput) Elem() KubernetesClusterNodePoolWindowsProfileOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolWindowsProfile) KubernetesClusterNodePoolWindowsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterNodePoolWindowsProfile
+		return ret
+	}).(KubernetesClusterNodePoolWindowsProfileOutput)
+}
+
+// Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to `true`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolWindowsProfilePtrOutput) OutboundNatEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolWindowsProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OutboundNatEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type KubernetesClusterOmsAgent struct {
@@ -18878,6 +19167,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMaintenanceWindowNotAllowedArrayInput)(nil)).Elem(), KubernetesClusterMaintenanceWindowNotAllowedArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMicrosoftDefenderInput)(nil)).Elem(), KubernetesClusterMicrosoftDefenderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMicrosoftDefenderPtrInput)(nil)).Elem(), KubernetesClusterMicrosoftDefenderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMonitorMetricsInput)(nil)).Elem(), KubernetesClusterMonitorMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMonitorMetricsPtrInput)(nil)).Elem(), KubernetesClusterMonitorMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfileInput)(nil)).Elem(), KubernetesClusterNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfilePtrInput)(nil)).Elem(), KubernetesClusterNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfileLoadBalancerProfileInput)(nil)).Elem(), KubernetesClusterNetworkProfileLoadBalancerProfileArgs{})
@@ -18892,6 +19183,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrInput)(nil)).Elem(), KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolUpgradeSettingsInput)(nil)).Elem(), KubernetesClusterNodePoolUpgradeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolUpgradeSettingsPtrInput)(nil)).Elem(), KubernetesClusterNodePoolUpgradeSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolWindowsProfileInput)(nil)).Elem(), KubernetesClusterNodePoolWindowsProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolWindowsProfilePtrInput)(nil)).Elem(), KubernetesClusterNodePoolWindowsProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterOmsAgentInput)(nil)).Elem(), KubernetesClusterOmsAgentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterOmsAgentPtrInput)(nil)).Elem(), KubernetesClusterOmsAgentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterOmsAgentOmsAgentIdentityInput)(nil)).Elem(), KubernetesClusterOmsAgentOmsAgentIdentityArgs{})
@@ -19088,6 +19381,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterMaintenanceWindowNotAllowedArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterMicrosoftDefenderOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterMicrosoftDefenderPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMonitorMetricsOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterMonitorMetricsPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileLoadBalancerProfileOutput{})
@@ -19102,6 +19397,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolUpgradeSettingsOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolUpgradeSettingsPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodePoolWindowsProfileOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodePoolWindowsProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterOmsAgentOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterOmsAgentPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterOmsAgentOmsAgentIdentityOutput{})

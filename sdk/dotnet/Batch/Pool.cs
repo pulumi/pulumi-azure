@@ -152,13 +152,13 @@ namespace Pulumi.Azure.Batch
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
-        /// A `auto_scale` block that describes the scale settings when using auto scale.
+        /// A `auto_scale` block that describes the scale settings when using auto scale as defined below.
         /// </summary>
         [Output("autoScale")]
         public Output<Outputs.PoolAutoScale?> AutoScale { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+        /// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
         /// </summary>
         [Output("certificates")]
         public Output<ImmutableArray<Outputs.PoolCertificate>> Certificates { get; private set; } = null!;
@@ -170,13 +170,13 @@ namespace Pulumi.Azure.Batch
         public Output<Outputs.PoolContainerConfiguration?> ContainerConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A `data_disks` block describes the data disk settings.
+        /// A `data_disks` block describes the data disk settings as defined below.
         /// </summary>
         [Output("dataDisks")]
         public Output<ImmutableArray<Outputs.PoolDataDisk>> DataDisks { get; private set; } = null!;
 
         /// <summary>
-        /// A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        /// A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
         /// </summary>
         [Output("diskEncryptions")]
         public Output<ImmutableArray<Outputs.PoolDiskEncryption>> DiskEncryptions { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.Batch
         public Output<ImmutableArray<Outputs.PoolExtension>> Extensions { get; private set; } = null!;
 
         /// <summary>
-        /// A `fixed_scale` block that describes the scale settings when using fixed scale.
+        /// A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
         /// </summary>
         [Output("fixedScale")]
         public Output<Outputs.PoolFixedScale?> FixedScale { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Batch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_configuration` block that describes the network configurations for the Batch pool.
+        /// A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
         /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.PoolNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.Batch
         public Output<string> NodeAgentSkuId { get; private set; } = null!;
 
         /// <summary>
-        /// A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+        /// A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         /// </summary>
         [Output("nodePlacements")]
         public Output<ImmutableArray<Outputs.PoolNodePlacement>> NodePlacements { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.Batch
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `start_task` block that describes the start task settings for the Batch pool.
+        /// A `start_task` block that describes the start task settings for the Batch pool as defined below.
         /// </summary>
         [Output("startTask")]
         public Output<Outputs.PoolStartTask?> StartTask { get; private set; } = null!;
@@ -287,13 +287,13 @@ namespace Pulumi.Azure.Batch
         public Output<Outputs.PoolStorageImageReference> StorageImageReference { get; private set; } = null!;
 
         /// <summary>
-        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
         /// </summary>
         [Output("taskSchedulingPolicies")]
         public Output<ImmutableArray<Outputs.PoolTaskSchedulingPolicy>> TaskSchedulingPolicies { get; private set; } = null!;
 
         /// <summary>
-        /// A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+        /// A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         /// </summary>
         [Output("userAccounts")]
         public Output<ImmutableArray<Outputs.PoolUserAccount>> UserAccounts { get; private set; } = null!;
@@ -305,7 +305,7 @@ namespace Pulumi.Azure.Batch
         public Output<string> VmSize { get; private set; } = null!;
 
         /// <summary>
-        /// A `windows` block that describes the Windows configuration in the pool.
+        /// A `windows` block that describes the Windows configuration in the pool as defined below.
         /// </summary>
         [Output("windows")]
         public Output<ImmutableArray<Outputs.PoolWindow>> Windows { get; private set; } = null!;
@@ -363,7 +363,7 @@ namespace Pulumi.Azure.Batch
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// A `auto_scale` block that describes the scale settings when using auto scale.
+        /// A `auto_scale` block that describes the scale settings when using auto scale as defined below.
         /// </summary>
         [Input("autoScale")]
         public Input<Inputs.PoolAutoScaleArgs>? AutoScale { get; set; }
@@ -372,7 +372,7 @@ namespace Pulumi.Azure.Batch
         private InputList<Inputs.PoolCertificateArgs>? _certificates;
 
         /// <summary>
-        /// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+        /// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
         /// </summary>
         public InputList<Inputs.PoolCertificateArgs> Certificates
         {
@@ -390,7 +390,7 @@ namespace Pulumi.Azure.Batch
         private InputList<Inputs.PoolDataDiskArgs>? _dataDisks;
 
         /// <summary>
-        /// A `data_disks` block describes the data disk settings.
+        /// A `data_disks` block describes the data disk settings as defined below.
         /// </summary>
         public InputList<Inputs.PoolDataDiskArgs> DataDisks
         {
@@ -402,7 +402,7 @@ namespace Pulumi.Azure.Batch
         private InputList<Inputs.PoolDiskEncryptionArgs>? _diskEncryptions;
 
         /// <summary>
-        /// A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        /// A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
         /// </summary>
         public InputList<Inputs.PoolDiskEncryptionArgs> DiskEncryptions
         {
@@ -429,7 +429,7 @@ namespace Pulumi.Azure.Batch
         }
 
         /// <summary>
-        /// A `fixed_scale` block that describes the scale settings when using fixed scale.
+        /// A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
         /// </summary>
         [Input("fixedScale")]
         public Input<Inputs.PoolFixedScaleArgs>? FixedScale { get; set; }
@@ -489,7 +489,7 @@ namespace Pulumi.Azure.Batch
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_configuration` block that describes the network configurations for the Batch pool.
+        /// A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.PoolNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
@@ -504,7 +504,7 @@ namespace Pulumi.Azure.Batch
         private InputList<Inputs.PoolNodePlacementArgs>? _nodePlacements;
 
         /// <summary>
-        /// A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+        /// A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         /// </summary>
         public InputList<Inputs.PoolNodePlacementArgs> NodePlacements
         {
@@ -525,7 +525,7 @@ namespace Pulumi.Azure.Batch
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `start_task` block that describes the start task settings for the Batch pool.
+        /// A `start_task` block that describes the start task settings for the Batch pool as defined below.
         /// </summary>
         [Input("startTask")]
         public Input<Inputs.PoolStartTaskArgs>? StartTask { get; set; }
@@ -543,7 +543,7 @@ namespace Pulumi.Azure.Batch
         private InputList<Inputs.PoolTaskSchedulingPolicyArgs>? _taskSchedulingPolicies;
 
         /// <summary>
-        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
         /// </summary>
         public InputList<Inputs.PoolTaskSchedulingPolicyArgs> TaskSchedulingPolicies
         {
@@ -555,7 +555,7 @@ namespace Pulumi.Azure.Batch
         private InputList<Inputs.PoolUserAccountArgs>? _userAccounts;
 
         /// <summary>
-        /// A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+        /// A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         /// </summary>
         public InputList<Inputs.PoolUserAccountArgs> UserAccounts
         {
@@ -573,7 +573,7 @@ namespace Pulumi.Azure.Batch
         private InputList<Inputs.PoolWindowArgs>? _windows;
 
         /// <summary>
-        /// A `windows` block that describes the Windows configuration in the pool.
+        /// A `windows` block that describes the Windows configuration in the pool as defined below.
         /// </summary>
         public InputList<Inputs.PoolWindowArgs> Windows
         {
@@ -596,7 +596,7 @@ namespace Pulumi.Azure.Batch
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// A `auto_scale` block that describes the scale settings when using auto scale.
+        /// A `auto_scale` block that describes the scale settings when using auto scale as defined below.
         /// </summary>
         [Input("autoScale")]
         public Input<Inputs.PoolAutoScaleGetArgs>? AutoScale { get; set; }
@@ -605,7 +605,7 @@ namespace Pulumi.Azure.Batch
         private InputList<Inputs.PoolCertificateGetArgs>? _certificates;
 
         /// <summary>
-        /// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+        /// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
         /// </summary>
         public InputList<Inputs.PoolCertificateGetArgs> Certificates
         {
@@ -623,7 +623,7 @@ namespace Pulumi.Azure.Batch
         private InputList<Inputs.PoolDataDiskGetArgs>? _dataDisks;
 
         /// <summary>
-        /// A `data_disks` block describes the data disk settings.
+        /// A `data_disks` block describes the data disk settings as defined below.
         /// </summary>
         public InputList<Inputs.PoolDataDiskGetArgs> DataDisks
         {
@@ -635,7 +635,7 @@ namespace Pulumi.Azure.Batch
         private InputList<Inputs.PoolDiskEncryptionGetArgs>? _diskEncryptions;
 
         /// <summary>
-        /// A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        /// A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
         /// </summary>
         public InputList<Inputs.PoolDiskEncryptionGetArgs> DiskEncryptions
         {
@@ -662,7 +662,7 @@ namespace Pulumi.Azure.Batch
         }
 
         /// <summary>
-        /// A `fixed_scale` block that describes the scale settings when using fixed scale.
+        /// A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
         /// </summary>
         [Input("fixedScale")]
         public Input<Inputs.PoolFixedScaleGetArgs>? FixedScale { get; set; }
@@ -722,7 +722,7 @@ namespace Pulumi.Azure.Batch
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_configuration` block that describes the network configurations for the Batch pool.
+        /// A `network_configuration` block that describes the network configurations for the Batch pool as defined below.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.PoolNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
@@ -737,7 +737,7 @@ namespace Pulumi.Azure.Batch
         private InputList<Inputs.PoolNodePlacementGetArgs>? _nodePlacements;
 
         /// <summary>
-        /// A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+        /// A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         /// </summary>
         public InputList<Inputs.PoolNodePlacementGetArgs> NodePlacements
         {
@@ -758,7 +758,7 @@ namespace Pulumi.Azure.Batch
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `start_task` block that describes the start task settings for the Batch pool.
+        /// A `start_task` block that describes the start task settings for the Batch pool as defined below.
         /// </summary>
         [Input("startTask")]
         public Input<Inputs.PoolStartTaskGetArgs>? StartTask { get; set; }
@@ -776,7 +776,7 @@ namespace Pulumi.Azure.Batch
         private InputList<Inputs.PoolTaskSchedulingPolicyGetArgs>? _taskSchedulingPolicies;
 
         /// <summary>
-        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
         /// </summary>
         public InputList<Inputs.PoolTaskSchedulingPolicyGetArgs> TaskSchedulingPolicies
         {
@@ -788,7 +788,7 @@ namespace Pulumi.Azure.Batch
         private InputList<Inputs.PoolUserAccountGetArgs>? _userAccounts;
 
         /// <summary>
-        /// A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+        /// A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         /// </summary>
         public InputList<Inputs.PoolUserAccountGetArgs> UserAccounts
         {
@@ -806,7 +806,7 @@ namespace Pulumi.Azure.Batch
         private InputList<Inputs.PoolWindowGetArgs>? _windows;
 
         /// <summary>
-        /// A `windows` block that describes the Windows configuration in the pool.
+        /// A `windows` block that describes the Windows configuration in the pool as defined below.
         /// </summary>
         public InputList<Inputs.PoolWindowGetArgs> Windows
         {

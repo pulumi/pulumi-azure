@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScaleSetBootDiagnostics {
+    /**
+     * @return Whether to enable boot diagnostics for the virtual machine.
+     * 
+     */
     private @Nullable Boolean enabled;
+    /**
+     * @return Blob endpoint for the storage account to hold the virtual machine&#39;s diagnostic files. This must be the root of a storage account, and not a storage container.
+     * 
+     */
     private String storageUri;
 
     private ScaleSetBootDiagnostics() {}
+    /**
+     * @return Whether to enable boot diagnostics for the virtual machine.
+     * 
+     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
+    /**
+     * @return Blob endpoint for the storage account to hold the virtual machine&#39;s diagnostic files. This must be the root of a storage account, and not a storage container.
+     * 
+     */
     public String storageUri() {
         return this.storageUri;
     }

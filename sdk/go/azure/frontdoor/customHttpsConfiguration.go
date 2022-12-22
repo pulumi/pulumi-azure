@@ -23,7 +23,7 @@ import (
 type CustomHttpsConfiguration struct {
 	pulumi.CustomResourceState
 
-	// A `customHttpsConfiguration` block as defined below.
+	// (Optional) A `customHttpsConfiguration` block as defined below.
 	CustomHttpsConfiguration CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput `pulumi:"customHttpsConfiguration"`
 	// Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
 	CustomHttpsProvisioningEnabled pulumi.BoolOutput `pulumi:"customHttpsProvisioningEnabled"`
@@ -66,7 +66,7 @@ func GetCustomHttpsConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomHttpsConfiguration resources.
 type customHttpsConfigurationState struct {
-	// A `customHttpsConfiguration` block as defined below.
+	// (Optional) A `customHttpsConfiguration` block as defined below.
 	CustomHttpsConfiguration *CustomHttpsConfigurationCustomHttpsConfiguration `pulumi:"customHttpsConfiguration"`
 	// Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
 	CustomHttpsProvisioningEnabled *bool `pulumi:"customHttpsProvisioningEnabled"`
@@ -75,7 +75,7 @@ type customHttpsConfigurationState struct {
 }
 
 type CustomHttpsConfigurationState struct {
-	// A `customHttpsConfiguration` block as defined below.
+	// (Optional) A `customHttpsConfiguration` block as defined below.
 	CustomHttpsConfiguration CustomHttpsConfigurationCustomHttpsConfigurationPtrInput
 	// Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
 	CustomHttpsProvisioningEnabled pulumi.BoolPtrInput
@@ -88,7 +88,7 @@ func (CustomHttpsConfigurationState) ElementType() reflect.Type {
 }
 
 type customHttpsConfigurationArgs struct {
-	// A `customHttpsConfiguration` block as defined below.
+	// (Optional) A `customHttpsConfiguration` block as defined below.
 	CustomHttpsConfiguration *CustomHttpsConfigurationCustomHttpsConfiguration `pulumi:"customHttpsConfiguration"`
 	// Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
 	CustomHttpsProvisioningEnabled bool `pulumi:"customHttpsProvisioningEnabled"`
@@ -98,7 +98,7 @@ type customHttpsConfigurationArgs struct {
 
 // The set of arguments for constructing a CustomHttpsConfiguration resource.
 type CustomHttpsConfigurationArgs struct {
-	// A `customHttpsConfiguration` block as defined below.
+	// (Optional) A `customHttpsConfiguration` block as defined below.
 	CustomHttpsConfiguration CustomHttpsConfigurationCustomHttpsConfigurationPtrInput
 	// Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
 	CustomHttpsProvisioningEnabled pulumi.BoolInput
@@ -193,7 +193,7 @@ func (o CustomHttpsConfigurationOutput) ToCustomHttpsConfigurationOutputWithCont
 	return o
 }
 
-// A `customHttpsConfiguration` block as defined below.
+// (Optional) A `customHttpsConfiguration` block as defined below.
 func (o CustomHttpsConfigurationOutput) CustomHttpsConfiguration() CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput {
 	return o.ApplyT(func(v *CustomHttpsConfiguration) CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput {
 		return v.CustomHttpsConfiguration

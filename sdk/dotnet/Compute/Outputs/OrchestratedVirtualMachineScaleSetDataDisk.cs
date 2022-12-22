@@ -13,11 +13,29 @@ namespace Pulumi.Azure.Compute.Outputs
     [OutputType]
     public sealed class OrchestratedVirtualMachineScaleSetDataDisk
     {
+        /// <summary>
+        /// The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+        /// </summary>
         public readonly string Caching;
+        /// <summary>
+        /// The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+        /// </summary>
         public readonly string? CreateOption;
+        /// <summary>
+        /// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? DiskEncryptionSetId;
+        /// <summary>
+        /// The size of the Data Disk which should be created.
+        /// </summary>
         public readonly int DiskSizeGb;
+        /// <summary>
+        /// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+        /// </summary>
         public readonly int Lun;
+        /// <summary>
+        /// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+        /// </summary>
         public readonly string StorageAccountType;
         public readonly int? UltraSsdDiskIopsReadWrite;
         public readonly int? UltraSsdDiskMbpsReadWrite;

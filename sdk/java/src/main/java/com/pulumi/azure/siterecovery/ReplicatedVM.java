@@ -267,14 +267,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:siterecovery/replicatedVM:ReplicatedVM")
 public class ReplicatedVM extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `managed_disk` block.
+     * One or more `managed_disk` block as defined below.
      * 
      */
     @Export(name="managedDisks", type=List.class, parameters={ReplicatedVMManagedDisk.class})
     private Output</* @Nullable */ List<ReplicatedVMManagedDisk>> managedDisks;
 
     /**
-     * @return One or more `managed_disk` block.
+     * @return One or more `managed_disk` block as defined below.
      * 
      */
     public Output<Optional<List<ReplicatedVMManagedDisk>>> managedDisks() {
@@ -295,14 +295,14 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `network_interface` block.
+     * One or more `network_interface` block as defined below.
      * 
      */
     @Export(name="networkInterfaces", type=List.class, parameters={ReplicatedVMNetworkInterface.class})
     private Output<List<ReplicatedVMNetworkInterface>> networkInterfaces;
 
     /**
-     * @return One or more `network_interface` block.
+     * @return One or more `network_interface` block as defined below.
      * 
      */
     public Output<List<ReplicatedVMNetworkInterface>> networkInterfaces() {

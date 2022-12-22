@@ -13,9 +13,17 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
 
     public static final OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs Empty = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs();
 
+    /**
+     * The certificate store on the Virtual Machine where the certificate should be added.
+     * 
+     */
     @Import(name="store", required=true)
     private Output<String> store;
 
+    /**
+     * @return The certificate store on the Virtual Machine where the certificate should be added.
+     * 
+     */
     public Output<String> store() {
         return this.store;
     }
@@ -60,11 +68,23 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
             $ = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param store The certificate store on the Virtual Machine where the certificate should be added.
+         * 
+         * @return builder
+         * 
+         */
         public Builder store(Output<String> store) {
             $.store = store;
             return this;
         }
 
+        /**
+         * @param store The certificate store on the Virtual Machine where the certificate should be added.
+         * 
+         * @return builder
+         * 
+         */
         public Builder store(String store) {
             return store(Output.of(store));
         }

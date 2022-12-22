@@ -45,7 +45,9 @@ from .linux_virtual_machine_scale_set import *
 from .managed_disk import *
 from .managed_disk_sas_token import *
 from .orchestrated_virtual_machine_scale_set import *
+from .packet_capture import *
 from .scale_set import *
+from .scale_set_packet_capture import *
 from .shared_image import *
 from .shared_image_gallery import *
 from .shared_image_version import *

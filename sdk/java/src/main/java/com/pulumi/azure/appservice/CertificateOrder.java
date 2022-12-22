@@ -311,14 +311,14 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
-     * A mapping of tags to assign to the resource.
+     * (Optional) A mapping of tags to assign to the resource.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource.
+     * @return (Optional) A mapping of tags to assign to the resource.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

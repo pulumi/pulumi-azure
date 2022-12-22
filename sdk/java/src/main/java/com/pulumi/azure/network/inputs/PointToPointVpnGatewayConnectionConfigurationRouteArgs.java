@@ -32,6 +32,36 @@ public final class PointToPointVpnGatewayConnectionConfigurationRouteArgs extend
     }
 
     /**
+     * The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+     * 
+     */
+    @Import(name="inboundRouteMapId")
+    private @Nullable Output<String> inboundRouteMapId;
+
+    /**
+     * @return The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+     * 
+     */
+    public Optional<Output<String>> inboundRouteMapId() {
+        return Optional.ofNullable(this.inboundRouteMapId);
+    }
+
+    /**
+     * The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+     * 
+     */
+    @Import(name="outboundRouteMapId")
+    private @Nullable Output<String> outboundRouteMapId;
+
+    /**
+     * @return The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+     * 
+     */
+    public Optional<Output<String>> outboundRouteMapId() {
+        return Optional.ofNullable(this.outboundRouteMapId);
+    }
+
+    /**
      * A `propagated_route_table` block as defined below.
      * 
      */
@@ -50,6 +80,8 @@ public final class PointToPointVpnGatewayConnectionConfigurationRouteArgs extend
 
     private PointToPointVpnGatewayConnectionConfigurationRouteArgs(PointToPointVpnGatewayConnectionConfigurationRouteArgs $) {
         this.associatedRouteTableId = $.associatedRouteTableId;
+        this.inboundRouteMapId = $.inboundRouteMapId;
+        this.outboundRouteMapId = $.outboundRouteMapId;
         this.propagatedRouteTable = $.propagatedRouteTable;
     }
 
@@ -90,6 +122,48 @@ public final class PointToPointVpnGatewayConnectionConfigurationRouteArgs extend
          */
         public Builder associatedRouteTableId(String associatedRouteTableId) {
             return associatedRouteTableId(Output.of(associatedRouteTableId));
+        }
+
+        /**
+         * @param inboundRouteMapId The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inboundRouteMapId(@Nullable Output<String> inboundRouteMapId) {
+            $.inboundRouteMapId = inboundRouteMapId;
+            return this;
+        }
+
+        /**
+         * @param inboundRouteMapId The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inboundRouteMapId(String inboundRouteMapId) {
+            return inboundRouteMapId(Output.of(inboundRouteMapId));
+        }
+
+        /**
+         * @param outboundRouteMapId The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outboundRouteMapId(@Nullable Output<String> outboundRouteMapId) {
+            $.outboundRouteMapId = outboundRouteMapId;
+            return this;
+        }
+
+        /**
+         * @param outboundRouteMapId The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outboundRouteMapId(String outboundRouteMapId) {
+            return outboundRouteMapId(Output.of(outboundRouteMapId));
         }
 
         /**

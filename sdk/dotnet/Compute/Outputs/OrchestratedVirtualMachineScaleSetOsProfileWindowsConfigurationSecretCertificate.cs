@@ -13,6 +13,9 @@ namespace Pulumi.Azure.Compute.Outputs
     [OutputType]
     public sealed class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate
     {
+        /// <summary>
+        /// The certificate store on the Virtual Machine where the certificate should be added.
+        /// </summary>
         public readonly string Store;
         /// <summary>
         /// The Secret URL of a Key Vault Certificate.

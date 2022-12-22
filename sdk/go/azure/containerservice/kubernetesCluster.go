@@ -85,7 +85,7 @@ type KubernetesCluster struct {
 	AutoScalerProfile KubernetesClusterAutoScalerProfileOutput `pulumi:"autoScalerProfile"`
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 	AutomaticChannelUpgrade pulumi.StringPtrOutput `pulumi:"automaticChannelUpgrade"`
-	// - A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+	// A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
 	AzureActiveDirectoryRoleBasedAccessControl KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput `pulumi:"azureActiveDirectoryRoleBasedAccessControl"`
 	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 	AzurePolicyEnabled pulumi.BoolPtrOutput `pulumi:"azurePolicyEnabled"`
@@ -132,7 +132,7 @@ type KubernetesCluster struct {
 	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrOutput `pulumi:"linuxProfile"`
-	// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+	// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 	LocalAccountDisabled pulumi.BoolPtrOutput `pulumi:"localAccountDisabled"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -140,6 +140,8 @@ type KubernetesCluster struct {
 	MaintenanceWindow KubernetesClusterMaintenanceWindowPtrOutput `pulumi:"maintenanceWindow"`
 	// A `microsoftDefender` block as defined below.
 	MicrosoftDefender KubernetesClusterMicrosoftDefenderPtrOutput `pulumi:"microsoftDefender"`
+	// Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
+	MonitorMetrics KubernetesClusterMonitorMetricsPtrOutput `pulumi:"monitorMetrics"`
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkProfile` block as defined below.
@@ -163,7 +165,8 @@ type KubernetesCluster struct {
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-	PrivateFqdn                pulumi.StringOutput  `pulumi:"privateFqdn"`
+	PrivateFqdn pulumi.StringOutput `pulumi:"privateFqdn"`
+	// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -239,7 +242,7 @@ type kubernetesClusterState struct {
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 	AutomaticChannelUpgrade *string `pulumi:"automaticChannelUpgrade"`
-	// - A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+	// A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
 	AzureActiveDirectoryRoleBasedAccessControl *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl `pulumi:"azureActiveDirectoryRoleBasedAccessControl"`
 	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 	AzurePolicyEnabled *bool `pulumi:"azurePolicyEnabled"`
@@ -286,7 +289,7 @@ type kubernetesClusterState struct {
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile *KubernetesClusterLinuxProfile `pulumi:"linuxProfile"`
-	// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+	// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 	LocalAccountDisabled *bool `pulumi:"localAccountDisabled"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -294,6 +297,8 @@ type kubernetesClusterState struct {
 	MaintenanceWindow *KubernetesClusterMaintenanceWindow `pulumi:"maintenanceWindow"`
 	// A `microsoftDefender` block as defined below.
 	MicrosoftDefender *KubernetesClusterMicrosoftDefender `pulumi:"microsoftDefender"`
+	// Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
+	MonitorMetrics *KubernetesClusterMonitorMetrics `pulumi:"monitorMetrics"`
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below.
@@ -317,8 +322,9 @@ type kubernetesClusterState struct {
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-	PrivateFqdn                *string `pulumi:"privateFqdn"`
-	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
+	PrivateFqdn *string `pulumi:"privateFqdn"`
+	// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
@@ -352,7 +358,7 @@ type KubernetesClusterState struct {
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 	AutomaticChannelUpgrade pulumi.StringPtrInput
-	// - A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+	// A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
 	AzureActiveDirectoryRoleBasedAccessControl KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrInput
 	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 	AzurePolicyEnabled pulumi.BoolPtrInput
@@ -399,7 +405,7 @@ type KubernetesClusterState struct {
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrInput
-	// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+	// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 	LocalAccountDisabled pulumi.BoolPtrInput
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -407,6 +413,8 @@ type KubernetesClusterState struct {
 	MaintenanceWindow KubernetesClusterMaintenanceWindowPtrInput
 	// A `microsoftDefender` block as defined below.
 	MicrosoftDefender KubernetesClusterMicrosoftDefenderPtrInput
+	// Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
+	MonitorMetrics KubernetesClusterMonitorMetricsPtrInput
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below.
@@ -430,7 +438,8 @@ type KubernetesClusterState struct {
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
 	PrivateDnsZoneId pulumi.StringPtrInput
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-	PrivateFqdn                pulumi.StringPtrInput
+	PrivateFqdn pulumi.StringPtrInput
+	// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -469,7 +478,7 @@ type kubernetesClusterArgs struct {
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 	AutomaticChannelUpgrade *string `pulumi:"automaticChannelUpgrade"`
-	// - A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+	// A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
 	AzureActiveDirectoryRoleBasedAccessControl *KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl `pulumi:"azureActiveDirectoryRoleBasedAccessControl"`
 	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 	AzurePolicyEnabled *bool `pulumi:"azurePolicyEnabled"`
@@ -504,7 +513,7 @@ type kubernetesClusterArgs struct {
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile *KubernetesClusterLinuxProfile `pulumi:"linuxProfile"`
-	// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+	// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 	LocalAccountDisabled *bool `pulumi:"localAccountDisabled"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -512,6 +521,8 @@ type kubernetesClusterArgs struct {
 	MaintenanceWindow *KubernetesClusterMaintenanceWindow `pulumi:"maintenanceWindow"`
 	// A `microsoftDefender` block as defined below.
 	MicrosoftDefender *KubernetesClusterMicrosoftDefender `pulumi:"microsoftDefender"`
+	// Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
+	MonitorMetrics *KubernetesClusterMonitorMetrics `pulumi:"monitorMetrics"`
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkProfile` block as defined below.
@@ -529,8 +540,9 @@ type kubernetesClusterArgs struct {
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 	PrivateClusterPublicFqdnEnabled *bool `pulumi:"privateClusterPublicFqdnEnabled"`
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
-	PrivateDnsZoneId           *string `pulumi:"privateDnsZoneId"`
-	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
+	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
+	// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
@@ -565,7 +577,7 @@ type KubernetesClusterArgs struct {
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 	AutomaticChannelUpgrade pulumi.StringPtrInput
-	// - A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+	// A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
 	AzureActiveDirectoryRoleBasedAccessControl KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrInput
 	// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
 	AzurePolicyEnabled pulumi.BoolPtrInput
@@ -600,7 +612,7 @@ type KubernetesClusterArgs struct {
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrInput
-	// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+	// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 	LocalAccountDisabled pulumi.BoolPtrInput
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -608,6 +620,8 @@ type KubernetesClusterArgs struct {
 	MaintenanceWindow KubernetesClusterMaintenanceWindowPtrInput
 	// A `microsoftDefender` block as defined below.
 	MicrosoftDefender KubernetesClusterMicrosoftDefenderPtrInput
+	// Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
+	MonitorMetrics KubernetesClusterMonitorMetricsPtrInput
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkProfile` block as defined below.
@@ -625,7 +639,8 @@ type KubernetesClusterArgs struct {
 	// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
 	PrivateClusterPublicFqdnEnabled pulumi.BoolPtrInput
 	// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
-	PrivateDnsZoneId           pulumi.StringPtrInput
+	PrivateDnsZoneId pulumi.StringPtrInput
+	// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -758,7 +773,7 @@ func (o KubernetesClusterOutput) AutomaticChannelUpgrade() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.AutomaticChannelUpgrade }).(pulumi.StringPtrOutput)
 }
 
-// - A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
+// A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
 func (o KubernetesClusterOutput) AzureActiveDirectoryRoleBasedAccessControl() KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput {
 		return v.AzureActiveDirectoryRoleBasedAccessControl
@@ -883,7 +898,7 @@ func (o KubernetesClusterOutput) LinuxProfile() KubernetesClusterLinuxProfilePtr
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterLinuxProfilePtrOutput { return v.LinuxProfile }).(KubernetesClusterLinuxProfilePtrOutput)
 }
 
-// - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 func (o KubernetesClusterOutput) LocalAccountDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.LocalAccountDisabled }).(pulumi.BoolPtrOutput)
 }
@@ -901,6 +916,11 @@ func (o KubernetesClusterOutput) MaintenanceWindow() KubernetesClusterMaintenanc
 // A `microsoftDefender` block as defined below.
 func (o KubernetesClusterOutput) MicrosoftDefender() KubernetesClusterMicrosoftDefenderPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterMicrosoftDefenderPtrOutput { return v.MicrosoftDefender }).(KubernetesClusterMicrosoftDefenderPtrOutput)
+}
+
+// Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
+func (o KubernetesClusterOutput) MonitorMetrics() KubernetesClusterMonitorMetricsPtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterMonitorMetricsPtrOutput { return v.MonitorMetrics }).(KubernetesClusterMonitorMetricsPtrOutput)
 }
 
 // The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
@@ -963,6 +983,7 @@ func (o KubernetesClusterOutput) PrivateFqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.PrivateFqdn }).(pulumi.StringOutput)
 }
 
+// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
 func (o KubernetesClusterOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }

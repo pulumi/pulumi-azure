@@ -49,6 +49,12 @@ namespace Pulumi.Azure.OperationalInsights
     public partial class AnalyticsWorkspace : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+        /// </summary>
+        [Output("allowResourceOnlyPermissions")]
+        public Output<bool?> AllowResourceOnlyPermissions { get; private set; } = null!;
+
+        /// <summary>
         /// Is Customer Managed Storage mandatory for query management?
         /// </summary>
         [Output("cmkForQueryForced")]
@@ -184,6 +190,12 @@ namespace Pulumi.Azure.OperationalInsights
     public sealed class AnalyticsWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+        /// </summary>
+        [Input("allowResourceOnlyPermissions")]
+        public Input<bool>? AllowResourceOnlyPermissions { get; set; }
+
+        /// <summary>
         /// Is Customer Managed Storage mandatory for query management?
         /// </summary>
         [Input("cmkForQueryForced")]
@@ -263,6 +275,12 @@ namespace Pulumi.Azure.OperationalInsights
 
     public sealed class AnalyticsWorkspaceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
+        /// </summary>
+        [Input("allowResourceOnlyPermissions")]
+        public Input<bool>? AllowResourceOnlyPermissions { get; set; }
+
         /// <summary>
         /// Is Customer Managed Storage mandatory for query management?
         /// </summary>

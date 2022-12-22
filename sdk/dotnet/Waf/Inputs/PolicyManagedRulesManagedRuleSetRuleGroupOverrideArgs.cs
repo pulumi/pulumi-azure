@@ -14,10 +14,7 @@ namespace Pulumi.Azure.Waf.Inputs
     {
         [Input("disabledRules")]
         private InputList<string>? _disabledRules;
-
-        /// <summary>
-        /// One or more Rule IDs
-        /// </summary>
+        [Obsolete(@"`disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.")]
         public InputList<string> DisabledRules
         {
             get => _disabledRules ?? (_disabledRules = new InputList<string>());
@@ -25,10 +22,22 @@ namespace Pulumi.Azure.Waf.Inputs
         }
 
         /// <summary>
-        /// The name of the Rule Group
+        /// The name of the Rule Group.
         /// </summary>
         [Input("ruleGroupName", required: true)]
         public Input<string> RuleGroupName { get; set; } = null!;
+
+        [Input("rules")]
+        private InputList<Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs>? _rules;
+
+        /// <summary>
+        /// One or more `rule` block defined below.
+        /// </summary>
+        public InputList<Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs> Rules
+        {
+            get => _rules ?? (_rules = new InputList<Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs>());
+            set => _rules = value;
+        }
 
         public PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs()
         {

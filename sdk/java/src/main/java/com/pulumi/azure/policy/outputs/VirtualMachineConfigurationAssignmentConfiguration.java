@@ -29,7 +29,7 @@ public final class VirtualMachineConfigurationAssignmentConfiguration {
      */
     private @Nullable String contentUri;
     /**
-     * @return One or more `parameter` blocks which define what configuration parameters and values against.
+     * @return One or more `parameter` blocks as defined below which define what configuration parameters and values against.
      * 
      */
     private @Nullable List<VirtualMachineConfigurationAssignmentConfigurationParameter> parameters;
@@ -62,7 +62,7 @@ public final class VirtualMachineConfigurationAssignmentConfiguration {
         return Optional.ofNullable(this.contentUri);
     }
     /**
-     * @return One or more `parameter` blocks which define what configuration parameters and values against.
+     * @return One or more `parameter` blocks as defined below which define what configuration parameters and values against.
      * 
      */
     public List<VirtualMachineConfigurationAssignmentConfigurationParameter> parameters() {

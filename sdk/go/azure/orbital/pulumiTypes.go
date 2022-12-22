@@ -277,7 +277,7 @@ func (o ContactProfileLinkChannelArrayOutput) Index(i pulumi.IntInput) ContactPr
 }
 
 type ContactProfileLinkChannelEndPoint struct {
-	// -(Required) Name of an end point.
+	// Name of an end point.
 	EndPointName string `pulumi:"endPointName"`
 	// IP address of an end point.
 	IpAddress string `pulumi:"ipAddress"`
@@ -299,7 +299,7 @@ type ContactProfileLinkChannelEndPointInput interface {
 }
 
 type ContactProfileLinkChannelEndPointArgs struct {
-	// -(Required) Name of an end point.
+	// Name of an end point.
 	EndPointName pulumi.StringInput `pulumi:"endPointName"`
 	// IP address of an end point.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
@@ -360,7 +360,7 @@ func (o ContactProfileLinkChannelEndPointOutput) ToContactProfileLinkChannelEndP
 	return o
 }
 
-// -(Required) Name of an end point.
+// Name of an end point.
 func (o ContactProfileLinkChannelEndPointOutput) EndPointName() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannelEndPoint) string { return v.EndPointName }).(pulumi.StringOutput)
 }

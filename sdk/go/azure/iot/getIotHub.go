@@ -63,10 +63,12 @@ type GetIotHubResult struct {
 	// The Hostname of the IoTHub.
 	Hostname string `pulumi:"hostname"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string            `pulumi:"id"`
-	Name              string            `pulumi:"name"`
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	Id string `pulumi:"id"`
+	// A `identity` block as defined below.
+	Identities        []GetIotHubIdentity `pulumi:"identities"`
+	Name              string              `pulumi:"name"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	Tags              map[string]string   `pulumi:"tags"`
 }
 
 func GetIotHubOutput(ctx *pulumi.Context, args GetIotHubOutputArgs, opts ...pulumi.InvokeOption) GetIotHubResultOutput {
@@ -119,6 +121,11 @@ func (o GetIotHubResultOutput) Hostname() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetIotHubResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIotHubResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A `identity` block as defined below.
+func (o GetIotHubResultOutput) Identities() GetIotHubIdentityArrayOutput {
+	return o.ApplyT(func(v GetIotHubResult) []GetIotHubIdentity { return v.Identities }).(GetIotHubIdentityArrayOutput)
 }
 
 func (o GetIotHubResultOutput) Name() pulumi.StringOutput {

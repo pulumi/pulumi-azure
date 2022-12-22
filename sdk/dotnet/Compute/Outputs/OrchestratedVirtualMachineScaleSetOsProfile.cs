@@ -13,8 +13,17 @@ namespace Pulumi.Azure.Compute.Outputs
     [OutputType]
     public sealed class OrchestratedVirtualMachineScaleSetOsProfile
     {
+        /// <summary>
+        /// The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+        /// </summary>
         public readonly string? CustomData;
+        /// <summary>
+        /// A `linux_configuration` block as documented below.
+        /// </summary>
         public readonly Outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration? LinuxConfiguration;
+        /// <summary>
+        /// A `windows_configuration` block as documented below.
+        /// </summary>
         public readonly Outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration? WindowsConfiguration;
 
         [OutputConstructor]

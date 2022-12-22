@@ -10,24 +10,40 @@ import java.util.Objects;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetPlan {
     /**
-     * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     private String name;
+    /**
+     * @return Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+     * 
+     */
     private String product;
+    /**
+     * @return Specifies the publisher of the image. Changing this forces a new resource to be created.
+     * 
+     */
     private String publisher;
 
     private OrchestratedVirtualMachineScaleSetPlan() {}
     /**
-     * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+     * 
+     */
     public String product() {
         return this.product;
     }
+    /**
+     * @return Specifies the publisher of the image. Changing this forces a new resource to be created.
+     * 
+     */
     public String publisher() {
         return this.publisher;
     }

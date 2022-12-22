@@ -65,8 +65,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ManagedDiskSasToken{}
 	case "azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet":
 		r = &OrchestratedVirtualMachineScaleSet{}
+	case "azure:compute/packetCapture:PacketCapture":
+		r = &PacketCapture{}
 	case "azure:compute/scaleSet:ScaleSet":
 		r = &ScaleSet{}
+	case "azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture":
+		r = &ScaleSetPacketCapture{}
 	case "azure:compute/sharedImage:SharedImage":
 		r = &SharedImage{}
 	case "azure:compute/sharedImageGallery:SharedImageGallery":
@@ -210,7 +214,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"compute/packetCapture",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"compute/scaleSet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"compute/scaleSetPacketCapture",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -15,16 +15,32 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
 
     public static final OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs Empty = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs();
 
+    /**
+     * One or more `certificate` blocks as defined below.
+     * 
+     */
     @Import(name="certificates", required=true)
     private Output<List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs>> certificates;
 
+    /**
+     * @return One or more `certificate` blocks as defined below.
+     * 
+     */
     public Output<List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs>> certificates() {
         return this.certificates;
     }
 
+    /**
+     * The ID of the Key Vault from which all Secrets should be sourced.
+     * 
+     */
     @Import(name="keyVaultId", required=true)
     private Output<String> keyVaultId;
 
+    /**
+     * @return The ID of the Key Vault from which all Secrets should be sourced.
+     * 
+     */
     public Output<String> keyVaultId() {
         return this.keyVaultId;
     }
@@ -54,24 +70,54 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
             $ = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param certificates One or more `certificate` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificates(Output<List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs>> certificates) {
             $.certificates = certificates;
             return this;
         }
 
+        /**
+         * @param certificates One or more `certificate` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificates(List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs> certificates) {
             return certificates(Output.of(certificates));
         }
 
+        /**
+         * @param certificates One or more `certificate` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificates(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs... certificates) {
             return certificates(List.of(certificates));
         }
 
+        /**
+         * @param keyVaultId The ID of the Key Vault from which all Secrets should be sourced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyVaultId(Output<String> keyVaultId) {
             $.keyVaultId = keyVaultId;
             return this;
         }
 
+        /**
+         * @param keyVaultId The ID of the Key Vault from which all Secrets should be sourced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyVaultId(String keyVaultId) {
             return keyVaultId(Output.of(keyVaultId));
         }

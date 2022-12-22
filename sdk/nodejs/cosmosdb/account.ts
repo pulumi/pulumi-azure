@@ -104,7 +104,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly analyticalStorage!: pulumi.Output<outputs.cosmosdb.AccountAnalyticalStorage>;
     /**
-     * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
      */
     public readonly analyticalStorageEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -390,7 +390,7 @@ export interface AccountState {
      */
     analyticalStorage?: pulumi.Input<inputs.cosmosdb.AccountAnalyticalStorage>;
     /**
-     * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
      */
     analyticalStorageEnabled?: pulumi.Input<boolean>;
     /**
@@ -556,7 +556,7 @@ export interface AccountArgs {
      */
     analyticalStorage?: pulumi.Input<inputs.cosmosdb.AccountAnalyticalStorage>;
     /**
-     * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Enabling and then disabling analytical storage forces a new resource to be created.
      */
     analyticalStorageEnabled?: pulumi.Input<boolean>;
     /**

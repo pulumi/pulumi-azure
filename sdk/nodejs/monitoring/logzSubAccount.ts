@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  *     plan: {
  *         billingCycle: "MONTHLY",
  *         effectiveDate: "2022-06-06T00:00:00Z",
- *         planId: "100gb14days",
  *         usageType: "COMMITTED",
  *     },
  *     user: {

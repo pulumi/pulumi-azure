@@ -13,18 +13,36 @@ namespace Pulumi.Azure.Compute.Outputs
     [OutputType]
     public sealed class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration
     {
+        /// <summary>
+        /// A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+        /// </summary>
         public readonly ImmutableArray<string> ApplicationGatewayBackendAddressPoolIds;
+        /// <summary>
+        /// A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+        /// </summary>
         public readonly ImmutableArray<string> ApplicationSecurityGroupIds;
+        /// <summary>
+        /// A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+        /// </summary>
         public readonly ImmutableArray<string> LoadBalancerBackendAddressPoolIds;
         /// <summary>
-        /// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// The Name which should be used for this IP Configuration.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
+        /// </summary>
         public readonly bool? Primary;
+        /// <summary>
+        /// A `public_ip_address` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> PublicIpAddresses;
+        /// <summary>
+        /// The ID of the Subnet which this IP Configuration should be connected to.
+        /// </summary>
         public readonly string? SubnetId;
         /// <summary>
-        /// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+        /// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
         /// </summary>
         public readonly string? Version;
 

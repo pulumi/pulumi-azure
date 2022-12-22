@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// One or more `rule` (application rule) blocks as defined below.
+        /// One or more `application_rule` (application rule) blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule> Rules;
 

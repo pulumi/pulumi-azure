@@ -29,7 +29,7 @@ class ConfigurationKeyArgs:
         :param pulumi.Input[str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key: The name of the App Configuration Key to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the App Configuration Key. This should only be set when type is set to `kv`.
-        :param pulumi.Input[str] etag: The ETag of the key.
+        :param pulumi.Input[str] etag: (Optional) The ETag of the key.
         :param pulumi.Input[str] label: The label of the App Configuration Key.  Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Key be Locked to prevent changes?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -96,7 +96,7 @@ class ConfigurationKeyArgs:
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[str]]:
         """
-        The ETag of the key.
+        (Optional) The ETag of the key.
         """
         return pulumi.get(self, "etag")
 
@@ -194,7 +194,7 @@ class _ConfigurationKeyState:
         Input properties used for looking up and filtering ConfigurationKey resources.
         :param pulumi.Input[str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the App Configuration Key. This should only be set when type is set to `kv`.
-        :param pulumi.Input[str] etag: The ETag of the key.
+        :param pulumi.Input[str] etag: (Optional) The ETag of the key.
         :param pulumi.Input[str] key: The name of the App Configuration Key to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] label: The label of the App Configuration Key.  Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Key be Locked to prevent changes?
@@ -252,7 +252,7 @@ class _ConfigurationKeyState:
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[str]]:
         """
-        The ETag of the key.
+        (Optional) The ETag of the key.
         """
         return pulumi.get(self, "etag")
 
@@ -455,7 +455,7 @@ class ConfigurationKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the App Configuration Key. This should only be set when type is set to `kv`.
-        :param pulumi.Input[str] etag: The ETag of the key.
+        :param pulumi.Input[str] etag: (Optional) The ETag of the key.
         :param pulumi.Input[str] key: The name of the App Configuration Key to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] label: The label of the App Configuration Key.  Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Key be Locked to prevent changes?
@@ -637,7 +637,7 @@ class ConfigurationKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the App Configuration Key. This should only be set when type is set to `kv`.
-        :param pulumi.Input[str] etag: The ETag of the key.
+        :param pulumi.Input[str] etag: (Optional) The ETag of the key.
         :param pulumi.Input[str] key: The name of the App Configuration Key to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] label: The label of the App Configuration Key.  Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Key be Locked to prevent changes?
@@ -682,7 +682,7 @@ class ConfigurationKey(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         """
-        The ETag of the key.
+        (Optional) The ETag of the key.
         """
         return pulumi.get(self, "etag")
 

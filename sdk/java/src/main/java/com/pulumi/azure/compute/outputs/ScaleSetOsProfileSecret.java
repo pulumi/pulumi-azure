@@ -18,7 +18,7 @@ public final class ScaleSetOsProfileSecret {
      */
     private String sourceVaultId;
     /**
-     * @return A collection of Vault Certificates as documented below
+     * @return (Required, on windows machines) A collection of Vault Certificates as documented below
      * 
      */
     private @Nullable List<ScaleSetOsProfileSecretVaultCertificate> vaultCertificates;
@@ -32,7 +32,7 @@ public final class ScaleSetOsProfileSecret {
         return this.sourceVaultId;
     }
     /**
-     * @return A collection of Vault Certificates as documented below
+     * @return (Required, on windows machines) A collection of Vault Certificates as documented below
      * 
      */
     public List<ScaleSetOsProfileSecretVaultCertificate> vaultCertificates() {

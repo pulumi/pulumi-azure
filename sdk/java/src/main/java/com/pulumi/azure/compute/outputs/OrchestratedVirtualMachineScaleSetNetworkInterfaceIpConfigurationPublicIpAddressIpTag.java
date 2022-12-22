@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+    /**
+     * @return The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+     * 
+     */
     private String tag;
+    /**
+     * @return The Type of IP Tag, such as `FirstPartyUsage`.
+     * 
+     */
     private String type;
 
     private OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag() {}
+    /**
+     * @return The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+     * 
+     */
     public String tag() {
         return this.tag;
     }
+    /**
+     * @return The Type of IP Tag, such as `FirstPartyUsage`.
+     * 
+     */
     public String type() {
         return this.type;
     }

@@ -238,9 +238,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// A `vpn_client_configuration` block which
-        /// is documented below. In this block the Virtual Network Gateway can be configured
-        /// to accept IPSec point-to-site connections.
+        /// A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         /// </summary>
         [Output("vpnClientConfiguration")]
         public Output<Outputs.VirtualNetworkGatewayVpnClientConfiguration?> VpnClientConfiguration { get; private set; } = null!;
@@ -414,9 +412,7 @@ namespace Pulumi.Azure.Network
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// A `vpn_client_configuration` block which
-        /// is documented below. In this block the Virtual Network Gateway can be configured
-        /// to accept IPSec point-to-site connections.
+        /// A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         /// </summary>
         [Input("vpnClientConfiguration")]
         public Input<Inputs.VirtualNetworkGatewayVpnClientConfigurationArgs>? VpnClientConfiguration { get; set; }
@@ -552,9 +548,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// A `vpn_client_configuration` block which
-        /// is documented below. In this block the Virtual Network Gateway can be configured
-        /// to accept IPSec point-to-site connections.
+        /// A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         /// </summary>
         [Input("vpnClientConfiguration")]
         public Input<Inputs.VirtualNetworkGatewayVpnClientConfigurationGetArgs>? VpnClientConfiguration { get; set; }

@@ -18,72 +18,120 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
 
     public static final OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs Empty = new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs();
 
+    /**
+     * A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * 
+     */
     @Import(name="applicationGatewayBackendAddressPoolIds")
     private @Nullable Output<List<String>> applicationGatewayBackendAddressPoolIds;
 
+    /**
+     * @return A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * 
+     */
     public Optional<Output<List<String>>> applicationGatewayBackendAddressPoolIds() {
         return Optional.ofNullable(this.applicationGatewayBackendAddressPoolIds);
     }
 
+    /**
+     * A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * 
+     */
     @Import(name="applicationSecurityGroupIds")
     private @Nullable Output<List<String>> applicationSecurityGroupIds;
 
+    /**
+     * @return A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * 
+     */
     public Optional<Output<List<String>>> applicationSecurityGroupIds() {
         return Optional.ofNullable(this.applicationSecurityGroupIds);
     }
 
+    /**
+     * A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * 
+     */
     @Import(name="loadBalancerBackendAddressPoolIds")
     private @Nullable Output<List<String>> loadBalancerBackendAddressPoolIds;
 
+    /**
+     * @return A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * 
+     */
     public Optional<Output<List<String>>> loadBalancerBackendAddressPoolIds() {
         return Optional.ofNullable(this.loadBalancerBackendAddressPoolIds);
     }
 
     /**
-     * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * The Name which should be used for this IP Configuration.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return The Name which should be used for this IP Configuration.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
     @Import(name="primary")
     private @Nullable Output<Boolean> primary;
 
+    /**
+     * @return Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> primary() {
         return Optional.ofNullable(this.primary);
     }
 
+    /**
+     * A `public_ip_address` block as defined below.
+     * 
+     */
     @Import(name="publicIpAddresses")
     private @Nullable Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs>> publicIpAddresses;
 
+    /**
+     * @return A `public_ip_address` block as defined below.
+     * 
+     */
     public Optional<Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs>>> publicIpAddresses() {
         return Optional.ofNullable(this.publicIpAddresses);
     }
 
+    /**
+     * The ID of the Subnet which this IP Configuration should be connected to.
+     * 
+     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
+    /**
+     * @return The ID of the Subnet which this IP Configuration should be connected to.
+     * 
+     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
 
     /**
-     * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+     * The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+     * @return The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
      * 
      */
     public Optional<Output<String>> version() {
@@ -121,47 +169,101 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
             $ = new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param applicationGatewayBackendAddressPoolIds A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationGatewayBackendAddressPoolIds(@Nullable Output<List<String>> applicationGatewayBackendAddressPoolIds) {
             $.applicationGatewayBackendAddressPoolIds = applicationGatewayBackendAddressPoolIds;
             return this;
         }
 
+        /**
+         * @param applicationGatewayBackendAddressPoolIds A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationGatewayBackendAddressPoolIds(List<String> applicationGatewayBackendAddressPoolIds) {
             return applicationGatewayBackendAddressPoolIds(Output.of(applicationGatewayBackendAddressPoolIds));
         }
 
+        /**
+         * @param applicationGatewayBackendAddressPoolIds A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationGatewayBackendAddressPoolIds(String... applicationGatewayBackendAddressPoolIds) {
             return applicationGatewayBackendAddressPoolIds(List.of(applicationGatewayBackendAddressPoolIds));
         }
 
+        /**
+         * @param applicationSecurityGroupIds A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationSecurityGroupIds(@Nullable Output<List<String>> applicationSecurityGroupIds) {
             $.applicationSecurityGroupIds = applicationSecurityGroupIds;
             return this;
         }
 
+        /**
+         * @param applicationSecurityGroupIds A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationSecurityGroupIds(List<String> applicationSecurityGroupIds) {
             return applicationSecurityGroupIds(Output.of(applicationSecurityGroupIds));
         }
 
+        /**
+         * @param applicationSecurityGroupIds A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationSecurityGroupIds(String... applicationSecurityGroupIds) {
             return applicationSecurityGroupIds(List.of(applicationSecurityGroupIds));
         }
 
+        /**
+         * @param loadBalancerBackendAddressPoolIds A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loadBalancerBackendAddressPoolIds(@Nullable Output<List<String>> loadBalancerBackendAddressPoolIds) {
             $.loadBalancerBackendAddressPoolIds = loadBalancerBackendAddressPoolIds;
             return this;
         }
 
+        /**
+         * @param loadBalancerBackendAddressPoolIds A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loadBalancerBackendAddressPoolIds(List<String> loadBalancerBackendAddressPoolIds) {
             return loadBalancerBackendAddressPoolIds(Output.of(loadBalancerBackendAddressPoolIds));
         }
 
+        /**
+         * @param loadBalancerBackendAddressPoolIds A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loadBalancerBackendAddressPoolIds(String... loadBalancerBackendAddressPoolIds) {
             return loadBalancerBackendAddressPoolIds(List.of(loadBalancerBackendAddressPoolIds));
         }
 
         /**
-         * @param name The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * @param name The Name which should be used for this IP Configuration.
          * 
          * @return builder
          * 
@@ -172,7 +274,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param name The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * @param name The Name which should be used for this IP Configuration.
          * 
          * @return builder
          * 
@@ -181,39 +283,81 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
             return name(Output.of(name));
         }
 
+        /**
+         * @param primary Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primary(@Nullable Output<Boolean> primary) {
             $.primary = primary;
             return this;
         }
 
+        /**
+         * @param primary Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primary(Boolean primary) {
             return primary(Output.of(primary));
         }
 
+        /**
+         * @param publicIpAddresses A `public_ip_address` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicIpAddresses(@Nullable Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs>> publicIpAddresses) {
             $.publicIpAddresses = publicIpAddresses;
             return this;
         }
 
+        /**
+         * @param publicIpAddresses A `public_ip_address` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicIpAddresses(List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs> publicIpAddresses) {
             return publicIpAddresses(Output.of(publicIpAddresses));
         }
 
+        /**
+         * @param publicIpAddresses A `public_ip_address` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicIpAddresses(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs... publicIpAddresses) {
             return publicIpAddresses(List.of(publicIpAddresses));
         }
 
+        /**
+         * @param subnetId The ID of the Subnet which this IP Configuration should be connected to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
+        /**
+         * @param subnetId The ID of the Subnet which this IP Configuration should be connected to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }
 
         /**
-         * @param version The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+         * @param version The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
          * 
          * @return builder
          * 
@@ -224,7 +368,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param version The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+         * @param version The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
          * 
          * @return builder
          * 

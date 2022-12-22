@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualMachineOsProfile {
     /**
-     * @return The password associated with the local administrator account.
+     * @return (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
      * 
      */
     private @Nullable String adminPassword;
@@ -34,7 +34,7 @@ public final class VirtualMachineOsProfile {
 
     private VirtualMachineOsProfile() {}
     /**
-     * @return The password associated with the local administrator account.
+     * @return (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
      * 
      */
     public Optional<String> adminPassword() {

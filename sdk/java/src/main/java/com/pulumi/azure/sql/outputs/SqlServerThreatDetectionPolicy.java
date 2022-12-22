@@ -35,7 +35,7 @@ public final class SqlServerThreatDetectionPolicy {
      */
     private @Nullable Integer retentionDays;
     /**
-     * @return The State of the Policy. Possible values are `Enabled` or `Disabled`.
+     * @return The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`.
      * 
      */
     private @Nullable String state;
@@ -80,7 +80,7 @@ public final class SqlServerThreatDetectionPolicy {
         return Optional.ofNullable(this.retentionDays);
     }
     /**
-     * @return The State of the Policy. Possible values are `Enabled` or `Disabled`.
+     * @return The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`.
      * 
      */
     public Optional<String> state() {

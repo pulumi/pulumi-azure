@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _destinationAddresses;
 
         /// <summary>
-        /// Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+        /// Specifies a list of destination IP addresses (including CIDR and `*`).
         /// </summary>
         public InputList<string> DestinationAddresses
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _destinationFqdns;
 
         /// <summary>
-        /// Specifies a list of destination FQDNs.
+        /// Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         /// </summary>
         public InputList<string> DestinationFqdns
         {
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// The name which should be used for this rule.
+        /// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolGetArgs>? _protocols;
 
         /// <summary>
-        /// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        /// One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
         /// </summary>
         public InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolGetArgs> Protocols
         {

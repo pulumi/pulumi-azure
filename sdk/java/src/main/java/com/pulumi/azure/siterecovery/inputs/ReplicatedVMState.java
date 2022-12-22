@@ -19,14 +19,14 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     public static final ReplicatedVMState Empty = new ReplicatedVMState();
 
     /**
-     * One or more `managed_disk` block.
+     * One or more `managed_disk` block as defined below.
      * 
      */
     @Import(name="managedDisks")
     private @Nullable Output<List<ReplicatedVMManagedDiskArgs>> managedDisks;
 
     /**
-     * @return One or more `managed_disk` block.
+     * @return One or more `managed_disk` block as defined below.
      * 
      */
     public Optional<Output<List<ReplicatedVMManagedDiskArgs>>> managedDisks() {
@@ -49,14 +49,14 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `network_interface` block.
+     * One or more `network_interface` block as defined below.
      * 
      */
     @Import(name="networkInterfaces")
     private @Nullable Output<List<ReplicatedVMNetworkInterfaceArgs>> networkInterfaces;
 
     /**
-     * @return One or more `network_interface` block.
+     * @return One or more `network_interface` block as defined below.
      * 
      */
     public Optional<Output<List<ReplicatedVMNetworkInterfaceArgs>>> networkInterfaces() {
@@ -274,7 +274,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedDisks One or more `managed_disk` block.
+         * @param managedDisks One or more `managed_disk` block as defined below.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedDisks One or more `managed_disk` block.
+         * @param managedDisks One or more `managed_disk` block as defined below.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedDisks One or more `managed_disk` block.
+         * @param managedDisks One or more `managed_disk` block as defined below.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` block.
+         * @param networkInterfaces One or more `network_interface` block as defined below.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` block.
+         * @param networkInterfaces One or more `network_interface` block as defined below.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` block.
+         * @param networkInterfaces One or more `network_interface` block as defined below.
          * 
          * @return builder
          * 

@@ -184,7 +184,7 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
         :param pulumi.Input[str] assignment_type: The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
         :param pulumi.Input[str] content_hash: The content hash for the Guest Configuration package.
         :param pulumi.Input[str] content_uri: The content URI where the Guest Configuration package is stored.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]] parameters: One or more `parameter` blocks which define what configuration parameters and values against.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]] parameters: One or more `parameter` blocks as defined below which define what configuration parameters and values against.
         :param pulumi.Input[str] version: The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         """
         if assignment_type is not None:
@@ -238,7 +238,7 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]]:
         """
-        One or more `parameter` blocks which define what configuration parameters and values against.
+        One or more `parameter` blocks as defined below which define what configuration parameters and values against.
         """
         return pulumi.get(self, "parameters")
 

@@ -1062,6 +1062,112 @@ func (o GetLBFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetLBF
 	}).(GetLBFrontendIpConfigurationOutput)
 }
 
+type GetLBOutboundRuleFrontendIpConfiguration struct {
+	// The ID of the Frontend IP Configuration.
+	Id string `pulumi:"id"`
+	// The name of this Load Balancer Outbound Rule.
+	Name string `pulumi:"name"`
+}
+
+// GetLBOutboundRuleFrontendIpConfigurationInput is an input type that accepts GetLBOutboundRuleFrontendIpConfigurationArgs and GetLBOutboundRuleFrontendIpConfigurationOutput values.
+// You can construct a concrete instance of `GetLBOutboundRuleFrontendIpConfigurationInput` via:
+//
+//	GetLBOutboundRuleFrontendIpConfigurationArgs{...}
+type GetLBOutboundRuleFrontendIpConfigurationInput interface {
+	pulumi.Input
+
+	ToGetLBOutboundRuleFrontendIpConfigurationOutput() GetLBOutboundRuleFrontendIpConfigurationOutput
+	ToGetLBOutboundRuleFrontendIpConfigurationOutputWithContext(context.Context) GetLBOutboundRuleFrontendIpConfigurationOutput
+}
+
+type GetLBOutboundRuleFrontendIpConfigurationArgs struct {
+	// The ID of the Frontend IP Configuration.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Load Balancer Outbound Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetLBOutboundRuleFrontendIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLBOutboundRuleFrontendIpConfiguration)(nil)).Elem()
+}
+
+func (i GetLBOutboundRuleFrontendIpConfigurationArgs) ToGetLBOutboundRuleFrontendIpConfigurationOutput() GetLBOutboundRuleFrontendIpConfigurationOutput {
+	return i.ToGetLBOutboundRuleFrontendIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetLBOutboundRuleFrontendIpConfigurationArgs) ToGetLBOutboundRuleFrontendIpConfigurationOutputWithContext(ctx context.Context) GetLBOutboundRuleFrontendIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLBOutboundRuleFrontendIpConfigurationOutput)
+}
+
+// GetLBOutboundRuleFrontendIpConfigurationArrayInput is an input type that accepts GetLBOutboundRuleFrontendIpConfigurationArray and GetLBOutboundRuleFrontendIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetLBOutboundRuleFrontendIpConfigurationArrayInput` via:
+//
+//	GetLBOutboundRuleFrontendIpConfigurationArray{ GetLBOutboundRuleFrontendIpConfigurationArgs{...} }
+type GetLBOutboundRuleFrontendIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetLBOutboundRuleFrontendIpConfigurationArrayOutput() GetLBOutboundRuleFrontendIpConfigurationArrayOutput
+	ToGetLBOutboundRuleFrontendIpConfigurationArrayOutputWithContext(context.Context) GetLBOutboundRuleFrontendIpConfigurationArrayOutput
+}
+
+type GetLBOutboundRuleFrontendIpConfigurationArray []GetLBOutboundRuleFrontendIpConfigurationInput
+
+func (GetLBOutboundRuleFrontendIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLBOutboundRuleFrontendIpConfiguration)(nil)).Elem()
+}
+
+func (i GetLBOutboundRuleFrontendIpConfigurationArray) ToGetLBOutboundRuleFrontendIpConfigurationArrayOutput() GetLBOutboundRuleFrontendIpConfigurationArrayOutput {
+	return i.ToGetLBOutboundRuleFrontendIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetLBOutboundRuleFrontendIpConfigurationArray) ToGetLBOutboundRuleFrontendIpConfigurationArrayOutputWithContext(ctx context.Context) GetLBOutboundRuleFrontendIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLBOutboundRuleFrontendIpConfigurationArrayOutput)
+}
+
+type GetLBOutboundRuleFrontendIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetLBOutboundRuleFrontendIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLBOutboundRuleFrontendIpConfiguration)(nil)).Elem()
+}
+
+func (o GetLBOutboundRuleFrontendIpConfigurationOutput) ToGetLBOutboundRuleFrontendIpConfigurationOutput() GetLBOutboundRuleFrontendIpConfigurationOutput {
+	return o
+}
+
+func (o GetLBOutboundRuleFrontendIpConfigurationOutput) ToGetLBOutboundRuleFrontendIpConfigurationOutputWithContext(ctx context.Context) GetLBOutboundRuleFrontendIpConfigurationOutput {
+	return o
+}
+
+// The ID of the Frontend IP Configuration.
+func (o GetLBOutboundRuleFrontendIpConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLBOutboundRuleFrontendIpConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Load Balancer Outbound Rule.
+func (o GetLBOutboundRuleFrontendIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLBOutboundRuleFrontendIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetLBOutboundRuleFrontendIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLBOutboundRuleFrontendIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLBOutboundRuleFrontendIpConfiguration)(nil)).Elem()
+}
+
+func (o GetLBOutboundRuleFrontendIpConfigurationArrayOutput) ToGetLBOutboundRuleFrontendIpConfigurationArrayOutput() GetLBOutboundRuleFrontendIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetLBOutboundRuleFrontendIpConfigurationArrayOutput) ToGetLBOutboundRuleFrontendIpConfigurationArrayOutputWithContext(ctx context.Context) GetLBOutboundRuleFrontendIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetLBOutboundRuleFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetLBOutboundRuleFrontendIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLBOutboundRuleFrontendIpConfiguration {
+		return vs[0].([]GetLBOutboundRuleFrontendIpConfiguration)[vs[1].(int)]
+	}).(GetLBOutboundRuleFrontendIpConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackendAddressPoolAddressInboundNatRulePortMappingInput)(nil)).Elem(), BackendAddressPoolAddressInboundNatRulePortMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackendAddressPoolAddressInboundNatRulePortMappingArrayInput)(nil)).Elem(), BackendAddressPoolAddressInboundNatRulePortMappingArray{})
@@ -1079,6 +1185,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBackendAddressPoolBackendIpConfigurationArrayInput)(nil)).Elem(), GetBackendAddressPoolBackendIpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLBFrontendIpConfigurationInput)(nil)).Elem(), GetLBFrontendIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLBFrontendIpConfigurationArrayInput)(nil)).Elem(), GetLBFrontendIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLBOutboundRuleFrontendIpConfigurationInput)(nil)).Elem(), GetLBOutboundRuleFrontendIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLBOutboundRuleFrontendIpConfigurationArrayInput)(nil)).Elem(), GetLBOutboundRuleFrontendIpConfigurationArray{})
 	pulumi.RegisterOutputType(BackendAddressPoolAddressInboundNatRulePortMappingOutput{})
 	pulumi.RegisterOutputType(BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput{})
 	pulumi.RegisterOutputType(BackendAddressPoolTunnelInterfaceOutput{})
@@ -1095,4 +1203,6 @@ func init() {
 	pulumi.RegisterOutputType(GetBackendAddressPoolBackendIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetLBFrontendIpConfigurationOutput{})
 	pulumi.RegisterOutputType(GetLBFrontendIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetLBOutboundRuleFrontendIpConfigurationOutput{})
+	pulumi.RegisterOutputType(GetLBOutboundRuleFrontendIpConfigurationArrayOutput{})
 }

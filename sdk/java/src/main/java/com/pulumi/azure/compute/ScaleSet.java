@@ -443,14 +443,14 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return this.identity;
     }
     /**
-     * Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+     * (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
      * 
      */
     @Export(name="licenseType", type=String.class, parameters={})
     private Output<String> licenseType;
 
     /**
-     * @return Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+     * @return (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
      * 
      */
     public Output<String> licenseType() {

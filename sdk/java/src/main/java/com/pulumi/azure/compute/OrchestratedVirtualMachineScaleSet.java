@@ -118,9 +118,17 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     public Output<OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair> automaticInstanceRepair() {
         return this.automaticInstanceRepair;
     }
+    /**
+     * A `boot_diagnostics` block as defined below.
+     * 
+     */
     @Export(name="bootDiagnostics", type=OrchestratedVirtualMachineScaleSetBootDiagnostics.class, parameters={})
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetBootDiagnostics> bootDiagnostics;
 
+    /**
+     * @return A `boot_diagnostics` block as defined below.
+     * 
+     */
     public Output<Optional<OrchestratedVirtualMachineScaleSetBootDiagnostics>> bootDiagnostics() {
         return Codegen.optional(this.bootDiagnostics);
     }
@@ -138,9 +146,17 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     public Output<Optional<String>> capacityReservationGroupId() {
         return Codegen.optional(this.capacityReservationGroupId);
     }
+    /**
+     * One or more `data_disk` blocks as defined below.
+     * 
+     */
     @Export(name="dataDisks", type=List.class, parameters={OrchestratedVirtualMachineScaleSetDataDisk.class})
     private Output</* @Nullable */ List<OrchestratedVirtualMachineScaleSetDataDisk>> dataDisks;
 
+    /**
+     * @return One or more `data_disk` blocks as defined below.
+     * 
+     */
     public Output<Optional<List<OrchestratedVirtualMachineScaleSetDataDisk>>> dataDisks() {
         return Codegen.optional(this.dataDisks);
     }
@@ -150,9 +166,17 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     public Output<Optional<Boolean>> encryptionAtHostEnabled() {
         return Codegen.optional(this.encryptionAtHostEnabled);
     }
+    /**
+     * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="evictionPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> evictionPolicy;
 
+    /**
+     * @return The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<Optional<String>> evictionPolicy() {
         return Codegen.optional(this.evictionPolicy);
     }
@@ -170,9 +194,17 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     public Output<Boolean> extensionOperationsEnabled() {
         return this.extensionOperationsEnabled;
     }
+    /**
+     * One or more `extension` blocks as defined below
+     * 
+     */
     @Export(name="extensions", type=List.class, parameters={OrchestratedVirtualMachineScaleSetExtension.class})
     private Output<List<OrchestratedVirtualMachineScaleSetExtension>> extensions;
 
+    /**
+     * @return One or more `extension` blocks as defined below
+     * 
+     */
     public Output<List<OrchestratedVirtualMachineScaleSetExtension>> extensions() {
         return this.extensions;
     }
@@ -190,9 +222,17 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     public Output<Optional<String>> extensionsTimeBudget() {
         return Codegen.optional(this.extensionsTimeBudget);
     }
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
     @Export(name="identity", type=OrchestratedVirtualMachineScaleSetIdentity.class, parameters={})
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetIdentity> identity;
 
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
     public Output<Optional<OrchestratedVirtualMachineScaleSetIdentity>> identity() {
         return Codegen.optional(this.identity);
     }
@@ -210,9 +250,17 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     public Output<Integer> instances() {
         return this.instances;
     }
+    /**
+     * Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * 
+     */
     @Export(name="licenseType", type=String.class, parameters={})
     private Output</* @Nullable */ String> licenseType;
 
+    /**
+     * @return Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * 
+     */
     public Output<Optional<String>> licenseType() {
         return Codegen.optional(this.licenseType);
     }
@@ -230,9 +278,17 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     public Output<String> location() {
         return this.location;
     }
+    /**
+     * The maximum price you&#39;re willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
+     * 
+     */
     @Export(name="maxBidPrice", type=Double.class, parameters={})
     private Output</* @Nullable */ Double> maxBidPrice;
 
+    /**
+     * @return The maximum price you&#39;re willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
+     * 
+     */
     public Output<Optional<Double>> maxBidPrice() {
         return Codegen.optional(this.maxBidPrice);
     }
@@ -250,27 +306,59 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * One or more `network_interface` blocks as defined below.
+     * 
+     */
     @Export(name="networkInterfaces", type=List.class, parameters={OrchestratedVirtualMachineScaleSetNetworkInterface.class})
     private Output</* @Nullable */ List<OrchestratedVirtualMachineScaleSetNetworkInterface>> networkInterfaces;
 
+    /**
+     * @return One or more `network_interface` blocks as defined below.
+     * 
+     */
     public Output<Optional<List<OrchestratedVirtualMachineScaleSetNetworkInterface>>> networkInterfaces() {
         return Codegen.optional(this.networkInterfaces);
     }
+    /**
+     * An `os_disk` block as defined below.
+     * 
+     */
     @Export(name="osDisk", type=OrchestratedVirtualMachineScaleSetOsDisk.class, parameters={})
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetOsDisk> osDisk;
 
+    /**
+     * @return An `os_disk` block as defined below.
+     * 
+     */
     public Output<Optional<OrchestratedVirtualMachineScaleSetOsDisk>> osDisk() {
         return Codegen.optional(this.osDisk);
     }
+    /**
+     * An `os_profile` block as defined below.
+     * 
+     */
     @Export(name="osProfile", type=OrchestratedVirtualMachineScaleSetOsProfile.class, parameters={})
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetOsProfile> osProfile;
 
+    /**
+     * @return An `os_profile` block as defined below.
+     * 
+     */
     public Output<Optional<OrchestratedVirtualMachineScaleSetOsProfile>> osProfile() {
         return Codegen.optional(this.osProfile);
     }
+    /**
+     * A `plan` block as documented below.
+     * 
+     */
     @Export(name="plan", type=OrchestratedVirtualMachineScaleSetPlan.class, parameters={})
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetPlan> plan;
 
+    /**
+     * @return A `plan` block as documented below.
+     * 
+     */
     public Output<Optional<OrchestratedVirtualMachineScaleSetPlan>> plan() {
         return Codegen.optional(this.plan);
     }
@@ -288,9 +376,17 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     public Output<Integer> platformFaultDomainCount() {
         return this.platformFaultDomainCount;
     }
+    /**
+     * The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+     * 
+     */
     @Export(name="priority", type=String.class, parameters={})
     private Output</* @Nullable */ String> priority;
 
+    /**
+     * @return The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+     * 
+     */
     public Output<Optional<String>> priority() {
         return Codegen.optional(this.priority);
     }
@@ -337,22 +433,30 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return this.singlePlacementGroup;
     }
     /**
-     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+     * The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
      * 
      */
     @Export(name="skuName", type=String.class, parameters={})
     private Output</* @Nullable */ String> skuName;
 
     /**
-     * @return Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+     * @return The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
      * 
      */
     public Output<Optional<String>> skuName() {
         return Codegen.optional(this.skuName);
     }
+    /**
+     * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+     * 
+     */
     @Export(name="sourceImageId", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceImageId;
 
+    /**
+     * @return The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+     * 
+     */
     public Output<Optional<String>> sourceImageId() {
         return Codegen.optional(this.sourceImageId);
     }
@@ -384,9 +488,17 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * A `termination_notification` block as defined below.
+     * 
+     */
     @Export(name="terminationNotification", type=OrchestratedVirtualMachineScaleSetTerminationNotification.class, parameters={})
     private Output<OrchestratedVirtualMachineScaleSetTerminationNotification> terminationNotification;
 
+    /**
+     * @return A `termination_notification` block as defined below.
+     * 
+     */
     public Output<OrchestratedVirtualMachineScaleSetTerminationNotification> terminationNotification() {
         return this.terminationNotification;
     }

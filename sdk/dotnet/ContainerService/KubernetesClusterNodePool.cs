@@ -296,6 +296,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> VnetSubnetId { get; private set; } = null!;
 
         /// <summary>
+        /// A `windows_profile` block as documented below.
+        /// </summary>
+        [Output("windowsProfile")]
+        public Output<Outputs.KubernetesClusterNodePoolWindowsProfile?> WindowsProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         /// </summary>
         [Output("workloadRuntime")]
@@ -594,6 +600,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? VnetSubnetId { get; set; }
 
         /// <summary>
+        /// A `windows_profile` block as documented below.
+        /// </summary>
+        [Input("windowsProfile")]
+        public Input<Inputs.KubernetesClusterNodePoolWindowsProfileArgs>? WindowsProfile { get; set; }
+
+        /// <summary>
         /// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
         /// </summary>
         [Input("workloadRuntime")]
@@ -858,6 +870,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("vnetSubnetId")]
         public Input<string>? VnetSubnetId { get; set; }
+
+        /// <summary>
+        /// A `windows_profile` block as documented below.
+        /// </summary>
+        [Input("windowsProfile")]
+        public Input<Inputs.KubernetesClusterNodePoolWindowsProfileGetArgs>? WindowsProfile { get; set; }
 
         /// <summary>
         /// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.

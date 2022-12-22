@@ -79,6 +79,10 @@ type ManagedHardwareSecurityModule struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A `networkAcls` block as defined below.
+	NetworkAcls ManagedHardwareSecurityModuleNetworkAclsOutput `pulumi:"networkAcls"`
+	// Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
 	PurgeProtectionEnabled pulumi.BoolPtrOutput `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
@@ -142,6 +146,10 @@ type managedHardwareSecurityModuleState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `networkAcls` block as defined below.
+	NetworkAcls *ManagedHardwareSecurityModuleNetworkAcls `pulumi:"networkAcls"`
+	// Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
 	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
@@ -165,6 +173,10 @@ type ManagedHardwareSecurityModuleState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `networkAcls` block as defined below.
+	NetworkAcls ManagedHardwareSecurityModuleNetworkAclsPtrInput
+	// Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
 	PurgeProtectionEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
@@ -190,6 +202,10 @@ type managedHardwareSecurityModuleArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `networkAcls` block as defined below.
+	NetworkAcls *ManagedHardwareSecurityModuleNetworkAcls `pulumi:"networkAcls"`
+	// Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
 	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
@@ -212,6 +228,10 @@ type ManagedHardwareSecurityModuleArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `networkAcls` block as defined below.
+	NetworkAcls ManagedHardwareSecurityModuleNetworkAclsPtrInput
+	// Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
 	PurgeProtectionEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
@@ -331,6 +351,18 @@ func (o ManagedHardwareSecurityModuleOutput) Location() pulumi.StringOutput {
 // Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 func (o ManagedHardwareSecurityModuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `networkAcls` block as defined below.
+func (o ManagedHardwareSecurityModuleOutput) NetworkAcls() ManagedHardwareSecurityModuleNetworkAclsOutput {
+	return o.ApplyT(func(v *ManagedHardwareSecurityModule) ManagedHardwareSecurityModuleNetworkAclsOutput {
+		return v.NetworkAcls
+	}).(ManagedHardwareSecurityModuleNetworkAclsOutput)
+}
+
+// Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+func (o ManagedHardwareSecurityModuleOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedHardwareSecurityModule) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.

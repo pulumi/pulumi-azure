@@ -122,6 +122,9 @@ class GetSecretResult:
     @property
     @pulumi.getter(name="versionlessId")
     def versionless_id(self) -> str:
+        """
+        The Versionless ID of the Key Vault Secret. This can be used to always get latest secret value, and enable fetching automatically rotating secrets.
+        """
         return pulumi.get(self, "versionless_id")
 
 
@@ -161,8 +164,8 @@ def get_secret(key_vault_id: Optional[str] = None,
     ```
 
 
-    :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
-    :param str name: Specifies the name of the Key Vault Secret.
+    :param str key_vault_id: The ID of the TODO.
+    :param str name: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
     """
     __args__ = dict()
     __args__['keyVaultId'] = key_vault_id
@@ -202,7 +205,7 @@ def get_secret_output(key_vault_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
-    :param str name: Specifies the name of the Key Vault Secret.
+    :param str key_vault_id: The ID of the TODO.
+    :param str name: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
     """
     ...

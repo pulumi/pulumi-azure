@@ -14780,8 +14780,8 @@ type LogzMonitorPlan struct {
 	BillingCycle string `pulumi:"billingCycle"`
 	// Date when plan was applied. Changing this forces a new logz Monitor to be created.
 	EffectiveDate string `pulumi:"effectiveDate"`
-	// Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
-	PlanId string `pulumi:"planId"`
+	// Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
+	PlanId *string `pulumi:"planId"`
 	// Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
 	UsageType string `pulumi:"usageType"`
 }
@@ -14802,8 +14802,8 @@ type LogzMonitorPlanArgs struct {
 	BillingCycle pulumi.StringInput `pulumi:"billingCycle"`
 	// Date when plan was applied. Changing this forces a new logz Monitor to be created.
 	EffectiveDate pulumi.StringInput `pulumi:"effectiveDate"`
-	// Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
-	PlanId pulumi.StringInput `pulumi:"planId"`
+	// Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
+	PlanId pulumi.StringPtrInput `pulumi:"planId"`
 	// Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
 	UsageType pulumi.StringInput `pulumi:"usageType"`
 }
@@ -14895,9 +14895,9 @@ func (o LogzMonitorPlanOutput) EffectiveDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LogzMonitorPlan) string { return v.EffectiveDate }).(pulumi.StringOutput)
 }
 
-// Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
-func (o LogzMonitorPlanOutput) PlanId() pulumi.StringOutput {
-	return o.ApplyT(func(v LogzMonitorPlan) string { return v.PlanId }).(pulumi.StringOutput)
+// Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
+func (o LogzMonitorPlanOutput) PlanId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogzMonitorPlan) *string { return v.PlanId }).(pulumi.StringPtrOutput)
 }
 
 // Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
@@ -14949,13 +14949,13 @@ func (o LogzMonitorPlanPtrOutput) EffectiveDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+// Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
 func (o LogzMonitorPlanPtrOutput) PlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogzMonitorPlan) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.PlanId
+		return v.PlanId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -17268,7 +17268,7 @@ type ScheduledQueryRulesAlertV2Criteria struct {
 	FailingPeriods *ScheduledQueryRulesAlertV2CriteriaFailingPeriods `pulumi:"failingPeriods"`
 	// Specifies the column containing the metric measure number.
 	MetricMeasureColumn *string `pulumi:"metricMeasureColumn"`
-	// Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+	// Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
 	Operator string `pulumi:"operator"`
 	// The query to run on logs. The results returned by this query are used to populate the alert.
 	Query string `pulumi:"query"`
@@ -17298,7 +17298,7 @@ type ScheduledQueryRulesAlertV2CriteriaArgs struct {
 	FailingPeriods ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrInput `pulumi:"failingPeriods"`
 	// Specifies the column containing the metric measure number.
 	MetricMeasureColumn pulumi.StringPtrInput `pulumi:"metricMeasureColumn"`
-	// Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+	// Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// The query to run on logs. The results returned by this query are used to populate the alert.
 	Query pulumi.StringInput `pulumi:"query"`
@@ -17380,7 +17380,7 @@ func (o ScheduledQueryRulesAlertV2CriteriaOutput) MetricMeasureColumn() pulumi.S
 	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Criteria) *string { return v.MetricMeasureColumn }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+// Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
 func (o ScheduledQueryRulesAlertV2CriteriaOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Criteria) string { return v.Operator }).(pulumi.StringOutput)
 }

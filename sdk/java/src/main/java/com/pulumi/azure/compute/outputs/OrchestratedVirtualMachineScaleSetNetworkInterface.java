@@ -14,41 +14,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
+    /**
+     * @return A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+     * 
+     */
     private @Nullable List<String> dnsServers;
+    /**
+     * @return Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean enableAcceleratedNetworking;
+    /**
+     * @return Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean enableIpForwarding;
+    /**
+     * @return One or more `ip_configuration` blocks as defined above.
+     * 
+     */
     private List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
     /**
-     * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
      * 
      */
     private String name;
+    /**
+     * @return The ID of a Network Security Group which should be assigned to this Network Interface.
+     * 
+     */
     private @Nullable String networkSecurityGroupId;
+    /**
+     * @return Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean primary;
 
     private OrchestratedVirtualMachineScaleSetNetworkInterface() {}
+    /**
+     * @return A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+     * 
+     */
     public List<String> dnsServers() {
         return this.dnsServers == null ? List.of() : this.dnsServers;
     }
+    /**
+     * @return Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> enableAcceleratedNetworking() {
         return Optional.ofNullable(this.enableAcceleratedNetworking);
     }
+    /**
+     * @return Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> enableIpForwarding() {
         return Optional.ofNullable(this.enableIpForwarding);
     }
+    /**
+     * @return One or more `ip_configuration` blocks as defined above.
+     * 
+     */
     public List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations() {
         return this.ipConfigurations;
     }
     /**
-     * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The ID of a Network Security Group which should be assigned to this Network Interface.
+     * 
+     */
     public Optional<String> networkSecurityGroupId() {
         return Optional.ofNullable(this.networkSecurityGroupId);
     }
+    /**
+     * @return Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> primary() {
         return Optional.ofNullable(this.primary);
     }

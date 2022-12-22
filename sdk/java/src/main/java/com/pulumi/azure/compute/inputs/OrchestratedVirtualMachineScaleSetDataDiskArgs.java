@@ -17,44 +17,92 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
 
     public static final OrchestratedVirtualMachineScaleSetDataDiskArgs Empty = new OrchestratedVirtualMachineScaleSetDataDiskArgs();
 
+    /**
+     * The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+     * 
+     */
     @Import(name="caching", required=true)
     private Output<String> caching;
 
+    /**
+     * @return The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+     * 
+     */
     public Output<String> caching() {
         return this.caching;
     }
 
+    /**
+     * The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+     * 
+     */
     @Import(name="createOption")
     private @Nullable Output<String> createOption;
 
+    /**
+     * @return The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+     * 
+     */
     public Optional<Output<String>> createOption() {
         return Optional.ofNullable(this.createOption);
     }
 
+    /**
+     * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="diskEncryptionSetId")
     private @Nullable Output<String> diskEncryptionSetId;
 
+    /**
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> diskEncryptionSetId() {
         return Optional.ofNullable(this.diskEncryptionSetId);
     }
 
+    /**
+     * The size of the Data Disk which should be created.
+     * 
+     */
     @Import(name="diskSizeGb", required=true)
     private Output<Integer> diskSizeGb;
 
+    /**
+     * @return The size of the Data Disk which should be created.
+     * 
+     */
     public Output<Integer> diskSizeGb() {
         return this.diskSizeGb;
     }
 
+    /**
+     * The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+     * 
+     */
     @Import(name="lun", required=true)
     private Output<Integer> lun;
 
+    /**
+     * @return The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+     * 
+     */
     public Output<Integer> lun() {
         return this.lun;
     }
 
+    /**
+     * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+     * 
+     */
     @Import(name="storageAccountType", required=true)
     private Output<String> storageAccountType;
 
+    /**
+     * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+     * 
+     */
     public Output<String> storageAccountType() {
         return this.storageAccountType;
     }
@@ -112,56 +160,128 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
             $ = new OrchestratedVirtualMachineScaleSetDataDiskArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param caching The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+         * 
+         * @return builder
+         * 
+         */
         public Builder caching(Output<String> caching) {
             $.caching = caching;
             return this;
         }
 
+        /**
+         * @param caching The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+         * 
+         * @return builder
+         * 
+         */
         public Builder caching(String caching) {
             return caching(Output.of(caching));
         }
 
+        /**
+         * @param createOption The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+         * 
+         * @return builder
+         * 
+         */
         public Builder createOption(@Nullable Output<String> createOption) {
             $.createOption = createOption;
             return this;
         }
 
+        /**
+         * @param createOption The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+         * 
+         * @return builder
+         * 
+         */
         public Builder createOption(String createOption) {
             return createOption(Output.of(createOption));
         }
 
+        /**
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskEncryptionSetId(@Nullable Output<String> diskEncryptionSetId) {
             $.diskEncryptionSetId = diskEncryptionSetId;
             return this;
         }
 
+        /**
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskEncryptionSetId(String diskEncryptionSetId) {
             return diskEncryptionSetId(Output.of(diskEncryptionSetId));
         }
 
+        /**
+         * @param diskSizeGb The size of the Data Disk which should be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskSizeGb(Output<Integer> diskSizeGb) {
             $.diskSizeGb = diskSizeGb;
             return this;
         }
 
+        /**
+         * @param diskSizeGb The size of the Data Disk which should be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskSizeGb(Integer diskSizeGb) {
             return diskSizeGb(Output.of(diskSizeGb));
         }
 
+        /**
+         * @param lun The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lun(Output<Integer> lun) {
             $.lun = lun;
             return this;
         }
 
+        /**
+         * @param lun The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lun(Integer lun) {
             return lun(Output.of(lun));
         }
 
+        /**
+         * @param storageAccountType The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageAccountType(Output<String> storageAccountType) {
             $.storageAccountType = storageAccountType;
             return this;
         }
 
+        /**
+         * @param storageAccountType The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageAccountType(String storageAccountType) {
             return storageAccountType(Output.of(storageAccountType));
         }

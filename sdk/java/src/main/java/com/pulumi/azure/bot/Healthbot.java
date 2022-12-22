@@ -82,14 +82,14 @@ public class Healthbot extends com.pulumi.resources.CustomResource {
         return this.botManagementPortalUrl;
     }
     /**
-     * Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+     * Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
      * 
      */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
-     * @return Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+     * @return Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
      * 
      */
     public Output<String> location() {
@@ -110,30 +110,28 @@ public class Healthbot extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-     * forces a new resource to be created.
+     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-     * forces a new resource to be created.
+     * @return Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+     * The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
      * 
      */
     @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
-     * @return The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+     * @return The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
      * 
      */
     public Output<String> skuName() {

@@ -265,7 +265,7 @@ namespace Pulumi.Azure.SiteRecovery
     public partial class ReplicatedVM : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `managed_disk` block.
+        /// One or more `managed_disk` block as defined below.
         /// </summary>
         [Output("managedDisks")]
         public Output<ImmutableArray<Outputs.ReplicatedVMManagedDisk>> ManagedDisks { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `network_interface` block.
+        /// One or more `network_interface` block as defined below.
         /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.ReplicatedVMNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
@@ -401,7 +401,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicatedVMManagedDiskArgs>? _managedDisks;
 
         /// <summary>
-        /// One or more `managed_disk` block.
+        /// One or more `managed_disk` block as defined below.
         /// </summary>
         public InputList<Inputs.ReplicatedVMManagedDiskArgs> ManagedDisks
         {
@@ -419,7 +419,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicatedVMNetworkInterfaceArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more `network_interface` block.
+        /// One or more `network_interface` block as defined below.
         /// </summary>
         public InputList<Inputs.ReplicatedVMNetworkInterfaceArgs> NetworkInterfaces
         {
@@ -508,7 +508,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicatedVMManagedDiskGetArgs>? _managedDisks;
 
         /// <summary>
-        /// One or more `managed_disk` block.
+        /// One or more `managed_disk` block as defined below.
         /// </summary>
         public InputList<Inputs.ReplicatedVMManagedDiskGetArgs> ManagedDisks
         {
@@ -526,7 +526,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicatedVMNetworkInterfaceGetArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more `network_interface` block.
+        /// One or more `network_interface` block as defined below.
         /// </summary>
         public InputList<Inputs.ReplicatedVMNetworkInterfaceGetArgs> NetworkInterfaces
         {

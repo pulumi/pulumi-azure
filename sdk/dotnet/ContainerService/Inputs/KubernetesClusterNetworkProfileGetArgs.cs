@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `standard`.
+        /// A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`.
         /// </summary>
         [Input("loadBalancerProfile")]
         public Input<Inputs.KubernetesClusterNetworkProfileLoadBalancerProfileGetArgs>? LoadBalancerProfile { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? LoadBalancerSku { get; set; }
 
         /// <summary>
-        /// A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+        /// A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
         /// </summary>
         [Input("natGatewayProfile")]
         public Input<Inputs.KubernetesClusterNetworkProfileNatGatewayProfileGetArgs>? NatGatewayProfile { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string> NetworkPlugin { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+        /// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkPluginMode")]
         public Input<string>? NetworkPluginMode { get; set; }

@@ -133,7 +133,7 @@ type ManagedDisk struct {
 	DiskMbpsReadOnly pulumi.IntOutput `pulumi:"diskMbpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntOutput `pulumi:"diskMbpsReadWrite"`
-	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+	// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb pulumi.IntOutput `pulumi:"diskSizeGb"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
@@ -239,7 +239,7 @@ type managedDiskState struct {
 	DiskMbpsReadOnly *int `pulumi:"diskMbpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
-	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+	// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
@@ -308,7 +308,7 @@ type ManagedDiskState struct {
 	DiskMbpsReadOnly pulumi.IntPtrInput
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntPtrInput
-	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+	// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb pulumi.IntPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
 	EdgeZone pulumi.StringPtrInput
@@ -381,7 +381,7 @@ type managedDiskArgs struct {
 	DiskMbpsReadOnly *int `pulumi:"diskMbpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
-	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+	// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
@@ -451,7 +451,7 @@ type ManagedDiskArgs struct {
 	DiskMbpsReadOnly pulumi.IntPtrInput
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntPtrInput
-	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+	// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 	DiskSizeGb pulumi.IntPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
 	EdgeZone pulumi.StringPtrInput
@@ -627,7 +627,7 @@ func (o ManagedDiskOutput) DiskMbpsReadWrite() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.IntOutput { return v.DiskMbpsReadWrite }).(pulumi.IntOutput)
 }
 
-// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 func (o ManagedDiskOutput) DiskSizeGb() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.IntOutput { return v.DiskSizeGb }).(pulumi.IntOutput)
 }

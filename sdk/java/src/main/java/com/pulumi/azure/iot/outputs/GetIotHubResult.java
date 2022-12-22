@@ -3,8 +3,10 @@
 
 package com.pulumi.azure.iot.outputs;
 
+import com.pulumi.azure.iot.outputs.GetIotHubIdentity;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -21,6 +23,11 @@ public final class GetIotHubResult {
      * 
      */
     private String id;
+    /**
+     * @return A `identity` block as defined below.
+     * 
+     */
+    private List<GetIotHubIdentity> identities;
     private String name;
     private String resourceGroupName;
     private @Nullable Map<String,String> tags;
@@ -39,6 +46,13 @@ public final class GetIotHubResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return A `identity` block as defined below.
+     * 
+     */
+    public List<GetIotHubIdentity> identities() {
+        return this.identities;
     }
     public String name() {
         return this.name;
@@ -61,6 +75,7 @@ public final class GetIotHubResult {
     public static final class Builder {
         private String hostname;
         private String id;
+        private List<GetIotHubIdentity> identities;
         private String name;
         private String resourceGroupName;
         private @Nullable Map<String,String> tags;
@@ -69,6 +84,7 @@ public final class GetIotHubResult {
     	      Objects.requireNonNull(defaults);
     	      this.hostname = defaults.hostname;
     	      this.id = defaults.id;
+    	      this.identities = defaults.identities;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.tags = defaults.tags;
@@ -83,6 +99,14 @@ public final class GetIotHubResult {
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
+        }
+        @CustomType.Setter
+        public Builder identities(List<GetIotHubIdentity> identities) {
+            this.identities = Objects.requireNonNull(identities);
+            return this;
+        }
+        public Builder identities(GetIotHubIdentity... identities) {
+            return identities(List.of(identities));
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -103,6 +127,7 @@ public final class GetIotHubResult {
             final var o = new GetIotHubResult();
             o.hostname = hostname;
             o.id = id;
+            o.identities = identities;
             o.name = name;
             o.resourceGroupName = resourceGroupName;
             o.tags = tags;

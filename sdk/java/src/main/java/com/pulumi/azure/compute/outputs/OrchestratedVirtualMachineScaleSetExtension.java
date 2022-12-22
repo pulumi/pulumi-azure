@@ -14,6 +14,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetExtension {
+    /**
+     * @return Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to true.
+     * 
+     */
     private @Nullable Boolean autoUpgradeMinorVersionEnabled;
     /**
      * @return An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
@@ -25,24 +29,48 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
      * 
      */
     private @Nullable Boolean failureSuppressionEnabled;
+    /**
+     * @return A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn&#39;t changed.
+     * 
+     */
     private @Nullable String forceExtensionExecutionOnChange;
     /**
-     * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return The name for the Virtual Machine Scale Set Extension.
      * 
      */
     private String name;
+    /**
+     * @return A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+     * 
+     */
     private @Nullable String protectedSettings;
     /**
      * @return A `protected_settings_from_key_vault` block as defined below.
      * 
      */
     private @Nullable OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault protectedSettingsFromKeyVault;
+    /**
+     * @return Specifies the Publisher of the Extension.
+     * 
+     */
     private String publisher;
     private @Nullable String settings;
+    /**
+     * @return Specifies the Type of the Extension.
+     * 
+     */
     private String type;
+    /**
+     * @return Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+     * 
+     */
     private String typeHandlerVersion;
 
     private OrchestratedVirtualMachineScaleSetExtension() {}
+    /**
+     * @return Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to true.
+     * 
+     */
     public Optional<Boolean> autoUpgradeMinorVersionEnabled() {
         return Optional.ofNullable(this.autoUpgradeMinorVersionEnabled);
     }
@@ -60,16 +88,24 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
     public Optional<Boolean> failureSuppressionEnabled() {
         return Optional.ofNullable(this.failureSuppressionEnabled);
     }
+    /**
+     * @return A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn&#39;t changed.
+     * 
+     */
     public Optional<String> forceExtensionExecutionOnChange() {
         return Optional.ofNullable(this.forceExtensionExecutionOnChange);
     }
     /**
-     * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return The name for the Virtual Machine Scale Set Extension.
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+     * 
+     */
     public Optional<String> protectedSettings() {
         return Optional.ofNullable(this.protectedSettings);
     }
@@ -80,15 +116,27 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
     public Optional<OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault> protectedSettingsFromKeyVault() {
         return Optional.ofNullable(this.protectedSettingsFromKeyVault);
     }
+    /**
+     * @return Specifies the Publisher of the Extension.
+     * 
+     */
     public String publisher() {
         return this.publisher;
     }
     public Optional<String> settings() {
         return Optional.ofNullable(this.settings);
     }
+    /**
+     * @return Specifies the Type of the Extension.
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+     * 
+     */
     public String typeHandlerVersion() {
         return this.typeHandlerVersion;
     }

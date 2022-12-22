@@ -50,9 +50,9 @@ func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getSecret.
 type LookupSecretArgs struct {
-	// Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
+	// The ID of the TODO.
 	KeyVaultId string `pulumi:"keyVaultId"`
-	// Specifies the name of the Key Vault Secret.
+	// Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
 	Name string `pulumi:"name"`
 }
 
@@ -73,7 +73,8 @@ type LookupSecretResult struct {
 	// The value of the Key Vault Secret.
 	Value string `pulumi:"value"`
 	// The current version of the Key Vault Secret.
-	Version       string `pulumi:"version"`
+	Version string `pulumi:"version"`
+	// The Versionless ID of the Key Vault Secret. This can be used to always get latest secret value, and enable fetching automatically rotating secrets.
 	VersionlessId string `pulumi:"versionlessId"`
 }
 
@@ -92,9 +93,9 @@ func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts .
 
 // A collection of arguments for invoking getSecret.
 type LookupSecretOutputArgs struct {
-	// Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
+	// The ID of the TODO.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
-	// Specifies the name of the Key Vault Secret.
+	// Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -160,6 +161,7 @@ func (o LookupSecretResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Version }).(pulumi.StringOutput)
 }
 
+// The Versionless ID of the Key Vault Secret. This can be used to always get latest secret value, and enable fetching automatically rotating secrets.
 func (o LookupSecretResultOutput) VersionlessId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.VersionlessId }).(pulumi.StringOutput)
 }

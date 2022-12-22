@@ -229,6 +229,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly vnetSubnetId!: pulumi.Output<string | undefined>;
     /**
+     * A `windowsProfile` block as documented below.
+     */
+    public readonly windowsProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolWindowsProfile | undefined>;
+    /**
      * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
      */
     public readonly workloadRuntime!: pulumi.Output<string | undefined>;
@@ -287,6 +291,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["upgradeSettings"] = state ? state.upgradeSettings : undefined;
             resourceInputs["vmSize"] = state ? state.vmSize : undefined;
             resourceInputs["vnetSubnetId"] = state ? state.vnetSubnetId : undefined;
+            resourceInputs["windowsProfile"] = state ? state.windowsProfile : undefined;
             resourceInputs["workloadRuntime"] = state ? state.workloadRuntime : undefined;
             resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
@@ -334,6 +339,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
             resourceInputs["vmSize"] = args ? args.vmSize : undefined;
             resourceInputs["vnetSubnetId"] = args ? args.vnetSubnetId : undefined;
+            resourceInputs["windowsProfile"] = args ? args.windowsProfile : undefined;
             resourceInputs["workloadRuntime"] = args ? args.workloadRuntime : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
         }
@@ -494,6 +500,10 @@ export interface KubernetesClusterNodePoolState {
      * The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
      */
     vnetSubnetId?: pulumi.Input<string>;
+    /**
+     * A `windowsProfile` block as documented below.
+     */
+    windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolWindowsProfile>;
     /**
      * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
      */
@@ -656,6 +666,10 @@ export interface KubernetesClusterNodePoolArgs {
      * The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
      */
     vnetSubnetId?: pulumi.Input<string>;
+    /**
+     * A `windowsProfile` block as documented below.
+     */
+    windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolWindowsProfile>;
     /**
      * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
      */

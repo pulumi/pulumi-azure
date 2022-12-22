@@ -282,11 +282,11 @@ import (
 type ReplicatedVM struct {
 	pulumi.CustomResourceState
 
-	// One or more `managedDisk` block.
+	// One or more `managedDisk` block as defined below.
 	ManagedDisks ReplicatedVMManagedDiskArrayOutput `pulumi:"managedDisks"`
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// One or more `networkInterface` block.
+	// One or more `networkInterface` block as defined below.
 	NetworkInterfaces           ReplicatedVMNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	RecoveryReplicationPolicyId pulumi.StringOutput                     `pulumi:"recoveryReplicationPolicyId"`
 	// The name of the vault that should be updated. Changing this forces a new resource to be created.
@@ -369,11 +369,11 @@ func GetReplicatedVM(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicatedVM resources.
 type replicatedVMState struct {
-	// One or more `managedDisk` block.
+	// One or more `managedDisk` block as defined below.
 	ManagedDisks []ReplicatedVMManagedDisk `pulumi:"managedDisks"`
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// One or more `networkInterface` block.
+	// One or more `networkInterface` block as defined below.
 	NetworkInterfaces           []ReplicatedVMNetworkInterface `pulumi:"networkInterfaces"`
 	RecoveryReplicationPolicyId *string                        `pulumi:"recoveryReplicationPolicyId"`
 	// The name of the vault that should be updated. Changing this forces a new resource to be created.
@@ -401,11 +401,11 @@ type replicatedVMState struct {
 }
 
 type ReplicatedVMState struct {
-	// One or more `managedDisk` block.
+	// One or more `managedDisk` block as defined below.
 	ManagedDisks ReplicatedVMManagedDiskArrayInput
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// One or more `networkInterface` block.
+	// One or more `networkInterface` block as defined below.
 	NetworkInterfaces           ReplicatedVMNetworkInterfaceArrayInput
 	RecoveryReplicationPolicyId pulumi.StringPtrInput
 	// The name of the vault that should be updated. Changing this forces a new resource to be created.
@@ -437,11 +437,11 @@ func (ReplicatedVMState) ElementType() reflect.Type {
 }
 
 type replicatedVMArgs struct {
-	// One or more `managedDisk` block.
+	// One or more `managedDisk` block as defined below.
 	ManagedDisks []ReplicatedVMManagedDisk `pulumi:"managedDisks"`
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// One or more `networkInterface` block.
+	// One or more `networkInterface` block as defined below.
 	NetworkInterfaces           []ReplicatedVMNetworkInterface `pulumi:"networkInterfaces"`
 	RecoveryReplicationPolicyId string                         `pulumi:"recoveryReplicationPolicyId"`
 	// The name of the vault that should be updated. Changing this forces a new resource to be created.
@@ -470,11 +470,11 @@ type replicatedVMArgs struct {
 
 // The set of arguments for constructing a ReplicatedVM resource.
 type ReplicatedVMArgs struct {
-	// One or more `managedDisk` block.
+	// One or more `managedDisk` block as defined below.
 	ManagedDisks ReplicatedVMManagedDiskArrayInput
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// One or more `networkInterface` block.
+	// One or more `networkInterface` block as defined below.
 	NetworkInterfaces           ReplicatedVMNetworkInterfaceArrayInput
 	RecoveryReplicationPolicyId pulumi.StringInput
 	// The name of the vault that should be updated. Changing this forces a new resource to be created.
@@ -588,7 +588,7 @@ func (o ReplicatedVMOutput) ToReplicatedVMOutputWithContext(ctx context.Context)
 	return o
 }
 
-// One or more `managedDisk` block.
+// One or more `managedDisk` block as defined below.
 func (o ReplicatedVMOutput) ManagedDisks() ReplicatedVMManagedDiskArrayOutput {
 	return o.ApplyT(func(v *ReplicatedVM) ReplicatedVMManagedDiskArrayOutput { return v.ManagedDisks }).(ReplicatedVMManagedDiskArrayOutput)
 }
@@ -598,7 +598,7 @@ func (o ReplicatedVMOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// One or more `networkInterface` block.
+// One or more `networkInterface` block as defined below.
 func (o ReplicatedVMOutput) NetworkInterfaces() ReplicatedVMNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v *ReplicatedVM) ReplicatedVMNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(ReplicatedVMNetworkInterfaceArrayOutput)
 }

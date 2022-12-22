@@ -48,15 +48,12 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
      */
     private @Nullable String radiusServerSecret;
     /**
-     * @return One or more `revoked_certificate` blocks which
-     * are defined below.
+     * @return One or more `revoked_certificate` blocks which are defined below.
      * 
      */
     private @Nullable List<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> revokedCertificates;
     /**
-     * @return One or more `root_certificate` blocks which are
-     * defined below. These root certificates are used to sign the client certificate
-     * used by the VPN clients to connect to the gateway.
+     * @return One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
      * 
      */
     private @Nullable List<VirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates;
@@ -122,17 +119,14 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
         return Optional.ofNullable(this.radiusServerSecret);
     }
     /**
-     * @return One or more `revoked_certificate` blocks which
-     * are defined below.
+     * @return One or more `revoked_certificate` blocks which are defined below.
      * 
      */
     public List<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> revokedCertificates() {
         return this.revokedCertificates == null ? List.of() : this.revokedCertificates;
     }
     /**
-     * @return One or more `root_certificate` blocks which are
-     * defined below. These root certificates are used to sign the client certificate
-     * used by the VPN clients to connect to the gateway.
+     * @return One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
      * 
      */
     public List<VirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates() {

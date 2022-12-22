@@ -13,14 +13,14 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSecretPlainArgs Empty = new GetSecretPlainArgs();
 
     /**
-     * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+     * The ID of the TODO.
      * 
      */
     @Import(name="keyVaultId", required=true)
     private String keyVaultId;
 
     /**
-     * @return Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+     * @return The ID of the TODO.
      * 
      */
     public String keyVaultId() {
@@ -28,14 +28,14 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Specifies the name of the Key Vault Secret.
+     * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Specifies the name of the Key Vault Secret.
+     * @return Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
      * 
      */
     public String name() {
@@ -68,7 +68,7 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param keyVaultId Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+         * @param keyVaultId The ID of the TODO.
          * 
          * @return builder
          * 
@@ -79,7 +79,7 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Specifies the name of the Key Vault Secret.
+         * @param name Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
          * 
          * @return builder
          * 

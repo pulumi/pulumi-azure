@@ -19,14 +19,14 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs extends co
     public static final FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs Empty = new FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs();
 
     /**
-     * The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
+     * The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
+     * @return The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
      * 
      */
     public Output<String> action() {
@@ -106,7 +106,7 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs extends co
         }
 
         /**
-         * @param action The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
+         * @param action The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs extends co
         }
 
         /**
-         * @param action The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
+         * @param action The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
          * 
          * @return builder
          * 

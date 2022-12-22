@@ -109,6 +109,10 @@ __all__ = [
     'ProfileContainerNetworkInterface',
     'ProfileContainerNetworkInterfaceIpConfiguration',
     'RouteFilterRule',
+    'RouteMapRule',
+    'RouteMapRuleAction',
+    'RouteMapRuleActionParameter',
+    'RouteMapRuleMatchCriterion',
     'RouteTableRoute',
     'SubnetDelegation',
     'SubnetDelegationServiceDelegation',
@@ -417,7 +421,7 @@ class ApplicationGatewayBackendHttpSetting(dict):
         :param int port: The port which should be used for this Backend HTTP Settings Collection.
         :param str protocol: The Protocol which should be used. Possible values are `Http` and `Https`.
         :param str affinity_cookie_name: The name of the affinity cookie.
-        :param Sequence['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs'] authentication_certificates: One or more `authentication_certificate` blocks.
+        :param Sequence['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs'] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
         :param 'ApplicationGatewayBackendHttpSettingConnectionDrainingArgs' connection_draining: A `connection_draining` block as defined below.
         :param str host_name: Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
         :param str id: The ID of the Rewrite Rule Set
@@ -499,7 +503,7 @@ class ApplicationGatewayBackendHttpSetting(dict):
     @pulumi.getter(name="authenticationCertificates")
     def authentication_certificates(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificate']]:
         """
-        One or more `authentication_certificate` blocks.
+        One or more `authentication_certificate` blocks as defined below.
         """
         return pulumi.get(self, "authentication_certificates")
 
@@ -1063,7 +1067,7 @@ class ApplicationGatewayHttpListener(dict):
         :param bool require_sni: Should Server Name Indication be Required? Defaults to `false`.
         :param str ssl_certificate_id: The ID of the associated SSL Certificate.
         :param str ssl_certificate_name: The name of the associated SSL Certificate which should be used for this HTTP Listener.
-        :param str ssl_profile_id: The ID of the associated SSL Certificate.
+        :param str ssl_profile_id: The ID of the associated SSL Profile.
         :param str ssl_profile_name: The name of the associated SSL Profile which should be used for this HTTP Listener.
         """
         pulumi.set(__self__, "frontend_ip_configuration_name", frontend_ip_configuration_name)
@@ -1211,7 +1215,7 @@ class ApplicationGatewayHttpListener(dict):
     @pulumi.getter(name="sslProfileId")
     def ssl_profile_id(self) -> Optional[str]:
         """
-        The ID of the associated SSL Certificate.
+        The ID of the associated SSL Profile.
         """
         return pulumi.get(self, "ssl_profile_id")
 
@@ -5428,7 +5432,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollection(dict):
         :param str action: The action to take for the application rules in this collection. Possible values are `Allow` and `Deny`.
         :param str name: The name which should be used for this application rule collection.
         :param int priority: The priority of the application rule collection. The range is `100` - `65000`.
-        :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs'] rules: One or more `rule` (application rule) blocks as defined below.
+        :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs'] rules: One or more `application_rule` (application rule) blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -5463,7 +5467,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollection(dict):
     @pulumi.getter
     def rules(self) -> Sequence['outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule']:
         """
-        One or more `rule` (application rule) blocks as defined below.
+        One or more `application_rule` (application rule) blocks as defined below.
         """
         return pulumi.get(self, "rules")
 
@@ -5514,13 +5518,13 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
                  terminate_tls: Optional[bool] = None,
                  web_categories: Optional[Sequence[str]] = None):
         """
-        :param str name: The name which should be used for this rule.
+        :param str name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         :param str description: The description which should be used for this rule.
-        :param Sequence[str] destination_addresses: Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+        :param Sequence[str] destination_addresses: Specifies a list of destination IP addresses (including CIDR and `*`).
         :param Sequence[str] destination_fqdn_tags: Specifies a list of destination FQDN tags.
-        :param Sequence[str] destination_fqdns: Specifies a list of destination FQDNs.
+        :param Sequence[str] destination_fqdns: Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         :param Sequence[str] destination_urls: Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
-        :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs'] protocols: Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs'] protocols: One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
         :param Sequence[str] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
         :param Sequence[str] source_ip_groups: Specifies a list of source IP groups.
         :param bool terminate_tls: Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
@@ -5552,7 +5556,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name which should be used for this rule.
+        The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         """
         return pulumi.get(self, "name")
 
@@ -5568,7 +5572,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
     @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+        Specifies a list of destination IP addresses (including CIDR and `*`).
         """
         return pulumi.get(self, "destination_addresses")
 
@@ -5584,7 +5588,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
     @pulumi.getter(name="destinationFqdns")
     def destination_fqdns(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of destination FQDNs.
+        Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         """
         return pulumi.get(self, "destination_fqdns")
 
@@ -5600,7 +5604,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
     @pulumi.getter
     def protocols(self) -> Optional[Sequence['outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol']]:
         """
-        Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
         """
         return pulumi.get(self, "protocols")
 
@@ -5677,7 +5681,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollection(dict):
         :param str action: The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
         :param str name: The name which should be used for this NAT rule collection.
         :param int priority: The priority of the NAT rule collection. The range is `100` - `65000`.
-        :param Sequence['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs'] rules: A `rule` (NAT rule) block as defined above.
+        :param Sequence['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs'] rules: A `nat_rule` (NAT rule) block as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -5712,7 +5716,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollection(dict):
     @pulumi.getter
     def rules(self) -> Sequence['outputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionRule']:
         """
-        A `rule` (NAT rule) block as defined above.
+        A `nat_rule` (NAT rule) block as defined below.
         """
         return pulumi.get(self, "rules")
 
@@ -5759,11 +5763,11 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
                  translated_address: Optional[str] = None,
                  translated_fqdn: Optional[str] = None):
         """
-        :param str name: The name which should be used for this rule.
-        :param Sequence[str] protocols: Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        :param str name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
+        :param Sequence[str] protocols: One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
         :param int translated_port: Specifies the translated port.
         :param str destination_address: The destination IP address (including CIDR).
-        :param str destination_ports: Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+        :param str destination_ports: Specifies a list of destination ports.
         :param Sequence[str] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
         :param Sequence[str] source_ip_groups: Specifies a list of source IP groups.
         :param str translated_address: Specifies the translated address.
@@ -5789,7 +5793,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name which should be used for this rule.
+        The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         """
         return pulumi.get(self, "name")
 
@@ -5797,7 +5801,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
     @pulumi.getter
     def protocols(self) -> Sequence[str]:
         """
-        Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
         """
         return pulumi.get(self, "protocols")
 
@@ -5821,7 +5825,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
     @pulumi.getter(name="destinationPorts")
     def destination_ports(self) -> Optional[str]:
         """
-        Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+        Specifies a list of destination ports.
         """
         return pulumi.get(self, "destination_ports")
 
@@ -5869,7 +5873,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollection(dict):
         :param str action: The action to take for the network rules in this collection. Possible values are `Allow` and `Deny`.
         :param str name: The name which should be used for this network rule collection.
         :param int priority: The priority of the network rule collection. The range is `100` - `65000`.
-        :param Sequence['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs'] rules: One or more `rule` (network rule) blocks as defined above.
+        :param Sequence['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs'] rules: One or more `network_rule` (network rule) blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -5904,7 +5908,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollection(dict):
     @pulumi.getter
     def rules(self) -> Sequence['outputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule']:
         """
-        One or more `rule` (network rule) blocks as defined above.
+        One or more `network_rule` (network rule) blocks as defined below.
         """
         return pulumi.get(self, "rules")
 
@@ -5948,11 +5952,11 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
                  source_addresses: Optional[Sequence[str]] = None,
                  source_ip_groups: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] destination_ports: Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
-        :param str name: The name which should be used for this rule.
-        :param Sequence[str] protocols: Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
-        :param Sequence[str] destination_addresses: Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
-        :param Sequence[str] destination_fqdns: Specifies a list of destination FQDNs.
+        :param Sequence[str] destination_ports: Specifies a list of destination ports.
+        :param str name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
+        :param Sequence[str] protocols: One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
+        :param Sequence[str] destination_addresses: Specifies a list of destination IP addresses (including CIDR and `*`).
+        :param Sequence[str] destination_fqdns: Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         :param Sequence[str] destination_ip_groups: Specifies a list of destination IP groups.
         :param Sequence[str] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
         :param Sequence[str] source_ip_groups: Specifies a list of source IP groups.
@@ -5975,7 +5979,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
     @pulumi.getter(name="destinationPorts")
     def destination_ports(self) -> Sequence[str]:
         """
-        Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+        Specifies a list of destination ports.
         """
         return pulumi.get(self, "destination_ports")
 
@@ -5983,7 +5987,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name which should be used for this rule.
+        The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         """
         return pulumi.get(self, "name")
 
@@ -5991,7 +5995,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
     @pulumi.getter
     def protocols(self) -> Sequence[str]:
         """
-        Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
         """
         return pulumi.get(self, "protocols")
 
@@ -5999,7 +6003,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
     @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+        Specifies a list of destination IP addresses (including CIDR and `*`).
         """
         return pulumi.get(self, "destination_addresses")
 
@@ -6007,7 +6011,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
     @pulumi.getter(name="destinationFqdns")
     def destination_fqdns(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of destination FQDNs.
+        Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         """
         return pulumi.get(self, "destination_fqdns")
 
@@ -7577,7 +7581,7 @@ class NetworkWatcherFlowLogRetentionPolicy(dict):
                  enabled: bool):
         """
         :param int days: The number of days to retain flow log records.
-        :param bool enabled: Boolean flag to enable/disable traffic analytics.
+        :param bool enabled: Boolean flag to enable/disable retention.
         """
         pulumi.set(__self__, "days", days)
         pulumi.set(__self__, "enabled", enabled)
@@ -7594,7 +7598,7 @@ class NetworkWatcherFlowLogRetentionPolicy(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Boolean flag to enable/disable traffic analytics.
+        Boolean flag to enable/disable retention.
         """
         return pulumi.get(self, "enabled")
 
@@ -7764,6 +7768,10 @@ class PointToPointVpnGatewayConnectionConfigurationRoute(dict):
         suggest = None
         if key == "associatedRouteTableId":
             suggest = "associated_route_table_id"
+        elif key == "inboundRouteMapId":
+            suggest = "inbound_route_map_id"
+        elif key == "outboundRouteMapId":
+            suggest = "outbound_route_map_id"
         elif key == "propagatedRouteTable":
             suggest = "propagated_route_table"
 
@@ -7780,12 +7788,20 @@ class PointToPointVpnGatewayConnectionConfigurationRoute(dict):
 
     def __init__(__self__, *,
                  associated_route_table_id: str,
+                 inbound_route_map_id: Optional[str] = None,
+                 outbound_route_map_id: Optional[str] = None,
                  propagated_route_table: Optional['outputs.PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable'] = None):
         """
         :param str associated_route_table_id: The Virtual Hub Route Table resource id associated with this Routing Configuration.
+        :param str inbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+        :param str outbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
         :param 'PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs' propagated_route_table: A `propagated_route_table` block as defined below.
         """
         pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
+        if inbound_route_map_id is not None:
+            pulumi.set(__self__, "inbound_route_map_id", inbound_route_map_id)
+        if outbound_route_map_id is not None:
+            pulumi.set(__self__, "outbound_route_map_id", outbound_route_map_id)
         if propagated_route_table is not None:
             pulumi.set(__self__, "propagated_route_table", propagated_route_table)
 
@@ -7796,6 +7812,22 @@ class PointToPointVpnGatewayConnectionConfigurationRoute(dict):
         The Virtual Hub Route Table resource id associated with this Routing Configuration.
         """
         return pulumi.get(self, "associated_route_table_id")
+
+    @property
+    @pulumi.getter(name="inboundRouteMapId")
+    def inbound_route_map_id(self) -> Optional[str]:
+        """
+        The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+        """
+        return pulumi.get(self, "inbound_route_map_id")
+
+    @property
+    @pulumi.getter(name="outboundRouteMapId")
+    def outbound_route_map_id(self) -> Optional[str]:
+        """
+        The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+        """
+        return pulumi.get(self, "outbound_route_map_id")
 
     @property
     @pulumi.getter(name="propagatedRouteTable")
@@ -8029,6 +8061,245 @@ class RouteFilterRule(dict):
         The rule type of the rule. The only possible value is `Community`.
         """
         return pulumi.get(self, "rule_type")
+
+
+@pulumi.output_type
+class RouteMapRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchCriterions":
+            suggest = "match_criterions"
+        elif key == "nextStepIfMatched":
+            suggest = "next_step_if_matched"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteMapRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteMapRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteMapRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 actions: Optional[Sequence['outputs.RouteMapRuleAction']] = None,
+                 match_criterions: Optional[Sequence['outputs.RouteMapRuleMatchCriterion']] = None,
+                 next_step_if_matched: Optional[str] = None):
+        """
+        :param str name: The unique name for the rule.
+        :param Sequence['RouteMapRuleActionArgs'] actions: An `action` block as defined below.
+        :param Sequence['RouteMapRuleMatchCriterionArgs'] match_criterions: A `match_criterion` block as defined below.
+        :param str next_step_if_matched: The next step after the rule is evaluated. Possible values are `Continue`, `Terminate` and `Unknown`. Defaults to `Unknown`.
+        """
+        pulumi.set(__self__, "name", name)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if match_criterions is not None:
+            pulumi.set(__self__, "match_criterions", match_criterions)
+        if next_step_if_matched is not None:
+            pulumi.set(__self__, "next_step_if_matched", next_step_if_matched)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The unique name for the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence['outputs.RouteMapRuleAction']]:
+        """
+        An `action` block as defined below.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="matchCriterions")
+    def match_criterions(self) -> Optional[Sequence['outputs.RouteMapRuleMatchCriterion']]:
+        """
+        A `match_criterion` block as defined below.
+        """
+        return pulumi.get(self, "match_criterions")
+
+    @property
+    @pulumi.getter(name="nextStepIfMatched")
+    def next_step_if_matched(self) -> Optional[str]:
+        """
+        The next step after the rule is evaluated. Possible values are `Continue`, `Terminate` and `Unknown`. Defaults to `Unknown`.
+        """
+        return pulumi.get(self, "next_step_if_matched")
+
+
+@pulumi.output_type
+class RouteMapRuleAction(dict):
+    def __init__(__self__, *,
+                 parameters: Sequence['outputs.RouteMapRuleActionParameter'],
+                 type: str):
+        """
+        :param Sequence['RouteMapRuleActionParameterArgs'] parameters: A `parameter` block as defined below.
+        :param str type: The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Sequence['outputs.RouteMapRuleActionParameter']:
+        """
+        A `parameter` block as defined below.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class RouteMapRuleActionParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "asPaths":
+            suggest = "as_paths"
+        elif key == "routePrefixes":
+            suggest = "route_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteMapRuleActionParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteMapRuleActionParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteMapRuleActionParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 as_paths: Optional[Sequence[str]] = None,
+                 communities: Optional[Sequence[str]] = None,
+                 route_prefixes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] as_paths: A list of AS paths.
+        :param Sequence[str] communities: A list of BGP communities.
+        :param Sequence[str] route_prefixes: A list of route prefixes.
+        """
+        if as_paths is not None:
+            pulumi.set(__self__, "as_paths", as_paths)
+        if communities is not None:
+            pulumi.set(__self__, "communities", communities)
+        if route_prefixes is not None:
+            pulumi.set(__self__, "route_prefixes", route_prefixes)
+
+    @property
+    @pulumi.getter(name="asPaths")
+    def as_paths(self) -> Optional[Sequence[str]]:
+        """
+        A list of AS paths.
+        """
+        return pulumi.get(self, "as_paths")
+
+    @property
+    @pulumi.getter
+    def communities(self) -> Optional[Sequence[str]]:
+        """
+        A list of BGP communities.
+        """
+        return pulumi.get(self, "communities")
+
+    @property
+    @pulumi.getter(name="routePrefixes")
+    def route_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        A list of route prefixes.
+        """
+        return pulumi.get(self, "route_prefixes")
+
+
+@pulumi.output_type
+class RouteMapRuleMatchCriterion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchCondition":
+            suggest = "match_condition"
+        elif key == "asPaths":
+            suggest = "as_paths"
+        elif key == "routePrefixes":
+            suggest = "route_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteMapRuleMatchCriterion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteMapRuleMatchCriterion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteMapRuleMatchCriterion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_condition: str,
+                 as_paths: Optional[Sequence[str]] = None,
+                 communities: Optional[Sequence[str]] = None,
+                 route_prefixes: Optional[Sequence[str]] = None):
+        """
+        :param str match_condition: The match condition to apply the rule of the Route Map. Possible values are `Contains`, `Equals`, `NotContains`, `NotEquals` and `Unknown`.
+        :param Sequence[str] as_paths: A list of AS paths which this criterion matches.
+        :param Sequence[str] communities: A list of BGP communities which this criterion matches.
+        :param Sequence[str] route_prefixes: A list of route prefixes which this criterion matches.
+        """
+        pulumi.set(__self__, "match_condition", match_condition)
+        if as_paths is not None:
+            pulumi.set(__self__, "as_paths", as_paths)
+        if communities is not None:
+            pulumi.set(__self__, "communities", communities)
+        if route_prefixes is not None:
+            pulumi.set(__self__, "route_prefixes", route_prefixes)
+
+    @property
+    @pulumi.getter(name="matchCondition")
+    def match_condition(self) -> str:
+        """
+        The match condition to apply the rule of the Route Map. Possible values are `Contains`, `Equals`, `NotContains`, `NotEquals` and `Unknown`.
+        """
+        return pulumi.get(self, "match_condition")
+
+    @property
+    @pulumi.getter(name="asPaths")
+    def as_paths(self) -> Optional[Sequence[str]]:
+        """
+        A list of AS paths which this criterion matches.
+        """
+        return pulumi.get(self, "as_paths")
+
+    @property
+    @pulumi.getter
+    def communities(self) -> Optional[Sequence[str]]:
+        """
+        A list of BGP communities which this criterion matches.
+        """
+        return pulumi.get(self, "communities")
+
+    @property
+    @pulumi.getter(name="routePrefixes")
+    def route_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        A list of route prefixes which this criterion matches.
+        """
+        return pulumi.get(self, "route_prefixes")
 
 
 @pulumi.output_type
@@ -9376,7 +9647,7 @@ class VirtualNetworkGatewayCustomRoute(dict):
     def __init__(__self__, *,
                  address_prefixes: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
+        :param Sequence[str] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation as defined below.
         """
         if address_prefixes is not None:
             pulumi.set(__self__, "address_prefixes", address_prefixes)
@@ -9385,7 +9656,7 @@ class VirtualNetworkGatewayCustomRoute(dict):
     @pulumi.getter(name="addressPrefixes")
     def address_prefixes(self) -> Optional[Sequence[str]]:
         """
-        A list of address blocks reserved for this virtual network in CIDR notation.
+        A list of address blocks reserved for this virtual network in CIDR notation as defined below.
         """
         return pulumi.get(self, "address_prefixes")
 
@@ -9632,11 +9903,8 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
         :param str aad_tenant: AzureAD Tenant URL
         :param str radius_server_address: The address of the Radius server.
         :param str radius_server_secret: The secret used by the Radius server.
-        :param Sequence['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs'] revoked_certificates: One or more `revoked_certificate` blocks which
-               are defined below.
-        :param Sequence['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs'] root_certificates: One or more `root_certificate` blocks which are
-               defined below. These root certificates are used to sign the client certificate
-               used by the VPN clients to connect to the gateway.
+        :param Sequence['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs'] revoked_certificates: One or more `revoked_certificate` blocks which are defined below.
+        :param Sequence['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs'] root_certificates: One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
         :param Sequence[str] vpn_auth_types: List of the vpn authentication types for the virtual network gateway.
                The supported values are `AAD`, `Radius` and `Certificate`.
         :param Sequence[str] vpn_client_protocols: List of the protocols supported by the vpn client.
@@ -9719,8 +9987,7 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
     @pulumi.getter(name="revokedCertificates")
     def revoked_certificates(self) -> Optional[Sequence['outputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate']]:
         """
-        One or more `revoked_certificate` blocks which
-        are defined below.
+        One or more `revoked_certificate` blocks which are defined below.
         """
         return pulumi.get(self, "revoked_certificates")
 
@@ -9728,9 +9995,7 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
     @pulumi.getter(name="rootCertificates")
     def root_certificates(self) -> Optional[Sequence['outputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificate']]:
         """
-        One or more `root_certificate` blocks which are
-        defined below. These root certificates are used to sign the client certificate
-        used by the VPN clients to connect to the gateway.
+        One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
         """
         return pulumi.get(self, "root_certificates")
 
@@ -10253,6 +10518,10 @@ class VpnGatewayConnectionRouting(dict):
         suggest = None
         if key == "associatedRouteTable":
             suggest = "associated_route_table"
+        elif key == "inboundRouteMapId":
+            suggest = "inbound_route_map_id"
+        elif key == "outboundRouteMapId":
+            suggest = "outbound_route_map_id"
         elif key == "propagatedRouteTable":
             suggest = "propagated_route_table"
 
@@ -10269,12 +10538,20 @@ class VpnGatewayConnectionRouting(dict):
 
     def __init__(__self__, *,
                  associated_route_table: str,
+                 inbound_route_map_id: Optional[str] = None,
+                 outbound_route_map_id: Optional[str] = None,
                  propagated_route_table: Optional['outputs.VpnGatewayConnectionRoutingPropagatedRouteTable'] = None):
         """
         :param str associated_route_table: The ID of the Route Table associated with this VPN Connection.
+        :param str inbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+        :param str outbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
         :param 'VpnGatewayConnectionRoutingPropagatedRouteTableArgs' propagated_route_table: A `propagated_route_table` block as defined below.
         """
         pulumi.set(__self__, "associated_route_table", associated_route_table)
+        if inbound_route_map_id is not None:
+            pulumi.set(__self__, "inbound_route_map_id", inbound_route_map_id)
+        if outbound_route_map_id is not None:
+            pulumi.set(__self__, "outbound_route_map_id", outbound_route_map_id)
         if propagated_route_table is not None:
             pulumi.set(__self__, "propagated_route_table", propagated_route_table)
 
@@ -10285,6 +10562,22 @@ class VpnGatewayConnectionRouting(dict):
         The ID of the Route Table associated with this VPN Connection.
         """
         return pulumi.get(self, "associated_route_table")
+
+    @property
+    @pulumi.getter(name="inboundRouteMapId")
+    def inbound_route_map_id(self) -> Optional[str]:
+        """
+        The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+        """
+        return pulumi.get(self, "inbound_route_map_id")
+
+    @property
+    @pulumi.getter(name="outboundRouteMapId")
+    def outbound_route_map_id(self) -> Optional[str]:
+        """
+        The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+        """
+        return pulumi.get(self, "outbound_route_map_id")
 
     @property
     @pulumi.getter(name="propagatedRouteTable")

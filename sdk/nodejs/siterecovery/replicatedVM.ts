@@ -206,7 +206,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
     }
 
     /**
-     * One or more `managedDisk` block.
+     * One or more `managedDisk` block as defined below.
      */
     public readonly managedDisks!: pulumi.Output<outputs.siterecovery.ReplicatedVMManagedDisk[] | undefined>;
     /**
@@ -214,7 +214,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * One or more `networkInterface` block.
+     * One or more `networkInterface` block as defined below.
      */
     public readonly networkInterfaces!: pulumi.Output<outputs.siterecovery.ReplicatedVMNetworkInterface[]>;
     public readonly recoveryReplicationPolicyId!: pulumi.Output<string>;
@@ -346,7 +346,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
  */
 export interface ReplicatedVMState {
     /**
-     * One or more `managedDisk` block.
+     * One or more `managedDisk` block as defined below.
      */
     managedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDisk>[]>;
     /**
@@ -354,7 +354,7 @@ export interface ReplicatedVMState {
      */
     name?: pulumi.Input<string>;
     /**
-     * One or more `networkInterface` block.
+     * One or more `networkInterface` block as defined below.
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[]>;
     recoveryReplicationPolicyId?: pulumi.Input<string>;
@@ -409,7 +409,7 @@ export interface ReplicatedVMState {
  */
 export interface ReplicatedVMArgs {
     /**
-     * One or more `managedDisk` block.
+     * One or more `managedDisk` block as defined below.
      */
     managedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDisk>[]>;
     /**
@@ -417,7 +417,7 @@ export interface ReplicatedVMArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * One or more `networkInterface` block.
+     * One or more `networkInterface` block as defined below.
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[]>;
     recoveryReplicationPolicyId: pulumi.Input<string>;

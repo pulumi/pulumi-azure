@@ -13,9 +13,21 @@ namespace Pulumi.Azure.Compute.Outputs
     [OutputType]
     public sealed class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration
     {
+        /// <summary>
+        /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string AdminPassword;
+        /// <summary>
+        /// The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string AdminUsername;
+        /// <summary>
+        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        /// </summary>
         public readonly string? ComputerNamePrefix;
+        /// <summary>
+        /// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
+        /// </summary>
         public readonly bool? EnableAutomaticUpdates;
         /// <summary>
         /// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
@@ -29,9 +41,21 @@ namespace Pulumi.Azure.Compute.Outputs
         /// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// </summary>
         public readonly string? PatchMode;
+        /// <summary>
+        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+        /// </summary>
         public readonly bool? ProvisionVmAgent;
+        /// <summary>
+        /// One or more `secret` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> Secrets;
+        /// <summary>
+        /// Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        /// </summary>
         public readonly string? Timezone;
+        /// <summary>
+        /// One or more `winrm_listener` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener> WinrmListeners;
 
         [OutputConstructor]

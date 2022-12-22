@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Compute.Inputs
     {
         [Input("adminPassword")]
         private Input<string>? _adminPassword;
+
+        /// <summary>
+        /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        /// </summary>
         public Input<string>? AdminPassword
         {
             get => _adminPassword;
@@ -26,15 +30,25 @@ namespace Pulumi.Azure.Compute.Inputs
 
         [Input("adminSshKeys")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs>? _adminSshKeys;
+
+        /// <summary>
+        /// A `admin_ssh_key` block as documented below.
+        /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs> AdminSshKeys
         {
             get => _adminSshKeys ?? (_adminSshKeys = new InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs>());
             set => _adminSshKeys = value;
         }
 
+        /// <summary>
+        /// The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("adminUsername", required: true)]
         public Input<string> AdminUsername { get; set; } = null!;
 
+        /// <summary>
+        /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
+        /// </summary>
         [Input("computerNamePrefix")]
         public Input<string>? ComputerNamePrefix { get; set; }
 
@@ -56,11 +70,18 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }
 
+        /// <summary>
+        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+        /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }
 
         [Input("secrets")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs>? _secrets;
+
+        /// <summary>
+        /// One or more `secret` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs> Secrets
         {
             get => _secrets ?? (_secrets = new InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs>());

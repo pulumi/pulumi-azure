@@ -13,11 +13,20 @@ namespace Pulumi.Azure.Compute.Outputs
     [OutputType]
     public sealed class OrchestratedVirtualMachineScaleSetSourceImageReference
     {
+        /// <summary>
+        /// Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Offer;
+        /// <summary>
+        /// Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string Publisher;
+        /// <summary>
+        /// Specifies the SKU of the image used to create the virtual machines.
+        /// </summary>
         public readonly string Sku;
         /// <summary>
-        /// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+        /// Specifies the version of the image used to create the virtual machines.
         /// </summary>
         public readonly string Version;
 

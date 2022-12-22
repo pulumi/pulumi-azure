@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string SourceVaultId;
         /// <summary>
-        /// One or more `vault_certificates` blocks.
+        /// One or more `vault_certificates` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineOsProfileSecretVaultCertificate> VaultCertificates;
 

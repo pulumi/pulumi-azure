@@ -68,14 +68,14 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+     * One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
      * 
      */
     @Import(name="resourceFiles")
     private @Nullable Output<List<PoolStartTaskResourceFileArgs>> resourceFiles;
 
     /**
-     * @return One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+     * @return One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
      * 
      */
     public Optional<Output<List<PoolStartTaskResourceFileArgs>>> resourceFiles() {
@@ -98,14 +98,14 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `user_identity` block that describes the user identity under which the start task runs.
+     * A `user_identity` block that describes the user identity under which the start task runs as defined below.
      * 
      */
     @Import(name="userIdentity", required=true)
     private Output<PoolStartTaskUserIdentityArgs> userIdentity;
 
     /**
-     * @return A `user_identity` block that describes the user identity under which the start task runs.
+     * @return A `user_identity` block that describes the user identity under which the start task runs as defined below.
      * 
      */
     public Output<PoolStartTaskUserIdentityArgs> userIdentity() {
@@ -231,7 +231,7 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceFiles One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+         * @param resourceFiles One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceFiles One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+         * @param resourceFiles One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceFiles One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+         * @param resourceFiles One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userIdentity A `user_identity` block that describes the user identity under which the start task runs.
+         * @param userIdentity A `user_identity` block that describes the user identity under which the start task runs as defined below.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userIdentity A `user_identity` block that describes the user identity under which the start task runs.
+         * @param userIdentity A `user_identity` block that describes the user identity under which the start task runs as defined below.
          * 
          * @return builder
          * 

@@ -5554,18 +5554,19 @@ class LogzMonitorPlanArgs:
     def __init__(__self__, *,
                  billing_cycle: pulumi.Input[str],
                  effective_date: pulumi.Input[str],
-                 plan_id: pulumi.Input[str],
-                 usage_type: pulumi.Input[str]):
+                 usage_type: pulumi.Input[str],
+                 plan_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] billing_cycle: Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] effective_date: Date when plan was applied. Changing this forces a new logz Monitor to be created.
-        :param pulumi.Input[str] plan_id: Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] usage_type: Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+        :param pulumi.Input[str] plan_id: Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
         """
         pulumi.set(__self__, "billing_cycle", billing_cycle)
         pulumi.set(__self__, "effective_date", effective_date)
-        pulumi.set(__self__, "plan_id", plan_id)
         pulumi.set(__self__, "usage_type", usage_type)
+        if plan_id is not None:
+            pulumi.set(__self__, "plan_id", plan_id)
 
     @property
     @pulumi.getter(name="billingCycle")
@@ -5592,18 +5593,6 @@ class LogzMonitorPlanArgs:
         pulumi.set(self, "effective_date", value)
 
     @property
-    @pulumi.getter(name="planId")
-    def plan_id(self) -> pulumi.Input[str]:
-        """
-        Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
-        """
-        return pulumi.get(self, "plan_id")
-
-    @plan_id.setter
-    def plan_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "plan_id", value)
-
-    @property
     @pulumi.getter(name="usageType")
     def usage_type(self) -> pulumi.Input[str]:
         """
@@ -5614,6 +5603,18 @@ class LogzMonitorPlanArgs:
     @usage_type.setter
     def usage_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "usage_type", value)
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
+        """
+        return pulumi.get(self, "plan_id")
+
+    @plan_id.setter
+    def plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "plan_id", value)
 
 
 @pulumi.input_type
@@ -6551,7 +6552,7 @@ class ScheduledQueryRulesAlertV2CriteriaArgs:
                  metric_measure_column: Optional[pulumi.Input[str]] = None,
                  resource_id_column: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] operator: Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+        :param pulumi.Input[str] operator: Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
         :param pulumi.Input[str] query: The query to run on logs. The results returned by this query are used to populate the alert.
         :param pulumi.Input[float] threshold: Specifies the criteria threshold value that activates the alert.
         :param pulumi.Input[str] time_aggregation_method: The type of aggregation to apply to the data points in aggregation granularity. Possible values are `Average`, `Count`, `Maximum`, `Minimum`,and `Total`.
@@ -6577,7 +6578,7 @@ class ScheduledQueryRulesAlertV2CriteriaArgs:
     @pulumi.getter
     def operator(self) -> pulumi.Input[str]:
         """
-        Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+        Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
         """
         return pulumi.get(self, "operator")
 

@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> AutomationAccountName { get; private set; } = null!;
 
         /// <summary>
-        /// The UUID identifying the Automation Job Schedule.
+        /// (Optional) The UUID identifying the Automation Job Schedule.
         /// </summary>
         [Output("jobScheduleId")]
         public Output<string> JobScheduleId { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Azure.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The UUID identifying the Automation Job Schedule.
+        /// (Optional) The UUID identifying the Automation Job Schedule.
         /// </summary>
         [Input("jobScheduleId")]
         public Input<string>? JobScheduleId { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? AutomationAccountName { get; set; }
 
         /// <summary>
-        /// The UUID identifying the Automation Job Schedule.
+        /// (Optional) The UUID identifying the Automation Job Schedule.
         /// </summary>
         [Input("jobScheduleId")]
         public Input<string>? JobScheduleId { get; set; }

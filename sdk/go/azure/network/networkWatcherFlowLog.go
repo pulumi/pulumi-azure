@@ -106,7 +106,7 @@ import (
 type NetworkWatcherFlowLog struct {
 	pulumi.CustomResourceState
 
-	// Boolean flag to enable/disable traffic analytics.
+	// Should Network Flow Logging be Enabled?
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -177,7 +177,7 @@ func GetNetworkWatcherFlowLog(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkWatcherFlowLog resources.
 type networkWatcherFlowLogState struct {
-	// Boolean flag to enable/disable traffic analytics.
+	// Should Network Flow Logging be Enabled?
 	Enabled *bool `pulumi:"enabled"`
 	// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
 	Location *string `pulumi:"location"`
@@ -202,7 +202,7 @@ type networkWatcherFlowLogState struct {
 }
 
 type NetworkWatcherFlowLogState struct {
-	// Boolean flag to enable/disable traffic analytics.
+	// Should Network Flow Logging be Enabled?
 	Enabled pulumi.BoolPtrInput
 	// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
 	Location pulumi.StringPtrInput
@@ -231,7 +231,7 @@ func (NetworkWatcherFlowLogState) ElementType() reflect.Type {
 }
 
 type networkWatcherFlowLogArgs struct {
-	// Boolean flag to enable/disable traffic analytics.
+	// Should Network Flow Logging be Enabled?
 	Enabled bool `pulumi:"enabled"`
 	// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
 	Location *string `pulumi:"location"`
@@ -257,7 +257,7 @@ type networkWatcherFlowLogArgs struct {
 
 // The set of arguments for constructing a NetworkWatcherFlowLog resource.
 type NetworkWatcherFlowLogArgs struct {
-	// Boolean flag to enable/disable traffic analytics.
+	// Should Network Flow Logging be Enabled?
 	Enabled pulumi.BoolInput
 	// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
 	Location pulumi.StringPtrInput
@@ -368,7 +368,7 @@ func (o NetworkWatcherFlowLogOutput) ToNetworkWatcherFlowLogOutputWithContext(ct
 	return o
 }
 
-// Boolean flag to enable/disable traffic analytics.
+// Should Network Flow Logging be Enabled?
 func (o NetworkWatcherFlowLogOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *NetworkWatcherFlowLog) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }

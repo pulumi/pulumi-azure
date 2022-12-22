@@ -73,46 +73,60 @@ type OrchestratedVirtualMachineScaleSet struct {
 	AdditionalCapabilities OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput `pulumi:"additionalCapabilities"`
 	// An `automaticInstanceRepair` block as defined below.
 	AutomaticInstanceRepair OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput `pulumi:"automaticInstanceRepair"`
-	BootDiagnostics         OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput      `pulumi:"bootDiagnostics"`
+	// A `bootDiagnostics` block as defined below.
+	BootDiagnostics OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
-	CapacityReservationGroupId pulumi.StringPtrOutput                                `pulumi:"capacityReservationGroupId"`
-	DataDisks                  OrchestratedVirtualMachineScaleSetDataDiskArrayOutput `pulumi:"dataDisks"`
-	EncryptionAtHostEnabled    pulumi.BoolPtrOutput                                  `pulumi:"encryptionAtHostEnabled"`
-	EvictionPolicy             pulumi.StringPtrOutput                                `pulumi:"evictionPolicy"`
+	CapacityReservationGroupId pulumi.StringPtrOutput `pulumi:"capacityReservationGroupId"`
+	// One or more `dataDisk` blocks as defined below.
+	DataDisks               OrchestratedVirtualMachineScaleSetDataDiskArrayOutput `pulumi:"dataDisks"`
+	EncryptionAtHostEnabled pulumi.BoolPtrOutput                                  `pulumi:"encryptionAtHostEnabled"`
+	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
-	ExtensionOperationsEnabled pulumi.BoolOutput                                      `pulumi:"extensionOperationsEnabled"`
-	Extensions                 OrchestratedVirtualMachineScaleSetExtensionArrayOutput `pulumi:"extensions"`
+	ExtensionOperationsEnabled pulumi.BoolOutput `pulumi:"extensionOperationsEnabled"`
+	// One or more `extension` blocks as defined below
+	Extensions OrchestratedVirtualMachineScaleSetExtensionArrayOutput `pulumi:"extensions"`
 	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
-	ExtensionsTimeBudget pulumi.StringPtrOutput                              `pulumi:"extensionsTimeBudget"`
-	Identity             OrchestratedVirtualMachineScaleSetIdentityPtrOutput `pulumi:"identity"`
+	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
+	// An `identity` block as defined below.
+	Identity OrchestratedVirtualMachineScaleSetIdentityPtrOutput `pulumi:"identity"`
 	// The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
-	Instances   pulumi.IntOutput       `pulumi:"instances"`
+	Instances pulumi.IntOutput `pulumi:"instances"`
+	// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
-	Location    pulumi.StringOutput     `pulumi:"location"`
+	Location pulumi.StringOutput `pulumi:"location"`
+	// The maximum price you're willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
 	MaxBidPrice pulumi.Float64PtrOutput `pulumi:"maxBidPrice"`
 	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name              pulumi.StringOutput                                           `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// One or more `networkInterface` blocks as defined below.
 	NetworkInterfaces OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
-	OsDisk            OrchestratedVirtualMachineScaleSetOsDiskPtrOutput             `pulumi:"osDisk"`
-	OsProfile         OrchestratedVirtualMachineScaleSetOsProfilePtrOutput          `pulumi:"osProfile"`
-	Plan              OrchestratedVirtualMachineScaleSetPlanPtrOutput               `pulumi:"plan"`
+	// An `osDisk` block as defined below.
+	OsDisk OrchestratedVirtualMachineScaleSetOsDiskPtrOutput `pulumi:"osDisk"`
+	// An `osProfile` block as defined below.
+	OsProfile OrchestratedVirtualMachineScaleSetOsProfilePtrOutput `pulumi:"osProfile"`
+	// A `plan` block as documented below.
+	Plan OrchestratedVirtualMachineScaleSetPlanPtrOutput `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	PlatformFaultDomainCount pulumi.IntOutput       `pulumi:"platformFaultDomainCount"`
-	Priority                 pulumi.StringPtrOutput `pulumi:"priority"`
+	PlatformFaultDomainCount pulumi.IntOutput `pulumi:"platformFaultDomainCount"`
+	// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+	Priority pulumi.StringPtrOutput `pulumi:"priority"`
 	// The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
 	SinglePlacementGroup pulumi.BoolOutput `pulumi:"singlePlacementGroup"`
-	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
-	SkuName       pulumi.StringPtrOutput `pulumi:"skuName"`
+	// The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
+	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId pulumi.StringPtrOutput `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below.
 	SourceImageReference OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
-	Tags                    pulumi.StringMapOutput                                          `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A `terminationNotification` block as defined below.
 	TerminationNotification OrchestratedVirtualMachineScaleSetTerminationNotificationOutput `pulumi:"terminationNotification"`
 	// The Unique ID for the Orchestrated Virtual Machine Scale Set.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
@@ -169,46 +183,60 @@ type orchestratedVirtualMachineScaleSetState struct {
 	AdditionalCapabilities *OrchestratedVirtualMachineScaleSetAdditionalCapabilities `pulumi:"additionalCapabilities"`
 	// An `automaticInstanceRepair` block as defined below.
 	AutomaticInstanceRepair *OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair `pulumi:"automaticInstanceRepair"`
-	BootDiagnostics         *OrchestratedVirtualMachineScaleSetBootDiagnostics         `pulumi:"bootDiagnostics"`
+	// A `bootDiagnostics` block as defined below.
+	BootDiagnostics *OrchestratedVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
-	CapacityReservationGroupId *string                                      `pulumi:"capacityReservationGroupId"`
-	DataDisks                  []OrchestratedVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
-	EncryptionAtHostEnabled    *bool                                        `pulumi:"encryptionAtHostEnabled"`
-	EvictionPolicy             *string                                      `pulumi:"evictionPolicy"`
+	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
+	// One or more `dataDisk` blocks as defined below.
+	DataDisks               []OrchestratedVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
+	EncryptionAtHostEnabled *bool                                        `pulumi:"encryptionAtHostEnabled"`
+	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
-	ExtensionOperationsEnabled *bool                                         `pulumi:"extensionOperationsEnabled"`
-	Extensions                 []OrchestratedVirtualMachineScaleSetExtension `pulumi:"extensions"`
+	ExtensionOperationsEnabled *bool `pulumi:"extensionOperationsEnabled"`
+	// One or more `extension` blocks as defined below
+	Extensions []OrchestratedVirtualMachineScaleSetExtension `pulumi:"extensions"`
 	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
-	ExtensionsTimeBudget *string                                     `pulumi:"extensionsTimeBudget"`
-	Identity             *OrchestratedVirtualMachineScaleSetIdentity `pulumi:"identity"`
+	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
+	// An `identity` block as defined below.
+	Identity *OrchestratedVirtualMachineScaleSetIdentity `pulumi:"identity"`
 	// The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
-	Instances   *int    `pulumi:"instances"`
+	Instances *int `pulumi:"instances"`
+	// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
 	LicenseType *string `pulumi:"licenseType"`
 	// The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
-	Location    *string  `pulumi:"location"`
+	Location *string `pulumi:"location"`
+	// The maximum price you're willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
 	MaxBidPrice *float64 `pulumi:"maxBidPrice"`
 	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name              *string                                              `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// One or more `networkInterface` blocks as defined below.
 	NetworkInterfaces []OrchestratedVirtualMachineScaleSetNetworkInterface `pulumi:"networkInterfaces"`
-	OsDisk            *OrchestratedVirtualMachineScaleSetOsDisk            `pulumi:"osDisk"`
-	OsProfile         *OrchestratedVirtualMachineScaleSetOsProfile         `pulumi:"osProfile"`
-	Plan              *OrchestratedVirtualMachineScaleSetPlan              `pulumi:"plan"`
+	// An `osDisk` block as defined below.
+	OsDisk *OrchestratedVirtualMachineScaleSetOsDisk `pulumi:"osDisk"`
+	// An `osProfile` block as defined below.
+	OsProfile *OrchestratedVirtualMachineScaleSetOsProfile `pulumi:"osProfile"`
+	// A `plan` block as documented below.
+	Plan *OrchestratedVirtualMachineScaleSetPlan `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	PlatformFaultDomainCount *int    `pulumi:"platformFaultDomainCount"`
-	Priority                 *string `pulumi:"priority"`
+	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
+	// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+	Priority *string `pulumi:"priority"`
 	// The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
-	SkuName       *string `pulumi:"skuName"`
+	// The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+	SkuName *string `pulumi:"skuName"`
+	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below.
 	SourceImageReference *OrchestratedVirtualMachineScaleSetSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
-	Tags                    map[string]string                                          `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A `terminationNotification` block as defined below.
 	TerminationNotification *OrchestratedVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
 	// The Unique ID for the Orchestrated Virtual Machine Scale Set.
 	UniqueId *string `pulumi:"uniqueId"`
@@ -224,46 +252,60 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	AdditionalCapabilities OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrInput
 	// An `automaticInstanceRepair` block as defined below.
 	AutomaticInstanceRepair OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrInput
-	BootDiagnostics         OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput
+	// A `bootDiagnostics` block as defined below.
+	BootDiagnostics OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput
-	DataDisks                  OrchestratedVirtualMachineScaleSetDataDiskArrayInput
-	EncryptionAtHostEnabled    pulumi.BoolPtrInput
-	EvictionPolicy             pulumi.StringPtrInput
+	// One or more `dataDisk` blocks as defined below.
+	DataDisks               OrchestratedVirtualMachineScaleSetDataDiskArrayInput
+	EncryptionAtHostEnabled pulumi.BoolPtrInput
+	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	EvictionPolicy pulumi.StringPtrInput
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
 	ExtensionOperationsEnabled pulumi.BoolPtrInput
-	Extensions                 OrchestratedVirtualMachineScaleSetExtensionArrayInput
+	// One or more `extension` blocks as defined below
+	Extensions OrchestratedVirtualMachineScaleSetExtensionArrayInput
 	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
 	ExtensionsTimeBudget pulumi.StringPtrInput
-	Identity             OrchestratedVirtualMachineScaleSetIdentityPtrInput
+	// An `identity` block as defined below.
+	Identity OrchestratedVirtualMachineScaleSetIdentityPtrInput
 	// The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
-	Instances   pulumi.IntPtrInput
+	Instances pulumi.IntPtrInput
+	// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrInput
 	// The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
-	Location    pulumi.StringPtrInput
+	Location pulumi.StringPtrInput
+	// The maximum price you're willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
 	MaxBidPrice pulumi.Float64PtrInput
 	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name              pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// One or more `networkInterface` blocks as defined below.
 	NetworkInterfaces OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayInput
-	OsDisk            OrchestratedVirtualMachineScaleSetOsDiskPtrInput
-	OsProfile         OrchestratedVirtualMachineScaleSetOsProfilePtrInput
-	Plan              OrchestratedVirtualMachineScaleSetPlanPtrInput
+	// An `osDisk` block as defined below.
+	OsDisk OrchestratedVirtualMachineScaleSetOsDiskPtrInput
+	// An `osProfile` block as defined below.
+	OsProfile OrchestratedVirtualMachineScaleSetOsProfilePtrInput
+	// A `plan` block as documented below.
+	Plan OrchestratedVirtualMachineScaleSetPlanPtrInput
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntPtrInput
-	Priority                 pulumi.StringPtrInput
+	// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+	Priority pulumi.StringPtrInput
 	// The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
 	SinglePlacementGroup pulumi.BoolPtrInput
-	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
-	SkuName       pulumi.StringPtrInput
+	// The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+	SkuName pulumi.StringPtrInput
+	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId pulumi.StringPtrInput
 	// A `sourceImageReference` block as defined below.
 	SourceImageReference OrchestratedVirtualMachineScaleSetSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
-	Tags                    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A `terminationNotification` block as defined below.
 	TerminationNotification OrchestratedVirtualMachineScaleSetTerminationNotificationPtrInput
 	// The Unique ID for the Orchestrated Virtual Machine Scale Set.
 	UniqueId pulumi.StringPtrInput
@@ -283,46 +325,60 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	AdditionalCapabilities *OrchestratedVirtualMachineScaleSetAdditionalCapabilities `pulumi:"additionalCapabilities"`
 	// An `automaticInstanceRepair` block as defined below.
 	AutomaticInstanceRepair *OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair `pulumi:"automaticInstanceRepair"`
-	BootDiagnostics         *OrchestratedVirtualMachineScaleSetBootDiagnostics         `pulumi:"bootDiagnostics"`
+	// A `bootDiagnostics` block as defined below.
+	BootDiagnostics *OrchestratedVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
-	CapacityReservationGroupId *string                                      `pulumi:"capacityReservationGroupId"`
-	DataDisks                  []OrchestratedVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
-	EncryptionAtHostEnabled    *bool                                        `pulumi:"encryptionAtHostEnabled"`
-	EvictionPolicy             *string                                      `pulumi:"evictionPolicy"`
+	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
+	// One or more `dataDisk` blocks as defined below.
+	DataDisks               []OrchestratedVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
+	EncryptionAtHostEnabled *bool                                        `pulumi:"encryptionAtHostEnabled"`
+	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
-	ExtensionOperationsEnabled *bool                                         `pulumi:"extensionOperationsEnabled"`
-	Extensions                 []OrchestratedVirtualMachineScaleSetExtension `pulumi:"extensions"`
+	ExtensionOperationsEnabled *bool `pulumi:"extensionOperationsEnabled"`
+	// One or more `extension` blocks as defined below
+	Extensions []OrchestratedVirtualMachineScaleSetExtension `pulumi:"extensions"`
 	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
-	ExtensionsTimeBudget *string                                     `pulumi:"extensionsTimeBudget"`
-	Identity             *OrchestratedVirtualMachineScaleSetIdentity `pulumi:"identity"`
+	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
+	// An `identity` block as defined below.
+	Identity *OrchestratedVirtualMachineScaleSetIdentity `pulumi:"identity"`
 	// The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
-	Instances   *int    `pulumi:"instances"`
+	Instances *int `pulumi:"instances"`
+	// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
 	LicenseType *string `pulumi:"licenseType"`
 	// The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
-	Location    *string  `pulumi:"location"`
+	Location *string `pulumi:"location"`
+	// The maximum price you're willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
 	MaxBidPrice *float64 `pulumi:"maxBidPrice"`
 	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name              *string                                              `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// One or more `networkInterface` blocks as defined below.
 	NetworkInterfaces []OrchestratedVirtualMachineScaleSetNetworkInterface `pulumi:"networkInterfaces"`
-	OsDisk            *OrchestratedVirtualMachineScaleSetOsDisk            `pulumi:"osDisk"`
-	OsProfile         *OrchestratedVirtualMachineScaleSetOsProfile         `pulumi:"osProfile"`
-	Plan              *OrchestratedVirtualMachineScaleSetPlan              `pulumi:"plan"`
+	// An `osDisk` block as defined below.
+	OsDisk *OrchestratedVirtualMachineScaleSetOsDisk `pulumi:"osDisk"`
+	// An `osProfile` block as defined below.
+	OsProfile *OrchestratedVirtualMachineScaleSetOsProfile `pulumi:"osProfile"`
+	// A `plan` block as documented below.
+	Plan *OrchestratedVirtualMachineScaleSetPlan `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	PlatformFaultDomainCount int     `pulumi:"platformFaultDomainCount"`
-	Priority                 *string `pulumi:"priority"`
+	PlatformFaultDomainCount int `pulumi:"platformFaultDomainCount"`
+	// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+	Priority *string `pulumi:"priority"`
 	// The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
-	SkuName       *string `pulumi:"skuName"`
+	// The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+	SkuName *string `pulumi:"skuName"`
+	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below.
 	SourceImageReference *OrchestratedVirtualMachineScaleSetSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
-	Tags                    map[string]string                                          `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A `terminationNotification` block as defined below.
 	TerminationNotification *OrchestratedVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
@@ -337,46 +393,60 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	AdditionalCapabilities OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrInput
 	// An `automaticInstanceRepair` block as defined below.
 	AutomaticInstanceRepair OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrInput
-	BootDiagnostics         OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput
+	// A `bootDiagnostics` block as defined below.
+	BootDiagnostics OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput
-	DataDisks                  OrchestratedVirtualMachineScaleSetDataDiskArrayInput
-	EncryptionAtHostEnabled    pulumi.BoolPtrInput
-	EvictionPolicy             pulumi.StringPtrInput
+	// One or more `dataDisk` blocks as defined below.
+	DataDisks               OrchestratedVirtualMachineScaleSetDataDiskArrayInput
+	EncryptionAtHostEnabled pulumi.BoolPtrInput
+	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	EvictionPolicy pulumi.StringPtrInput
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
 	ExtensionOperationsEnabled pulumi.BoolPtrInput
-	Extensions                 OrchestratedVirtualMachineScaleSetExtensionArrayInput
+	// One or more `extension` blocks as defined below
+	Extensions OrchestratedVirtualMachineScaleSetExtensionArrayInput
 	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
 	ExtensionsTimeBudget pulumi.StringPtrInput
-	Identity             OrchestratedVirtualMachineScaleSetIdentityPtrInput
+	// An `identity` block as defined below.
+	Identity OrchestratedVirtualMachineScaleSetIdentityPtrInput
 	// The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
-	Instances   pulumi.IntPtrInput
+	Instances pulumi.IntPtrInput
+	// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrInput
 	// The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
-	Location    pulumi.StringPtrInput
+	Location pulumi.StringPtrInput
+	// The maximum price you're willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
 	MaxBidPrice pulumi.Float64PtrInput
 	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name              pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// One or more `networkInterface` blocks as defined below.
 	NetworkInterfaces OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayInput
-	OsDisk            OrchestratedVirtualMachineScaleSetOsDiskPtrInput
-	OsProfile         OrchestratedVirtualMachineScaleSetOsProfilePtrInput
-	Plan              OrchestratedVirtualMachineScaleSetPlanPtrInput
+	// An `osDisk` block as defined below.
+	OsDisk OrchestratedVirtualMachineScaleSetOsDiskPtrInput
+	// An `osProfile` block as defined below.
+	OsProfile OrchestratedVirtualMachineScaleSetOsProfilePtrInput
+	// A `plan` block as documented below.
+	Plan OrchestratedVirtualMachineScaleSetPlanPtrInput
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntInput
-	Priority                 pulumi.StringPtrInput
+	// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+	Priority pulumi.StringPtrInput
 	// The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
 	SinglePlacementGroup pulumi.BoolPtrInput
-	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
-	SkuName       pulumi.StringPtrInput
+	// The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+	SkuName pulumi.StringPtrInput
+	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId pulumi.StringPtrInput
 	// A `sourceImageReference` block as defined below.
 	SourceImageReference OrchestratedVirtualMachineScaleSetSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
-	Tags                    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A `terminationNotification` block as defined below.
 	TerminationNotification OrchestratedVirtualMachineScaleSetTerminationNotificationPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 pulumi.StringPtrInput
@@ -486,6 +556,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) AutomaticInstanceRepair() Orch
 	}).(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput)
 }
 
+// A `bootDiagnostics` block as defined below.
 func (o OrchestratedVirtualMachineScaleSetOutput) BootDiagnostics() OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput {
 		return v.BootDiagnostics
@@ -499,6 +570,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) CapacityReservationGroupId() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// One or more `dataDisk` blocks as defined below.
 func (o OrchestratedVirtualMachineScaleSetOutput) DataDisks() OrchestratedVirtualMachineScaleSetDataDiskArrayOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetDataDiskArrayOutput {
 		return v.DataDisks
@@ -509,6 +581,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) EncryptionAtHostEnabled() pulu
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.EncryptionAtHostEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOutput) EvictionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
 }
@@ -518,6 +591,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) ExtensionOperationsEnabled() p
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolOutput { return v.ExtensionOperationsEnabled }).(pulumi.BoolOutput)
 }
 
+// One or more `extension` blocks as defined below
 func (o OrchestratedVirtualMachineScaleSetOutput) Extensions() OrchestratedVirtualMachineScaleSetExtensionArrayOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetExtensionArrayOutput {
 		return v.Extensions
@@ -529,6 +603,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) ExtensionsTimeBudget() pulumi.
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.ExtensionsTimeBudget }).(pulumi.StringPtrOutput)
 }
 
+// An `identity` block as defined below.
 func (o OrchestratedVirtualMachineScaleSetOutput) Identity() OrchestratedVirtualMachineScaleSetIdentityPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetIdentityPtrOutput {
 		return v.Identity
@@ -540,6 +615,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) Instances() pulumi.IntOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.IntOutput { return v.Instances }).(pulumi.IntOutput)
 }
 
+// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
 func (o OrchestratedVirtualMachineScaleSetOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
@@ -549,6 +625,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) Location() pulumi.StringOutput
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
+// The maximum price you're willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
 func (o OrchestratedVirtualMachineScaleSetOutput) MaxBidPrice() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.Float64PtrOutput { return v.MaxBidPrice }).(pulumi.Float64PtrOutput)
 }
@@ -558,24 +635,28 @@ func (o OrchestratedVirtualMachineScaleSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// One or more `networkInterface` blocks as defined below.
 func (o OrchestratedVirtualMachineScaleSetOutput) NetworkInterfaces() OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput {
 		return v.NetworkInterfaces
 	}).(OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput)
 }
 
+// An `osDisk` block as defined below.
 func (o OrchestratedVirtualMachineScaleSetOutput) OsDisk() OrchestratedVirtualMachineScaleSetOsDiskPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetOsDiskPtrOutput {
 		return v.OsDisk
 	}).(OrchestratedVirtualMachineScaleSetOsDiskPtrOutput)
 }
 
+// An `osProfile` block as defined below.
 func (o OrchestratedVirtualMachineScaleSetOutput) OsProfile() OrchestratedVirtualMachineScaleSetOsProfilePtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetOsProfilePtrOutput {
 		return v.OsProfile
 	}).(OrchestratedVirtualMachineScaleSetOsProfilePtrOutput)
 }
 
+// A `plan` block as documented below.
 func (o OrchestratedVirtualMachineScaleSetOutput) Plan() OrchestratedVirtualMachineScaleSetPlanPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetPlanPtrOutput {
 		return v.Plan
@@ -587,6 +668,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) PlatformFaultDomainCount() pul
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.IntOutput { return v.PlatformFaultDomainCount }).(pulumi.IntOutput)
 }
 
+// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 func (o OrchestratedVirtualMachineScaleSetOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.Priority }).(pulumi.StringPtrOutput)
 }
@@ -606,11 +688,12 @@ func (o OrchestratedVirtualMachineScaleSetOutput) SinglePlacementGroup() pulumi.
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolOutput { return v.SinglePlacementGroup }).(pulumi.BoolOutput)
 }
 
-// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+// The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
 func (o OrchestratedVirtualMachineScaleSetOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
 }
 
+// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 func (o OrchestratedVirtualMachineScaleSetOutput) SourceImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.SourceImageId }).(pulumi.StringPtrOutput)
 }
@@ -627,6 +710,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) Tags() pulumi.StringMapOutput 
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// A `terminationNotification` block as defined below.
 func (o OrchestratedVirtualMachineScaleSetOutput) TerminationNotification() OrchestratedVirtualMachineScaleSetTerminationNotificationOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetTerminationNotificationOutput {
 		return v.TerminationNotification

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private Input<string>? _adminPassword;
 
         /// <summary>
-        /// The password associated with the local administrator account.
+        /// (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
         /// </summary>
         public Input<string>? AdminPassword
         {

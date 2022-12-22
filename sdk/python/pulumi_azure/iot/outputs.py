@@ -34,6 +34,7 @@ __all__ = [
     'SecuritySolutionRecommendationsEnabled',
     'TimeSeriesInsightsGen2EnvironmentStorage',
     'TimeSeriesInsightsReferenceDataSetKeyProperty',
+    'GetIotHubIdentityResult',
 ]
 
 @pulumi.output_type
@@ -1793,6 +1794,57 @@ class TimeSeriesInsightsReferenceDataSetKeyProperty(dict):
     def type(self) -> str:
         """
         The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetIotHubIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param Sequence[str] identity_ids: The list of User Managed Identity IDs which are assigned to the Virtual Machine.
+        :param str principal_id: The ID of the System Managed Service Principal assigned to the Virtual Machine.
+        :param str tenant_id: The ID of the Tenant of the System Managed Service Principal assigned to the Virtual Machine.
+        :param str type: The identity type of the Managed Identity assigned to the Virtual Machine.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        The list of User Managed Identity IDs which are assigned to the Virtual Machine.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The ID of the System Managed Service Principal assigned to the Virtual Machine.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The ID of the Tenant of the System Managed Service Principal assigned to the Virtual Machine.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The identity type of the Managed Identity assigned to the Virtual Machine.
         """
         return pulumi.get(self, "type")
 

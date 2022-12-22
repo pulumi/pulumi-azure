@@ -14,14 +14,14 @@ public final class ContactProfileLinkChannelEndPointArgs extends com.pulumi.reso
     public static final ContactProfileLinkChannelEndPointArgs Empty = new ContactProfileLinkChannelEndPointArgs();
 
     /**
-     * -(Required) Name of an end point.
+     * Name of an end point.
      * 
      */
     @Import(name="endPointName", required=true)
     private Output<String> endPointName;
 
     /**
-     * @return -(Required) Name of an end point.
+     * @return Name of an end point.
      * 
      */
     public Output<String> endPointName() {
@@ -101,7 +101,7 @@ public final class ContactProfileLinkChannelEndPointArgs extends com.pulumi.reso
         }
 
         /**
-         * @param endPointName -(Required) Name of an end point.
+         * @param endPointName Name of an end point.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class ContactProfileLinkChannelEndPointArgs extends com.pulumi.reso
         }
 
         /**
-         * @param endPointName -(Required) Name of an end point.
+         * @param endPointName Name of an end point.
          * 
          * @return builder
          * 

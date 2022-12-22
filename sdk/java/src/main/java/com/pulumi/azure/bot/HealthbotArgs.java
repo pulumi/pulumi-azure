@@ -17,14 +17,14 @@ public final class HealthbotArgs extends com.pulumi.resources.ResourceArgs {
     public static final HealthbotArgs Empty = new HealthbotArgs();
 
     /**
-     * Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+     * Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+     * @return Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -47,16 +47,14 @@ public final class HealthbotArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-     * forces a new resource to be created.
+     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-     * forces a new resource to be created.
+     * @return Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -64,14 +62,14 @@ public final class HealthbotArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+     * The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
      * 
      */
     @Import(name="skuName", required=true)
     private Output<String> skuName;
 
     /**
-     * @return The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+     * @return The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
      * 
      */
     public Output<String> skuName() {
@@ -122,7 +120,7 @@ public final class HealthbotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+         * @param location Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
          * 
          * @return builder
          * 
@@ -133,7 +131,7 @@ public final class HealthbotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+         * @param location Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
          * 
          * @return builder
          * 
@@ -164,8 +162,7 @@ public final class HealthbotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-         * forces a new resource to be created.
+         * @param resourceGroupName Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -176,8 +173,7 @@ public final class HealthbotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-         * forces a new resource to be created.
+         * @param resourceGroupName Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -187,7 +183,7 @@ public final class HealthbotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+         * @param skuName The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
          * 
          * @return builder
          * 
@@ -198,7 +194,7 @@ public final class HealthbotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+         * @param skuName The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
          * 
          * @return builder
          * 

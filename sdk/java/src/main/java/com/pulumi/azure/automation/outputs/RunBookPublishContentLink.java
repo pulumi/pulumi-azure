@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RunBookPublishContentLink {
     /**
-     * @return A `hash` block as defined blow.
+     * @return A `hash` block as defined below.
      * 
      */
     private @Nullable RunBookPublishContentLinkHash hash;
@@ -30,7 +30,7 @@ public final class RunBookPublishContentLink {
 
     private RunBookPublishContentLink() {}
     /**
-     * @return A `hash` block as defined blow.
+     * @return A `hash` block as defined below.
      * 
      */
     public Optional<RunBookPublishContentLinkHash> hash() {

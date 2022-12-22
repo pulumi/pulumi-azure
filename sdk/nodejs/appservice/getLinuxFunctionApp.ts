@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "existing",
  *     resourceGroupName: "existing",
  * });
- * export const id = data.linux_function_app.example.id;
+ * export const id = example.then(example => example.id);
  * ```
  */
 export function getLinuxFunctionApp(args: GetLinuxFunctionAppArgs, opts?: pulumi.InvokeOptions): Promise<GetLinuxFunctionAppResult> {
@@ -200,7 +200,7 @@ export interface GetLinuxFunctionAppResult {
  *     name: "existing",
  *     resourceGroupName: "existing",
  * });
- * export const id = data.linux_function_app.example.id;
+ * export const id = example.then(example => example.id);
  * ```
  */
 export function getLinuxFunctionAppOutput(args: GetLinuxFunctionAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinuxFunctionAppResult> {

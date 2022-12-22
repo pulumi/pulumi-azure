@@ -21,14 +21,14 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
     public static final NetworkWatcherFlowLogState Empty = new NetworkWatcherFlowLogState();
 
     /**
-     * Boolean flag to enable/disable traffic analytics.
+     * Should Network Flow Logging be Enabled?
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Boolean flag to enable/disable traffic analytics.
+     * @return Should Network Flow Logging be Enabled?
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -220,7 +220,7 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param enabled Boolean flag to enable/disable traffic analytics.
+         * @param enabled Should Network Flow Logging be Enabled?
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class NetworkWatcherFlowLogState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param enabled Boolean flag to enable/disable traffic analytics.
+         * @param enabled Should Network Flow Logging be Enabled?
          * 
          * @return builder
          * 

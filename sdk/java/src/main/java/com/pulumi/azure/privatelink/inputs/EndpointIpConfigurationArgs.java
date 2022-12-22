@@ -7,11 +7,28 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class EndpointIpConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final EndpointIpConfigurationArgs Empty = new EndpointIpConfigurationArgs();
+
+    /**
+     * Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="memberName")
+    private @Nullable Output<String> memberName;
+
+    /**
+     * @return Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> memberName() {
+        return Optional.ofNullable(this.memberName);
+    }
 
     /**
      * Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
@@ -44,14 +61,14 @@ public final class EndpointIpConfigurationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id` and in this context is also used for `member_name`. Changing this forces a new resource to be created.
+     * Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="subresourceName", required=true)
     private Output<String> subresourceName;
 
     /**
-     * @return Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id` and in this context is also used for `member_name`. Changing this forces a new resource to be created.
+     * @return Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> subresourceName() {
@@ -61,6 +78,7 @@ public final class EndpointIpConfigurationArgs extends com.pulumi.resources.Reso
     private EndpointIpConfigurationArgs() {}
 
     private EndpointIpConfigurationArgs(EndpointIpConfigurationArgs $) {
+        this.memberName = $.memberName;
         this.name = $.name;
         this.privateIpAddress = $.privateIpAddress;
         this.subresourceName = $.subresourceName;
@@ -82,6 +100,27 @@ public final class EndpointIpConfigurationArgs extends com.pulumi.resources.Reso
 
         public Builder(EndpointIpConfigurationArgs defaults) {
             $ = new EndpointIpConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param memberName Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder memberName(@Nullable Output<String> memberName) {
+            $.memberName = memberName;
+            return this;
+        }
+
+        /**
+         * @param memberName Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder memberName(String memberName) {
+            return memberName(Output.of(memberName));
         }
 
         /**
@@ -127,7 +166,7 @@ public final class EndpointIpConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param subresourceName Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id` and in this context is also used for `member_name`. Changing this forces a new resource to be created.
+         * @param subresourceName Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -138,7 +177,7 @@ public final class EndpointIpConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param subresourceName Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id` and in this context is also used for `member_name`. Changing this forces a new resource to be created.
+         * @param subresourceName Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

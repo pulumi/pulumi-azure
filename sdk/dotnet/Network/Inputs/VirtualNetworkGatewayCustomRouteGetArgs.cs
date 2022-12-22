@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _addressPrefixes;
 
         /// <summary>
-        /// A list of address blocks reserved for this virtual network in CIDR notation.
+        /// A list of address blocks reserved for this virtual network in CIDR notation as defined below.
         /// </summary>
         public InputList<string> AddressPrefixes
         {

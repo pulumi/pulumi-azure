@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Policy.Inputs
         private InputList<Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterGetArgs>? _parameters;
 
         /// <summary>
-        /// One or more `parameter` blocks which define what configuration parameters and values against.
+        /// One or more `parameter` blocks as defined below which define what configuration parameters and values against.
         /// </summary>
         public InputList<Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterGetArgs> Parameters
         {

@@ -109,7 +109,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+     * The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
      */
     public readonly scopes!: pulumi.Output<string[]>;
     /**
@@ -192,7 +192,7 @@ export interface ActivityLogAlertState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+     * The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
      */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -230,7 +230,7 @@ export interface ActivityLogAlertArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+     * The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
      */
     scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**

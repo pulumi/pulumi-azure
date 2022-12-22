@@ -132,14 +132,14 @@ public class BudgetResourceGroup extends com.pulumi.resources.CustomResource {
         return this.amount;
     }
     /**
-     * The ETag of the Resource Group Consumption Budget
+     * (Optional) The ETag of the Resource Group Consumption Budget
      * 
      */
     @Export(name="etag", type=String.class, parameters={})
     private Output<String> etag;
 
     /**
-     * @return The ETag of the Resource Group Consumption Budget
+     * @return (Optional) The ETag of the Resource Group Consumption Budget
      * 
      */
     public Output<String> etag() {

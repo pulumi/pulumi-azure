@@ -16,14 +16,14 @@ public final class VirtualMachineOsProfileSecretVaultCertificateArgs extends com
     public static final VirtualMachineOsProfileSecretVaultCertificateArgs Empty = new VirtualMachineOsProfileSecretVaultCertificateArgs();
 
     /**
-     * Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+     * (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
      * 
      */
     @Import(name="certificateStore")
     private @Nullable Output<String> certificateStore;
 
     /**
-     * @return Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+     * @return (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
      * 
      */
     public Optional<Output<String>> certificateStore() {
@@ -71,7 +71,7 @@ public final class VirtualMachineOsProfileSecretVaultCertificateArgs extends com
         }
 
         /**
-         * @param certificateStore Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+         * @param certificateStore (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class VirtualMachineOsProfileSecretVaultCertificateArgs extends com
         }
 
         /**
-         * @param certificateStore Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+         * @param certificateStore (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
          * 
          * @return builder
          * 

@@ -23,7 +23,7 @@ class CustomHttpsConfigurationArgs:
         The set of arguments for constructing a CustomHttpsConfiguration resource.
         :param pulumi.Input[bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         :param pulumi.Input[str] frontend_endpoint_id: The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
-        :param pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs'] custom_https_configuration: A `custom_https_configuration` block as defined below.
+        :param pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs'] custom_https_configuration: (Optional) A `custom_https_configuration` block as defined below.
         """
         pulumi.set(__self__, "custom_https_provisioning_enabled", custom_https_provisioning_enabled)
         pulumi.set(__self__, "frontend_endpoint_id", frontend_endpoint_id)
@@ -58,7 +58,7 @@ class CustomHttpsConfigurationArgs:
     @pulumi.getter(name="customHttpsConfiguration")
     def custom_https_configuration(self) -> Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]:
         """
-        A `custom_https_configuration` block as defined below.
+        (Optional) A `custom_https_configuration` block as defined below.
         """
         return pulumi.get(self, "custom_https_configuration")
 
@@ -75,7 +75,7 @@ class _CustomHttpsConfigurationState:
                  frontend_endpoint_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CustomHttpsConfiguration resources.
-        :param pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs'] custom_https_configuration: A `custom_https_configuration` block as defined below.
+        :param pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs'] custom_https_configuration: (Optional) A `custom_https_configuration` block as defined below.
         :param pulumi.Input[bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         :param pulumi.Input[str] frontend_endpoint_id: The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
         """
@@ -90,7 +90,7 @@ class _CustomHttpsConfigurationState:
     @pulumi.getter(name="customHttpsConfiguration")
     def custom_https_configuration(self) -> Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]:
         """
-        A `custom_https_configuration` block as defined below.
+        (Optional) A `custom_https_configuration` block as defined below.
         """
         return pulumi.get(self, "custom_https_configuration")
 
@@ -143,7 +143,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] custom_https_configuration: A `custom_https_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] custom_https_configuration: (Optional) A `custom_https_configuration` block as defined below.
         :param pulumi.Input[bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         :param pulumi.Input[str] frontend_endpoint_id: The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
         """
@@ -216,7 +216,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] custom_https_configuration: A `custom_https_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] custom_https_configuration: (Optional) A `custom_https_configuration` block as defined below.
         :param pulumi.Input[bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         :param pulumi.Input[str] frontend_endpoint_id: The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
         """
@@ -233,7 +233,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="customHttpsConfiguration")
     def custom_https_configuration(self) -> pulumi.Output[Optional['outputs.CustomHttpsConfigurationCustomHttpsConfiguration']]:
         """
-        A `custom_https_configuration` block as defined below.
+        (Optional) A `custom_https_configuration` block as defined below.
         """
         return pulumi.get(self, "custom_https_configuration")
 

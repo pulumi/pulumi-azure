@@ -1299,7 +1299,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName(&#34;existing&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, data.linux_function_app().example().id());
+     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxFunctionAppResult -&gt; getLinuxFunctionAppResult.id()));
      *     }
      * }
      * ```
@@ -1338,7 +1338,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName(&#34;existing&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, data.linux_function_app().example().id());
+     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxFunctionAppResult -&gt; getLinuxFunctionAppResult.id()));
      *     }
      * }
      * ```
@@ -1377,7 +1377,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName(&#34;existing&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, data.linux_function_app().example().id());
+     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxFunctionAppResult -&gt; getLinuxFunctionAppResult.id()));
      *     }
      * }
      * ```
@@ -1416,7 +1416,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName(&#34;existing&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, data.linux_function_app().example().id());
+     *         ctx.export(&#34;id&#34;, example.applyValue(getLinuxFunctionAppResult -&gt; getLinuxFunctionAppResult.id()));
      *     }
      * }
      * ```

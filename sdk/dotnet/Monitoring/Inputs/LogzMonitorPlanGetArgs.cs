@@ -25,10 +25,10 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> EffectiveDate { get; set; } = null!;
 
         /// <summary>
-        /// Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+        /// Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
         /// </summary>
-        [Input("planId", required: true)]
-        public Input<string> PlanId { get; set; } = null!;
+        [Input("planId")]
+        public Input<string>? PlanId { get; set; }
 
         /// <summary>
         /// Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.

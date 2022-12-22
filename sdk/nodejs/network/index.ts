@@ -345,6 +345,11 @@ export type RouteFilter = import("./routeFilter").RouteFilter;
 export const RouteFilter: typeof import("./routeFilter").RouteFilter = null as any;
 utilities.lazyLoad(exports, ["RouteFilter"], () => require("./routeFilter"));
 
+export { RouteMapArgs, RouteMapState } from "./routeMap";
+export type RouteMap = import("./routeMap").RouteMap;
+export const RouteMap: typeof import("./routeMap").RouteMap = null as any;
+utilities.lazyLoad(exports, ["RouteMap"], () => require("./routeMap"));
+
 export { RouteServerArgs, RouteServerState } from "./routeServer";
 export type RouteServer = import("./routeServer").RouteServer;
 export const RouteServer: typeof import("./routeServer").RouteServer = null as any;
@@ -587,6 +592,8 @@ const _module = {
                 return new Route(name, <any>undefined, { urn })
             case "azure:network/routeFilter:RouteFilter":
                 return new RouteFilter(name, <any>undefined, { urn })
+            case "azure:network/routeMap:RouteMap":
+                return new RouteMap(name, <any>undefined, { urn })
             case "azure:network/routeServer:RouteServer":
                 return new RouteServer(name, <any>undefined, { urn })
             case "azure:network/routeServerBgpConnection:RouteServerBgpConnection":
@@ -695,6 +702,7 @@ pulumi.runtime.registerResourceModule("azure", "network/publicIp", _module)
 pulumi.runtime.registerResourceModule("azure", "network/publicIpPrefix", _module)
 pulumi.runtime.registerResourceModule("azure", "network/route", _module)
 pulumi.runtime.registerResourceModule("azure", "network/routeFilter", _module)
+pulumi.runtime.registerResourceModule("azure", "network/routeMap", _module)
 pulumi.runtime.registerResourceModule("azure", "network/routeServer", _module)
 pulumi.runtime.registerResourceModule("azure", "network/routeServerBgpConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/routeTable", _module)

@@ -17,6 +17,7 @@ import com.pulumi.azure.containerservice.inputs.KubernetesClusterKubeletIdentity
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterLinuxProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterMaintenanceWindowArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterMicrosoftDefenderArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterMonitorMetricsArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNetworkProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterOmsAgentArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterServicePrincipalArgs;
@@ -101,14 +102,14 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * - A `azure_active_directory_role_based_access_control` block as defined below.
+     * A `azure_active_directory_role_based_access_control` block as defined below.
      * 
      */
     @Import(name="azureActiveDirectoryRoleBasedAccessControl")
     private @Nullable Output<KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs> azureActiveDirectoryRoleBasedAccessControl;
 
     /**
-     * @return - A `azure_active_directory_role_based_access_control` block as defined below.
+     * @return A `azure_active_directory_role_based_access_control` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs>> azureActiveDirectoryRoleBasedAccessControl() {
@@ -453,14 +454,14 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+     * If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      * 
      */
     @Import(name="localAccountDisabled")
     private @Nullable Output<Boolean> localAccountDisabled;
 
     /**
-     * @return - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+     * @return If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      * 
      */
     public Optional<Output<Boolean>> localAccountDisabled() {
@@ -510,6 +511,21 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<KubernetesClusterMicrosoftDefenderArgs>> microsoftDefender() {
         return Optional.ofNullable(this.microsoftDefender);
+    }
+
+    /**
+     * Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+     * 
+     */
+    @Import(name="monitorMetrics")
+    private @Nullable Output<KubernetesClusterMonitorMetricsArgs> monitorMetrics;
+
+    /**
+     * @return Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+     * 
+     */
+    public Optional<Output<KubernetesClusterMonitorMetricsArgs>> monitorMetrics() {
+        return Optional.ofNullable(this.monitorMetrics);
     }
 
     /**
@@ -692,9 +708,17 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.privateFqdn);
     }
 
+    /**
+     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
+    /**
+     * @return Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
         return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
@@ -899,6 +923,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         this.location = $.location;
         this.maintenanceWindow = $.maintenanceWindow;
         this.microsoftDefender = $.microsoftDefender;
+        this.monitorMetrics = $.monitorMetrics;
         this.name = $.name;
         this.networkProfile = $.networkProfile;
         this.nodeResourceGroup = $.nodeResourceGroup;
@@ -1038,7 +1063,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param azureActiveDirectoryRoleBasedAccessControl - A `azure_active_directory_role_based_access_control` block as defined below.
+         * @param azureActiveDirectoryRoleBasedAccessControl A `azure_active_directory_role_based_access_control` block as defined below.
          * 
          * @return builder
          * 
@@ -1049,7 +1074,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param azureActiveDirectoryRoleBasedAccessControl - A `azure_active_directory_role_based_access_control` block as defined below.
+         * @param azureActiveDirectoryRoleBasedAccessControl A `azure_active_directory_role_based_access_control` block as defined below.
          * 
          * @return builder
          * 
@@ -1550,7 +1575,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param localAccountDisabled - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+         * @param localAccountDisabled If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
          * 
          * @return builder
          * 
@@ -1561,7 +1586,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param localAccountDisabled - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+         * @param localAccountDisabled If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
          * 
          * @return builder
          * 
@@ -1631,6 +1656,27 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder microsoftDefender(KubernetesClusterMicrosoftDefenderArgs microsoftDefender) {
             return microsoftDefender(Output.of(microsoftDefender));
+        }
+
+        /**
+         * @param monitorMetrics Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitorMetrics(@Nullable Output<KubernetesClusterMonitorMetricsArgs> monitorMetrics) {
+            $.monitorMetrics = monitorMetrics;
+            return this;
+        }
+
+        /**
+         * @param monitorMetrics Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitorMetrics(KubernetesClusterMonitorMetricsArgs monitorMetrics) {
+            return monitorMetrics(Output.of(monitorMetrics));
         }
 
         /**
@@ -1885,11 +1931,23 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
             return privateFqdn(Output.of(privateFqdn));
         }
 
+        /**
+         * @param publicNetworkAccessEnabled Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
             $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
 
+        /**
+         * @param publicNetworkAccessEnabled Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }

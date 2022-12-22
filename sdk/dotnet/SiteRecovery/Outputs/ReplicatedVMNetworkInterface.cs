@@ -18,7 +18,7 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         /// </summary>
         public readonly string? RecoveryPublicIpAddressId;
         /// <summary>
-        /// Id source network interface.
+        /// (Required if the network_interface block is specified) Id source network interface.
         /// </summary>
         public readonly string? SourceNetworkInterfaceId;
         /// <summary>

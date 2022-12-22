@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -80,6 +82,14 @@ export class ManagedHardwareSecurityModule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A `networkAcls` block as defined below.
+     */
+    public readonly networkAcls!: pulumi.Output<outputs.keyvault.ManagedHardwareSecurityModuleNetworkAcls>;
+    /**
+     * Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly purgeProtectionEnabled!: pulumi.Output<boolean | undefined>;
@@ -121,6 +131,8 @@ export class ManagedHardwareSecurityModule extends pulumi.CustomResource {
             resourceInputs["hsmUri"] = state ? state.hsmUri : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkAcls"] = state ? state.networkAcls : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["purgeProtectionEnabled"] = state ? state.purgeProtectionEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
@@ -144,6 +156,8 @@ export class ManagedHardwareSecurityModule extends pulumi.CustomResource {
             resourceInputs["adminObjectIds"] = args ? args.adminObjectIds : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["purgeProtectionEnabled"] = args ? args.purgeProtectionEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
@@ -177,6 +191,14 @@ export interface ManagedHardwareSecurityModuleState {
      * Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A `networkAcls` block as defined below.
+     */
+    networkAcls?: pulumi.Input<inputs.keyvault.ManagedHardwareSecurityModuleNetworkAcls>;
+    /**
+     * Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
      */
@@ -219,6 +241,14 @@ export interface ManagedHardwareSecurityModuleArgs {
      * Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A `networkAcls` block as defined below.
+     */
+    networkAcls?: pulumi.Input<inputs.keyvault.ManagedHardwareSecurityModuleNetworkAcls>;
+    /**
+     * Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
      */

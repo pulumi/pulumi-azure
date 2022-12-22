@@ -55,8 +55,8 @@ class StandardArgs:
         :param pulumi.Input['StandardSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input[str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name.  This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
-        :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~1`.
+        :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
+        :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~3`.
         :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
@@ -304,7 +304,7 @@ class StandardArgs:
     @pulumi.getter(name="useExtensionBundle")
     def use_extension_bundle(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
+        Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         """
         return pulumi.get(self, "use_extension_bundle")
 
@@ -316,7 +316,7 @@ class StandardArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime version associated with the Logic App Defaults to `~1`.
+        The runtime version associated with the Logic App Defaults to `~3`.
         """
         return pulumi.get(self, "version")
 
@@ -391,8 +391,8 @@ class _StandardState:
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name.  This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
-        :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~1`.
+        :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
+        :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~3`.
         :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         if app_service_plan_id is not None:
@@ -728,7 +728,7 @@ class _StandardState:
     @pulumi.getter(name="useExtensionBundle")
     def use_extension_bundle(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
+        Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         """
         return pulumi.get(self, "use_extension_bundle")
 
@@ -740,7 +740,7 @@ class _StandardState:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime version associated with the Logic App Defaults to `~1`.
+        The runtime version associated with the Logic App Defaults to `~3`.
         """
         return pulumi.get(self, "version")
 
@@ -888,8 +888,8 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name.  This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
-        :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~1`.
+        :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
+        :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~3`.
         :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         ...
@@ -1126,8 +1126,8 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name.  This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
-        :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~1`.
+        :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
+        :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~3`.
         :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1350,7 +1350,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter(name="useExtensionBundle")
     def use_extension_bundle(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
+        Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         """
         return pulumi.get(self, "use_extension_bundle")
 
@@ -1358,7 +1358,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[Optional[str]]:
         """
-        The runtime version associated with the Logic App Defaults to `~1`.
+        The runtime version associated with the Logic App Defaults to `~3`.
         """
         return pulumi.get(self, "version")
 

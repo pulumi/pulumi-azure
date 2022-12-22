@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string AdminUsername;
         /// <summary>
-        /// An `ssh_key` block. Only one is currently allowed. Changing this forces a new resource to be created.
+        /// An `ssh_key` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
         /// </summary>
         public readonly Outputs.KubernetesClusterLinuxProfileSshKey SshKey;
 

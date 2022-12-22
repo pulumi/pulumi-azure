@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? SslCertificateName { get; set; }
 
         /// <summary>
-        /// The ID of the associated SSL Certificate.
+        /// The ID of the associated SSL Profile.
         /// </summary>
         [Input("sslProfileId")]
         public Input<string>? SslProfileId { get; set; }

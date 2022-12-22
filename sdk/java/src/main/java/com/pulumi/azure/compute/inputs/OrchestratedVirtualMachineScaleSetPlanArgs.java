@@ -14,30 +14,46 @@ public final class OrchestratedVirtualMachineScaleSetPlanArgs extends com.pulumi
     public static final OrchestratedVirtualMachineScaleSetPlanArgs Empty = new OrchestratedVirtualMachineScaleSetPlanArgs();
 
     /**
-     * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="product", required=true)
     private Output<String> product;
 
+    /**
+     * @return Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> product() {
         return this.product;
     }
 
+    /**
+     * Specifies the publisher of the image. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="publisher", required=true)
     private Output<String> publisher;
 
+    /**
+     * @return Specifies the publisher of the image. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> publisher() {
         return this.publisher;
     }
@@ -69,7 +85,7 @@ public final class OrchestratedVirtualMachineScaleSetPlanArgs extends com.pulumi
         }
 
         /**
-         * @param name The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -80,7 +96,7 @@ public final class OrchestratedVirtualMachineScaleSetPlanArgs extends com.pulumi
         }
 
         /**
-         * @param name The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -89,20 +105,44 @@ public final class OrchestratedVirtualMachineScaleSetPlanArgs extends com.pulumi
             return name(Output.of(name));
         }
 
+        /**
+         * @param product Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder product(Output<String> product) {
             $.product = product;
             return this;
         }
 
+        /**
+         * @param product Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder product(String product) {
             return product(Output.of(product));
         }
 
+        /**
+         * @param publisher Specifies the publisher of the image. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publisher(Output<String> publisher) {
             $.publisher = publisher;
             return this;
         }
 
+        /**
+         * @param publisher Specifies the publisher of the image. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publisher(String publisher) {
             return publisher(Output.of(publisher));
         }

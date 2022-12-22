@@ -14,14 +14,14 @@ public final class GetSecretArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSecretArgs Empty = new GetSecretArgs();
 
     /**
-     * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+     * The ID of the TODO.
      * 
      */
     @Import(name="keyVaultId", required=true)
     private Output<String> keyVaultId;
 
     /**
-     * @return Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+     * @return The ID of the TODO.
      * 
      */
     public Output<String> keyVaultId() {
@@ -29,14 +29,14 @@ public final class GetSecretArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Specifies the name of the Key Vault Secret.
+     * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Key Vault Secret.
+     * @return Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
      * 
      */
     public Output<String> name() {
@@ -69,7 +69,7 @@ public final class GetSecretArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param keyVaultId Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+         * @param keyVaultId The ID of the TODO.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetSecretArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param keyVaultId Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+         * @param keyVaultId The ID of the TODO.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class GetSecretArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Specifies the name of the Key Vault Secret.
+         * @param name Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class GetSecretArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Specifies the name of the Key Vault Secret.
+         * @param name Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
          * 
          * @return builder
          * 

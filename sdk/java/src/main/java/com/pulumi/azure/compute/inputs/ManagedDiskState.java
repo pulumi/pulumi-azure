@@ -125,14 +125,14 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source&#39;s size. The size can only be increased.
+     * (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source&#39;s size. The size can only be increased.
      * 
      */
     @Import(name="diskSizeGb")
     private @Nullable Output<Integer> diskSizeGb;
 
     /**
-     * @return Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source&#39;s size. The size can only be increased.
+     * @return (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source&#39;s size. The size can only be increased.
      * 
      */
     public Optional<Output<Integer>> diskSizeGb() {
@@ -718,7 +718,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskSizeGb Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source&#39;s size. The size can only be increased.
+         * @param diskSizeGb (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source&#39;s size. The size can only be increased.
          * 
          * @return builder
          * 
@@ -729,7 +729,7 @@ public final class ManagedDiskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskSizeGb Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source&#39;s size. The size can only be increased.
+         * @param diskSizeGb (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source&#39;s size. The size can only be increased.
          * 
          * @return builder
          * 

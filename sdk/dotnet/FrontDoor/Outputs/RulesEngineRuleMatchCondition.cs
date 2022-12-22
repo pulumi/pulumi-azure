@@ -30,7 +30,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Transforms;
         /// <summary>
-        /// can contain one or more strings.
+        /// (array) can contain one or more strings.
         /// </summary>
         public readonly ImmutableArray<string> Values;
         /// <summary>

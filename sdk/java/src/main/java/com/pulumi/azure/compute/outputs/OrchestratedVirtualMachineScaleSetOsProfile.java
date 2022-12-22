@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfile {
+    /**
+     * @return The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+     * 
+     */
     private @Nullable String customData;
+    /**
+     * @return A `linux_configuration` block as documented below.
+     * 
+     */
     private @Nullable OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration linuxConfiguration;
+    /**
+     * @return A `windows_configuration` block as documented below.
+     * 
+     */
     private @Nullable OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration windowsConfiguration;
 
     private OrchestratedVirtualMachineScaleSetOsProfile() {}
+    /**
+     * @return The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+     * 
+     */
     public Optional<String> customData() {
         return Optional.ofNullable(this.customData);
     }
+    /**
+     * @return A `linux_configuration` block as documented below.
+     * 
+     */
     public Optional<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration> linuxConfiguration() {
         return Optional.ofNullable(this.linuxConfiguration);
     }
+    /**
+     * @return A `windows_configuration` block as documented below.
+     * 
+     */
     public Optional<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration> windowsConfiguration() {
         return Optional.ofNullable(this.windowsConfiguration);
     }

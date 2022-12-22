@@ -126,7 +126,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+        /// The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
         /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<string>? _scopes;
 
         /// <summary>
-        /// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+        /// The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
         /// </summary>
         public InputList<string> Scopes
         {
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<string>? _scopes;
 
         /// <summary>
-        /// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+        /// The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
         /// </summary>
         public InputList<string> Scopes
         {

@@ -192,9 +192,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * A `vpnClientConfiguration` block which
-     * is documented below. In this block the Virtual Network Gateway can be configured
-     * to accept IPSec point-to-site connections.
+     * A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      */
     public readonly vpnClientConfiguration!: pulumi.Output<outputs.network.VirtualNetworkGatewayVpnClientConfiguration | undefined>;
     /**
@@ -348,9 +346,7 @@ export interface VirtualNetworkGatewayState {
      */
     type?: pulumi.Input<string>;
     /**
-     * A `vpnClientConfiguration` block which
-     * is documented below. In this block the Virtual Network Gateway can be configured
-     * to accept IPSec point-to-site connections.
+     * A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      */
     vpnClientConfiguration?: pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfiguration>;
     /**
@@ -438,9 +434,7 @@ export interface VirtualNetworkGatewayArgs {
      */
     type: pulumi.Input<string>;
     /**
-     * A `vpnClientConfiguration` block which
-     * is documented below. In this block the Virtual Network Gateway can be configured
-     * to accept IPSec point-to-site connections.
+     * A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      */
     vpnClientConfiguration?: pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfiguration>;
     /**

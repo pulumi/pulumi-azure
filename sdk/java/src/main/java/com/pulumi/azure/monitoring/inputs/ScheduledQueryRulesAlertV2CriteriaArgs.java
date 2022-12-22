@@ -65,14 +65,14 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
     }
 
     /**
-     * Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+     * Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
      * 
      */
     @Import(name="operator", required=true)
     private Output<String> operator;
 
     /**
-     * @return Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+     * @return Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
      * 
      */
     public Output<String> operator() {
@@ -244,7 +244,7 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param operator Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+         * @param operator Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
         }
 
         /**
-         * @param operator Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+         * @param operator Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
          * 
          * @return builder
          * 

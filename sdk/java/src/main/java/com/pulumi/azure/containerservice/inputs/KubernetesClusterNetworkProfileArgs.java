@@ -79,14 +79,14 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
-     * A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `standard`.
+     * A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`.
      * 
      */
     @Import(name="loadBalancerProfile")
     private @Nullable Output<KubernetesClusterNetworkProfileLoadBalancerProfileArgs> loadBalancerProfile;
 
     /**
-     * @return A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `standard`.
+     * @return A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`.
      * 
      */
     public Optional<Output<KubernetesClusterNetworkProfileLoadBalancerProfileArgs>> loadBalancerProfile() {
@@ -109,14 +109,14 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
-     * A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+     * A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
      * 
      */
     @Import(name="natGatewayProfile")
     private @Nullable Output<KubernetesClusterNetworkProfileNatGatewayProfileArgs> natGatewayProfile;
 
     /**
-     * @return A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+     * @return A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
      * 
      */
     public Optional<Output<KubernetesClusterNetworkProfileNatGatewayProfileArgs>> natGatewayProfile() {
@@ -154,14 +154,14 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
-     * Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+     * Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="networkPluginMode")
     private @Nullable Output<String> networkPluginMode;
 
     /**
-     * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+     * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> networkPluginMode() {
@@ -392,7 +392,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param loadBalancerProfile A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `standard`.
+         * @param loadBalancerProfile A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param loadBalancerProfile A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `standard`.
+         * @param loadBalancerProfile A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param natGatewayProfile A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+         * @param natGatewayProfile A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param natGatewayProfile A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+         * @param natGatewayProfile A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param networkPluginMode Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+         * @param networkPluginMode Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param networkPluginMode Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+         * @param networkPluginMode Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

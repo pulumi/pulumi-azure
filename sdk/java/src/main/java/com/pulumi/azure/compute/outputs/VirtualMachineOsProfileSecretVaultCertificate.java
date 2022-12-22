@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualMachineOsProfileSecretVaultCertificate {
     /**
-     * @return Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+     * @return (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
      * 
      */
     private @Nullable String certificateStore;
@@ -24,7 +24,7 @@ public final class VirtualMachineOsProfileSecretVaultCertificate {
 
     private VirtualMachineOsProfileSecretVaultCertificate() {}
     /**
-     * @return Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+     * @return (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
      * 
      */
     public Optional<String> certificateStore() {

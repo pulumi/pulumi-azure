@@ -43,9 +43,6 @@ class GetSecretsResult:
     @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> str:
-        """
-        The Key Vault ID.
-        """
         return pulumi.get(self, "key_vault_id")
 
     @property

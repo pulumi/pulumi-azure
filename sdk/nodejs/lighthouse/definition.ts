@@ -75,6 +75,10 @@ export class Definition extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * An `eligibleAuthorization` block as defined below.
+     */
+    public readonly eligibleAuthorizations!: pulumi.Output<outputs.lighthouse.DefinitionEligibleAuthorization[] | undefined>;
+    /**
      * A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
      */
     public readonly lighthouseDefinitionId!: pulumi.Output<string>;
@@ -110,6 +114,7 @@ export class Definition extends pulumi.CustomResource {
             const state = argsOrState as DefinitionState | undefined;
             resourceInputs["authorizations"] = state ? state.authorizations : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["eligibleAuthorizations"] = state ? state.eligibleAuthorizations : undefined;
             resourceInputs["lighthouseDefinitionId"] = state ? state.lighthouseDefinitionId : undefined;
             resourceInputs["managingTenantId"] = state ? state.managingTenantId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -128,6 +133,7 @@ export class Definition extends pulumi.CustomResource {
             }
             resourceInputs["authorizations"] = args ? args.authorizations : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["eligibleAuthorizations"] = args ? args.eligibleAuthorizations : undefined;
             resourceInputs["lighthouseDefinitionId"] = args ? args.lighthouseDefinitionId : undefined;
             resourceInputs["managingTenantId"] = args ? args.managingTenantId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -151,6 +157,10 @@ export interface DefinitionState {
      * A description of the Lighthouse Definition.
      */
     description?: pulumi.Input<string>;
+    /**
+     * An `eligibleAuthorization` block as defined below.
+     */
+    eligibleAuthorizations?: pulumi.Input<pulumi.Input<inputs.lighthouse.DefinitionEligibleAuthorization>[]>;
     /**
      * A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
      */
@@ -185,6 +195,10 @@ export interface DefinitionArgs {
      * A description of the Lighthouse Definition.
      */
     description?: pulumi.Input<string>;
+    /**
+     * An `eligibleAuthorization` block as defined below.
+     */
+    eligibleAuthorizations?: pulumi.Input<pulumi.Input<inputs.lighthouse.DefinitionEligibleAuthorization>[]>;
     /**
      * A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
      */

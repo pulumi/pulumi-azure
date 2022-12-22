@@ -19,6 +19,7 @@ __all__ = [
     'GetBackendAddressPoolBackendAddressInboundNatRulePortMappingResult',
     'GetBackendAddressPoolBackendIpConfigurationResult',
     'GetLBFrontendIpConfigurationResult',
+    'GetLBOutboundRuleFrontendIpConfigurationResult',
 ]
 
 @pulumi.output_type
@@ -565,5 +566,34 @@ class GetLBFrontendIpConfigurationResult(dict):
         A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
         """
         return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class GetLBOutboundRuleFrontendIpConfigurationResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: str):
+        """
+        :param str id: The ID of the Frontend IP Configuration.
+        :param str name: The name of this Load Balancer Outbound Rule.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Frontend IP Configuration.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Load Balancer Outbound Rule.
+        """
+        return pulumi.get(self, "name")
 
 

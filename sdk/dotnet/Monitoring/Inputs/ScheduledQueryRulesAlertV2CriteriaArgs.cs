@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string>? MetricMeasureColumn { get; set; }
 
         /// <summary>
-        /// Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+        /// Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
         /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;

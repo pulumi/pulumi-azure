@@ -29,7 +29,7 @@ class NetworkWatcherFlowLogArgs:
                  version: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a NetworkWatcherFlowLog resource.
-        :param pulumi.Input[bool] enabled: Boolean flag to enable/disable traffic analytics.
+        :param pulumi.Input[bool] enabled: Should Network Flow Logging be Enabled?
         :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
@@ -62,7 +62,7 @@ class NetworkWatcherFlowLogArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Boolean flag to enable/disable traffic analytics.
+        Should Network Flow Logging be Enabled?
         """
         return pulumi.get(self, "enabled")
 
@@ -207,7 +207,7 @@ class _NetworkWatcherFlowLogState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering NetworkWatcherFlowLog resources.
-        :param pulumi.Input[bool] enabled: Boolean flag to enable/disable traffic analytics.
+        :param pulumi.Input[bool] enabled: Should Network Flow Logging be Enabled?
         :param pulumi.Input[str] location: The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
         :param pulumi.Input[str] name: The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
@@ -246,7 +246,7 @@ class _NetworkWatcherFlowLogState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag to enable/disable traffic analytics.
+        Should Network Flow Logging be Enabled?
         """
         return pulumi.get(self, "enabled")
 
@@ -446,7 +446,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enabled: Boolean flag to enable/disable traffic analytics.
+        :param pulumi.Input[bool] enabled: Should Network Flow Logging be Enabled?
         :param pulumi.Input[str] location: The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
         :param pulumi.Input[str] name: The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
@@ -602,7 +602,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enabled: Boolean flag to enable/disable traffic analytics.
+        :param pulumi.Input[bool] enabled: Should Network Flow Logging be Enabled?
         :param pulumi.Input[str] location: The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
         :param pulumi.Input[str] name: The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
@@ -635,7 +635,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[bool]:
         """
-        Boolean flag to enable/disable traffic analytics.
+        Should Network Flow Logging be Enabled?
         """
         return pulumi.get(self, "enabled")
 

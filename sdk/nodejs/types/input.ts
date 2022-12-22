@@ -2197,6 +2197,25 @@ export namespace appplatform {
         memory?: pulumi.Input<string>;
     }
 
+    export interface SpringCloudDevToolPortalSso {
+        /**
+         * Specifies the public identifier for the application.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * Specifies the secret known only to the application and the authorization server.
+         */
+        clientSecret?: pulumi.Input<string>;
+        /**
+         * Specifies the URI of a JSON file with generic OIDC provider configuration.
+         */
+        metadataUrl?: pulumi.Input<string>;
+        /**
+         * Specifies a list of specific actions applications can be allowed to do on a user's behalf.
+         */
+        scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface SpringCloudGatewayApiMetadata {
         /**
          * Detailed description of the APIs available on the Gateway instance.
@@ -10167,7 +10186,7 @@ export namespace automation {
 
     export interface RunBookDraftContentLink {
         /**
-         * A `hash` block as defined blow.
+         * A `hash` block as defined below.
          */
         hash?: pulumi.Input<inputs.automation.RunBookDraftContentLinkHash>;
         /**
@@ -10220,7 +10239,7 @@ export namespace automation {
 
     export interface RunBookPublishContentLink {
         /**
-         * A `hash` block as defined blow.
+         * A `hash` block as defined below.
          */
         hash?: pulumi.Input<inputs.automation.RunBookPublishContentLinkHash>;
         /**
@@ -11159,7 +11178,7 @@ export namespace batch {
          */
         containers?: pulumi.Input<pulumi.Input<inputs.batch.PoolStartTaskContainer>[]>;
         /**
-         * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+         * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node as defined below.
          */
         resourceFiles?: pulumi.Input<pulumi.Input<inputs.batch.PoolStartTaskResourceFile>[]>;
         /**
@@ -11167,7 +11186,7 @@ export namespace batch {
          */
         taskRetryMaximum?: pulumi.Input<number>;
         /**
-         * A `userIdentity` block that describes the user identity under which the start task runs.
+         * A `userIdentity` block that describes the user identity under which the start task runs as defined below.
          */
         userIdentity: pulumi.Input<inputs.batch.PoolStartTaskUserIdentity>;
         /**
@@ -11247,7 +11266,7 @@ export namespace batch {
 
     export interface PoolStartTaskUserIdentity {
         /**
-         * A `autoUser` block that describes the user identity under which the start task runs.
+         * A `autoUser` block that describes the user identity under which the start task runs as defined below.
          */
         autoUser?: pulumi.Input<inputs.batch.PoolStartTaskUserIdentityAutoUser>;
         /**
@@ -12136,7 +12155,7 @@ export namespace cdn {
 
     export interface FrontdoorFirewallPolicyManagedRule {
         /**
-         * The action to perform when the managed rule is matched. Possible values depends on which DRS version you are using, for DRS `1.0`, `1.1` and `preview-0.1` the possible values include `Allow`, `Block`, `Log`, or `Redirect`. For DRS `2.0` and `2.1` the value must be `AnomalyScoring`.
+         * The action to perform for all DRS rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the DRS you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
          */
         action: pulumi.Input<string>;
         /**
@@ -12204,7 +12223,7 @@ export namespace cdn {
 
     export interface FrontdoorFirewallPolicyManagedRuleOverrideRule {
         /**
-         * The action to be applied when the rule matches. Possible values are `Allow`, `Log`, `Block`, `Redirect` and `AnomalyScoring`.
+         * The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
          */
         action: pulumi.Input<string>;
         /**
@@ -12363,7 +12382,7 @@ export namespace cdn {
 
     export interface FrontdoorRuleActionsRouteConfigurationOverrideAction {
         /**
-         * `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
+         * `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
          */
         cacheBehavior?: pulumi.Input<string>;
         /**
@@ -13114,7 +13133,7 @@ export namespace compute {
          */
         managedDiskId?: pulumi.Input<string>;
         /**
-         * Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
+         * Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
          */
         osState?: pulumi.Input<string>;
         /**
@@ -13802,20 +13821,47 @@ export namespace compute {
     }
 
     export interface OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair {
+        /**
+         * Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`. Defaults to `false`.
+         */
         enabled: pulumi.Input<boolean>;
+        /**
+         * Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. Defaults to `30` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`).
+         */
         gracePeriod?: pulumi.Input<string>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetBootDiagnostics {
+        /**
+         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. By including a `bootDiagnostics` block without passing the `storageAccountUri` field will cause the API to utilize a Managed Storage Account to store the Boot Diagnostics output.
+         */
         storageAccountUri?: pulumi.Input<string>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetDataDisk {
+        /**
+         * The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+         */
         caching: pulumi.Input<string>;
+        /**
+         * The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+         */
         createOption?: pulumi.Input<string>;
+        /**
+         * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+         */
         diskEncryptionSetId?: pulumi.Input<string>;
+        /**
+         * The size of the Data Disk which should be created.
+         */
         diskSizeGb: pulumi.Input<number>;
+        /**
+         * The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+         */
         lun: pulumi.Input<number>;
+        /**
+         * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+         */
         storageAccountType: pulumi.Input<string>;
         ultraSsdDiskIopsReadWrite?: pulumi.Input<number>;
         ultraSsdDiskMbpsReadWrite?: pulumi.Input<number>;
@@ -13823,6 +13869,9 @@ export namespace compute {
     }
 
     export interface OrchestratedVirtualMachineScaleSetExtension {
+        /**
+         * Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to true.
+         */
         autoUpgradeMinorVersionEnabled?: pulumi.Input<boolean>;
         /**
          * An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
@@ -13832,19 +13881,34 @@ export namespace compute {
          * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
          */
         failureSuppressionEnabled?: pulumi.Input<boolean>;
+        /**
+         * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+         */
         forceExtensionExecutionOnChange?: pulumi.Input<string>;
         /**
-         * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * The name for the Virtual Machine Scale Set Extension.
          */
         name: pulumi.Input<string>;
+        /**
+         * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+         */
         protectedSettings?: pulumi.Input<string>;
         /**
          * A `protectedSettingsFromKeyVault` block as defined below.
          */
         protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault>;
+        /**
+         * Specifies the Publisher of the Extension.
+         */
         publisher: pulumi.Input<string>;
         settings?: pulumi.Input<string>;
+        /**
+         * Specifies the Type of the Extension.
+         */
         type: pulumi.Input<string>;
+        /**
+         * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+         */
         typeHandlerVersion: pulumi.Input<string>;
     }
 
@@ -13860,48 +13924,102 @@ export namespace compute {
     }
 
     export interface OrchestratedVirtualMachineScaleSetIdentity {
+        /**
+         * Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+         */
         identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+         */
         type: pulumi.Input<string>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetNetworkInterface {
+        /**
+         * A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+         */
         dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
+         */
         enableAcceleratedNetworking?: pulumi.Input<boolean>;
+        /**
+         * Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
+         */
         enableIpForwarding?: pulumi.Input<boolean>;
+        /**
+         * One or more `ipConfiguration` blocks as defined above.
+         */
         ipConfigurations: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration>[]>;
         /**
-         * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
+        /**
+         * The ID of a Network Security Group which should be assigned to this Network Interface.
+         */
         networkSecurityGroupId?: pulumi.Input<string>;
+        /**
+         * Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
+         */
         primary?: pulumi.Input<boolean>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+        /**
+         * A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+         */
         applicationGatewayBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+         */
         applicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+         */
         loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * The Name which should be used for this IP Configuration.
          */
         name: pulumi.Input<string>;
+        /**
+         * Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
+         */
         primary?: pulumi.Input<boolean>;
+        /**
+         * A `publicIpAddress` block as defined below.
+         */
         publicIpAddresses?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress>[]>;
+        /**
+         * The ID of the Subnet which this IP Configuration should be connected to.
+         */
         subnetId?: pulumi.Input<string>;
         /**
-         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+         * The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
          */
         version?: pulumi.Input<string>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+        /**
+         * The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+         */
         domainNameLabel?: pulumi.Input<string>;
+        /**
+         * The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+         */
         idleTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * One or more `ipTag` blocks as defined above.
+         */
         ipTags?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag>[]>;
         /**
-         * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * The Name of the Public IP Address Configuration.
          */
         name: pulumi.Input<string>;
+        /**
+         * The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
+         */
         publicIpPrefixId?: pulumi.Input<string>;
         /**
          * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
@@ -13914,15 +14032,36 @@ export namespace compute {
     }
 
     export interface OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+        /**
+         * The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
+         */
         tag: pulumi.Input<string>;
+        /**
+         * The Type of IP Tag, such as `FirstPartyUsage`.
+         */
         type: pulumi.Input<string>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetOsDisk {
+        /**
+         * The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+         */
         caching: pulumi.Input<string>;
+        /**
+         * A `diffDiskSettings` block as defined above.
+         */
         diffDiskSettings?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings>;
+        /**
+         * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+         */
         diskEncryptionSetId?: pulumi.Input<string>;
+        /**
+         * The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+         */
         diskSizeGb?: pulumi.Input<number>;
+        /**
+         * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         */
         storageAccountType: pulumi.Input<string>;
         writeAcceleratorEnabled?: pulumi.Input<boolean>;
     }
@@ -13939,15 +14078,36 @@ export namespace compute {
     }
 
     export interface OrchestratedVirtualMachineScaleSetOsProfile {
+        /**
+         * The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+         */
         customData?: pulumi.Input<string>;
+        /**
+         * A `linuxConfiguration` block as documented below.
+         */
         linuxConfiguration?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration>;
+        /**
+         * A `windowsConfiguration` block as documented below.
+         */
         windowsConfiguration?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration {
+        /**
+         * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+         */
         adminPassword?: pulumi.Input<string>;
+        /**
+         * A `adminSshKey` block as documented below.
+         */
         adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey>[]>;
+        /**
+         * The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+         */
         adminUsername: pulumi.Input<string>;
+        /**
+         * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+         */
         computerNamePrefix?: pulumi.Input<string>;
         /**
          * When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`. Defaults to `true`.
@@ -13961,7 +14121,13 @@ export namespace compute {
          * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
          */
         patchMode?: pulumi.Input<string>;
+        /**
+         * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+         */
         provisionVmAgent?: pulumi.Input<boolean>;
+        /**
+         * One or more `secret` blocks as defined below.
+         */
         secrets?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret>[]>;
     }
 
@@ -13977,7 +14143,13 @@ export namespace compute {
     }
 
     export interface OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret {
+        /**
+         * One or more `certificate` blocks as defined below.
+         */
         certificates: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate>[]>;
+        /**
+         * The ID of the Key Vault from which all Secrets should be sourced.
+         */
         keyVaultId: pulumi.Input<string>;
     }
 
@@ -13989,9 +14161,21 @@ export namespace compute {
     }
 
     export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration {
+        /**
+         * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+         */
         adminPassword: pulumi.Input<string>;
+        /**
+         * The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+         */
         adminUsername: pulumi.Input<string>;
+        /**
+         * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
+         */
         computerNamePrefix?: pulumi.Input<string>;
+        /**
+         * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
+         */
         enableAutomaticUpdates?: pulumi.Input<boolean>;
         /**
          * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
@@ -14005,18 +14189,39 @@ export namespace compute {
          * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
          */
         patchMode?: pulumi.Input<string>;
+        /**
+         * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+         */
         provisionVmAgent?: pulumi.Input<boolean>;
+        /**
+         * One or more `secret` blocks as defined below.
+         */
         secrets?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret>[]>;
+        /**
+         * Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+         */
         timezone?: pulumi.Input<string>;
+        /**
+         * One or more `winrmListener` blocks as defined below.
+         */
         winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener>[]>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret {
+        /**
+         * One or more `certificate` blocks as defined below.
+         */
         certificates: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate>[]>;
+        /**
+         * The ID of the Key Vault from which all Secrets should be sourced.
+         */
         keyVaultId: pulumi.Input<string>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate {
+        /**
+         * The certificate store on the Virtual Machine where the certificate should be added.
+         */
         store: pulumi.Input<string>;
         /**
          * The Secret URL of a Key Vault Certificate.
@@ -14025,36 +14230,104 @@ export namespace compute {
     }
 
     export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener {
+        /**
+         * The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
+         */
         certificateUrl?: pulumi.Input<string>;
         protocol: pulumi.Input<string>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetPlan {
         /**
-         * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
+        /**
+         * Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+         */
         product: pulumi.Input<string>;
+        /**
+         * Specifies the publisher of the image. Changing this forces a new resource to be created.
+         */
         publisher: pulumi.Input<string>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetSourceImageReference {
+        /**
+         * Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
+         */
         offer: pulumi.Input<string>;
+        /**
+         * Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
+         */
         publisher: pulumi.Input<string>;
+        /**
+         * Specifies the SKU of the image used to create the virtual machines.
+         */
         sku: pulumi.Input<string>;
         /**
-         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+         * Specifies the version of the image used to create the virtual machines.
          */
         version: pulumi.Input<string>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetTerminationNotification {
+        /**
+         * Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false` Defaults to `false`.
+         */
         enabled: pulumi.Input<boolean>;
+        /**
+         * Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in `ISO 8601` format. Defaults to `PT5M`.
+         */
         timeout?: pulumi.Input<string>;
     }
 
+    export interface PacketCaptureFilter {
+        /**
+         * The local IP Address to be filtered on. Specify `127.0.0.1` for a single address entry, `127.0.0.1-127.0.0.255` for a range and `127.0.0.1;127.0.0.5` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+         */
+        localIpAddress?: pulumi.Input<string>;
+        /**
+         * The local port to be filtered on. Specify `80` for single port entry, `80-85` for a range and `80;443;` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+         */
+        localPort?: pulumi.Input<string>;
+        /**
+         * The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
+         */
+        protocol: pulumi.Input<string>;
+        /**
+         * The remote IP Address to be filtered on. Specify `127.0.0.1` for a single address entry, `127.0.0.1-127.0.0.255` for a range and `127.0.0.1;127.0.0.5` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+         */
+        remoteIpAddress?: pulumi.Input<string>;
+        /**
+         * The remote port to be filtered on. Specify `80` for single port entry, `80-85` for a range and `80;443;` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+         */
+        remotePort?: pulumi.Input<string>;
+    }
+
+    export interface PacketCaptureStorageLocation {
+        /**
+         * A valid local path on the target Virtual Machine. Must include the name of the capture file (*.cap). For Linux Virtual Machines it must start with `/var/captures`.
+         */
+        filePath?: pulumi.Input<string>;
+        /**
+         * The ID of the storage account where the packet capture sessions should be saved to.
+         */
+        storageAccountId?: pulumi.Input<string>;
+        /**
+         * The URI of the storage path where the packet capture sessions are saved to.
+         */
+        storagePath?: pulumi.Input<string>;
+    }
+
     export interface ScaleSetBootDiagnostics {
+        /**
+         * Whether to enable boot diagnostics for the virtual machine.
+         */
         enabled?: pulumi.Input<boolean>;
+        /**
+         * Blob endpoint for the storage account to hold the virtual machine's diagnostic files. This must be the root of a storage account, and not a storage container.
+         */
         storageUri: pulumi.Input<string>;
     }
 
@@ -14234,7 +14507,7 @@ export namespace compute {
          */
         sourceVaultId: pulumi.Input<string>;
         /**
-         * A collection of Vault Certificates as documented below
+         * (Required, on windows machines) A collection of Vault Certificates as documented below
          */
         vaultCertificates?: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetOsProfileSecretVaultCertificate>[]>;
     }
@@ -14297,6 +14570,55 @@ export namespace compute {
          * Specifies the protocol of listener
          */
         protocol: pulumi.Input<string>;
+    }
+
+    export interface ScaleSetPacketCaptureFilter {
+        /**
+         * The local IP Address to be filtered on. Specify `127.0.0.1` for a single address entry, `127.0.0.1-127.0.0.255` for a range and `127.0.0.1;127.0.0.5` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+         */
+        localIpAddress?: pulumi.Input<string>;
+        /**
+         * The local port to be filtered on. Specify `80` for single port entry, `80-85` for a range and `80;443;` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+         */
+        localPort?: pulumi.Input<string>;
+        /**
+         * The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
+         */
+        protocol: pulumi.Input<string>;
+        /**
+         * The remote IP Address to be filtered on. Specify `127.0.0.1` for a single address entry, `127.0.0.1-127.0.0.255` for a range and `127.0.0.1;127.0.0.5` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+         */
+        remoteIpAddress?: pulumi.Input<string>;
+        /**
+         * The remote port to be filtered on. Specify `80` for single port entry, `80-85` for a range and `80;443;` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+         */
+        remotePort?: pulumi.Input<string>;
+    }
+
+    export interface ScaleSetPacketCaptureMachineScope {
+        /**
+         * A list of Virtual Machine Scale Set instance IDs which should be excluded from running Packet Capture, e.g. `["0", "2"]`. Changing this forces a new resource to be created.
+         */
+        excludeInstanceIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of Virtual Machine Scale Set instance IDs which should be included for Packet Capture, e.g. `["1", "3"]`. Changing this forces a new resource to be created.
+         */
+        includeInstanceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ScaleSetPacketCaptureStorageLocation {
+        /**
+         * A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
+         */
+        filePath?: pulumi.Input<string>;
+        /**
+         * The ID of the storage account to save the packet capture session
+         */
+        storageAccountId?: pulumi.Input<string>;
+        /**
+         * The URI of the storage path where the packet capture sessions are saved to.
+         */
+        storagePath?: pulumi.Input<string>;
     }
 
     export interface ScaleSetPlan {
@@ -14549,7 +14871,7 @@ export namespace compute {
 
     export interface VirtualMachineOsProfile {
         /**
-         * The password associated with the local administrator account.
+         * (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
          */
         adminPassword?: pulumi.Input<string>;
         /**
@@ -14572,7 +14894,7 @@ export namespace compute {
          */
         disablePasswordAuthentication: pulumi.Input<boolean>;
         /**
-         * One or more `sshKeys` blocks. This field is required if `disablePasswordAuthentication` is set to `true`.
+         * One or more `sshKeys` blocks as defined below. This field is required if `disablePasswordAuthentication` is set to `true`.
          */
         sshKeys?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineOsProfileLinuxConfigSshKey>[]>;
     }
@@ -14594,14 +14916,14 @@ export namespace compute {
          */
         sourceVaultId: pulumi.Input<string>;
         /**
-         * One or more `vaultCertificates` blocks.
+         * One or more `vaultCertificates` blocks as defined below.
          */
         vaultCertificates?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineOsProfileSecretVaultCertificate>[]>;
     }
 
     export interface VirtualMachineOsProfileSecretVaultCertificate {
         /**
-         * Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+         * (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
          */
         certificateStore?: pulumi.Input<string>;
         /**
@@ -16925,14 +17247,14 @@ export namespace containerservice {
          */
         adminUsername: pulumi.Input<string>;
         /**
-         * An `sshKey` block. Only one is currently allowed. Changing this forces a new resource to be created.
+         * An `sshKey` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
          */
         sshKey: pulumi.Input<inputs.containerservice.KubernetesClusterLinuxProfileSshKey>;
     }
 
     export interface KubernetesClusterLinuxProfileSshKey {
         /**
-         * The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
+         * The Public SSH Key used to access the cluster.
          */
         keyData: pulumi.Input<string>;
     }
@@ -16977,6 +17299,14 @@ export namespace containerservice {
         logAnalyticsWorkspaceId: pulumi.Input<string>;
     }
 
+    export interface KubernetesClusterMonitorMetrics {
+        /**
+         * Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+         */
+        annotationsAllowed?: pulumi.Input<string>;
+        labelsAllowed?: pulumi.Input<string>;
+    }
+
     export interface KubernetesClusterNetworkProfile {
         /**
          * IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
@@ -16995,7 +17325,7 @@ export namespace containerservice {
          */
         ipVersions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A `loadBalancerProfile` block. This can only be specified when `loadBalancerSku` is set to `standard`.
+         * A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`.
          */
         loadBalancerProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNetworkProfileLoadBalancerProfile>;
         /**
@@ -17003,7 +17333,7 @@ export namespace containerservice {
          */
         loadBalancerSku?: pulumi.Input<string>;
         /**
-         * A `natGatewayProfile` block. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
+         * A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`.
          */
         natGatewayProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNetworkProfileNatGatewayProfile>;
         /**
@@ -17015,7 +17345,7 @@ export namespace containerservice {
          */
         networkPlugin: pulumi.Input<string>;
         /**
-         * Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+         * Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
          */
         networkPluginMode?: pulumi.Input<string>;
         /**
@@ -17276,6 +17606,13 @@ export namespace containerservice {
          * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
          */
         maxSurge: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterNodePoolWindowsProfile {
+        /**
+         * Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to `true`. Changing this forces a new resource to be created.
+         */
+        outboundNatEnabled?: pulumi.Input<boolean>;
     }
 
     export interface KubernetesClusterOmsAgent {
@@ -23338,7 +23675,7 @@ export namespace frontdoor {
          */
         transforms?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * can contain one or more strings.
+         * (array) can contain one or more strings.
          */
         values?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -26827,6 +27164,17 @@ export namespace keyvault {
          */
         virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
+
+    export interface ManagedHardwareSecurityModuleNetworkAcls {
+        /**
+         * Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+         */
+        bypass: pulumi.Input<string>;
+        /**
+         * The Default Action to use. Possible values are `Allow` and `Deny`.
+         */
+        defaultAction: pulumi.Input<string>;
+    }
 }
 
 export namespace kusto {
@@ -27034,6 +27382,51 @@ export namespace lighthouse {
          * The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an `Owner` role.
          */
         roleDefinitionId: pulumi.Input<string>;
+    }
+
+    export interface DefinitionEligibleAuthorization {
+        /**
+         * A `justInTimeAccessPolicy` block as defined below.
+         */
+        justInTimeAccessPolicy?: pulumi.Input<inputs.lighthouse.DefinitionEligibleAuthorizationJustInTimeAccessPolicy>;
+        /**
+         * The display name of the Azure Active Directory Principal.
+         */
+        principalDisplayName?: pulumi.Input<string>;
+        /**
+         * The Principal ID of the Azure Active Directory.
+         */
+        principalId: pulumi.Input<string>;
+        /**
+         * The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope.
+         */
+        roleDefinitionId: pulumi.Input<string>;
+    }
+
+    export interface DefinitionEligibleAuthorizationJustInTimeAccessPolicy {
+        /**
+         * An `approver` block as defined below.
+         */
+        approvers?: pulumi.Input<pulumi.Input<inputs.lighthouse.DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover>[]>;
+        /**
+         * The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to `PT8H`.
+         */
+        maximumActivationDuration?: pulumi.Input<string>;
+        /**
+         * The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
+         */
+        multiFactorAuthProvider?: pulumi.Input<string>;
+    }
+
+    export interface DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover {
+        /**
+         * The display name of the Azure Active Directory Principal for the approver.
+         */
+        principalDisplayName?: pulumi.Input<string>;
+        /**
+         * The Principal ID of the Azure Active Directory principal for the approver.
+         */
+        principalId: pulumi.Input<string>;
     }
 
     export interface DefinitionPlan {
@@ -28387,6 +28780,10 @@ export namespace media {
 
     export interface ServiceAccountIdentity {
         /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
@@ -28395,7 +28792,7 @@ export namespace media {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -28703,6 +29100,10 @@ export namespace media {
 export namespace mediaservices {
     export interface AccountIdentity {
         /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
@@ -28711,7 +29112,7 @@ export namespace mediaservices {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -30271,9 +30672,9 @@ export namespace monitoring {
          */
         effectiveDate: pulumi.Input<string>;
         /**
-         * Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
+         * Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
          */
-        planId: pulumi.Input<string>;
+        planId?: pulumi.Input<string>;
         /**
          * Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
          */
@@ -30552,7 +30953,7 @@ export namespace monitoring {
          */
         metricMeasureColumn?: pulumi.Input<string>;
         /**
-         * Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+         * Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
          */
         operator: pulumi.Input<string>;
         /**
@@ -31424,7 +31825,7 @@ export namespace network {
          */
         affinityCookieName?: pulumi.Input<string>;
         /**
-         * One or more `authenticationCertificate` blocks.
+         * One or more `authenticationCertificate` blocks as defined below.
          */
         authenticationCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendHttpSettingAuthenticationCertificate>[]>;
         /**
@@ -31652,7 +32053,7 @@ export namespace network {
          */
         sslCertificateName?: pulumi.Input<string>;
         /**
-         * The ID of the associated SSL Certificate.
+         * The ID of the associated SSL Profile.
          */
         sslProfileId?: pulumi.Input<string>;
         /**
@@ -32805,7 +33206,7 @@ export namespace network {
          */
         priority: pulumi.Input<number>;
         /**
-         * One or more `rule` (application rule) blocks as defined below.
+         * One or more `applicationRule` (application rule) blocks as defined below.
          */
         rules: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule>[]>;
     }
@@ -32816,7 +33217,7 @@ export namespace network {
          */
         description?: pulumi.Input<string>;
         /**
-         * Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+         * Specifies a list of destination IP addresses (including CIDR and `*`).
          */
         destinationAddresses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -32824,7 +33225,7 @@ export namespace network {
          */
         destinationFqdnTags?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies a list of destination FQDNs.
+         * Specifies a list of destination FQDNs. Conflicts with `destinationUrls`.
          */
         destinationFqdns?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -32832,11 +33233,11 @@ export namespace network {
          */
         destinationUrls?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name which should be used for this rule.
+         * The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
          */
         name: pulumi.Input<string>;
         /**
-         * Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+         * One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
          */
         protocols?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol>[]>;
         /**
@@ -32882,7 +33283,7 @@ export namespace network {
          */
         priority: pulumi.Input<number>;
         /**
-         * A `rule` (NAT rule) block as defined above.
+         * A `natRule` (NAT rule) block as defined below.
          */
         rules: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupNatRuleCollectionRule>[]>;
     }
@@ -32893,15 +33294,15 @@ export namespace network {
          */
         destinationAddress?: pulumi.Input<string>;
         /**
-         * Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+         * Specifies a list of destination ports.
          */
         destinationPorts?: pulumi.Input<string>;
         /**
-         * The name which should be used for this rule.
+         * The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
          */
         name: pulumi.Input<string>;
         /**
-         * Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+         * One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
          */
         protocols: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -32940,18 +33341,18 @@ export namespace network {
          */
         priority: pulumi.Input<number>;
         /**
-         * One or more `rule` (network rule) blocks as defined above.
+         * One or more `networkRule` (network rule) blocks as defined below.
          */
         rules: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule>[]>;
     }
 
     export interface FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
         /**
-         * Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+         * Specifies a list of destination IP addresses (including CIDR and `*`).
          */
         destinationAddresses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies a list of destination FQDNs.
+         * Specifies a list of destination FQDNs. Conflicts with `destinationUrls`.
          */
         destinationFqdns?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -32959,15 +33360,15 @@ export namespace network {
          */
         destinationIpGroups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+         * Specifies a list of destination ports.
          */
         destinationPorts: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name which should be used for this rule.
+         * The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
          */
         name: pulumi.Input<string>;
         /**
-         * Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+         * One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
          */
         protocols: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -33396,7 +33797,7 @@ export namespace network {
          */
         days: pulumi.Input<number>;
         /**
-         * Boolean flag to enable/disable traffic analytics.
+         * Boolean flag to enable/disable retention.
          */
         enabled: pulumi.Input<boolean>;
     }
@@ -33448,6 +33849,14 @@ export namespace network {
          * The Virtual Hub Route Table resource id associated with this Routing Configuration.
          */
         associatedRouteTableId: pulumi.Input<string>;
+        /**
+         * The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+         */
+        inboundRouteMapId?: pulumi.Input<string>;
+        /**
+         * The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+         */
+        outboundRouteMapId?: pulumi.Input<string>;
         /**
          * A `propagatedRouteTable` block as defined below.
          */
@@ -33511,6 +33920,70 @@ export namespace network {
          * The rule type of the rule. The only possible value is `Community`.
          */
         ruleType: pulumi.Input<string>;
+    }
+
+    export interface RouteMapRule {
+        /**
+         * An `action` block as defined below.
+         */
+        actions?: pulumi.Input<pulumi.Input<inputs.network.RouteMapRuleAction>[]>;
+        /**
+         * A `matchCriterion` block as defined below.
+         */
+        matchCriterions?: pulumi.Input<pulumi.Input<inputs.network.RouteMapRuleMatchCriterion>[]>;
+        /**
+         * The unique name for the rule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The next step after the rule is evaluated. Possible values are `Continue`, `Terminate` and `Unknown`. Defaults to `Unknown`.
+         */
+        nextStepIfMatched?: pulumi.Input<string>;
+    }
+
+    export interface RouteMapRuleAction {
+        /**
+         * A `parameter` block as defined below.
+         */
+        parameters: pulumi.Input<pulumi.Input<inputs.network.RouteMapRuleActionParameter>[]>;
+        /**
+         * The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RouteMapRuleActionParameter {
+        /**
+         * A list of AS paths.
+         */
+        asPaths?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of BGP communities.
+         */
+        communities?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of route prefixes.
+         */
+        routePrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RouteMapRuleMatchCriterion {
+        /**
+         * A list of AS paths which this criterion matches.
+         */
+        asPaths?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of BGP communities which this criterion matches.
+         */
+        communities?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The match condition to apply the rule of the Route Map. Possible values are `Contains`, `Equals`, `NotContains`, `NotEquals` and `Unknown`.
+         */
+        matchCondition: pulumi.Input<string>;
+        /**
+         * A list of route prefixes which this criterion matches.
+         */
+        routePrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface RouteTableRoute {
@@ -33894,7 +34367,7 @@ export namespace network {
 
     export interface VirtualNetworkGatewayCustomRoute {
         /**
-         * A list of address blocks reserved for this virtual network in CIDR notation.
+         * A list of address blocks reserved for this virtual network in CIDR notation as defined below.
          */
         addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -33975,14 +34448,11 @@ export namespace network {
          */
         radiusServerSecret?: pulumi.Input<string>;
         /**
-         * One or more `revokedCertificate` blocks which
-         * are defined below.
+         * One or more `revokedCertificate` blocks which are defined below.
          */
         revokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate>[]>;
         /**
-         * One or more `rootCertificate` blocks which are
-         * defined below. These root certificates are used to sign the client certificate
-         * used by the VPN clients to connect to the gateway.
+         * One or more `rootCertificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
          */
         rootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfigurationRootCertificate>[]>;
         /**
@@ -34129,6 +34599,14 @@ export namespace network {
          * The ID of the Route Table associated with this VPN Connection.
          */
         associatedRouteTable: pulumi.Input<string>;
+        /**
+         * The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+         */
+        inboundRouteMapId?: pulumi.Input<string>;
+        /**
+         * The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+         */
+        outboundRouteMapId?: pulumi.Input<string>;
         /**
          * A `propagatedRouteTable` block as defined below.
          */
@@ -34646,7 +35124,7 @@ export namespace orbital {
 
     export interface ContactProfileLinkChannelEndPoint {
         /**
-         * -(Required) Name of an end point.
+         * Name of an end point.
          */
         endPointName: pulumi.Input<string>;
         /**
@@ -34744,7 +35222,7 @@ export namespace policy {
          */
         contentUri?: pulumi.Input<string>;
         /**
-         * One or more `parameter` blocks which define what configuration parameters and values against.
+         * One or more `parameter` blocks as defined below which define what configuration parameters and values against.
          */
         parameters?: pulumi.Input<pulumi.Input<inputs.policy.VirtualMachineConfigurationAssignmentConfigurationParameter>[]>;
         /**
@@ -34999,6 +35477,10 @@ export namespace privatelink {
 
     export interface EndpointIpConfiguration {
         /**
+         * Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresourceName`. Changing this forces a new resource to be created.
+         */
+        memberName?: pulumi.Input<string>;
+        /**
          * Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
@@ -35007,7 +35489,7 @@ export namespace privatelink {
          */
         privateIpAddress: pulumi.Input<string>;
         /**
-         * Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId` and in this context is also used for `memberName`. Changing this forces a new resource to be created.
+         * Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
          */
         subresourceName: pulumi.Input<string>;
     }
@@ -35339,7 +35821,7 @@ export namespace securitycenter {
 
     export interface AutomationAction {
         /**
-         * A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+         * (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
          */
         connectionString?: pulumi.Input<string>;
         /**
@@ -35347,7 +35829,7 @@ export namespace securitycenter {
          */
         resourceId: pulumi.Input<string>;
         /**
-         * The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+         * (Optional, but required when `type` is `LogicApp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
          */
         triggerUrl?: pulumi.Input<string>;
         /**
@@ -36435,7 +36917,7 @@ export namespace siterecovery {
          */
         recoveryPublicIpAddressId?: pulumi.Input<string>;
         /**
-         * Id source network interface.
+         * (Required if the networkInterface block is specified) Id source network interface.
          */
         sourceNetworkInterfaceId?: pulumi.Input<string>;
         /**
@@ -36615,7 +37097,7 @@ export namespace sql {
          */
         retentionDays?: pulumi.Input<number>;
         /**
-         * The State of the Policy. Possible values are `Enabled` or `Disabled`.
+         * The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`.
          */
         state?: pulumi.Input<string>;
         /**
@@ -36698,6 +37180,10 @@ export namespace storage {
          */
         lastAccessTimeEnabled?: pulumi.Input<boolean>;
         /**
+         * A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set and `versioningEnabled` set to `true`.
+         */
+        restorePolicy?: pulumi.Input<inputs.storage.AccountBlobPropertiesRestorePolicy>;
+        /**
          * Is versioning enabled? Default to `false`.
          */
         versioningEnabled?: pulumi.Input<boolean>;
@@ -36739,6 +37225,13 @@ export namespace storage {
          * Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
          */
         days?: pulumi.Input<number>;
+    }
+
+    export interface AccountBlobPropertiesRestorePolicy {
+        /**
+         * Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `deleteRetentionPolicy`.
+         */
+        days: pulumi.Input<number>;
     }
 
     export interface AccountCustomDomain {
@@ -38274,13 +38767,32 @@ export namespace waf {
 
     export interface PolicyManagedRulesManagedRuleSetRuleGroupOverride {
         /**
-         * One or more Rule IDs
+         * @deprecated `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
          */
         disabledRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of the Rule Group
+         * The name of the Rule Group.
          */
         ruleGroupName: pulumi.Input<string>;
+        /**
+         * One or more `rule` block defined below.
+         */
+        rules?: pulumi.Input<pulumi.Input<inputs.waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule>[]>;
+    }
+
+    export interface PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule {
+        /**
+         * Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Identifier for the managed rule.
+         */
+        id: pulumi.Input<string>;
     }
 
     export interface PolicyPolicySettings {

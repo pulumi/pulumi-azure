@@ -123,7 +123,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly diskMbpsReadWrite!: pulumi.Output<number>;
     /**
-     * Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+     * (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
      */
     public readonly diskSizeGb!: pulumi.Output<number>;
     /**
@@ -356,7 +356,7 @@ export interface ManagedDiskState {
      */
     diskMbpsReadWrite?: pulumi.Input<number>;
     /**
-     * Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+     * (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
      */
     diskSizeGb?: pulumi.Input<number>;
     /**
@@ -494,7 +494,7 @@ export interface ManagedDiskArgs {
      */
     diskMbpsReadWrite?: pulumi.Input<number>;
     /**
-     * Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+     * (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
      */
     diskSizeGb?: pulumi.Input<number>;
     /**

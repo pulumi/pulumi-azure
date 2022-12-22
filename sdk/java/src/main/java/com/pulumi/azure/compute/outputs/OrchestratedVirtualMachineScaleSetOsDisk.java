@@ -14,26 +14,66 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsDisk {
+    /**
+     * @return The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+     * 
+     */
     private String caching;
+    /**
+     * @return A `diff_disk_settings` block as defined above.
+     * 
+     */
     private @Nullable OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings diffDiskSettings;
+    /**
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+     * 
+     */
     private @Nullable String diskEncryptionSetId;
+    /**
+     * @return The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+     * 
+     */
     private @Nullable Integer diskSizeGb;
+    /**
+     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+     * 
+     */
     private String storageAccountType;
     private @Nullable Boolean writeAcceleratorEnabled;
 
     private OrchestratedVirtualMachineScaleSetOsDisk() {}
+    /**
+     * @return The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+     * 
+     */
     public String caching() {
         return this.caching;
     }
+    /**
+     * @return A `diff_disk_settings` block as defined above.
+     * 
+     */
     public Optional<OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings> diffDiskSettings() {
         return Optional.ofNullable(this.diffDiskSettings);
     }
+    /**
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<String> diskEncryptionSetId() {
         return Optional.ofNullable(this.diskEncryptionSetId);
     }
+    /**
+     * @return The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+     * 
+     */
     public Optional<Integer> diskSizeGb() {
         return Optional.ofNullable(this.diskSizeGb);
     }
+    /**
+     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+     * 
+     */
     public String storageAccountType() {
         return this.storageAccountType;
     }

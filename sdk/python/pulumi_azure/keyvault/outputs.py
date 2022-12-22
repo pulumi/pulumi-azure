@@ -37,6 +37,7 @@ __all__ = [
     'KeyVaultAccessPolicy',
     'KeyVaultContact',
     'KeyVaultNetworkAcls',
+    'ManagedHardwareSecurityModuleNetworkAcls',
     'GetCertificateCertificatePolicyResult',
     'GetCertificateCertificatePolicyIssuerParameterResult',
     'GetCertificateCertificatePolicyKeyPropertyResult',
@@ -1590,6 +1591,52 @@ class KeyVaultNetworkAcls(dict):
         One or more Subnet IDs which should be able to access this Key Vault.
         """
         return pulumi.get(self, "virtual_network_subnet_ids")
+
+
+@pulumi.output_type
+class ManagedHardwareSecurityModuleNetworkAcls(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedHardwareSecurityModuleNetworkAcls. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedHardwareSecurityModuleNetworkAcls.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedHardwareSecurityModuleNetworkAcls.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bypass: str,
+                 default_action: str):
+        """
+        :param str bypass: Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+        :param str default_action: The Default Action to use. Possible values are `Allow` and `Deny`.
+        """
+        pulumi.set(__self__, "bypass", bypass)
+        pulumi.set(__self__, "default_action", default_action)
+
+    @property
+    @pulumi.getter
+    def bypass(self) -> str:
+        """
+        Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+        """
+        return pulumi.get(self, "bypass")
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> str:
+        """
+        The Default Action to use. Possible values are `Allow` and `Deny`.
+        """
+        return pulumi.get(self, "default_action")
 
 
 @pulumi.output_type

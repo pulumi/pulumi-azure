@@ -53,6 +53,7 @@ __all__ = [
     'KubernetesClusterMaintenanceWindowAllowedArgs',
     'KubernetesClusterMaintenanceWindowNotAllowedArgs',
     'KubernetesClusterMicrosoftDefenderArgs',
+    'KubernetesClusterMonitorMetricsArgs',
     'KubernetesClusterNetworkProfileArgs',
     'KubernetesClusterNetworkProfileLoadBalancerProfileArgs',
     'KubernetesClusterNetworkProfileNatGatewayProfileArgs',
@@ -60,6 +61,7 @@ __all__ = [
     'KubernetesClusterNodePoolLinuxOsConfigArgs',
     'KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs',
     'KubernetesClusterNodePoolUpgradeSettingsArgs',
+    'KubernetesClusterNodePoolWindowsProfileArgs',
     'KubernetesClusterOmsAgentArgs',
     'KubernetesClusterOmsAgentOmsAgentIdentityArgs',
     'KubernetesClusterServicePrincipalArgs',
@@ -4115,7 +4117,7 @@ class KubernetesClusterLinuxProfileArgs:
                  ssh_key: pulumi.Input['KubernetesClusterLinuxProfileSshKeyArgs']):
         """
         :param pulumi.Input[str] admin_username: The Admin Username for the Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterLinuxProfileSshKeyArgs'] ssh_key: An `ssh_key` block. Only one is currently allowed. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterLinuxProfileSshKeyArgs'] ssh_key: An `ssh_key` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "ssh_key", ssh_key)
@@ -4136,7 +4138,7 @@ class KubernetesClusterLinuxProfileArgs:
     @pulumi.getter(name="sshKey")
     def ssh_key(self) -> pulumi.Input['KubernetesClusterLinuxProfileSshKeyArgs']:
         """
-        An `ssh_key` block. Only one is currently allowed. Changing this forces a new resource to be created.
+        An `ssh_key` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
         """
         return pulumi.get(self, "ssh_key")
 
@@ -4150,7 +4152,7 @@ class KubernetesClusterLinuxProfileSshKeyArgs:
     def __init__(__self__, *,
                  key_data: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key_data: The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_data: The Public SSH Key used to access the cluster.
         """
         pulumi.set(__self__, "key_data", key_data)
 
@@ -4158,7 +4160,7 @@ class KubernetesClusterLinuxProfileSshKeyArgs:
     @pulumi.getter(name="keyData")
     def key_data(self) -> pulumi.Input[str]:
         """
-        The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
+        The Public SSH Key used to access the cluster.
         """
         return pulumi.get(self, "key_data")
 
@@ -4303,6 +4305,41 @@ class KubernetesClusterMicrosoftDefenderArgs:
 
 
 @pulumi.input_type
+class KubernetesClusterMonitorMetricsArgs:
+    def __init__(__self__, *,
+                 annotations_allowed: Optional[pulumi.Input[str]] = None,
+                 labels_allowed: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] annotations_allowed: Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+        """
+        if annotations_allowed is not None:
+            pulumi.set(__self__, "annotations_allowed", annotations_allowed)
+        if labels_allowed is not None:
+            pulumi.set(__self__, "labels_allowed", labels_allowed)
+
+    @property
+    @pulumi.getter(name="annotationsAllowed")
+    def annotations_allowed(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+        """
+        return pulumi.get(self, "annotations_allowed")
+
+    @annotations_allowed.setter
+    def annotations_allowed(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "annotations_allowed", value)
+
+    @property
+    @pulumi.getter(name="labelsAllowed")
+    def labels_allowed(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "labels_allowed")
+
+    @labels_allowed.setter
+    def labels_allowed(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "labels_allowed", value)
+
+
+@pulumi.input_type
 class KubernetesClusterNetworkProfileArgs:
     def __init__(__self__, *,
                  network_plugin: pulumi.Input[str],
@@ -4327,11 +4364,11 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input[str] docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ebpf_data_plane: Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs'] load_balancer_profile: A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `standard`.
+        :param pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs'] load_balancer_profile: A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`.
         :param pulumi.Input[str] load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs'] nat_gateway_profile: A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+        :param pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs'] nat_gateway_profile: A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
         :param pulumi.Input[str] network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_plugin_mode: Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_plugin_mode: Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
@@ -4435,7 +4472,7 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="loadBalancerProfile")
     def load_balancer_profile(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs']]:
         """
-        A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `standard`.
+        A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`.
         """
         return pulumi.get(self, "load_balancer_profile")
 
@@ -4459,7 +4496,7 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="natGatewayProfile")
     def nat_gateway_profile(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs']]:
         """
-        A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
+        A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
         """
         return pulumi.get(self, "nat_gateway_profile")
 
@@ -4483,7 +4520,7 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="networkPluginMode")
     def network_plugin_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`. Changing this forces a new resource to be created.
+        Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_plugin_mode")
 
@@ -5467,6 +5504,29 @@ class KubernetesClusterNodePoolUpgradeSettingsArgs:
     @max_surge.setter
     def max_surge(self, value: pulumi.Input[str]):
         pulumi.set(self, "max_surge", value)
+
+
+@pulumi.input_type
+class KubernetesClusterNodePoolWindowsProfileArgs:
+    def __init__(__self__, *,
+                 outbound_nat_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] outbound_nat_enabled: Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to `true`. Changing this forces a new resource to be created.
+        """
+        if outbound_nat_enabled is not None:
+            pulumi.set(__self__, "outbound_nat_enabled", outbound_nat_enabled)
+
+    @property
+    @pulumi.getter(name="outboundNatEnabled")
+    def outbound_nat_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "outbound_nat_enabled")
+
+    @outbound_nat_enabled.setter
+    def outbound_nat_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "outbound_nat_enabled", value)
 
 
 @pulumi.input_type

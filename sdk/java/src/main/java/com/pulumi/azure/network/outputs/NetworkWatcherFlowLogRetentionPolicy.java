@@ -16,7 +16,7 @@ public final class NetworkWatcherFlowLogRetentionPolicy {
      */
     private Integer days;
     /**
-     * @return Boolean flag to enable/disable traffic analytics.
+     * @return Boolean flag to enable/disable retention.
      * 
      */
     private Boolean enabled;
@@ -30,7 +30,7 @@ public final class NetworkWatcherFlowLogRetentionPolicy {
         return this.days;
     }
     /**
-     * @return Boolean flag to enable/disable traffic analytics.
+     * @return Boolean flag to enable/disable retention.
      * 
      */
     public Boolean enabled() {

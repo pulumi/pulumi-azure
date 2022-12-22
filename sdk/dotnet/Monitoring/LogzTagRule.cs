@@ -34,7 +34,6 @@ namespace Pulumi.Azure.Monitoring
     ///         {
     ///             BillingCycle = "MONTHLY",
     ///             EffectiveDate = "2022-06-06T00:00:00Z",
-    ///             PlanId = "100gb14days",
     ///             UsageType = "COMMITTED",
     ///         },
     ///         User = new Azure.Monitoring.Inputs.LogzMonitorUserArgs

@@ -96,7 +96,7 @@ type Order struct {
 	ReturnTrackings OrderReturnTrackingArrayOutput `pulumi:"returnTrackings"`
 	// Serial number of the device being tracked.
 	SerialNumber pulumi.StringOutput `pulumi:"serialNumber"`
-	// A `shipmentAddress block as defined below.
+	// A `shipmentAddress` block as defined below.
 	ShipmentAddress OrderShipmentAddressOutput `pulumi:"shipmentAddress"`
 	// List of status changes in the order. A `shipmentHistory` block as defined below.
 	ShipmentHistories OrderShipmentHistoryArrayOutput `pulumi:"shipmentHistories"`
@@ -159,7 +159,7 @@ type orderState struct {
 	ReturnTrackings []OrderReturnTracking `pulumi:"returnTrackings"`
 	// Serial number of the device being tracked.
 	SerialNumber *string `pulumi:"serialNumber"`
-	// A `shipmentAddress block as defined below.
+	// A `shipmentAddress` block as defined below.
 	ShipmentAddress *OrderShipmentAddress `pulumi:"shipmentAddress"`
 	// List of status changes in the order. A `shipmentHistory` block as defined below.
 	ShipmentHistories []OrderShipmentHistory `pulumi:"shipmentHistories"`
@@ -182,7 +182,7 @@ type OrderState struct {
 	ReturnTrackings OrderReturnTrackingArrayInput
 	// Serial number of the device being tracked.
 	SerialNumber pulumi.StringPtrInput
-	// A `shipmentAddress block as defined below.
+	// A `shipmentAddress` block as defined below.
 	ShipmentAddress OrderShipmentAddressPtrInput
 	// List of status changes in the order. A `shipmentHistory` block as defined below.
 	ShipmentHistories OrderShipmentHistoryArrayInput
@@ -203,7 +203,7 @@ type orderArgs struct {
 	DeviceName string `pulumi:"deviceName"`
 	// The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `shipmentAddress block as defined below.
+	// A `shipmentAddress` block as defined below.
 	ShipmentAddress OrderShipmentAddress `pulumi:"shipmentAddress"`
 }
 
@@ -215,7 +215,7 @@ type OrderArgs struct {
 	DeviceName pulumi.StringInput
 	// The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
 	ResourceGroupName pulumi.StringInput
-	// A `shipmentAddress block as defined below.
+	// A `shipmentAddress` block as defined below.
 	ShipmentAddress OrderShipmentAddressInput
 }
 
@@ -336,7 +336,7 @@ func (o OrderOutput) SerialNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v *Order) pulumi.StringOutput { return v.SerialNumber }).(pulumi.StringOutput)
 }
 
-// A `shipmentAddress block as defined below.
+// A `shipmentAddress` block as defined below.
 func (o OrderOutput) ShipmentAddress() OrderShipmentAddressOutput {
 	return o.ApplyT(func(v *Order) OrderShipmentAddressOutput { return v.ShipmentAddress }).(OrderShipmentAddressOutput)
 }

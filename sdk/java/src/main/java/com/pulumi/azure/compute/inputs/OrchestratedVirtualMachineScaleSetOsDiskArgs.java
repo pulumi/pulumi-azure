@@ -18,37 +18,77 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
 
     public static final OrchestratedVirtualMachineScaleSetOsDiskArgs Empty = new OrchestratedVirtualMachineScaleSetOsDiskArgs();
 
+    /**
+     * The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+     * 
+     */
     @Import(name="caching", required=true)
     private Output<String> caching;
 
+    /**
+     * @return The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+     * 
+     */
     public Output<String> caching() {
         return this.caching;
     }
 
+    /**
+     * A `diff_disk_settings` block as defined above.
+     * 
+     */
     @Import(name="diffDiskSettings")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs> diffDiskSettings;
 
+    /**
+     * @return A `diff_disk_settings` block as defined above.
+     * 
+     */
     public Optional<Output<OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs>> diffDiskSettings() {
         return Optional.ofNullable(this.diffDiskSettings);
     }
 
+    /**
+     * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="diskEncryptionSetId")
     private @Nullable Output<String> diskEncryptionSetId;
 
+    /**
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> diskEncryptionSetId() {
         return Optional.ofNullable(this.diskEncryptionSetId);
     }
 
+    /**
+     * The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+     * 
+     */
     @Import(name="diskSizeGb")
     private @Nullable Output<Integer> diskSizeGb;
 
+    /**
+     * @return The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+     * 
+     */
     public Optional<Output<Integer>> diskSizeGb() {
         return Optional.ofNullable(this.diskSizeGb);
     }
 
+    /**
+     * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="storageAccountType", required=true)
     private Output<String> storageAccountType;
 
+    /**
+     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> storageAccountType() {
         return this.storageAccountType;
     }
@@ -89,47 +129,107 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
             $ = new OrchestratedVirtualMachineScaleSetOsDiskArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param caching The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder caching(Output<String> caching) {
             $.caching = caching;
             return this;
         }
 
+        /**
+         * @param caching The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder caching(String caching) {
             return caching(Output.of(caching));
         }
 
+        /**
+         * @param diffDiskSettings A `diff_disk_settings` block as defined above.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diffDiskSettings(@Nullable Output<OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs> diffDiskSettings) {
             $.diffDiskSettings = diffDiskSettings;
             return this;
         }
 
+        /**
+         * @param diffDiskSettings A `diff_disk_settings` block as defined above.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diffDiskSettings(OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs diffDiskSettings) {
             return diffDiskSettings(Output.of(diffDiskSettings));
         }
 
+        /**
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskEncryptionSetId(@Nullable Output<String> diskEncryptionSetId) {
             $.diskEncryptionSetId = diskEncryptionSetId;
             return this;
         }
 
+        /**
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskEncryptionSetId(String diskEncryptionSetId) {
             return diskEncryptionSetId(Output.of(diskEncryptionSetId));
         }
 
+        /**
+         * @param diskSizeGb The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskSizeGb(@Nullable Output<Integer> diskSizeGb) {
             $.diskSizeGb = diskSizeGb;
             return this;
         }
 
+        /**
+         * @param diskSizeGb The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder diskSizeGb(Integer diskSizeGb) {
             return diskSizeGb(Output.of(diskSizeGb));
         }
 
+        /**
+         * @param storageAccountType The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageAccountType(Output<String> storageAccountType) {
             $.storageAccountType = storageAccountType;
             return this;
         }
 
+        /**
+         * @param storageAccountType The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageAccountType(String storageAccountType) {
             return storageAccountType(Output.of(storageAccountType));
         }

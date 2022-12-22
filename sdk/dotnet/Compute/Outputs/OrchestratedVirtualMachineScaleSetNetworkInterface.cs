@@ -13,15 +13,33 @@ namespace Pulumi.Azure.Compute.Outputs
     [OutputType]
     public sealed class OrchestratedVirtualMachineScaleSetNetworkInterface
     {
+        /// <summary>
+        /// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+        /// </summary>
         public readonly ImmutableArray<string> DnsServers;
+        /// <summary>
+        /// Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
+        /// </summary>
         public readonly bool? EnableAcceleratedNetworking;
+        /// <summary>
+        /// Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
+        /// </summary>
         public readonly bool? EnableIpForwarding;
+        /// <summary>
+        /// One or more `ip_configuration` blocks as defined above.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration> IpConfigurations;
         /// <summary>
-        /// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The ID of a Network Security Group which should be assigned to this Network Interface.
+        /// </summary>
         public readonly string? NetworkSecurityGroupId;
+        /// <summary>
+        /// Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
+        /// </summary>
         public readonly bool? Primary;
 
         [OutputConstructor]

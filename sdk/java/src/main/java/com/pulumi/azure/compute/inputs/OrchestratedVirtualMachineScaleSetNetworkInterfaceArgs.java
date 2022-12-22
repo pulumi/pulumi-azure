@@ -18,59 +18,107 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
 
     public static final OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs Empty = new OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs();
 
+    /**
+     * A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+     * 
+     */
     @Import(name="dnsServers")
     private @Nullable Output<List<String>> dnsServers;
 
+    /**
+     * @return A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+     * 
+     */
     public Optional<Output<List<String>>> dnsServers() {
         return Optional.ofNullable(this.dnsServers);
     }
 
+    /**
+     * Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
     @Import(name="enableAcceleratedNetworking")
     private @Nullable Output<Boolean> enableAcceleratedNetworking;
 
+    /**
+     * @return Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> enableAcceleratedNetworking() {
         return Optional.ofNullable(this.enableAcceleratedNetworking);
     }
 
+    /**
+     * Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
     @Import(name="enableIpForwarding")
     private @Nullable Output<Boolean> enableIpForwarding;
 
+    /**
+     * @return Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> enableIpForwarding() {
         return Optional.ofNullable(this.enableIpForwarding);
     }
 
+    /**
+     * One or more `ip_configuration` blocks as defined above.
+     * 
+     */
     @Import(name="ipConfigurations", required=true)
     private Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs>> ipConfigurations;
 
+    /**
+     * @return One or more `ip_configuration` blocks as defined above.
+     * 
+     */
     public Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs>> ipConfigurations() {
         return this.ipConfigurations;
     }
 
     /**
-     * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The ID of a Network Security Group which should be assigned to this Network Interface.
+     * 
+     */
     @Import(name="networkSecurityGroupId")
     private @Nullable Output<String> networkSecurityGroupId;
 
+    /**
+     * @return The ID of a Network Security Group which should be assigned to this Network Interface.
+     * 
+     */
     public Optional<Output<String>> networkSecurityGroupId() {
         return Optional.ofNullable(this.networkSecurityGroupId);
     }
 
+    /**
+     * Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
     @Import(name="primary")
     private @Nullable Output<Boolean> primary;
 
+    /**
+     * @return Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> primary() {
         return Optional.ofNullable(this.primary);
     }
@@ -105,52 +153,112 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
             $ = new OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dnsServers A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsServers(@Nullable Output<List<String>> dnsServers) {
             $.dnsServers = dnsServers;
             return this;
         }
 
+        /**
+         * @param dnsServers A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsServers(List<String> dnsServers) {
             return dnsServers(Output.of(dnsServers));
         }
 
+        /**
+         * @param dnsServers A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dnsServers(String... dnsServers) {
             return dnsServers(List.of(dnsServers));
         }
 
+        /**
+         * @param enableAcceleratedNetworking Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableAcceleratedNetworking(@Nullable Output<Boolean> enableAcceleratedNetworking) {
             $.enableAcceleratedNetworking = enableAcceleratedNetworking;
             return this;
         }
 
+        /**
+         * @param enableAcceleratedNetworking Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableAcceleratedNetworking(Boolean enableAcceleratedNetworking) {
             return enableAcceleratedNetworking(Output.of(enableAcceleratedNetworking));
         }
 
+        /**
+         * @param enableIpForwarding Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableIpForwarding(@Nullable Output<Boolean> enableIpForwarding) {
             $.enableIpForwarding = enableIpForwarding;
             return this;
         }
 
+        /**
+         * @param enableIpForwarding Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableIpForwarding(Boolean enableIpForwarding) {
             return enableIpForwarding(Output.of(enableIpForwarding));
         }
 
+        /**
+         * @param ipConfigurations One or more `ip_configuration` blocks as defined above.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipConfigurations(Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs>> ipConfigurations) {
             $.ipConfigurations = ipConfigurations;
             return this;
         }
 
+        /**
+         * @param ipConfigurations One or more `ip_configuration` blocks as defined above.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipConfigurations(List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs> ipConfigurations) {
             return ipConfigurations(Output.of(ipConfigurations));
         }
 
+        /**
+         * @param ipConfigurations One or more `ip_configuration` blocks as defined above.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipConfigurations(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs... ipConfigurations) {
             return ipConfigurations(List.of(ipConfigurations));
         }
 
         /**
-         * @param name The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * @param name The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -161,7 +269,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
         }
 
         /**
-         * @param name The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * @param name The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -170,20 +278,44 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
             return name(Output.of(name));
         }
 
+        /**
+         * @param networkSecurityGroupId The ID of a Network Security Group which should be assigned to this Network Interface.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkSecurityGroupId(@Nullable Output<String> networkSecurityGroupId) {
             $.networkSecurityGroupId = networkSecurityGroupId;
             return this;
         }
 
+        /**
+         * @param networkSecurityGroupId The ID of a Network Security Group which should be assigned to this Network Interface.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkSecurityGroupId(String networkSecurityGroupId) {
             return networkSecurityGroupId(Output.of(networkSecurityGroupId));
         }
 
+        /**
+         * @param primary Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primary(@Nullable Output<Boolean> primary) {
             $.primary = primary;
             return this;
         }
 
+        /**
+         * @param primary Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primary(Boolean primary) {
             return primary(Output.of(primary));
         }

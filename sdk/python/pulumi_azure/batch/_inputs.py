@@ -1416,10 +1416,10 @@ class PoolStartTaskArgs:
                  wait_for_success: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] command_line: The command line executed by the start task.
-        :param pulumi.Input['PoolStartTaskUserIdentityArgs'] user_identity: A `user_identity` block that describes the user identity under which the start task runs.
+        :param pulumi.Input['PoolStartTaskUserIdentityArgs'] user_identity: A `user_identity` block that describes the user identity under which the start task runs as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] common_environment_properties: A map of strings (key,value) that represents the environment variables to set in the start task.
         :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerArgs']]] containers: A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArgs']]] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArgs']]] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
         :param pulumi.Input[int] task_retry_maximum: The number of retry count. Defaults to `1`.
         :param pulumi.Input[bool] wait_for_success: A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
         """
@@ -1452,7 +1452,7 @@ class PoolStartTaskArgs:
     @pulumi.getter(name="userIdentity")
     def user_identity(self) -> pulumi.Input['PoolStartTaskUserIdentityArgs']:
         """
-        A `user_identity` block that describes the user identity under which the start task runs.
+        A `user_identity` block that describes the user identity under which the start task runs as defined below.
         """
         return pulumi.get(self, "user_identity")
 
@@ -1488,7 +1488,7 @@ class PoolStartTaskArgs:
     @pulumi.getter(name="resourceFiles")
     def resource_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArgs']]]]:
         """
-        One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
         """
         return pulumi.get(self, "resource_files")
 
@@ -1786,7 +1786,7 @@ class PoolStartTaskUserIdentityArgs:
                  auto_user: Optional[pulumi.Input['PoolStartTaskUserIdentityAutoUserArgs']] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['PoolStartTaskUserIdentityAutoUserArgs'] auto_user: A `auto_user` block that describes the user identity under which the start task runs.
+        :param pulumi.Input['PoolStartTaskUserIdentityAutoUserArgs'] auto_user: A `auto_user` block that describes the user identity under which the start task runs as defined below.
         :param pulumi.Input[str] user_name: The username to be used by the Batch pool start task.
         """
         if auto_user is not None:
@@ -1798,7 +1798,7 @@ class PoolStartTaskUserIdentityArgs:
     @pulumi.getter(name="autoUser")
     def auto_user(self) -> Optional[pulumi.Input['PoolStartTaskUserIdentityAutoUserArgs']]:
         """
-        A `auto_user` block that describes the user identity under which the start task runs.
+        A `auto_user` block that describes the user identity under which the start task runs as defined below.
         """
         return pulumi.get(self, "auto_user")
 

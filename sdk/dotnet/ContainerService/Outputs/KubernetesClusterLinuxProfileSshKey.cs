@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterLinuxProfileSshKey
     {
         /// <summary>
-        /// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
+        /// The Public SSH Key used to access the cluster.
         /// </summary>
         public readonly string KeyData;
 

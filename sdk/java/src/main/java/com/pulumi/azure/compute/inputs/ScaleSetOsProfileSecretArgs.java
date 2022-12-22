@@ -33,14 +33,14 @@ public final class ScaleSetOsProfileSecretArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A collection of Vault Certificates as documented below
+     * (Required, on windows machines) A collection of Vault Certificates as documented below
      * 
      */
     @Import(name="vaultCertificates")
     private @Nullable Output<List<ScaleSetOsProfileSecretVaultCertificateArgs>> vaultCertificates;
 
     /**
-     * @return A collection of Vault Certificates as documented below
+     * @return (Required, on windows machines) A collection of Vault Certificates as documented below
      * 
      */
     public Optional<Output<List<ScaleSetOsProfileSecretVaultCertificateArgs>>> vaultCertificates() {
@@ -94,7 +94,7 @@ public final class ScaleSetOsProfileSecretArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param vaultCertificates A collection of Vault Certificates as documented below
+         * @param vaultCertificates (Required, on windows machines) A collection of Vault Certificates as documented below
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ScaleSetOsProfileSecretArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param vaultCertificates A collection of Vault Certificates as documented below
+         * @param vaultCertificates (Required, on windows machines) A collection of Vault Certificates as documented below
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ScaleSetOsProfileSecretArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param vaultCertificates A collection of Vault Certificates as documented below
+         * @param vaultCertificates (Required, on windows machines) A collection of Vault Certificates as documented below
          * 
          * @return builder
          * 

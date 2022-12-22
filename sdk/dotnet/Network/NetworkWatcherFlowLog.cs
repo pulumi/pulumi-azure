@@ -90,7 +90,7 @@ namespace Pulumi.Azure.Network
     public partial class NetworkWatcherFlowLog : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Boolean flag to enable/disable traffic analytics.
+        /// Should Network Flow Logging be Enabled?
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkWatcherFlowLogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean flag to enable/disable traffic analytics.
+        /// Should Network Flow Logging be Enabled?
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkWatcherFlowLogState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean flag to enable/disable traffic analytics.
+        /// Should Network Flow Logging be Enabled?
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

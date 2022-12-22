@@ -143,6 +143,12 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("routingPreferenceInternetEnabled")]
+        public Output<bool?> RoutingPreferenceInternetEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
         /// </summary>
         [Output("scaleUnit")]
@@ -249,6 +255,12 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("routingPreferenceInternetEnabled")]
+        public Input<bool>? RoutingPreferenceInternetEnabled { get; set; }
+
+        /// <summary>
         /// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
         /// </summary>
         [Input("scaleUnit", required: true)]
@@ -321,6 +333,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("routingPreferenceInternetEnabled")]
+        public Input<bool>? RoutingPreferenceInternetEnabled { get; set; }
 
         /// <summary>
         /// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.

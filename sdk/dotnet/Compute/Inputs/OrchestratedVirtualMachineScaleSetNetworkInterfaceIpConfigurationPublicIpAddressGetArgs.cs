@@ -12,14 +12,24 @@ namespace Pulumi.Azure.Compute.Inputs
 
     public sealed class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+        /// </summary>
         [Input("domainNameLabel")]
         public Input<string>? DomainNameLabel { get; set; }
 
+        /// <summary>
+        /// The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+        /// </summary>
         [Input("idleTimeoutInMinutes")]
         public Input<int>? IdleTimeoutInMinutes { get; set; }
 
         [Input("ipTags")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagGetArgs>? _ipTags;
+
+        /// <summary>
+        /// One or more `ip_tag` blocks as defined above.
+        /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagGetArgs> IpTags
         {
             get => _ipTags ?? (_ipTags = new InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagGetArgs>());
@@ -27,11 +37,14 @@ namespace Pulumi.Azure.Compute.Inputs
         }
 
         /// <summary>
-        /// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        /// The Name of the Public IP Address Configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("publicIpPrefixId")]
         public Input<string>? PublicIpPrefixId { get; set; }
 

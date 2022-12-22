@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
 /**
  * Configures Network Packet Capturing against a Virtual Machine using a Network Watcher.
  * 
+ * !&gt; **NOTE:** The `azure.network.NetworkPacketCapture` resource is deprecated and will be removed in favour of `azure.compute.PacketCapture` and `azure.compute.ScaleSetPacketCapture` in version 4.0 of the AzureRM Provider.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

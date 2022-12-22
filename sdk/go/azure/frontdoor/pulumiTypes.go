@@ -3394,7 +3394,7 @@ type RulesEngineRuleMatchCondition struct {
 	Selector *string `pulumi:"selector"`
 	// can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
 	Transforms []string `pulumi:"transforms"`
-	// can contain one or more strings.
+	// (array) can contain one or more strings.
 	Values []string `pulumi:"values"`
 	// can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
 	Variable *string `pulumi:"variable"`
@@ -3420,7 +3420,7 @@ type RulesEngineRuleMatchConditionArgs struct {
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
-	// can contain one or more strings.
+	// (array) can contain one or more strings.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 	// can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
 	Variable pulumi.StringPtrInput `pulumi:"variable"`
@@ -3497,7 +3497,7 @@ func (o RulesEngineRuleMatchConditionOutput) Transforms() pulumi.StringArrayOutp
 	return o.ApplyT(func(v RulesEngineRuleMatchCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
 
-// can contain one or more strings.
+// (array) can contain one or more strings.
 func (o RulesEngineRuleMatchConditionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RulesEngineRuleMatchCondition) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

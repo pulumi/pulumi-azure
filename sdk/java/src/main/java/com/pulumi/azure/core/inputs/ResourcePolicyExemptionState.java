@@ -107,14 +107,14 @@ public final class ResourcePolicyExemptionState extends com.pulumi.resources.Res
     }
 
     /**
-     * The ID of the Policy Assignment to be exempted at the specified Scope.
+     * The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="policyAssignmentId")
     private @Nullable Output<String> policyAssignmentId;
 
     /**
-     * @return The ID of the Policy Assignment to be exempted at the specified Scope.
+     * @return The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> policyAssignmentId() {
@@ -310,7 +310,7 @@ public final class ResourcePolicyExemptionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param policyAssignmentId The ID of the Policy Assignment to be exempted at the specified Scope.
+         * @param policyAssignmentId The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class ResourcePolicyExemptionState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param policyAssignmentId The ID of the Policy Assignment to be exempted at the specified Scope.
+         * @param policyAssignmentId The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

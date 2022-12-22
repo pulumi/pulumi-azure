@@ -172,18 +172,18 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Password used together with username, to login to the Microsoft SQL Server.
+     * Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
     @Export(name="password", type=String.class, parameters={})
-    private Output<String> password;
+    private Output</* @Nullable */ String> password;
 
     /**
-     * @return Password used together with username, to login to the Microsoft SQL Server.
+     * @return Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
-    public Output<String> password() {
-        return this.password;
+    public Output<Optional<String>> password() {
+        return Codegen.optional(this.password);
     }
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
@@ -242,18 +242,18 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
         return this.table;
     }
     /**
-     * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+     * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
     @Export(name="user", type=String.class, parameters={})
-    private Output<String> user;
+    private Output</* @Nullable */ String> user;
 
     /**
-     * @return Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+     * @return Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
-    public Output<String> user() {
-        return this.user;
+    public Output<Optional<String>> user() {
+        return Codegen.optional(this.user);
     }
 
     /**

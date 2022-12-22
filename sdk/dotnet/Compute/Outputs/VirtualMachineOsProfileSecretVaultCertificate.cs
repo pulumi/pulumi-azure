@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class VirtualMachineOsProfileSecretVaultCertificate
     {
         /// <summary>
-        /// Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+        /// (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
         /// </summary>
         public readonly string? CertificateStore;
         /// <summary>

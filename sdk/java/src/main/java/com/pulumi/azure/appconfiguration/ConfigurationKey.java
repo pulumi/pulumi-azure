@@ -219,14 +219,14 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
         return this.contentType;
     }
     /**
-     * The ETag of the key.
+     * (Optional) The ETag of the key.
      * 
      */
     @Export(name="etag", type=String.class, parameters={})
     private Output<String> etag;
 
     /**
-     * @return The ETag of the key.
+     * @return (Optional) The ETag of the key.
      * 
      */
     public Output<String> etag() {

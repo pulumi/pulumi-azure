@@ -1067,10 +1067,12 @@ func (o PolicyManagedRulesManagedRuleSetArrayOutput) Index(i pulumi.IntInput) Po
 }
 
 type PolicyManagedRulesManagedRuleSetRuleGroupOverride struct {
-	// One or more Rule IDs
+	// Deprecated: `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
 	DisabledRules []string `pulumi:"disabledRules"`
-	// The name of the Rule Group
+	// The name of the Rule Group.
 	RuleGroupName string `pulumi:"ruleGroupName"`
+	// One or more `rule` block defined below.
+	Rules []PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule `pulumi:"rules"`
 }
 
 // PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput is an input type that accepts PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs and PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput values.
@@ -1085,10 +1087,12 @@ type PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput interface {
 }
 
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs struct {
-	// One or more Rule IDs
+	// Deprecated: `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
 	DisabledRules pulumi.StringArrayInput `pulumi:"disabledRules"`
-	// The name of the Rule Group
+	// The name of the Rule Group.
 	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
+	// One or more `rule` block defined below.
+	Rules PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayInput `pulumi:"rules"`
 }
 
 func (PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs) ElementType() reflect.Type {
@@ -1142,14 +1146,21 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) ToPolicyManaged
 	return o
 }
 
-// One or more Rule IDs
+// Deprecated: `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
 func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) DisabledRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverride) []string { return v.DisabledRules }).(pulumi.StringArrayOutput)
 }
 
-// The name of the Rule Group
+// The name of the Rule Group.
 func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) RuleGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverride) string { return v.RuleGroupName }).(pulumi.StringOutput)
+}
+
+// One or more `rule` block defined below.
+func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) Rules() PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput {
+	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverride) []PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule {
+		return v.Rules
+	}).(PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput)
 }
 
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput struct{ *pulumi.OutputState }
@@ -1170,6 +1181,121 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput) Index(i pu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyManagedRulesManagedRuleSetRuleGroupOverride {
 		return vs[0].([]PolicyManagedRulesManagedRuleSetRuleGroupOverride)[vs[1].(int)]
 	}).(PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput)
+}
+
+type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule struct {
+	// Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+	Action *string `pulumi:"action"`
+	// Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+	// Identifier for the managed rule.
+	Id string `pulumi:"id"`
+}
+
+// PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleInput is an input type that accepts PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs and PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleInput` via:
+//
+//	PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs{...}
+type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput() PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput
+	ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutputWithContext(context.Context) PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput
+}
+
+type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs struct {
+	// Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Identifier for the managed rule.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput() PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput {
+	return i.ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput)
+}
+
+// PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayInput is an input type that accepts PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArray and PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayInput` via:
+//
+//	PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArray{ PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs{...} }
+type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput() PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput
+	ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutputWithContext(context.Context) PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput
+}
+
+type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArray []PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleInput
+
+func (PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArray) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput() PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput {
+	return i.ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArray) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput)
+}
+
+type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput() PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput {
+	return o
+}
+
+func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput {
+	return o
+}
+
+// Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Identifier for the managed rule.
+func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput() PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput {
+	return o
+}
+
+func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput {
+	return o
+}
+
+func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput) Index(i pulumi.IntInput) PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule {
+		return vs[0].([]PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule)[vs[1].(int)]
+	}).(PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput)
 }
 
 type PolicyPolicySettings struct {
@@ -1404,6 +1530,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesManagedRuleSetArrayInput)(nil)).Elem(), PolicyManagedRulesManagedRuleSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput)(nil)).Elem(), PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayInput)(nil)).Elem(), PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleInput)(nil)).Elem(), PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayInput)(nil)).Elem(), PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicySettingsInput)(nil)).Elem(), PolicyPolicySettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPolicySettingsPtrInput)(nil)).Elem(), PolicyPolicySettingsArgs{})
 	pulumi.RegisterOutputType(PolicyCustomRuleOutput{})
@@ -1424,6 +1552,8 @@ func init() {
 	pulumi.RegisterOutputType(PolicyManagedRulesManagedRuleSetArrayOutput{})
 	pulumi.RegisterOutputType(PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput{})
 	pulumi.RegisterOutputType(PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput{})
 	pulumi.RegisterOutputType(PolicyPolicySettingsOutput{})
 	pulumi.RegisterOutputType(PolicyPolicySettingsPtrOutput{})
 }

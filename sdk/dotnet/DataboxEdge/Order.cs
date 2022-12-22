@@ -111,7 +111,7 @@ namespace Pulumi.Azure.DataboxEdge
         public Output<string> SerialNumber { get; private set; } = null!;
 
         /// <summary>
-        /// A `shipment_address block as defined below.
+        /// A `shipment_address` block as defined below.
         /// </summary>
         [Output("shipmentAddress")]
         public Output<Outputs.OrderShipmentAddress> ShipmentAddress { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.DataboxEdge
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `shipment_address block as defined below.
+        /// A `shipment_address` block as defined below.
         /// </summary>
         [Input("shipmentAddress", required: true)]
         public Input<Inputs.OrderShipmentAddressArgs> ShipmentAddress { get; set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Azure.DataboxEdge
         public Input<string>? SerialNumber { get; set; }
 
         /// <summary>
-        /// A `shipment_address block as defined below.
+        /// A `shipment_address` block as defined below.
         /// </summary>
         [Input("shipmentAddress")]
         public Input<Inputs.OrderShipmentAddressGetArgs>? ShipmentAddress { get; set; }

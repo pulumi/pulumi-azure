@@ -13,32 +13,80 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetDataDisk {
+    /**
+     * @return The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+     * 
+     */
     private String caching;
+    /**
+     * @return The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+     * 
+     */
     private @Nullable String createOption;
+    /**
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+     * 
+     */
     private @Nullable String diskEncryptionSetId;
+    /**
+     * @return The size of the Data Disk which should be created.
+     * 
+     */
     private Integer diskSizeGb;
+    /**
+     * @return The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+     * 
+     */
     private Integer lun;
+    /**
+     * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+     * 
+     */
     private String storageAccountType;
     private @Nullable Integer ultraSsdDiskIopsReadWrite;
     private @Nullable Integer ultraSsdDiskMbpsReadWrite;
     private @Nullable Boolean writeAcceleratorEnabled;
 
     private OrchestratedVirtualMachineScaleSetDataDisk() {}
+    /**
+     * @return The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+     * 
+     */
     public String caching() {
         return this.caching;
     }
+    /**
+     * @return The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+     * 
+     */
     public Optional<String> createOption() {
         return Optional.ofNullable(this.createOption);
     }
+    /**
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<String> diskEncryptionSetId() {
         return Optional.ofNullable(this.diskEncryptionSetId);
     }
+    /**
+     * @return The size of the Data Disk which should be created.
+     * 
+     */
     public Integer diskSizeGb() {
         return this.diskSizeGb;
     }
+    /**
+     * @return The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+     * 
+     */
     public Integer lun() {
         return this.lun;
     }
+    /**
+     * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+     * 
+     */
     public String storageAccountType() {
         return this.storageAccountType;
     }

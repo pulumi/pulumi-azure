@@ -118,12 +118,20 @@ import javax.annotation.Nullable;
  *                         .build())
  *                 .managedRuleSets(PolicyManagedRulesManagedRuleSetArgs.builder()
  *                     .type(&#34;OWASP&#34;)
- *                     .version(&#34;3.1&#34;)
+ *                     .version(&#34;3.2&#34;)
  *                     .ruleGroupOverrides(PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs.builder()
  *                         .ruleGroupName(&#34;REQUEST-920-PROTOCOL-ENFORCEMENT&#34;)
- *                         .disabledRules(                        
- *                             &#34;920300&#34;,
- *                             &#34;920440&#34;)
+ *                         .rules(                        
+ *                             PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs.builder()
+ *                                 .id(&#34;920300&#34;)
+ *                                 .enabled(true)
+ *                                 .action(&#34;Log&#34;)
+ *                                 .build(),
+ *                             PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs.builder()
+ *                                 .id(&#34;920440&#34;)
+ *                                 .enabled(true)
+ *                                 .action(&#34;Block&#34;)
+ *                                 .build())
  *                         .build())
  *                     .build())
  *                 .build())

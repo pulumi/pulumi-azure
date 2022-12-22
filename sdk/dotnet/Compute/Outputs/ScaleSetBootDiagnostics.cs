@@ -13,7 +13,13 @@ namespace Pulumi.Azure.Compute.Outputs
     [OutputType]
     public sealed class ScaleSetBootDiagnostics
     {
+        /// <summary>
+        /// Whether to enable boot diagnostics for the virtual machine.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Blob endpoint for the storage account to hold the virtual machine's diagnostic files. This must be the root of a storage account, and not a storage container.
+        /// </summary>
         public readonly string StorageUri;
 
         [OutputConstructor]

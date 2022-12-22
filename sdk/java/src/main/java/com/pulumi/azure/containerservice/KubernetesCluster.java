@@ -20,6 +20,7 @@ import com.pulumi.azure.containerservice.outputs.KubernetesClusterKubeletIdentit
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterLinuxProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterMaintenanceWindow;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterMicrosoftDefender;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterMonitorMetrics;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNetworkProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterOmsAgent;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterServicePrincipal;
@@ -163,14 +164,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.automaticChannelUpgrade);
     }
     /**
-     * - A `azure_active_directory_role_based_access_control` block as defined below.
+     * A `azure_active_directory_role_based_access_control` block as defined below.
      * 
      */
     @Export(name="azureActiveDirectoryRoleBasedAccessControl", type=KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl.class, parameters={})
     private Output</* @Nullable */ KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl> azureActiveDirectoryRoleBasedAccessControl;
 
     /**
-     * @return - A `azure_active_directory_role_based_access_control` block as defined below.
+     * @return A `azure_active_directory_role_based_access_control` block as defined below.
      * 
      */
     public Output<Optional<KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl>> azureActiveDirectoryRoleBasedAccessControl() {
@@ -491,14 +492,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.linuxProfile);
     }
     /**
-     * - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+     * If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      * 
      */
     @Export(name="localAccountDisabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> localAccountDisabled;
 
     /**
-     * @return - If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+     * @return If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      * 
      */
     public Output<Optional<Boolean>> localAccountDisabled() {
@@ -545,6 +546,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<KubernetesClusterMicrosoftDefender>> microsoftDefender() {
         return Codegen.optional(this.microsoftDefender);
+    }
+    /**
+     * Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+     * 
+     */
+    @Export(name="monitorMetrics", type=KubernetesClusterMonitorMetrics.class, parameters={})
+    private Output</* @Nullable */ KubernetesClusterMonitorMetrics> monitorMetrics;
+
+    /**
+     * @return Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+     * 
+     */
+    public Output<Optional<KubernetesClusterMonitorMetrics>> monitorMetrics() {
+        return Codegen.optional(this.monitorMetrics);
     }
     /**
      * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
@@ -714,9 +729,17 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     public Output<String> privateFqdn() {
         return this.privateFqdn;
     }
+    /**
+     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
+    /**
+     * @return Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }

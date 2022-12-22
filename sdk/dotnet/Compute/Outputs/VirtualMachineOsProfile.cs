@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class VirtualMachineOsProfile
     {
         /// <summary>
-        /// The password associated with the local administrator account.
+        /// (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
         /// </summary>
         public readonly string? AdminPassword;
         /// <summary>

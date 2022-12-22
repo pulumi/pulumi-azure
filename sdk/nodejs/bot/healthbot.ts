@@ -62,7 +62,7 @@ export class Healthbot extends pulumi.CustomResource {
      */
     public /*out*/ readonly botManagementPortalUrl!: pulumi.Output<string>;
     /**
-     * Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+     * Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -70,12 +70,11 @@ export class Healthbot extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-     * forces a new resource to be created.
+     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+     * The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -131,7 +130,7 @@ export interface HealthbotState {
      */
     botManagementPortalUrl?: pulumi.Input<string>;
     /**
-     * Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+     * Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -139,12 +138,11 @@ export interface HealthbotState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-     * forces a new resource to be created.
+     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+     * The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -158,7 +156,7 @@ export interface HealthbotState {
  */
 export interface HealthbotArgs {
     /**
-     * Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
+     * Specifies The Azure Region where the resource exists. Changing this force a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -166,12 +164,11 @@ export interface HealthbotArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this
-     * forces a new resource to be created.
+     * Specifies The name of the Resource Group in which to create the Healthbot Service. changing this  forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name which should be used for the SKU of the service. Possible values are `F0` and `S1`.
+     * The name which should be used for the SKU of the service. Possible values are `C0`, `F0` and `S1`.
      */
     skuName: pulumi.Input<string>;
     /**

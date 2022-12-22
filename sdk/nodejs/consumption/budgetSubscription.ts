@@ -109,7 +109,7 @@ export class BudgetSubscription extends pulumi.CustomResource {
      */
     public readonly amount!: pulumi.Output<number>;
     /**
-     * The ETag of the Subscription Consumption Budget.
+     * (Optional) The ETag of the Subscription Consumption Budget.
      */
     public readonly etag!: pulumi.Output<string>;
     /**
@@ -195,7 +195,7 @@ export interface BudgetSubscriptionState {
      */
     amount?: pulumi.Input<number>;
     /**
-     * The ETag of the Subscription Consumption Budget.
+     * (Optional) The ETag of the Subscription Consumption Budget.
      */
     etag?: pulumi.Input<string>;
     /**
@@ -233,7 +233,7 @@ export interface BudgetSubscriptionArgs {
      */
     amount: pulumi.Input<number>;
     /**
-     * The ETag of the Subscription Consumption Budget.
+     * (Optional) The ETag of the Subscription Consumption Budget.
      */
     etag?: pulumi.Input<string>;
     /**

@@ -229,14 +229,14 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
     }
 
     /**
-     * The ID of the associated SSL Certificate.
+     * The ID of the associated SSL Profile.
      * 
      */
     @Import(name="sslProfileId")
     private @Nullable Output<String> sslProfileId;
 
     /**
-     * @return The ID of the associated SSL Certificate.
+     * @return The ID of the associated SSL Profile.
      * 
      */
     public Optional<Output<String>> sslProfileId() {
@@ -612,7 +612,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param sslProfileId The ID of the associated SSL Certificate.
+         * @param sslProfileId The ID of the associated SSL Profile.
          * 
          * @return builder
          * 
@@ -623,7 +623,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param sslProfileId The ID of the associated SSL Certificate.
+         * @param sslProfileId The ID of the associated SSL Profile.
          * 
          * @return builder
          * 

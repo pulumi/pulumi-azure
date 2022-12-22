@@ -44,7 +44,7 @@ export class CustomHttpsConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * A `customHttpsConfiguration` block as defined below.
+     * (Optional) A `customHttpsConfiguration` block as defined below.
      */
     public readonly customHttpsConfiguration!: pulumi.Output<outputs.frontdoor.CustomHttpsConfigurationCustomHttpsConfiguration | undefined>;
     /**
@@ -94,7 +94,7 @@ export class CustomHttpsConfiguration extends pulumi.CustomResource {
  */
 export interface CustomHttpsConfigurationState {
     /**
-     * A `customHttpsConfiguration` block as defined below.
+     * (Optional) A `customHttpsConfiguration` block as defined below.
      */
     customHttpsConfiguration?: pulumi.Input<inputs.frontdoor.CustomHttpsConfigurationCustomHttpsConfiguration>;
     /**
@@ -112,7 +112,7 @@ export interface CustomHttpsConfigurationState {
  */
 export interface CustomHttpsConfigurationArgs {
     /**
-     * A `customHttpsConfiguration` block as defined below.
+     * (Optional) A `customHttpsConfiguration` block as defined below.
      */
     customHttpsConfiguration?: pulumi.Input<inputs.frontdoor.CustomHttpsConfigurationCustomHttpsConfiguration>;
     /**

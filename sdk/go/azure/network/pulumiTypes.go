@@ -408,7 +408,7 @@ func (o ApplicationGatewayBackendAddressPoolArrayOutput) Index(i pulumi.IntInput
 type ApplicationGatewayBackendHttpSetting struct {
 	// The name of the affinity cookie.
 	AffinityCookieName *string `pulumi:"affinityCookieName"`
-	// One or more `authenticationCertificate` blocks.
+	// One or more `authenticationCertificate` blocks as defined below.
 	AuthenticationCertificates []ApplicationGatewayBackendHttpSettingAuthenticationCertificate `pulumi:"authenticationCertificates"`
 	// A `connectionDraining` block as defined below.
 	ConnectionDraining *ApplicationGatewayBackendHttpSettingConnectionDraining `pulumi:"connectionDraining"`
@@ -452,7 +452,7 @@ type ApplicationGatewayBackendHttpSettingInput interface {
 type ApplicationGatewayBackendHttpSettingArgs struct {
 	// The name of the affinity cookie.
 	AffinityCookieName pulumi.StringPtrInput `pulumi:"affinityCookieName"`
-	// One or more `authenticationCertificate` blocks.
+	// One or more `authenticationCertificate` blocks as defined below.
 	AuthenticationCertificates ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput `pulumi:"authenticationCertificates"`
 	// A `connectionDraining` block as defined below.
 	ConnectionDraining ApplicationGatewayBackendHttpSettingConnectionDrainingPtrInput `pulumi:"connectionDraining"`
@@ -538,7 +538,7 @@ func (o ApplicationGatewayBackendHttpSettingOutput) AffinityCookieName() pulumi.
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) *string { return v.AffinityCookieName }).(pulumi.StringPtrOutput)
 }
 
-// One or more `authenticationCertificate` blocks.
+// One or more `authenticationCertificate` blocks as defined below.
 func (o ApplicationGatewayBackendHttpSettingOutput) AuthenticationCertificates() ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) []ApplicationGatewayBackendHttpSettingAuthenticationCertificate {
 		return v.AuthenticationCertificates
@@ -1584,7 +1584,7 @@ type ApplicationGatewayHttpListener struct {
 	SslCertificateId *string `pulumi:"sslCertificateId"`
 	// The name of the associated SSL Certificate which should be used for this HTTP Listener.
 	SslCertificateName *string `pulumi:"sslCertificateName"`
-	// The ID of the associated SSL Certificate.
+	// The ID of the associated SSL Profile.
 	SslProfileId *string `pulumi:"sslProfileId"`
 	// The name of the associated SSL Profile which should be used for this HTTP Listener.
 	SslProfileName *string `pulumi:"sslProfileName"`
@@ -1630,7 +1630,7 @@ type ApplicationGatewayHttpListenerArgs struct {
 	SslCertificateId pulumi.StringPtrInput `pulumi:"sslCertificateId"`
 	// The name of the associated SSL Certificate which should be used for this HTTP Listener.
 	SslCertificateName pulumi.StringPtrInput `pulumi:"sslCertificateName"`
-	// The ID of the associated SSL Certificate.
+	// The ID of the associated SSL Profile.
 	SslProfileId pulumi.StringPtrInput `pulumi:"sslProfileId"`
 	// The name of the associated SSL Profile which should be used for this HTTP Listener.
 	SslProfileName pulumi.StringPtrInput `pulumi:"sslProfileName"`
@@ -1759,7 +1759,7 @@ func (o ApplicationGatewayHttpListenerOutput) SslCertificateName() pulumi.String
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) *string { return v.SslCertificateName }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the associated SSL Certificate.
+// The ID of the associated SSL Profile.
 func (o ApplicationGatewayHttpListenerOutput) SslProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) *string { return v.SslProfileId }).(pulumi.StringPtrOutput)
 }
@@ -10020,7 +10020,7 @@ type FirewallPolicyRuleCollectionGroupApplicationRuleCollection struct {
 	Name string `pulumi:"name"`
 	// The priority of the application rule collection. The range is `100` - `65000`.
 	Priority int `pulumi:"priority"`
-	// One or more `rule` (application rule) blocks as defined below.
+	// One or more `applicationRule` (application rule) blocks as defined below.
 	Rules []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule `pulumi:"rules"`
 }
 
@@ -10042,7 +10042,7 @@ type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority of the application rule collection. The range is `100` - `65000`.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// One or more `rule` (application rule) blocks as defined below.
+	// One or more `applicationRule` (application rule) blocks as defined below.
 	Rules FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayInput `pulumi:"rules"`
 }
 
@@ -10112,7 +10112,7 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput) Priori
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollection) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// One or more `rule` (application rule) blocks as defined below.
+// One or more `applicationRule` (application rule) blocks as defined below.
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput) Rules() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollection) []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule {
 		return v.Rules
@@ -10142,17 +10142,17 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput) I
 type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule struct {
 	// The description which should be used for this rule.
 	Description *string `pulumi:"description"`
-	// Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+	// Specifies a list of destination IP addresses (including CIDR and `*`).
 	DestinationAddresses []string `pulumi:"destinationAddresses"`
 	// Specifies a list of destination FQDN tags.
 	DestinationFqdnTags []string `pulumi:"destinationFqdnTags"`
-	// Specifies a list of destination FQDNs.
+	// Specifies a list of destination FQDNs. Conflicts with `destinationUrls`.
 	DestinationFqdns []string `pulumi:"destinationFqdns"`
 	// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
 	DestinationUrls []string `pulumi:"destinationUrls"`
-	// The name which should be used for this rule.
+	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 	Name string `pulumi:"name"`
-	// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+	// One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
 	Protocols []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol `pulumi:"protocols"`
 	// Specifies a list of source IP addresses (including CIDR and `*`).
 	SourceAddresses []string `pulumi:"sourceAddresses"`
@@ -10178,17 +10178,17 @@ type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleInput interfa
 type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs struct {
 	// The description which should be used for this rule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+	// Specifies a list of destination IP addresses (including CIDR and `*`).
 	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
 	// Specifies a list of destination FQDN tags.
 	DestinationFqdnTags pulumi.StringArrayInput `pulumi:"destinationFqdnTags"`
-	// Specifies a list of destination FQDNs.
+	// Specifies a list of destination FQDNs. Conflicts with `destinationUrls`.
 	DestinationFqdns pulumi.StringArrayInput `pulumi:"destinationFqdns"`
 	// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
 	DestinationUrls pulumi.StringArrayInput `pulumi:"destinationUrls"`
-	// The name which should be used for this rule.
+	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+	// One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
 	Protocols FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayInput `pulumi:"protocols"`
 	// Specifies a list of source IP addresses (including CIDR and `*`).
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
@@ -10256,7 +10256,7 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) De
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+// Specifies a list of destination IP addresses (including CIDR and `*`).
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) DestinationAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
 		return v.DestinationAddresses
@@ -10270,7 +10270,7 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) De
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of destination FQDNs.
+// Specifies a list of destination FQDNs. Conflicts with `destinationUrls`.
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) DestinationFqdns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
 		return v.DestinationFqdns
@@ -10284,12 +10284,12 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) De
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name which should be used for this rule.
+// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+// One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) Protocols() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol {
 		return v.Protocols
@@ -10455,7 +10455,7 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollection struct {
 	Name string `pulumi:"name"`
 	// The priority of the NAT rule collection. The range is `100` - `65000`.
 	Priority int `pulumi:"priority"`
-	// A `rule` (NAT rule) block as defined above.
+	// A `natRule` (NAT rule) block as defined below.
 	Rules []FirewallPolicyRuleCollectionGroupNatRuleCollectionRule `pulumi:"rules"`
 }
 
@@ -10477,7 +10477,7 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority of the NAT rule collection. The range is `100` - `65000`.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// A `rule` (NAT rule) block as defined above.
+	// A `natRule` (NAT rule) block as defined below.
 	Rules FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayInput `pulumi:"rules"`
 }
 
@@ -10547,7 +10547,7 @@ func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput) Priority() pul
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollection) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// A `rule` (NAT rule) block as defined above.
+// A `natRule` (NAT rule) block as defined below.
 func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput) Rules() FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollection) []FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
 		return v.Rules
@@ -10577,11 +10577,11 @@ func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput) Index(i p
 type FirewallPolicyRuleCollectionGroupNatRuleCollectionRule struct {
 	// The destination IP address (including CIDR).
 	DestinationAddress *string `pulumi:"destinationAddress"`
-	// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+	// Specifies a list of destination ports.
 	DestinationPorts *string `pulumi:"destinationPorts"`
-	// The name which should be used for this rule.
+	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 	Name string `pulumi:"name"`
-	// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+	// One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
 	Protocols []string `pulumi:"protocols"`
 	// Specifies a list of source IP addresses (including CIDR and `*`).
 	SourceAddresses []string `pulumi:"sourceAddresses"`
@@ -10609,11 +10609,11 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleInput interface {
 type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs struct {
 	// The destination IP address (including CIDR).
 	DestinationAddress pulumi.StringPtrInput `pulumi:"destinationAddress"`
-	// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+	// Specifies a list of destination ports.
 	DestinationPorts pulumi.StringPtrInput `pulumi:"destinationPorts"`
-	// The name which should be used for this rule.
+	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+	// One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
 	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
 	// Specifies a list of source IP addresses (including CIDR and `*`).
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
@@ -10683,17 +10683,17 @@ func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) Destinatio
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) *string { return v.DestinationAddress }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+// Specifies a list of destination ports.
 func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) DestinationPorts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) *string { return v.DestinationPorts }).(pulumi.StringPtrOutput)
 }
 
-// The name which should be used for this rule.
+// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+// One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
 func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) []string { return v.Protocols }).(pulumi.StringArrayOutput)
 }
@@ -10750,7 +10750,7 @@ type FirewallPolicyRuleCollectionGroupNetworkRuleCollection struct {
 	Name string `pulumi:"name"`
 	// The priority of the network rule collection. The range is `100` - `65000`.
 	Priority int `pulumi:"priority"`
-	// One or more `rule` (network rule) blocks as defined above.
+	// One or more `networkRule` (network rule) blocks as defined below.
 	Rules []FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule `pulumi:"rules"`
 }
 
@@ -10772,7 +10772,7 @@ type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority of the network rule collection. The range is `100` - `65000`.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// One or more `rule` (network rule) blocks as defined above.
+	// One or more `networkRule` (network rule) blocks as defined below.
 	Rules FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayInput `pulumi:"rules"`
 }
 
@@ -10842,7 +10842,7 @@ func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput) Priority()
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollection) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// One or more `rule` (network rule) blocks as defined above.
+// One or more `networkRule` (network rule) blocks as defined below.
 func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput) Rules() FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollection) []FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
 		return v.Rules
@@ -10870,17 +10870,17 @@ func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput) Index
 }
 
 type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule struct {
-	// Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+	// Specifies a list of destination IP addresses (including CIDR and `*`).
 	DestinationAddresses []string `pulumi:"destinationAddresses"`
-	// Specifies a list of destination FQDNs.
+	// Specifies a list of destination FQDNs. Conflicts with `destinationUrls`.
 	DestinationFqdns []string `pulumi:"destinationFqdns"`
 	// Specifies a list of destination IP groups.
 	DestinationIpGroups []string `pulumi:"destinationIpGroups"`
-	// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+	// Specifies a list of destination ports.
 	DestinationPorts []string `pulumi:"destinationPorts"`
-	// The name which should be used for this rule.
+	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 	Name string `pulumi:"name"`
-	// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+	// One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
 	Protocols []string `pulumi:"protocols"`
 	// Specifies a list of source IP addresses (including CIDR and `*`).
 	SourceAddresses []string `pulumi:"sourceAddresses"`
@@ -10900,17 +10900,17 @@ type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleInput interface {
 }
 
 type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs struct {
-	// Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+	// Specifies a list of destination IP addresses (including CIDR and `*`).
 	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
-	// Specifies a list of destination FQDNs.
+	// Specifies a list of destination FQDNs. Conflicts with `destinationUrls`.
 	DestinationFqdns pulumi.StringArrayInput `pulumi:"destinationFqdns"`
 	// Specifies a list of destination IP groups.
 	DestinationIpGroups pulumi.StringArrayInput `pulumi:"destinationIpGroups"`
-	// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+	// Specifies a list of destination ports.
 	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
-	// The name which should be used for this rule.
+	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+	// One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
 	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
 	// Specifies a list of source IP addresses (including CIDR and `*`).
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
@@ -10969,14 +10969,14 @@ func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) ToFire
 	return o
 }
 
-// Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+// Specifies a list of destination IP addresses (including CIDR and `*`).
 func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) DestinationAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string {
 		return v.DestinationAddresses
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of destination FQDNs.
+// Specifies a list of destination FQDNs. Conflicts with `destinationUrls`.
 func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) DestinationFqdns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string { return v.DestinationFqdns }).(pulumi.StringArrayOutput)
 }
@@ -10988,17 +10988,17 @@ func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) Destin
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
+// Specifies a list of destination ports.
 func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) DestinationPorts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string { return v.DestinationPorts }).(pulumi.StringArrayOutput)
 }
 
-// The name which should be used for this rule.
+// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+// One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
 func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string { return v.Protocols }).(pulumi.StringArrayOutput)
 }
@@ -14233,7 +14233,7 @@ func (o NetworkSecurityGroupSecurityRuleArrayOutput) Index(i pulumi.IntInput) Ne
 type NetworkWatcherFlowLogRetentionPolicy struct {
 	// The number of days to retain flow log records.
 	Days int `pulumi:"days"`
-	// Boolean flag to enable/disable traffic analytics.
+	// Boolean flag to enable/disable retention.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -14251,7 +14251,7 @@ type NetworkWatcherFlowLogRetentionPolicyInput interface {
 type NetworkWatcherFlowLogRetentionPolicyArgs struct {
 	// The number of days to retain flow log records.
 	Days pulumi.IntInput `pulumi:"days"`
-	// Boolean flag to enable/disable traffic analytics.
+	// Boolean flag to enable/disable retention.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -14337,7 +14337,7 @@ func (o NetworkWatcherFlowLogRetentionPolicyOutput) Days() pulumi.IntOutput {
 	return o.ApplyT(func(v NetworkWatcherFlowLogRetentionPolicy) int { return v.Days }).(pulumi.IntOutput)
 }
 
-// Boolean flag to enable/disable traffic analytics.
+// Boolean flag to enable/disable retention.
 func (o NetworkWatcherFlowLogRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v NetworkWatcherFlowLogRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -14376,7 +14376,7 @@ func (o NetworkWatcherFlowLogRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Boolean flag to enable/disable traffic analytics.
+// Boolean flag to enable/disable retention.
 func (o NetworkWatcherFlowLogRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NetworkWatcherFlowLogRetentionPolicy) *bool {
 		if v == nil {
@@ -14800,6 +14800,10 @@ func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) VpnClientAddress
 type PointToPointVpnGatewayConnectionConfigurationRoute struct {
 	// The Virtual Hub Route Table resource id associated with this Routing Configuration.
 	AssociatedRouteTableId string `pulumi:"associatedRouteTableId"`
+	// The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+	InboundRouteMapId *string `pulumi:"inboundRouteMapId"`
+	// The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+	OutboundRouteMapId *string `pulumi:"outboundRouteMapId"`
 	// A `propagatedRouteTable` block as defined below.
 	PropagatedRouteTable *PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable `pulumi:"propagatedRouteTable"`
 }
@@ -14818,6 +14822,10 @@ type PointToPointVpnGatewayConnectionConfigurationRouteInput interface {
 type PointToPointVpnGatewayConnectionConfigurationRouteArgs struct {
 	// The Virtual Hub Route Table resource id associated with this Routing Configuration.
 	AssociatedRouteTableId pulumi.StringInput `pulumi:"associatedRouteTableId"`
+	// The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+	InboundRouteMapId pulumi.StringPtrInput `pulumi:"inboundRouteMapId"`
+	// The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+	OutboundRouteMapId pulumi.StringPtrInput `pulumi:"outboundRouteMapId"`
 	// A `propagatedRouteTable` block as defined below.
 	PropagatedRouteTable PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrInput `pulumi:"propagatedRouteTable"`
 }
@@ -14904,6 +14912,16 @@ func (o PointToPointVpnGatewayConnectionConfigurationRouteOutput) AssociatedRout
 	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfigurationRoute) string { return v.AssociatedRouteTableId }).(pulumi.StringOutput)
 }
 
+// The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+func (o PointToPointVpnGatewayConnectionConfigurationRouteOutput) InboundRouteMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfigurationRoute) *string { return v.InboundRouteMapId }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+func (o PointToPointVpnGatewayConnectionConfigurationRouteOutput) OutboundRouteMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfigurationRoute) *string { return v.OutboundRouteMapId }).(pulumi.StringPtrOutput)
+}
+
 // A `propagatedRouteTable` block as defined below.
 func (o PointToPointVpnGatewayConnectionConfigurationRouteOutput) PropagatedRouteTable() PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput {
 	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfigurationRoute) *PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable {
@@ -14942,6 +14960,26 @@ func (o PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput) AssociatedR
 			return nil
 		}
 		return &v.AssociatedRouteTableId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput) InboundRouteMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfigurationRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InboundRouteMapId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput) OutboundRouteMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfigurationRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutboundRouteMapId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -15708,6 +15746,475 @@ func (o RouteFilterRulePtrOutput) RuleType() pulumi.StringPtrOutput {
 		}
 		return &v.RuleType
 	}).(pulumi.StringPtrOutput)
+}
+
+type RouteMapRule struct {
+	// An `action` block as defined below.
+	Actions []RouteMapRuleAction `pulumi:"actions"`
+	// A `matchCriterion` block as defined below.
+	MatchCriterions []RouteMapRuleMatchCriterion `pulumi:"matchCriterions"`
+	// The unique name for the rule.
+	Name string `pulumi:"name"`
+	// The next step after the rule is evaluated. Possible values are `Continue`, `Terminate` and `Unknown`. Defaults to `Unknown`.
+	NextStepIfMatched *string `pulumi:"nextStepIfMatched"`
+}
+
+// RouteMapRuleInput is an input type that accepts RouteMapRuleArgs and RouteMapRuleOutput values.
+// You can construct a concrete instance of `RouteMapRuleInput` via:
+//
+//	RouteMapRuleArgs{...}
+type RouteMapRuleInput interface {
+	pulumi.Input
+
+	ToRouteMapRuleOutput() RouteMapRuleOutput
+	ToRouteMapRuleOutputWithContext(context.Context) RouteMapRuleOutput
+}
+
+type RouteMapRuleArgs struct {
+	// An `action` block as defined below.
+	Actions RouteMapRuleActionArrayInput `pulumi:"actions"`
+	// A `matchCriterion` block as defined below.
+	MatchCriterions RouteMapRuleMatchCriterionArrayInput `pulumi:"matchCriterions"`
+	// The unique name for the rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The next step after the rule is evaluated. Possible values are `Continue`, `Terminate` and `Unknown`. Defaults to `Unknown`.
+	NextStepIfMatched pulumi.StringPtrInput `pulumi:"nextStepIfMatched"`
+}
+
+func (RouteMapRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteMapRule)(nil)).Elem()
+}
+
+func (i RouteMapRuleArgs) ToRouteMapRuleOutput() RouteMapRuleOutput {
+	return i.ToRouteMapRuleOutputWithContext(context.Background())
+}
+
+func (i RouteMapRuleArgs) ToRouteMapRuleOutputWithContext(ctx context.Context) RouteMapRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteMapRuleOutput)
+}
+
+// RouteMapRuleArrayInput is an input type that accepts RouteMapRuleArray and RouteMapRuleArrayOutput values.
+// You can construct a concrete instance of `RouteMapRuleArrayInput` via:
+//
+//	RouteMapRuleArray{ RouteMapRuleArgs{...} }
+type RouteMapRuleArrayInput interface {
+	pulumi.Input
+
+	ToRouteMapRuleArrayOutput() RouteMapRuleArrayOutput
+	ToRouteMapRuleArrayOutputWithContext(context.Context) RouteMapRuleArrayOutput
+}
+
+type RouteMapRuleArray []RouteMapRuleInput
+
+func (RouteMapRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteMapRule)(nil)).Elem()
+}
+
+func (i RouteMapRuleArray) ToRouteMapRuleArrayOutput() RouteMapRuleArrayOutput {
+	return i.ToRouteMapRuleArrayOutputWithContext(context.Background())
+}
+
+func (i RouteMapRuleArray) ToRouteMapRuleArrayOutputWithContext(ctx context.Context) RouteMapRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteMapRuleArrayOutput)
+}
+
+type RouteMapRuleOutput struct{ *pulumi.OutputState }
+
+func (RouteMapRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteMapRule)(nil)).Elem()
+}
+
+func (o RouteMapRuleOutput) ToRouteMapRuleOutput() RouteMapRuleOutput {
+	return o
+}
+
+func (o RouteMapRuleOutput) ToRouteMapRuleOutputWithContext(ctx context.Context) RouteMapRuleOutput {
+	return o
+}
+
+// An `action` block as defined below.
+func (o RouteMapRuleOutput) Actions() RouteMapRuleActionArrayOutput {
+	return o.ApplyT(func(v RouteMapRule) []RouteMapRuleAction { return v.Actions }).(RouteMapRuleActionArrayOutput)
+}
+
+// A `matchCriterion` block as defined below.
+func (o RouteMapRuleOutput) MatchCriterions() RouteMapRuleMatchCriterionArrayOutput {
+	return o.ApplyT(func(v RouteMapRule) []RouteMapRuleMatchCriterion { return v.MatchCriterions }).(RouteMapRuleMatchCriterionArrayOutput)
+}
+
+// The unique name for the rule.
+func (o RouteMapRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteMapRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The next step after the rule is evaluated. Possible values are `Continue`, `Terminate` and `Unknown`. Defaults to `Unknown`.
+func (o RouteMapRuleOutput) NextStepIfMatched() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteMapRule) *string { return v.NextStepIfMatched }).(pulumi.StringPtrOutput)
+}
+
+type RouteMapRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (RouteMapRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteMapRule)(nil)).Elem()
+}
+
+func (o RouteMapRuleArrayOutput) ToRouteMapRuleArrayOutput() RouteMapRuleArrayOutput {
+	return o
+}
+
+func (o RouteMapRuleArrayOutput) ToRouteMapRuleArrayOutputWithContext(ctx context.Context) RouteMapRuleArrayOutput {
+	return o
+}
+
+func (o RouteMapRuleArrayOutput) Index(i pulumi.IntInput) RouteMapRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteMapRule {
+		return vs[0].([]RouteMapRule)[vs[1].(int)]
+	}).(RouteMapRuleOutput)
+}
+
+type RouteMapRuleAction struct {
+	// A `parameter` block as defined below.
+	Parameters []RouteMapRuleActionParameter `pulumi:"parameters"`
+	// The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
+	Type string `pulumi:"type"`
+}
+
+// RouteMapRuleActionInput is an input type that accepts RouteMapRuleActionArgs and RouteMapRuleActionOutput values.
+// You can construct a concrete instance of `RouteMapRuleActionInput` via:
+//
+//	RouteMapRuleActionArgs{...}
+type RouteMapRuleActionInput interface {
+	pulumi.Input
+
+	ToRouteMapRuleActionOutput() RouteMapRuleActionOutput
+	ToRouteMapRuleActionOutputWithContext(context.Context) RouteMapRuleActionOutput
+}
+
+type RouteMapRuleActionArgs struct {
+	// A `parameter` block as defined below.
+	Parameters RouteMapRuleActionParameterArrayInput `pulumi:"parameters"`
+	// The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RouteMapRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteMapRuleAction)(nil)).Elem()
+}
+
+func (i RouteMapRuleActionArgs) ToRouteMapRuleActionOutput() RouteMapRuleActionOutput {
+	return i.ToRouteMapRuleActionOutputWithContext(context.Background())
+}
+
+func (i RouteMapRuleActionArgs) ToRouteMapRuleActionOutputWithContext(ctx context.Context) RouteMapRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteMapRuleActionOutput)
+}
+
+// RouteMapRuleActionArrayInput is an input type that accepts RouteMapRuleActionArray and RouteMapRuleActionArrayOutput values.
+// You can construct a concrete instance of `RouteMapRuleActionArrayInput` via:
+//
+//	RouteMapRuleActionArray{ RouteMapRuleActionArgs{...} }
+type RouteMapRuleActionArrayInput interface {
+	pulumi.Input
+
+	ToRouteMapRuleActionArrayOutput() RouteMapRuleActionArrayOutput
+	ToRouteMapRuleActionArrayOutputWithContext(context.Context) RouteMapRuleActionArrayOutput
+}
+
+type RouteMapRuleActionArray []RouteMapRuleActionInput
+
+func (RouteMapRuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteMapRuleAction)(nil)).Elem()
+}
+
+func (i RouteMapRuleActionArray) ToRouteMapRuleActionArrayOutput() RouteMapRuleActionArrayOutput {
+	return i.ToRouteMapRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i RouteMapRuleActionArray) ToRouteMapRuleActionArrayOutputWithContext(ctx context.Context) RouteMapRuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteMapRuleActionArrayOutput)
+}
+
+type RouteMapRuleActionOutput struct{ *pulumi.OutputState }
+
+func (RouteMapRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteMapRuleAction)(nil)).Elem()
+}
+
+func (o RouteMapRuleActionOutput) ToRouteMapRuleActionOutput() RouteMapRuleActionOutput {
+	return o
+}
+
+func (o RouteMapRuleActionOutput) ToRouteMapRuleActionOutputWithContext(ctx context.Context) RouteMapRuleActionOutput {
+	return o
+}
+
+// A `parameter` block as defined below.
+func (o RouteMapRuleActionOutput) Parameters() RouteMapRuleActionParameterArrayOutput {
+	return o.ApplyT(func(v RouteMapRuleAction) []RouteMapRuleActionParameter { return v.Parameters }).(RouteMapRuleActionParameterArrayOutput)
+}
+
+// The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
+func (o RouteMapRuleActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteMapRuleAction) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RouteMapRuleActionArrayOutput struct{ *pulumi.OutputState }
+
+func (RouteMapRuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteMapRuleAction)(nil)).Elem()
+}
+
+func (o RouteMapRuleActionArrayOutput) ToRouteMapRuleActionArrayOutput() RouteMapRuleActionArrayOutput {
+	return o
+}
+
+func (o RouteMapRuleActionArrayOutput) ToRouteMapRuleActionArrayOutputWithContext(ctx context.Context) RouteMapRuleActionArrayOutput {
+	return o
+}
+
+func (o RouteMapRuleActionArrayOutput) Index(i pulumi.IntInput) RouteMapRuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteMapRuleAction {
+		return vs[0].([]RouteMapRuleAction)[vs[1].(int)]
+	}).(RouteMapRuleActionOutput)
+}
+
+type RouteMapRuleActionParameter struct {
+	// A list of AS paths.
+	AsPaths []string `pulumi:"asPaths"`
+	// A list of BGP communities.
+	Communities []string `pulumi:"communities"`
+	// A list of route prefixes.
+	RoutePrefixes []string `pulumi:"routePrefixes"`
+}
+
+// RouteMapRuleActionParameterInput is an input type that accepts RouteMapRuleActionParameterArgs and RouteMapRuleActionParameterOutput values.
+// You can construct a concrete instance of `RouteMapRuleActionParameterInput` via:
+//
+//	RouteMapRuleActionParameterArgs{...}
+type RouteMapRuleActionParameterInput interface {
+	pulumi.Input
+
+	ToRouteMapRuleActionParameterOutput() RouteMapRuleActionParameterOutput
+	ToRouteMapRuleActionParameterOutputWithContext(context.Context) RouteMapRuleActionParameterOutput
+}
+
+type RouteMapRuleActionParameterArgs struct {
+	// A list of AS paths.
+	AsPaths pulumi.StringArrayInput `pulumi:"asPaths"`
+	// A list of BGP communities.
+	Communities pulumi.StringArrayInput `pulumi:"communities"`
+	// A list of route prefixes.
+	RoutePrefixes pulumi.StringArrayInput `pulumi:"routePrefixes"`
+}
+
+func (RouteMapRuleActionParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteMapRuleActionParameter)(nil)).Elem()
+}
+
+func (i RouteMapRuleActionParameterArgs) ToRouteMapRuleActionParameterOutput() RouteMapRuleActionParameterOutput {
+	return i.ToRouteMapRuleActionParameterOutputWithContext(context.Background())
+}
+
+func (i RouteMapRuleActionParameterArgs) ToRouteMapRuleActionParameterOutputWithContext(ctx context.Context) RouteMapRuleActionParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteMapRuleActionParameterOutput)
+}
+
+// RouteMapRuleActionParameterArrayInput is an input type that accepts RouteMapRuleActionParameterArray and RouteMapRuleActionParameterArrayOutput values.
+// You can construct a concrete instance of `RouteMapRuleActionParameterArrayInput` via:
+//
+//	RouteMapRuleActionParameterArray{ RouteMapRuleActionParameterArgs{...} }
+type RouteMapRuleActionParameterArrayInput interface {
+	pulumi.Input
+
+	ToRouteMapRuleActionParameterArrayOutput() RouteMapRuleActionParameterArrayOutput
+	ToRouteMapRuleActionParameterArrayOutputWithContext(context.Context) RouteMapRuleActionParameterArrayOutput
+}
+
+type RouteMapRuleActionParameterArray []RouteMapRuleActionParameterInput
+
+func (RouteMapRuleActionParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteMapRuleActionParameter)(nil)).Elem()
+}
+
+func (i RouteMapRuleActionParameterArray) ToRouteMapRuleActionParameterArrayOutput() RouteMapRuleActionParameterArrayOutput {
+	return i.ToRouteMapRuleActionParameterArrayOutputWithContext(context.Background())
+}
+
+func (i RouteMapRuleActionParameterArray) ToRouteMapRuleActionParameterArrayOutputWithContext(ctx context.Context) RouteMapRuleActionParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteMapRuleActionParameterArrayOutput)
+}
+
+type RouteMapRuleActionParameterOutput struct{ *pulumi.OutputState }
+
+func (RouteMapRuleActionParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteMapRuleActionParameter)(nil)).Elem()
+}
+
+func (o RouteMapRuleActionParameterOutput) ToRouteMapRuleActionParameterOutput() RouteMapRuleActionParameterOutput {
+	return o
+}
+
+func (o RouteMapRuleActionParameterOutput) ToRouteMapRuleActionParameterOutputWithContext(ctx context.Context) RouteMapRuleActionParameterOutput {
+	return o
+}
+
+// A list of AS paths.
+func (o RouteMapRuleActionParameterOutput) AsPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RouteMapRuleActionParameter) []string { return v.AsPaths }).(pulumi.StringArrayOutput)
+}
+
+// A list of BGP communities.
+func (o RouteMapRuleActionParameterOutput) Communities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RouteMapRuleActionParameter) []string { return v.Communities }).(pulumi.StringArrayOutput)
+}
+
+// A list of route prefixes.
+func (o RouteMapRuleActionParameterOutput) RoutePrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RouteMapRuleActionParameter) []string { return v.RoutePrefixes }).(pulumi.StringArrayOutput)
+}
+
+type RouteMapRuleActionParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (RouteMapRuleActionParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteMapRuleActionParameter)(nil)).Elem()
+}
+
+func (o RouteMapRuleActionParameterArrayOutput) ToRouteMapRuleActionParameterArrayOutput() RouteMapRuleActionParameterArrayOutput {
+	return o
+}
+
+func (o RouteMapRuleActionParameterArrayOutput) ToRouteMapRuleActionParameterArrayOutputWithContext(ctx context.Context) RouteMapRuleActionParameterArrayOutput {
+	return o
+}
+
+func (o RouteMapRuleActionParameterArrayOutput) Index(i pulumi.IntInput) RouteMapRuleActionParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteMapRuleActionParameter {
+		return vs[0].([]RouteMapRuleActionParameter)[vs[1].(int)]
+	}).(RouteMapRuleActionParameterOutput)
+}
+
+type RouteMapRuleMatchCriterion struct {
+	// A list of AS paths which this criterion matches.
+	AsPaths []string `pulumi:"asPaths"`
+	// A list of BGP communities which this criterion matches.
+	Communities []string `pulumi:"communities"`
+	// The match condition to apply the rule of the Route Map. Possible values are `Contains`, `Equals`, `NotContains`, `NotEquals` and `Unknown`.
+	MatchCondition string `pulumi:"matchCondition"`
+	// A list of route prefixes which this criterion matches.
+	RoutePrefixes []string `pulumi:"routePrefixes"`
+}
+
+// RouteMapRuleMatchCriterionInput is an input type that accepts RouteMapRuleMatchCriterionArgs and RouteMapRuleMatchCriterionOutput values.
+// You can construct a concrete instance of `RouteMapRuleMatchCriterionInput` via:
+//
+//	RouteMapRuleMatchCriterionArgs{...}
+type RouteMapRuleMatchCriterionInput interface {
+	pulumi.Input
+
+	ToRouteMapRuleMatchCriterionOutput() RouteMapRuleMatchCriterionOutput
+	ToRouteMapRuleMatchCriterionOutputWithContext(context.Context) RouteMapRuleMatchCriterionOutput
+}
+
+type RouteMapRuleMatchCriterionArgs struct {
+	// A list of AS paths which this criterion matches.
+	AsPaths pulumi.StringArrayInput `pulumi:"asPaths"`
+	// A list of BGP communities which this criterion matches.
+	Communities pulumi.StringArrayInput `pulumi:"communities"`
+	// The match condition to apply the rule of the Route Map. Possible values are `Contains`, `Equals`, `NotContains`, `NotEquals` and `Unknown`.
+	MatchCondition pulumi.StringInput `pulumi:"matchCondition"`
+	// A list of route prefixes which this criterion matches.
+	RoutePrefixes pulumi.StringArrayInput `pulumi:"routePrefixes"`
+}
+
+func (RouteMapRuleMatchCriterionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteMapRuleMatchCriterion)(nil)).Elem()
+}
+
+func (i RouteMapRuleMatchCriterionArgs) ToRouteMapRuleMatchCriterionOutput() RouteMapRuleMatchCriterionOutput {
+	return i.ToRouteMapRuleMatchCriterionOutputWithContext(context.Background())
+}
+
+func (i RouteMapRuleMatchCriterionArgs) ToRouteMapRuleMatchCriterionOutputWithContext(ctx context.Context) RouteMapRuleMatchCriterionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteMapRuleMatchCriterionOutput)
+}
+
+// RouteMapRuleMatchCriterionArrayInput is an input type that accepts RouteMapRuleMatchCriterionArray and RouteMapRuleMatchCriterionArrayOutput values.
+// You can construct a concrete instance of `RouteMapRuleMatchCriterionArrayInput` via:
+//
+//	RouteMapRuleMatchCriterionArray{ RouteMapRuleMatchCriterionArgs{...} }
+type RouteMapRuleMatchCriterionArrayInput interface {
+	pulumi.Input
+
+	ToRouteMapRuleMatchCriterionArrayOutput() RouteMapRuleMatchCriterionArrayOutput
+	ToRouteMapRuleMatchCriterionArrayOutputWithContext(context.Context) RouteMapRuleMatchCriterionArrayOutput
+}
+
+type RouteMapRuleMatchCriterionArray []RouteMapRuleMatchCriterionInput
+
+func (RouteMapRuleMatchCriterionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteMapRuleMatchCriterion)(nil)).Elem()
+}
+
+func (i RouteMapRuleMatchCriterionArray) ToRouteMapRuleMatchCriterionArrayOutput() RouteMapRuleMatchCriterionArrayOutput {
+	return i.ToRouteMapRuleMatchCriterionArrayOutputWithContext(context.Background())
+}
+
+func (i RouteMapRuleMatchCriterionArray) ToRouteMapRuleMatchCriterionArrayOutputWithContext(ctx context.Context) RouteMapRuleMatchCriterionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteMapRuleMatchCriterionArrayOutput)
+}
+
+type RouteMapRuleMatchCriterionOutput struct{ *pulumi.OutputState }
+
+func (RouteMapRuleMatchCriterionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteMapRuleMatchCriterion)(nil)).Elem()
+}
+
+func (o RouteMapRuleMatchCriterionOutput) ToRouteMapRuleMatchCriterionOutput() RouteMapRuleMatchCriterionOutput {
+	return o
+}
+
+func (o RouteMapRuleMatchCriterionOutput) ToRouteMapRuleMatchCriterionOutputWithContext(ctx context.Context) RouteMapRuleMatchCriterionOutput {
+	return o
+}
+
+// A list of AS paths which this criterion matches.
+func (o RouteMapRuleMatchCriterionOutput) AsPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RouteMapRuleMatchCriterion) []string { return v.AsPaths }).(pulumi.StringArrayOutput)
+}
+
+// A list of BGP communities which this criterion matches.
+func (o RouteMapRuleMatchCriterionOutput) Communities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RouteMapRuleMatchCriterion) []string { return v.Communities }).(pulumi.StringArrayOutput)
+}
+
+// The match condition to apply the rule of the Route Map. Possible values are `Contains`, `Equals`, `NotContains`, `NotEquals` and `Unknown`.
+func (o RouteMapRuleMatchCriterionOutput) MatchCondition() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteMapRuleMatchCriterion) string { return v.MatchCondition }).(pulumi.StringOutput)
+}
+
+// A list of route prefixes which this criterion matches.
+func (o RouteMapRuleMatchCriterionOutput) RoutePrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RouteMapRuleMatchCriterion) []string { return v.RoutePrefixes }).(pulumi.StringArrayOutput)
+}
+
+type RouteMapRuleMatchCriterionArrayOutput struct{ *pulumi.OutputState }
+
+func (RouteMapRuleMatchCriterionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteMapRuleMatchCriterion)(nil)).Elem()
+}
+
+func (o RouteMapRuleMatchCriterionArrayOutput) ToRouteMapRuleMatchCriterionArrayOutput() RouteMapRuleMatchCriterionArrayOutput {
+	return o
+}
+
+func (o RouteMapRuleMatchCriterionArrayOutput) ToRouteMapRuleMatchCriterionArrayOutputWithContext(ctx context.Context) RouteMapRuleMatchCriterionArrayOutput {
+	return o
+}
+
+func (o RouteMapRuleMatchCriterionArrayOutput) Index(i pulumi.IntInput) RouteMapRuleMatchCriterionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteMapRuleMatchCriterion {
+		return vs[0].([]RouteMapRuleMatchCriterion)[vs[1].(int)]
+	}).(RouteMapRuleMatchCriterionOutput)
 }
 
 type RouteTableRoute struct {
@@ -19146,7 +19653,7 @@ func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput) RemoteAdd
 }
 
 type VirtualNetworkGatewayCustomRoute struct {
-	// A list of address blocks reserved for this virtual network in CIDR notation.
+	// A list of address blocks reserved for this virtual network in CIDR notation as defined below.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 }
 
@@ -19162,7 +19669,7 @@ type VirtualNetworkGatewayCustomRouteInput interface {
 }
 
 type VirtualNetworkGatewayCustomRouteArgs struct {
-	// A list of address blocks reserved for this virtual network in CIDR notation.
+	// A list of address blocks reserved for this virtual network in CIDR notation as defined below.
 	AddressPrefixes pulumi.StringArrayInput `pulumi:"addressPrefixes"`
 }
 
@@ -19243,7 +19750,7 @@ func (o VirtualNetworkGatewayCustomRouteOutput) ToVirtualNetworkGatewayCustomRou
 	}).(VirtualNetworkGatewayCustomRoutePtrOutput)
 }
 
-// A list of address blocks reserved for this virtual network in CIDR notation.
+// A list of address blocks reserved for this virtual network in CIDR notation as defined below.
 func (o VirtualNetworkGatewayCustomRouteOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayCustomRoute) []string { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
 }
@@ -19272,7 +19779,7 @@ func (o VirtualNetworkGatewayCustomRoutePtrOutput) Elem() VirtualNetworkGatewayC
 	}).(VirtualNetworkGatewayCustomRouteOutput)
 }
 
-// A list of address blocks reserved for this virtual network in CIDR notation.
+// A list of address blocks reserved for this virtual network in CIDR notation as defined below.
 func (o VirtualNetworkGatewayCustomRoutePtrOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayCustomRoute) []string {
 		if v == nil {
@@ -19652,12 +20159,9 @@ type VirtualNetworkGatewayVpnClientConfiguration struct {
 	RadiusServerAddress *string `pulumi:"radiusServerAddress"`
 	// The secret used by the Radius server.
 	RadiusServerSecret *string `pulumi:"radiusServerSecret"`
-	// One or more `revokedCertificate` blocks which
-	// are defined below.
+	// One or more `revokedCertificate` blocks which are defined below.
 	RevokedCertificates []VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate `pulumi:"revokedCertificates"`
-	// One or more `rootCertificate` blocks which are
-	// defined below. These root certificates are used to sign the client certificate
-	// used by the VPN clients to connect to the gateway.
+	// One or more `rootCertificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
 	RootCertificates []VirtualNetworkGatewayVpnClientConfigurationRootCertificate `pulumi:"rootCertificates"`
 	// List of the vpn authentication types for the virtual network gateway.
 	// The supported values are `AAD`, `Radius` and `Certificate`.
@@ -19696,12 +20200,9 @@ type VirtualNetworkGatewayVpnClientConfigurationArgs struct {
 	RadiusServerAddress pulumi.StringPtrInput `pulumi:"radiusServerAddress"`
 	// The secret used by the Radius server.
 	RadiusServerSecret pulumi.StringPtrInput `pulumi:"radiusServerSecret"`
-	// One or more `revokedCertificate` blocks which
-	// are defined below.
+	// One or more `revokedCertificate` blocks which are defined below.
 	RevokedCertificates VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayInput `pulumi:"revokedCertificates"`
-	// One or more `rootCertificate` blocks which are
-	// defined below. These root certificates are used to sign the client certificate
-	// used by the VPN clients to connect to the gateway.
+	// One or more `rootCertificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
 	RootCertificates VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayInput `pulumi:"rootCertificates"`
 	// List of the vpn authentication types for the virtual network gateway.
 	// The supported values are `AAD`, `Radius` and `Certificate`.
@@ -19823,17 +20324,14 @@ func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RadiusServerSecret() 
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.RadiusServerSecret }).(pulumi.StringPtrOutput)
 }
 
-// One or more `revokedCertificate` blocks which
-// are defined below.
+// One or more `revokedCertificate` blocks which are defined below.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RevokedCertificates() VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
 		return v.RevokedCertificates
 	}).(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput)
 }
 
-// One or more `rootCertificate` blocks which are
-// defined below. These root certificates are used to sign the client certificate
-// used by the VPN clients to connect to the gateway.
+// One or more `rootCertificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RootCertificates() VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
 		return v.RootCertificates
@@ -19941,8 +20439,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RadiusServerSecret
 	}).(pulumi.StringPtrOutput)
 }
 
-// One or more `revokedCertificate` blocks which
-// are defined below.
+// One or more `revokedCertificate` blocks which are defined below.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RevokedCertificates() VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
 		if v == nil {
@@ -19952,9 +20449,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RevokedCertificate
 	}).(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput)
 }
 
-// One or more `rootCertificate` blocks which are
-// defined below. These root certificates are used to sign the client certificate
-// used by the VPN clients to connect to the gateway.
+// One or more `rootCertificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RootCertificates() VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
 		if v == nil {
@@ -21153,6 +21648,10 @@ func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) TunnelIps() pu
 type VpnGatewayConnectionRouting struct {
 	// The ID of the Route Table associated with this VPN Connection.
 	AssociatedRouteTable string `pulumi:"associatedRouteTable"`
+	// The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+	InboundRouteMapId *string `pulumi:"inboundRouteMapId"`
+	// The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+	OutboundRouteMapId *string `pulumi:"outboundRouteMapId"`
 	// A `propagatedRouteTable` block as defined below.
 	PropagatedRouteTable *VpnGatewayConnectionRoutingPropagatedRouteTable `pulumi:"propagatedRouteTable"`
 }
@@ -21171,6 +21670,10 @@ type VpnGatewayConnectionRoutingInput interface {
 type VpnGatewayConnectionRoutingArgs struct {
 	// The ID of the Route Table associated with this VPN Connection.
 	AssociatedRouteTable pulumi.StringInput `pulumi:"associatedRouteTable"`
+	// The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+	InboundRouteMapId pulumi.StringPtrInput `pulumi:"inboundRouteMapId"`
+	// The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+	OutboundRouteMapId pulumi.StringPtrInput `pulumi:"outboundRouteMapId"`
 	// A `propagatedRouteTable` block as defined below.
 	PropagatedRouteTable VpnGatewayConnectionRoutingPropagatedRouteTablePtrInput `pulumi:"propagatedRouteTable"`
 }
@@ -21257,6 +21760,16 @@ func (o VpnGatewayConnectionRoutingOutput) AssociatedRouteTable() pulumi.StringO
 	return o.ApplyT(func(v VpnGatewayConnectionRouting) string { return v.AssociatedRouteTable }).(pulumi.StringOutput)
 }
 
+// The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+func (o VpnGatewayConnectionRoutingOutput) InboundRouteMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionRouting) *string { return v.InboundRouteMapId }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+func (o VpnGatewayConnectionRoutingOutput) OutboundRouteMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnGatewayConnectionRouting) *string { return v.OutboundRouteMapId }).(pulumi.StringPtrOutput)
+}
+
 // A `propagatedRouteTable` block as defined below.
 func (o VpnGatewayConnectionRoutingOutput) PropagatedRouteTable() VpnGatewayConnectionRoutingPropagatedRouteTablePtrOutput {
 	return o.ApplyT(func(v VpnGatewayConnectionRouting) *VpnGatewayConnectionRoutingPropagatedRouteTable {
@@ -21295,6 +21808,26 @@ func (o VpnGatewayConnectionRoutingPtrOutput) AssociatedRouteTable() pulumi.Stri
 			return nil
 		}
 		return &v.AssociatedRouteTable
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+func (o VpnGatewayConnectionRoutingPtrOutput) InboundRouteMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnGatewayConnectionRouting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InboundRouteMapId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+func (o VpnGatewayConnectionRoutingPtrOutput) OutboundRouteMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnGatewayConnectionRouting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutboundRouteMapId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -28007,6 +28540,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileContainerNetworkInterfaceIpConfigurationArrayInput)(nil)).Elem(), ProfileContainerNetworkInterfaceIpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteFilterRuleInput)(nil)).Elem(), RouteFilterRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteFilterRulePtrInput)(nil)).Elem(), RouteFilterRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteMapRuleInput)(nil)).Elem(), RouteMapRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteMapRuleArrayInput)(nil)).Elem(), RouteMapRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteMapRuleActionInput)(nil)).Elem(), RouteMapRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteMapRuleActionArrayInput)(nil)).Elem(), RouteMapRuleActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteMapRuleActionParameterInput)(nil)).Elem(), RouteMapRuleActionParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteMapRuleActionParameterArrayInput)(nil)).Elem(), RouteMapRuleActionParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteMapRuleMatchCriterionInput)(nil)).Elem(), RouteMapRuleMatchCriterionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteMapRuleMatchCriterionArrayInput)(nil)).Elem(), RouteMapRuleMatchCriterionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableRouteInput)(nil)).Elem(), RouteTableRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteTableRouteArrayInput)(nil)).Elem(), RouteTableRouteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetDelegationInput)(nil)).Elem(), SubnetDelegationArgs{})
@@ -28373,6 +28914,14 @@ func init() {
 	pulumi.RegisterOutputType(ProfileContainerNetworkInterfaceIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(RouteFilterRuleOutput{})
 	pulumi.RegisterOutputType(RouteFilterRulePtrOutput{})
+	pulumi.RegisterOutputType(RouteMapRuleOutput{})
+	pulumi.RegisterOutputType(RouteMapRuleArrayOutput{})
+	pulumi.RegisterOutputType(RouteMapRuleActionOutput{})
+	pulumi.RegisterOutputType(RouteMapRuleActionArrayOutput{})
+	pulumi.RegisterOutputType(RouteMapRuleActionParameterOutput{})
+	pulumi.RegisterOutputType(RouteMapRuleActionParameterArrayOutput{})
+	pulumi.RegisterOutputType(RouteMapRuleMatchCriterionOutput{})
+	pulumi.RegisterOutputType(RouteMapRuleMatchCriterionArrayOutput{})
 	pulumi.RegisterOutputType(RouteTableRouteOutput{})
 	pulumi.RegisterOutputType(RouteTableRouteArrayOutput{})
 	pulumi.RegisterOutputType(SubnetDelegationOutput{})

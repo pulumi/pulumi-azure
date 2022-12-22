@@ -26,7 +26,7 @@ class SubscriptionPolicyExemptionArgs:
         """
         The set of arguments for constructing a SubscriptionPolicyExemption resource.
         :param pulumi.Input[str] exemption_category: The category of this policy exemption. Possible values are `Waiver` and `Mitigated`.
-        :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment to be exempted at the specified Scope.
+        :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subscription_id: The Subscription ID where the Policy Exemption should be applied. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description to use for this Policy Exemption.
         :param pulumi.Input[str] display_name: A friendly display name to use for this Policy Exemption.
@@ -67,7 +67,7 @@ class SubscriptionPolicyExemptionArgs:
     @pulumi.getter(name="policyAssignmentId")
     def policy_assignment_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Policy Assignment to be exempted at the specified Scope.
+        The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "policy_assignment_id")
 
@@ -180,7 +180,7 @@ class _SubscriptionPolicyExemptionState:
         :param pulumi.Input[str] expires_on: The expiration date and time in UTC ISO 8601 format of this policy exemption.
         :param pulumi.Input[str] metadata: The metadata for this policy exemption. This is a JSON string representing additional metadata that should be stored with the policy exemption.
         :param pulumi.Input[str] name: The name of the Policy Exemption. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment to be exempted at the specified Scope.
+        :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_definition_reference_ids: The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         :param pulumi.Input[str] subscription_id: The Subscription ID where the Policy Exemption should be applied. Changing this forces a new resource to be created.
         """
@@ -279,7 +279,7 @@ class _SubscriptionPolicyExemptionState:
     @pulumi.getter(name="policyAssignmentId")
     def policy_assignment_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Policy Assignment to be exempted at the specified Scope.
+        The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "policy_assignment_id")
 
@@ -367,7 +367,7 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
         :param pulumi.Input[str] expires_on: The expiration date and time in UTC ISO 8601 format of this policy exemption.
         :param pulumi.Input[str] metadata: The metadata for this policy exemption. This is a JSON string representing additional metadata that should be stored with the policy exemption.
         :param pulumi.Input[str] name: The name of the Policy Exemption. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment to be exempted at the specified Scope.
+        :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_definition_reference_ids: The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         :param pulumi.Input[str] subscription_id: The Subscription ID where the Policy Exemption should be applied. Changing this forces a new resource to be created.
         """
@@ -489,7 +489,7 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
         :param pulumi.Input[str] expires_on: The expiration date and time in UTC ISO 8601 format of this policy exemption.
         :param pulumi.Input[str] metadata: The metadata for this policy exemption. This is a JSON string representing additional metadata that should be stored with the policy exemption.
         :param pulumi.Input[str] name: The name of the Policy Exemption. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment to be exempted at the specified Scope.
+        :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_definition_reference_ids: The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         :param pulumi.Input[str] subscription_id: The Subscription ID where the Policy Exemption should be applied. Changing this forces a new resource to be created.
         """
@@ -560,7 +560,7 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
     @pulumi.getter(name="policyAssignmentId")
     def policy_assignment_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Policy Assignment to be exempted at the specified Scope.
+        The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "policy_assignment_id")
 

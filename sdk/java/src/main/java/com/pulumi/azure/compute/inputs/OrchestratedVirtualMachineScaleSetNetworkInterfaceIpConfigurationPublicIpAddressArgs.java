@@ -18,45 +18,77 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
 
     public static final OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs Empty = new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs();
 
+    /**
+     * The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+     * 
+     */
     @Import(name="domainNameLabel")
     private @Nullable Output<String> domainNameLabel;
 
+    /**
+     * @return The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+     * 
+     */
     public Optional<Output<String>> domainNameLabel() {
         return Optional.ofNullable(this.domainNameLabel);
     }
 
+    /**
+     * The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+     * 
+     */
     @Import(name="idleTimeoutInMinutes")
     private @Nullable Output<Integer> idleTimeoutInMinutes;
 
+    /**
+     * @return The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+     * 
+     */
     public Optional<Output<Integer>> idleTimeoutInMinutes() {
         return Optional.ofNullable(this.idleTimeoutInMinutes);
     }
 
+    /**
+     * One or more `ip_tag` blocks as defined above.
+     * 
+     */
     @Import(name="ipTags")
     private @Nullable Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs>> ipTags;
 
+    /**
+     * @return One or more `ip_tag` blocks as defined above.
+     * 
+     */
     public Optional<Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs>>> ipTags() {
         return Optional.ofNullable(this.ipTags);
     }
 
     /**
-     * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * The Name of the Public IP Address Configuration.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return The Name of the Public IP Address Configuration.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="publicIpPrefixId")
     private @Nullable Output<String> publicIpPrefixId;
 
+    /**
+     * @return The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> publicIpPrefixId() {
         return Optional.ofNullable(this.publicIpPrefixId);
     }
@@ -121,39 +153,81 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
             $ = new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domainNameLabel The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainNameLabel(@Nullable Output<String> domainNameLabel) {
             $.domainNameLabel = domainNameLabel;
             return this;
         }
 
+        /**
+         * @param domainNameLabel The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainNameLabel(String domainNameLabel) {
             return domainNameLabel(Output.of(domainNameLabel));
         }
 
+        /**
+         * @param idleTimeoutInMinutes The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder idleTimeoutInMinutes(@Nullable Output<Integer> idleTimeoutInMinutes) {
             $.idleTimeoutInMinutes = idleTimeoutInMinutes;
             return this;
         }
 
+        /**
+         * @param idleTimeoutInMinutes The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder idleTimeoutInMinutes(Integer idleTimeoutInMinutes) {
             return idleTimeoutInMinutes(Output.of(idleTimeoutInMinutes));
         }
 
+        /**
+         * @param ipTags One or more `ip_tag` blocks as defined above.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipTags(@Nullable Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs>> ipTags) {
             $.ipTags = ipTags;
             return this;
         }
 
+        /**
+         * @param ipTags One or more `ip_tag` blocks as defined above.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipTags(List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs> ipTags) {
             return ipTags(Output.of(ipTags));
         }
 
+        /**
+         * @param ipTags One or more `ip_tag` blocks as defined above.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipTags(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs... ipTags) {
             return ipTags(List.of(ipTags));
         }
 
         /**
-         * @param name The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * @param name The Name of the Public IP Address Configuration.
          * 
          * @return builder
          * 
@@ -164,7 +238,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param name The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * @param name The Name of the Public IP Address Configuration.
          * 
          * @return builder
          * 
@@ -173,11 +247,23 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
             return name(Output.of(name));
         }
 
+        /**
+         * @param publicIpPrefixId The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicIpPrefixId(@Nullable Output<String> publicIpPrefixId) {
             $.publicIpPrefixId = publicIpPrefixId;
             return this;
         }
 
+        /**
+         * @param publicIpPrefixId The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicIpPrefixId(String publicIpPrefixId) {
             return publicIpPrefixId(Output.of(publicIpPrefixId));
         }

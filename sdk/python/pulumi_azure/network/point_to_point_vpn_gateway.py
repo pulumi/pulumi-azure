@@ -24,6 +24,7 @@ class PointToPointVpnGatewayArgs:
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 routing_preference_internet_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PointToPointVpnGateway resource.
@@ -35,6 +36,7 @@ class PointToPointVpnGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] routing_preference_internet_enabled: Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Point-to-Site VPN Gateway.
         """
         pulumi.set(__self__, "connection_configuration", connection_configuration)
@@ -48,6 +50,8 @@ class PointToPointVpnGatewayArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if routing_preference_internet_enabled is not None:
+            pulumi.set(__self__, "routing_preference_internet_enabled", routing_preference_internet_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -148,6 +152,18 @@ class PointToPointVpnGatewayArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="routingPreferenceInternetEnabled")
+    def routing_preference_internet_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "routing_preference_internet_enabled")
+
+    @routing_preference_internet_enabled.setter
+    def routing_preference_internet_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "routing_preference_internet_enabled", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -168,6 +184,7 @@ class _PointToPointVpnGatewayState:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routing_preference_internet_enabled: Optional[pulumi.Input[bool]] = None,
                  scale_unit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
@@ -179,6 +196,7 @@ class _PointToPointVpnGatewayState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] routing_preference_internet_enabled: Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_unit: The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Point-to-Site VPN Gateway.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
@@ -194,6 +212,8 @@ class _PointToPointVpnGatewayState:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if routing_preference_internet_enabled is not None:
+            pulumi.set(__self__, "routing_preference_internet_enabled", routing_preference_internet_enabled)
         if scale_unit is not None:
             pulumi.set(__self__, "scale_unit", scale_unit)
         if tags is not None:
@@ -264,6 +284,18 @@ class _PointToPointVpnGatewayState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="routingPreferenceInternetEnabled")
+    def routing_preference_internet_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "routing_preference_internet_enabled")
+
+    @routing_preference_internet_enabled.setter
+    def routing_preference_internet_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "routing_preference_internet_enabled", value)
+
+    @property
     @pulumi.getter(name="scaleUnit")
     def scale_unit(self) -> Optional[pulumi.Input[int]]:
         """
@@ -322,6 +354,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routing_preference_internet_enabled: Optional[pulumi.Input[bool]] = None,
                  scale_unit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
@@ -402,6 +435,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] routing_preference_internet_enabled: Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_unit: The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Point-to-Site VPN Gateway.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
@@ -501,6 +535,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routing_preference_internet_enabled: Optional[pulumi.Input[bool]] = None,
                  scale_unit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
@@ -523,6 +558,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["routing_preference_internet_enabled"] = routing_preference_internet_enabled
             if scale_unit is None and not opts.urn:
                 raise TypeError("Missing required property 'scale_unit'")
             __props__.__dict__["scale_unit"] = scale_unit
@@ -548,6 +584,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            routing_preference_internet_enabled: Optional[pulumi.Input[bool]] = None,
             scale_unit: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_hub_id: Optional[pulumi.Input[str]] = None,
@@ -564,6 +601,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] routing_preference_internet_enabled: Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] scale_unit: The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Point-to-Site VPN Gateway.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
@@ -578,6 +616,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["routing_preference_internet_enabled"] = routing_preference_internet_enabled
         __props__.__dict__["scale_unit"] = scale_unit
         __props__.__dict__["tags"] = tags
         __props__.__dict__["virtual_hub_id"] = virtual_hub_id
@@ -623,6 +662,14 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="routingPreferenceInternetEnabled")
+    def routing_preference_internet_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "routing_preference_internet_enabled")
 
     @property
     @pulumi.getter(name="scaleUnit")

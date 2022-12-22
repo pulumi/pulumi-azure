@@ -168,14 +168,14 @@ public class SubscriptionPolicyExemption extends com.pulumi.resources.CustomReso
         return this.name;
     }
     /**
-     * The ID of the Policy Assignment to be exempted at the specified Scope.
+     * The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="policyAssignmentId", type=String.class, parameters={})
     private Output<String> policyAssignmentId;
 
     /**
-     * @return The ID of the Policy Assignment to be exempted at the specified Scope.
+     * @return The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> policyAssignmentId() {

@@ -136,6 +136,8 @@ type PointToPointVpnGateway struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	RoutingPreferenceInternetEnabled pulumi.BoolPtrOutput `pulumi:"routingPreferenceInternetEnabled"`
 	// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
 	ScaleUnit pulumi.IntOutput `pulumi:"scaleUnit"`
 	// A mapping of tags to assign to the Point-to-Site VPN Gateway.
@@ -200,6 +202,8 @@ type pointToPointVpnGatewayState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	RoutingPreferenceInternetEnabled *bool `pulumi:"routingPreferenceInternetEnabled"`
 	// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
 	ScaleUnit *int `pulumi:"scaleUnit"`
 	// A mapping of tags to assign to the Point-to-Site VPN Gateway.
@@ -221,6 +225,8 @@ type PointToPointVpnGatewayState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	RoutingPreferenceInternetEnabled pulumi.BoolPtrInput
 	// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
 	ScaleUnit pulumi.IntPtrInput
 	// A mapping of tags to assign to the Point-to-Site VPN Gateway.
@@ -246,6 +252,8 @@ type pointToPointVpnGatewayArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	RoutingPreferenceInternetEnabled *bool `pulumi:"routingPreferenceInternetEnabled"`
 	// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
 	ScaleUnit int `pulumi:"scaleUnit"`
 	// A mapping of tags to assign to the Point-to-Site VPN Gateway.
@@ -268,6 +276,8 @@ type PointToPointVpnGatewayArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	RoutingPreferenceInternetEnabled pulumi.BoolPtrInput
 	// The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
 	ScaleUnit pulumi.IntInput
 	// A mapping of tags to assign to the Point-to-Site VPN Gateway.
@@ -390,6 +400,11 @@ func (o PointToPointVpnGatewayOutput) Name() pulumi.StringOutput {
 // The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
 func (o PointToPointVpnGatewayOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PointToPointVpnGateway) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+func (o PointToPointVpnGatewayOutput) RoutingPreferenceInternetEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PointToPointVpnGateway) pulumi.BoolPtrOutput { return v.RoutingPreferenceInternetEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.

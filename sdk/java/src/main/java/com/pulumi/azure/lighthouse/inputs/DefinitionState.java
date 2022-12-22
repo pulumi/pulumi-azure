@@ -4,6 +4,7 @@
 package com.pulumi.azure.lighthouse.inputs;
 
 import com.pulumi.azure.lighthouse.inputs.DefinitionAuthorizationArgs;
+import com.pulumi.azure.lighthouse.inputs.DefinitionEligibleAuthorizationArgs;
 import com.pulumi.azure.lighthouse.inputs.DefinitionPlanArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -46,6 +47,21 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * An `eligible_authorization` block as defined below.
+     * 
+     */
+    @Import(name="eligibleAuthorizations")
+    private @Nullable Output<List<DefinitionEligibleAuthorizationArgs>> eligibleAuthorizations;
+
+    /**
+     * @return An `eligible_authorization` block as defined below.
+     * 
+     */
+    public Optional<Output<List<DefinitionEligibleAuthorizationArgs>>> eligibleAuthorizations() {
+        return Optional.ofNullable(this.eligibleAuthorizations);
     }
 
     /**
@@ -128,6 +144,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
     private DefinitionState(DefinitionState $) {
         this.authorizations = $.authorizations;
         this.description = $.description;
+        this.eligibleAuthorizations = $.eligibleAuthorizations;
         this.lighthouseDefinitionId = $.lighthouseDefinitionId;
         this.managingTenantId = $.managingTenantId;
         this.name = $.name;
@@ -203,6 +220,37 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param eligibleAuthorizations An `eligible_authorization` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eligibleAuthorizations(@Nullable Output<List<DefinitionEligibleAuthorizationArgs>> eligibleAuthorizations) {
+            $.eligibleAuthorizations = eligibleAuthorizations;
+            return this;
+        }
+
+        /**
+         * @param eligibleAuthorizations An `eligible_authorization` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eligibleAuthorizations(List<DefinitionEligibleAuthorizationArgs> eligibleAuthorizations) {
+            return eligibleAuthorizations(Output.of(eligibleAuthorizations));
+        }
+
+        /**
+         * @param eligibleAuthorizations An `eligible_authorization` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eligibleAuthorizations(DefinitionEligibleAuthorizationArgs... eligibleAuthorizations) {
+            return eligibleAuthorizations(List.of(eligibleAuthorizations));
         }
 
         /**

@@ -158,6 +158,8 @@ type KubernetesClusterNodePool struct {
 	VmSize pulumi.StringOutput `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId pulumi.StringPtrOutput `pulumi:"vnetSubnetId"`
+	// A `windowsProfile` block as documented below.
+	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrOutput `pulumi:"windowsProfile"`
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime pulumi.StringPtrOutput `pulumi:"workloadRuntime"`
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
@@ -273,6 +275,8 @@ type kubernetesClusterNodePoolState struct {
 	VmSize *string `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
+	// A `windowsProfile` block as documented below.
+	WindowsProfile *KubernetesClusterNodePoolWindowsProfile `pulumi:"windowsProfile"`
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime *string `pulumi:"workloadRuntime"`
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
@@ -354,6 +358,8 @@ type KubernetesClusterNodePoolState struct {
 	VmSize pulumi.StringPtrInput
 	// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId pulumi.StringPtrInput
+	// A `windowsProfile` block as documented below.
+	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrInput
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime pulumi.StringPtrInput
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
@@ -439,6 +445,8 @@ type kubernetesClusterNodePoolArgs struct {
 	VmSize string `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
+	// A `windowsProfile` block as documented below.
+	WindowsProfile *KubernetesClusterNodePoolWindowsProfile `pulumi:"windowsProfile"`
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime *string `pulumi:"workloadRuntime"`
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
@@ -521,6 +529,8 @@ type KubernetesClusterNodePoolArgs struct {
 	VmSize pulumi.StringInput
 	// The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId pulumi.StringPtrInput
+	// A `windowsProfile` block as documented below.
+	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrInput
 	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
 	WorkloadRuntime pulumi.StringPtrInput
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created.
@@ -803,6 +813,13 @@ func (o KubernetesClusterNodePoolOutput) VmSize() pulumi.StringOutput {
 // The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolOutput) VnetSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// A `windowsProfile` block as documented below.
+func (o KubernetesClusterNodePoolOutput) WindowsProfile() KubernetesClusterNodePoolWindowsProfilePtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePool) KubernetesClusterNodePoolWindowsProfilePtrOutput {
+		return v.WindowsProfile
+	}).(KubernetesClusterNodePoolWindowsProfilePtrOutput)
 }
 
 // Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.

@@ -13,23 +13,27 @@ namespace Pulumi.Azure.Waf.Outputs
     [OutputType]
     public sealed class PolicyManagedRulesManagedRuleSetRuleGroupOverride
     {
-        /// <summary>
-        /// One or more Rule IDs
-        /// </summary>
         public readonly ImmutableArray<string> DisabledRules;
         /// <summary>
-        /// The name of the Rule Group
+        /// The name of the Rule Group.
         /// </summary>
         public readonly string RuleGroupName;
+        /// <summary>
+        /// One or more `rule` block defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule> Rules;
 
         [OutputConstructor]
         private PolicyManagedRulesManagedRuleSetRuleGroupOverride(
             ImmutableArray<string> disabledRules,
 
-            string ruleGroupName)
+            string ruleGroupName,
+
+            ImmutableArray<Outputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule> rules)
         {
             DisabledRules = disabledRules;
             RuleGroupName = ruleGroupName;
+            Rules = rules;
         }
     }
 }

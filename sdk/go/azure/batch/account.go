@@ -82,7 +82,7 @@ type Account struct {
 	Encryption AccountEncryptionPtrOutput `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
-	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+	// A `keyVaultReference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReference AccountKeyVaultReferencePtrOutput `pulumi:"keyVaultReference"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -153,7 +153,7 @@ type accountState struct {
 	Encryption *AccountEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
-	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+	// A `keyVaultReference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReference *AccountKeyVaultReference `pulumi:"keyVaultReference"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -188,7 +188,7 @@ type AccountState struct {
 	Encryption AccountEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
-	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+	// A `keyVaultReference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReference AccountKeyVaultReferencePtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -225,7 +225,7 @@ type accountArgs struct {
 	Encryption *AccountEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
-	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+	// A `keyVaultReference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReference *AccountKeyVaultReference `pulumi:"keyVaultReference"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -255,7 +255,7 @@ type AccountArgs struct {
 	Encryption AccountEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
-	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+	// A `keyVaultReference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 	KeyVaultReference AccountKeyVaultReferencePtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -384,7 +384,7 @@ func (o AccountOutput) Identity() AccountIdentityPtrOutput {
 	return o.ApplyT(func(v *Account) AccountIdentityPtrOutput { return v.Identity }).(AccountIdentityPtrOutput)
 }
 
-// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+// A `keyVaultReference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
 func (o AccountOutput) KeyVaultReference() AccountKeyVaultReferencePtrOutput {
 	return o.ApplyT(func(v *Account) AccountKeyVaultReferencePtrOutput { return v.KeyVaultReference }).(AccountKeyVaultReferencePtrOutput)
 }

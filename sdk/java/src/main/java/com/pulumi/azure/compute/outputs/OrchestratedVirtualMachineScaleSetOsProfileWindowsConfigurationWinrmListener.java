@@ -11,10 +11,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener {
+    /**
+     * @return The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
+     * 
+     */
     private @Nullable String certificateUrl;
     private String protocol;
 
     private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener() {}
+    /**
+     * @return The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
+     * 
+     */
     public Optional<String> certificateUrl() {
         return Optional.ofNullable(this.certificateUrl);
     }

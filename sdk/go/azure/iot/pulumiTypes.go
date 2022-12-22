@@ -3811,6 +3811,130 @@ func (o TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput) Index(i pulumi
 	}).(TimeSeriesInsightsReferenceDataSetKeyPropertyOutput)
 }
 
+type GetIotHubIdentity struct {
+	// The list of User Managed Identity IDs which are assigned to the Virtual Machine.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The ID of the System Managed Service Principal assigned to the Virtual Machine.
+	PrincipalId string `pulumi:"principalId"`
+	// The ID of the Tenant of the System Managed Service Principal assigned to the Virtual Machine.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type of the Managed Identity assigned to the Virtual Machine.
+	Type string `pulumi:"type"`
+}
+
+// GetIotHubIdentityInput is an input type that accepts GetIotHubIdentityArgs and GetIotHubIdentityOutput values.
+// You can construct a concrete instance of `GetIotHubIdentityInput` via:
+//
+//	GetIotHubIdentityArgs{...}
+type GetIotHubIdentityInput interface {
+	pulumi.Input
+
+	ToGetIotHubIdentityOutput() GetIotHubIdentityOutput
+	ToGetIotHubIdentityOutputWithContext(context.Context) GetIotHubIdentityOutput
+}
+
+type GetIotHubIdentityArgs struct {
+	// The list of User Managed Identity IDs which are assigned to the Virtual Machine.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The ID of the System Managed Service Principal assigned to the Virtual Machine.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The ID of the Tenant of the System Managed Service Principal assigned to the Virtual Machine.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type of the Managed Identity assigned to the Virtual Machine.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetIotHubIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIotHubIdentity)(nil)).Elem()
+}
+
+func (i GetIotHubIdentityArgs) ToGetIotHubIdentityOutput() GetIotHubIdentityOutput {
+	return i.ToGetIotHubIdentityOutputWithContext(context.Background())
+}
+
+func (i GetIotHubIdentityArgs) ToGetIotHubIdentityOutputWithContext(ctx context.Context) GetIotHubIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIotHubIdentityOutput)
+}
+
+// GetIotHubIdentityArrayInput is an input type that accepts GetIotHubIdentityArray and GetIotHubIdentityArrayOutput values.
+// You can construct a concrete instance of `GetIotHubIdentityArrayInput` via:
+//
+//	GetIotHubIdentityArray{ GetIotHubIdentityArgs{...} }
+type GetIotHubIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetIotHubIdentityArrayOutput() GetIotHubIdentityArrayOutput
+	ToGetIotHubIdentityArrayOutputWithContext(context.Context) GetIotHubIdentityArrayOutput
+}
+
+type GetIotHubIdentityArray []GetIotHubIdentityInput
+
+func (GetIotHubIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIotHubIdentity)(nil)).Elem()
+}
+
+func (i GetIotHubIdentityArray) ToGetIotHubIdentityArrayOutput() GetIotHubIdentityArrayOutput {
+	return i.ToGetIotHubIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetIotHubIdentityArray) ToGetIotHubIdentityArrayOutputWithContext(ctx context.Context) GetIotHubIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIotHubIdentityArrayOutput)
+}
+
+type GetIotHubIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetIotHubIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIotHubIdentity)(nil)).Elem()
+}
+
+func (o GetIotHubIdentityOutput) ToGetIotHubIdentityOutput() GetIotHubIdentityOutput {
+	return o
+}
+
+func (o GetIotHubIdentityOutput) ToGetIotHubIdentityOutputWithContext(ctx context.Context) GetIotHubIdentityOutput {
+	return o
+}
+
+// The list of User Managed Identity IDs which are assigned to the Virtual Machine.
+func (o GetIotHubIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIotHubIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the System Managed Service Principal assigned to the Virtual Machine.
+func (o GetIotHubIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIotHubIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The ID of the Tenant of the System Managed Service Principal assigned to the Virtual Machine.
+func (o GetIotHubIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIotHubIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type of the Managed Identity assigned to the Virtual Machine.
+func (o GetIotHubIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIotHubIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetIotHubIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIotHubIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIotHubIdentity)(nil)).Elem()
+}
+
+func (o GetIotHubIdentityArrayOutput) ToGetIotHubIdentityArrayOutput() GetIotHubIdentityArrayOutput {
+	return o
+}
+
+func (o GetIotHubIdentityArrayOutput) ToGetIotHubIdentityArrayOutputWithContext(ctx context.Context) GetIotHubIdentityArrayOutput {
+	return o
+}
+
+func (o GetIotHubIdentityArrayOutput) Index(i pulumi.IntInput) GetIotHubIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIotHubIdentity {
+		return vs[0].([]GetIotHubIdentity)[vs[1].(int)]
+	}).(GetIotHubIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubCloudToDeviceInput)(nil)).Elem(), IoTHubCloudToDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IoTHubCloudToDevicePtrInput)(nil)).Elem(), IoTHubCloudToDeviceArgs{})
@@ -3858,6 +3982,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsGen2EnvironmentStoragePtrInput)(nil)).Elem(), TimeSeriesInsightsGen2EnvironmentStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetKeyPropertyInput)(nil)).Elem(), TimeSeriesInsightsReferenceDataSetKeyPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput)(nil)).Elem(), TimeSeriesInsightsReferenceDataSetKeyPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIotHubIdentityInput)(nil)).Elem(), GetIotHubIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIotHubIdentityArrayInput)(nil)).Elem(), GetIotHubIdentityArray{})
 	pulumi.RegisterOutputType(IoTHubCloudToDeviceOutput{})
 	pulumi.RegisterOutputType(IoTHubCloudToDevicePtrOutput{})
 	pulumi.RegisterOutputType(IoTHubCloudToDeviceFeedbackOutput{})
@@ -3904,4 +4030,6 @@ func init() {
 	pulumi.RegisterOutputType(TimeSeriesInsightsGen2EnvironmentStoragePtrOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsReferenceDataSetKeyPropertyOutput{})
 	pulumi.RegisterOutputType(TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetIotHubIdentityOutput{})
+	pulumi.RegisterOutputType(GetIotHubIdentityArrayOutput{})
 }

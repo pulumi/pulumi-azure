@@ -36,14 +36,14 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
     }
 
     /**
-     * One or more `authentication_certificate` blocks.
+     * One or more `authentication_certificate` blocks as defined below.
      * 
      */
     @Import(name="authenticationCertificates")
     private @Nullable Output<List<ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs>> authenticationCertificates;
 
     /**
-     * @return One or more `authentication_certificate` blocks.
+     * @return One or more `authentication_certificate` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs>>> authenticationCertificates() {
@@ -305,7 +305,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param authenticationCertificates One or more `authentication_certificate` blocks.
+         * @param authenticationCertificates One or more `authentication_certificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param authenticationCertificates One or more `authentication_certificate` blocks.
+         * @param authenticationCertificates One or more `authentication_certificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param authenticationCertificates One or more `authentication_certificate` blocks.
+         * @param authenticationCertificates One or more `authentication_certificate` blocks as defined below.
          * 
          * @return builder
          * 
