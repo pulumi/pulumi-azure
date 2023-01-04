@@ -31,7 +31,7 @@ class LogzMonitorArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input['LogzMonitorUserArgs'] user: A `user` block as defined below.
         :param pulumi.Input[str] company_name: Name of the Logz organization. Changing this forces a new logz Monitor to be created.
-        :param pulumi.Input[bool] enabled: Whether the resource monitoring is enabled?
+        :param pulumi.Input[bool] enabled: Whether the resource monitoring is enabled? Defaults to `true`.
         :param pulumi.Input[str] enterprise_app_id: The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] location: The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] name: The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
@@ -105,7 +105,7 @@ class LogzMonitorArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the resource monitoring is enabled?
+        Whether the resource monitoring is enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -179,7 +179,7 @@ class _LogzMonitorState:
         """
         Input properties used for looking up and filtering LogzMonitor resources.
         :param pulumi.Input[str] company_name: Name of the Logz organization. Changing this forces a new logz Monitor to be created.
-        :param pulumi.Input[bool] enabled: Whether the resource monitoring is enabled?
+        :param pulumi.Input[bool] enabled: Whether the resource monitoring is enabled? Defaults to `true`.
         :param pulumi.Input[str] enterprise_app_id: The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] location: The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] logz_organization_id: The ID associated with the logz organization of this logz Monitor.
@@ -229,7 +229,7 @@ class _LogzMonitorState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the resource monitoring is enabled?
+        Whether the resource monitoring is enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -398,7 +398,7 @@ class LogzMonitor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] company_name: Name of the Logz organization. Changing this forces a new logz Monitor to be created.
-        :param pulumi.Input[bool] enabled: Whether the resource monitoring is enabled?
+        :param pulumi.Input[bool] enabled: Whether the resource monitoring is enabled? Defaults to `true`.
         :param pulumi.Input[str] enterprise_app_id: The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] location: The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] name: The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
@@ -526,7 +526,7 @@ class LogzMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] company_name: Name of the Logz organization. Changing this forces a new logz Monitor to be created.
-        :param pulumi.Input[bool] enabled: Whether the resource monitoring is enabled?
+        :param pulumi.Input[bool] enabled: Whether the resource monitoring is enabled? Defaults to `true`.
         :param pulumi.Input[str] enterprise_app_id: The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] location: The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] logz_organization_id: The ID associated with the logz organization of this logz Monitor.
@@ -566,7 +566,7 @@ class LogzMonitor(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the resource monitoring is enabled?
+        Whether the resource monitoring is enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 

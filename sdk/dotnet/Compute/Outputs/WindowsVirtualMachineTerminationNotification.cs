@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class WindowsVirtualMachineTerminationNotification
     {
         /// <summary>
-        /// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+        /// Should the termination notification be enabled on this Virtual Machine?
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        /// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
         /// </summary>
         public readonly string? Timeout;
 

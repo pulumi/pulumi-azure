@@ -20,14 +20,14 @@ public final class ScaleSetNetworkProfileArgs extends com.pulumi.resources.Resou
     public static final ScaleSetNetworkProfileArgs Empty = new ScaleSetNetworkProfileArgs();
 
     /**
-     * Specifies whether to enable accelerated networking or not. Defaults to `false`.
+     * Specifies whether to enable accelerated networking or not.
      * 
      */
     @Import(name="acceleratedNetworking")
     private @Nullable Output<Boolean> acceleratedNetworking;
 
     /**
-     * @return Specifies whether to enable accelerated networking or not. Defaults to `false`.
+     * @return Specifies whether to enable accelerated networking or not.
      * 
      */
     public Optional<Output<Boolean>> acceleratedNetworking() {
@@ -155,7 +155,7 @@ public final class ScaleSetNetworkProfileArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param acceleratedNetworking Specifies whether to enable accelerated networking or not. Defaults to `false`.
+         * @param acceleratedNetworking Specifies whether to enable accelerated networking or not.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ScaleSetNetworkProfileArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param acceleratedNetworking Specifies whether to enable accelerated networking or not. Defaults to `false`.
+         * @param acceleratedNetworking Specifies whether to enable accelerated networking or not.
          * 
          * @return builder
          * 

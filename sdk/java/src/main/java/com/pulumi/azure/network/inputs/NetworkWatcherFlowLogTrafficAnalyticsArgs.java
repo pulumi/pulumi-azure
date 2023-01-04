@@ -33,14 +33,14 @@ public final class NetworkWatcherFlowLogTrafficAnalyticsArgs extends com.pulumi.
     }
 
     /**
-     * How frequently service should do flow analytics in minutes.
+     * How frequently service should do flow analytics in minutes. Defaults to `60`.
      * 
      */
     @Import(name="intervalInMinutes")
     private @Nullable Output<Integer> intervalInMinutes;
 
     /**
-     * @return How frequently service should do flow analytics in minutes.
+     * @return How frequently service should do flow analytics in minutes. Defaults to `60`.
      * 
      */
     public Optional<Output<Integer>> intervalInMinutes() {
@@ -142,7 +142,7 @@ public final class NetworkWatcherFlowLogTrafficAnalyticsArgs extends com.pulumi.
         }
 
         /**
-         * @param intervalInMinutes How frequently service should do flow analytics in minutes.
+         * @param intervalInMinutes How frequently service should do flow analytics in minutes. Defaults to `60`.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class NetworkWatcherFlowLogTrafficAnalyticsArgs extends com.pulumi.
         }
 
         /**
-         * @param intervalInMinutes How frequently service should do flow analytics in minutes.
+         * @param intervalInMinutes How frequently service should do flow analytics in minutes. Defaults to `60`.
          * 
          * @return builder
          * 

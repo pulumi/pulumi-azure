@@ -163,7 +163,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+        /// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
         /// </summary>
         [Output("timeoutInSeconds")]
         public Output<int?> TimeoutInSeconds { get; private set; } = null!;
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+        /// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
         /// </summary>
         [Input("timeoutInSeconds")]
         public Input<int>? TimeoutInSeconds { get; set; }
@@ -463,7 +463,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+        /// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
         /// </summary>
         [Input("timeoutInSeconds")]
         public Input<int>? TimeoutInSeconds { get; set; }

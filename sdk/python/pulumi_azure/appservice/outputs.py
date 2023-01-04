@@ -524,8 +524,8 @@ class AppServiceAuthSettings(dict):
         :param str issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'AppServiceAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
         :param str runtime_version: The runtime version of the Authentication/Authorization module.
-        :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
-        :param bool token_store_enabled: If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+        :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
+        :param bool token_store_enabled: If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
         :param 'AppServiceAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
         """
@@ -641,7 +641,7 @@ class AppServiceAuthSettings(dict):
     @pulumi.getter(name="tokenRefreshExtensionHours")
     def token_refresh_extension_hours(self) -> Optional[float]:
         """
-        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
         """
         return pulumi.get(self, "token_refresh_extension_hours")
 
@@ -649,7 +649,7 @@ class AppServiceAuthSettings(dict):
     @pulumi.getter(name="tokenStoreEnabled")
     def token_store_enabled(self) -> Optional[bool]:
         """
-        If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+        If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
         """
         return pulumi.get(self, "token_store_enabled")
 
@@ -985,7 +985,7 @@ class AppServiceBackup(dict):
         :param str name: Specifies the name for this Backup.
         :param 'AppServiceBackupScheduleArgs' schedule: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to a Storage Container where Backups should be saved.
-        :param bool enabled: Is this Backup enabled?
+        :param bool enabled: Is this Backup enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule", schedule)
@@ -1021,7 +1021,7 @@ class AppServiceBackup(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Is this Backup enabled?
+        Is this Backup enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -1063,7 +1063,7 @@ class AppServiceBackupSchedule(dict):
         :param int frequency_interval: Sets how often the backup should be executed.
         :param str frequency_unit: Sets the unit of time for how often the backup should be executed. Possible values are `Day` or `Hour`.
         :param bool keep_at_least_one_backup: Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is?
-        :param int retention_period_in_days: Specifies the number of days after which Backups should be deleted.
+        :param int retention_period_in_days: Specifies the number of days after which Backups should be deleted. Defaults to `30`.
         :param str start_time: Sets when the schedule should start working.
         """
         pulumi.set(__self__, "frequency_interval", frequency_interval)
@@ -1103,7 +1103,7 @@ class AppServiceBackupSchedule(dict):
     @pulumi.getter(name="retentionPeriodInDays")
     def retention_period_in_days(self) -> Optional[int]:
         """
-        Specifies the number of days after which Backups should be deleted.
+        Specifies the number of days after which Backups should be deleted. Defaults to `30`.
         """
         return pulumi.get(self, "retention_period_in_days")
 
@@ -1699,7 +1699,7 @@ class AppServiceSiteConfig(dict):
         :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
         :param Sequence['AppServiceSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param str scm_type: The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
-        :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
+        :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to `false`.
         :param bool use32_bit_worker_process: Should the App Service run in 32 bit mode, rather than 64 bit mode?
         :param bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should WebSockets be enabled?
@@ -1977,7 +1977,7 @@ class AppServiceSiteConfig(dict):
     @pulumi.getter(name="scmUseMainIpRestriction")
     def scm_use_main_ip_restriction(self) -> Optional[bool]:
         """
-        IP security restrictions for scm to use main. Defaults to false.
+        IP security restrictions for scm to use main. Defaults to `false`.
         """
         return pulumi.get(self, "scm_use_main_ip_restriction")
 
@@ -2285,7 +2285,7 @@ class AppServiceSiteConfigScmIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: Allow or Deny access for this IP range. Defaults to Allow.
+        :param str action: Allow or Deny access for this IP range. Defaults to `Allow`.
         :param 'AppServiceSiteConfigScmIpRestrictionHeadersArgs' headers: The headers for this specific `scm_ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
@@ -2312,7 +2312,7 @@ class AppServiceSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        Allow or Deny access for this IP range. Defaults to Allow.
+        Allow or Deny access for this IP range. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -3027,8 +3027,8 @@ class FunctionAppAuthSettings(dict):
         :param str issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'FunctionAppAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
         :param str runtime_version: The runtime version of the Authentication/Authorization module.
-        :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
-        :param bool token_store_enabled: If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+        :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
+        :param bool token_store_enabled: If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
         :param 'FunctionAppAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
         """
@@ -3144,7 +3144,7 @@ class FunctionAppAuthSettings(dict):
     @pulumi.getter(name="tokenRefreshExtensionHours")
     def token_refresh_extension_hours(self) -> Optional[float]:
         """
-        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
         """
         return pulumi.get(self, "token_refresh_extension_hours")
 
@@ -3152,7 +3152,7 @@ class FunctionAppAuthSettings(dict):
     @pulumi.getter(name="tokenStoreEnabled")
     def token_store_enabled(self) -> Optional[bool]:
         """
-        If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+        If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
         """
         return pulumi.get(self, "token_store_enabled")
 
@@ -3709,8 +3709,8 @@ class FunctionAppSiteConfig(dict):
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
         :param bool runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
         :param Sequence['FunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
-        :param str scm_type: The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
-        :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
+        :param str scm_type: The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
+        :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to `false`.
         :param bool use32_bit_worker_process: Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
         :param bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should WebSockets be enabled?
@@ -3887,7 +3887,7 @@ class FunctionAppSiteConfig(dict):
     @pulumi.getter(name="scmType")
     def scm_type(self) -> Optional[str]:
         """
-        The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+        The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
         """
         return pulumi.get(self, "scm_type")
 
@@ -3895,7 +3895,7 @@ class FunctionAppSiteConfig(dict):
     @pulumi.getter(name="scmUseMainIpRestriction")
     def scm_use_main_ip_restriction(self) -> Optional[bool]:
         """
-        IP security restrictions for scm to use main. Defaults to false.
+        IP security restrictions for scm to use main. Defaults to `false`.
         """
         return pulumi.get(self, "scm_use_main_ip_restriction")
 
@@ -4195,7 +4195,7 @@ class FunctionAppSiteConfigScmIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: Allow or Deny access for this IP range. Defaults to Allow.
+        :param str action: Allow or Deny access for this IP range. Defaults to `Allow`.
         :param 'FunctionAppSiteConfigScmIpRestrictionHeadersArgs' headers: The headers for this specific `scm_ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
@@ -4222,7 +4222,7 @@ class FunctionAppSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        Allow or Deny access for this IP range. Defaults to Allow.
+        Allow or Deny access for this IP range. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -4443,8 +4443,8 @@ class FunctionAppSlotAuthSettings(dict):
         :param str issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'FunctionAppSlotAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
         :param str runtime_version: The runtime version of the Authentication/Authorization module.
-        :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
-        :param bool token_store_enabled: If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+        :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
+        :param bool token_store_enabled: If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
         :param 'FunctionAppSlotAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
         """
@@ -4560,7 +4560,7 @@ class FunctionAppSlotAuthSettings(dict):
     @pulumi.getter(name="tokenRefreshExtensionHours")
     def token_refresh_extension_hours(self) -> Optional[float]:
         """
-        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
         """
         return pulumi.get(self, "token_refresh_extension_hours")
 
@@ -4568,7 +4568,7 @@ class FunctionAppSlotAuthSettings(dict):
     @pulumi.getter(name="tokenStoreEnabled")
     def token_store_enabled(self) -> Optional[bool]:
         """
-        If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+        If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
         """
         return pulumi.get(self, "token_store_enabled")
 
@@ -6534,7 +6534,7 @@ class LinuxFunctionAppBackup(dict):
         :param str name: The name which should be used for this Backup.
         :param 'LinuxFunctionAppBackupScheduleArgs' schedule: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
-        :param bool enabled: Should this backup job be enabled?
+        :param bool enabled: Should this backup job be enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule", schedule)
@@ -6570,7 +6570,7 @@ class LinuxFunctionAppBackup(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Should this backup job be enabled?
+        Should this backup job be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -6615,7 +6615,7 @@ class LinuxFunctionAppBackupSchedule(dict):
         :param int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
         :param str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
         :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
-        :param int retention_period_days: After how many days backups should be deleted.
+        :param int retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
         pulumi.set(__self__, "frequency_interval", frequency_interval)
@@ -6662,7 +6662,7 @@ class LinuxFunctionAppBackupSchedule(dict):
     @pulumi.getter(name="retentionPeriodDays")
     def retention_period_days(self) -> Optional[int]:
         """
-        After how many days backups should be deleted.
+        After how many days backups should be deleted. Defaults to `30`.
         """
         return pulumi.get(self, "retention_period_days")
 
@@ -7327,8 +7327,8 @@ class LinuxFunctionAppSiteConfigAppServiceLogs(dict):
                  disk_quota_mb: Optional[int] = None,
                  retention_period_days: Optional[int] = None):
         """
-        :param int disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`.
-        :param int retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        :param int disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
+        :param int retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
         """
         if disk_quota_mb is not None:
             pulumi.set(__self__, "disk_quota_mb", disk_quota_mb)
@@ -7339,7 +7339,7 @@ class LinuxFunctionAppSiteConfigAppServiceLogs(dict):
     @pulumi.getter(name="diskQuotaMb")
     def disk_quota_mb(self) -> Optional[int]:
         """
-        The amount of disk space to use for logs. Valid values are between `25` and `100`.
+        The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
         """
         return pulumi.get(self, "disk_quota_mb")
 
@@ -7347,7 +7347,7 @@ class LinuxFunctionAppSiteConfigAppServiceLogs(dict):
     @pulumi.getter(name="retentionPeriodDays")
     def retention_period_days(self) -> Optional[int]:
         """
-        The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
         """
         return pulumi.get(self, "retention_period_days")
 
@@ -7658,7 +7658,7 @@ class LinuxFunctionAppSiteConfigIpRestriction(dict):
         :param 'LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
-        :param int priority: The priority value of this `ip_restriction`.
+        :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
@@ -7713,7 +7713,7 @@ class LinuxFunctionAppSiteConfigIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority value of this `ip_restriction`.
+        The priority value of this `ip_restriction`. Defaults to `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -7766,7 +7766,7 @@ class LinuxFunctionAppSiteConfigIpRestrictionHeaders(dict):
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] x_azure_fdids: Specifies a list of Azure Front Door IDs.
-        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         :param Sequence[str] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
         :param Sequence[str] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
         """
@@ -7791,7 +7791,7 @@ class LinuxFunctionAppSiteConfigIpRestrictionHeaders(dict):
     @pulumi.getter(name="xFdHealthProbe")
     def x_fd_health_probe(self) -> Optional[str]:
         """
-        Specifies if a Front Door Health Probe should be expected.
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
@@ -7848,7 +7848,7 @@ class LinuxFunctionAppSiteConfigScmIpRestriction(dict):
         :param 'LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
-        :param int priority: The priority value of this `ip_restriction`.
+        :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
@@ -7903,7 +7903,7 @@ class LinuxFunctionAppSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority value of this `ip_restriction`.
+        The priority value of this `ip_restriction`. Defaults to `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -7956,7 +7956,7 @@ class LinuxFunctionAppSiteConfigScmIpRestrictionHeaders(dict):
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] x_azure_fdids: Specifies a list of Azure Front Door IDs.
-        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         :param Sequence[str] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
         :param Sequence[str] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
         """
@@ -7981,7 +7981,7 @@ class LinuxFunctionAppSiteConfigScmIpRestrictionHeaders(dict):
     @pulumi.getter(name="xFdHealthProbe")
     def x_fd_health_probe(self) -> Optional[str]:
         """
-        Specifies if a Front Door Health Probe should be expected.
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
@@ -8726,7 +8726,7 @@ class LinuxFunctionAppSlotBackup(dict):
         :param str name: The name which should be used for this Backup.
         :param 'LinuxFunctionAppSlotBackupScheduleArgs' schedule: a `schedule` block as detailed below.
         :param str storage_account_url: The SAS URL to the container.
-        :param bool enabled: Should this backup job be enabled?
+        :param bool enabled: Should this backup job be enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule", schedule)
@@ -8762,7 +8762,7 @@ class LinuxFunctionAppSlotBackup(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Should this backup job be enabled?
+        Should this backup job be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -8808,7 +8808,7 @@ class LinuxFunctionAppSlotBackupSchedule(dict):
         :param str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
         :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
         :param str last_execution_time: The time the backup was last attempted.
-        :param int retention_period_days: After how many days backups should be deleted.
+        :param int retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
         pulumi.set(__self__, "frequency_interval", frequency_interval)
@@ -8858,7 +8858,7 @@ class LinuxFunctionAppSlotBackupSchedule(dict):
     @pulumi.getter(name="retentionPeriodDays")
     def retention_period_days(self) -> Optional[int]:
         """
-        After how many days backups should be deleted.
+        After how many days backups should be deleted. Defaults to `30`.
         """
         return pulumi.get(self, "retention_period_days")
 
@@ -9549,8 +9549,8 @@ class LinuxFunctionAppSlotSiteConfigAppServiceLogs(dict):
                  disk_quota_mb: Optional[int] = None,
                  retention_period_days: Optional[int] = None):
         """
-        :param int disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`.
-        :param int retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        :param int disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
+        :param int retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
         """
         if disk_quota_mb is not None:
             pulumi.set(__self__, "disk_quota_mb", disk_quota_mb)
@@ -9561,7 +9561,7 @@ class LinuxFunctionAppSlotSiteConfigAppServiceLogs(dict):
     @pulumi.getter(name="diskQuotaMb")
     def disk_quota_mb(self) -> Optional[int]:
         """
-        The amount of disk space to use for logs. Valid values are between `25` and `100`.
+        The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
         """
         return pulumi.get(self, "disk_quota_mb")
 
@@ -9569,7 +9569,7 @@ class LinuxFunctionAppSlotSiteConfigAppServiceLogs(dict):
     @pulumi.getter(name="retentionPeriodDays")
     def retention_period_days(self) -> Optional[int]:
         """
-        The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
         """
         return pulumi.get(self, "retention_period_days")
 
@@ -9880,7 +9880,7 @@ class LinuxFunctionAppSlotSiteConfigIpRestriction(dict):
         :param 'LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs' headers: a `headers` block as detailed below.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
-        :param int priority: The priority value of this `ip_restriction`.
+        :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
@@ -9935,7 +9935,7 @@ class LinuxFunctionAppSlotSiteConfigIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority value of this `ip_restriction`.
+        The priority value of this `ip_restriction`. Defaults to `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -9988,7 +9988,7 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionHeaders(dict):
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] x_azure_fdids: Specifies a list of Azure Front Door IDs.
-        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         :param Sequence[str] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
         :param Sequence[str] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
         """
@@ -10013,7 +10013,7 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionHeaders(dict):
     @pulumi.getter(name="xFdHealthProbe")
     def x_fd_health_probe(self) -> Optional[str]:
         """
-        Specifies if a Front Door Health Probe should be expected.
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
@@ -10070,7 +10070,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestriction(dict):
         :param 'LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs' headers: a `headers` block as detailed below.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
-        :param int priority: The priority value of this `ip_restriction`.
+        :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
         """
@@ -10125,7 +10125,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority value of this `ip_restriction`.
+        The priority value of this `ip_restriction`. Defaults to `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -10178,7 +10178,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeaders(dict):
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] x_azure_fdids: Specifies a list of Azure Front Door IDs.
-        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         :param Sequence[str] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
         :param Sequence[str] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
         """
@@ -10203,7 +10203,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeaders(dict):
     @pulumi.getter(name="xFdHealthProbe")
     def x_fd_health_probe(self) -> Optional[str]:
         """
-        Specifies if a Front Door Health Probe should be expected.
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
@@ -11192,7 +11192,7 @@ class LinuxWebAppBackup(dict):
         :param str name: The name which should be used for this Backup.
         :param 'LinuxWebAppBackupScheduleArgs' schedule: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
-        :param bool enabled: Should this backup job be enabled?
+        :param bool enabled: Should this backup job be enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule", schedule)
@@ -11228,7 +11228,7 @@ class LinuxWebAppBackup(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Should this backup job be enabled?
+        Should this backup job be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -11273,7 +11273,7 @@ class LinuxWebAppBackupSchedule(dict):
         :param int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
         :param str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
         :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
-        :param int retention_period_days: After how many days backups should be deleted.
+        :param int retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
         pulumi.set(__self__, "frequency_interval", frequency_interval)
@@ -11320,7 +11320,7 @@ class LinuxWebAppBackupSchedule(dict):
     @pulumi.getter(name="retentionPeriodDays")
     def retention_period_days(self) -> Optional[int]:
         """
-        After how many days backups should be deleted.
+        After how many days backups should be deleted. Defaults to `30`.
         """
         return pulumi.get(self, "retention_period_days")
 
@@ -12293,7 +12293,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         :param str java_server_version: The Version of the `java_server` to use.
         :param str java_version: The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
         :param str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
-        :param str php_version: The version of PHP to run. Possible values include `7.4`, and `8.0`.
+        :param str php_version: The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
         :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
         :param str ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
@@ -12378,7 +12378,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[str]:
         """
-        The version of PHP to run. Possible values include `7.4`, and `8.0`.
+        The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
         """
         return pulumi.get(self, "php_version")
 
@@ -12821,7 +12821,7 @@ class LinuxWebAppSiteConfigIpRestriction(dict):
         :param 'LinuxWebAppSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
-        :param int priority: The priority value of this `ip_restriction`.
+        :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
@@ -12876,7 +12876,7 @@ class LinuxWebAppSiteConfigIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority value of this `ip_restriction`.
+        The priority value of this `ip_restriction`. Defaults to `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -12929,7 +12929,7 @@ class LinuxWebAppSiteConfigIpRestrictionHeaders(dict):
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] x_azure_fdids: Specifies a list of Azure Front Door IDs.
-        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         :param Sequence[str] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
         :param Sequence[str] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
         """
@@ -12954,7 +12954,7 @@ class LinuxWebAppSiteConfigIpRestrictionHeaders(dict):
     @pulumi.getter(name="xFdHealthProbe")
     def x_fd_health_probe(self) -> Optional[str]:
         """
-        Specifies if a Front Door Health Probe should be expected.
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
@@ -13011,7 +13011,7 @@ class LinuxWebAppSiteConfigScmIpRestriction(dict):
         :param 'LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
-        :param int priority: The priority value of this `ip_restriction`.
+        :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
@@ -13066,7 +13066,7 @@ class LinuxWebAppSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority value of this `ip_restriction`.
+        The priority value of this `ip_restriction`. Defaults to `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -13119,7 +13119,7 @@ class LinuxWebAppSiteConfigScmIpRestrictionHeaders(dict):
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] x_azure_fdids: Specifies a list of Azure Front Door IDs.
-        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         :param Sequence[str] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
         :param Sequence[str] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
         """
@@ -13144,7 +13144,7 @@ class LinuxWebAppSiteConfigScmIpRestrictionHeaders(dict):
     @pulumi.getter(name="xFdHealthProbe")
     def x_fd_health_probe(self) -> Optional[str]:
         """
-        Specifies if a Front Door Health Probe should be expected.
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
@@ -13889,7 +13889,7 @@ class LinuxWebAppSlotBackup(dict):
         :param str name: The name which should be used for this Backup.
         :param 'LinuxWebAppSlotBackupScheduleArgs' schedule: An `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
-        :param bool enabled: Should this backup job be enabled?
+        :param bool enabled: Should this backup job be enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule", schedule)
@@ -13925,7 +13925,7 @@ class LinuxWebAppSlotBackup(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Should this backup job be enabled?
+        Should this backup job be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -13970,7 +13970,7 @@ class LinuxWebAppSlotBackupSchedule(dict):
         :param int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
         :param str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
         :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
-        :param int retention_period_days: After how many days backups should be deleted.
+        :param int retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
         pulumi.set(__self__, "frequency_interval", frequency_interval)
@@ -14017,7 +14017,7 @@ class LinuxWebAppSlotBackupSchedule(dict):
     @pulumi.getter(name="retentionPeriodDays")
     def retention_period_days(self) -> Optional[int]:
         """
-        After how many days backups should be deleted.
+        After how many days backups should be deleted. Defaults to `30`.
         """
         return pulumi.get(self, "retention_period_days")
 
@@ -14594,7 +14594,7 @@ class LinuxWebAppSlotSiteConfig(dict):
                  websockets_enabled: Optional[bool] = None,
                  worker_count: Optional[int] = None):
         """
-        :param bool always_on: If this Linux Web App is Always On enabled. Defaults to `false`.
+        :param bool always_on: If this Linux Web App is Always On enabled. Defaults to `true`.
         :param str api_definition_url: The URL to the API Definition for this Linux Web App Slot.
         :param str api_management_api_id: The API Management API ID this Linux Web App Slot is associated with.
         :param str app_command_line: The App command line to launch.
@@ -14695,7 +14695,7 @@ class LinuxWebAppSlotSiteConfig(dict):
     @pulumi.getter(name="alwaysOn")
     def always_on(self) -> Optional[bool]:
         """
-        If this Linux Web App is Always On enabled. Defaults to `false`.
+        If this Linux Web App is Always On enabled. Defaults to `true`.
         """
         return pulumi.get(self, "always_on")
 
@@ -14995,12 +14995,12 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         """
         :param str docker_image: The Docker image reference, including repository host as needed.
         :param str docker_image_tag: The image Tag to use. e.g. `latest`.
-        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
+        :param str dotnet_version: The version of .NET to use. Possible values are `3.1`, `5.0`, `6.0` and `7.0`.
         :param str java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         :param str java_server_version: The Version of the `java_server` to use.
         :param str java_version: The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
         :param str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
-        :param str php_version: The version of PHP to run. Possible values include `7.4`, and `8.0`.
+        :param str php_version: The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
         :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
         :param str ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
@@ -15045,7 +15045,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
+        The version of .NET to use. Possible values are `3.1`, `5.0`, `6.0` and `7.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -15085,7 +15085,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[str]:
         """
-        The version of PHP to run. Possible values include `7.4`, and `8.0`.
+        The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
         """
         return pulumi.get(self, "php_version")
 
@@ -15528,7 +15528,7 @@ class LinuxWebAppSlotSiteConfigIpRestriction(dict):
         :param 'LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
-        :param int priority: The priority value of this `ip_restriction`.
+        :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
@@ -15583,7 +15583,7 @@ class LinuxWebAppSlotSiteConfigIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority value of this `ip_restriction`.
+        The priority value of this `ip_restriction`. Defaults to `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -15636,7 +15636,7 @@ class LinuxWebAppSlotSiteConfigIpRestrictionHeaders(dict):
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] x_azure_fdids: Specifies a list of Azure Front Door IDs.
-        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         :param Sequence[str] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
         :param Sequence[str] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
         """
@@ -15661,7 +15661,7 @@ class LinuxWebAppSlotSiteConfigIpRestrictionHeaders(dict):
     @pulumi.getter(name="xFdHealthProbe")
     def x_fd_health_probe(self) -> Optional[str]:
         """
-        Specifies if a Front Door Health Probe should be expected.
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
@@ -15718,7 +15718,7 @@ class LinuxWebAppSlotSiteConfigScmIpRestriction(dict):
         :param 'LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
-        :param int priority: The priority value of this `ip_restriction`.
+        :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
@@ -15773,7 +15773,7 @@ class LinuxWebAppSlotSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority value of this `ip_restriction`.
+        The priority value of this `ip_restriction`. Defaults to `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -15826,7 +15826,7 @@ class LinuxWebAppSlotSiteConfigScmIpRestrictionHeaders(dict):
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] x_azure_fdids: Specifies a list of Azure Front Door IDs.
-        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         :param Sequence[str] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
         :param Sequence[str] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
         """
@@ -15851,7 +15851,7 @@ class LinuxWebAppSlotSiteConfigScmIpRestrictionHeaders(dict):
     @pulumi.getter(name="xFdHealthProbe")
     def x_fd_health_probe(self) -> Optional[str]:
         """
-        Specifies if a Front Door Health Probe should be expected.
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
@@ -16247,8 +16247,8 @@ class SlotAuthSettings(dict):
         :param str issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
         :param 'SlotAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
         :param str runtime_version: The runtime version of the Authentication/Authorization module.
-        :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
-        :param bool token_store_enabled: If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+        :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
+        :param bool token_store_enabled: If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
         :param 'SlotAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
         """
@@ -16364,7 +16364,7 @@ class SlotAuthSettings(dict):
     @pulumi.getter(name="tokenRefreshExtensionHours")
     def token_refresh_extension_hours(self) -> Optional[float]:
         """
-        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
         """
         return pulumi.get(self, "token_refresh_extension_hours")
 
@@ -16372,7 +16372,7 @@ class SlotAuthSettings(dict):
     @pulumi.getter(name="tokenStoreEnabled")
     def token_store_enabled(self) -> Optional[bool]:
         """
-        If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+        If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
         """
         return pulumi.get(self, "token_store_enabled")
 
@@ -17264,7 +17264,7 @@ class SlotSiteConfig(dict):
         :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
         :param Sequence['SlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param str scm_type: The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
-        :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
+        :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to `false`.
         :param bool use32_bit_worker_process: Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
         :param bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should WebSockets be enabled?
@@ -17545,7 +17545,7 @@ class SlotSiteConfig(dict):
     @pulumi.getter(name="scmUseMainIpRestriction")
     def scm_use_main_ip_restriction(self) -> Optional[bool]:
         """
-        IP security restrictions for scm to use main. Defaults to false.
+        IP security restrictions for scm to use main. Defaults to `false`.
         """
         return pulumi.get(self, "scm_use_main_ip_restriction")
 
@@ -18234,7 +18234,7 @@ class SourceControlGithubActionConfigurationCodeConfiguration(dict):
                  runtime_stack: str,
                  runtime_version: str):
         """
-        :param str runtime_stack: The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+        :param str runtime_stack: The value to use for the Runtime Stack in the workflow file content for code base apps. Possible values are `dotnetcore`, `spring`, `tomcat`, `node` and `python`. Changing this forces a new resource to be created.
         :param str runtime_version: The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "runtime_stack", runtime_stack)
@@ -18244,7 +18244,7 @@ class SourceControlGithubActionConfigurationCodeConfiguration(dict):
     @pulumi.getter(name="runtimeStack")
     def runtime_stack(self) -> str:
         """
-        The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+        The value to use for the Runtime Stack in the workflow file content for code base apps. Possible values are `dotnetcore`, `spring`, `tomcat`, `node` and `python`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "runtime_stack")
 
@@ -19299,7 +19299,7 @@ class WindowsFunctionAppBackup(dict):
         :param str name: The name which should be used for this Backup.
         :param 'WindowsFunctionAppBackupScheduleArgs' schedule: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
-        :param bool enabled: Should this backup job be enabled?
+        :param bool enabled: Should this backup job be enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule", schedule)
@@ -19335,7 +19335,7 @@ class WindowsFunctionAppBackup(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Should this backup job be enabled?
+        Should this backup job be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -19380,7 +19380,7 @@ class WindowsFunctionAppBackupSchedule(dict):
         :param int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
         :param str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
         :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
-        :param int retention_period_days: After how many days backups should be deleted.
+        :param int retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
         pulumi.set(__self__, "frequency_interval", frequency_interval)
@@ -19427,7 +19427,7 @@ class WindowsFunctionAppBackupSchedule(dict):
     @pulumi.getter(name="retentionPeriodDays")
     def retention_period_days(self) -> Optional[int]:
         """
-        After how many days backups should be deleted.
+        After how many days backups should be deleted. Defaults to `30`.
         """
         return pulumi.get(self, "retention_period_days")
 
@@ -20064,8 +20064,8 @@ class WindowsFunctionAppSiteConfigAppServiceLogs(dict):
                  disk_quota_mb: Optional[int] = None,
                  retention_period_days: Optional[int] = None):
         """
-        :param int disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`.
-        :param int retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        :param int disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
+        :param int retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
         """
         if disk_quota_mb is not None:
             pulumi.set(__self__, "disk_quota_mb", disk_quota_mb)
@@ -20076,7 +20076,7 @@ class WindowsFunctionAppSiteConfigAppServiceLogs(dict):
     @pulumi.getter(name="diskQuotaMb")
     def disk_quota_mb(self) -> Optional[int]:
         """
-        The amount of disk space to use for logs. Valid values are between `25` and `100`.
+        The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
         """
         return pulumi.get(self, "disk_quota_mb")
 
@@ -20084,7 +20084,7 @@ class WindowsFunctionAppSiteConfigAppServiceLogs(dict):
     @pulumi.getter(name="retentionPeriodDays")
     def retention_period_days(self) -> Optional[int]:
         """
-        The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
         """
         return pulumi.get(self, "retention_period_days")
 
@@ -20280,7 +20280,7 @@ class WindowsFunctionAppSiteConfigIpRestriction(dict):
         :param 'WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
-        :param int priority: The priority value of this `ip_restriction`.
+        :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
@@ -20335,7 +20335,7 @@ class WindowsFunctionAppSiteConfigIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority value of this `ip_restriction`.
+        The priority value of this `ip_restriction`. Defaults to `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -20388,7 +20388,7 @@ class WindowsFunctionAppSiteConfigIpRestrictionHeaders(dict):
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] x_azure_fdids: Specifies a list of Azure Front Door IDs.
-        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         :param Sequence[str] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
         :param Sequence[str] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
         """
@@ -20413,7 +20413,7 @@ class WindowsFunctionAppSiteConfigIpRestrictionHeaders(dict):
     @pulumi.getter(name="xFdHealthProbe")
     def x_fd_health_probe(self) -> Optional[str]:
         """
-        Specifies if a Front Door Health Probe should be expected.
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
@@ -20470,7 +20470,7 @@ class WindowsFunctionAppSiteConfigScmIpRestriction(dict):
         :param 'WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
-        :param int priority: The priority value of this `ip_restriction`.
+        :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
@@ -20525,7 +20525,7 @@ class WindowsFunctionAppSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority value of this `ip_restriction`.
+        The priority value of this `ip_restriction`. Defaults to `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -20578,7 +20578,7 @@ class WindowsFunctionAppSiteConfigScmIpRestrictionHeaders(dict):
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] x_azure_fdids: Specifies a list of Azure Front Door IDs.
-        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         :param Sequence[str] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
         :param Sequence[str] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
         """
@@ -20603,7 +20603,7 @@ class WindowsFunctionAppSiteConfigScmIpRestrictionHeaders(dict):
     @pulumi.getter(name="xFdHealthProbe")
     def x_fd_health_probe(self) -> Optional[str]:
         """
-        Specifies if a Front Door Health Probe should be expected.
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
@@ -21348,7 +21348,7 @@ class WindowsFunctionAppSlotBackup(dict):
         :param str name: The name which should be used for this Backup.
         :param 'WindowsFunctionAppSlotBackupScheduleArgs' schedule: a `schedule` block as detailed below.
         :param str storage_account_url: The SAS URL to the container.
-        :param bool enabled: Should this backup job be enabled?
+        :param bool enabled: Should this backup job be enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule", schedule)
@@ -21384,7 +21384,7 @@ class WindowsFunctionAppSlotBackup(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Should this backup job be enabled?
+        Should this backup job be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -21430,7 +21430,7 @@ class WindowsFunctionAppSlotBackupSchedule(dict):
         :param str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
         :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
         :param str last_execution_time: The time the backup was last attempted.
-        :param int retention_period_days: After how many days backups should be deleted.
+        :param int retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
         pulumi.set(__self__, "frequency_interval", frequency_interval)
@@ -21480,7 +21480,7 @@ class WindowsFunctionAppSlotBackupSchedule(dict):
     @pulumi.getter(name="retentionPeriodDays")
     def retention_period_days(self) -> Optional[int]:
         """
-        After how many days backups should be deleted.
+        After how many days backups should be deleted. Defaults to `30`.
         """
         return pulumi.get(self, "retention_period_days")
 
@@ -21760,7 +21760,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
         :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param str scm_type: The SCM Type in use by the Windows Function App.
         :param bool scm_use_main_ip_restriction: Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
-        :param bool use32_bit_worker: Should the Windows Web App use a 32-bit worker.
+        :param bool use32_bit_worker: Should the Windows Web App use a 32-bit worker. Defaults to `true`.
         :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param str windows_fx_version: The Windows FX Version string.
@@ -22081,7 +22081,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="use32BitWorker")
     def use32_bit_worker(self) -> Optional[bool]:
         """
-        Should the Windows Web App use a 32-bit worker.
+        Should the Windows Web App use a 32-bit worker. Defaults to `true`.
         """
         return pulumi.get(self, "use32_bit_worker")
 
@@ -22143,8 +22143,8 @@ class WindowsFunctionAppSlotSiteConfigAppServiceLogs(dict):
                  disk_quota_mb: Optional[int] = None,
                  retention_period_days: Optional[int] = None):
         """
-        :param int disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`.
-        :param int retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        :param int disk_quota_mb: The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
+        :param int retention_period_days: The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
         """
         if disk_quota_mb is not None:
             pulumi.set(__self__, "disk_quota_mb", disk_quota_mb)
@@ -22155,7 +22155,7 @@ class WindowsFunctionAppSlotSiteConfigAppServiceLogs(dict):
     @pulumi.getter(name="diskQuotaMb")
     def disk_quota_mb(self) -> Optional[int]:
         """
-        The amount of disk space to use for logs. Valid values are between `25` and `100`.
+        The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
         """
         return pulumi.get(self, "disk_quota_mb")
 
@@ -22163,7 +22163,7 @@ class WindowsFunctionAppSlotSiteConfigAppServiceLogs(dict):
     @pulumi.getter(name="retentionPeriodDays")
     def retention_period_days(self) -> Optional[int]:
         """
-        The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
         """
         return pulumi.get(self, "retention_period_days")
 
@@ -22359,7 +22359,7 @@ class WindowsFunctionAppSlotSiteConfigIpRestriction(dict):
         :param 'WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs' headers: a `headers` block as detailed below.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
-        :param int priority: The priority value of this `ip_restriction`.
+        :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
@@ -22414,7 +22414,7 @@ class WindowsFunctionAppSlotSiteConfigIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority value of this `ip_restriction`.
+        The priority value of this `ip_restriction`. Defaults to `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -22549,7 +22549,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestriction(dict):
         :param 'WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs' headers: a `headers` block as detailed below.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
-        :param int priority: The priority value of this `ip_restriction`.
+        :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
         """
@@ -22604,7 +22604,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority value of this `ip_restriction`.
+        The priority value of this `ip_restriction`. Defaults to `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -23671,7 +23671,7 @@ class WindowsWebAppBackup(dict):
         :param str name: The name which should be used for this Backup.
         :param 'WindowsWebAppBackupScheduleArgs' schedule: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
-        :param bool enabled: Should this backup job be enabled?
+        :param bool enabled: Should this backup job be enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule", schedule)
@@ -23707,7 +23707,7 @@ class WindowsWebAppBackup(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Should this backup job be enabled?
+        Should this backup job be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -23752,7 +23752,7 @@ class WindowsWebAppBackupSchedule(dict):
         :param int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
         :param str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
         :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
-        :param int retention_period_days: After how many days backups should be deleted.
+        :param int retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
         pulumi.set(__self__, "frequency_interval", frequency_interval)
@@ -23799,7 +23799,7 @@ class WindowsWebAppBackupSchedule(dict):
     @pulumi.getter(name="retentionPeriodDays")
     def retention_period_days(self) -> Optional[int]:
         """
-        After how many days backups should be deleted.
+        After how many days backups should be deleted. Defaults to `30`.
         """
         return pulumi.get(self, "retention_period_days")
 
@@ -24403,7 +24403,7 @@ class WindowsWebAppSiteConfig(dict):
         :param Sequence['WindowsWebAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Windows Web App `ip_restriction` configuration be used for the SCM also.
-        :param bool use32_bit_worker: Should the Windows Web App use a 32-bit worker.
+        :param bool use32_bit_worker: Should the Windows Web App use a 32-bit worker. Defaults to `true`.
         :param Sequence['WindowsWebAppSiteConfigVirtualApplicationArgs'] virtual_applications: One or more `virtual_application` blocks as defined below.
         :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
@@ -24694,7 +24694,7 @@ class WindowsWebAppSiteConfig(dict):
     @pulumi.getter(name="use32BitWorker")
     def use32_bit_worker(self) -> Optional[bool]:
         """
-        Should the Windows Web App use a 32-bit worker.
+        Should the Windows Web App use a 32-bit worker. Defaults to `true`.
         """
         return pulumi.get(self, "use32_bit_worker")
 
@@ -25390,7 +25390,7 @@ class WindowsWebAppSiteConfigIpRestriction(dict):
         :param 'WindowsWebAppSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
-        :param int priority: The priority value of this `ip_restriction`.
+        :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
@@ -25445,7 +25445,7 @@ class WindowsWebAppSiteConfigIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority value of this `ip_restriction`.
+        The priority value of this `ip_restriction`. Defaults to `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -25498,7 +25498,7 @@ class WindowsWebAppSiteConfigIpRestrictionHeaders(dict):
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] x_azure_fdids: Specifies a list of Azure Front Door IDs.
-        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         :param Sequence[str] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
         :param Sequence[str] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
         """
@@ -25523,7 +25523,7 @@ class WindowsWebAppSiteConfigIpRestrictionHeaders(dict):
     @pulumi.getter(name="xFdHealthProbe")
     def x_fd_health_probe(self) -> Optional[str]:
         """
-        Specifies if a Front Door Health Probe should be expected.
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
@@ -25580,7 +25580,7 @@ class WindowsWebAppSiteConfigScmIpRestriction(dict):
         :param 'WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
-        :param int priority: The priority value of this `ip_restriction`.
+        :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
@@ -25635,7 +25635,7 @@ class WindowsWebAppSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority value of this `ip_restriction`.
+        The priority value of this `ip_restriction`. Defaults to `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -25688,7 +25688,7 @@ class WindowsWebAppSiteConfigScmIpRestrictionHeaders(dict):
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] x_azure_fdids: Specifies a list of Azure Front Door IDs.
-        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         :param Sequence[str] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
         :param Sequence[str] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
         """
@@ -25713,7 +25713,7 @@ class WindowsWebAppSiteConfigScmIpRestrictionHeaders(dict):
     @pulumi.getter(name="xFdHealthProbe")
     def x_fd_health_probe(self) -> Optional[str]:
         """
-        Specifies if a Front Door Health Probe should be expected.
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
@@ -25764,7 +25764,7 @@ class WindowsWebAppSiteConfigVirtualApplication(dict):
                  virtual_directories: Optional[Sequence['outputs.WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory']] = None):
         """
         :param str physical_path: The physical path for the Virtual Application.
-        :param bool preload: Should pre-loading be enabled. Defaults to `false`.
+        :param bool preload: Should pre-loading be enabled.
         :param str virtual_path: The Virtual Path for the Virtual Application.
         :param Sequence['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs'] virtual_directories: One or more `virtual_directory` blocks as defined below.
         """
@@ -25786,7 +25786,7 @@ class WindowsWebAppSiteConfigVirtualApplication(dict):
     @pulumi.getter
     def preload(self) -> bool:
         """
-        Should pre-loading be enabled. Defaults to `false`.
+        Should pre-loading be enabled.
         """
         return pulumi.get(self, "preload")
 
@@ -26581,7 +26581,7 @@ class WindowsWebAppSlotBackup(dict):
         :param str name: The name which should be used for this Backup.
         :param 'WindowsWebAppSlotBackupScheduleArgs' schedule: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
-        :param bool enabled: Should this backup job be enabled?
+        :param bool enabled: Should this backup job be enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule", schedule)
@@ -26617,7 +26617,7 @@ class WindowsWebAppSlotBackup(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Should this backup job be enabled?
+        Should this backup job be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -26662,7 +26662,7 @@ class WindowsWebAppSlotBackupSchedule(dict):
         :param int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
         :param str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
         :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
-        :param int retention_period_days: After how many days backups should be deleted.
+        :param int retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
         pulumi.set(__self__, "frequency_interval", frequency_interval)
@@ -26709,7 +26709,7 @@ class WindowsWebAppSlotBackupSchedule(dict):
     @pulumi.getter(name="retentionPeriodDays")
     def retention_period_days(self) -> Optional[int]:
         """
-        After how many days backups should be deleted.
+        After how many days backups should be deleted. Defaults to `30`.
         """
         return pulumi.get(self, "retention_period_days")
 
@@ -27289,7 +27289,7 @@ class WindowsWebAppSlotSiteConfig(dict):
                  windows_fx_version: Optional[str] = None,
                  worker_count: Optional[int] = None):
         """
-        :param bool always_on: If this Windows Web App Slot is Always On enabled. Defaults to `false`.
+        :param bool always_on: If this Windows Web App Slot is Always On enabled. Defaults to `true`.
         :param str api_definition_url: The URL to the API Definition for this Windows Web App Slot.
         :param str api_management_api_id: The API Management API ID this Windows Web App Slot os associated with.
         :param str app_command_line: The App command line to launch.
@@ -27393,7 +27393,7 @@ class WindowsWebAppSlotSiteConfig(dict):
     @pulumi.getter(name="alwaysOn")
     def always_on(self) -> Optional[bool]:
         """
-        If this Windows Web App Slot is Always On enabled. Defaults to `false`.
+        If this Windows Web App Slot is Always On enabled. Defaults to `true`.
         """
         return pulumi.get(self, "always_on")
 
@@ -27706,7 +27706,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
         :param str docker_container_name: The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
         :param str docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
         :param str docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
-        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0` .
+        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values are `v2.0`, `v3.0`, `core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0` .
         :param str java_container: The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
         :param str java_container_version: The Version of the `java_container` to use. Required with `java_version` and `java_container`.
         :param str java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
@@ -27773,7 +27773,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0` .
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values are `v2.0`, `v3.0`, `core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0` .
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -27883,7 +27883,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingAction(dict):
                  custom_action: Optional['outputs.WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction'] = None,
                  minimum_process_execution_time: Optional[str] = None):
         """
-        :param str action_type: Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+        :param str action_type: Predefined action to be taken to an Auto Heal trigger. Possible values are `CustomAction`, `LogEvent` and `Recycle`.
         :param 'WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs' custom_action: A `custom_action` block as defined below.
         :param str minimum_process_execution_time: The minimum amount of time in `hh:mm:ss` the Windows Web App Slot must have been running before the defined action will be run in the event of a trigger.
         """
@@ -27897,7 +27897,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingAction(dict):
     @pulumi.getter(name="actionType")
     def action_type(self) -> str:
         """
-        Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+        Predefined action to be taken to an Auto Heal trigger. Possible values are `CustomAction`, `LogEvent` and `Recycle`.
         """
         return pulumi.get(self, "action_type")
 
@@ -28304,7 +28304,7 @@ class WindowsWebAppSlotSiteConfigIpRestriction(dict):
         :param 'WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
-        :param int priority: The priority value of this `ip_restriction`.
+        :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
@@ -28359,7 +28359,7 @@ class WindowsWebAppSlotSiteConfigIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority value of this `ip_restriction`.
+        The priority value of this `ip_restriction`. Defaults to `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -28412,7 +28412,7 @@ class WindowsWebAppSlotSiteConfigIpRestrictionHeaders(dict):
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] x_azure_fdids: Specifies a list of Azure Front Door IDs.
-        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         :param Sequence[str] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
         :param Sequence[str] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
         """
@@ -28437,7 +28437,7 @@ class WindowsWebAppSlotSiteConfigIpRestrictionHeaders(dict):
     @pulumi.getter(name="xFdHealthProbe")
     def x_fd_health_probe(self) -> Optional[str]:
         """
-        Specifies if a Front Door Health Probe should be expected.
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
@@ -28494,7 +28494,7 @@ class WindowsWebAppSlotSiteConfigScmIpRestriction(dict):
         :param 'WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
-        :param int priority: The priority value of this `ip_restriction`.
+        :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
@@ -28549,7 +28549,7 @@ class WindowsWebAppSlotSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority value of this `ip_restriction`.
+        The priority value of this `ip_restriction`. Defaults to `65000`.
         """
         return pulumi.get(self, "priority")
 
@@ -28602,7 +28602,7 @@ class WindowsWebAppSlotSiteConfigScmIpRestrictionHeaders(dict):
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] x_azure_fdids: Specifies a list of Azure Front Door IDs.
-        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected.
+        :param str x_fd_health_probe: Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         :param Sequence[str] x_forwarded_fors: Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
         :param Sequence[str] x_forwarded_hosts: Specifies a list of Hosts for which matching should be applied.
         """
@@ -28627,7 +28627,7 @@ class WindowsWebAppSlotSiteConfigScmIpRestrictionHeaders(dict):
     @pulumi.getter(name="xFdHealthProbe")
     def x_fd_health_probe(self) -> Optional[str]:
         """
-        Specifies if a Front Door Health Probe should be expected.
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         """
         return pulumi.get(self, "x_fd_health_probe")
 
@@ -28678,7 +28678,7 @@ class WindowsWebAppSlotSiteConfigVirtualApplication(dict):
                  virtual_directories: Optional[Sequence['outputs.WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory']] = None):
         """
         :param str physical_path: The physical path for the Virtual Application.
-        :param bool preload: Should pre-loading be enabled. Defaults to `false`.
+        :param bool preload: Should pre-loading be enabled.
         :param str virtual_path: The Virtual Path for the Virtual Application.
         :param Sequence['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs'] virtual_directories: One or more `virtual_directory` blocks as defined below.
         """
@@ -28700,7 +28700,7 @@ class WindowsWebAppSlotSiteConfigVirtualApplication(dict):
     @pulumi.getter
     def preload(self) -> bool:
         """
-        Should pre-loading be enabled. Defaults to `false`.
+        Should pre-loading be enabled.
         """
         return pulumi.get(self, "preload")
 

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorRuleConditionsIsDeviceCondition
     {
         /// <summary>
-        /// Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+        /// Which device should this rule match on? Possible values `Mobile` or `Desktop`.
         /// </summary>
         public readonly string? MatchValues;
         /// <summary>

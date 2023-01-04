@@ -45,7 +45,7 @@ class SharedImageArgs:
         :param pulumi.Input['SharedImageIdentifierArgs'] identifier: An `identifier` block as defined below.
         :param pulumi.Input[str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
@@ -61,9 +61,9 @@ class SharedImageArgs:
         :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input['SharedImagePurchasePlanArgs'] purchase_plan: A `purchase_plan` block as defined below.
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
-        :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image.
-        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "gallery_name", gallery_name)
         pulumi.set(__self__, "identifier", identifier)
@@ -160,7 +160,7 @@ class SharedImageArgs:
     @pulumi.getter(name="acceleratedNetworkSupportEnabled")
     def accelerated_network_support_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "accelerated_network_support_enabled")
 
@@ -352,7 +352,7 @@ class SharedImageArgs:
     @pulumi.getter
     def specialized(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+        Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "specialized")
 
@@ -376,7 +376,7 @@ class SharedImageArgs:
     @pulumi.getter(name="trustedLaunchEnabled")
     def trusted_launch_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+        Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "trusted_launch_enabled")
 
@@ -413,7 +413,7 @@ class _SharedImageState:
                  trusted_launch_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering SharedImage resources.
-        :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
@@ -433,9 +433,9 @@ class _SharedImageState:
         :param pulumi.Input['SharedImagePurchasePlanArgs'] purchase_plan: A `purchase_plan` block as defined below.
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image.
-        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
         """
         if accelerated_network_support_enabled is not None:
             pulumi.set(__self__, "accelerated_network_support_enabled", accelerated_network_support_enabled)
@@ -488,7 +488,7 @@ class _SharedImageState:
     @pulumi.getter(name="acceleratedNetworkSupportEnabled")
     def accelerated_network_support_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "accelerated_network_support_enabled")
 
@@ -728,7 +728,7 @@ class _SharedImageState:
     @pulumi.getter
     def specialized(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+        Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "specialized")
 
@@ -752,7 +752,7 @@ class _SharedImageState:
     @pulumi.getter(name="trustedLaunchEnabled")
     def trusted_launch_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+        Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "trusted_launch_enabled")
 
@@ -830,7 +830,7 @@ class SharedImage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
@@ -850,9 +850,9 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArgs']] purchase_plan: A `purchase_plan` block as defined below.
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image.
-        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -1016,7 +1016,7 @@ class SharedImage(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
@@ -1036,9 +1036,9 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArgs']] purchase_plan: A `purchase_plan` block as defined below.
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image.
-        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1073,7 +1073,7 @@ class SharedImage(pulumi.CustomResource):
     @pulumi.getter(name="acceleratedNetworkSupportEnabled")
     def accelerated_network_support_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "accelerated_network_support_enabled")
 
@@ -1233,7 +1233,7 @@ class SharedImage(pulumi.CustomResource):
     @pulumi.getter
     def specialized(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+        Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "specialized")
 
@@ -1249,7 +1249,7 @@ class SharedImage(pulumi.CustomResource):
     @pulumi.getter(name="trustedLaunchEnabled")
     def trusted_launch_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+        Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "trusted_launch_enabled")
 

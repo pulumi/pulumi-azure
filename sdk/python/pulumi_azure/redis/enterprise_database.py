@@ -36,7 +36,7 @@ class EnterpriseDatabaseArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
         :param pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]] modules: A `module` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
-        :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -162,7 +162,7 @@ class EnterpriseDatabaseArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+        TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
         """
         return pulumi.get(self, "port")
 
@@ -208,7 +208,7 @@ class _EnterpriseDatabaseState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
         :param pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]] modules: A `module` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
-        :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
         :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Enterprise Database Instance.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Enterprise Database Instance.
@@ -341,7 +341,7 @@ class _EnterpriseDatabaseState:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+        TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
         """
         return pulumi.get(self, "port")
 
@@ -452,7 +452,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnterpriseDatabaseModuleArgs']]]] modules: A `module` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
-        :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         """
         ...
@@ -591,7 +591,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnterpriseDatabaseModuleArgs']]]] modules: A `module` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
-        :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
         :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Enterprise Database Instance.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Enterprise Database Instance.
@@ -682,7 +682,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[int]]:
         """
-        TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+        TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
         """
         return pulumi.get(self, "port")
 

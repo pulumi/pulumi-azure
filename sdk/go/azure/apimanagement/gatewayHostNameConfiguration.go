@@ -115,7 +115,7 @@ type GatewayHostNameConfiguration struct {
 	GatewayName pulumi.StringOutput `pulumi:"gatewayName"`
 	// The host name to use for the API Management Gateway Host Name Configuration.
 	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// Whether HTTP/2.0 is supported.
+	// Whether HTTP/2.0 is supported. Defaults to `true`.
 	Http2Enabled pulumi.BoolPtrOutput `pulumi:"http2Enabled"`
 	// The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -176,7 +176,7 @@ type gatewayHostNameConfigurationState struct {
 	GatewayName *string `pulumi:"gatewayName"`
 	// The host name to use for the API Management Gateway Host Name Configuration.
 	HostName *string `pulumi:"hostName"`
-	// Whether HTTP/2.0 is supported.
+	// Whether HTTP/2.0 is supported. Defaults to `true`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
 	// The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -197,7 +197,7 @@ type GatewayHostNameConfigurationState struct {
 	GatewayName pulumi.StringPtrInput
 	// The host name to use for the API Management Gateway Host Name Configuration.
 	HostName pulumi.StringPtrInput
-	// Whether HTTP/2.0 is supported.
+	// Whether HTTP/2.0 is supported. Defaults to `true`.
 	Http2Enabled pulumi.BoolPtrInput
 	// The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -222,7 +222,7 @@ type gatewayHostNameConfigurationArgs struct {
 	GatewayName string `pulumi:"gatewayName"`
 	// The host name to use for the API Management Gateway Host Name Configuration.
 	HostName string `pulumi:"hostName"`
-	// Whether HTTP/2.0 is supported.
+	// Whether HTTP/2.0 is supported. Defaults to `true`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
 	// The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -244,7 +244,7 @@ type GatewayHostNameConfigurationArgs struct {
 	GatewayName pulumi.StringInput
 	// The host name to use for the API Management Gateway Host Name Configuration.
 	HostName pulumi.StringInput
-	// Whether HTTP/2.0 is supported.
+	// Whether HTTP/2.0 is supported. Defaults to `true`.
 	Http2Enabled pulumi.BoolPtrInput
 	// The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -363,7 +363,7 @@ func (o GatewayHostNameConfigurationOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayHostNameConfiguration) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
 }
 
-// Whether HTTP/2.0 is supported.
+// Whether HTTP/2.0 is supported. Defaults to `true`.
 func (o GatewayHostNameConfigurationOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GatewayHostNameConfiguration) pulumi.BoolPtrOutput { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }

@@ -85,11 +85,11 @@ type Subscription struct {
 	ClientScopedSubscriptionEnabled pulumi.BoolPtrOutput `pulumi:"clientScopedSubscriptionEnabled"`
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrOutput `pulumi:"deadLetteringOnFilterEvaluationError"`
-	// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+	// Boolean flag which controls whether the Subscription has dead letter support when a message expires.
 	DeadLetteringOnMessageExpiration pulumi.BoolPtrOutput `pulumi:"deadLetteringOnMessageExpiration"`
 	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
 	DefaultMessageTtl pulumi.StringOutput `pulumi:"defaultMessageTtl"`
-	// Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+	// Boolean flag which controls whether the Subscription supports batched operations.
 	EnableBatchedOperations pulumi.BoolPtrOutput `pulumi:"enableBatchedOperations"`
 	// The name of a Queue or Topic to automatically forward Dead Letter messages to.
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrOutput `pulumi:"forwardDeadLetteredMessagesTo"`
@@ -101,7 +101,7 @@ type Subscription struct {
 	MaxDeliveryCount pulumi.IntOutput `pulumi:"maxDeliveryCount"`
 	// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+	// Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
 	RequiresSession pulumi.BoolPtrOutput `pulumi:"requiresSession"`
 	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
@@ -158,11 +158,11 @@ type subscriptionState struct {
 	ClientScopedSubscriptionEnabled *bool `pulumi:"clientScopedSubscriptionEnabled"`
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError *bool `pulumi:"deadLetteringOnFilterEvaluationError"`
-	// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+	// Boolean flag which controls whether the Subscription has dead letter support when a message expires.
 	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
 	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
 	DefaultMessageTtl *string `pulumi:"defaultMessageTtl"`
-	// Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+	// Boolean flag which controls whether the Subscription supports batched operations.
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// The name of a Queue or Topic to automatically forward Dead Letter messages to.
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
@@ -174,7 +174,7 @@ type subscriptionState struct {
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
 	// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+	// Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
 	RequiresSession *bool `pulumi:"requiresSession"`
 	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
 	Status *string `pulumi:"status"`
@@ -191,11 +191,11 @@ type SubscriptionState struct {
 	ClientScopedSubscriptionEnabled pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrInput
-	// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+	// Boolean flag which controls whether the Subscription has dead letter support when a message expires.
 	DeadLetteringOnMessageExpiration pulumi.BoolPtrInput
 	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
 	DefaultMessageTtl pulumi.StringPtrInput
-	// Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+	// Boolean flag which controls whether the Subscription supports batched operations.
 	EnableBatchedOperations pulumi.BoolPtrInput
 	// The name of a Queue or Topic to automatically forward Dead Letter messages to.
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
@@ -207,7 +207,7 @@ type SubscriptionState struct {
 	MaxDeliveryCount pulumi.IntPtrInput
 	// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+	// Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
 	RequiresSession pulumi.BoolPtrInput
 	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrInput
@@ -228,11 +228,11 @@ type subscriptionArgs struct {
 	ClientScopedSubscriptionEnabled *bool `pulumi:"clientScopedSubscriptionEnabled"`
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError *bool `pulumi:"deadLetteringOnFilterEvaluationError"`
-	// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+	// Boolean flag which controls whether the Subscription has dead letter support when a message expires.
 	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
 	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
 	DefaultMessageTtl *string `pulumi:"defaultMessageTtl"`
-	// Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+	// Boolean flag which controls whether the Subscription supports batched operations.
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// The name of a Queue or Topic to automatically forward Dead Letter messages to.
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
@@ -244,7 +244,7 @@ type subscriptionArgs struct {
 	MaxDeliveryCount int `pulumi:"maxDeliveryCount"`
 	// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+	// Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
 	RequiresSession *bool `pulumi:"requiresSession"`
 	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
 	Status *string `pulumi:"status"`
@@ -262,11 +262,11 @@ type SubscriptionArgs struct {
 	ClientScopedSubscriptionEnabled pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
 	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrInput
-	// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+	// Boolean flag which controls whether the Subscription has dead letter support when a message expires.
 	DeadLetteringOnMessageExpiration pulumi.BoolPtrInput
 	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
 	DefaultMessageTtl pulumi.StringPtrInput
-	// Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+	// Boolean flag which controls whether the Subscription supports batched operations.
 	EnableBatchedOperations pulumi.BoolPtrInput
 	// The name of a Queue or Topic to automatically forward Dead Letter messages to.
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
@@ -278,7 +278,7 @@ type SubscriptionArgs struct {
 	MaxDeliveryCount pulumi.IntInput
 	// Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+	// Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
 	RequiresSession pulumi.BoolPtrInput
 	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrInput
@@ -393,7 +393,7 @@ func (o SubscriptionOutput) DeadLetteringOnFilterEvaluationError() pulumi.BoolPt
 	return o.ApplyT(func(v *Subscription) pulumi.BoolPtrOutput { return v.DeadLetteringOnFilterEvaluationError }).(pulumi.BoolPtrOutput)
 }
 
-// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+// Boolean flag which controls whether the Subscription has dead letter support when a message expires.
 func (o SubscriptionOutput) DeadLetteringOnMessageExpiration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.BoolPtrOutput { return v.DeadLetteringOnMessageExpiration }).(pulumi.BoolPtrOutput)
 }
@@ -403,7 +403,7 @@ func (o SubscriptionOutput) DefaultMessageTtl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.DefaultMessageTtl }).(pulumi.StringOutput)
 }
 
-// Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+// Boolean flag which controls whether the Subscription supports batched operations.
 func (o SubscriptionOutput) EnableBatchedOperations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.BoolPtrOutput { return v.EnableBatchedOperations }).(pulumi.BoolPtrOutput)
 }
@@ -433,7 +433,7 @@ func (o SubscriptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+// Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
 func (o SubscriptionOutput) RequiresSession() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.BoolPtrOutput { return v.RequiresSession }).(pulumi.BoolPtrOutput)
 }

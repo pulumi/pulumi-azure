@@ -44,7 +44,7 @@ public final class VpnSiteLink {
      */
     private @Nullable String providerName;
     /**
-     * @return The speed of the VPN device at the branch location in unit of mbps.
+     * @return The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
      * 
      */
     private @Nullable Integer speedInMbps;
@@ -93,7 +93,7 @@ public final class VpnSiteLink {
         return Optional.ofNullable(this.providerName);
     }
     /**
-     * @return The speed of the VPN device at the branch location in unit of mbps.
+     * @return The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
      * 
      */
     public Optional<Integer> speedInMbps() {

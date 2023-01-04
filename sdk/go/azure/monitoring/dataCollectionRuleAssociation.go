@@ -163,7 +163,7 @@ type DataCollectionRuleAssociation struct {
 	DataCollectionRuleId pulumi.StringPtrOutput `pulumi:"dataCollectionRuleId"`
 	// The description of the Data Collection Rule Association.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
+	// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
@@ -207,7 +207,7 @@ type dataCollectionRuleAssociationState struct {
 	DataCollectionRuleId *string `pulumi:"dataCollectionRuleId"`
 	// The description of the Data Collection Rule Association.
 	Description *string `pulumi:"description"`
-	// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
+	// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
 	Name *string `pulumi:"name"`
 	// The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
 	TargetResourceId *string `pulumi:"targetResourceId"`
@@ -220,7 +220,7 @@ type DataCollectionRuleAssociationState struct {
 	DataCollectionRuleId pulumi.StringPtrInput
 	// The description of the Data Collection Rule Association.
 	Description pulumi.StringPtrInput
-	// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
+	// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
 	Name pulumi.StringPtrInput
 	// The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringPtrInput
@@ -237,7 +237,7 @@ type dataCollectionRuleAssociationArgs struct {
 	DataCollectionRuleId *string `pulumi:"dataCollectionRuleId"`
 	// The description of the Data Collection Rule Association.
 	Description *string `pulumi:"description"`
-	// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
+	// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
 	Name *string `pulumi:"name"`
 	// The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
 	TargetResourceId string `pulumi:"targetResourceId"`
@@ -251,7 +251,7 @@ type DataCollectionRuleAssociationArgs struct {
 	DataCollectionRuleId pulumi.StringPtrInput
 	// The description of the Data Collection Rule Association.
 	Description pulumi.StringPtrInput
-	// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
+	// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
 	Name pulumi.StringPtrInput
 	// The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringInput
@@ -359,7 +359,7 @@ func (o DataCollectionRuleAssociationOutput) Description() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *DataCollectionRuleAssociation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
+// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
 func (o DataCollectionRuleAssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataCollectionRuleAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

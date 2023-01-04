@@ -68,7 +68,7 @@ export class ManagedInstanceFailoverGroup extends pulumi.CustomResource {
      */
     public readonly readWriteEndpointFailoverPolicy!: pulumi.Output<outputs.sql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy>;
     /**
-     * Failover policy for the read-only endpoint. Defaults to `false`.
+     * Failover policy for the read-only endpoint. Defaults to `true`.
      */
     public readonly readonlyEndpointFailoverPolicyEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -160,7 +160,7 @@ export interface ManagedInstanceFailoverGroupState {
      */
     readWriteEndpointFailoverPolicy?: pulumi.Input<inputs.sql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy>;
     /**
-     * Failover policy for the read-only endpoint. Defaults to `false`.
+     * Failover policy for the read-only endpoint. Defaults to `true`.
      */
     readonlyEndpointFailoverPolicyEnabled?: pulumi.Input<boolean>;
     /**
@@ -198,7 +198,7 @@ export interface ManagedInstanceFailoverGroupArgs {
      */
     readWriteEndpointFailoverPolicy: pulumi.Input<inputs.sql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy>;
     /**
-     * Failover policy for the read-only endpoint. Defaults to `false`.
+     * Failover policy for the read-only endpoint. Defaults to `true`.
      */
     readonlyEndpointFailoverPolicyEnabled?: pulumi.Input<boolean>;
     /**

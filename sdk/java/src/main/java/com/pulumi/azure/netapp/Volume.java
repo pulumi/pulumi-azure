@@ -322,6 +322,20 @@ public class Volume extends com.pulumi.resources.CustomResource {
     public Output<String> volumePath() {
         return this.volumePath;
     }
+    /**
+     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+     * 
+     */
+    @Export(name="zone", type=String.class, parameters={})
+    private Output</* @Nullable */ String> zone;
+
+    /**
+     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+     * 
+     */
+    public Output<Optional<String>> zone() {
+        return Codegen.optional(this.zone);
+    }
 
     /**
      *

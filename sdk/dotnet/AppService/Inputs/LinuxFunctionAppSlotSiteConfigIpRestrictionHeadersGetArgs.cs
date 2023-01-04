@@ -25,7 +25,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// Specifies if a Front Door Health Probe should be expected.
+        /// Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         /// </summary>
         [Input("xFdHealthProbe")]
         public Input<string>? XFdHealthProbe { get; set; }

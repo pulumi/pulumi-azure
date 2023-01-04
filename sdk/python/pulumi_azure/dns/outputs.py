@@ -201,7 +201,7 @@ class ZoneSoaRecord(dict):
                  ttl: Optional[int] = None):
         """
         :param str email: The email contact for the SOA record.
-        :param str host_name: The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+        :param str host_name: The domain name of the authoritative name server for the SOA record.
         :param int expire_time: The expire time for the SOA record. Defaults to `2419200`.
         :param int minimum_ttl: The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
         :param int refresh_time: The refresh time for the SOA record. Defaults to `3600`.
@@ -241,7 +241,7 @@ class ZoneSoaRecord(dict):
     @pulumi.getter(name="hostName")
     def host_name(self) -> str:
         """
-        The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+        The domain name of the authoritative name server for the SOA record.
         """
         return pulumi.get(self, "host_name")
 

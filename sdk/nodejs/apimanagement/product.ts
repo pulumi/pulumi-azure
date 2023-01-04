@@ -97,7 +97,7 @@ export class Product extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Is a Subscription required to access API's included in this Product?
+     * Is a Subscription required to access API's included in this Product? Defaults to `true`.
      */
     public readonly subscriptionRequired!: pulumi.Output<boolean | undefined>;
     /**
@@ -198,7 +198,7 @@ export interface ProductState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Is a Subscription required to access API's included in this Product?
+     * Is a Subscription required to access API's included in this Product? Defaults to `true`.
      */
     subscriptionRequired?: pulumi.Input<boolean>;
     /**
@@ -244,7 +244,7 @@ export interface ProductArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Is a Subscription required to access API's included in this Product?
+     * Is a Subscription required to access API's included in this Product? Defaults to `true`.
      */
     subscriptionRequired?: pulumi.Input<boolean>;
     /**

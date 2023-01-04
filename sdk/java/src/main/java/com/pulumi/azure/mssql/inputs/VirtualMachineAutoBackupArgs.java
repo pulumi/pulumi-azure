@@ -109,14 +109,14 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Include or exclude system databases from auto backup. Defaults to `false`.
+     * Include or exclude system databases from auto backup.
      * 
      */
     @Import(name="systemDatabasesBackupEnabled")
     private @Nullable Output<Boolean> systemDatabasesBackupEnabled;
 
     /**
-     * @return Include or exclude system databases from auto backup. Defaults to `false`.
+     * @return Include or exclude system databases from auto backup.
      * 
      */
     public Optional<Output<Boolean>> systemDatabasesBackupEnabled() {
@@ -280,7 +280,7 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param systemDatabasesBackupEnabled Include or exclude system databases from auto backup. Defaults to `false`.
+         * @param systemDatabasesBackupEnabled Include or exclude system databases from auto backup.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param systemDatabasesBackupEnabled Include or exclude system databases from auto backup. Defaults to `false`.
+         * @param systemDatabasesBackupEnabled Include or exclude system databases from auto backup.
          * 
          * @return builder
          * 

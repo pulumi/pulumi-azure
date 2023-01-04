@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Avs
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new VMware Private Cloud to be created.
+        /// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Avs
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new VMware Private Cloud to be created.
+        /// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -381,7 +381,7 @@ namespace Pulumi.Azure.Avs
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new VMware Private Cloud to be created.
+        /// The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Private Cloud to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

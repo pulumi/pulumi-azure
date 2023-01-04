@@ -24,7 +24,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         public readonly string? CertificateSource;
         public readonly string? CertificateStatus;
         /// <summary>
-        /// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+        /// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
         /// </summary>
         public readonly bool? DefaultSslBinding;
         public readonly string? Expiry;
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string? KeyVaultId;
         /// <summary>
-        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         /// </summary>
         public readonly bool? NegotiateClientCertificate;
         public readonly string? SslKeyvaultIdentityClientId;

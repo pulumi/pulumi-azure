@@ -147,7 +147,7 @@ class DatabaseThreatDetectionPolicyArgs:
                  storage_endpoint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-        :param pulumi.Input[str] email_account_admins: Should the account administrators be emailed when this alert is triggered?
+        :param pulumi.Input[str] email_account_admins: Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: A list of email addresses which alerts should be sent to.
         :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
         :param pulumi.Input[str] state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
@@ -185,7 +185,7 @@ class DatabaseThreatDetectionPolicyArgs:
     @pulumi.getter(name="emailAccountAdmins")
     def email_account_admins(self) -> Optional[pulumi.Input[str]]:
         """
-        Should the account administrators be emailed when this alert is triggered?
+        Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
         """
         return pulumi.get(self, "email_account_admins")
 

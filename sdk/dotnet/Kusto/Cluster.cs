@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Kusto
         public Output<ImmutableArray<string>> AllowedIpRanges { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
         /// </summary>
         [Output("autoStopEnabled")]
         public Output<bool?> AutoStopEnabled { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Kusto
         public Output<bool?> DiskEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
         /// </summary>
         [Output("doubleEncryptionEnabled")]
         public Output<bool?> DoubleEncryptionEnabled { get; private set; } = null!;
@@ -270,7 +270,7 @@ namespace Pulumi.Azure.Kusto
         }
 
         /// <summary>
-        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
         /// </summary>
         [Input("autoStopEnabled")]
         public Input<bool>? AutoStopEnabled { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.Kusto
         public Input<bool>? DiskEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
         /// </summary>
         [Input("doubleEncryptionEnabled")]
         public Input<bool>? DoubleEncryptionEnabled { get; set; }
@@ -446,7 +446,7 @@ namespace Pulumi.Azure.Kusto
         }
 
         /// <summary>
-        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
         /// </summary>
         [Input("autoStopEnabled")]
         public Input<bool>? AutoStopEnabled { get; set; }
@@ -464,7 +464,7 @@ namespace Pulumi.Azure.Kusto
         public Input<bool>? DiskEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
         /// </summary>
         [Input("doubleEncryptionEnabled")]
         public Input<bool>? DoubleEncryptionEnabled { get; set; }

@@ -85,7 +85,7 @@ namespace Pulumi.Azure.AppService
         public Output<Outputs.WindowsFunctionAppBackup?> Backup { get; private set; } = null!;
 
         /// <summary>
-        /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         /// </summary>
         [Output("builtinLoggingEnabled")]
         public Output<bool?> BuiltinLoggingEnabled { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> DefaultHostname { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Function App enabled?
+        /// Is the Function App enabled? Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -358,7 +358,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.WindowsFunctionAppBackupArgs>? Backup { get; set; }
 
         /// <summary>
-        /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         /// </summary>
         [Input("builtinLoggingEnabled")]
         public Input<bool>? BuiltinLoggingEnabled { get; set; }
@@ -406,7 +406,7 @@ namespace Pulumi.Azure.AppService
         public Input<int>? DailyMemoryTimeQuota { get; set; }
 
         /// <summary>
-        /// Is the Function App enabled?
+        /// Is the Function App enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -568,7 +568,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.WindowsFunctionAppBackupGetArgs>? Backup { get; set; }
 
         /// <summary>
-        /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         /// </summary>
         [Input("builtinLoggingEnabled")]
         public Input<bool>? BuiltinLoggingEnabled { get; set; }
@@ -638,7 +638,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? DefaultHostname { get; set; }
 
         /// <summary>
-        /// Is the Function App enabled?
+        /// Is the Function App enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

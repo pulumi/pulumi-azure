@@ -111,14 +111,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup")
 public class SqlPoolWorkloadGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The workload group importance level.
+     * The workload group importance level. Defaults to `normal`.
      * 
      */
     @Export(name="importance", type=String.class, parameters={})
     private Output</* @Nullable */ String> importance;
 
     /**
-     * @return The workload group importance level.
+     * @return The workload group importance level. Defaults to `normal`.
      * 
      */
     public Output<Optional<String>> importance() {
@@ -139,14 +139,14 @@ public class SqlPoolWorkloadGroup extends com.pulumi.resources.CustomResource {
         return this.maxResourcePercent;
     }
     /**
-     * The workload group request maximum grant percentage.
+     * The workload group request maximum grant percentage. Defaults to `3`.
      * 
      */
     @Export(name="maxResourcePercentPerRequest", type=Double.class, parameters={})
     private Output</* @Nullable */ Double> maxResourcePercentPerRequest;
 
     /**
-     * @return The workload group request maximum grant percentage.
+     * @return The workload group request maximum grant percentage. Defaults to `3`.
      * 
      */
     public Output<Optional<Double>> maxResourcePercentPerRequest() {

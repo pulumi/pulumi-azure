@@ -17,14 +17,14 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs extends 
     public static final WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs Empty = new WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs();
 
     /**
-     * Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+     * Predefined action to be taken to an Auto Heal trigger. Possible values are `CustomAction`, `LogEvent` and `Recycle`.
      * 
      */
     @Import(name="actionType", required=true)
     private Output<String> actionType;
 
     /**
-     * @return Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+     * @return Predefined action to be taken to an Auto Heal trigger. Possible values are `CustomAction`, `LogEvent` and `Recycle`.
      * 
      */
     public Output<String> actionType() {
@@ -88,7 +88,7 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs extends 
         }
 
         /**
-         * @param actionType Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+         * @param actionType Predefined action to be taken to an Auto Heal trigger. Possible values are `CustomAction`, `LogEvent` and `Recycle`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs extends 
         }
 
         /**
-         * @param actionType Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+         * @param actionType Predefined action to be taken to an Auto Heal trigger. Possible values are `CustomAction`, `LogEvent` and `Recycle`.
          * 
          * @return builder
          * 

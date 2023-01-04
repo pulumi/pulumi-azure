@@ -26,7 +26,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly int? MaxNumberOfWorkers;
         /// <summary>
-        /// The minimum number of worker nodes. Defaults to 1.
+        /// The minimum number of worker nodes. Defaults to `1`.
         /// </summary>
         public readonly int? MinNumberOfWorkers;
 

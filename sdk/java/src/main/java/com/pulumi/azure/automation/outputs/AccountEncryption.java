@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountEncryption {
     /**
-     * @return The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+     * @return The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
      * 
      */
     private @Nullable String keySource;
@@ -29,7 +29,7 @@ public final class AccountEncryption {
 
     private AccountEncryption() {}
     /**
-     * @return The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+     * @return The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
      * 
      */
     public Optional<String> keySource() {

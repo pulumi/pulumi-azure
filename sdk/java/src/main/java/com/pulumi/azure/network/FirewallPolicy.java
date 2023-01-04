@@ -76,14 +76,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/firewallPolicy:FirewallPolicy")
 public class FirewallPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * Whether enable auto learn private ip range. Defaults to `false`.
+     * Whether enable auto learn private ip range.
      * 
      */
     @Export(name="autoLearnPrivateRangesEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoLearnPrivateRangesEnabled;
 
     /**
-     * @return Whether enable auto learn private ip range. Defaults to `false`.
+     * @return Whether enable auto learn private ip range.
      * 
      */
     public Output<Optional<Boolean>> autoLearnPrivateRangesEnabled() {

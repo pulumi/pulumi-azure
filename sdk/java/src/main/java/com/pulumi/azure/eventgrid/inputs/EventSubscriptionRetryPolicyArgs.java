@@ -14,14 +14,14 @@ public final class EventSubscriptionRetryPolicyArgs extends com.pulumi.resources
     public static final EventSubscriptionRetryPolicyArgs Empty = new EventSubscriptionRetryPolicyArgs();
 
     /**
-     * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+     * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
      * 
      */
     @Import(name="eventTimeToLive", required=true)
     private Output<Integer> eventTimeToLive;
 
     /**
-     * @return Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+     * @return Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
      * 
      */
     public Output<Integer> eventTimeToLive() {
@@ -69,7 +69,7 @@ public final class EventSubscriptionRetryPolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param eventTimeToLive Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+         * @param eventTimeToLive Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class EventSubscriptionRetryPolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param eventTimeToLive Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+         * @param eventTimeToLive Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
          * 
          * @return builder
          * 

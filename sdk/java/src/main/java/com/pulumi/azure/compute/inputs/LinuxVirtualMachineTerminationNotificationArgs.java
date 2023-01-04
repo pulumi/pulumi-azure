@@ -17,14 +17,14 @@ public final class LinuxVirtualMachineTerminationNotificationArgs extends com.pu
     public static final LinuxVirtualMachineTerminationNotificationArgs Empty = new LinuxVirtualMachineTerminationNotificationArgs();
 
     /**
-     * Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+     * Should the termination notification be enabled on this Virtual Machine?
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+     * @return Should the termination notification be enabled on this Virtual Machine?
      * 
      */
     public Output<Boolean> enabled() {
@@ -32,14 +32,14 @@ public final class LinuxVirtualMachineTerminationNotificationArgs extends com.pu
     }
 
     /**
-     * Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+     * Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<String> timeout;
 
     /**
-     * @return Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+     * @return Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
      * 
      */
     public Optional<Output<String>> timeout() {
@@ -72,7 +72,7 @@ public final class LinuxVirtualMachineTerminationNotificationArgs extends com.pu
         }
 
         /**
-         * @param enabled Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+         * @param enabled Should the termination notification be enabled on this Virtual Machine?
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class LinuxVirtualMachineTerminationNotificationArgs extends com.pu
         }
 
         /**
-         * @param enabled Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+         * @param enabled Should the termination notification be enabled on this Virtual Machine?
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class LinuxVirtualMachineTerminationNotificationArgs extends com.pu
         }
 
         /**
-         * @param timeout Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         * @param timeout Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class LinuxVirtualMachineTerminationNotificationArgs extends com.pu
         }
 
         /**
-         * @param timeout Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         * @param timeout Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class LinuxWebAppSlotSiteConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If this Linux Web App is Always On enabled. Defaults to `false`.
+        /// If this Linux Web App is Always On enabled. Defaults to `true`.
         /// </summary>
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }

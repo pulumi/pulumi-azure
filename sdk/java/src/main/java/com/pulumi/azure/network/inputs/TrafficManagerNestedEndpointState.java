@@ -104,14 +104,14 @@ public final class TrafficManagerNestedEndpointState extends com.pulumi.resource
     }
 
     /**
-     * This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+     * This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
      * 
      */
     @Import(name="minimumRequiredChildEndpointsIpv4")
     private @Nullable Output<Integer> minimumRequiredChildEndpointsIpv4;
 
     /**
-     * @return This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+     * @return This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
      * 
      */
     public Optional<Output<Integer>> minimumRequiredChildEndpointsIpv4() {
@@ -119,14 +119,14 @@ public final class TrafficManagerNestedEndpointState extends com.pulumi.resource
     }
 
     /**
-     * This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+     * This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
      * 
      */
     @Import(name="minimumRequiredChildEndpointsIpv6")
     private @Nullable Output<Integer> minimumRequiredChildEndpointsIpv6;
 
     /**
-     * @return This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+     * @return This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
      * 
      */
     public Optional<Output<Integer>> minimumRequiredChildEndpointsIpv6() {
@@ -401,7 +401,7 @@ public final class TrafficManagerNestedEndpointState extends com.pulumi.resource
         }
 
         /**
-         * @param minimumRequiredChildEndpointsIpv4 This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+         * @param minimumRequiredChildEndpointsIpv4 This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class TrafficManagerNestedEndpointState extends com.pulumi.resource
         }
 
         /**
-         * @param minimumRequiredChildEndpointsIpv4 This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+         * @param minimumRequiredChildEndpointsIpv4 This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class TrafficManagerNestedEndpointState extends com.pulumi.resource
         }
 
         /**
-         * @param minimumRequiredChildEndpointsIpv6 This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+         * @param minimumRequiredChildEndpointsIpv6 This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class TrafficManagerNestedEndpointState extends com.pulumi.resource
         }
 
         /**
-         * @param minimumRequiredChildEndpointsIpv6 This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+         * @param minimumRequiredChildEndpointsIpv6 This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
          * 
          * @return builder
          * 

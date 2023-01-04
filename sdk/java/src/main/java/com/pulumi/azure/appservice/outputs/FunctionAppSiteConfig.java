@@ -94,12 +94,12 @@ public final class FunctionAppSiteConfig {
      */
     private @Nullable List<FunctionAppSiteConfigScmIpRestriction> scmIpRestrictions;
     /**
-     * @return The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+     * @return The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
      * 
      */
     private @Nullable String scmType;
     /**
-     * @return IP security restrictions for scm to use main. Defaults to false.
+     * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
      */
     private @Nullable Boolean scmUseMainIpRestriction;
@@ -229,14 +229,14 @@ public final class FunctionAppSiteConfig {
         return this.scmIpRestrictions == null ? List.of() : this.scmIpRestrictions;
     }
     /**
-     * @return The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+     * @return The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
      * 
      */
     public Optional<String> scmType() {
         return Optional.ofNullable(this.scmType);
     }
     /**
-     * @return IP security restrictions for scm to use main. Defaults to false.
+     * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
      */
     public Optional<Boolean> scmUseMainIpRestriction() {

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class PointToPointVpnGatewayConnectionConfiguration
     {
         /// <summary>
-        /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+        /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
         /// </summary>
         public readonly bool? InternetSecurityEnabled;
         /// <summary>

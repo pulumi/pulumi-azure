@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IotHubDpsLinkedHub {
     /**
-     * @return The weight applied to the IoT Hub. Defaults to 0.
+     * @return The weight applied to the IoT Hub. Defaults to `1`.
      * 
      */
     private @Nullable Integer allocationWeight;
     /**
-     * @return Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
+     * @return Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
      * 
      */
     private @Nullable Boolean applyAllocationPolicy;
@@ -41,14 +41,14 @@ public final class IotHubDpsLinkedHub {
 
     private IotHubDpsLinkedHub() {}
     /**
-     * @return The weight applied to the IoT Hub. Defaults to 0.
+     * @return The weight applied to the IoT Hub. Defaults to `1`.
      * 
      */
     public Optional<Integer> allocationWeight() {
         return Optional.ofNullable(this.allocationWeight);
     }
     /**
-     * @return Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
+     * @return Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
      * 
      */
     public Optional<Boolean> applyAllocationPolicy() {

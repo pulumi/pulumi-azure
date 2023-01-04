@@ -69,6 +69,16 @@ export type PortalTenantConfiguration = import("./portalTenantConfiguration").Po
 export const PortalTenantConfiguration: typeof import("./portalTenantConfiguration").PortalTenantConfiguration = null as any;
 utilities.lazyLoad(exports, ["PortalTenantConfiguration"], () => require("./portalTenantConfiguration"));
 
+export { ResourceDeploymentScriptAzureCliArgs, ResourceDeploymentScriptAzureCliState } from "./resourceDeploymentScriptAzureCli";
+export type ResourceDeploymentScriptAzureCli = import("./resourceDeploymentScriptAzureCli").ResourceDeploymentScriptAzureCli;
+export const ResourceDeploymentScriptAzureCli: typeof import("./resourceDeploymentScriptAzureCli").ResourceDeploymentScriptAzureCli = null as any;
+utilities.lazyLoad(exports, ["ResourceDeploymentScriptAzureCli"], () => require("./resourceDeploymentScriptAzureCli"));
+
+export { ResourceDeploymentScriptPowerShellArgs, ResourceDeploymentScriptPowerShellState } from "./resourceDeploymentScriptPowerShell";
+export type ResourceDeploymentScriptPowerShell = import("./resourceDeploymentScriptPowerShell").ResourceDeploymentScriptPowerShell;
+export const ResourceDeploymentScriptPowerShell: typeof import("./resourceDeploymentScriptPowerShell").ResourceDeploymentScriptPowerShell = null as any;
+utilities.lazyLoad(exports, ["ResourceDeploymentScriptPowerShell"], () => require("./resourceDeploymentScriptPowerShell"));
+
 export { ResourceGroupArgs, ResourceGroupState } from "./resourceGroup";
 export type ResourceGroup = import("./resourceGroup").ResourceGroup;
 export const ResourceGroup: typeof import("./resourceGroup").ResourceGroup = null as any;
@@ -169,6 +179,10 @@ const _module = {
                 return new CustomProvider(name, <any>undefined, { urn })
             case "azure:core/portalTenantConfiguration:PortalTenantConfiguration":
                 return new PortalTenantConfiguration(name, <any>undefined, { urn })
+            case "azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli":
+                return new ResourceDeploymentScriptAzureCli(name, <any>undefined, { urn })
+            case "azure:core/resourceDeploymentScriptPowerShell:ResourceDeploymentScriptPowerShell":
+                return new ResourceDeploymentScriptPowerShell(name, <any>undefined, { urn })
             case "azure:core/resourceGroup:ResourceGroup":
                 return new ResourceGroup(name, <any>undefined, { urn })
             case "azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport":
@@ -212,6 +226,8 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "core/customProvider", _module)
 pulumi.runtime.registerResourceModule("azure", "core/portalTenantConfiguration", _module)
+pulumi.runtime.registerResourceModule("azure", "core/resourceDeploymentScriptAzureCli", _module)
+pulumi.runtime.registerResourceModule("azure", "core/resourceDeploymentScriptPowerShell", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroupCostManagementExport", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroupPolicyAssignment", _module)

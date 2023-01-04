@@ -16,14 +16,14 @@ public final class EnterpriseDatabaseModuleArgs extends com.pulumi.resources.Res
     public static final EnterpriseDatabaseModuleArgs Empty = new EnterpriseDatabaseModuleArgs();
 
     /**
-     * Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
+     * Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="args")
     private @Nullable Output<String> args;
 
     /**
-     * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
+     * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> args() {
@@ -31,14 +31,14 @@ public final class EnterpriseDatabaseModuleArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+     * The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+     * @return The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
      * 
      */
     public Output<String> name() {
@@ -79,7 +79,7 @@ public final class EnterpriseDatabaseModuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param args Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
+         * @param args Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class EnterpriseDatabaseModuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param args Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
+         * @param args Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class EnterpriseDatabaseModuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+         * @param name The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class EnterpriseDatabaseModuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+         * @param name The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
          * 
          * @return builder
          * 

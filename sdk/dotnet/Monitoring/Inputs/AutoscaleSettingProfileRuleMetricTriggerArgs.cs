@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<double> Threshold { get; set; } = null!;
 
         /// <summary>
-        /// Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+        /// Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`.
         /// </summary>
         [Input("timeAggregation", required: true)]
         public Input<string> TimeAggregation { get; set; } = null!;

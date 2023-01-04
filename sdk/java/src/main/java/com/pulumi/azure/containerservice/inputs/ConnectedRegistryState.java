@@ -154,14 +154,14 @@ public final class ConnectedRegistryState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+     * The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
      * 
      */
     @Import(name="syncSchedule")
     private @Nullable Output<String> syncSchedule;
 
     /**
-     * @return The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+     * @return The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
      * 
      */
     public Optional<Output<String>> syncSchedule() {
@@ -443,7 +443,7 @@ public final class ConnectedRegistryState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param syncSchedule The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+         * @param syncSchedule The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class ConnectedRegistryState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param syncSchedule The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+         * @param syncSchedule The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
          * 
          * @return builder
          * 

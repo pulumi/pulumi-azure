@@ -143,14 +143,14 @@ public class Subscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deadLetteringOnFilterEvaluationError);
     }
     /**
-     * Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+     * Boolean flag which controls whether the Subscription has dead letter support when a message expires.
      * 
      */
     @Export(name="deadLetteringOnMessageExpiration", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> deadLetteringOnMessageExpiration;
 
     /**
-     * @return Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+     * @return Boolean flag which controls whether the Subscription has dead letter support when a message expires.
      * 
      */
     public Output<Optional<Boolean>> deadLetteringOnMessageExpiration() {
@@ -171,14 +171,14 @@ public class Subscription extends com.pulumi.resources.CustomResource {
         return this.defaultMessageTtl;
     }
     /**
-     * Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+     * Boolean flag which controls whether the Subscription supports batched operations.
      * 
      */
     @Export(name="enableBatchedOperations", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableBatchedOperations;
 
     /**
-     * @return Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+     * @return Boolean flag which controls whether the Subscription supports batched operations.
      * 
      */
     public Output<Optional<Boolean>> enableBatchedOperations() {
@@ -255,14 +255,14 @@ public class Subscription extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+     * Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="requiresSession", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> requiresSession;
 
     /**
-     * @return Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> requiresSession() {

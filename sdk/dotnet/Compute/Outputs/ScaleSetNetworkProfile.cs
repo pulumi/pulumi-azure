@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class ScaleSetNetworkProfile
     {
         /// <summary>
-        /// Specifies whether to enable accelerated networking or not. Defaults to `false`.
+        /// Specifies whether to enable accelerated networking or not.
         /// </summary>
         public readonly bool? AcceleratedNetworking;
         /// <summary>

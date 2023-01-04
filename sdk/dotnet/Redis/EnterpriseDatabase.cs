@@ -119,7 +119,7 @@ namespace Pulumi.Azure.Redis
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+        /// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.Redis
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+        /// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.Redis
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+        /// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

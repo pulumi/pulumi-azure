@@ -146,7 +146,7 @@ namespace Pulumi.Azure.ServiceBus
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zoneRedundant")]
         public Output<bool?> ZoneRedundant { get; private set; } = null!;
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.ServiceBus
         }
 
         /// <summary>
-        /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }
@@ -437,7 +437,7 @@ namespace Pulumi.Azure.ServiceBus
         }
 
         /// <summary>
-        /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }

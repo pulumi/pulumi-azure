@@ -391,14 +391,14 @@ public class Api extends com.pulumi.resources.CustomResource {
         return this.subscriptionKeyParameterNames;
     }
     /**
-     * Should this API require a subscription key?
+     * Should this API require a subscription key? Defaults to `true`.
      * 
      */
     @Export(name="subscriptionRequired", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> subscriptionRequired;
 
     /**
-     * @return Should this API require a subscription key?
+     * @return Should this API require a subscription key? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> subscriptionRequired() {

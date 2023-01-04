@@ -143,14 +143,14 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.backup);
     }
     /**
-     * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+     * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      * 
      */
     @Export(name="builtinLoggingEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> builtinLoggingEnabled;
 
     /**
-     * @return Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+     * @return Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> builtinLoggingEnabled() {
@@ -269,14 +269,14 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
         return this.defaultHostname;
     }
     /**
-     * Is the Function App enabled?
+     * Is the Function App enabled? Defaults to `true`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Is the Function App enabled?
+     * @return Is the Function App enabled? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

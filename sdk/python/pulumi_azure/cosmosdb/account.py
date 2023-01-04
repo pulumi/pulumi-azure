@@ -76,7 +76,7 @@ class AccountArgs:
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         :param pulumi.Input['AccountRestoreArgs'] restore: A `restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
@@ -468,7 +468,7 @@ class AccountArgs:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether or not public network access is allowed for this CosmosDB account.
+        Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -591,7 +591,7 @@ class _AccountState:
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
         :param pulumi.Input[str] primary_key: The Primary key for the CosmosDB Account.
         :param pulumi.Input[str] primary_readonly_key: The Primary read-only Key for the CosmosDB Account.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_endpoints: A list of read endpoints available for this CosmosDB account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountRestoreArgs'] restore: A `restore` block as defined below.
@@ -1070,7 +1070,7 @@ class _AccountState:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether or not public network access is allowed for this CosmosDB account.
+        Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -1317,7 +1317,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountRestoreArgs']] restore: A `restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -1586,7 +1586,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
         :param pulumi.Input[str] primary_key: The Primary key for the CosmosDB Account.
         :param pulumi.Input[str] primary_readonly_key: The Primary read-only Key for the CosmosDB Account.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_endpoints: A list of read endpoints available for this CosmosDB account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountRestoreArgs']] restore: A `restore` block as defined below.
@@ -1899,7 +1899,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether or not public network access is allowed for this CosmosDB account.
+        Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 

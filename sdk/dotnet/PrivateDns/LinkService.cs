@@ -136,7 +136,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<ImmutableArray<string>> AutoApprovalSubscriptionIds { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+        /// Should the Private Link Service support the Proxy Protocol?
         /// </summary>
         [Output("enableProxyProtocol")]
         public Output<bool?> EnableProxyProtocol { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.PrivateDns
         }
 
         /// <summary>
-        /// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+        /// Should the Private Link Service support the Proxy Protocol?
         /// </summary>
         [Input("enableProxyProtocol")]
         public Input<bool>? EnableProxyProtocol { get; set; }
@@ -358,7 +358,7 @@ namespace Pulumi.Azure.PrivateDns
         }
 
         /// <summary>
-        /// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+        /// Should the Private Link Service support the Proxy Protocol?
         /// </summary>
         [Input("enableProxyProtocol")]
         public Input<bool>? EnableProxyProtocol { get; set; }

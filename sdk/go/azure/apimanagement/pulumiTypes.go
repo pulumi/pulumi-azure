@@ -7143,7 +7143,7 @@ type CustomDomainDeveloperPortal struct {
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId *string `pulumi:"keyVaultId"`
-	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate  *bool   `pulumi:"negotiateClientCertificate"`
 	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     *string `pulumi:"subject"`
@@ -7173,7 +7173,7 @@ type CustomDomainDeveloperPortalArgs struct {
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate  pulumi.BoolPtrInput   `pulumi:"negotiateClientCertificate"`
 	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
@@ -7263,7 +7263,7 @@ func (o CustomDomainDeveloperPortalOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
-// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 func (o CustomDomainDeveloperPortalOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
@@ -7307,14 +7307,14 @@ type CustomDomainGateway struct {
 	CertificatePassword *string `pulumi:"certificatePassword"`
 	CertificateSource   *string `pulumi:"certificateSource"`
 	CertificateStatus   *string `pulumi:"certificateStatus"`
-	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
 	DefaultSslBinding *bool   `pulumi:"defaultSslBinding"`
 	Expiry            *string `pulumi:"expiry"`
 	// The Hostname to use for the API Proxy Endpoint.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId *string `pulumi:"keyVaultId"`
-	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate  *bool   `pulumi:"negotiateClientCertificate"`
 	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     *string `pulumi:"subject"`
@@ -7339,14 +7339,14 @@ type CustomDomainGatewayArgs struct {
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
 	CertificateSource   pulumi.StringPtrInput `pulumi:"certificateSource"`
 	CertificateStatus   pulumi.StringPtrInput `pulumi:"certificateStatus"`
-	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
 	DefaultSslBinding pulumi.BoolPtrInput   `pulumi:"defaultSslBinding"`
 	Expiry            pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the API Proxy Endpoint.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate  pulumi.BoolPtrInput   `pulumi:"negotiateClientCertificate"`
 	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
@@ -7422,7 +7422,7 @@ func (o CustomDomainGatewayOutput) CertificateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainGateway) *string { return v.CertificateStatus }).(pulumi.StringPtrOutput)
 }
 
-// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
 func (o CustomDomainGatewayOutput) DefaultSslBinding() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainGateway) *bool { return v.DefaultSslBinding }).(pulumi.BoolPtrOutput)
 }
@@ -7441,7 +7441,7 @@ func (o CustomDomainGatewayOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainGateway) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
-// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 func (o CustomDomainGatewayOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainGateway) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
@@ -7490,7 +7490,7 @@ type CustomDomainManagement struct {
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId *string `pulumi:"keyVaultId"`
-	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate  *bool   `pulumi:"negotiateClientCertificate"`
 	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     *string `pulumi:"subject"`
@@ -7520,7 +7520,7 @@ type CustomDomainManagementArgs struct {
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate  pulumi.BoolPtrInput   `pulumi:"negotiateClientCertificate"`
 	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
@@ -7610,7 +7610,7 @@ func (o CustomDomainManagementOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainManagement) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
-// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 func (o CustomDomainManagementOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainManagement) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
@@ -7659,7 +7659,7 @@ type CustomDomainPortal struct {
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId *string `pulumi:"keyVaultId"`
-	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate  *bool   `pulumi:"negotiateClientCertificate"`
 	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     *string `pulumi:"subject"`
@@ -7689,7 +7689,7 @@ type CustomDomainPortalArgs struct {
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate  pulumi.BoolPtrInput   `pulumi:"negotiateClientCertificate"`
 	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
@@ -7779,7 +7779,7 @@ func (o CustomDomainPortalOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainPortal) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
-// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 func (o CustomDomainPortalOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainPortal) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
@@ -7828,7 +7828,7 @@ type CustomDomainScm struct {
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId *string `pulumi:"keyVaultId"`
-	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate  *bool   `pulumi:"negotiateClientCertificate"`
 	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     *string `pulumi:"subject"`
@@ -7858,7 +7858,7 @@ type CustomDomainScmArgs struct {
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate  pulumi.BoolPtrInput   `pulumi:"negotiateClientCertificate"`
 	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
@@ -7948,7 +7948,7 @@ func (o CustomDomainScmOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainScm) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
-// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 func (o CustomDomainScmOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainScm) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
@@ -12849,7 +12849,7 @@ type ServiceSecurity struct {
 	TlsRsaWithAes256CbcShaCiphersEnabled *bool `pulumi:"tlsRsaWithAes256CbcShaCiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
 	TlsRsaWithAes256GcmSha384CiphersEnabled *bool `pulumi:"tlsRsaWithAes256GcmSha384CiphersEnabled"`
-	// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+	// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
 	TripleDesCiphersEnabled *bool `pulumi:"tripleDesCiphersEnabled"`
 }
 
@@ -12897,7 +12897,7 @@ type ServiceSecurityArgs struct {
 	TlsRsaWithAes256CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes256CbcShaCiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
 	TlsRsaWithAes256GcmSha384CiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes256GcmSha384CiphersEnabled"`
-	// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+	// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
 	TripleDesCiphersEnabled pulumi.BoolPtrInput `pulumi:"tripleDesCiphersEnabled"`
 }
 
@@ -13058,7 +13058,7 @@ func (o ServiceSecurityOutput) TlsRsaWithAes256GcmSha384CiphersEnabled() pulumi.
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsRsaWithAes256GcmSha384CiphersEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
 func (o ServiceSecurityOutput) TripleDesCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TripleDesCiphersEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -13247,7 +13247,7 @@ func (o ServiceSecurityPtrOutput) TlsRsaWithAes256GcmSha384CiphersEnabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
 func (o ServiceSecurityPtrOutput) TripleDesCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {

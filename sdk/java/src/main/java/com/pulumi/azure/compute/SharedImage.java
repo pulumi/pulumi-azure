@@ -92,14 +92,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/sharedImage:SharedImage")
 public class SharedImage extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="acceleratedNetworkSupportEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> acceleratedNetworkSupportEnabled;
 
     /**
-     * @return Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> acceleratedNetworkSupportEnabled() {
@@ -372,14 +372,14 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
      * 
      */
     @Export(name="specialized", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> specialized;
 
     /**
-     * @return Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> specialized() {
@@ -400,14 +400,14 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="trustedLaunchEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> trustedLaunchEnabled;
 
     /**
-     * @return Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> trustedLaunchEnabled() {

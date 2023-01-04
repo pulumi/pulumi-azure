@@ -30,7 +30,7 @@ public final class BudgetResourceGroupNotification {
      */
     private @Nullable List<String> contactRoles;
     /**
-     * @return Should the notification be enabled?
+     * @return Should the notification be enabled? Defaults to `true`.
      * 
      */
     private @Nullable Boolean enabled;
@@ -73,7 +73,7 @@ public final class BudgetResourceGroupNotification {
         return this.contactRoles == null ? List.of() : this.contactRoles;
     }
     /**
-     * @return Should the notification be enabled?
+     * @return Should the notification be enabled? Defaults to `true`.
      * 
      */
     public Optional<Boolean> enabled() {

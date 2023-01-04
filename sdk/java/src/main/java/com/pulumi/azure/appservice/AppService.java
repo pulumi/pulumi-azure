@@ -243,14 +243,14 @@ public class AppService extends com.pulumi.resources.CustomResource {
         return this.defaultSiteHostname;
     }
     /**
-     * Is the App Service Enabled?
+     * Is the App Service Enabled? Defaults to `true`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Is the App Service Enabled?
+     * @return Is the App Service Enabled? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

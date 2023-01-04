@@ -54,11 +54,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? RuntimeVersion;
         /// <summary>
-        /// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+        /// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
         /// </summary>
         public readonly double? TokenRefreshExtensionHours;
         /// <summary>
-        /// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+        /// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
         /// </summary>
         public readonly bool? TokenStoreEnabled;
         /// <summary>

@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsVirtualMachineScaleSetTerminationNotification {
     /**
-     * @return Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+     * @return Should the termination notification be enabled on this Virtual Machine Scale Set?
      * 
      */
     private Boolean enabled;
     /**
-     * @return Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+     * @return Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
      * 
      */
     private @Nullable String timeout;
 
     private WindowsVirtualMachineScaleSetTerminationNotification() {}
     /**
-     * @return Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+     * @return Should the termination notification be enabled on this Virtual Machine Scale Set?
      * 
      */
     public Boolean enabled() {
         return this.enabled;
     }
     /**
-     * @return Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+     * @return Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
      * 
      */
     public Optional<String> timeout() {

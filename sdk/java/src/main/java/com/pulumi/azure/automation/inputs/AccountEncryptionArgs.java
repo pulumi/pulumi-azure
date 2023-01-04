@@ -16,14 +16,14 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
     public static final AccountEncryptionArgs Empty = new AccountEncryptionArgs();
 
     /**
-     * The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+     * The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
      * 
      */
     @Import(name="keySource")
     private @Nullable Output<String> keySource;
 
     /**
-     * @return The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+     * @return The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
      * 
      */
     public Optional<Output<String>> keySource() {
@@ -87,7 +87,7 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keySource The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+         * @param keySource The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keySource The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+         * @param keySource The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
          * 
          * @return builder
          * 

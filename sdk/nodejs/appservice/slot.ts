@@ -174,7 +174,7 @@ export class Slot extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultSiteHostname!: pulumi.Output<string>;
     /**
-     * Is the App Service Slot Enabled?
+     * Is the App Service Slot Enabled? Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -323,7 +323,7 @@ export interface SlotState {
      */
     defaultSiteHostname?: pulumi.Input<string>;
     /**
-     * Is the App Service Slot Enabled?
+     * Is the App Service Slot Enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -401,7 +401,7 @@ export interface SlotArgs {
      */
     connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.SlotConnectionString>[]>;
     /**
-     * Is the App Service Slot Enabled?
+     * Is the App Service Slot Enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**

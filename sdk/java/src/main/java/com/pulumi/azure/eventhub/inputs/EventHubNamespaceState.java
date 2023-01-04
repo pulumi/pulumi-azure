@@ -36,14 +36,14 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
      * 
      */
     @Import(name="capacity")
     private @Nullable Output<Integer> capacity;
 
     /**
-     * @return Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+     * @return Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> capacity() {
@@ -179,14 +179,14 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Is SAS authentication enabled for the EventHub Namespace?
+     * Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
      * 
      */
     @Import(name="localAuthenticationEnabled")
     private @Nullable Output<Boolean> localAuthenticationEnabled;
 
     /**
-     * @return Is SAS authentication enabled for the EventHub Namespace?
+     * @return Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> localAuthenticationEnabled() {
@@ -409,7 +409,7 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param capacity Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+         * @param capacity Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param capacity Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+         * @param capacity Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -606,7 +606,7 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param localAuthenticationEnabled Is SAS authentication enabled for the EventHub Namespace?
+         * @param localAuthenticationEnabled Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -617,7 +617,7 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param localAuthenticationEnabled Is SAS authentication enabled for the EventHub Namespace?
+         * @param localAuthenticationEnabled Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
          * 
          * @return builder
          * 

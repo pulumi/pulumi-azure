@@ -175,14 +175,14 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
         return this.digitalTwinsId;
     }
     /**
-     * Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+     * Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
      * 
      */
     @Export(name="eventhubConsumerGroupName", type=String.class, parameters={})
     private Output</* @Nullable */ String> eventhubConsumerGroupName;
 
     /**
-     * @return Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+     * @return Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
      * 
      */
     public Output<Optional<String>> eventhubConsumerGroupName() {

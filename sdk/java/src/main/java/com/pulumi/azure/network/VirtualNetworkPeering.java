@@ -92,14 +92,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/virtualNetworkPeering:VirtualNetworkPeering")
 public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
     /**
-     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
      * 
      */
     @Export(name="allowForwardedTraffic", type=Boolean.class, parameters={})
     private Output<Boolean> allowForwardedTraffic;
 
     /**
-     * @return Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+     * @return Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
      * 
      */
     public Output<Boolean> allowForwardedTraffic() {
@@ -120,14 +120,14 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
         return this.allowGatewayTransit;
     }
     /**
-     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
      * 
      */
     @Export(name="allowVirtualNetworkAccess", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> allowVirtualNetworkAccess;
 
     /**
-     * @return Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+     * @return Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> allowVirtualNetworkAccess() {

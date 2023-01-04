@@ -24,14 +24,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     public static final LinuxWebAppSlotSiteConfigArgs Empty = new LinuxWebAppSlotSiteConfigArgs();
 
     /**
-     * If this Linux Web App is Always On enabled. Defaults to `false`.
+     * If this Linux Web App is Always On enabled. Defaults to `true`.
      * 
      */
     @Import(name="alwaysOn")
     private @Nullable Output<Boolean> alwaysOn;
 
     /**
-     * @return If this Linux Web App is Always On enabled. Defaults to `false`.
+     * @return If this Linux Web App is Always On enabled. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> alwaysOn() {
@@ -543,7 +543,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param alwaysOn If this Linux Web App is Always On enabled. Defaults to `false`.
+         * @param alwaysOn If this Linux Web App is Always On enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param alwaysOn If this Linux Web App is Always On enabled. Defaults to `false`.
+         * @param alwaysOn If this Linux Web App is Always On enabled. Defaults to `true`.
          * 
          * @return builder
          * 

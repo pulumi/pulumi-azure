@@ -109,28 +109,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy")
 public class WorkspaceExtendedAuditingPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
      * 
      */
     @Export(name="logMonitoringEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> logMonitoringEnabled;
 
     /**
-     * @return Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+     * @return Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> logMonitoringEnabled() {
         return Codegen.optional(this.logMonitoringEnabled);
     }
     /**
-     * The number of days to retain logs for in the storage account.
+     * The number of days to retain logs for in the storage account. Defaults to `0`.
      * 
      */
     @Export(name="retentionInDays", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> retentionInDays;
 
     /**
-     * @return The number of days to retain logs for in the storage account.
+     * @return The number of days to retain logs for in the storage account. Defaults to `0`.
      * 
      */
     public Output<Optional<Integer>> retentionInDays() {

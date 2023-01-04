@@ -48,14 +48,14 @@ public final class FrontdoorRuleConditionsSocketAddressConditionArgs extends com
     }
 
     /**
-     * The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+     * The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
      * 
      */
     @Import(name="operator")
     private @Nullable Output<String> operator;
 
     /**
-     * @return The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+     * @return The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
      * 
      */
     public Optional<Output<String>> operator() {
@@ -141,7 +141,7 @@ public final class FrontdoorRuleConditionsSocketAddressConditionArgs extends com
         }
 
         /**
-         * @param operator The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+         * @param operator The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class FrontdoorRuleConditionsSocketAddressConditionArgs extends com
         }
 
         /**
-         * @param operator The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+         * @param operator The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
          * 
          * @return builder
          * 

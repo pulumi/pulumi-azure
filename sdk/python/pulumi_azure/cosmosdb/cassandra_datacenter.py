@@ -33,13 +33,13 @@ class CassandraDatacenterArgs:
         :param pulumi.Input[bool] availability_zones_enabled: Determines whether availability zones are enabled. Defaults to `true`.
         :param pulumi.Input[str] backup_storage_customer_key_uri: The key URI of the customer key to use for the encryption of the backup Storage Account.
         :param pulumi.Input[str] base64_encoded_yaml_fragment: The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
-        :param pulumi.Input[int] disk_count: Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+        :param pulumi.Input[int] disk_count: Determines the number of p30 disks that are attached to each node.
         :param pulumi.Input[str] disk_sku: The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[str] managed_disk_customer_key_uri: The key URI of the customer key to use for the encryption of the Managed Disk.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
-        :param pulumi.Input[str] sku_name: Determines the selected sku. Defaults to Standard_DS14_v2.
+        :param pulumi.Input[str] sku_name: Determines the selected sku.
         """
         pulumi.set(__self__, "cassandra_cluster_id", cassandra_cluster_id)
         pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
@@ -128,7 +128,7 @@ class CassandraDatacenterArgs:
     @pulumi.getter(name="diskCount")
     def disk_count(self) -> Optional[pulumi.Input[int]]:
         """
-        Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+        Determines the number of p30 disks that are attached to each node.
         """
         return pulumi.get(self, "disk_count")
 
@@ -200,7 +200,7 @@ class CassandraDatacenterArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines the selected sku. Defaults to Standard_DS14_v2.
+        Determines the selected sku.
         """
         return pulumi.get(self, "sku_name")
 
@@ -231,13 +231,13 @@ class _CassandraDatacenterState:
         :param pulumi.Input[str] base64_encoded_yaml_fragment: The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
         :param pulumi.Input[str] cassandra_cluster_id: The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[str] delegated_management_subnet_id: The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
-        :param pulumi.Input[int] disk_count: Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+        :param pulumi.Input[int] disk_count: Determines the number of p30 disks that are attached to each node.
         :param pulumi.Input[str] disk_sku: The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[str] managed_disk_customer_key_uri: The key URI of the customer key to use for the encryption of the Managed Disk.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
-        :param pulumi.Input[str] sku_name: Determines the selected sku. Defaults to Standard_DS14_v2.
+        :param pulumi.Input[str] sku_name: Determines the selected sku.
         """
         if availability_zones_enabled is not None:
             pulumi.set(__self__, "availability_zones_enabled", availability_zones_enabled)
@@ -328,7 +328,7 @@ class _CassandraDatacenterState:
     @pulumi.getter(name="diskCount")
     def disk_count(self) -> Optional[pulumi.Input[int]]:
         """
-        Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+        Determines the number of p30 disks that are attached to each node.
         """
         return pulumi.get(self, "disk_count")
 
@@ -400,7 +400,7 @@ class _CassandraDatacenterState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines the selected sku. Defaults to Standard_DS14_v2.
+        Determines the selected sku.
         """
         return pulumi.get(self, "sku_name")
 
@@ -488,13 +488,13 @@ class CassandraDatacenter(pulumi.CustomResource):
         :param pulumi.Input[str] base64_encoded_yaml_fragment: The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
         :param pulumi.Input[str] cassandra_cluster_id: The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[str] delegated_management_subnet_id: The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
-        :param pulumi.Input[int] disk_count: Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+        :param pulumi.Input[int] disk_count: Determines the number of p30 disks that are attached to each node.
         :param pulumi.Input[str] disk_sku: The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[str] managed_disk_customer_key_uri: The key URI of the customer key to use for the encryption of the Managed Disk.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
-        :param pulumi.Input[str] sku_name: Determines the selected sku. Defaults to Standard_DS14_v2.
+        :param pulumi.Input[str] sku_name: Determines the selected sku.
         """
         ...
     @overload
@@ -642,13 +642,13 @@ class CassandraDatacenter(pulumi.CustomResource):
         :param pulumi.Input[str] base64_encoded_yaml_fragment: The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
         :param pulumi.Input[str] cassandra_cluster_id: The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[str] delegated_management_subnet_id: The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
-        :param pulumi.Input[int] disk_count: Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+        :param pulumi.Input[int] disk_count: Determines the number of p30 disks that are attached to each node.
         :param pulumi.Input[str] disk_sku: The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[str] managed_disk_customer_key_uri: The key URI of the customer key to use for the encryption of the Managed Disk.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
-        :param pulumi.Input[str] sku_name: Determines the selected sku. Defaults to Standard_DS14_v2.
+        :param pulumi.Input[str] sku_name: Determines the selected sku.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -712,7 +712,7 @@ class CassandraDatacenter(pulumi.CustomResource):
     @pulumi.getter(name="diskCount")
     def disk_count(self) -> pulumi.Output[Optional[int]]:
         """
-        Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+        Determines the number of p30 disks that are attached to each node.
         """
         return pulumi.get(self, "disk_count")
 
@@ -760,7 +760,7 @@ class CassandraDatacenter(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Determines the selected sku. Defaults to Standard_DS14_v2.
+        Determines the selected sku.
         """
         return pulumi.get(self, "sku_name")
 

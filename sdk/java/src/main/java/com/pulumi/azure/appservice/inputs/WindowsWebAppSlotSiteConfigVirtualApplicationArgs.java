@@ -34,14 +34,14 @@ public final class WindowsWebAppSlotSiteConfigVirtualApplicationArgs extends com
     }
 
     /**
-     * Should pre-loading be enabled. Defaults to `false`.
+     * Should pre-loading be enabled.
      * 
      */
     @Import(name="preload", required=true)
     private Output<Boolean> preload;
 
     /**
-     * @return Should pre-loading be enabled. Defaults to `false`.
+     * @return Should pre-loading be enabled.
      * 
      */
     public Output<Boolean> preload() {
@@ -127,7 +127,7 @@ public final class WindowsWebAppSlotSiteConfigVirtualApplicationArgs extends com
         }
 
         /**
-         * @param preload Should pre-loading be enabled. Defaults to `false`.
+         * @param preload Should pre-loading be enabled.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class WindowsWebAppSlotSiteConfigVirtualApplicationArgs extends com
         }
 
         /**
-         * @param preload Should pre-loading be enabled. Defaults to `false`.
+         * @param preload Should pre-loading be enabled.
          * 
          * @return builder
          * 

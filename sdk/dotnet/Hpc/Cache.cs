@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Hpc
     public partial class Cache : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+        /// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         /// </summary>
         [Output("automaticallyRotateKeyToLatestEnabled")]
         public Output<bool?> AutomaticallyRotateKeyToLatestEnabled { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.Hpc
         public Output<ImmutableArray<string>> MountAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+        /// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
         /// </summary>
         [Output("mtu")]
         public Output<int?> Mtu { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.Hpc
     public sealed class CacheArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+        /// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         /// </summary>
         [Input("automaticallyRotateKeyToLatestEnabled")]
         public Input<bool>? AutomaticallyRotateKeyToLatestEnabled { get; set; }
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.Hpc
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+        /// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
         /// </summary>
         [Input("mtu")]
         public Input<int>? Mtu { get; set; }
@@ -344,7 +344,7 @@ namespace Pulumi.Azure.Hpc
     public sealed class CacheState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+        /// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         /// </summary>
         [Input("automaticallyRotateKeyToLatestEnabled")]
         public Input<bool>? AutomaticallyRotateKeyToLatestEnabled { get; set; }
@@ -416,7 +416,7 @@ namespace Pulumi.Azure.Hpc
         }
 
         /// <summary>
-        /// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+        /// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
         /// </summary>
         [Input("mtu")]
         public Input<int>? Mtu { get; set; }

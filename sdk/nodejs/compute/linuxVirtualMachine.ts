@@ -126,7 +126,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly adminUsername!: pulumi.Output<string>;
     /**
-     * Should Extension Operations be allowed on this Virtual Machine?
+     * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
     public readonly allowExtensionOperations!: pulumi.Output<boolean | undefined>;
     /**
@@ -463,7 +463,7 @@ export interface LinuxVirtualMachineState {
      */
     adminUsername?: pulumi.Input<string>;
     /**
-     * Should Extension Operations be allowed on this Virtual Machine?
+     * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
     allowExtensionOperations?: pulumi.Input<boolean>;
     /**
@@ -665,7 +665,7 @@ export interface LinuxVirtualMachineArgs {
      */
     adminUsername: pulumi.Input<string>;
     /**
-     * Should Extension Operations be allowed on this Virtual Machine?
+     * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
     allowExtensionOperations?: pulumi.Input<boolean>;
     /**

@@ -187,14 +187,14 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
+     * Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`.
      * 
      */
     @Import(name="zoneRedundant")
     private @Nullable Output<Boolean> zoneRedundant;
 
     /**
-     * @return Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
+     * @return Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`.
      * 
      */
     public Optional<Output<Boolean>> zoneRedundant() {
@@ -468,7 +468,7 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneRedundant Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
+         * @param zoneRedundant Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`.
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneRedundant Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
+         * @param zoneRedundant Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`.
          * 
          * @return builder
          * 

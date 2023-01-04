@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
     /**
-     * @return Are missing virtual network service endpoints ignored? Defaults to `false`.
+     * @return Are missing virtual network service endpoints ignored?
      * 
      */
     private @Nullable Boolean ignoreMissingVirtualNetworkServiceEndpoint;
@@ -25,7 +25,7 @@ public final class EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
 
     private EventHubNamespaceNetworkRulesetsVirtualNetworkRule() {}
     /**
-     * @return Are missing virtual network service endpoints ignored? Defaults to `false`.
+     * @return Are missing virtual network service endpoints ignored?
      * 
      */
     public Optional<Boolean> ignoreMissingVirtualNetworkServiceEndpoint() {

@@ -167,7 +167,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly networkAccessPolicy!: pulumi.Output<string | undefined>;
     /**
-     * Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+     * Specifies if On-Demand Bursting is enabled for the Managed Disk.
      */
     public readonly onDemandBurstingEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -215,7 +215,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly tier!: pulumi.Output<string>;
     /**
-     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
      */
     public readonly trustedLaunchEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -400,7 +400,7 @@ export interface ManagedDiskState {
      */
     networkAccessPolicy?: pulumi.Input<string>;
     /**
-     * Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+     * Specifies if On-Demand Bursting is enabled for the Managed Disk.
      */
     onDemandBurstingEnabled?: pulumi.Input<boolean>;
     /**
@@ -448,7 +448,7 @@ export interface ManagedDiskState {
      */
     tier?: pulumi.Input<string>;
     /**
-     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
      */
     trustedLaunchEnabled?: pulumi.Input<boolean>;
     /**
@@ -538,7 +538,7 @@ export interface ManagedDiskArgs {
      */
     networkAccessPolicy?: pulumi.Input<string>;
     /**
-     * Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+     * Specifies if On-Demand Bursting is enabled for the Managed Disk.
      */
     onDemandBurstingEnabled?: pulumi.Input<boolean>;
     /**
@@ -586,7 +586,7 @@ export interface ManagedDiskArgs {
      */
     tier?: pulumi.Input<string>;
     /**
-     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
      */
     trustedLaunchEnabled?: pulumi.Input<boolean>;
     /**

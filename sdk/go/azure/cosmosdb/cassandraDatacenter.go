@@ -141,7 +141,7 @@ type CassandraDatacenter struct {
 	CassandraClusterId pulumi.StringOutput `pulumi:"cassandraClusterId"`
 	// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	DelegatedManagementSubnetId pulumi.StringOutput `pulumi:"delegatedManagementSubnetId"`
-	// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+	// Determines the number of p30 disks that are attached to each node.
 	DiskCount pulumi.IntPtrOutput `pulumi:"diskCount"`
 	// The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
 	DiskSku pulumi.StringPtrOutput `pulumi:"diskSku"`
@@ -153,7 +153,7 @@ type CassandraDatacenter struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount pulumi.IntPtrOutput `pulumi:"nodeCount"`
-	// Determines the selected sku. Defaults to Standard_DS14_v2.
+	// Determines the selected sku.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 }
 
@@ -202,7 +202,7 @@ type cassandraDatacenterState struct {
 	CassandraClusterId *string `pulumi:"cassandraClusterId"`
 	// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	DelegatedManagementSubnetId *string `pulumi:"delegatedManagementSubnetId"`
-	// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+	// Determines the number of p30 disks that are attached to each node.
 	DiskCount *int `pulumi:"diskCount"`
 	// The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
 	DiskSku *string `pulumi:"diskSku"`
@@ -214,7 +214,7 @@ type cassandraDatacenterState struct {
 	Name *string `pulumi:"name"`
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount *int `pulumi:"nodeCount"`
-	// Determines the selected sku. Defaults to Standard_DS14_v2.
+	// Determines the selected sku.
 	SkuName *string `pulumi:"skuName"`
 }
 
@@ -229,7 +229,7 @@ type CassandraDatacenterState struct {
 	CassandraClusterId pulumi.StringPtrInput
 	// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	DelegatedManagementSubnetId pulumi.StringPtrInput
-	// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+	// Determines the number of p30 disks that are attached to each node.
 	DiskCount pulumi.IntPtrInput
 	// The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
 	DiskSku pulumi.StringPtrInput
@@ -241,7 +241,7 @@ type CassandraDatacenterState struct {
 	Name pulumi.StringPtrInput
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount pulumi.IntPtrInput
-	// Determines the selected sku. Defaults to Standard_DS14_v2.
+	// Determines the selected sku.
 	SkuName pulumi.StringPtrInput
 }
 
@@ -260,7 +260,7 @@ type cassandraDatacenterArgs struct {
 	CassandraClusterId string `pulumi:"cassandraClusterId"`
 	// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	DelegatedManagementSubnetId string `pulumi:"delegatedManagementSubnetId"`
-	// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+	// Determines the number of p30 disks that are attached to each node.
 	DiskCount *int `pulumi:"diskCount"`
 	// The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
 	DiskSku *string `pulumi:"diskSku"`
@@ -272,7 +272,7 @@ type cassandraDatacenterArgs struct {
 	Name *string `pulumi:"name"`
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount *int `pulumi:"nodeCount"`
-	// Determines the selected sku. Defaults to Standard_DS14_v2.
+	// Determines the selected sku.
 	SkuName *string `pulumi:"skuName"`
 }
 
@@ -288,7 +288,7 @@ type CassandraDatacenterArgs struct {
 	CassandraClusterId pulumi.StringInput
 	// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
 	DelegatedManagementSubnetId pulumi.StringInput
-	// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+	// Determines the number of p30 disks that are attached to each node.
 	DiskCount pulumi.IntPtrInput
 	// The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
 	DiskSku pulumi.StringPtrInput
@@ -300,7 +300,7 @@ type CassandraDatacenterArgs struct {
 	Name pulumi.StringPtrInput
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount pulumi.IntPtrInput
-	// Determines the selected sku. Defaults to Standard_DS14_v2.
+	// Determines the selected sku.
 	SkuName pulumi.StringPtrInput
 }
 
@@ -416,7 +416,7 @@ func (o CassandraDatacenterOutput) DelegatedManagementSubnetId() pulumi.StringOu
 	return o.ApplyT(func(v *CassandraDatacenter) pulumi.StringOutput { return v.DelegatedManagementSubnetId }).(pulumi.StringOutput)
 }
 
-// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+// Determines the number of p30 disks that are attached to each node.
 func (o CassandraDatacenterOutput) DiskCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CassandraDatacenter) pulumi.IntPtrOutput { return v.DiskCount }).(pulumi.IntPtrOutput)
 }
@@ -446,7 +446,7 @@ func (o CassandraDatacenterOutput) NodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CassandraDatacenter) pulumi.IntPtrOutput { return v.NodeCount }).(pulumi.IntPtrOutput)
 }
 
-// Determines the selected sku. Defaults to Standard_DS14_v2.
+// Determines the selected sku.
 func (o CassandraDatacenterOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraDatacenter) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
 }

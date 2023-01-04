@@ -614,7 +614,7 @@ func (o DatabaseShortTermRetentionPolicyPtrOutput) RetentionDays() pulumi.IntPtr
 type DatabaseThreatDetectionPolicy struct {
 	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
 	DisabledAlerts []string `pulumi:"disabledAlerts"`
-	// Should the account administrators be emailed when this alert is triggered?
+	// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
 	EmailAccountAdmins *string `pulumi:"emailAccountAdmins"`
 	// A list of email addresses which alerts should be sent to.
 	EmailAddresses []string `pulumi:"emailAddresses"`
@@ -642,7 +642,7 @@ type DatabaseThreatDetectionPolicyInput interface {
 type DatabaseThreatDetectionPolicyArgs struct {
 	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
 	DisabledAlerts pulumi.StringArrayInput `pulumi:"disabledAlerts"`
-	// Should the account administrators be emailed when this alert is triggered?
+	// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
 	EmailAccountAdmins pulumi.StringPtrInput `pulumi:"emailAccountAdmins"`
 	// A list of email addresses which alerts should be sent to.
 	EmailAddresses pulumi.StringArrayInput `pulumi:"emailAddresses"`
@@ -738,7 +738,7 @@ func (o DatabaseThreatDetectionPolicyOutput) DisabledAlerts() pulumi.StringArray
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
 }
 
-// Should the account administrators be emailed when this alert is triggered?
+// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
 func (o DatabaseThreatDetectionPolicyOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.EmailAccountAdmins }).(pulumi.StringPtrOutput)
 }
@@ -802,7 +802,7 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) DisabledAlerts() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Should the account administrators be emailed when this alert is triggered?
+// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
 		if v == nil {
@@ -1120,7 +1120,7 @@ type ElasticPoolSku struct {
 	Capacity int `pulumi:"capacity"`
 	// The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
 	Family *string `pulumi:"family"`
-	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Changing this forces a new resource to be created.
+	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Possible values are `BasicPool`, `StandardPool`, `PremiumPool`, `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5` and `BC_DC`. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 	Tier string `pulumi:"tier"`
@@ -1142,7 +1142,7 @@ type ElasticPoolSkuArgs struct {
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
 	Family pulumi.StringPtrInput `pulumi:"family"`
-	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Changing this forces a new resource to be created.
+	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Possible values are `BasicPool`, `StandardPool`, `PremiumPool`, `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5` and `BC_DC`. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 	Tier pulumi.StringInput `pulumi:"tier"`
@@ -1235,7 +1235,7 @@ func (o ElasticPoolSkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ElasticPoolSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Changing this forces a new resource to be created.
+// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Possible values are `BasicPool`, `StandardPool`, `PremiumPool`, `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5` and `BC_DC`. Changing this forces a new resource to be created.
 func (o ElasticPoolSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticPoolSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1289,7 +1289,7 @@ func (o ElasticPoolSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Changing this forces a new resource to be created.
+// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Possible values are `BasicPool`, `StandardPool`, `PremiumPool`, `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5` and `BC_DC`. Changing this forces a new resource to be created.
 func (o ElasticPoolSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticPoolSku) *string {
 		if v == nil {
@@ -3156,7 +3156,7 @@ type VirtualMachineAutoBackup struct {
 	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
 	// Blob endpoint for the storage account where backups will be kept.
 	StorageBlobEndpoint string `pulumi:"storageBlobEndpoint"`
-	// Include or exclude system databases from auto backup. Defaults to `false`.
+	// Include or exclude system databases from auto backup.
 	SystemDatabasesBackupEnabled *bool `pulumi:"systemDatabasesBackupEnabled"`
 }
 
@@ -3184,7 +3184,7 @@ type VirtualMachineAutoBackupArgs struct {
 	StorageAccountAccessKey pulumi.StringInput `pulumi:"storageAccountAccessKey"`
 	// Blob endpoint for the storage account where backups will be kept.
 	StorageBlobEndpoint pulumi.StringInput `pulumi:"storageBlobEndpoint"`
-	// Include or exclude system databases from auto backup. Defaults to `false`.
+	// Include or exclude system databases from auto backup.
 	SystemDatabasesBackupEnabled pulumi.BoolPtrInput `pulumi:"systemDatabasesBackupEnabled"`
 }
 
@@ -3295,7 +3295,7 @@ func (o VirtualMachineAutoBackupOutput) StorageBlobEndpoint() pulumi.StringOutpu
 	return o.ApplyT(func(v VirtualMachineAutoBackup) string { return v.StorageBlobEndpoint }).(pulumi.StringOutput)
 }
 
-// Include or exclude system databases from auto backup. Defaults to `false`.
+// Include or exclude system databases from auto backup.
 func (o VirtualMachineAutoBackupOutput) SystemDatabasesBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualMachineAutoBackup) *bool { return v.SystemDatabasesBackupEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -3384,7 +3384,7 @@ func (o VirtualMachineAutoBackupPtrOutput) StorageBlobEndpoint() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Include or exclude system databases from auto backup. Defaults to `false`.
+// Include or exclude system databases from auto backup.
 func (o VirtualMachineAutoBackupPtrOutput) SystemDatabasesBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineAutoBackup) *bool {
 		if v == nil {

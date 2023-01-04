@@ -17,6 +17,8 @@ import (
 //
 // > **Note:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `accessPolicy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
 //
+// > **Note:** It's possible to define Key Vault Certificate Contacts both within the `keyvault.KeyVault` resource via the `contact` block and by using the `keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
+//
 // ## Example Usage
 //
 // ```go
@@ -87,17 +89,17 @@ import (
 type KeyVault struct {
 	pulumi.CustomResourceState
 
-	// A list of up to 16 objects describing access policies, as described below.
+	// A list of up to 1024 objects describing access policies, as described below.
 	AccessPolicies KeyVaultAccessPolicyArrayOutput `pulumi:"accessPolicies"`
 	// One or more `contact` block as defined below.
 	Contacts KeyVaultContactArrayOutput `pulumi:"contacts"`
-	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 	EnableRbacAuthorization pulumi.BoolPtrOutput `pulumi:"enableRbacAuthorization"`
-	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
 	EnabledForDeployment pulumi.BoolPtrOutput `pulumi:"enabledForDeployment"`
-	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
 	EnabledForDiskEncryption pulumi.BoolPtrOutput `pulumi:"enabledForDiskEncryption"`
-	// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+	// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 	EnabledForTemplateDeployment pulumi.BoolPtrOutput `pulumi:"enabledForTemplateDeployment"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -107,7 +109,7 @@ type KeyVault struct {
 	NetworkAcls KeyVaultNetworkAclsOutput `pulumi:"networkAcls"`
 	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
-	// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+	// Is Purge Protection enabled for this Key Vault?
 	PurgeProtectionEnabled pulumi.BoolPtrOutput `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -161,17 +163,17 @@ func GetKeyVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeyVault resources.
 type keyVaultState struct {
-	// A list of up to 16 objects describing access policies, as described below.
+	// A list of up to 1024 objects describing access policies, as described below.
 	AccessPolicies []KeyVaultAccessPolicy `pulumi:"accessPolicies"`
 	// One or more `contact` block as defined below.
 	Contacts []KeyVaultContact `pulumi:"contacts"`
-	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 	EnableRbacAuthorization *bool `pulumi:"enableRbacAuthorization"`
-	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
 	EnabledForDeployment *bool `pulumi:"enabledForDeployment"`
-	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
 	EnabledForDiskEncryption *bool `pulumi:"enabledForDiskEncryption"`
-	// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+	// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 	EnabledForTemplateDeployment *bool `pulumi:"enabledForTemplateDeployment"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -181,7 +183,7 @@ type keyVaultState struct {
 	NetworkAcls *KeyVaultNetworkAcls `pulumi:"networkAcls"`
 	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+	// Is Purge Protection enabled for this Key Vault?
 	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -198,17 +200,17 @@ type keyVaultState struct {
 }
 
 type KeyVaultState struct {
-	// A list of up to 16 objects describing access policies, as described below.
+	// A list of up to 1024 objects describing access policies, as described below.
 	AccessPolicies KeyVaultAccessPolicyArrayInput
 	// One or more `contact` block as defined below.
 	Contacts KeyVaultContactArrayInput
-	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 	EnableRbacAuthorization pulumi.BoolPtrInput
-	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
 	EnabledForDeployment pulumi.BoolPtrInput
-	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
 	EnabledForDiskEncryption pulumi.BoolPtrInput
-	// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+	// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 	EnabledForTemplateDeployment pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -218,7 +220,7 @@ type KeyVaultState struct {
 	NetworkAcls KeyVaultNetworkAclsPtrInput
 	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+	// Is Purge Protection enabled for this Key Vault?
 	PurgeProtectionEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -239,17 +241,17 @@ func (KeyVaultState) ElementType() reflect.Type {
 }
 
 type keyVaultArgs struct {
-	// A list of up to 16 objects describing access policies, as described below.
+	// A list of up to 1024 objects describing access policies, as described below.
 	AccessPolicies []KeyVaultAccessPolicy `pulumi:"accessPolicies"`
 	// One or more `contact` block as defined below.
 	Contacts []KeyVaultContact `pulumi:"contacts"`
-	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 	EnableRbacAuthorization *bool `pulumi:"enableRbacAuthorization"`
-	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
 	EnabledForDeployment *bool `pulumi:"enabledForDeployment"`
-	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
 	EnabledForDiskEncryption *bool `pulumi:"enabledForDiskEncryption"`
-	// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+	// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 	EnabledForTemplateDeployment *bool `pulumi:"enabledForTemplateDeployment"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -259,7 +261,7 @@ type keyVaultArgs struct {
 	NetworkAcls *KeyVaultNetworkAcls `pulumi:"networkAcls"`
 	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+	// Is Purge Protection enabled for this Key Vault?
 	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -275,17 +277,17 @@ type keyVaultArgs struct {
 
 // The set of arguments for constructing a KeyVault resource.
 type KeyVaultArgs struct {
-	// A list of up to 16 objects describing access policies, as described below.
+	// A list of up to 1024 objects describing access policies, as described below.
 	AccessPolicies KeyVaultAccessPolicyArrayInput
 	// One or more `contact` block as defined below.
 	Contacts KeyVaultContactArrayInput
-	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 	EnableRbacAuthorization pulumi.BoolPtrInput
-	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
 	EnabledForDeployment pulumi.BoolPtrInput
-	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
 	EnabledForDiskEncryption pulumi.BoolPtrInput
-	// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+	// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 	EnabledForTemplateDeployment pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -295,7 +297,7 @@ type KeyVaultArgs struct {
 	NetworkAcls KeyVaultNetworkAclsPtrInput
 	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+	// Is Purge Protection enabled for this Key Vault?
 	PurgeProtectionEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -396,7 +398,7 @@ func (o KeyVaultOutput) ToKeyVaultOutputWithContext(ctx context.Context) KeyVaul
 	return o
 }
 
-// A list of up to 16 objects describing access policies, as described below.
+// A list of up to 1024 objects describing access policies, as described below.
 func (o KeyVaultOutput) AccessPolicies() KeyVaultAccessPolicyArrayOutput {
 	return o.ApplyT(func(v *KeyVault) KeyVaultAccessPolicyArrayOutput { return v.AccessPolicies }).(KeyVaultAccessPolicyArrayOutput)
 }
@@ -406,22 +408,22 @@ func (o KeyVaultOutput) Contacts() KeyVaultContactArrayOutput {
 	return o.ApplyT(func(v *KeyVault) KeyVaultContactArrayOutput { return v.Contacts }).(KeyVaultContactArrayOutput)
 }
 
-// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
 func (o KeyVaultOutput) EnableRbacAuthorization() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyVault) pulumi.BoolPtrOutput { return v.EnableRbacAuthorization }).(pulumi.BoolPtrOutput)
 }
 
-// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
 func (o KeyVaultOutput) EnabledForDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyVault) pulumi.BoolPtrOutput { return v.EnabledForDeployment }).(pulumi.BoolPtrOutput)
 }
 
-// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
 func (o KeyVaultOutput) EnabledForDiskEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyVault) pulumi.BoolPtrOutput { return v.EnabledForDiskEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
 func (o KeyVaultOutput) EnabledForTemplateDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyVault) pulumi.BoolPtrOutput { return v.EnabledForTemplateDeployment }).(pulumi.BoolPtrOutput)
 }
@@ -446,7 +448,7 @@ func (o KeyVaultOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyVault) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+// Is Purge Protection enabled for this Key Vault?
 func (o KeyVaultOutput) PurgeProtectionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyVault) pulumi.BoolPtrOutput { return v.PurgeProtectionEnabled }).(pulumi.BoolPtrOutput)
 }

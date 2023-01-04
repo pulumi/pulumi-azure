@@ -133,13 +133,13 @@ namespace Pulumi.Azure.Network
         public Output<int> MinimumChildEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        /// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         /// </summary>
         [Output("minimumRequiredChildEndpointsIpv4")]
         public Output<int?> MinimumRequiredChildEndpointsIpv4 { get; private set; } = null!;
 
         /// <summary>
-        /// This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        /// This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         /// </summary>
         [Output("minimumRequiredChildEndpointsIpv6")]
         public Output<int?> MinimumRequiredChildEndpointsIpv6 { get; private set; } = null!;
@@ -277,13 +277,13 @@ namespace Pulumi.Azure.Network
         public Input<int> MinimumChildEndpoints { get; set; } = null!;
 
         /// <summary>
-        /// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        /// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         /// </summary>
         [Input("minimumRequiredChildEndpointsIpv4")]
         public Input<int>? MinimumRequiredChildEndpointsIpv4 { get; set; }
 
         /// <summary>
-        /// This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        /// This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         /// </summary>
         [Input("minimumRequiredChildEndpointsIpv6")]
         public Input<int>? MinimumRequiredChildEndpointsIpv6 { get; set; }
@@ -389,13 +389,13 @@ namespace Pulumi.Azure.Network
         public Input<int>? MinimumChildEndpoints { get; set; }
 
         /// <summary>
-        /// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        /// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         /// </summary>
         [Input("minimumRequiredChildEndpointsIpv4")]
         public Input<int>? MinimumRequiredChildEndpointsIpv4 { get; set; }
 
         /// <summary>
-        /// This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and defaults to `1`.
+        /// This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         /// </summary>
         [Input("minimumRequiredChildEndpointsIpv6")]
         public Input<int>? MinimumRequiredChildEndpointsIpv6 { get; set; }

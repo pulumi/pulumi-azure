@@ -101,9 +101,9 @@ import (
 type WorkspaceExtendedAuditingPolicy struct {
 	pulumi.CustomResourceState
 
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrOutput `pulumi:"logMonitoringEnabled"`
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
 	// The access key to use for the auditing storage account.
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
@@ -154,9 +154,9 @@ func GetWorkspaceExtendedAuditingPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceExtendedAuditingPolicy resources.
 type workspaceExtendedAuditingPolicyState struct {
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The access key to use for the auditing storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
@@ -169,9 +169,9 @@ type workspaceExtendedAuditingPolicyState struct {
 }
 
 type WorkspaceExtendedAuditingPolicyState struct {
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrInput
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays pulumi.IntPtrInput
 	// The access key to use for the auditing storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput
@@ -188,9 +188,9 @@ func (WorkspaceExtendedAuditingPolicyState) ElementType() reflect.Type {
 }
 
 type workspaceExtendedAuditingPolicyArgs struct {
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The access key to use for the auditing storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
@@ -204,9 +204,9 @@ type workspaceExtendedAuditingPolicyArgs struct {
 
 // The set of arguments for constructing a WorkspaceExtendedAuditingPolicy resource.
 type WorkspaceExtendedAuditingPolicyArgs struct {
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrInput
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays pulumi.IntPtrInput
 	// The access key to use for the auditing storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput
@@ -305,12 +305,12 @@ func (o WorkspaceExtendedAuditingPolicyOutput) ToWorkspaceExtendedAuditingPolicy
 	return o
 }
 
-// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
 func (o WorkspaceExtendedAuditingPolicyOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspaceExtendedAuditingPolicy) pulumi.BoolPtrOutput { return v.LogMonitoringEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The number of days to retain logs for in the storage account.
+// The number of days to retain logs for in the storage account. Defaults to `0`.
 func (o WorkspaceExtendedAuditingPolicyOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkspaceExtendedAuditingPolicy) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }

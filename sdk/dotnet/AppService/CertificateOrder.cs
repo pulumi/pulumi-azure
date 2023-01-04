@@ -55,7 +55,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<string>> AppServiceCertificateNotRenewableReasons { get; private set; } = null!;
 
         /// <summary>
-        /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+        /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         /// </summary>
         [Output("autoRenew")]
         public Output<bool?> AutoRenew { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.AppService
         public Output<bool> IsPrivateKeyExternal { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate key size.  Defaults to 2048.
+        /// Certificate key size.  Defaults to `2048`.
         /// </summary>
         [Output("keySize")]
         public Output<int?> KeySize { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.AppService
     public sealed class CertificateOrderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+        /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         /// </summary>
         [Input("autoRenew")]
         public Input<bool>? AutoRenew { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? DistinguishedName { get; set; }
 
         /// <summary>
-        /// Certificate key size.  Defaults to 2048.
+        /// Certificate key size.  Defaults to `2048`.
         /// </summary>
         [Input("keySize")]
         public Input<int>? KeySize { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+        /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         /// </summary>
         [Input("autoRenew")]
         public Input<bool>? AutoRenew { get; set; }
@@ -349,7 +349,7 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? IsPrivateKeyExternal { get; set; }
 
         /// <summary>
-        /// Certificate key size.  Defaults to 2048.
+        /// Certificate key size.  Defaults to `2048`.
         /// </summary>
         [Input("keySize")]
         public Input<int>? KeySize { get; set; }

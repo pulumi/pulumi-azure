@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServerThreatDetectionPolicy {
     /**
-     * @return Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+     * @return Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
      * 
      */
     private @Nullable List<String> disabledAlerts;
@@ -52,7 +52,7 @@ public final class ServerThreatDetectionPolicy {
 
     private ServerThreatDetectionPolicy() {}
     /**
-     * @return Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+     * @return Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
      * 
      */
     public List<String> disabledAlerts() {

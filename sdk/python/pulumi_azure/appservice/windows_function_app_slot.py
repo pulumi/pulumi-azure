@@ -48,15 +48,15 @@ class WindowsFunctionAppSlotArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsArgs'] auth_settings: an `auth_settings` block as detailed below.
         :param pulumi.Input['WindowsFunctionAppSlotBackupArgs'] backup: a `backup` block as detailed below.
-        :param pulumi.Input[bool] builtin_logging_enabled: Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        :param pulumi.Input[bool] builtin_logging_enabled: Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArgs']]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[bool] content_share_force_disabled: Force disable the content share settings.
-        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
-        :param pulumi.Input[bool] enabled: Is the Windows Function App Slot enabled.
-        :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot.
+        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
+        :param pulumi.Input[bool] enabled: Is the Windows Function App Slot enabled. Defaults to `true`.
+        :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
         :param pulumi.Input['WindowsFunctionAppSlotIdentityArgs'] identity: an `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
@@ -182,7 +182,7 @@ class WindowsFunctionAppSlotArgs:
     @pulumi.getter(name="builtinLoggingEnabled")
     def builtin_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         """
         return pulumi.get(self, "builtin_logging_enabled")
 
@@ -254,7 +254,7 @@ class WindowsFunctionAppSlotArgs:
     @pulumi.getter(name="dailyMemoryTimeQuota")
     def daily_memory_time_quota(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         """
         return pulumi.get(self, "daily_memory_time_quota")
 
@@ -266,7 +266,7 @@ class WindowsFunctionAppSlotArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the Windows Function App Slot enabled.
+        Is the Windows Function App Slot enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -278,7 +278,7 @@ class WindowsFunctionAppSlotArgs:
     @pulumi.getter(name="functionsExtensionVersion")
     def functions_extension_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime version associated with the Function App Slot.
+        The runtime version associated with the Function App Slot. Defaults to `~4`.
         """
         return pulumi.get(self, "functions_extension_version")
 
@@ -460,18 +460,18 @@ class _WindowsFunctionAppSlotState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsArgs'] auth_settings: an `auth_settings` block as detailed below.
         :param pulumi.Input['WindowsFunctionAppSlotBackupArgs'] backup: a `backup` block as detailed below.
-        :param pulumi.Input[bool] builtin_logging_enabled: Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        :param pulumi.Input[bool] builtin_logging_enabled: Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArgs']]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[bool] content_share_force_disabled: Force disable the content share settings.
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
-        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[str] default_hostname: The default hostname of the Windows Function App Slot.
-        :param pulumi.Input[bool] enabled: Is the Windows Function App Slot enabled.
+        :param pulumi.Input[bool] enabled: Is the Windows Function App Slot enabled. Defaults to `true`.
         :param pulumi.Input[str] function_app_id: The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot.
+        :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
         :param pulumi.Input['WindowsFunctionAppSlotIdentityArgs'] identity: an `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
@@ -598,7 +598,7 @@ class _WindowsFunctionAppSlotState:
     @pulumi.getter(name="builtinLoggingEnabled")
     def builtin_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         """
         return pulumi.get(self, "builtin_logging_enabled")
 
@@ -682,7 +682,7 @@ class _WindowsFunctionAppSlotState:
     @pulumi.getter(name="dailyMemoryTimeQuota")
     def daily_memory_time_quota(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         """
         return pulumi.get(self, "daily_memory_time_quota")
 
@@ -706,7 +706,7 @@ class _WindowsFunctionAppSlotState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the Windows Function App Slot enabled.
+        Is the Windows Function App Slot enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -730,7 +730,7 @@ class _WindowsFunctionAppSlotState:
     @pulumi.getter(name="functionsExtensionVersion")
     def functions_extension_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime version associated with the Function App Slot.
+        The runtime version associated with the Function App Slot. Defaults to `~4`.
         """
         return pulumi.get(self, "functions_extension_version")
 
@@ -1031,16 +1031,16 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsArgs']] auth_settings: an `auth_settings` block as detailed below.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotBackupArgs']] backup: a `backup` block as detailed below.
-        :param pulumi.Input[bool] builtin_logging_enabled: Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        :param pulumi.Input[bool] builtin_logging_enabled: Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotConnectionStringArgs']]]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[bool] content_share_force_disabled: Force disable the content share settings.
-        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
-        :param pulumi.Input[bool] enabled: Is the Windows Function App Slot enabled.
+        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
+        :param pulumi.Input[bool] enabled: Is the Windows Function App Slot enabled. Defaults to `true`.
         :param pulumi.Input[str] function_app_id: The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot.
+        :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArgs']] identity: an `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
@@ -1241,18 +1241,18 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsArgs']] auth_settings: an `auth_settings` block as detailed below.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotBackupArgs']] backup: a `backup` block as detailed below.
-        :param pulumi.Input[bool] builtin_logging_enabled: Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        :param pulumi.Input[bool] builtin_logging_enabled: Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotConnectionStringArgs']]]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[bool] content_share_force_disabled: Force disable the content share settings.
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
-        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[str] default_hostname: The default hostname of the Windows Function App Slot.
-        :param pulumi.Input[bool] enabled: Is the Windows Function App Slot enabled.
+        :param pulumi.Input[bool] enabled: Is the Windows Function App Slot enabled. Defaults to `true`.
         :param pulumi.Input[str] function_app_id: The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot.
+        :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArgs']] identity: an `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
@@ -1339,7 +1339,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="builtinLoggingEnabled")
     def builtin_logging_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         """
         return pulumi.get(self, "builtin_logging_enabled")
 
@@ -1395,7 +1395,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="dailyMemoryTimeQuota")
     def daily_memory_time_quota(self) -> pulumi.Output[Optional[int]]:
         """
-        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         """
         return pulumi.get(self, "daily_memory_time_quota")
 
@@ -1411,7 +1411,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is the Windows Function App Slot enabled.
+        Is the Windows Function App Slot enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -1427,7 +1427,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="functionsExtensionVersion")
     def functions_extension_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The runtime version associated with the Function App Slot.
+        The runtime version associated with the Function App Slot. Defaults to `~4`.
         """
         return pulumi.get(self, "functions_extension_version")
 

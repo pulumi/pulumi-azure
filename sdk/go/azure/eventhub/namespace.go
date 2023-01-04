@@ -99,7 +99,7 @@ type Namespace struct {
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
 	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
@@ -179,7 +179,7 @@ type namespaceState struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
@@ -218,7 +218,7 @@ type NamespaceState struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -251,7 +251,7 @@ type namespaceArgs struct {
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
@@ -281,7 +281,7 @@ type NamespaceArgs struct {
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -451,7 +451,7 @@ func (o NamespaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`. Changing this forces a new resource to be created.
+// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
 func (o NamespaceOutput) ZoneRedundant() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
 }

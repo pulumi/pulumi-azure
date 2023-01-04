@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Automation.Outputs
     public sealed class AccountEncryption
     {
         /// <summary>
-        /// The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+        /// The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
         /// </summary>
         public readonly string? KeySource;
         /// <summary>

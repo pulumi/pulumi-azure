@@ -19,7 +19,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
      */
     private String caching;
     /**
-     * @return The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+     * @return The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
      * 
      */
     private @Nullable String createOption;
@@ -56,7 +56,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
         return this.caching;
     }
     /**
-     * @return The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+     * @return The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
      * 
      */
     public Optional<String> createOption() {

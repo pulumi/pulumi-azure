@@ -39,14 +39,14 @@ class SubscriptionArgs:
         :param pulumi.Input['SubscriptionClientScopedSubscriptionArgs'] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
         :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `False`.
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
-        :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+        :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         :param pulumi.Input[str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
         :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
         """
         pulumi.set(__self__, "max_delivery_count", max_delivery_count)
@@ -154,7 +154,7 @@ class SubscriptionArgs:
     @pulumi.getter(name="deadLetteringOnMessageExpiration")
     def dead_lettering_on_message_expiration(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+        Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         """
         return pulumi.get(self, "dead_lettering_on_message_expiration")
 
@@ -178,7 +178,7 @@ class SubscriptionArgs:
     @pulumi.getter(name="enableBatchedOperations")
     def enable_batched_operations(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+        Boolean flag which controls whether the Subscription supports batched operations.
         """
         return pulumi.get(self, "enable_batched_operations")
 
@@ -238,7 +238,7 @@ class SubscriptionArgs:
     @pulumi.getter(name="requiresSession")
     def requires_session(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+        Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "requires_session")
 
@@ -283,15 +283,15 @@ class _SubscriptionState:
         :param pulumi.Input['SubscriptionClientScopedSubscriptionArgs'] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
         :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `False`.
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
-        :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+        :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         :param pulumi.Input[str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
         :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
         :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[str] topic_id: The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         """
@@ -378,7 +378,7 @@ class _SubscriptionState:
     @pulumi.getter(name="deadLetteringOnMessageExpiration")
     def dead_lettering_on_message_expiration(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+        Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         """
         return pulumi.get(self, "dead_lettering_on_message_expiration")
 
@@ -402,7 +402,7 @@ class _SubscriptionState:
     @pulumi.getter(name="enableBatchedOperations")
     def enable_batched_operations(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+        Boolean flag which controls whether the Subscription supports batched operations.
         """
         return pulumi.get(self, "enable_batched_operations")
 
@@ -474,7 +474,7 @@ class _SubscriptionState:
     @pulumi.getter(name="requiresSession")
     def requires_session(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+        Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "requires_session")
 
@@ -567,15 +567,15 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
         :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `False`.
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
-        :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+        :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         :param pulumi.Input[str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
         :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
         :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[str] topic_id: The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         """
@@ -714,15 +714,15 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
         :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `False`.
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
-        :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+        :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         :param pulumi.Input[str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
         :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or  `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` .
         :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[str] topic_id: The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         """
@@ -783,7 +783,7 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter(name="deadLetteringOnMessageExpiration")
     def dead_lettering_on_message_expiration(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+        Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         """
         return pulumi.get(self, "dead_lettering_on_message_expiration")
 
@@ -799,7 +799,7 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter(name="enableBatchedOperations")
     def enable_batched_operations(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+        Boolean flag which controls whether the Subscription supports batched operations.
         """
         return pulumi.get(self, "enable_batched_operations")
 
@@ -847,7 +847,7 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter(name="requiresSession")
     def requires_session(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+        Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "requires_session")
 

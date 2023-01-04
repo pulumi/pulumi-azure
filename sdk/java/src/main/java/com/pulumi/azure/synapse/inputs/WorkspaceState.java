@@ -190,14 +190,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
+     * Is Virtual Network enabled for all computes in this workspace?  Changing this forces a new resource to be created.
      * 
      */
     @Import(name="managedVirtualNetworkEnabled")
     private @Nullable Output<Boolean> managedVirtualNetworkEnabled;
 
     /**
-     * @return Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Is Virtual Network enabled for all computes in this workspace?  Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> managedVirtualNetworkEnabled() {
@@ -641,7 +641,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedVirtualNetworkEnabled Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
+         * @param managedVirtualNetworkEnabled Is Virtual Network enabled for all computes in this workspace?  Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -652,7 +652,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedVirtualNetworkEnabled Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
+         * @param managedVirtualNetworkEnabled Is Virtual Network enabled for all computes in this workspace?  Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

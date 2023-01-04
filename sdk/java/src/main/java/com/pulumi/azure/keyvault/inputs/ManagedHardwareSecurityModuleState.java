@@ -96,14 +96,14 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
     }
 
     /**
-     * Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+     * Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+     * @return Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -111,14 +111,14 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
     }
 
     /**
-     * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
+     * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
      * 
      */
     @Import(name="purgeProtectionEnabled")
     private @Nullable Output<Boolean> purgeProtectionEnabled;
 
     /**
-     * @return Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> purgeProtectionEnabled() {
@@ -351,7 +351,7 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+         * @param publicNetworkAccessEnabled Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+         * @param publicNetworkAccessEnabled Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
         }
 
         /**
-         * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
+         * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
         }
 
         /**
-         * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
+         * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

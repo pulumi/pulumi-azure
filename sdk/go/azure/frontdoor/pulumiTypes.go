@@ -13,7 +13,7 @@ import (
 type CustomHttpsConfigurationCustomHttpsConfiguration struct {
 	// The name of the Key Vault secret representing the full certificate PFX.
 	AzureKeyVaultCertificateSecretName *string `pulumi:"azureKeyVaultCertificateSecretName"`
-	// The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
+	// The version of the Key Vault secret representing the full certificate PFX.
 	AzureKeyVaultCertificateSecretVersion *string `pulumi:"azureKeyVaultCertificateSecretVersion"`
 	// The ID of the Key Vault containing the SSL certificate.
 	AzureKeyVaultCertificateVaultId *string `pulumi:"azureKeyVaultCertificateVaultId"`
@@ -39,7 +39,7 @@ type CustomHttpsConfigurationCustomHttpsConfigurationInput interface {
 type CustomHttpsConfigurationCustomHttpsConfigurationArgs struct {
 	// The name of the Key Vault secret representing the full certificate PFX.
 	AzureKeyVaultCertificateSecretName pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateSecretName"`
-	// The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
+	// The version of the Key Vault secret representing the full certificate PFX.
 	AzureKeyVaultCertificateSecretVersion pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateSecretVersion"`
 	// The ID of the Key Vault containing the SSL certificate.
 	AzureKeyVaultCertificateVaultId pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateVaultId"`
@@ -135,7 +135,7 @@ func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) AzureKeyVaultCer
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
+// The version of the Key Vault secret representing the full certificate PFX.
 func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) AzureKeyVaultCertificateSecretVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomHttpsConfigurationCustomHttpsConfiguration) *string {
 		return v.AzureKeyVaultCertificateSecretVersion
@@ -201,7 +201,7 @@ func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) AzureKeyVault
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
+// The version of the Key Vault secret representing the full certificate PFX.
 func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateSecretVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomHttpsConfigurationCustomHttpsConfiguration) *string {
 		if v == nil {
@@ -1568,7 +1568,7 @@ type FrontdoorBackendPoolHealthProbe struct {
 	Name string `pulumi:"name"`
 	// The path to use for the Health Probe. Default is `/`.
 	Path *string `pulumi:"path"`
-	// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+	// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
 	ProbeMethod *string `pulumi:"probeMethod"`
 	// Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
 	Protocol *string `pulumi:"protocol"`
@@ -1596,7 +1596,7 @@ type FrontdoorBackendPoolHealthProbeArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The path to use for the Health Probe. Default is `/`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+	// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
 	ProbeMethod pulumi.StringPtrInput `pulumi:"probeMethod"`
 	// Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
@@ -1678,7 +1678,7 @@ func (o FrontdoorBackendPoolHealthProbeOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
 func (o FrontdoorBackendPoolHealthProbeOutput) ProbeMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *string { return v.ProbeMethod }).(pulumi.StringPtrOutput)
 }
@@ -2208,7 +2208,7 @@ func (o FrontdoorFrontendEndpointArrayOutput) Index(i pulumi.IntInput) Frontdoor
 }
 
 type FrontdoorRoutingRule struct {
-	// Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
+	// Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
 	AcceptedProtocols []string `pulumi:"acceptedProtocols"`
 	// `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -2220,7 +2220,7 @@ type FrontdoorRoutingRule struct {
 	Id *string `pulumi:"id"`
 	// Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
-	// The route patterns for the Backend Routing Rule. Defaults to `/*`.
+	// The route patterns for the Backend Routing Rule.
 	PatternsToMatches []string `pulumi:"patternsToMatches"`
 	// A `redirectConfiguration` block as defined below.
 	RedirectConfiguration *FrontdoorRoutingRuleRedirectConfiguration `pulumi:"redirectConfiguration"`
@@ -2238,7 +2238,7 @@ type FrontdoorRoutingRuleInput interface {
 }
 
 type FrontdoorRoutingRuleArgs struct {
-	// Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
+	// Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
 	AcceptedProtocols pulumi.StringArrayInput `pulumi:"acceptedProtocols"`
 	// `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -2250,7 +2250,7 @@ type FrontdoorRoutingRuleArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The route patterns for the Backend Routing Rule. Defaults to `/*`.
+	// The route patterns for the Backend Routing Rule.
 	PatternsToMatches pulumi.StringArrayInput `pulumi:"patternsToMatches"`
 	// A `redirectConfiguration` block as defined below.
 	RedirectConfiguration FrontdoorRoutingRuleRedirectConfigurationPtrInput `pulumi:"redirectConfiguration"`
@@ -2307,7 +2307,7 @@ func (o FrontdoorRoutingRuleOutput) ToFrontdoorRoutingRuleOutputWithContext(ctx 
 	return o
 }
 
-// Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
+// Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
 func (o FrontdoorRoutingRuleOutput) AcceptedProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRoutingRule) []string { return v.AcceptedProtocols }).(pulumi.StringArrayOutput)
 }
@@ -2339,7 +2339,7 @@ func (o FrontdoorRoutingRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorRoutingRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The route patterns for the Backend Routing Rule. Defaults to `/*`.
+// The route patterns for the Backend Routing Rule.
 func (o FrontdoorRoutingRuleOutput) PatternsToMatches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRoutingRule) []string { return v.PatternsToMatches }).(pulumi.StringArrayOutput)
 }
@@ -2652,7 +2652,7 @@ type FrontdoorRoutingRuleRedirectConfiguration struct {
 	CustomPath *string `pulumi:"customPath"`
 	// Replace any existing query string from the incoming request URL.
 	CustomQueryString *string `pulumi:"customQueryString"`
-	// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+	// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`.
 	RedirectProtocol string `pulumi:"redirectProtocol"`
 	// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
 	RedirectType string `pulumi:"redirectType"`
@@ -2678,7 +2678,7 @@ type FrontdoorRoutingRuleRedirectConfigurationArgs struct {
 	CustomPath pulumi.StringPtrInput `pulumi:"customPath"`
 	// Replace any existing query string from the incoming request URL.
 	CustomQueryString pulumi.StringPtrInput `pulumi:"customQueryString"`
-	// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+	// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`.
 	RedirectProtocol pulumi.StringInput `pulumi:"redirectProtocol"`
 	// Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
 	RedirectType pulumi.StringInput `pulumi:"redirectType"`
@@ -2781,7 +2781,7 @@ func (o FrontdoorRoutingRuleRedirectConfigurationOutput) CustomQueryString() pul
 	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
 }
 
-// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`.
 func (o FrontdoorRoutingRuleRedirectConfigurationOutput) RedirectProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorRoutingRuleRedirectConfiguration) string { return v.RedirectProtocol }).(pulumi.StringOutput)
 }
@@ -2855,7 +2855,7 @@ func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) CustomQueryString() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`.
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) RedirectProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoutingRuleRedirectConfiguration) *string {
 		if v == nil {
@@ -3390,7 +3390,7 @@ type RulesEngineRuleMatchCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
 	Operator string `pulumi:"operator"`
-	// match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
+	// match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
 	Selector *string `pulumi:"selector"`
 	// can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
 	Transforms []string `pulumi:"transforms"`
@@ -3416,7 +3416,7 @@ type RulesEngineRuleMatchConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
+	// match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
@@ -3487,7 +3487,7 @@ func (o RulesEngineRuleMatchConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v RulesEngineRuleMatchCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
+// match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
 func (o RulesEngineRuleMatchConditionOutput) Selector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesEngineRuleMatchCondition) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }

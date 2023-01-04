@@ -95,7 +95,7 @@ type LinuxFunctionAppSlot struct {
 	AuthSettings LinuxFunctionAppSlotAuthSettingsOutput `pulumi:"authSettings"`
 	// a `backup` block as detailed below.
 	Backup LinuxFunctionAppSlotBackupPtrOutput `pulumi:"backup"`
-	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
 	BuiltinLoggingEnabled pulumi.BoolPtrOutput `pulumi:"builtinLoggingEnabled"`
 	// Should the Function App Slot use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
@@ -109,15 +109,15 @@ type LinuxFunctionAppSlot struct {
 	ContentShareForceDisabled pulumi.BoolPtrOutput `pulumi:"contentShareForceDisabled"`
 	// The identifier used by App Service to perform domain ownership verification via DNS TXT record.
 	CustomDomainVerificationId pulumi.StringOutput `pulumi:"customDomainVerificationId"`
-	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
 	DailyMemoryTimeQuota pulumi.IntPtrOutput `pulumi:"dailyMemoryTimeQuota"`
 	// The default hostname of the Linux Function App Slot.
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
-	// Is the Linux Function App Slot enabled.
+	// Is the Linux Function App Slot enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId pulumi.StringOutput `pulumi:"functionAppId"`
-	// The runtime version associated with the Function App Slot.
+	// The runtime version associated with the Function App Slot. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrOutput `pulumi:"functionsExtensionVersion"`
 	// Can the Function App Slot only be accessed via HTTPS?
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
@@ -206,7 +206,7 @@ type linuxFunctionAppSlotState struct {
 	AuthSettings *LinuxFunctionAppSlotAuthSettings `pulumi:"authSettings"`
 	// a `backup` block as detailed below.
 	Backup *LinuxFunctionAppSlotBackup `pulumi:"backup"`
-	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
 	BuiltinLoggingEnabled *bool `pulumi:"builtinLoggingEnabled"`
 	// Should the Function App Slot use Client Certificates.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
@@ -220,15 +220,15 @@ type linuxFunctionAppSlotState struct {
 	ContentShareForceDisabled *bool `pulumi:"contentShareForceDisabled"`
 	// The identifier used by App Service to perform domain ownership verification via DNS TXT record.
 	CustomDomainVerificationId *string `pulumi:"customDomainVerificationId"`
-	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
 	// The default hostname of the Linux Function App Slot.
 	DefaultHostname *string `pulumi:"defaultHostname"`
-	// Is the Linux Function App Slot enabled.
+	// Is the Linux Function App Slot enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId *string `pulumi:"functionAppId"`
-	// The runtime version associated with the Function App Slot.
+	// The runtime version associated with the Function App Slot. Defaults to `~4`.
 	FunctionsExtensionVersion *string `pulumi:"functionsExtensionVersion"`
 	// Can the Function App Slot only be accessed via HTTPS?
 	HttpsOnly *bool `pulumi:"httpsOnly"`
@@ -275,7 +275,7 @@ type LinuxFunctionAppSlotState struct {
 	AuthSettings LinuxFunctionAppSlotAuthSettingsPtrInput
 	// a `backup` block as detailed below.
 	Backup LinuxFunctionAppSlotBackupPtrInput
-	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
 	BuiltinLoggingEnabled pulumi.BoolPtrInput
 	// Should the Function App Slot use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrInput
@@ -289,15 +289,15 @@ type LinuxFunctionAppSlotState struct {
 	ContentShareForceDisabled pulumi.BoolPtrInput
 	// The identifier used by App Service to perform domain ownership verification via DNS TXT record.
 	CustomDomainVerificationId pulumi.StringPtrInput
-	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
 	DailyMemoryTimeQuota pulumi.IntPtrInput
 	// The default hostname of the Linux Function App Slot.
 	DefaultHostname pulumi.StringPtrInput
-	// Is the Linux Function App Slot enabled.
+	// Is the Linux Function App Slot enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId pulumi.StringPtrInput
-	// The runtime version associated with the Function App Slot.
+	// The runtime version associated with the Function App Slot. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrInput
 	// Can the Function App Slot only be accessed via HTTPS?
 	HttpsOnly pulumi.BoolPtrInput
@@ -348,7 +348,7 @@ type linuxFunctionAppSlotArgs struct {
 	AuthSettings *LinuxFunctionAppSlotAuthSettings `pulumi:"authSettings"`
 	// a `backup` block as detailed below.
 	Backup *LinuxFunctionAppSlotBackup `pulumi:"backup"`
-	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
 	BuiltinLoggingEnabled *bool `pulumi:"builtinLoggingEnabled"`
 	// Should the Function App Slot use Client Certificates.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
@@ -360,13 +360,13 @@ type linuxFunctionAppSlotArgs struct {
 	ConnectionStrings []LinuxFunctionAppSlotConnectionString `pulumi:"connectionStrings"`
 	// Force disable the content share settings.
 	ContentShareForceDisabled *bool `pulumi:"contentShareForceDisabled"`
-	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
-	// Is the Linux Function App Slot enabled.
+	// Is the Linux Function App Slot enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId string `pulumi:"functionAppId"`
-	// The runtime version associated with the Function App Slot.
+	// The runtime version associated with the Function App Slot. Defaults to `~4`.
 	FunctionsExtensionVersion *string `pulumi:"functionsExtensionVersion"`
 	// Can the Function App Slot only be accessed via HTTPS?
 	HttpsOnly *bool `pulumi:"httpsOnly"`
@@ -402,7 +402,7 @@ type LinuxFunctionAppSlotArgs struct {
 	AuthSettings LinuxFunctionAppSlotAuthSettingsPtrInput
 	// a `backup` block as detailed below.
 	Backup LinuxFunctionAppSlotBackupPtrInput
-	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
 	BuiltinLoggingEnabled pulumi.BoolPtrInput
 	// Should the Function App Slot use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrInput
@@ -414,13 +414,13 @@ type LinuxFunctionAppSlotArgs struct {
 	ConnectionStrings LinuxFunctionAppSlotConnectionStringArrayInput
 	// Force disable the content share settings.
 	ContentShareForceDisabled pulumi.BoolPtrInput
-	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
 	DailyMemoryTimeQuota pulumi.IntPtrInput
-	// Is the Linux Function App Slot enabled.
+	// Is the Linux Function App Slot enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId pulumi.StringInput
-	// The runtime version associated with the Function App Slot.
+	// The runtime version associated with the Function App Slot. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrInput
 	// Can the Function App Slot only be accessed via HTTPS?
 	HttpsOnly pulumi.BoolPtrInput
@@ -550,7 +550,7 @@ func (o LinuxFunctionAppSlotOutput) Backup() LinuxFunctionAppSlotBackupPtrOutput
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) LinuxFunctionAppSlotBackupPtrOutput { return v.Backup }).(LinuxFunctionAppSlotBackupPtrOutput)
 }
 
-// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
 func (o LinuxFunctionAppSlotOutput) BuiltinLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.BoolPtrOutput { return v.BuiltinLoggingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -587,7 +587,7 @@ func (o LinuxFunctionAppSlotOutput) CustomDomainVerificationId() pulumi.StringOu
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringOutput { return v.CustomDomainVerificationId }).(pulumi.StringOutput)
 }
 
-// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
 func (o LinuxFunctionAppSlotOutput) DailyMemoryTimeQuota() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.IntPtrOutput { return v.DailyMemoryTimeQuota }).(pulumi.IntPtrOutput)
 }
@@ -597,7 +597,7 @@ func (o LinuxFunctionAppSlotOutput) DefaultHostname() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringOutput { return v.DefaultHostname }).(pulumi.StringOutput)
 }
 
-// Is the Linux Function App Slot enabled.
+// Is the Linux Function App Slot enabled. Defaults to `true`.
 func (o LinuxFunctionAppSlotOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -607,7 +607,7 @@ func (o LinuxFunctionAppSlotOutput) FunctionAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringOutput { return v.FunctionAppId }).(pulumi.StringOutput)
 }
 
-// The runtime version associated with the Function App Slot.
+// The runtime version associated with the Function App Slot. Defaults to `~4`.
 func (o LinuxFunctionAppSlotOutput) FunctionsExtensionVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringPtrOutput { return v.FunctionsExtensionVersion }).(pulumi.StringPtrOutput)
 }

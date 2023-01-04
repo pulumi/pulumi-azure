@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorRuleActionsUrlRedirectAction
     {
         /// <summary>
-        /// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
+        /// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `""`.
         /// </summary>
         public readonly string? DestinationFragment;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string DestinationHostname;
         /// <summary>
-        /// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
+        /// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `""`.
         /// </summary>
         public readonly string? DestinationPath;
         /// <summary>
-        /// The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
+        /// The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `""`.
         /// </summary>
         public readonly string? QueryString;
         /// <summary>

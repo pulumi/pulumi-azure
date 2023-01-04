@@ -143,7 +143,7 @@ namespace Pulumi.Azure.DigitalTwins
         public Output<string> DigitalTwinsId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+        /// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
         /// </summary>
         [Output("eventhubConsumerGroupName")]
         public Output<string?> EventhubConsumerGroupName { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.DigitalTwins
         public Input<string> DigitalTwinsId { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+        /// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
         /// </summary>
         [Input("eventhubConsumerGroupName")]
         public Input<string>? EventhubConsumerGroupName { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.DigitalTwins
         public Input<string>? DigitalTwinsId { get; set; }
 
         /// <summary>
-        /// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+        /// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
         /// </summary>
         [Input("eventhubConsumerGroupName")]
         public Input<string>? EventhubConsumerGroupName { get; set; }

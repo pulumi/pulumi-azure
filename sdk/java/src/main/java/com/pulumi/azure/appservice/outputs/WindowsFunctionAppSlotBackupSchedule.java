@@ -34,7 +34,7 @@ public final class WindowsFunctionAppSlotBackupSchedule {
      */
     private @Nullable String lastExecutionTime;
     /**
-     * @return After how many days backups should be deleted.
+     * @return After how many days backups should be deleted. Defaults to `30`.
      * 
      */
     private @Nullable Integer retentionPeriodDays;
@@ -74,7 +74,7 @@ public final class WindowsFunctionAppSlotBackupSchedule {
         return Optional.ofNullable(this.lastExecutionTime);
     }
     /**
-     * @return After how many days backups should be deleted.
+     * @return After how many days backups should be deleted. Defaults to `30`.
      * 
      */
     public Optional<Integer> retentionPeriodDays() {

@@ -47,14 +47,14 @@ public final class HybridConnectionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+     * Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
      * 
      */
     @Import(name="requiresClientAuthorization")
     private @Nullable Output<Boolean> requiresClientAuthorization;
 
     /**
-     * @return Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+     * @return Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> requiresClientAuthorization() {
@@ -162,7 +162,7 @@ public final class HybridConnectionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param requiresClientAuthorization Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+         * @param requiresClientAuthorization Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class HybridConnectionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param requiresClientAuthorization Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+         * @param requiresClientAuthorization Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
          * 
          * @return builder
          * 

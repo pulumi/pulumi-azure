@@ -80,25 +80,25 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> CapacityReservationGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to trust a Custom CA. Defaults to `false`.
+        /// Specifies whether to trust a Custom CA.
         /// </summary>
         [Output("customCaTrustEnabled")]
         public Output<bool?> CustomCaTrustEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+        /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
         /// </summary>
         [Output("enableAutoScaling")]
         public Output<bool?> EnableAutoScaling { get; private set; } = null!;
 
         /// <summary>
-        /// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
         /// </summary>
         [Output("enableHostEncryption")]
         public Output<bool?> EnableHostEncryption { get; private set; } = null!;
 
         /// <summary>
-        /// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+        /// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
         /// </summary>
         [Output("enableNodePublicIp")]
         public Output<bool?> EnableNodePublicIp { get; private set; } = null!;
@@ -366,25 +366,25 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? CapacityReservationGroupId { get; set; }
 
         /// <summary>
-        /// Specifies whether to trust a Custom CA. Defaults to `false`.
+        /// Specifies whether to trust a Custom CA.
         /// </summary>
         [Input("customCaTrustEnabled")]
         public Input<bool>? CustomCaTrustEnabled { get; set; }
 
         /// <summary>
-        /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+        /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
         /// </summary>
         [Input("enableAutoScaling")]
         public Input<bool>? EnableAutoScaling { get; set; }
 
         /// <summary>
-        /// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableHostEncryption")]
         public Input<bool>? EnableHostEncryption { get; set; }
 
         /// <summary>
-        /// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+        /// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableNodePublicIp")]
         public Input<bool>? EnableNodePublicIp { get; set; }
@@ -638,25 +638,25 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? CapacityReservationGroupId { get; set; }
 
         /// <summary>
-        /// Specifies whether to trust a Custom CA. Defaults to `false`.
+        /// Specifies whether to trust a Custom CA.
         /// </summary>
         [Input("customCaTrustEnabled")]
         public Input<bool>? CustomCaTrustEnabled { get; set; }
 
         /// <summary>
-        /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+        /// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
         /// </summary>
         [Input("enableAutoScaling")]
         public Input<bool>? EnableAutoScaling { get; set; }
 
         /// <summary>
-        /// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableHostEncryption")]
         public Input<bool>? EnableHostEncryption { get; set; }
 
         /// <summary>
-        /// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+        /// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableNodePublicIp")]
         public Input<bool>? EnableNodePublicIp { get; set; }

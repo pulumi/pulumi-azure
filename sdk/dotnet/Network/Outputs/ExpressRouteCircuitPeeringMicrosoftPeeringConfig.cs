@@ -18,11 +18,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AdvertisedPublicPrefixes;
         /// <summary>
-        /// The CustomerASN of the peering.
+        /// The CustomerASN of the peering. Defaults to `0`.
         /// </summary>
         public readonly int? CustomerAsn;
         /// <summary>
-        /// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+        /// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         /// </summary>
         public readonly string? RoutingRegistryName;
 

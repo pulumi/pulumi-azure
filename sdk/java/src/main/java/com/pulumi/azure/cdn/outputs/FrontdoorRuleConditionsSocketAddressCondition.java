@@ -24,7 +24,7 @@ public final class FrontdoorRuleConditionsSocketAddressCondition {
      */
     private @Nullable Boolean negateCondition;
     /**
-     * @return The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+     * @return The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
      * 
      */
     private @Nullable String operator;
@@ -45,7 +45,7 @@ public final class FrontdoorRuleConditionsSocketAddressCondition {
         return Optional.ofNullable(this.negateCondition);
     }
     /**
-     * @return The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+     * @return The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
      * 
      */
     public Optional<String> operator() {

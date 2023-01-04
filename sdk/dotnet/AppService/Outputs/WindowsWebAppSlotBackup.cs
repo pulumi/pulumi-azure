@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppSlotBackup
     {
         /// <summary>
-        /// Should this backup job be enabled?
+        /// Should this backup job be enabled? Defaults to `true`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

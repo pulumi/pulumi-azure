@@ -205,9 +205,9 @@ type Registry struct {
 	AdminPassword pulumi.StringOutput `pulumi:"adminPassword"`
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
-	// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+	// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
 	AnonymousPullEnabled pulumi.BoolPtrOutput `pulumi:"anonymousPullEnabled"`
-	// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+	// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled pulumi.BoolPtrOutput `pulumi:"dataEndpointEnabled"`
 	// An `encryption` block as documented below.
 	Encryption RegistryEncryptionOutput `pulumi:"encryption"`
@@ -229,7 +229,7 @@ type Registry struct {
 	NetworkRuleSet RegistryNetworkRuleSetOutput `pulumi:"networkRuleSet"`
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
-	// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+	// Boolean value that indicates whether quarantine policy is enabled.
 	QuarantinePolicyEnabled pulumi.BoolPtrOutput `pulumi:"quarantinePolicyEnabled"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -290,9 +290,9 @@ type registryState struct {
 	AdminPassword *string `pulumi:"adminPassword"`
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername *string `pulumi:"adminUsername"`
-	// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+	// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
 	AnonymousPullEnabled *bool `pulumi:"anonymousPullEnabled"`
-	// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+	// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
 	// An `encryption` block as documented below.
 	Encryption *RegistryEncryption `pulumi:"encryption"`
@@ -314,7 +314,7 @@ type registryState struct {
 	NetworkRuleSet *RegistryNetworkRuleSet `pulumi:"networkRuleSet"`
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+	// Boolean value that indicates whether quarantine policy is enabled.
 	QuarantinePolicyEnabled *bool `pulumi:"quarantinePolicyEnabled"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -337,9 +337,9 @@ type RegistryState struct {
 	AdminPassword pulumi.StringPtrInput
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername pulumi.StringPtrInput
-	// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+	// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
 	AnonymousPullEnabled pulumi.BoolPtrInput
-	// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+	// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled pulumi.BoolPtrInput
 	// An `encryption` block as documented below.
 	Encryption RegistryEncryptionPtrInput
@@ -361,7 +361,7 @@ type RegistryState struct {
 	NetworkRuleSet RegistryNetworkRuleSetPtrInput
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+	// Boolean value that indicates whether quarantine policy is enabled.
 	QuarantinePolicyEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -384,9 +384,9 @@ func (RegistryState) ElementType() reflect.Type {
 type registryArgs struct {
 	// Specifies whether the admin user is enabled. Defaults to `false`.
 	AdminEnabled *bool `pulumi:"adminEnabled"`
-	// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+	// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
 	AnonymousPullEnabled *bool `pulumi:"anonymousPullEnabled"`
-	// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+	// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
 	// An `encryption` block as documented below.
 	Encryption *RegistryEncryption `pulumi:"encryption"`
@@ -406,7 +406,7 @@ type registryArgs struct {
 	NetworkRuleSet *RegistryNetworkRuleSet `pulumi:"networkRuleSet"`
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+	// Boolean value that indicates whether quarantine policy is enabled.
 	QuarantinePolicyEnabled *bool `pulumi:"quarantinePolicyEnabled"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -426,9 +426,9 @@ type registryArgs struct {
 type RegistryArgs struct {
 	// Specifies whether the admin user is enabled. Defaults to `false`.
 	AdminEnabled pulumi.BoolPtrInput
-	// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+	// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
 	AnonymousPullEnabled pulumi.BoolPtrInput
-	// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+	// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled pulumi.BoolPtrInput
 	// An `encryption` block as documented below.
 	Encryption RegistryEncryptionPtrInput
@@ -448,7 +448,7 @@ type RegistryArgs struct {
 	NetworkRuleSet RegistryNetworkRuleSetPtrInput
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+	// Boolean value that indicates whether quarantine policy is enabled.
 	QuarantinePolicyEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -566,12 +566,12 @@ func (o RegistryOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
 func (o RegistryOutput) AnonymousPullEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.BoolPtrOutput { return v.AnonymousPullEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
 func (o RegistryOutput) DataEndpointEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.BoolPtrOutput { return v.DataEndpointEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -626,7 +626,7 @@ func (o RegistryOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+// Boolean value that indicates whether quarantine policy is enabled.
 func (o RegistryOutput) QuarantinePolicyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.BoolPtrOutput { return v.QuarantinePolicyEnabled }).(pulumi.BoolPtrOutput)
 }

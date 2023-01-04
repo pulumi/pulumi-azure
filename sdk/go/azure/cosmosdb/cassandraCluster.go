@@ -139,7 +139,7 @@ type CassandraCluster struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Is the automatic repair enabled on the Cassandra Cluster?
+	// Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
 	RepairEnabled pulumi.BoolPtrOutput `pulumi:"repairEnabled"`
 	// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -214,7 +214,7 @@ type cassandraClusterState struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	Name *string `pulumi:"name"`
-	// Is the automatic repair enabled on the Cassandra Cluster?
+	// Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
 	RepairEnabled *bool `pulumi:"repairEnabled"`
 	// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -245,7 +245,7 @@ type CassandraClusterState struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	Name pulumi.StringPtrInput
-	// Is the automatic repair enabled on the Cassandra Cluster?
+	// Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
 	RepairEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -280,7 +280,7 @@ type cassandraClusterArgs struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	Name *string `pulumi:"name"`
-	// Is the automatic repair enabled on the Cassandra Cluster?
+	// Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
 	RepairEnabled *bool `pulumi:"repairEnabled"`
 	// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -312,7 +312,7 @@ type CassandraClusterArgs struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
 	Name pulumi.StringPtrInput
-	// Is the automatic repair enabled on the Cassandra Cluster?
+	// Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
 	RepairEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
 	ResourceGroupName pulumi.StringInput
@@ -459,7 +459,7 @@ func (o CassandraClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CassandraCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Is the automatic repair enabled on the Cassandra Cluster?
+// Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
 func (o CassandraClusterOutput) RepairEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CassandraCluster) pulumi.BoolPtrOutput { return v.RepairEnabled }).(pulumi.BoolPtrOutput)
 }

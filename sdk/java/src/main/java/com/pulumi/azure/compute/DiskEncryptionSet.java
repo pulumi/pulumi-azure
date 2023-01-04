@@ -150,14 +150,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/diskEncryptionSet:DiskEncryptionSet")
 public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
     /**
-     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
      * 
      */
     @Export(name="autoKeyRotationEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoKeyRotationEnabled;
 
     /**
-     * @return Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+     * @return Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
      * 
      */
     public Output<Optional<Boolean>> autoKeyRotationEnabled() {

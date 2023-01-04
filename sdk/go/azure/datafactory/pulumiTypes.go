@@ -12329,7 +12329,7 @@ type LinkedServiceAzureDatabricksInstancePool struct {
 	InstancePoolId string `pulumi:"instancePoolId"`
 	// The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
 	MaxNumberOfWorkers *int `pulumi:"maxNumberOfWorkers"`
-	// The minimum number of worker nodes. Defaults to 1.
+	// The minimum number of worker nodes. Defaults to `1`.
 	MinNumberOfWorkers *int `pulumi:"minNumberOfWorkers"`
 }
 
@@ -12351,7 +12351,7 @@ type LinkedServiceAzureDatabricksInstancePoolArgs struct {
 	InstancePoolId pulumi.StringInput `pulumi:"instancePoolId"`
 	// The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
 	MaxNumberOfWorkers pulumi.IntPtrInput `pulumi:"maxNumberOfWorkers"`
-	// The minimum number of worker nodes. Defaults to 1.
+	// The minimum number of worker nodes. Defaults to `1`.
 	MinNumberOfWorkers pulumi.IntPtrInput `pulumi:"minNumberOfWorkers"`
 }
 
@@ -12447,7 +12447,7 @@ func (o LinkedServiceAzureDatabricksInstancePoolOutput) MaxNumberOfWorkers() pul
 	return o.ApplyT(func(v LinkedServiceAzureDatabricksInstancePool) *int { return v.MaxNumberOfWorkers }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of worker nodes. Defaults to 1.
+// The minimum number of worker nodes. Defaults to `1`.
 func (o LinkedServiceAzureDatabricksInstancePoolOutput) MinNumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinkedServiceAzureDatabricksInstancePool) *int { return v.MinNumberOfWorkers }).(pulumi.IntPtrOutput)
 }
@@ -12506,7 +12506,7 @@ func (o LinkedServiceAzureDatabricksInstancePoolPtrOutput) MaxNumberOfWorkers() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of worker nodes. Defaults to 1.
+// The minimum number of worker nodes. Defaults to `1`.
 func (o LinkedServiceAzureDatabricksInstancePoolPtrOutput) MinNumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricksInstancePool) *int {
 		if v == nil {
@@ -12685,7 +12685,7 @@ type LinkedServiceAzureDatabricksNewClusterConfig struct {
 	LogDestination *string `pulumi:"logDestination"`
 	// The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
 	MaxNumberOfWorkers *int `pulumi:"maxNumberOfWorkers"`
-	// The minimum number of worker nodes. Defaults to 1.
+	// The minimum number of worker nodes. Defaults to `1`.
 	MinNumberOfWorkers *int `pulumi:"minNumberOfWorkers"`
 	// Node type for the new cluster.
 	NodeType string `pulumi:"nodeType"`
@@ -12719,7 +12719,7 @@ type LinkedServiceAzureDatabricksNewClusterConfigArgs struct {
 	LogDestination pulumi.StringPtrInput `pulumi:"logDestination"`
 	// The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
 	MaxNumberOfWorkers pulumi.IntPtrInput `pulumi:"maxNumberOfWorkers"`
-	// The minimum number of worker nodes. Defaults to 1.
+	// The minimum number of worker nodes. Defaults to `1`.
 	MinNumberOfWorkers pulumi.IntPtrInput `pulumi:"minNumberOfWorkers"`
 	// Node type for the new cluster.
 	NodeType pulumi.StringInput `pulumi:"nodeType"`
@@ -12836,7 +12836,7 @@ func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) MaxNumberOfWorkers()
 	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) *int { return v.MaxNumberOfWorkers }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of worker nodes. Defaults to 1.
+// The minimum number of worker nodes. Defaults to `1`.
 func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) MinNumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) *int { return v.MinNumberOfWorkers }).(pulumi.IntPtrOutput)
 }
@@ -12942,7 +12942,7 @@ func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) MaxNumberOfWorker
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of worker nodes. Defaults to 1.
+// The minimum number of worker nodes. Defaults to `1`.
 func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) MinNumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricksNewClusterConfig) *int {
 		if v == nil {
@@ -15338,7 +15338,7 @@ func (o TriggerTumblingWindowPipelinePtrOutput) Parameters() pulumi.StringMapOut
 type TriggerTumblingWindowRetry struct {
 	// The maximum retry attempts if the pipeline run failed.
 	Count int `pulumi:"count"`
-	// The Interval in seconds between each retry if the pipeline run failed.
+	// The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
 	Interval *int `pulumi:"interval"`
 }
 
@@ -15356,7 +15356,7 @@ type TriggerTumblingWindowRetryInput interface {
 type TriggerTumblingWindowRetryArgs struct {
 	// The maximum retry attempts if the pipeline run failed.
 	Count pulumi.IntInput `pulumi:"count"`
-	// The Interval in seconds between each retry if the pipeline run failed.
+	// The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
 }
 
@@ -15442,7 +15442,7 @@ func (o TriggerTumblingWindowRetryOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v TriggerTumblingWindowRetry) int { return v.Count }).(pulumi.IntOutput)
 }
 
-// The Interval in seconds between each retry if the pipeline run failed.
+// The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
 func (o TriggerTumblingWindowRetryOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TriggerTumblingWindowRetry) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
@@ -15481,7 +15481,7 @@ func (o TriggerTumblingWindowRetryPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Interval in seconds between each retry if the pipeline run failed.
+// The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
 func (o TriggerTumblingWindowRetryPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TriggerTumblingWindowRetry) *int {
 		if v == nil {

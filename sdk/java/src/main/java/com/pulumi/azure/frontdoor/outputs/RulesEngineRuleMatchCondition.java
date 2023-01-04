@@ -24,7 +24,7 @@ public final class RulesEngineRuleMatchCondition {
      */
     private String operator;
     /**
-     * @return match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
+     * @return match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
      * 
      */
     private @Nullable String selector;
@@ -60,7 +60,7 @@ public final class RulesEngineRuleMatchCondition {
         return this.operator;
     }
     /**
-     * @return match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
+     * @return match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
      * 
      */
     public Optional<String> selector() {

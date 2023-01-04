@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsVirtualMachineScaleSetRollingUpgradePolicy {
     /**
-     * @return Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+     * @return Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
      * 
      */
     private @Nullable Boolean crossZoneUpgradesEnabled;
@@ -39,14 +39,14 @@ public final class WindowsVirtualMachineScaleSetRollingUpgradePolicy {
      */
     private String pauseTimeBetweenBatches;
     /**
-     * @return Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+     * @return Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
      * 
      */
     private @Nullable Boolean prioritizeUnhealthyInstancesEnabled;
 
     private WindowsVirtualMachineScaleSetRollingUpgradePolicy() {}
     /**
-     * @return Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+     * @return Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
      * 
      */
     public Optional<Boolean> crossZoneUpgradesEnabled() {
@@ -81,7 +81,7 @@ public final class WindowsVirtualMachineScaleSetRollingUpgradePolicy {
         return this.pauseTimeBetweenBatches;
     }
     /**
-     * @return Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+     * @return Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
      * 
      */
     public Optional<Boolean> prioritizeUnhealthyInstancesEnabled() {

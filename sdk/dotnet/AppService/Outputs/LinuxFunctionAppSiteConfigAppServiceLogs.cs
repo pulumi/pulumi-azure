@@ -14,11 +14,11 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxFunctionAppSiteConfigAppServiceLogs
     {
         /// <summary>
-        /// The amount of disk space to use for logs. Valid values are between `25` and `100`.
+        /// The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
         /// </summary>
         public readonly int? DiskQuotaMb;
         /// <summary>
-        /// The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        /// The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
         /// </summary>
         public readonly int? RetentionPeriodDays;
 

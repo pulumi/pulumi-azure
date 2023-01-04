@@ -36,7 +36,7 @@ class FirewallPolicyArgs:
         """
         The set of arguments for constructing a FirewallPolicy resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
-        :param pulumi.Input[bool] auto_learn_private_ranges_enabled: Whether enable auto learn private ip range. Defaults to `false`.
+        :param pulumi.Input[bool] auto_learn_private_ranges_enabled: Whether enable auto learn private ip range.
         :param pulumi.Input[str] base_policy_id: The ID of the base Firewall Policy.
         :param pulumi.Input['FirewallPolicyDnsArgs'] dns: A `dns` block as defined below.
         :param pulumi.Input['FirewallPolicyExplicitProxyArgs'] explicit_proxy: A `explicit_proxy` block as defined below.
@@ -103,7 +103,7 @@ class FirewallPolicyArgs:
     @pulumi.getter(name="autoLearnPrivateRangesEnabled")
     def auto_learn_private_ranges_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether enable auto learn private ip range. Defaults to `false`.
+        Whether enable auto learn private ip range.
         """
         return pulumi.get(self, "auto_learn_private_ranges_enabled")
 
@@ -317,7 +317,7 @@ class _FirewallPolicyState:
                  tls_certificate: Optional[pulumi.Input['FirewallPolicyTlsCertificateArgs']] = None):
         """
         Input properties used for looking up and filtering FirewallPolicy resources.
-        :param pulumi.Input[bool] auto_learn_private_ranges_enabled: Whether enable auto learn private ip range. Defaults to `false`.
+        :param pulumi.Input[bool] auto_learn_private_ranges_enabled: Whether enable auto learn private ip range.
         :param pulumi.Input[str] base_policy_id: The ID of the base Firewall Policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] child_policies: A list of reference to child Firewall Policies of this Firewall Policy.
         :param pulumi.Input['FirewallPolicyDnsArgs'] dns: A `dns` block as defined below.
@@ -383,7 +383,7 @@ class _FirewallPolicyState:
     @pulumi.getter(name="autoLearnPrivateRangesEnabled")
     def auto_learn_private_ranges_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether enable auto learn private ip range. Defaults to `false`.
+        Whether enable auto learn private ip range.
         """
         return pulumi.get(self, "auto_learn_private_ranges_enabled")
 
@@ -668,7 +668,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_learn_private_ranges_enabled: Whether enable auto learn private ip range. Defaults to `false`.
+        :param pulumi.Input[bool] auto_learn_private_ranges_enabled: Whether enable auto learn private ip range.
         :param pulumi.Input[str] base_policy_id: The ID of the base Firewall Policy.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyDnsArgs']] dns: A `dns` block as defined below.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyExplicitProxyArgs']] explicit_proxy: A `explicit_proxy` block as defined below.
@@ -815,7 +815,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_learn_private_ranges_enabled: Whether enable auto learn private ip range. Defaults to `false`.
+        :param pulumi.Input[bool] auto_learn_private_ranges_enabled: Whether enable auto learn private ip range.
         :param pulumi.Input[str] base_policy_id: The ID of the base Firewall Policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] child_policies: A list of reference to child Firewall Policies of this Firewall Policy.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyDnsArgs']] dns: A `dns` block as defined below.
@@ -866,7 +866,7 @@ class FirewallPolicy(pulumi.CustomResource):
     @pulumi.getter(name="autoLearnPrivateRangesEnabled")
     def auto_learn_private_ranges_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether enable auto learn private ip range. Defaults to `false`.
+        Whether enable auto learn private ip range.
         """
         return pulumi.get(self, "auto_learn_private_ranges_enabled")
 

@@ -82,13 +82,13 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterHttpProxyConfigArgs'] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
-        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up.
+        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
         :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
         :param pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs'] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input['KubernetesClusterKubeletIdentityArgs'] kubelet_identity: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
-        :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input['KubernetesClusterMicrosoftDefenderArgs'] microsoft_defender: A `microsoft_defender` block as defined below.
@@ -414,7 +414,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="imageCleanerIntervalHours")
     def image_cleaner_interval_hours(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the interval in hours when images should be cleaned up.
+        Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
         """
         return pulumi.get(self, "image_cleaner_interval_hours")
 
@@ -486,7 +486,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="localAccountDisabled")
     def local_account_disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         """
         return pulumi.get(self, "local_account_disabled")
 
@@ -862,7 +862,7 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterHttpProxyConfigArgs'] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
-        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up.
+        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
         :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
         :param pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs'] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
@@ -872,7 +872,7 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterKubeletIdentityArgs'] kubelet_identity: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
-        :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input['KubernetesClusterMicrosoftDefenderArgs'] microsoft_defender: A `microsoft_defender` block as defined below.
@@ -1234,7 +1234,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="imageCleanerIntervalHours")
     def image_cleaner_interval_hours(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the interval in hours when images should be cleaned up.
+        Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
         """
         return pulumi.get(self, "image_cleaner_interval_hours")
 
@@ -1354,7 +1354,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="localAccountDisabled")
     def local_account_disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         """
         return pulumi.get(self, "local_account_disabled")
 
@@ -1809,13 +1809,13 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
-        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up.
+        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']] kubelet_identity: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
-        :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']] microsoft_defender: A `microsoft_defender` block as defined below.
@@ -2113,7 +2113,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
-        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up.
+        :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
@@ -2123,7 +2123,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']] kubelet_identity: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
-        :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']] microsoft_defender: A `microsoft_defender` block as defined below.
@@ -2361,7 +2361,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="imageCleanerIntervalHours")
     def image_cleaner_interval_hours(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies the interval in hours when images should be cleaned up.
+        Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
         """
         return pulumi.get(self, "image_cleaner_interval_hours")
 
@@ -2441,7 +2441,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="localAccountDisabled")
     def local_account_disabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         """
         return pulumi.get(self, "local_account_disabled")
 

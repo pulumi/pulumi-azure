@@ -35,14 +35,14 @@ public final class LogzMonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the resource monitoring is enabled?
+     * Whether the resource monitoring is enabled? Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether the resource monitoring is enabled?
+     * @return Whether the resource monitoring is enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -208,7 +208,7 @@ public final class LogzMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Whether the resource monitoring is enabled?
+         * @param enabled Whether the resource monitoring is enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class LogzMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Whether the resource monitoring is enabled?
+         * @param enabled Whether the resource monitoring is enabled? Defaults to `true`.
          * 
          * @return builder
          * 

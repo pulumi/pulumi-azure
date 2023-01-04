@@ -90,14 +90,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService")
 public class SpringCloudConfigurationService extends com.pulumi.resources.CustomResource {
     /**
-     * The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+     * The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+     * @return The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      * 
      */
     public Output<String> name() {

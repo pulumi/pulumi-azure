@@ -86,7 +86,7 @@ type TriggerSchedule struct {
 	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
 	// The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
 	Frequency pulumi.StringPtrOutput `pulumi:"frequency"`
-	// The interval for how often the trigger occurs. This defaults to 1.
+	// The interval for how often the trigger occurs. This defaults to `1`.
 	Interval pulumi.IntPtrOutput `pulumi:"interval"`
 	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -148,7 +148,7 @@ type triggerScheduleState struct {
 	EndTime *string `pulumi:"endTime"`
 	// The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
 	Frequency *string `pulumi:"frequency"`
-	// The interval for how often the trigger occurs. This defaults to 1.
+	// The interval for how often the trigger occurs. This defaults to `1`.
 	Interval *int `pulumi:"interval"`
 	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
@@ -179,7 +179,7 @@ type TriggerScheduleState struct {
 	EndTime pulumi.StringPtrInput
 	// The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
 	Frequency pulumi.StringPtrInput
-	// The interval for how often the trigger occurs. This defaults to 1.
+	// The interval for how often the trigger occurs. This defaults to `1`.
 	Interval pulumi.IntPtrInput
 	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
@@ -214,7 +214,7 @@ type triggerScheduleArgs struct {
 	EndTime *string `pulumi:"endTime"`
 	// The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
 	Frequency *string `pulumi:"frequency"`
-	// The interval for how often the trigger occurs. This defaults to 1.
+	// The interval for how often the trigger occurs. This defaults to `1`.
 	Interval *int `pulumi:"interval"`
 	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
@@ -246,7 +246,7 @@ type TriggerScheduleArgs struct {
 	EndTime pulumi.StringPtrInput
 	// The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
 	Frequency pulumi.StringPtrInput
-	// The interval for how often the trigger occurs. This defaults to 1.
+	// The interval for how often the trigger occurs. This defaults to `1`.
 	Interval pulumi.IntPtrInput
 	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
@@ -381,7 +381,7 @@ func (o TriggerScheduleOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TriggerSchedule) pulumi.StringPtrOutput { return v.Frequency }).(pulumi.StringPtrOutput)
 }
 
-// The interval for how often the trigger occurs. This defaults to 1.
+// The interval for how often the trigger occurs. This defaults to `1`.
 func (o TriggerScheduleOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TriggerSchedule) pulumi.IntPtrOutput { return v.Interval }).(pulumi.IntPtrOutput)
 }

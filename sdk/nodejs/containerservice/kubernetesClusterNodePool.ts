@@ -85,19 +85,19 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly capacityReservationGroupId!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether to trust a Custom CA. Defaults to `false`.
+     * Specifies whether to trust a Custom CA.
      */
     public readonly customCaTrustEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+     * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
      */
     public readonly enableAutoScaling!: pulumi.Output<boolean | undefined>;
     /**
-     * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
      */
     public readonly enableHostEncryption!: pulumi.Output<boolean | undefined>;
     /**
-     * Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address?   Changing this forces a new resource to be created.
      */
     public readonly enableNodePublicIp!: pulumi.Output<boolean | undefined>;
     /**
@@ -357,19 +357,19 @@ export interface KubernetesClusterNodePoolState {
      */
     capacityReservationGroupId?: pulumi.Input<string>;
     /**
-     * Specifies whether to trust a Custom CA. Defaults to `false`.
+     * Specifies whether to trust a Custom CA.
      */
     customCaTrustEnabled?: pulumi.Input<boolean>;
     /**
-     * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+     * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
      */
     enableAutoScaling?: pulumi.Input<boolean>;
     /**
-     * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
      */
     enableHostEncryption?: pulumi.Input<boolean>;
     /**
-     * Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address?   Changing this forces a new resource to be created.
      */
     enableNodePublicIp?: pulumi.Input<boolean>;
     /**
@@ -523,19 +523,19 @@ export interface KubernetesClusterNodePoolArgs {
      */
     capacityReservationGroupId?: pulumi.Input<string>;
     /**
-     * Specifies whether to trust a Custom CA. Defaults to `false`.
+     * Specifies whether to trust a Custom CA.
      */
     customCaTrustEnabled?: pulumi.Input<boolean>;
     /**
-     * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+     * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
      */
     enableAutoScaling?: pulumi.Input<boolean>;
     /**
-     * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
      */
     enableHostEncryption?: pulumi.Input<boolean>;
     /**
-     * Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address?   Changing this forces a new resource to be created.
      */
     enableNodePublicIp?: pulumi.Input<boolean>;
     /**

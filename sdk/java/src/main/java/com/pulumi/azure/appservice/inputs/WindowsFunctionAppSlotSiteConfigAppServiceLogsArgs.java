@@ -16,14 +16,14 @@ public final class WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs extends co
     public static final WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs Empty = new WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs();
 
     /**
-     * The amount of disk space to use for logs. Valid values are between `25` and `100`.
+     * The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
      * 
      */
     @Import(name="diskQuotaMb")
     private @Nullable Output<Integer> diskQuotaMb;
 
     /**
-     * @return The amount of disk space to use for logs. Valid values are between `25` and `100`.
+     * @return The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
      * 
      */
     public Optional<Output<Integer>> diskQuotaMb() {
@@ -31,14 +31,14 @@ public final class WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs extends co
     }
 
     /**
-     * The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+     * The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
      * 
      */
     @Import(name="retentionPeriodDays")
     private @Nullable Output<Integer> retentionPeriodDays;
 
     /**
-     * @return The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+     * @return The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
      * 
      */
     public Optional<Output<Integer>> retentionPeriodDays() {
@@ -71,7 +71,7 @@ public final class WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs extends co
         }
 
         /**
-         * @param diskQuotaMb The amount of disk space to use for logs. Valid values are between `25` and `100`.
+         * @param diskQuotaMb The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs extends co
         }
 
         /**
-         * @param diskQuotaMb The amount of disk space to use for logs. Valid values are between `25` and `100`.
+         * @param diskQuotaMb The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs extends co
         }
 
         /**
-         * @param retentionPeriodDays The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+         * @param retentionPeriodDays The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs extends co
         }
 
         /**
-         * @param retentionPeriodDays The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+         * @param retentionPeriodDays The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
          * 
          * @return builder
          * 

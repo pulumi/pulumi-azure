@@ -122,7 +122,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly adminUsername!: pulumi.Output<string>;
     /**
-     * Should Extension Operations be allowed on this Virtual Machine?
+     * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
     public readonly allowExtensionOperations!: pulumi.Output<boolean | undefined>;
     /**
@@ -158,7 +158,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly edgeZone!: pulumi.Output<string | undefined>;
     /**
-     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
      */
     public readonly enableAutomaticUpdates!: pulumi.Output<boolean | undefined>;
     /**
@@ -480,7 +480,7 @@ export interface WindowsVirtualMachineState {
      */
     adminUsername?: pulumi.Input<string>;
     /**
-     * Should Extension Operations be allowed on this Virtual Machine?
+     * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
     allowExtensionOperations?: pulumi.Input<boolean>;
     /**
@@ -516,7 +516,7 @@ export interface WindowsVirtualMachineState {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
      */
     enableAutomaticUpdates?: pulumi.Input<boolean>;
     /**
@@ -694,7 +694,7 @@ export interface WindowsVirtualMachineArgs {
      */
     adminUsername: pulumi.Input<string>;
     /**
-     * Should Extension Operations be allowed on this Virtual Machine?
+     * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
     allowExtensionOperations?: pulumi.Input<boolean>;
     /**
@@ -730,7 +730,7 @@ export interface WindowsVirtualMachineArgs {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
      */
     enableAutomaticUpdates?: pulumi.Input<boolean>;
     /**

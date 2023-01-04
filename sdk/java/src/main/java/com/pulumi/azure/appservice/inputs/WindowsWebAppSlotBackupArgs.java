@@ -18,14 +18,14 @@ public final class WindowsWebAppSlotBackupArgs extends com.pulumi.resources.Reso
     public static final WindowsWebAppSlotBackupArgs Empty = new WindowsWebAppSlotBackupArgs();
 
     /**
-     * Should this backup job be enabled?
+     * Should this backup job be enabled? Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Should this backup job be enabled?
+     * @return Should this backup job be enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -105,7 +105,7 @@ public final class WindowsWebAppSlotBackupArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enabled Should this backup job be enabled?
+         * @param enabled Should this backup job be enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class WindowsWebAppSlotBackupArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enabled Should this backup job be enabled?
+         * @param enabled Should this backup job be enabled? Defaults to `true`.
          * 
          * @return builder
          * 

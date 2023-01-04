@@ -63,7 +63,7 @@ type CertificateOrder struct {
 
 	// Reasons why App Service Certificate is not renewable at the current moment.
 	AppServiceCertificateNotRenewableReasons pulumi.StringArrayOutput `pulumi:"appServiceCertificateNotRenewableReasons"`
-	// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+	// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
 	AutoRenew pulumi.BoolPtrOutput `pulumi:"autoRenew"`
 	// State of the Key Vault secret. A `certificates` block as defined below.
 	Certificates CertificateOrderCertificateArrayOutput `pulumi:"certificates"`
@@ -79,7 +79,7 @@ type CertificateOrder struct {
 	IntermediateThumbprint pulumi.StringOutput `pulumi:"intermediateThumbprint"`
 	// Whether the private key is external or not.
 	IsPrivateKeyExternal pulumi.BoolOutput `pulumi:"isPrivateKeyExternal"`
-	// Certificate key size.  Defaults to 2048.
+	// Certificate key size.  Defaults to `2048`.
 	KeySize pulumi.IntPtrOutput `pulumi:"keySize"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -135,7 +135,7 @@ func GetCertificateOrder(ctx *pulumi.Context,
 type certificateOrderState struct {
 	// Reasons why App Service Certificate is not renewable at the current moment.
 	AppServiceCertificateNotRenewableReasons []string `pulumi:"appServiceCertificateNotRenewableReasons"`
-	// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+	// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
 	AutoRenew *bool `pulumi:"autoRenew"`
 	// State of the Key Vault secret. A `certificates` block as defined below.
 	Certificates []CertificateOrderCertificate `pulumi:"certificates"`
@@ -151,7 +151,7 @@ type certificateOrderState struct {
 	IntermediateThumbprint *string `pulumi:"intermediateThumbprint"`
 	// Whether the private key is external or not.
 	IsPrivateKeyExternal *bool `pulumi:"isPrivateKeyExternal"`
-	// Certificate key size.  Defaults to 2048.
+	// Certificate key size.  Defaults to `2048`.
 	KeySize *int `pulumi:"keySize"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
 	Location *string `pulumi:"location"`
@@ -176,7 +176,7 @@ type certificateOrderState struct {
 type CertificateOrderState struct {
 	// Reasons why App Service Certificate is not renewable at the current moment.
 	AppServiceCertificateNotRenewableReasons pulumi.StringArrayInput
-	// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+	// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
 	AutoRenew pulumi.BoolPtrInput
 	// State of the Key Vault secret. A `certificates` block as defined below.
 	Certificates CertificateOrderCertificateArrayInput
@@ -192,7 +192,7 @@ type CertificateOrderState struct {
 	IntermediateThumbprint pulumi.StringPtrInput
 	// Whether the private key is external or not.
 	IsPrivateKeyExternal pulumi.BoolPtrInput
-	// Certificate key size.  Defaults to 2048.
+	// Certificate key size.  Defaults to `2048`.
 	KeySize pulumi.IntPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
 	Location pulumi.StringPtrInput
@@ -219,13 +219,13 @@ func (CertificateOrderState) ElementType() reflect.Type {
 }
 
 type certificateOrderArgs struct {
-	// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+	// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
 	AutoRenew *bool `pulumi:"autoRenew"`
 	// Last CSR that was created for this order.
 	Csr *string `pulumi:"csr"`
 	// The Distinguished Name for the App Service Certificate Order.
 	DistinguishedName *string `pulumi:"distinguishedName"`
-	// Certificate key size.  Defaults to 2048.
+	// Certificate key size.  Defaults to `2048`.
 	KeySize *int `pulumi:"keySize"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
 	Location *string `pulumi:"location"`
@@ -243,13 +243,13 @@ type certificateOrderArgs struct {
 
 // The set of arguments for constructing a CertificateOrder resource.
 type CertificateOrderArgs struct {
-	// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+	// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
 	AutoRenew pulumi.BoolPtrInput
 	// Last CSR that was created for this order.
 	Csr pulumi.StringPtrInput
 	// The Distinguished Name for the App Service Certificate Order.
 	DistinguishedName pulumi.StringPtrInput
-	// Certificate key size.  Defaults to 2048.
+	// Certificate key size.  Defaults to `2048`.
 	KeySize pulumi.IntPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
 	Location pulumi.StringPtrInput
@@ -357,7 +357,7 @@ func (o CertificateOrderOutput) AppServiceCertificateNotRenewableReasons() pulum
 	return o.ApplyT(func(v *CertificateOrder) pulumi.StringArrayOutput { return v.AppServiceCertificateNotRenewableReasons }).(pulumi.StringArrayOutput)
 }
 
-// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
 func (o CertificateOrderOutput) AutoRenew() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateOrder) pulumi.BoolPtrOutput { return v.AutoRenew }).(pulumi.BoolPtrOutput)
 }
@@ -397,7 +397,7 @@ func (o CertificateOrderOutput) IsPrivateKeyExternal() pulumi.BoolOutput {
 	return o.ApplyT(func(v *CertificateOrder) pulumi.BoolOutput { return v.IsPrivateKeyExternal }).(pulumi.BoolOutput)
 }
 
-// Certificate key size.  Defaults to 2048.
+// Certificate key size.  Defaults to `2048`.
 func (o CertificateOrderOutput) KeySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CertificateOrder) pulumi.IntPtrOutput { return v.KeySize }).(pulumi.IntPtrOutput)
 }

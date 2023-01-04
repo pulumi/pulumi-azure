@@ -24,22 +24,22 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String capacityReservationGroupId;
     /**
-     * @return Specifies whether to trust a Custom CA. Defaults to `false`.
+     * @return Specifies whether to trust a Custom CA.
      * 
      */
     private @Nullable Boolean customCaTrustEnabled;
     /**
-     * @return Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+     * @return Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
      * 
      */
     private @Nullable Boolean enableAutoScaling;
     /**
-     * @return Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Boolean enableHostEncryption;
     /**
-     * @return Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Boolean enableNodePublicIp;
@@ -191,28 +191,28 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.capacityReservationGroupId);
     }
     /**
-     * @return Specifies whether to trust a Custom CA. Defaults to `false`.
+     * @return Specifies whether to trust a Custom CA.
      * 
      */
     public Optional<Boolean> customCaTrustEnabled() {
         return Optional.ofNullable(this.customCaTrustEnabled);
     }
     /**
-     * @return Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+     * @return Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
      * 
      */
     public Optional<Boolean> enableAutoScaling() {
         return Optional.ofNullable(this.enableAutoScaling);
     }
     /**
-     * @return Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
      * 
      */
     public Optional<Boolean> enableHostEncryption() {
         return Optional.ofNullable(this.enableHostEncryption);
     }
     /**
-     * @return Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
      * 
      */
     public Optional<Boolean> enableNodePublicIp() {

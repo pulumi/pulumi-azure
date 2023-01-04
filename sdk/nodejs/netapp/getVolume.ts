@@ -114,6 +114,10 @@ export interface GetVolumeResult {
      * The unique file path of the volume.
      */
     readonly volumePath: string;
+    /**
+     * The Availability Zone in which the Volume is located.
+     */
+    readonly zone: string;
 }
 /**
  * Uses this data source to access information about an existing NetApp Volume.

@@ -106,7 +106,7 @@ type EnterpriseDatabase struct {
 	Modules EnterpriseDatabaseModuleArrayOutput `pulumi:"modules"`
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+	// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The Primary Access Key for the Redis Enterprise Database Instance.
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
@@ -171,7 +171,7 @@ type enterpriseDatabaseState struct {
 	Modules []EnterpriseDatabaseModule `pulumi:"modules"`
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name *string `pulumi:"name"`
-	// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+	// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
 	Port *int `pulumi:"port"`
 	// The Primary Access Key for the Redis Enterprise Database Instance.
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
@@ -200,7 +200,7 @@ type EnterpriseDatabaseState struct {
 	Modules EnterpriseDatabaseModuleArrayInput
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name pulumi.StringPtrInput
-	// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+	// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
 	Port pulumi.IntPtrInput
 	// The Primary Access Key for the Redis Enterprise Database Instance.
 	PrimaryAccessKey pulumi.StringPtrInput
@@ -233,7 +233,7 @@ type enterpriseDatabaseArgs struct {
 	Modules []EnterpriseDatabaseModule `pulumi:"modules"`
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name *string `pulumi:"name"`
-	// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+	// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
 	Port *int `pulumi:"port"`
 	// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
 	//
@@ -259,7 +259,7 @@ type EnterpriseDatabaseArgs struct {
 	Modules EnterpriseDatabaseModuleArrayInput
 	// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
 	Name pulumi.StringPtrInput
-	// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+	// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
 	Port pulumi.IntPtrInput
 	// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
 	//
@@ -394,7 +394,7 @@ func (o EnterpriseDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnterpriseDatabase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
 func (o EnterpriseDatabaseOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EnterpriseDatabase) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }

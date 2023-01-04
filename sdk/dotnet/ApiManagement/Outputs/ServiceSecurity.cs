@@ -78,7 +78,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly bool? TlsRsaWithAes256GcmSha384CiphersEnabled;
         /// <summary>
-        /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+        /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
         /// </summary>
         public readonly bool? TripleDesCiphersEnabled;
 

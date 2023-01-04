@@ -93,14 +93,14 @@ public final class FrontdoorBackendPoolHealthProbeArgs extends com.pulumi.resour
     }
 
     /**
-     * Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+     * Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
      * 
      */
     @Import(name="probeMethod")
     private @Nullable Output<String> probeMethod;
 
     /**
-     * @return Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+     * @return Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
      * 
      */
     public Optional<Output<String>> probeMethod() {
@@ -258,7 +258,7 @@ public final class FrontdoorBackendPoolHealthProbeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param probeMethod Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+         * @param probeMethod Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class FrontdoorBackendPoolHealthProbeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param probeMethod Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+         * @param probeMethod Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class FrontdoorRuleConditionsRequestSchemeConditionArgs extends com
     public static final FrontdoorRuleConditionsRequestSchemeConditionArgs Empty = new FrontdoorRuleConditionsRequestSchemeConditionArgs();
 
     /**
-     * The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+     * The requests protocol to match. Possible values include `HTTP` or `HTTPS`.
      * 
      */
     @Import(name="matchValues")
     private @Nullable Output<String> matchValues;
 
     /**
-     * @return The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+     * @return The requests protocol to match. Possible values include `HTTP` or `HTTPS`.
      * 
      */
     public Optional<Output<String>> matchValues() {
@@ -88,7 +88,7 @@ public final class FrontdoorRuleConditionsRequestSchemeConditionArgs extends com
         }
 
         /**
-         * @param matchValues The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+         * @param matchValues The requests protocol to match. Possible values include `HTTP` or `HTTPS`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class FrontdoorRuleConditionsRequestSchemeConditionArgs extends com
         }
 
         /**
-         * @param matchValues The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+         * @param matchValues The requests protocol to match. Possible values include `HTTP` or `HTTPS`.
          * 
          * @return builder
          * 

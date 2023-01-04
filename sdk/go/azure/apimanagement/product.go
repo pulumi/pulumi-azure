@@ -88,7 +88,7 @@ type Product struct {
 	Published pulumi.BoolOutput `pulumi:"published"`
 	// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Is a Subscription required to access API's included in this Product?
+	// Is a Subscription required to access API's included in this Product? Defaults to `true`.
 	SubscriptionRequired pulumi.BoolPtrOutput `pulumi:"subscriptionRequired"`
 	// The number of subscriptions a user can have to this Product at the same time.
 	SubscriptionsLimit pulumi.IntPtrOutput `pulumi:"subscriptionsLimit"`
@@ -154,7 +154,7 @@ type productState struct {
 	Published *bool `pulumi:"published"`
 	// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Is a Subscription required to access API's included in this Product?
+	// Is a Subscription required to access API's included in this Product? Defaults to `true`.
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
 	// The number of subscriptions a user can have to this Product at the same time.
 	SubscriptionsLimit *int `pulumi:"subscriptionsLimit"`
@@ -177,7 +177,7 @@ type ProductState struct {
 	Published pulumi.BoolPtrInput
 	// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Is a Subscription required to access API's included in this Product?
+	// Is a Subscription required to access API's included in this Product? Defaults to `true`.
 	SubscriptionRequired pulumi.BoolPtrInput
 	// The number of subscriptions a user can have to this Product at the same time.
 	SubscriptionsLimit pulumi.IntPtrInput
@@ -204,7 +204,7 @@ type productArgs struct {
 	Published bool `pulumi:"published"`
 	// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Is a Subscription required to access API's included in this Product?
+	// Is a Subscription required to access API's included in this Product? Defaults to `true`.
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
 	// The number of subscriptions a user can have to this Product at the same time.
 	SubscriptionsLimit *int `pulumi:"subscriptionsLimit"`
@@ -228,7 +228,7 @@ type ProductArgs struct {
 	Published pulumi.BoolInput
 	// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Is a Subscription required to access API's included in this Product?
+	// Is a Subscription required to access API's included in this Product? Defaults to `true`.
 	SubscriptionRequired pulumi.BoolPtrInput
 	// The number of subscriptions a user can have to this Product at the same time.
 	SubscriptionsLimit pulumi.IntPtrInput
@@ -358,7 +358,7 @@ func (o ProductOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Is a Subscription required to access API's included in this Product?
+// Is a Subscription required to access API's included in this Product? Defaults to `true`.
 func (o ProductOutput) SubscriptionRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Product) pulumi.BoolPtrOutput { return v.SubscriptionRequired }).(pulumi.BoolPtrOutput)
 }

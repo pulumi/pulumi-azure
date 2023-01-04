@@ -53,14 +53,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
      * 
      */
     @Import(name="autoStopEnabled")
     private @Nullable Output<Boolean> autoStopEnabled;
 
     /**
-     * @return Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     * @return Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> autoStopEnabled() {
@@ -83,14 +83,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is the cluster&#39;s double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * Is the cluster&#39;s double encryption enabled?  Changing this forces a new resource to be created.
      * 
      */
     @Import(name="doubleEncryptionEnabled")
     private @Nullable Output<Boolean> doubleEncryptionEnabled;
 
     /**
-     * @return Is the cluster&#39;s double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Is the cluster&#39;s double encryption enabled?  Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> doubleEncryptionEnabled() {
@@ -460,7 +460,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoStopEnabled Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+         * @param autoStopEnabled Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
          * 
          * @return builder
          * 
@@ -471,7 +471,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoStopEnabled Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+         * @param autoStopEnabled Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param doubleEncryptionEnabled Is the cluster&#39;s double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+         * @param doubleEncryptionEnabled Is the cluster&#39;s double encryption enabled?  Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param doubleEncryptionEnabled Is the cluster&#39;s double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+         * @param doubleEncryptionEnabled Is the cluster&#39;s double encryption enabled?  Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

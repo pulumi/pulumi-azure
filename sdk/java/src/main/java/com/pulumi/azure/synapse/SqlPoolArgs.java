@@ -49,14 +49,14 @@ public final class SqlPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is transparent data encryption enabled? Defaults to `false`.
+     * Is transparent data encryption enabled?
      * 
      */
     @Import(name="dataEncrypted")
     private @Nullable Output<Boolean> dataEncrypted;
 
     /**
-     * @return Is transparent data encryption enabled? Defaults to `false`.
+     * @return Is transparent data encryption enabled?
      * 
      */
     public Optional<Output<Boolean>> dataEncrypted() {
@@ -228,7 +228,7 @@ public final class SqlPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataEncrypted Is transparent data encryption enabled? Defaults to `false`.
+         * @param dataEncrypted Is transparent data encryption enabled?
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class SqlPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataEncrypted Is transparent data encryption enabled? Defaults to `false`.
+         * @param dataEncrypted Is transparent data encryption enabled?
          * 
          * @return builder
          * 

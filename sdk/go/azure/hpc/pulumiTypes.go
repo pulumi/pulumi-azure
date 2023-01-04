@@ -19,13 +19,13 @@ type CacheAccessPolicyAccessRule struct {
 	AnonymousUid *int `pulumi:"anonymousUid"`
 	// The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
 	Filter *string `pulumi:"filter"`
-	// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
 	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
 	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
 	Scope string `pulumi:"scope"`
-	// Whether allow access to subdirectories under the root export? Defaults to `false`.
+	// Whether allow access to subdirectories under the root export?
 	SubmountAccessEnabled *bool `pulumi:"submountAccessEnabled"`
-	// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+	// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
 	SuidEnabled *bool `pulumi:"suidEnabled"`
 }
 
@@ -49,13 +49,13 @@ type CacheAccessPolicyAccessRuleArgs struct {
 	AnonymousUid pulumi.IntPtrInput `pulumi:"anonymousUid"`
 	// The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
 	Filter pulumi.StringPtrInput `pulumi:"filter"`
-	// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
 	RootSquashEnabled pulumi.BoolPtrInput `pulumi:"rootSquashEnabled"`
 	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
 	Scope pulumi.StringInput `pulumi:"scope"`
-	// Whether allow access to subdirectories under the root export? Defaults to `false`.
+	// Whether allow access to subdirectories under the root export?
 	SubmountAccessEnabled pulumi.BoolPtrInput `pulumi:"submountAccessEnabled"`
-	// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+	// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
 	SuidEnabled pulumi.BoolPtrInput `pulumi:"suidEnabled"`
 }
 
@@ -130,7 +130,7 @@ func (o CacheAccessPolicyAccessRuleOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheAccessPolicyAccessRule) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
 func (o CacheAccessPolicyAccessRuleOutput) RootSquashEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheAccessPolicyAccessRule) *bool { return v.RootSquashEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -140,12 +140,12 @@ func (o CacheAccessPolicyAccessRuleOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheAccessPolicyAccessRule) string { return v.Scope }).(pulumi.StringOutput)
 }
 
-// Whether allow access to subdirectories under the root export? Defaults to `false`.
+// Whether allow access to subdirectories under the root export?
 func (o CacheAccessPolicyAccessRuleOutput) SubmountAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheAccessPolicyAccessRule) *bool { return v.SubmountAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
 func (o CacheAccessPolicyAccessRuleOutput) SuidEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheAccessPolicyAccessRule) *bool { return v.SuidEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -316,13 +316,13 @@ type CacheDefaultAccessPolicyAccessRule struct {
 	AnonymousUid *int `pulumi:"anonymousUid"`
 	// The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
 	Filter *string `pulumi:"filter"`
-	// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
 	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
 	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
 	Scope string `pulumi:"scope"`
-	// Whether allow access to subdirectories under the root export? Defaults to `false`.
+	// Whether allow access to subdirectories under the root export?
 	SubmountAccessEnabled *bool `pulumi:"submountAccessEnabled"`
-	// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+	// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
 	SuidEnabled *bool `pulumi:"suidEnabled"`
 }
 
@@ -346,13 +346,13 @@ type CacheDefaultAccessPolicyAccessRuleArgs struct {
 	AnonymousUid pulumi.IntPtrInput `pulumi:"anonymousUid"`
 	// The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
 	Filter pulumi.StringPtrInput `pulumi:"filter"`
-	// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+	// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
 	RootSquashEnabled pulumi.BoolPtrInput `pulumi:"rootSquashEnabled"`
 	// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
 	Scope pulumi.StringInput `pulumi:"scope"`
-	// Whether allow access to subdirectories under the root export? Defaults to `false`.
+	// Whether allow access to subdirectories under the root export?
 	SubmountAccessEnabled pulumi.BoolPtrInput `pulumi:"submountAccessEnabled"`
-	// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+	// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
 	SuidEnabled pulumi.BoolPtrInput `pulumi:"suidEnabled"`
 }
 
@@ -427,7 +427,7 @@ func (o CacheDefaultAccessPolicyAccessRuleOutput) Filter() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
 func (o CacheDefaultAccessPolicyAccessRuleOutput) RootSquashEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) *bool { return v.RootSquashEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -437,12 +437,12 @@ func (o CacheDefaultAccessPolicyAccessRuleOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) string { return v.Scope }).(pulumi.StringOutput)
 }
 
-// Whether allow access to subdirectories under the root export? Defaults to `false`.
+// Whether allow access to subdirectories under the root export?
 func (o CacheDefaultAccessPolicyAccessRuleOutput) SubmountAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) *bool { return v.SubmountAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
 func (o CacheDefaultAccessPolicyAccessRuleOutput) SuidEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheDefaultAccessPolicyAccessRule) *bool { return v.SuidEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -881,9 +881,9 @@ type CacheDirectoryLdap struct {
 	Bind *CacheDirectoryLdapBind `pulumi:"bind"`
 	// The URI of the CA certificate to validate the LDAP secure connection.
 	CertificateValidationUri *string `pulumi:"certificateValidationUri"`
-	// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided. Defaults to `false`.
+	// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided.
 	DownloadCertificateAutomatically *bool `pulumi:"downloadCertificateAutomatically"`
-	// Whether the LDAP connection should be encrypted? Defaults to `false`.
+	// Whether the LDAP connection should be encrypted?
 	Encrypted *bool `pulumi:"encrypted"`
 	// The FQDN or IP address of the LDAP server.
 	Server string `pulumi:"server"`
@@ -907,9 +907,9 @@ type CacheDirectoryLdapArgs struct {
 	Bind CacheDirectoryLdapBindPtrInput `pulumi:"bind"`
 	// The URI of the CA certificate to validate the LDAP secure connection.
 	CertificateValidationUri pulumi.StringPtrInput `pulumi:"certificateValidationUri"`
-	// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided. Defaults to `false`.
+	// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided.
 	DownloadCertificateAutomatically pulumi.BoolPtrInput `pulumi:"downloadCertificateAutomatically"`
-	// Whether the LDAP connection should be encrypted? Defaults to `false`.
+	// Whether the LDAP connection should be encrypted?
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 	// The FQDN or IP address of the LDAP server.
 	Server pulumi.StringInput `pulumi:"server"`
@@ -1007,12 +1007,12 @@ func (o CacheDirectoryLdapOutput) CertificateValidationUri() pulumi.StringPtrOut
 	return o.ApplyT(func(v CacheDirectoryLdap) *string { return v.CertificateValidationUri }).(pulumi.StringPtrOutput)
 }
 
-// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided. Defaults to `false`.
+// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided.
 func (o CacheDirectoryLdapOutput) DownloadCertificateAutomatically() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheDirectoryLdap) *bool { return v.DownloadCertificateAutomatically }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the LDAP connection should be encrypted? Defaults to `false`.
+// Whether the LDAP connection should be encrypted?
 func (o CacheDirectoryLdapOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheDirectoryLdap) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
@@ -1076,7 +1076,7 @@ func (o CacheDirectoryLdapPtrOutput) CertificateValidationUri() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided. Defaults to `false`.
+// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided.
 func (o CacheDirectoryLdapPtrOutput) DownloadCertificateAutomatically() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheDirectoryLdap) *bool {
 		if v == nil {
@@ -1086,7 +1086,7 @@ func (o CacheDirectoryLdapPtrOutput) DownloadCertificateAutomatically() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether the LDAP connection should be encrypted? Defaults to `false`.
+// Whether the LDAP connection should be encrypted?
 func (o CacheDirectoryLdapPtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheDirectoryLdap) *bool {
 		if v == nil {

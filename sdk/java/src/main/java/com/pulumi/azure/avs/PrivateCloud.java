@@ -218,14 +218,14 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new VMware Private Cloud to be created.
+     * The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Private Cloud to be created.
      * 
      */
     @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
-     * @return The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new VMware Private Cloud to be created.
+     * @return The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Private Cloud to be created.
      * 
      */
     public Output<String> skuName() {

@@ -158,14 +158,14 @@ public class LinkService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoApprovalSubscriptionIds);
     }
     /**
-     * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     * Should the Private Link Service support the Proxy Protocol?
      * 
      */
     @Export(name="enableProxyProtocol", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableProxyProtocol;
 
     /**
-     * @return Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     * @return Should the Private Link Service support the Proxy Protocol?
      * 
      */
     public Output<Optional<Boolean>> enableProxyProtocol() {

@@ -50,14 +50,14 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     * Should the Private Link Service support the Proxy Protocol?
      * 
      */
     @Import(name="enableProxyProtocol")
     private @Nullable Output<Boolean> enableProxyProtocol;
 
     /**
-     * @return Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     * @return Should the Private Link Service support the Proxy Protocol?
      * 
      */
     public Optional<Output<Boolean>> enableProxyProtocol() {
@@ -271,7 +271,7 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableProxyProtocol Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+         * @param enableProxyProtocol Should the Private Link Service support the Proxy Protocol?
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableProxyProtocol Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+         * @param enableProxyProtocol Should the Private Link Service support the Proxy Protocol?
          * 
          * @return builder
          * 

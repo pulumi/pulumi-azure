@@ -76,14 +76,14 @@ public final class FrontdoorRoutingRuleRedirectConfigurationArgs extends com.pul
     }
 
     /**
-     * Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+     * Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`.
      * 
      */
     @Import(name="redirectProtocol", required=true)
     private Output<String> redirectProtocol;
 
     /**
-     * @return Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+     * @return Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`.
      * 
      */
     public Output<String> redirectProtocol() {
@@ -219,7 +219,7 @@ public final class FrontdoorRoutingRuleRedirectConfigurationArgs extends com.pul
         }
 
         /**
-         * @param redirectProtocol Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+         * @param redirectProtocol Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class FrontdoorRoutingRuleRedirectConfigurationArgs extends com.pul
         }
 
         /**
-         * @param redirectProtocol Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+         * @param redirectProtocol Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`.
          * 
          * @return builder
          * 

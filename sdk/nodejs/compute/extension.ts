@@ -139,7 +139,7 @@ export class Extension extends pulumi.CustomResource {
      */
     public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
     /**
-     * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+     * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
      */
     public readonly automaticUpgradeEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -256,7 +256,7 @@ export interface ExtensionState {
      */
     autoUpgradeMinorVersion?: pulumi.Input<boolean>;
     /**
-     * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+     * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
      */
     automaticUpgradeEnabled?: pulumi.Input<boolean>;
     /**
@@ -315,7 +315,7 @@ export interface ExtensionArgs {
      */
     autoUpgradeMinorVersion?: pulumi.Input<boolean>;
     /**
-     * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+     * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
      */
     automaticUpgradeEnabled?: pulumi.Input<boolean>;
     /**

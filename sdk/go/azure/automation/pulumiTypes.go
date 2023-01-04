@@ -11,7 +11,7 @@ import (
 )
 
 type AccountEncryption struct {
-	// The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+	// The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
 	KeySource *string `pulumi:"keySource"`
 	// The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
@@ -31,7 +31,7 @@ type AccountEncryptionInput interface {
 }
 
 type AccountEncryptionArgs struct {
-	// The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+	// The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
 	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
 	// The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
@@ -90,7 +90,7 @@ func (o AccountEncryptionOutput) ToAccountEncryptionOutputWithContext(ctx contex
 	return o
 }
 
-// The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+// The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
 func (o AccountEncryptionOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountEncryption) *string { return v.KeySource }).(pulumi.StringPtrOutput)
 }
@@ -2428,7 +2428,7 @@ type SoftwareUpdateConfigurationSchedule struct {
 	ExpiryTimeOffsetMinutes *float64 `pulumi:"expiryTimeOffsetMinutes"`
 	// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
 	Frequency *string `pulumi:"frequency"`
-	// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
 	Interval *int `pulumi:"interval"`
 	// Whether the schedule is enabled.
 	IsEnabled        *bool   `pulumi:"isEnabled"`
@@ -2468,7 +2468,7 @@ type SoftwareUpdateConfigurationScheduleArgs struct {
 	ExpiryTimeOffsetMinutes pulumi.Float64PtrInput `pulumi:"expiryTimeOffsetMinutes"`
 	// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
 	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
-	// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
 	// Whether the schedule is enabled.
 	IsEnabled        pulumi.BoolPtrInput   `pulumi:"isEnabled"`
@@ -2568,7 +2568,7 @@ func (o SoftwareUpdateConfigurationScheduleOutput) Frequency() pulumi.StringPtrO
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) *string { return v.Frequency }).(pulumi.StringPtrOutput)
 }
 
-// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
 func (o SoftwareUpdateConfigurationScheduleOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }

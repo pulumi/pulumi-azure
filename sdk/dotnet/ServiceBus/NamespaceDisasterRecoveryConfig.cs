@@ -74,7 +74,7 @@ namespace Pulumi.Azure.ServiceBus
     public partial class NamespaceDisasterRecoveryConfig : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+        /// The Shared access policies used to access the connection string for the alias.
         /// </summary>
         [Output("aliasAuthorizationRuleId")]
         public Output<string?> AliasAuthorizationRuleId { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.ServiceBus
     public sealed class NamespaceDisasterRecoveryConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+        /// The Shared access policies used to access the connection string for the alias.
         /// </summary>
         [Input("aliasAuthorizationRuleId")]
         public Input<string>? AliasAuthorizationRuleId { get; set; }
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.ServiceBus
     public sealed class NamespaceDisasterRecoveryConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+        /// The Shared access policies used to access the connection string for the alias.
         /// </summary>
         [Input("aliasAuthorizationRuleId")]
         public Input<string>? AliasAuthorizationRuleId { get; set; }

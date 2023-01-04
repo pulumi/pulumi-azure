@@ -22,7 +22,7 @@ namespace Pulumi.Azure.KeyVault.Outputs
         /// </summary>
         public readonly ImmutableArray<string> CertificatePermissions;
         /// <summary>
-        /// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
+        /// List of key permissions. Possible values are `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy` and `SetRotationPolicy`.
         /// </summary>
         public readonly ImmutableArray<string> KeyPermissions;
         /// <summary>

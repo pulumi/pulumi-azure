@@ -227,9 +227,9 @@ type ServerExtendedAuditingPolicy struct {
 
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrOutput `pulumi:"logMonitoringEnabled"`
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
 	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
@@ -288,9 +288,9 @@ func GetServerExtendedAuditingPolicy(ctx *pulumi.Context,
 type serverExtendedAuditingPolicyState struct {
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
 	ServerId *string `pulumi:"serverId"`
@@ -307,9 +307,9 @@ type serverExtendedAuditingPolicyState struct {
 type ServerExtendedAuditingPolicyState struct {
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrInput
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays pulumi.IntPtrInput
 	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
 	ServerId pulumi.StringPtrInput
@@ -330,9 +330,9 @@ func (ServerExtendedAuditingPolicyState) ElementType() reflect.Type {
 type serverExtendedAuditingPolicyArgs struct {
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
 	ServerId string `pulumi:"serverId"`
@@ -350,9 +350,9 @@ type serverExtendedAuditingPolicyArgs struct {
 type ServerExtendedAuditingPolicyArgs struct {
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrInput
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays pulumi.IntPtrInput
 	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
 	ServerId pulumi.StringInput
@@ -458,12 +458,12 @@ func (o ServerExtendedAuditingPolicyOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 func (o ServerExtendedAuditingPolicyOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) pulumi.BoolPtrOutput { return v.LogMonitoringEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The number of days to retain logs for in the storage account.
+// The number of days to retain logs for in the storage account. Defaults to `0`.
 func (o ServerExtendedAuditingPolicyOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }

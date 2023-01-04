@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppServiceSiteConfigScmIpRestriction {
     /**
-     * @return Allow or Deny access for this IP range. Defaults to Allow.
+     * @return Allow or Deny access for this IP range. Defaults to `Allow`.
      * 
      */
     private @Nullable String action;
@@ -51,7 +51,7 @@ public final class AppServiceSiteConfigScmIpRestriction {
 
     private AppServiceSiteConfigScmIpRestriction() {}
     /**
-     * @return Allow or Deny access for this IP range. Defaults to Allow.
+     * @return Allow or Deny access for this IP range. Defaults to `Allow`.
      * 
      */
     public Optional<String> action() {

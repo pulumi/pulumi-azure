@@ -87,14 +87,14 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
         return this.appServiceCertificateNotRenewableReasons;
     }
     /**
-     * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+     * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
      * 
      */
     @Export(name="autoRenew", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoRenew;
 
     /**
-     * @return true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+     * @return true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> autoRenew() {
@@ -199,14 +199,14 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
         return this.isPrivateKeyExternal;
     }
     /**
-     * Certificate key size.  Defaults to 2048.
+     * Certificate key size.  Defaults to `2048`.
      * 
      */
     @Export(name="keySize", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> keySize;
 
     /**
-     * @return Certificate key size.  Defaults to 2048.
+     * @return Certificate key size.  Defaults to `2048`.
      * 
      */
     public Output<Optional<Integer>> keySize() {

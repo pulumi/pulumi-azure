@@ -86,13 +86,13 @@ type KubernetesClusterNodePool struct {
 
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrOutput `pulumi:"capacityReservationGroupId"`
-	// Specifies whether to trust a Custom CA. Defaults to `false`.
+	// Specifies whether to trust a Custom CA.
 	CustomCaTrustEnabled pulumi.BoolPtrOutput `pulumi:"customCaTrustEnabled"`
-	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 	EnableAutoScaling pulumi.BoolPtrOutput `pulumi:"enableAutoScaling"`
-	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
 	EnableHostEncryption pulumi.BoolPtrOutput `pulumi:"enableHostEncryption"`
-	// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+	// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrOutput `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
@@ -203,13 +203,13 @@ func GetKubernetesClusterNodePool(ctx *pulumi.Context,
 type kubernetesClusterNodePoolState struct {
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
-	// Specifies whether to trust a Custom CA. Defaults to `false`.
+	// Specifies whether to trust a Custom CA.
 	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
-	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
-	// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+	// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
@@ -286,13 +286,13 @@ type kubernetesClusterNodePoolState struct {
 type KubernetesClusterNodePoolState struct {
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput
-	// Specifies whether to trust a Custom CA. Defaults to `false`.
+	// Specifies whether to trust a Custom CA.
 	CustomCaTrustEnabled pulumi.BoolPtrInput
-	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 	EnableAutoScaling pulumi.BoolPtrInput
-	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
 	EnableHostEncryption pulumi.BoolPtrInput
-	// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+	// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
@@ -373,13 +373,13 @@ func (KubernetesClusterNodePoolState) ElementType() reflect.Type {
 type kubernetesClusterNodePoolArgs struct {
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
-	// Specifies whether to trust a Custom CA. Defaults to `false`.
+	// Specifies whether to trust a Custom CA.
 	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
-	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
-	// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+	// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
@@ -457,13 +457,13 @@ type kubernetesClusterNodePoolArgs struct {
 type KubernetesClusterNodePoolArgs struct {
 	// Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput
-	// Specifies whether to trust a Custom CA. Defaults to `false`.
+	// Specifies whether to trust a Custom CA.
 	CustomCaTrustEnabled pulumi.BoolPtrInput
-	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+	// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 	EnableAutoScaling pulumi.BoolPtrInput
-	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
 	EnableHostEncryption pulumi.BoolPtrInput
-	// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+	// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
@@ -629,22 +629,22 @@ func (o KubernetesClusterNodePoolOutput) CapacityReservationGroupId() pulumi.Str
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to trust a Custom CA. Defaults to `false`.
+// Specifies whether to trust a Custom CA.
 func (o KubernetesClusterNodePoolOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.CustomCaTrustEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+// Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
 func (o KubernetesClusterNodePoolOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
-// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+// Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolOutput) EnableHostEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.EnableHostEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+// Should each node have a Public IP Address?   Changing this forces a new resource to be created.
 func (o KubernetesClusterNodePoolOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
 }

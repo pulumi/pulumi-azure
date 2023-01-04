@@ -121,7 +121,7 @@ export class ConnectedRegistry extends pulumi.CustomResource {
      */
     public readonly syncMessageTtl!: pulumi.Output<string | undefined>;
     /**
-     * The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+     * The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
      */
     public readonly syncSchedule!: pulumi.Output<string | undefined>;
     /**
@@ -225,7 +225,7 @@ export interface ConnectedRegistryState {
      */
     syncMessageTtl?: pulumi.Input<string>;
     /**
-     * The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+     * The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
      */
     syncSchedule?: pulumi.Input<string>;
     /**
@@ -279,7 +279,7 @@ export interface ConnectedRegistryArgs {
      */
     syncMessageTtl?: pulumi.Input<string>;
     /**
-     * The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+     * The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
      */
     syncSchedule?: pulumi.Input<string>;
     /**

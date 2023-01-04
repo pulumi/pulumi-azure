@@ -203,7 +203,7 @@ type Slot struct {
 	ConnectionStrings SlotConnectionStringArrayOutput `pulumi:"connectionStrings"`
 	// The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
 	DefaultSiteHostname pulumi.StringOutput `pulumi:"defaultSiteHostname"`
-	// Is the App Service Slot Enabled?
+	// Is the App Service Slot Enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
@@ -281,7 +281,7 @@ type slotState struct {
 	ConnectionStrings []SlotConnectionString `pulumi:"connectionStrings"`
 	// The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
 	DefaultSiteHostname *string `pulumi:"defaultSiteHostname"`
-	// Is the App Service Slot Enabled?
+	// Is the App Service Slot Enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
@@ -322,7 +322,7 @@ type SlotState struct {
 	ConnectionStrings SlotConnectionStringArrayInput
 	// The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
 	DefaultSiteHostname pulumi.StringPtrInput
-	// Is the App Service Slot Enabled?
+	// Is the App Service Slot Enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
@@ -365,7 +365,7 @@ type slotArgs struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// An `connectionString` block as defined below.
 	ConnectionStrings []SlotConnectionString `pulumi:"connectionStrings"`
-	// Is the App Service Slot Enabled?
+	// Is the App Service Slot Enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
@@ -403,7 +403,7 @@ type SlotArgs struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// An `connectionString` block as defined below.
 	ConnectionStrings SlotConnectionStringArrayInput
-	// Is the App Service Slot Enabled?
+	// Is the App Service Slot Enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
@@ -549,7 +549,7 @@ func (o SlotOutput) DefaultSiteHostname() pulumi.StringOutput {
 	return o.ApplyT(func(v *Slot) pulumi.StringOutput { return v.DefaultSiteHostname }).(pulumi.StringOutput)
 }
 
-// Is the App Service Slot Enabled?
+// Is the App Service Slot Enabled? Defaults to `true`.
 func (o SlotOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Slot) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

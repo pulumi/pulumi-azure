@@ -17,14 +17,14 @@ public final class EventSubscriptionSubjectFilterArgs extends com.pulumi.resourc
     public static final EventSubscriptionSubjectFilterArgs Empty = new EventSubscriptionSubjectFilterArgs();
 
     /**
-     * Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
+     * Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
      * 
      */
     @Import(name="caseSensitive")
     private @Nullable Output<Boolean> caseSensitive;
 
     /**
-     * @return Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
+     * @return Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
      * 
      */
     public Optional<Output<Boolean>> caseSensitive() {
@@ -88,7 +88,7 @@ public final class EventSubscriptionSubjectFilterArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param caseSensitive Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
+         * @param caseSensitive Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class EventSubscriptionSubjectFilterArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param caseSensitive Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
+         * @param caseSensitive Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
          * 
          * @return builder
          * 

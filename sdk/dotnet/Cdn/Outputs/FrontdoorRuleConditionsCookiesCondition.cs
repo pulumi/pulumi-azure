@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string Operator;
         /// <summary>
-        /// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        /// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         /// </summary>
         public readonly ImmutableArray<string> Transforms;
 

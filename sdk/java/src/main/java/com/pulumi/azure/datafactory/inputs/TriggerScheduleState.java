@@ -112,14 +112,14 @@ public final class TriggerScheduleState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The interval for how often the trigger occurs. This defaults to 1.
+     * The interval for how often the trigger occurs. This defaults to `1`.
      * 
      */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
     /**
-     * @return The interval for how often the trigger occurs. This defaults to 1.
+     * @return The interval for how often the trigger occurs. This defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> interval() {
@@ -405,7 +405,7 @@ public final class TriggerScheduleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param interval The interval for how often the trigger occurs. This defaults to 1.
+         * @param interval The interval for how often the trigger occurs. This defaults to `1`.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class TriggerScheduleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param interval The interval for how often the trigger occurs. This defaults to 1.
+         * @param interval The interval for how often the trigger occurs. This defaults to `1`.
          * 
          * @return builder
          * 

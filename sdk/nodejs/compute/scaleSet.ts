@@ -196,7 +196,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly plan!: pulumi.Output<outputs.compute.ScaleSetPlan | undefined>;
     /**
-     * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
+     * Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
      */
     public readonly priority!: pulumi.Output<string | undefined>;
     /**
@@ -405,7 +405,7 @@ export interface ScaleSetState {
      */
     plan?: pulumi.Input<inputs.compute.ScaleSetPlan>;
     /**
-     * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
+     * Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
      */
     priority?: pulumi.Input<string>;
     /**
@@ -520,7 +520,7 @@ export interface ScaleSetArgs {
      */
     plan?: pulumi.Input<inputs.compute.ScaleSetPlan>;
     /**
-     * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
+     * Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
      */
     priority?: pulumi.Input<string>;
     /**

@@ -61,14 +61,14 @@ public final class DataCollectionRuleAssociationState extends com.pulumi.resourc
     }
 
     /**
-     * The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
+     * The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
+     * @return The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -182,7 +182,7 @@ public final class DataCollectionRuleAssociationState extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
+         * @param name The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class DataCollectionRuleAssociationState extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
+         * @param name The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
          * 
          * @return builder
          * 

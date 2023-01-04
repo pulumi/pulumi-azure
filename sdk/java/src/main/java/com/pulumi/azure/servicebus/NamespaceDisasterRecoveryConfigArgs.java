@@ -16,14 +16,14 @@ public final class NamespaceDisasterRecoveryConfigArgs extends com.pulumi.resour
     public static final NamespaceDisasterRecoveryConfigArgs Empty = new NamespaceDisasterRecoveryConfigArgs();
 
     /**
-     * The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+     * The Shared access policies used to access the connection string for the alias.
      * 
      */
     @Import(name="aliasAuthorizationRuleId")
     private @Nullable Output<String> aliasAuthorizationRuleId;
 
     /**
-     * @return The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+     * @return The Shared access policies used to access the connection string for the alias.
      * 
      */
     public Optional<Output<String>> aliasAuthorizationRuleId() {
@@ -103,7 +103,7 @@ public final class NamespaceDisasterRecoveryConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param aliasAuthorizationRuleId The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+         * @param aliasAuthorizationRuleId The Shared access policies used to access the connection string for the alias.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class NamespaceDisasterRecoveryConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param aliasAuthorizationRuleId The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+         * @param aliasAuthorizationRuleId The Shared access policies used to access the connection string for the alias.
          * 
          * @return builder
          * 

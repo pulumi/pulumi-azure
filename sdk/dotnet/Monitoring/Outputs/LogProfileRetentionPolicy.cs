@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class LogProfileRetentionPolicy
     {
         /// <summary>
-        /// The number of days for the retention policy. Defaults to 0.
+        /// The number of days for the retention policy. Defaults to `0`.
         /// </summary>
         public readonly int? Days;
         /// <summary>

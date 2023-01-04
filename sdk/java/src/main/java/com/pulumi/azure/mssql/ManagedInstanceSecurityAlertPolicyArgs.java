@@ -64,14 +64,14 @@ public final class ManagedInstanceSecurityAlertPolicyArgs extends com.pulumi.res
     }
 
     /**
-     * Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+     * Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+     * @return Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -269,7 +269,7 @@ public final class ManagedInstanceSecurityAlertPolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param enabled Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+         * @param enabled Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class ManagedInstanceSecurityAlertPolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param enabled Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+         * @param enabled Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
          * 
          * @return builder
          * 

@@ -125,28 +125,28 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
         return Codegen.optional(this.enabled);
     }
     /**
-     * Enable audit events to Azure Monitor?
+     * Enable audit events to Azure Monitor? Defaults to `true`.
      * 
      */
     @Export(name="logMonitoringEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> logMonitoringEnabled;
 
     /**
-     * @return Enable audit events to Azure Monitor?
+     * @return Enable audit events to Azure Monitor? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> logMonitoringEnabled() {
         return Codegen.optional(this.logMonitoringEnabled);
     }
     /**
-     * The number of days to retain logs for in the storage account.
+     * The number of days to retain logs for in the storage account. Defaults to `0`.
      * 
      */
     @Export(name="retentionInDays", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> retentionInDays;
 
     /**
-     * @return The number of days to retain logs for in the storage account.
+     * @return The number of days to retain logs for in the storage account. Defaults to `0`.
      * 
      */
     public Output<Optional<Integer>> retentionInDays() {

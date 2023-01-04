@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class SystemTopicEventSubscriptionRetryPolicy {
     /**
-     * @return Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+     * @return Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
      * 
      */
     private Integer eventTimeToLive;
@@ -22,7 +22,7 @@ public final class SystemTopicEventSubscriptionRetryPolicy {
 
     private SystemTopicEventSubscriptionRetryPolicy() {}
     /**
-     * @return Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+     * @return Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
      * 
      */
     public Integer eventTimeToLive() {

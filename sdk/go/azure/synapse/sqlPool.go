@@ -94,7 +94,7 @@ type SqlPool struct {
 	Collation pulumi.StringOutput `pulumi:"collation"`
 	// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
-	// Is transparent data encryption enabled? Defaults to `false`.
+	// Is transparent data encryption enabled?
 	DataEncrypted pulumi.BoolPtrOutput `pulumi:"dataEncrypted"`
 	// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -149,7 +149,7 @@ type sqlPoolState struct {
 	Collation *string `pulumi:"collation"`
 	// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
 	CreateMode *string `pulumi:"createMode"`
-	// Is transparent data encryption enabled? Defaults to `false`.
+	// Is transparent data encryption enabled?
 	DataEncrypted *bool `pulumi:"dataEncrypted"`
 	// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
 	Name *string `pulumi:"name"`
@@ -170,7 +170,7 @@ type SqlPoolState struct {
 	Collation pulumi.StringPtrInput
 	// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
 	CreateMode pulumi.StringPtrInput
-	// Is transparent data encryption enabled? Defaults to `false`.
+	// Is transparent data encryption enabled?
 	DataEncrypted pulumi.BoolPtrInput
 	// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
 	Name pulumi.StringPtrInput
@@ -195,7 +195,7 @@ type sqlPoolArgs struct {
 	Collation *string `pulumi:"collation"`
 	// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
 	CreateMode *string `pulumi:"createMode"`
-	// Is transparent data encryption enabled? Defaults to `false`.
+	// Is transparent data encryption enabled?
 	DataEncrypted *bool `pulumi:"dataEncrypted"`
 	// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
 	Name *string `pulumi:"name"`
@@ -217,7 +217,7 @@ type SqlPoolArgs struct {
 	Collation pulumi.StringPtrInput
 	// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
 	CreateMode pulumi.StringPtrInput
-	// Is transparent data encryption enabled? Defaults to `false`.
+	// Is transparent data encryption enabled?
 	DataEncrypted pulumi.BoolPtrInput
 	// The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
 	Name pulumi.StringPtrInput
@@ -330,7 +330,7 @@ func (o SqlPoolOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlPool) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Is transparent data encryption enabled? Defaults to `false`.
+// Is transparent data encryption enabled?
 func (o SqlPoolOutput) DataEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SqlPool) pulumi.BoolPtrOutput { return v.DataEncrypted }).(pulumi.BoolPtrOutput)
 }

@@ -45,7 +45,7 @@ public final class LinkedServiceAzureDatabricksNewClusterConfig {
      */
     private @Nullable Integer maxNumberOfWorkers;
     /**
-     * @return The minimum number of worker nodes. Defaults to 1.
+     * @return The minimum number of worker nodes. Defaults to `1`.
      * 
      */
     private @Nullable Integer minNumberOfWorkers;
@@ -109,7 +109,7 @@ public final class LinkedServiceAzureDatabricksNewClusterConfig {
         return Optional.ofNullable(this.maxNumberOfWorkers);
     }
     /**
-     * @return The minimum number of worker nodes. Defaults to 1.
+     * @return The minimum number of worker nodes. Defaults to `1`.
      * 
      */
     public Optional<Integer> minNumberOfWorkers() {

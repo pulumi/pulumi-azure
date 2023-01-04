@@ -78,7 +78,7 @@ export class NamespaceDisasterRecoveryConfig extends pulumi.CustomResource {
     }
 
     /**
-     * The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+     * The Shared access policies used to access the connection string for the alias.
      */
     public readonly aliasAuthorizationRuleId!: pulumi.Output<string | undefined>;
     /**
@@ -160,7 +160,7 @@ export class NamespaceDisasterRecoveryConfig extends pulumi.CustomResource {
  */
 export interface NamespaceDisasterRecoveryConfigState {
     /**
-     * The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+     * The Shared access policies used to access the connection string for the alias.
      */
     aliasAuthorizationRuleId?: pulumi.Input<string>;
     /**
@@ -198,7 +198,7 @@ export interface NamespaceDisasterRecoveryConfigState {
  */
 export interface NamespaceDisasterRecoveryConfigArgs {
     /**
-     * The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+     * The Shared access policies used to access the connection string for the alias.
      */
     aliasAuthorizationRuleId?: pulumi.Input<string>;
     /**

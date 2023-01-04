@@ -177,7 +177,7 @@ class DatabaseThreatDetectionPolicy(dict):
                  storage_endpoint: Optional[str] = None):
         """
         :param Sequence[str] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-        :param str email_account_admins: Should the account administrators be emailed when this alert is triggered?
+        :param str email_account_admins: Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
         :param Sequence[str] email_addresses: A list of email addresses which alerts should be sent to.
         :param int retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
         :param str state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
@@ -211,7 +211,7 @@ class DatabaseThreatDetectionPolicy(dict):
     @pulumi.getter(name="emailAccountAdmins")
     def email_account_admins(self) -> Optional[str]:
         """
-        Should the account administrators be emailed when this alert is triggered?
+        Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
         """
         return pulumi.get(self, "email_account_admins")
 

@@ -159,14 +159,14 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.frontendIpConfigurations);
     }
     /**
-     * The timeout for the TCP idle connection
+     * The timeout for the TCP idle connection Defaults to `4`.
      * 
      */
     @Export(name="idleTimeoutInMinutes", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> idleTimeoutInMinutes;
 
     /**
-     * @return The timeout for the TCP idle connection
+     * @return The timeout for the TCP idle connection Defaults to `4`.
      * 
      */
     public Output<Optional<Integer>> idleTimeoutInMinutes() {

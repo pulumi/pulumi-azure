@@ -30,14 +30,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator")
 public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.resources.CustomResource {
     /**
-     * When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+     * When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
      * 
      */
     @Export(name="azureadAuthenticationOnly", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> azureadAuthenticationOnly;
 
     /**
-     * @return When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+     * @return When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
      * 
      */
     public Output<Optional<Boolean>> azureadAuthenticationOnly() {

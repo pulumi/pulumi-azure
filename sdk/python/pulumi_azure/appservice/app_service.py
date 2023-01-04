@@ -47,7 +47,7 @@ class AppServiceArgs:
         :param pulumi.Input[bool] client_cert_enabled: Does the App Service require client certificates for incoming requests? Defaults to `false`.
         :param pulumi.Input[str] client_cert_mode: Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
         :param pulumi.Input[Sequence[pulumi.Input['AppServiceConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
-        :param pulumi.Input[bool] enabled: Is the App Service Enabled?
+        :param pulumi.Input[bool] enabled: Is the App Service Enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['AppServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
@@ -210,7 +210,7 @@ class AppServiceArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the App Service Enabled?
+        Is the App Service Enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -381,7 +381,7 @@ class _AppServiceState:
         :param pulumi.Input[Sequence[pulumi.Input['AppServiceConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_site_hostname: The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
-        :param pulumi.Input[bool] enabled: Is the App Service Enabled?
+        :param pulumi.Input[bool] enabled: Is the App Service Enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['AppServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
@@ -578,7 +578,7 @@ class _AppServiceState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the App Service Enabled?
+        Is the App Service Enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -858,7 +858,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[bool] client_cert_enabled: Does the App Service require client certificates for incoming requests? Defaults to `false`.
         :param pulumi.Input[str] client_cert_mode: Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppServiceConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
-        :param pulumi.Input[bool] enabled: Is the App Service Enabled?
+        :param pulumi.Input[bool] enabled: Is the App Service Enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['AppServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
@@ -1049,7 +1049,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppServiceConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_site_hostname: The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
-        :param pulumi.Input[bool] enabled: Is the App Service Enabled?
+        :param pulumi.Input[bool] enabled: Is the App Service Enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['AppServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
@@ -1184,7 +1184,7 @@ class AppService(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is the App Service Enabled?
+        Is the App Service Enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 

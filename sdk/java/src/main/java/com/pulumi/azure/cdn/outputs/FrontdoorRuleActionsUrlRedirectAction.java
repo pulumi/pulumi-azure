@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorRuleActionsUrlRedirectAction {
     /**
-     * @return The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
+     * @return The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `&#34;&#34;`.
      * 
      */
     private @Nullable String destinationFragment;
@@ -22,12 +22,12 @@ public final class FrontdoorRuleActionsUrlRedirectAction {
      */
     private String destinationHostname;
     /**
-     * @return The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
+     * @return The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `&#34;&#34;`.
      * 
      */
     private @Nullable String destinationPath;
     /**
-     * @return The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
+     * @return The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `&#34;&#34;`.
      * 
      */
     private @Nullable String queryString;
@@ -44,7 +44,7 @@ public final class FrontdoorRuleActionsUrlRedirectAction {
 
     private FrontdoorRuleActionsUrlRedirectAction() {}
     /**
-     * @return The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
+     * @return The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<String> destinationFragment() {
@@ -58,14 +58,14 @@ public final class FrontdoorRuleActionsUrlRedirectAction {
         return this.destinationHostname;
     }
     /**
-     * @return The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
+     * @return The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<String> destinationPath() {
         return Optional.ofNullable(this.destinationPath);
     }
     /**
-     * @return The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
+     * @return The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<String> queryString() {

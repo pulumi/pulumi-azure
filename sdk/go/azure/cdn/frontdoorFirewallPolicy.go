@@ -190,7 +190,7 @@ type FrontdoorFirewallPolicy struct {
 	FrontendEndpointIds pulumi.StringArrayOutput `pulumi:"frontendEndpointIds"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayOutput `pulumi:"managedRules"`
-	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -254,7 +254,7 @@ type frontdoorFirewallPolicyState struct {
 	FrontendEndpointIds []string `pulumi:"frontendEndpointIds"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FrontdoorFirewallPolicyManagedRule `pulumi:"managedRules"`
-	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
 	Mode *string `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -281,7 +281,7 @@ type FrontdoorFirewallPolicyState struct {
 	FrontendEndpointIds pulumi.StringArrayInput
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayInput
-	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
 	Mode pulumi.StringPtrInput
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -310,7 +310,7 @@ type frontdoorFirewallPolicyArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FrontdoorFirewallPolicyManagedRule `pulumi:"managedRules"`
-	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
 	Mode string `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -336,7 +336,7 @@ type FrontdoorFirewallPolicyArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayInput
-	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
 	Mode pulumi.StringInput
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -467,7 +467,7 @@ func (o FrontdoorFirewallPolicyOutput) ManagedRules() FrontdoorFirewallPolicyMan
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) FrontdoorFirewallPolicyManagedRuleArrayOutput { return v.ManagedRules }).(FrontdoorFirewallPolicyManagedRuleArrayOutput)
 }
 
-// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
 func (o FrontdoorFirewallPolicyOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }

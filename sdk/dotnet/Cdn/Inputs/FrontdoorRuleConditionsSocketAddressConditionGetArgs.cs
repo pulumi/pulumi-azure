@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         public Input<bool>? NegateCondition { get; set; }
 
         /// <summary>
-        /// The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+        /// The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
         /// </summary>
         [Input("operator")]
         public Input<string>? Operator { get; set; }

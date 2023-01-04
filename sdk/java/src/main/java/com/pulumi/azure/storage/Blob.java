@@ -186,14 +186,14 @@ public class Blob extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parallelism);
     }
     /**
-     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
+     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="size", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> size;
 
     /**
-     * @return Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
+     * @return Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Integer>> size() {

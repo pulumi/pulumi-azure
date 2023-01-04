@@ -66,6 +66,8 @@ type Volume struct {
 	ThroughputInMibps pulumi.Float64Output `pulumi:"throughputInMibps"`
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath pulumi.StringOutput `pulumi:"volumePath"`
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
 // NewVolume registers a new resource with the given unique name, arguments, and options.
@@ -159,6 +161,8 @@ type volumeState struct {
 	ThroughputInMibps *float64 `pulumi:"throughputInMibps"`
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath *string `pulumi:"volumePath"`
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+	Zone *string `pulumi:"zone"`
 }
 
 type VolumeState struct {
@@ -203,6 +207,8 @@ type VolumeState struct {
 	ThroughputInMibps pulumi.Float64PtrInput
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath pulumi.StringPtrInput
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+	Zone pulumi.StringPtrInput
 }
 
 func (VolumeState) ElementType() reflect.Type {
@@ -249,6 +255,8 @@ type volumeArgs struct {
 	ThroughputInMibps *float64 `pulumi:"throughputInMibps"`
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath string `pulumi:"volumePath"`
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+	Zone *string `pulumi:"zone"`
 }
 
 // The set of arguments for constructing a Volume resource.
@@ -292,6 +300,8 @@ type VolumeArgs struct {
 	ThroughputInMibps pulumi.Float64PtrInput
 	// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 	VolumePath pulumi.StringInput
+	// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+	Zone pulumi.StringPtrInput
 }
 
 func (VolumeArgs) ElementType() reflect.Type {
@@ -483,6 +493,11 @@ func (o VolumeOutput) ThroughputInMibps() pulumi.Float64Output {
 // A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
 func (o VolumeOutput) VolumePath() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.VolumePath }).(pulumi.StringOutput)
+}
+
+// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+func (o VolumeOutput) Zone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Zone }).(pulumi.StringPtrOutput)
 }
 
 type VolumeArrayOutput struct{ *pulumi.OutputState }

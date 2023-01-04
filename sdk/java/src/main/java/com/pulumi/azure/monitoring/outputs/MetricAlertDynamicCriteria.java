@@ -31,12 +31,12 @@ public final class MetricAlertDynamicCriteria {
      */
     private @Nullable List<MetricAlertDynamicCriteriaDimension> dimensions;
     /**
-     * @return The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`.
+     * @return The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
      * 
      */
     private @Nullable Integer evaluationFailureCount;
     /**
-     * @return The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points.
+     * @return The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
      * 
      */
     private @Nullable Integer evaluationTotalCount;
@@ -61,7 +61,7 @@ public final class MetricAlertDynamicCriteria {
      */
     private String operator;
     /**
-     * @return Skip the metric validation to allow creating an alert rule on a custom metric that isn&#39;t yet emitted? Defaults to `false`.
+     * @return Skip the metric validation to allow creating an alert rule on a custom metric that isn&#39;t yet emitted?
      * 
      */
     private @Nullable Boolean skipMetricValidation;
@@ -89,14 +89,14 @@ public final class MetricAlertDynamicCriteria {
         return this.dimensions == null ? List.of() : this.dimensions;
     }
     /**
-     * @return The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`.
+     * @return The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
      * 
      */
     public Optional<Integer> evaluationFailureCount() {
         return Optional.ofNullable(this.evaluationFailureCount);
     }
     /**
-     * @return The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points.
+     * @return The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
      * 
      */
     public Optional<Integer> evaluationTotalCount() {
@@ -131,7 +131,7 @@ public final class MetricAlertDynamicCriteria {
         return this.operator;
     }
     /**
-     * @return Skip the metric validation to allow creating an alert rule on a custom metric that isn&#39;t yet emitted? Defaults to `false`.
+     * @return Skip the metric validation to allow creating an alert rule on a custom metric that isn&#39;t yet emitted?
      * 
      */
     public Optional<Boolean> skipMetricValidation() {

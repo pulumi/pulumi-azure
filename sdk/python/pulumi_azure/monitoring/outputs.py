@@ -2311,7 +2311,7 @@ class ActivityLogAlertCriteriaServiceHealth(dict):
                  services: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] events: Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, `ActionRequired` and `Security`.
-        :param Sequence[str] locations: Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+        :param Sequence[str] locations: Locations this alert will monitor. For example, `West Europe`.
         :param Sequence[str] services: Services this alert will monitor. For example, `Activity Logs & Alerts`, `Action Groups`. Defaults to all Services.
         """
         if events is not None:
@@ -2333,7 +2333,7 @@ class ActivityLogAlertCriteriaServiceHealth(dict):
     @pulumi.getter
     def locations(self) -> Optional[Sequence[str]]:
         """
-        Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+        Locations this alert will monitor. For example, `West Europe`.
         """
         return pulumi.get(self, "locations")
 
@@ -4368,7 +4368,7 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
         :param str operator: Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
         :param str statistic: Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
         :param float threshold: Specifies the threshold of the metric that triggers the scale action.
-        :param str time_aggregation: Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+        :param str time_aggregation: Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`.
         :param str time_grain: Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
         :param str time_window: Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
         :param Sequence['AutoscaleSettingProfileRuleMetricTriggerDimensionArgs'] dimensions: One or more `dimensions` block as defined below.
@@ -4434,7 +4434,7 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
     @pulumi.getter(name="timeAggregation")
     def time_aggregation(self) -> str:
         """
-        Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+        Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`.
         """
         return pulumi.get(self, "time_aggregation")
 
@@ -4530,7 +4530,7 @@ class AutoscaleSettingProfileRuleScaleAction(dict):
         :param str cooldown: The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
         :param str direction: The scale direction. Possible values are `Increase` and `Decrease`.
         :param str type: The type of action that should occur. Possible values are `ChangeCount`, `ExactCount`, `PercentChangeCount` and `ServiceAllowedNextValue`.
-        :param int value: The number of instances involved in the scaling action. Defaults to `1`.
+        :param int value: The number of instances involved in the scaling action.
         """
         pulumi.set(__self__, "cooldown", cooldown)
         pulumi.set(__self__, "direction", direction)
@@ -4565,7 +4565,7 @@ class AutoscaleSettingProfileRuleScaleAction(dict):
     @pulumi.getter
     def value(self) -> int:
         """
-        The number of instances involved in the scaling action. Defaults to `1`.
+        The number of instances involved in the scaling action.
         """
         return pulumi.get(self, "value")
 
@@ -5270,7 +5270,7 @@ class LogProfileRetentionPolicy(dict):
                  days: Optional[int] = None):
         """
         :param bool enabled: A boolean value to indicate whether the retention policy is enabled.
-        :param int days: The number of days for the retention policy. Defaults to 0.
+        :param int days: The number of days for the retention policy. Defaults to `0`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if days is not None:
@@ -5288,7 +5288,7 @@ class LogProfileRetentionPolicy(dict):
     @pulumi.getter
     def days(self) -> Optional[int]:
         """
-        The number of days for the retention policy. Defaults to 0.
+        The number of days for the retention policy. Defaults to `0`.
         """
         return pulumi.get(self, "days")
 
@@ -5900,10 +5900,10 @@ class MetricAlertDynamicCriteria(dict):
         :param str metric_namespace: One of the metric namespaces to be monitored.
         :param str operator: The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
         :param Sequence['MetricAlertDynamicCriteriaDimensionArgs'] dimensions: One or more `dimension` blocks as defined below.
-        :param int evaluation_failure_count: The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`.
-        :param int evaluation_total_count: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points.
+        :param int evaluation_failure_count: The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
+        :param int evaluation_total_count: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
         :param str ignore_data_before: The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
-        :param bool skip_metric_validation: Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+        :param bool skip_metric_validation: Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted?
         """
         pulumi.set(__self__, "aggregation", aggregation)
         pulumi.set(__self__, "alert_sensitivity", alert_sensitivity)
@@ -5973,7 +5973,7 @@ class MetricAlertDynamicCriteria(dict):
     @pulumi.getter(name="evaluationFailureCount")
     def evaluation_failure_count(self) -> Optional[int]:
         """
-        The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`.
+        The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
         """
         return pulumi.get(self, "evaluation_failure_count")
 
@@ -5981,7 +5981,7 @@ class MetricAlertDynamicCriteria(dict):
     @pulumi.getter(name="evaluationTotalCount")
     def evaluation_total_count(self) -> Optional[int]:
         """
-        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points.
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
         """
         return pulumi.get(self, "evaluation_total_count")
 
@@ -5997,7 +5997,7 @@ class MetricAlertDynamicCriteria(dict):
     @pulumi.getter(name="skipMetricValidation")
     def skip_metric_validation(self) -> Optional[bool]:
         """
-        Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+        Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted?
         """
         return pulumi.get(self, "skip_metric_validation")
 

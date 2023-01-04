@@ -43,7 +43,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+        /// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
         /// </summary>
         [Input("probeMethod")]
         public Input<string>? ProbeMethod { get; set; }

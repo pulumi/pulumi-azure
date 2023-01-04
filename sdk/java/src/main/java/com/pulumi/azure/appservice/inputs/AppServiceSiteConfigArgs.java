@@ -404,14 +404,14 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * IP security restrictions for scm to use main. Defaults to false.
+     * IP security restrictions for scm to use main. Defaults to `false`.
      * 
      */
     @Import(name="scmUseMainIpRestriction")
     private @Nullable Output<Boolean> scmUseMainIpRestriction;
 
     /**
-     * @return IP security restrictions for scm to use main. Defaults to false.
+     * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> scmUseMainIpRestriction() {
@@ -1097,7 +1097,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to false.
+         * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -1108,7 +1108,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to false.
+         * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to `false`.
          * 
          * @return builder
          * 

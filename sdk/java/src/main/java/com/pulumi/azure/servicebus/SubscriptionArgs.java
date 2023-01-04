@@ -79,14 +79,14 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+     * Boolean flag which controls whether the Subscription has dead letter support when a message expires.
      * 
      */
     @Import(name="deadLetteringOnMessageExpiration")
     private @Nullable Output<Boolean> deadLetteringOnMessageExpiration;
 
     /**
-     * @return Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+     * @return Boolean flag which controls whether the Subscription has dead letter support when a message expires.
      * 
      */
     public Optional<Output<Boolean>> deadLetteringOnMessageExpiration() {
@@ -109,14 +109,14 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+     * Boolean flag which controls whether the Subscription supports batched operations.
      * 
      */
     @Import(name="enableBatchedOperations")
     private @Nullable Output<Boolean> enableBatchedOperations;
 
     /**
-     * @return Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+     * @return Boolean flag which controls whether the Subscription supports batched operations.
      * 
      */
     public Optional<Output<Boolean>> enableBatchedOperations() {
@@ -199,14 +199,14 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+     * Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="requiresSession")
     private @Nullable Output<Boolean> requiresSession;
 
     /**
-     * @return Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> requiresSession() {
@@ -366,7 +366,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deadLetteringOnMessageExpiration Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+         * @param deadLetteringOnMessageExpiration Boolean flag which controls whether the Subscription has dead letter support when a message expires.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deadLetteringOnMessageExpiration Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+         * @param deadLetteringOnMessageExpiration Boolean flag which controls whether the Subscription has dead letter support when a message expires.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableBatchedOperations Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+         * @param enableBatchedOperations Boolean flag which controls whether the Subscription supports batched operations.
          * 
          * @return builder
          * 
@@ -419,7 +419,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableBatchedOperations Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+         * @param enableBatchedOperations Boolean flag which controls whether the Subscription supports batched operations.
          * 
          * @return builder
          * 
@@ -534,7 +534,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requiresSession Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param requiresSession Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -545,7 +545,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requiresSession Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param requiresSession Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

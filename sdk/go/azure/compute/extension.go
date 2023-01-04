@@ -168,7 +168,7 @@ type Extension struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion pulumi.BoolPtrOutput `pulumi:"autoUpgradeMinorVersion"`
-	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled pulumi.BoolPtrOutput `pulumi:"automaticUpgradeEnabled"`
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 	FailureSuppressionEnabled pulumi.BoolPtrOutput `pulumi:"failureSuppressionEnabled"`
@@ -247,7 +247,7 @@ type extensionState struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 	FailureSuppressionEnabled *bool `pulumi:"failureSuppressionEnabled"`
@@ -279,7 +279,7 @@ type ExtensionState struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
-	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 	FailureSuppressionEnabled pulumi.BoolPtrInput
@@ -315,7 +315,7 @@ type extensionArgs struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 	FailureSuppressionEnabled *bool `pulumi:"failureSuppressionEnabled"`
@@ -348,7 +348,7 @@ type ExtensionArgs struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
-	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
 	FailureSuppressionEnabled pulumi.BoolPtrInput
@@ -469,7 +469,7 @@ func (o ExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Extension) pulumi.BoolPtrOutput { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
 }
 
-// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 func (o ExtensionOutput) AutomaticUpgradeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Extension) pulumi.BoolPtrOutput { return v.AutomaticUpgradeEnabled }).(pulumi.BoolPtrOutput)
 }

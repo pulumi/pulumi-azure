@@ -17,14 +17,14 @@ public final class ManagedInstanceActiveDirectoryAdministratorArgs extends com.p
     public static final ManagedInstanceActiveDirectoryAdministratorArgs Empty = new ManagedInstanceActiveDirectoryAdministratorArgs();
 
     /**
-     * When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+     * When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
      * 
      */
     @Import(name="azureadAuthenticationOnly")
     private @Nullable Output<Boolean> azureadAuthenticationOnly;
 
     /**
-     * @return When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+     * @return When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
      * 
      */
     public Optional<Output<Boolean>> azureadAuthenticationOnly() {
@@ -120,7 +120,7 @@ public final class ManagedInstanceActiveDirectoryAdministratorArgs extends com.p
         }
 
         /**
-         * @param azureadAuthenticationOnly When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+         * @param azureadAuthenticationOnly When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ManagedInstanceActiveDirectoryAdministratorArgs extends com.p
         }
 
         /**
-         * @param azureadAuthenticationOnly When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+         * @param azureadAuthenticationOnly When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
          * 
          * @return builder
          * 

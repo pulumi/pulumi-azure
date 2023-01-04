@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Synapse
     public partial class SqlPoolWorkloadGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The workload group importance level.
+        /// The workload group importance level. Defaults to `normal`.
         /// </summary>
         [Output("importance")]
         public Output<string?> Importance { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Synapse
         public Output<int> MaxResourcePercent { get; private set; } = null!;
 
         /// <summary>
-        /// The workload group request maximum grant percentage.
+        /// The workload group request maximum grant percentage. Defaults to `3`.
         /// </summary>
         [Output("maxResourcePercentPerRequest")]
         public Output<double?> MaxResourcePercentPerRequest { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Synapse
     public sealed class SqlPoolWorkloadGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The workload group importance level.
+        /// The workload group importance level. Defaults to `normal`.
         /// </summary>
         [Input("importance")]
         public Input<string>? Importance { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.Synapse
         public Input<int> MaxResourcePercent { get; set; } = null!;
 
         /// <summary>
-        /// The workload group request maximum grant percentage.
+        /// The workload group request maximum grant percentage. Defaults to `3`.
         /// </summary>
         [Input("maxResourcePercentPerRequest")]
         public Input<double>? MaxResourcePercentPerRequest { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.Synapse
     public sealed class SqlPoolWorkloadGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The workload group importance level.
+        /// The workload group importance level. Defaults to `normal`.
         /// </summary>
         [Input("importance")]
         public Input<string>? Importance { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.Synapse
         public Input<int>? MaxResourcePercent { get; set; }
 
         /// <summary>
-        /// The workload group request maximum grant percentage.
+        /// The workload group request maximum grant percentage. Defaults to `3`.
         /// </summary>
         [Input("maxResourcePercentPerRequest")]
         public Input<double>? MaxResourcePercentPerRequest { get; set; }

@@ -47,15 +47,15 @@ class FunctionAppArgs:
         :param pulumi.Input['FunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]] connection_strings: An `connection_string` block as defined below.
-        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of this Function App be enabled? Defaults to `true`.
-        :param pulumi.Input[bool] enabled: Is the Function App enabled?
+        :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['FunctionAppIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
-        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
         :param pulumi.Input['FunctionAppSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input['FunctionAppSourceControlArgs'] source_control: A `source_control` block, as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -200,7 +200,7 @@ class FunctionAppArgs:
     @pulumi.getter(name="dailyMemoryTimeQuota")
     def daily_memory_time_quota(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         """
         return pulumi.get(self, "daily_memory_time_quota")
 
@@ -224,7 +224,7 @@ class FunctionAppArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the Function App enabled?
+        Is the Function App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -296,7 +296,7 @@ class FunctionAppArgs:
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[pulumi.Input[str]]:
         """
-        A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+        A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
         """
         return pulumi.get(self, "os_type")
 
@@ -391,17 +391,17 @@ class _FunctionAppState:
         :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
-        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of this Function App be enabled? Defaults to `true`.
-        :param pulumi.Input[bool] enabled: Is the Function App enabled?
+        :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['FunctionAppIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] kind: The Function App kind - such as `functionapp,linux,container`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
-        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
@@ -544,7 +544,7 @@ class _FunctionAppState:
     @pulumi.getter(name="dailyMemoryTimeQuota")
     def daily_memory_time_quota(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         """
         return pulumi.get(self, "daily_memory_time_quota")
 
@@ -580,7 +580,7 @@ class _FunctionAppState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the Function App enabled?
+        Is the Function App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -664,7 +664,7 @@ class _FunctionAppState:
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[pulumi.Input[str]]:
         """
-        A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+        A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
         """
         return pulumi.get(self, "os_type")
 
@@ -923,15 +923,15 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
-        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of this Function App be enabled? Defaults to `true`.
-        :param pulumi.Input[bool] enabled: Is the Function App enabled?
+        :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['FunctionAppIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
-        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['FunctionAppSiteConfigArgs']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[pulumi.InputType['FunctionAppSourceControlArgs']] source_control: A `source_control` block, as defined below.
@@ -1174,17 +1174,17 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
-        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of this Function App be enabled? Defaults to `true`.
-        :param pulumi.Input[bool] enabled: Is the Function App enabled?
+        :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['FunctionAppIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] kind: The Function App kind - such as `functionapp,linux,container`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
-        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
@@ -1281,7 +1281,7 @@ class FunctionApp(pulumi.CustomResource):
     @pulumi.getter(name="dailyMemoryTimeQuota")
     def daily_memory_time_quota(self) -> pulumi.Output[Optional[int]]:
         """
-        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         """
         return pulumi.get(self, "daily_memory_time_quota")
 
@@ -1305,7 +1305,7 @@ class FunctionApp(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is the Function App enabled?
+        Is the Function App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -1361,7 +1361,7 @@ class FunctionApp(pulumi.CustomResource):
     @pulumi.getter(name="osType")
     def os_type(self) -> pulumi.Output[Optional[str]]:
         """
-        A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+        A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
         """
         return pulumi.get(self, "os_type")
 

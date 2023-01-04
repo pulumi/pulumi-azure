@@ -26,7 +26,7 @@ public final class AutoscaleSettingProfileRuleScaleAction {
      */
     private String type;
     /**
-     * @return The number of instances involved in the scaling action. Defaults to `1`.
+     * @return The number of instances involved in the scaling action.
      * 
      */
     private Integer value;
@@ -54,7 +54,7 @@ public final class AutoscaleSettingProfileRuleScaleAction {
         return this.type;
     }
     /**
-     * @return The number of instances involved in the scaling action. Defaults to `1`.
+     * @return The number of instances involved in the scaling action.
      * 
      */
     public Integer value() {

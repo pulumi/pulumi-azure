@@ -56,7 +56,7 @@ public final class AutoscaleSettingProfileRuleMetricTrigger {
      */
     private Double threshold;
     /**
-     * @return Specifies how the data that&#39;s collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+     * @return Specifies how the data that&#39;s collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`.
      * 
      */
     private String timeAggregation;
@@ -129,7 +129,7 @@ public final class AutoscaleSettingProfileRuleMetricTrigger {
         return this.threshold;
     }
     /**
-     * @return Specifies how the data that&#39;s collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+     * @return Specifies how the data that&#39;s collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`.
      * 
      */
     public String timeAggregation() {

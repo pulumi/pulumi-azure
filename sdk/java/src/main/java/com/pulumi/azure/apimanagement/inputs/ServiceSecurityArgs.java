@@ -256,14 +256,14 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+     * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
      * 
      */
     @Import(name="tripleDesCiphersEnabled")
     private @Nullable Output<Boolean> tripleDesCiphersEnabled;
 
     /**
-     * @return Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+     * @return Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
      * 
      */
     public Optional<Output<Boolean>> tripleDesCiphersEnabled() {
@@ -647,7 +647,7 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tripleDesCiphersEnabled Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+         * @param tripleDesCiphersEnabled Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
          * 
          * @return builder
          * 
@@ -658,7 +658,7 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tripleDesCiphersEnabled Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+         * @param tripleDesCiphersEnabled Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
          * 
          * @return builder
          * 

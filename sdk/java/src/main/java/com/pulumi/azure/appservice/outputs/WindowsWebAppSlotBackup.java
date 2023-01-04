@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsWebAppSlotBackup {
     /**
-     * @return Should this backup job be enabled?
+     * @return Should this backup job be enabled? Defaults to `true`.
      * 
      */
     private @Nullable Boolean enabled;
@@ -36,7 +36,7 @@ public final class WindowsWebAppSlotBackup {
 
     private WindowsWebAppSlotBackup() {}
     /**
-     * @return Should this backup job be enabled?
+     * @return Should this backup job be enabled? Defaults to `true`.
      * 
      */
     public Optional<Boolean> enabled() {

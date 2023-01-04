@@ -47,7 +47,7 @@ namespace Pulumi.Azure.Network
     public partial class FirewallPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether enable auto learn private ip range. Defaults to `false`.
+        /// Whether enable auto learn private ip range.
         /// </summary>
         [Output("autoLearnPrivateRangesEnabled")]
         public Output<bool?> AutoLearnPrivateRangesEnabled { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.Network
     public sealed class FirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether enable auto learn private ip range. Defaults to `false`.
+        /// Whether enable auto learn private ip range.
         /// </summary>
         [Input("autoLearnPrivateRangesEnabled")]
         public Input<bool>? AutoLearnPrivateRangesEnabled { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Azure.Network
     public sealed class FirewallPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether enable auto learn private ip range. Defaults to `false`.
+        /// Whether enable auto learn private ip range.
         /// </summary>
         [Input("autoLearnPrivateRangesEnabled")]
         public Input<bool>? AutoLearnPrivateRangesEnabled { get; set; }

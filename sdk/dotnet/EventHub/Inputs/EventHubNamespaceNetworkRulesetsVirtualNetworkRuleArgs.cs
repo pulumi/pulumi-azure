@@ -13,7 +13,7 @@ namespace Pulumi.Azure.EventHub.Inputs
     public sealed class EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Are missing virtual network service endpoints ignored? Defaults to `false`.
+        /// Are missing virtual network service endpoints ignored?
         /// </summary>
         [Input("ignoreMissingVirtualNetworkServiceEndpoint")]
         public Input<bool>? IgnoreMissingVirtualNetworkServiceEndpoint { get; set; }

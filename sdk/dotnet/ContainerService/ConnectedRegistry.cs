@@ -134,7 +134,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> SyncMessageTtl { get; private set; } = null!;
 
         /// <summary>
-        /// The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+        /// The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
         /// </summary>
         [Output("syncSchedule")]
         public Output<string?> SyncSchedule { get; private set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? SyncMessageTtl { get; set; }
 
         /// <summary>
-        /// The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+        /// The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
         /// </summary>
         [Input("syncSchedule")]
         public Input<string>? SyncSchedule { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? SyncMessageTtl { get; set; }
 
         /// <summary>
-        /// The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+        /// The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
         /// </summary>
         [Input("syncSchedule")]
         public Input<string>? SyncSchedule { get; set; }

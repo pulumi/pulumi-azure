@@ -18,12 +18,12 @@ public final class SpringCloudAppIngressSettings {
      */
     private @Nullable String backendProtocol;
     /**
-     * @return Specifies the ingress read time out in seconds. Defaults to 300.
+     * @return Specifies the ingress read time out in seconds. Defaults to `300`.
      * 
      */
     private @Nullable Integer readTimeoutInSeconds;
     /**
-     * @return Specifies the ingress send time out in seconds. Defaults to 60.
+     * @return Specifies the ingress send time out in seconds. Defaults to `60`.
      * 
      */
     private @Nullable Integer sendTimeoutInSeconds;
@@ -47,14 +47,14 @@ public final class SpringCloudAppIngressSettings {
         return Optional.ofNullable(this.backendProtocol);
     }
     /**
-     * @return Specifies the ingress read time out in seconds. Defaults to 300.
+     * @return Specifies the ingress read time out in seconds. Defaults to `300`.
      * 
      */
     public Optional<Integer> readTimeoutInSeconds() {
         return Optional.ofNullable(this.readTimeoutInSeconds);
     }
     /**
-     * @return Specifies the ingress send time out in seconds. Defaults to 60.
+     * @return Specifies the ingress send time out in seconds. Defaults to `60`.
      * 
      */
     public Optional<Integer> sendTimeoutInSeconds() {

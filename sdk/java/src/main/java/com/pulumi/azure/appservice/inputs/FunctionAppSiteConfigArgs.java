@@ -254,14 +254,14 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+     * The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
      * 
      */
     @Import(name="scmType")
     private @Nullable Output<String> scmType;
 
     /**
-     * @return The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+     * @return The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
      * 
      */
     public Optional<Output<String>> scmType() {
@@ -269,14 +269,14 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * IP security restrictions for scm to use main. Defaults to false.
+     * IP security restrictions for scm to use main. Defaults to `false`.
      * 
      */
     @Import(name="scmUseMainIpRestriction")
     private @Nullable Output<Boolean> scmUseMainIpRestriction;
 
     /**
-     * @return IP security restrictions for scm to use main. Defaults to false.
+     * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> scmUseMainIpRestriction() {
@@ -717,7 +717,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scmType The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+         * @param scmType The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
          * 
          * @return builder
          * 
@@ -728,7 +728,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scmType The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+         * @param scmType The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
          * 
          * @return builder
          * 
@@ -738,7 +738,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to false.
+         * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -749,7 +749,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to false.
+         * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to `false`.
          * 
          * @return builder
          * 

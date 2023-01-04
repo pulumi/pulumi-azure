@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class OrchestratedVirtualMachineScaleSetExtensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to true.
+        /// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
         /// </summary>
         [Input("autoUpgradeMinorVersionEnabled")]
         public Input<bool>? AutoUpgradeMinorVersionEnabled { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Compute.Inputs
         }
 
         /// <summary>
-        /// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        /// Should failures from the extension be suppressed? Possible values are `true` or `false`.
         /// </summary>
         [Input("failureSuppressionEnabled")]
         public Input<bool>? FailureSuppressionEnabled { get; set; }

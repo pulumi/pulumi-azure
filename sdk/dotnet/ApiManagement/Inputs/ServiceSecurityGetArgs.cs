@@ -109,7 +109,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? TlsRsaWithAes256GcmSha384CiphersEnabled { get; set; }
 
         /// <summary>
-        /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+        /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
         /// </summary>
         [Input("tripleDesCiphersEnabled")]
         public Input<bool>? TripleDesCiphersEnabled { get; set; }

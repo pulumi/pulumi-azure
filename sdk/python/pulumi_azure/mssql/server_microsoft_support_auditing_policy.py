@@ -25,7 +25,7 @@ class ServerMicrosoftSupportAuditingPolicyArgs:
         :param pulumi.Input[str] server_id: The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] blob_storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
-        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
         """
@@ -81,7 +81,7 @@ class ServerMicrosoftSupportAuditingPolicyArgs:
     @pulumi.getter(name="logMonitoringEnabled")
     def log_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+        Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         """
         return pulumi.get(self, "log_monitoring_enabled")
 
@@ -127,7 +127,7 @@ class _ServerMicrosoftSupportAuditingPolicyState:
         Input properties used for looking up and filtering ServerMicrosoftSupportAuditingPolicy resources.
         :param pulumi.Input[str] blob_storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
-        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         :param pulumi.Input[str] server_id: The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
@@ -173,7 +173,7 @@ class _ServerMicrosoftSupportAuditingPolicyState:
     @pulumi.getter(name="logMonitoringEnabled")
     def log_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+        Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         """
         return pulumi.get(self, "log_monitoring_enabled")
 
@@ -339,7 +339,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blob_storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
-        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         :param pulumi.Input[str] server_id: The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
@@ -520,7 +520,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blob_storage_endpoint: The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
-        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         :param pulumi.Input[str] server_id: The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
@@ -557,7 +557,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
     @pulumi.getter(name="logMonitoringEnabled")
     def log_monitoring_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+        Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         """
         return pulumi.get(self, "log_monitoring_enabled")
 

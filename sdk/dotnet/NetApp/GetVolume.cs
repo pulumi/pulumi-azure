@@ -201,6 +201,10 @@ namespace Pulumi.Azure.NetApp
         /// The unique file path of the volume.
         /// </summary>
         public readonly string VolumePath;
+        /// <summary>
+        /// The Availability Zone in which the Volume is located.
+        /// </summary>
+        public readonly string Zone;
 
         [OutputConstructor]
         private GetVolumeResult(
@@ -232,7 +236,9 @@ namespace Pulumi.Azure.NetApp
 
             string subnetId,
 
-            string volumePath)
+            string volumePath,
+
+            string zone)
         {
             AccountName = accountName;
             DataProtectionReplications = dataProtectionReplications;
@@ -249,6 +255,7 @@ namespace Pulumi.Azure.NetApp
             StorageQuotaInGb = storageQuotaInGb;
             SubnetId = subnetId;
             VolumePath = volumePath;
+            Zone = zone;
         }
     }
 }

@@ -200,14 +200,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Whether public network access is enabled or disabled for this service instance.
+     * Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
      * 
      */
     @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether public network access is enabled or disabled for this service instance.
+     * @return Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {

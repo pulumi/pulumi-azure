@@ -19,14 +19,14 @@ public final class ServerThreatDetectionPolicyArgs extends com.pulumi.resources.
     public static final ServerThreatDetectionPolicyArgs Empty = new ServerThreatDetectionPolicyArgs();
 
     /**
-     * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+     * Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
      * 
      */
     @Import(name="disabledAlerts")
     private @Nullable Output<List<String>> disabledAlerts;
 
     /**
-     * @return Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+     * @return Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
      * 
      */
     public Optional<Output<List<String>>> disabledAlerts() {
@@ -154,7 +154,7 @@ public final class ServerThreatDetectionPolicyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param disabledAlerts Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+         * @param disabledAlerts Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class ServerThreatDetectionPolicyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param disabledAlerts Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+         * @param disabledAlerts Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ServerThreatDetectionPolicyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param disabledAlerts Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+         * @param disabledAlerts Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
          * 
          * @return builder
          * 

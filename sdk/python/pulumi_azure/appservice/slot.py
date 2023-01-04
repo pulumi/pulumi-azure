@@ -42,7 +42,7 @@ class SlotArgs:
         :param pulumi.Input['SlotAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[Sequence[pulumi.Input['SlotConnectionStringArgs']]] connection_strings: An `connection_string` block as defined below.
-        :param pulumi.Input[bool] enabled: Is the App Service Slot Enabled?
+        :param pulumi.Input[bool] enabled: Is the App Service Slot Enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['SlotIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
@@ -173,7 +173,7 @@ class SlotArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the App Service Slot Enabled?
+        Is the App Service Slot Enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -321,7 +321,7 @@ class _SlotState:
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[Sequence[pulumi.Input['SlotConnectionStringArgs']]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[str] default_site_hostname: The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
-        :param pulumi.Input[bool] enabled: Is the App Service Slot Enabled?
+        :param pulumi.Input[bool] enabled: Is the App Service Slot Enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['SlotIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
@@ -461,7 +461,7 @@ class _SlotState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the App Service Slot Enabled?
+        Is the App Service Slot Enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -736,7 +736,7 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SlotAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
-        :param pulumi.Input[bool] enabled: Is the App Service Slot Enabled?
+        :param pulumi.Input[bool] enabled: Is the App Service Slot Enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SlotIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
@@ -966,7 +966,7 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[str] default_site_hostname: The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
-        :param pulumi.Input[bool] enabled: Is the App Service Slot Enabled?
+        :param pulumi.Input[bool] enabled: Is the App Service Slot Enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['SlotIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
@@ -1064,7 +1064,7 @@ class Slot(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is the App Service Slot Enabled?
+        Is the App Service Slot Enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 

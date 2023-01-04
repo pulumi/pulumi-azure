@@ -22,7 +22,7 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, account_name=None, data_protection_replications=None, id=None, location=None, mount_ip_addresses=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None):
+    def __init__(__self__, account_name=None, data_protection_replications=None, id=None, location=None, mount_ip_addresses=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None, zone=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
@@ -68,6 +68,9 @@ class GetVolumeResult:
         if volume_path and not isinstance(volume_path, str):
             raise TypeError("Expected argument 'volume_path' to be a str")
         pulumi.set(__self__, "volume_path", volume_path)
+        if zone and not isinstance(zone, str):
+            raise TypeError("Expected argument 'zone' to be a str")
+        pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="accountName")
@@ -177,6 +180,14 @@ class GetVolumeResult:
         """
         return pulumi.get(self, "volume_path")
 
+    @property
+    @pulumi.getter
+    def zone(self) -> str:
+        """
+        The Availability Zone in which the Volume is located.
+        """
+        return pulumi.get(self, "zone")
+
 
 class AwaitableGetVolumeResult(GetVolumeResult):
     # pylint: disable=using-constant-test
@@ -198,7 +209,8 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             service_level=self.service_level,
             storage_quota_in_gb=self.storage_quota_in_gb,
             subnet_id=self.subnet_id,
-            volume_path=self.volume_path)
+            volume_path=self.volume_path,
+            zone=self.zone)
 
 
 def get_volume(account_name: Optional[str] = None,
@@ -254,7 +266,8 @@ def get_volume(account_name: Optional[str] = None,
         service_level=__ret__.service_level,
         storage_quota_in_gb=__ret__.storage_quota_in_gb,
         subnet_id=__ret__.subnet_id,
-        volume_path=__ret__.volume_path)
+        volume_path=__ret__.volume_path,
+        zone=__ret__.zone)
 
 
 @_utilities.lift_output_func(get_volume)

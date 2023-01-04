@@ -91,7 +91,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
      */
     public readonly backup!: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotBackup | undefined>;
     /**
-     * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+     * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      */
     public readonly builtinLoggingEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -119,7 +119,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly customDomainVerificationId!: pulumi.Output<string>;
     /**
-     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
      */
     public readonly dailyMemoryTimeQuota!: pulumi.Output<number | undefined>;
     /**
@@ -127,7 +127,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultHostname!: pulumi.Output<string>;
     /**
-     * Is the Linux Function App Slot enabled.
+     * Is the Linux Function App Slot enabled. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -135,7 +135,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
      */
     public readonly functionAppId!: pulumi.Output<string>;
     /**
-     * The runtime version associated with the Function App Slot.
+     * The runtime version associated with the Function App Slot. Defaults to `~4`.
      */
     public readonly functionsExtensionVersion!: pulumi.Output<string | undefined>;
     /**
@@ -323,7 +323,7 @@ export interface LinuxFunctionAppSlotState {
      */
     backup?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotBackup>;
     /**
-     * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+     * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      */
     builtinLoggingEnabled?: pulumi.Input<boolean>;
     /**
@@ -351,7 +351,7 @@ export interface LinuxFunctionAppSlotState {
      */
     customDomainVerificationId?: pulumi.Input<string>;
     /**
-     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
      */
     dailyMemoryTimeQuota?: pulumi.Input<number>;
     /**
@@ -359,7 +359,7 @@ export interface LinuxFunctionAppSlotState {
      */
     defaultHostname?: pulumi.Input<string>;
     /**
-     * Is the Linux Function App Slot enabled.
+     * Is the Linux Function App Slot enabled. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -367,7 +367,7 @@ export interface LinuxFunctionAppSlotState {
      */
     functionAppId?: pulumi.Input<string>;
     /**
-     * The runtime version associated with the Function App Slot.
+     * The runtime version associated with the Function App Slot. Defaults to `~4`.
      */
     functionsExtensionVersion?: pulumi.Input<string>;
     /**
@@ -461,7 +461,7 @@ export interface LinuxFunctionAppSlotArgs {
      */
     backup?: pulumi.Input<inputs.appservice.LinuxFunctionAppSlotBackup>;
     /**
-     * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+     * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      */
     builtinLoggingEnabled?: pulumi.Input<boolean>;
     /**
@@ -485,11 +485,11 @@ export interface LinuxFunctionAppSlotArgs {
      */
     contentShareForceDisabled?: pulumi.Input<boolean>;
     /**
-     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
      */
     dailyMemoryTimeQuota?: pulumi.Input<number>;
     /**
-     * Is the Linux Function App Slot enabled.
+     * Is the Linux Function App Slot enabled. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -497,7 +497,7 @@ export interface LinuxFunctionAppSlotArgs {
      */
     functionAppId: pulumi.Input<string>;
     /**
-     * The runtime version associated with the Function App Slot.
+     * The runtime version associated with the Function App Slot. Defaults to `~4`.
      */
     functionsExtensionVersion?: pulumi.Input<string>;
     /**

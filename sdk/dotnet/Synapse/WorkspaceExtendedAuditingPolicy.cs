@@ -85,13 +85,13 @@ namespace Pulumi.Azure.Synapse
     public partial class WorkspaceExtendedAuditingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
         /// </summary>
         [Output("logMonitoringEnabled")]
         public Output<bool?> LogMonitoringEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days to retain logs for in the storage account.
+        /// The number of days to retain logs for in the storage account. Defaults to `0`.
         /// </summary>
         [Output("retentionInDays")]
         public Output<int?> RetentionInDays { get; private set; } = null!;
@@ -171,13 +171,13 @@ namespace Pulumi.Azure.Synapse
     public sealed class WorkspaceExtendedAuditingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
         /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }
 
         /// <summary>
-        /// The number of days to retain logs for in the storage account.
+        /// The number of days to retain logs for in the storage account. Defaults to `0`.
         /// </summary>
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }
@@ -225,13 +225,13 @@ namespace Pulumi.Azure.Synapse
     public sealed class WorkspaceExtendedAuditingPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
         /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }
 
         /// <summary>
-        /// The number of days to retain logs for in the storage account.
+        /// The number of days to retain logs for in the storage account. Defaults to `0`.
         /// </summary>
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }

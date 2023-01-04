@@ -17,14 +17,14 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
     public static final VirtualNetworkPeeringArgs Empty = new VirtualNetworkPeeringArgs();
 
     /**
-     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
      * 
      */
     @Import(name="allowForwardedTraffic")
     private @Nullable Output<Boolean> allowForwardedTraffic;
 
     /**
-     * @return Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+     * @return Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> allowForwardedTraffic() {
@@ -47,14 +47,14 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
      * 
      */
     @Import(name="allowVirtualNetworkAccess")
     private @Nullable Output<Boolean> allowVirtualNetworkAccess;
 
     /**
-     * @return Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+     * @return Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> allowVirtualNetworkAccess() {
@@ -180,7 +180,7 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param allowForwardedTraffic Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+         * @param allowForwardedTraffic Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param allowForwardedTraffic Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+         * @param allowForwardedTraffic Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param allowVirtualNetworkAccess Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+         * @param allowVirtualNetworkAccess Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param allowVirtualNetworkAccess Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+         * @param allowVirtualNetworkAccess Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
          * 
          * @return builder
          * 

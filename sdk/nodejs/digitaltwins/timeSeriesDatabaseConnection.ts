@@ -129,7 +129,7 @@ export class TimeSeriesDatabaseConnection extends pulumi.CustomResource {
      */
     public readonly digitalTwinsId!: pulumi.Output<string>;
     /**
-     * Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+     * Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
      */
     public readonly eventhubConsumerGroupName!: pulumi.Output<string | undefined>;
     /**
@@ -236,7 +236,7 @@ export interface TimeSeriesDatabaseConnectionState {
      */
     digitalTwinsId?: pulumi.Input<string>;
     /**
-     * Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+     * Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
      */
     eventhubConsumerGroupName?: pulumi.Input<string>;
     /**
@@ -282,7 +282,7 @@ export interface TimeSeriesDatabaseConnectionArgs {
      */
     digitalTwinsId: pulumi.Input<string>;
     /**
-     * Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+     * Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
      */
     eventhubConsumerGroupName?: pulumi.Input<string>;
     /**

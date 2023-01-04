@@ -686,7 +686,7 @@ class StandardSiteConfigArgs:
         :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
-        :param pulumi.Input[str] scm_min_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site.
+        :param pulumi.Input[str] scm_min_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
         :param pulumi.Input[str] scm_type: The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
         :param pulumi.Input[bool] use32_bit_worker_process: Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
@@ -906,7 +906,7 @@ class StandardSiteConfigArgs:
     @pulumi.getter(name="scmMinTlsVersion")
     def scm_min_tls_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Configures the minimum version of TLS required for SSL requests to the SCM site.
+        Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
         """
         return pulumi.get(self, "scm_min_tls_version")
 

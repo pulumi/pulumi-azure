@@ -161,14 +161,14 @@ public class GatewayHostNameConfiguration extends com.pulumi.resources.CustomRes
         return this.hostName;
     }
     /**
-     * Whether HTTP/2.0 is supported.
+     * Whether HTTP/2.0 is supported. Defaults to `true`.
      * 
      */
     @Export(name="http2Enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> http2Enabled;
 
     /**
-     * @return Whether HTTP/2.0 is supported.
+     * @return Whether HTTP/2.0 is supported. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> http2Enabled() {

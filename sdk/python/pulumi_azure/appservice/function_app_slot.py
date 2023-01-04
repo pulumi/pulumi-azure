@@ -45,9 +45,9 @@ class FunctionAppSlotArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input['FunctionAppSlotAuthSettingsArgs'] auth_settings: An `auth_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotConnectionStringArgs']]] connection_strings: A `connection_string` block as defined below.
-        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of the Function App be enabled? Defaults to `true`.
-        :param pulumi.Input[bool] enabled: Is the Function App enabled?
+        :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['FunctionAppSlotIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -191,7 +191,7 @@ class FunctionAppSlotArgs:
     @pulumi.getter(name="dailyMemoryTimeQuota")
     def daily_memory_time_quota(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         """
         return pulumi.get(self, "daily_memory_time_quota")
 
@@ -215,7 +215,7 @@ class FunctionAppSlotArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the Function App enabled?
+        Is the Function App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -353,10 +353,10 @@ class _FunctionAppSlotState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input['FunctionAppSlotAuthSettingsArgs'] auth_settings: An `auth_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotConnectionStringArgs']]] connection_strings: A `connection_string` block as defined below.
-        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of the Function App be enabled? Defaults to `true`.
-        :param pulumi.Input[bool] enabled: Is the Function App enabled?
+        :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[str] function_app_name: The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['FunctionAppSlotIdentityArgs'] identity: An `identity` block as defined below.
@@ -475,7 +475,7 @@ class _FunctionAppSlotState:
     @pulumi.getter(name="dailyMemoryTimeQuota")
     def daily_memory_time_quota(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         """
         return pulumi.get(self, "daily_memory_time_quota")
 
@@ -511,7 +511,7 @@ class _FunctionAppSlotState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the Function App enabled?
+        Is the Function App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -787,9 +787,9 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[pulumi.InputType['FunctionAppSlotAuthSettingsArgs']] auth_settings: An `auth_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppSlotConnectionStringArgs']]]] connection_strings: A `connection_string` block as defined below.
-        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of the Function App be enabled? Defaults to `true`.
-        :param pulumi.Input[bool] enabled: Is the Function App enabled?
+        :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[str] function_app_name: The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['FunctionAppSlotIdentityArgs']] identity: An `identity` block as defined below.
@@ -977,10 +977,10 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[pulumi.InputType['FunctionAppSlotAuthSettingsArgs']] auth_settings: An `auth_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppSlotConnectionStringArgs']]]] connection_strings: A `connection_string` block as defined below.
-        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of the Function App be enabled? Defaults to `true`.
-        :param pulumi.Input[bool] enabled: Is the Function App enabled?
+        :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[str] function_app_name: The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['FunctionAppSlotIdentityArgs']] identity: An `identity` block as defined below.
@@ -1064,7 +1064,7 @@ class FunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="dailyMemoryTimeQuota")
     def daily_memory_time_quota(self) -> pulumi.Output[Optional[int]]:
         """
-        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         """
         return pulumi.get(self, "daily_memory_time_quota")
 
@@ -1088,7 +1088,7 @@ class FunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is the Function App enabled?
+        Is the Function App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 

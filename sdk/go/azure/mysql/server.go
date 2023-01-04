@@ -89,7 +89,7 @@ type Server struct {
 	GeoRedundantBackupEnabled pulumi.BoolOutput `pulumi:"geoRedundantBackupEnabled"`
 	// An `identity` block as defined below.
 	Identity ServerIdentityPtrOutput `pulumi:"identity"`
-	// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -183,7 +183,7 @@ type serverState struct {
 	GeoRedundantBackupEnabled *bool `pulumi:"geoRedundantBackupEnabled"`
 	// An `identity` block as defined below.
 	Identity *ServerIdentity `pulumi:"identity"`
-	// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -230,7 +230,7 @@ type ServerState struct {
 	GeoRedundantBackupEnabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity ServerIdentityPtrInput
-	// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -279,7 +279,7 @@ type serverArgs struct {
 	GeoRedundantBackupEnabled *bool `pulumi:"geoRedundantBackupEnabled"`
 	// An `identity` block as defined below.
 	Identity *ServerIdentity `pulumi:"identity"`
-	// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -325,7 +325,7 @@ type ServerArgs struct {
 	GeoRedundantBackupEnabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity ServerIdentityPtrInput
-	// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -485,7 +485,7 @@ func (o ServerOutput) Identity() ServerIdentityPtrOutput {
 	return o.ApplyT(func(v *Server) ServerIdentityPtrOutput { return v.Identity }).(ServerIdentityPtrOutput)
 }
 
-// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+// Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
 func (o ServerOutput) InfrastructureEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.InfrastructureEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }

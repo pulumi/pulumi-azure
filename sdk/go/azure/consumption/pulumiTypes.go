@@ -932,7 +932,7 @@ func (o BudgetManagementGroupFilterTagArrayOutput) Index(i pulumi.IntInput) Budg
 type BudgetManagementGroupNotification struct {
 	// Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
 	ContactEmails []string `pulumi:"contactEmails"`
-	// Should the notification be enabled?
+	// Should the notification be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
 	Operator string `pulumi:"operator"`
@@ -956,7 +956,7 @@ type BudgetManagementGroupNotificationInput interface {
 type BudgetManagementGroupNotificationArgs struct {
 	// Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
 	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
-	// Should the notification be enabled?
+	// Should the notification be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -1022,7 +1022,7 @@ func (o BudgetManagementGroupNotificationOutput) ContactEmails() pulumi.StringAr
 	return o.ApplyT(func(v BudgetManagementGroupNotification) []string { return v.ContactEmails }).(pulumi.StringArrayOutput)
 }
 
-// Should the notification be enabled?
+// Should the notification be enabled? Defaults to `true`.
 func (o BudgetManagementGroupNotificationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetManagementGroupNotification) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -2144,7 +2144,7 @@ type BudgetResourceGroupNotification struct {
 	ContactGroups []string `pulumi:"contactGroups"`
 	// Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
 	ContactRoles []string `pulumi:"contactRoles"`
-	// Should the notification be enabled?
+	// Should the notification be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
 	Operator string `pulumi:"operator"`
@@ -2172,7 +2172,7 @@ type BudgetResourceGroupNotificationArgs struct {
 	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
 	// Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
 	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
-	// Should the notification be enabled?
+	// Should the notification be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -2248,7 +2248,7 @@ func (o BudgetResourceGroupNotificationOutput) ContactRoles() pulumi.StringArray
 	return o.ApplyT(func(v BudgetResourceGroupNotification) []string { return v.ContactRoles }).(pulumi.StringArrayOutput)
 }
 
-// Should the notification be enabled?
+// Should the notification be enabled? Defaults to `true`.
 func (o BudgetResourceGroupNotificationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetResourceGroupNotification) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -3370,7 +3370,7 @@ type BudgetSubscriptionNotification struct {
 	ContactGroups []string `pulumi:"contactGroups"`
 	// Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
 	ContactRoles []string `pulumi:"contactRoles"`
-	// Should the notification be enabled?
+	// Should the notification be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
 	Operator string `pulumi:"operator"`
@@ -3398,7 +3398,7 @@ type BudgetSubscriptionNotificationArgs struct {
 	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
 	// Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
 	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
-	// Should the notification be enabled?
+	// Should the notification be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -3474,7 +3474,7 @@ func (o BudgetSubscriptionNotificationOutput) ContactRoles() pulumi.StringArrayO
 	return o.ApplyT(func(v BudgetSubscriptionNotification) []string { return v.ContactRoles }).(pulumi.StringArrayOutput)
 }
 
-// Should the notification be enabled?
+// Should the notification be enabled? Defaults to `true`.
 func (o BudgetSubscriptionNotificationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetSubscriptionNotification) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

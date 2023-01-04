@@ -216,7 +216,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> DefaultSiteHostname { get; private set; } = null!;
 
         /// <summary>
-        /// Is the App Service Slot Enabled?
+        /// Is the App Service Slot Enabled? Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -382,7 +382,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Is the App Service Slot Enabled?
+        /// Is the App Service Slot Enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -522,7 +522,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? DefaultSiteHostname { get; set; }
 
         /// <summary>
-        /// Is the App Service Slot Enabled?
+        /// Is the App Service Slot Enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

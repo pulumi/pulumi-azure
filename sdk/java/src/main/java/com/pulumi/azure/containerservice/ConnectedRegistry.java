@@ -229,14 +229,14 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.syncMessageTtl);
     }
     /**
-     * The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+     * The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
      * 
      */
     @Export(name="syncSchedule", type=String.class, parameters={})
     private Output</* @Nullable */ String> syncSchedule;
 
     /**
-     * @return The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+     * @return The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
      * 
      */
     public Output<Optional<String>> syncSchedule() {

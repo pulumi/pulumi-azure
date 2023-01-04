@@ -51,14 +51,14 @@ public final class AutomationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean to enable or disable this Security Center Automation.
+     * Boolean to enable or disable this Security Center Automation. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Boolean to enable or disable this Security Center Automation.
+     * @return Boolean to enable or disable this Security Center Automation. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -240,7 +240,7 @@ public final class AutomationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Boolean to enable or disable this Security Center Automation.
+         * @param enabled Boolean to enable or disable this Security Center Automation. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class AutomationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Boolean to enable or disable this Security Center Automation.
+         * @param enabled Boolean to enable or disable this Security Center Automation. Defaults to `true`.
          * 
          * @return builder
          * 

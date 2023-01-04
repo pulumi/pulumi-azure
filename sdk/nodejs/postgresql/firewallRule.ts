@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleServer = new azure.postgresql.Server("exampleServer", {});
- * // ...
+ * // ...
  * const exampleFirewallRule = new azure.postgresql.FirewallRule("exampleFirewallRule", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     serverName: exampleServer.name,

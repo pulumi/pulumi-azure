@@ -266,7 +266,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.ScaleSetPlan?> Plan { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
+        /// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("priority")]
         public Output<string?> Priority { get; private set; } = null!;
@@ -495,7 +495,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ScaleSetPlanArgs>? Plan { get; set; }
 
         /// <summary>
-        /// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
+        /// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
@@ -704,7 +704,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ScaleSetPlanGetArgs>? Plan { get; set; }
 
         /// <summary>
-        /// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
+        /// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }

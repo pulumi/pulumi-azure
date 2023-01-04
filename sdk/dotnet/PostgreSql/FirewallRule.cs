@@ -62,7 +62,7 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     ///     var exampleServer = new Azure.PostgreSql.Server("exampleServer");
     /// 
-    ///     // ...
+    ///     // ...
     ///     var exampleFirewallRule = new Azure.PostgreSql.FirewallRule("exampleFirewallRule", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,

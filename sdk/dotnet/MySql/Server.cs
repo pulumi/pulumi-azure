@@ -113,7 +113,7 @@ namespace Pulumi.Azure.MySql
         public Output<Outputs.ServerIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
         /// </summary>
         [Output("infrastructureEncryptionEnabled")]
         public Output<bool?> InfrastructureEncryptionEnabled { get; private set; } = null!;
@@ -299,7 +299,7 @@ namespace Pulumi.Azure.MySql
         public Input<Inputs.ServerIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("infrastructureEncryptionEnabled")]
         public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
@@ -455,7 +455,7 @@ namespace Pulumi.Azure.MySql
         public Input<Inputs.ServerIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("infrastructureEncryptionEnabled")]
         public Input<bool>? InfrastructureEncryptionEnabled { get; set; }

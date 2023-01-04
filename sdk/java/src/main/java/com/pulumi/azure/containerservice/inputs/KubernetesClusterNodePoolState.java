@@ -40,14 +40,14 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies whether to trust a Custom CA. Defaults to `false`.
+     * Specifies whether to trust a Custom CA.
      * 
      */
     @Import(name="customCaTrustEnabled")
     private @Nullable Output<Boolean> customCaTrustEnabled;
 
     /**
-     * @return Specifies whether to trust a Custom CA. Defaults to `false`.
+     * @return Specifies whether to trust a Custom CA.
      * 
      */
     public Optional<Output<Boolean>> customCaTrustEnabled() {
@@ -55,14 +55,14 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     }
 
     /**
-     * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+     * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
      * 
      */
     @Import(name="enableAutoScaling")
     private @Nullable Output<Boolean> enableAutoScaling;
 
     /**
-     * @return Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+     * @return Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
      * 
      */
     public Optional<Output<Boolean>> enableAutoScaling() {
@@ -70,14 +70,14 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     }
 
     /**
-     * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
      * 
      */
     @Import(name="enableHostEncryption")
     private @Nullable Output<Boolean> enableHostEncryption;
 
     /**
-     * @return Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> enableHostEncryption() {
@@ -85,14 +85,14 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     }
 
     /**
-     * Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address?   Changing this forces a new resource to be created.
      * 
      */
     @Import(name="enableNodePublicIp")
     private @Nullable Output<Boolean> enableNodePublicIp;
 
     /**
-     * @return Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+     * @return Should each node have a Public IP Address?   Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> enableNodePublicIp() {
@@ -709,7 +709,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param customCaTrustEnabled Specifies whether to trust a Custom CA. Defaults to `false`.
+         * @param customCaTrustEnabled Specifies whether to trust a Custom CA.
          * 
          * @return builder
          * 
@@ -720,7 +720,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param customCaTrustEnabled Specifies whether to trust a Custom CA. Defaults to `false`.
+         * @param customCaTrustEnabled Specifies whether to trust a Custom CA.
          * 
          * @return builder
          * 
@@ -730,7 +730,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param enableAutoScaling Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+         * @param enableAutoScaling Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
          * 
          * @return builder
          * 
@@ -741,7 +741,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param enableAutoScaling Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+         * @param enableAutoScaling Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
          * 
          * @return builder
          * 
@@ -751,7 +751,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param enableHostEncryption Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+         * @param enableHostEncryption Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -762,7 +762,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param enableHostEncryption Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+         * @param enableHostEncryption Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -772,7 +772,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param enableNodePublicIp Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+         * @param enableNodePublicIp Should each node have a Public IP Address?   Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -783,7 +783,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         }
 
         /**
-         * @param enableNodePublicIp Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+         * @param enableNodePublicIp Should each node have a Public IP Address?   Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

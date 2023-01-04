@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Redis.Outputs
     public sealed class EnterpriseDatabaseModule
     {
         /// <summary>
-        /// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
+        /// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
         /// </summary>
         public readonly string? Args;
         /// <summary>
-        /// The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+        /// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
         /// </summary>
         public readonly string Name;
         public readonly string? Version;

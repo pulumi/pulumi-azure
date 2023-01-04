@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class WindowsVirtualMachineScaleSetRollingUpgradePolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+        /// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
         /// </summary>
         [Input("crossZoneUpgradesEnabled")]
         public Input<bool>? CrossZoneUpgradesEnabled { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string> PauseTimeBetweenBatches { get; set; } = null!;
 
         /// <summary>
-        /// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+        /// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
         /// </summary>
         [Input("prioritizeUnhealthyInstancesEnabled")]
         public Input<bool>? PrioritizeUnhealthyInstancesEnabled { get; set; }

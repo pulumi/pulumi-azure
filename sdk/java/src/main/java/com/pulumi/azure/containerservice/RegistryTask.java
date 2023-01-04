@@ -322,14 +322,14 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+     * The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
      * 
      */
     @Export(name="timeoutInSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> timeoutInSeconds;
 
     /**
-     * @return The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+     * @return The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
      * 
      */
     public Output<Optional<Integer>> timeoutInSeconds() {

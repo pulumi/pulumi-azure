@@ -199,14 +199,14 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+     * Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="zoneBalancingEnabled")
     private @Nullable Output<Boolean> zoneBalancingEnabled;
 
     /**
-     * @return Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> zoneBalancingEnabled() {
@@ -502,7 +502,7 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneBalancingEnabled Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param zoneBalancingEnabled Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class ServicePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneBalancingEnabled Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param zoneBalancingEnabled Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

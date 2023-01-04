@@ -30,7 +30,7 @@ class DiskEncryptionSetArgs:
         :param pulumi.Input['DiskEncryptionSetIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+        :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
         :param pulumi.Input[str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
@@ -93,7 +93,7 @@ class DiskEncryptionSetArgs:
     @pulumi.getter(name="autoKeyRotationEnabled")
     def auto_key_rotation_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+        Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
         """
         return pulumi.get(self, "auto_key_rotation_enabled")
 
@@ -176,7 +176,7 @@ class _DiskEncryptionSetState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering DiskEncryptionSet resources.
-        :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+        :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
         :param pulumi.Input[str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
         :param pulumi.Input['DiskEncryptionSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -209,7 +209,7 @@ class _DiskEncryptionSetState:
     @pulumi.getter(name="autoKeyRotationEnabled")
     def auto_key_rotation_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+        Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
         """
         return pulumi.get(self, "auto_key_rotation_enabled")
 
@@ -415,7 +415,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+        :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
         :param pulumi.Input[str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
         :param pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']] identity: An `identity` block as defined below.
@@ -589,7 +589,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+        :param pulumi.Input[bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
         :param pulumi.Input[str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
         :param pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']] identity: An `identity` block as defined below.
@@ -618,7 +618,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
     @pulumi.getter(name="autoKeyRotationEnabled")
     def auto_key_rotation_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+        Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
         """
         return pulumi.get(self, "auto_key_rotation_enabled")
 

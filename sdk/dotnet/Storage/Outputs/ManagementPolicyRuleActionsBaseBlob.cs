@@ -14,43 +14,43 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class ManagementPolicyRuleActionsBaseBlob
     {
         /// <summary>
-        /// The age in days after creation to delete the blob. Must be between `0` and `99999`.
+        /// The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
         /// </summary>
         public readonly int? DeleteAfterDaysSinceCreationGreaterThan;
         /// <summary>
-        /// The age in days after last access time to delete the blob. Must be between `0` and `99999`.
+        /// The age in days after last access time to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
         /// </summary>
         public readonly int? DeleteAfterDaysSinceLastAccessTimeGreaterThan;
         /// <summary>
-        /// The age in days after last modification to delete the blob. Must be between 0 and 99999.
+        /// The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
         /// </summary>
         public readonly int? DeleteAfterDaysSinceModificationGreaterThan;
         /// <summary>
-        /// The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
+        /// The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
         /// </summary>
         public readonly int? TierToArchiveAfterDaysSinceCreationGreaterThan;
         /// <summary>
-        /// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
+        /// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
         /// </summary>
         public readonly int? TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
         /// <summary>
-        /// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+        /// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
         /// </summary>
         public readonly int? TierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
         /// <summary>
-        /// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
+        /// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
         /// </summary>
         public readonly int? TierToArchiveAfterDaysSinceModificationGreaterThan;
         /// <summary>
-        /// The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+        /// The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
         /// </summary>
         public readonly int? TierToCoolAfterDaysSinceCreationGreaterThan;
         /// <summary>
-        /// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+        /// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
         /// </summary>
         public readonly int? TierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
         /// <summary>
-        /// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
+        /// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
         /// </summary>
         public readonly int? TierToCoolAfterDaysSinceModificationGreaterThan;
 

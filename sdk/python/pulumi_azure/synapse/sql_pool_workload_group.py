@@ -27,8 +27,8 @@ class SqlPoolWorkloadGroupArgs:
         :param pulumi.Input[int] max_resource_percent: The workload group cap percentage resource.
         :param pulumi.Input[int] min_resource_percent: The workload group minimum percentage resource.
         :param pulumi.Input[str] sql_pool_id: The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
-        :param pulumi.Input[str] importance: The workload group importance level.
-        :param pulumi.Input[float] max_resource_percent_per_request: The workload group request maximum grant percentage.
+        :param pulumi.Input[str] importance: The workload group importance level. Defaults to `normal`.
+        :param pulumi.Input[float] max_resource_percent_per_request: The workload group request maximum grant percentage. Defaults to `3`.
         :param pulumi.Input[float] min_resource_percent_per_request: The workload group request minimum grant percentage.
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         :param pulumi.Input[int] query_execution_timeout_in_seconds: The workload group query execution timeout.
@@ -87,7 +87,7 @@ class SqlPoolWorkloadGroupArgs:
     @pulumi.getter
     def importance(self) -> Optional[pulumi.Input[str]]:
         """
-        The workload group importance level.
+        The workload group importance level. Defaults to `normal`.
         """
         return pulumi.get(self, "importance")
 
@@ -99,7 +99,7 @@ class SqlPoolWorkloadGroupArgs:
     @pulumi.getter(name="maxResourcePercentPerRequest")
     def max_resource_percent_per_request(self) -> Optional[pulumi.Input[float]]:
         """
-        The workload group request maximum grant percentage.
+        The workload group request maximum grant percentage. Defaults to `3`.
         """
         return pulumi.get(self, "max_resource_percent_per_request")
 
@@ -157,9 +157,9 @@ class _SqlPoolWorkloadGroupState:
                  sql_pool_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SqlPoolWorkloadGroup resources.
-        :param pulumi.Input[str] importance: The workload group importance level.
+        :param pulumi.Input[str] importance: The workload group importance level. Defaults to `normal`.
         :param pulumi.Input[int] max_resource_percent: The workload group cap percentage resource.
-        :param pulumi.Input[float] max_resource_percent_per_request: The workload group request maximum grant percentage.
+        :param pulumi.Input[float] max_resource_percent_per_request: The workload group request maximum grant percentage. Defaults to `3`.
         :param pulumi.Input[int] min_resource_percent: The workload group minimum percentage resource.
         :param pulumi.Input[float] min_resource_percent_per_request: The workload group request minimum grant percentage.
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
@@ -187,7 +187,7 @@ class _SqlPoolWorkloadGroupState:
     @pulumi.getter
     def importance(self) -> Optional[pulumi.Input[str]]:
         """
-        The workload group importance level.
+        The workload group importance level. Defaults to `normal`.
         """
         return pulumi.get(self, "importance")
 
@@ -211,7 +211,7 @@ class _SqlPoolWorkloadGroupState:
     @pulumi.getter(name="maxResourcePercentPerRequest")
     def max_resource_percent_per_request(self) -> Optional[pulumi.Input[float]]:
         """
-        The workload group request maximum grant percentage.
+        The workload group request maximum grant percentage. Defaults to `3`.
         """
         return pulumi.get(self, "max_resource_percent_per_request")
 
@@ -344,9 +344,9 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] importance: The workload group importance level.
+        :param pulumi.Input[str] importance: The workload group importance level. Defaults to `normal`.
         :param pulumi.Input[int] max_resource_percent: The workload group cap percentage resource.
-        :param pulumi.Input[float] max_resource_percent_per_request: The workload group request maximum grant percentage.
+        :param pulumi.Input[float] max_resource_percent_per_request: The workload group request maximum grant percentage. Defaults to `3`.
         :param pulumi.Input[int] min_resource_percent: The workload group minimum percentage resource.
         :param pulumi.Input[float] min_resource_percent_per_request: The workload group request minimum grant percentage.
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
@@ -478,9 +478,9 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] importance: The workload group importance level.
+        :param pulumi.Input[str] importance: The workload group importance level. Defaults to `normal`.
         :param pulumi.Input[int] max_resource_percent: The workload group cap percentage resource.
-        :param pulumi.Input[float] max_resource_percent_per_request: The workload group request maximum grant percentage.
+        :param pulumi.Input[float] max_resource_percent_per_request: The workload group request maximum grant percentage. Defaults to `3`.
         :param pulumi.Input[int] min_resource_percent: The workload group minimum percentage resource.
         :param pulumi.Input[float] min_resource_percent_per_request: The workload group request minimum grant percentage.
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
@@ -505,7 +505,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
     @pulumi.getter
     def importance(self) -> pulumi.Output[Optional[str]]:
         """
-        The workload group importance level.
+        The workload group importance level. Defaults to `normal`.
         """
         return pulumi.get(self, "importance")
 
@@ -521,7 +521,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
     @pulumi.getter(name="maxResourcePercentPerRequest")
     def max_resource_percent_per_request(self) -> pulumi.Output[Optional[float]]:
         """
-        The workload group request maximum grant percentage.
+        The workload group request maximum grant percentage. Defaults to `3`.
         """
         return pulumi.get(self, "max_resource_percent_per_request")
 

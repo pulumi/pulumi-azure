@@ -82,7 +82,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<bool> ApplicationLiveViewEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+        /// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<bool>? ApplicationLiveViewEnabled { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+        /// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<bool>? ApplicationLiveViewEnabled { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+        /// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

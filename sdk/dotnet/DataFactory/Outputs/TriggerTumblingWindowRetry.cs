@@ -18,7 +18,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly int Count;
         /// <summary>
-        /// The Interval in seconds between each retry if the pipeline run failed.
+        /// The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
         /// </summary>
         public readonly int? Interval;
 

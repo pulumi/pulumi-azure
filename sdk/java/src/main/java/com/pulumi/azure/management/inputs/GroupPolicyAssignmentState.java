@@ -50,14 +50,14 @@ public final class GroupPolicyAssignmentState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies if this Policy should be enforced or not?
+     * Specifies if this Policy should be enforced or not? Defaults to `true`.
      * 
      */
     @Import(name="enforce")
     private @Nullable Output<Boolean> enforce;
 
     /**
-     * @return Specifies if this Policy should be enforced or not?
+     * @return Specifies if this Policy should be enforced or not? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enforce() {
@@ -277,7 +277,7 @@ public final class GroupPolicyAssignmentState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param enforce Specifies if this Policy should be enforced or not?
+         * @param enforce Specifies if this Policy should be enforced or not? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class GroupPolicyAssignmentState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param enforce Specifies if this Policy should be enforced or not?
+         * @param enforce Specifies if this Policy should be enforced or not? Defaults to `true`.
          * 
          * @return builder
          * 

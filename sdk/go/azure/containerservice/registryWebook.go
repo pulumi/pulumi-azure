@@ -92,7 +92,7 @@ type RegistryWebook struct {
 	RegistryName pulumi.StringOutput `pulumi:"registryName"`
 	// The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
+	// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`.
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
 	// Specifies the service URI for the Webhook to post notifications.
 	ServiceUri pulumi.StringOutput `pulumi:"serviceUri"`
@@ -155,7 +155,7 @@ type registryWebookState struct {
 	RegistryName *string `pulumi:"registryName"`
 	// The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
+	// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`.
 	Scope *string `pulumi:"scope"`
 	// Specifies the service URI for the Webhook to post notifications.
 	ServiceUri *string `pulumi:"serviceUri"`
@@ -178,7 +178,7 @@ type RegistryWebookState struct {
 	RegistryName pulumi.StringPtrInput
 	// The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
+	// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`.
 	Scope pulumi.StringPtrInput
 	// Specifies the service URI for the Webhook to post notifications.
 	ServiceUri pulumi.StringPtrInput
@@ -205,7 +205,7 @@ type registryWebookArgs struct {
 	RegistryName string `pulumi:"registryName"`
 	// The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
+	// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`.
 	Scope *string `pulumi:"scope"`
 	// Specifies the service URI for the Webhook to post notifications.
 	ServiceUri string `pulumi:"serviceUri"`
@@ -229,7 +229,7 @@ type RegistryWebookArgs struct {
 	RegistryName pulumi.StringInput
 	// The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
+	// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`.
 	Scope pulumi.StringPtrInput
 	// Specifies the service URI for the Webhook to post notifications.
 	ServiceUri pulumi.StringInput
@@ -356,7 +356,7 @@ func (o RegistryWebookOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryWebook) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
+// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`.
 func (o RegistryWebookOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryWebook) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
 }

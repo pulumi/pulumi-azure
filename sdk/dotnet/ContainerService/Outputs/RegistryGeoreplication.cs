@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+        /// Whether regional endpoint is enabled for this Container Registry?
         /// </summary>
         public readonly bool? RegionalEndpointEnabled;
         /// <summary>

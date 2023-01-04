@@ -120,7 +120,7 @@ export class AppService extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultSiteHostname!: pulumi.Output<string>;
     /**
-     * Is the App Service Enabled?
+     * Is the App Service Enabled? Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -314,7 +314,7 @@ export interface AppServiceState {
      */
     defaultSiteHostname?: pulumi.Input<string>;
     /**
-     * Is the App Service Enabled?
+     * Is the App Service Enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -420,7 +420,7 @@ export interface AppServiceArgs {
      */
     connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceConnectionString>[]>;
     /**
-     * Is the App Service Enabled?
+     * Is the App Service Enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**

@@ -16,14 +16,14 @@ public final class FrontdoorRuleActionsUrlRedirectActionArgs extends com.pulumi.
     public static final FrontdoorRuleActionsUrlRedirectActionArgs Empty = new FrontdoorRuleActionsUrlRedirectActionArgs();
 
     /**
-     * The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
+     * The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="destinationFragment")
     private @Nullable Output<String> destinationFragment;
 
     /**
-     * @return The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
+     * @return The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> destinationFragment() {
@@ -46,14 +46,14 @@ public final class FrontdoorRuleActionsUrlRedirectActionArgs extends com.pulumi.
     }
 
     /**
-     * The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
+     * The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="destinationPath")
     private @Nullable Output<String> destinationPath;
 
     /**
-     * @return The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
+     * @return The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> destinationPath() {
@@ -61,14 +61,14 @@ public final class FrontdoorRuleActionsUrlRedirectActionArgs extends com.pulumi.
     }
 
     /**
-     * The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
+     * The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="queryString")
     private @Nullable Output<String> queryString;
 
     /**
-     * @return The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
+     * @return The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> queryString() {
@@ -135,7 +135,7 @@ public final class FrontdoorRuleActionsUrlRedirectActionArgs extends com.pulumi.
         }
 
         /**
-         * @param destinationFragment The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
+         * @param destinationFragment The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class FrontdoorRuleActionsUrlRedirectActionArgs extends com.pulumi.
         }
 
         /**
-         * @param destinationFragment The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
+         * @param destinationFragment The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class FrontdoorRuleActionsUrlRedirectActionArgs extends com.pulumi.
         }
 
         /**
-         * @param destinationPath The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
+         * @param destinationPath The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class FrontdoorRuleActionsUrlRedirectActionArgs extends com.pulumi.
         }
 
         /**
-         * @param destinationPath The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
+         * @param destinationPath The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class FrontdoorRuleActionsUrlRedirectActionArgs extends com.pulumi.
         }
 
         /**
-         * @param queryString The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
+         * @param queryString The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class FrontdoorRuleActionsUrlRedirectActionArgs extends com.pulumi.
         }
 
         /**
-         * @param queryString The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
+         * @param queryString The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 

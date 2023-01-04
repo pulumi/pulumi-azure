@@ -97,14 +97,14 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.companyName);
     }
     /**
-     * Whether the resource monitoring is enabled?
+     * Whether the resource monitoring is enabled? Defaults to `true`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Whether the resource monitoring is enabled?
+     * @return Whether the resource monitoring is enabled? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

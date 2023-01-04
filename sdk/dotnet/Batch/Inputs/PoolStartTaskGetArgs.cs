@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Batch.Inputs
         }
 
         /// <summary>
-        /// The number of retry count. Defaults to `1`.
+        /// The number of retry count.
         /// </summary>
         [Input("taskRetryMaximum")]
         public Input<int>? TaskRetryMaximum { get; set; }

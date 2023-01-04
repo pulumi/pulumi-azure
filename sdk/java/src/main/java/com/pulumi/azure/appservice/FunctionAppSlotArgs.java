@@ -84,14 +84,14 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
      * 
      */
     @Import(name="dailyMemoryTimeQuota")
     private @Nullable Output<Integer> dailyMemoryTimeQuota;
 
     /**
-     * @return The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+     * @return The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
      * 
      */
     public Optional<Output<Integer>> dailyMemoryTimeQuota() {
@@ -114,14 +114,14 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Is the Function App enabled?
+     * Is the Function App enabled? Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Is the Function App enabled?
+     * @return Is the Function App enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -445,7 +445,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dailyMemoryTimeQuota The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+         * @param dailyMemoryTimeQuota The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dailyMemoryTimeQuota The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+         * @param dailyMemoryTimeQuota The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enabled Is the Function App enabled?
+         * @param enabled Is the Function App enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enabled Is the Function App enabled?
+         * @param enabled Is the Function App enabled? Defaults to `true`.
          * 
          * @return builder
          * 

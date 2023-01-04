@@ -83,7 +83,7 @@ export class NatPool extends pulumi.CustomResource {
      */
     public readonly backendPort!: pulumi.Output<number>;
     /**
-     * Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group.
      */
     public readonly floatingIpEnabled!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly frontendIpConfigurationId!: pulumi.Output<string>;
@@ -120,7 +120,7 @@ export class NatPool extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     * Is TCP Reset enabled for this Load Balancer Rule?
      */
     public readonly tcpResetEnabled!: pulumi.Output<boolean | undefined>;
 
@@ -199,7 +199,7 @@ export interface NatPoolState {
      */
     backendPort?: pulumi.Input<number>;
     /**
-     * Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group.
      */
     floatingIpEnabled?: pulumi.Input<boolean>;
     frontendIpConfigurationId?: pulumi.Input<string>;
@@ -236,7 +236,7 @@ export interface NatPoolState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     * Is TCP Reset enabled for this Load Balancer Rule?
      */
     tcpResetEnabled?: pulumi.Input<boolean>;
 }
@@ -250,7 +250,7 @@ export interface NatPoolArgs {
      */
     backendPort: pulumi.Input<number>;
     /**
-     * Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group.
      */
     floatingIpEnabled?: pulumi.Input<boolean>;
     /**
@@ -286,7 +286,7 @@ export interface NatPoolArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     * Is TCP Reset enabled for this Load Balancer Rule?
      */
     tcpResetEnabled?: pulumi.Input<boolean>;
 }

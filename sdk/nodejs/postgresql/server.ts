@@ -106,7 +106,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.postgresql.ServerIdentity | undefined>;
     /**
-     * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+     * Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      */
     public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -130,7 +130,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly restorePointInTime!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku).
+     * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -278,7 +278,7 @@ export interface ServerState {
      */
     identity?: pulumi.Input<inputs.postgresql.ServerIdentity>;
     /**
-     * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+     * Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      */
     infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -302,7 +302,7 @@ export interface ServerState {
      */
     restorePointInTime?: pulumi.Input<string>;
     /**
-     * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku).
+     * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -368,7 +368,7 @@ export interface ServerArgs {
      */
     identity?: pulumi.Input<inputs.postgresql.ServerIdentity>;
     /**
-     * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+     * Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      */
     infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -392,7 +392,7 @@ export interface ServerArgs {
      */
     restorePointInTime?: pulumi.Input<string>;
     /**
-     * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku).
+     * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
      */
     skuName: pulumi.Input<string>;
     /**

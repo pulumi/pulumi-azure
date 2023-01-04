@@ -29,12 +29,12 @@ public final class CacheDirectoryLdap {
      */
     private @Nullable String certificateValidationUri;
     /**
-     * @return Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided. Defaults to `false`.
+     * @return Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
      * 
      */
     private @Nullable Boolean downloadCertificateAutomatically;
     /**
-     * @return Whether the LDAP connection should be encrypted? Defaults to `false`.
+     * @return Whether the LDAP connection should be encrypted?
      * 
      */
     private @Nullable Boolean encrypted;
@@ -67,14 +67,14 @@ public final class CacheDirectoryLdap {
         return Optional.ofNullable(this.certificateValidationUri);
     }
     /**
-     * @return Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided. Defaults to `false`.
+     * @return Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
      * 
      */
     public Optional<Boolean> downloadCertificateAutomatically() {
         return Optional.ofNullable(this.downloadCertificateAutomatically);
     }
     /**
-     * @return Whether the LDAP connection should be encrypted? Defaults to `false`.
+     * @return Whether the LDAP connection should be encrypted?
      * 
      */
     public Optional<Boolean> encrypted() {

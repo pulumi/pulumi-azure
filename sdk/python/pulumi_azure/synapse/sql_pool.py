@@ -31,7 +31,7 @@ class SqlPoolArgs:
         :param pulumi.Input[str] synapse_workspace_id: The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[str] collation: The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_mode: Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] data_encrypted: Is transparent data encryption enabled? Defaults to `false`.
+        :param pulumi.Input[bool] data_encrypted: Is transparent data encryption enabled?
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
         :param pulumi.Input[str] recovery_database_id: The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input['SqlPoolRestoreArgs'] restore: A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
@@ -106,7 +106,7 @@ class SqlPoolArgs:
     @pulumi.getter(name="dataEncrypted")
     def data_encrypted(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is transparent data encryption enabled? Defaults to `false`.
+        Is transparent data encryption enabled?
         """
         return pulumi.get(self, "data_encrypted")
 
@@ -179,7 +179,7 @@ class _SqlPoolState:
         Input properties used for looking up and filtering SqlPool resources.
         :param pulumi.Input[str] collation: The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_mode: Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] data_encrypted: Is transparent data encryption enabled? Defaults to `false`.
+        :param pulumi.Input[bool] data_encrypted: Is transparent data encryption enabled?
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
         :param pulumi.Input[str] recovery_database_id: The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input['SqlPoolRestoreArgs'] restore: A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
@@ -234,7 +234,7 @@ class _SqlPoolState:
     @pulumi.getter(name="dataEncrypted")
     def data_encrypted(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is transparent data encryption enabled? Defaults to `false`.
+        Is transparent data encryption enabled?
         """
         return pulumi.get(self, "data_encrypted")
 
@@ -374,7 +374,7 @@ class SqlPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collation: The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_mode: Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] data_encrypted: Is transparent data encryption enabled? Defaults to `false`.
+        :param pulumi.Input[bool] data_encrypted: Is transparent data encryption enabled?
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
         :param pulumi.Input[str] recovery_database_id: The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[pulumi.InputType['SqlPoolRestoreArgs']] restore: A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
@@ -502,7 +502,7 @@ class SqlPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collation: The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_mode: Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] data_encrypted: Is transparent data encryption enabled? Defaults to `false`.
+        :param pulumi.Input[bool] data_encrypted: Is transparent data encryption enabled?
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
         :param pulumi.Input[str] recovery_database_id: The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[pulumi.InputType['SqlPoolRestoreArgs']] restore: A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
@@ -545,7 +545,7 @@ class SqlPool(pulumi.CustomResource):
     @pulumi.getter(name="dataEncrypted")
     def data_encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is transparent data encryption enabled? Defaults to `false`.
+        Is transparent data encryption enabled?
         """
         return pulumi.get(self, "data_encrypted")
 

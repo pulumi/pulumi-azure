@@ -107,14 +107,14 @@ public class MedtechServiceFhirDestination extends com.pulumi.resources.CustomRe
         return this.destinationFhirServiceId;
     }
     /**
-     * Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`. Defaults to `Create`.
+     * Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
      * 
      */
     @Export(name="destinationIdentityResolutionType", type=String.class, parameters={})
     private Output<String> destinationIdentityResolutionType;
 
     /**
-     * @return Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`. Defaults to `Create`.
+     * @return Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
      * 
      */
     public Output<String> destinationIdentityResolutionType() {

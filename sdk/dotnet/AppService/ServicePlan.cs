@@ -121,7 +121,7 @@ namespace Pulumi.Azure.AppService
         public Output<int> WorkerCount { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zoneBalancingEnabled")]
         public Output<bool?> ZoneBalancingEnabled { get; private set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.AppService
         public Input<int>? WorkerCount { get; set; }
 
         /// <summary>
-        /// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneBalancingEnabled")]
         public Input<bool>? ZoneBalancingEnabled { get; set; }
@@ -331,7 +331,7 @@ namespace Pulumi.Azure.AppService
         public Input<int>? WorkerCount { get; set; }
 
         /// <summary>
-        /// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneBalancingEnabled")]
         public Input<bool>? ZoneBalancingEnabled { get; set; }

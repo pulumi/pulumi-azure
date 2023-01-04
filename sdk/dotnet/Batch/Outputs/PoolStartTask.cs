@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolStartTaskResourceFile> ResourceFiles;
         /// <summary>
-        /// The number of retry count. Defaults to `1`.
+        /// The number of retry count.
         /// </summary>
         public readonly int? TaskRetryMaximum;
         /// <summary>

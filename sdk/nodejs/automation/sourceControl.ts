@@ -89,7 +89,7 @@ export class SourceControl extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Whether auto publish the Source Control.
+     * Whether auto publish the Source Control. Defaults to `true`.
      */
     public readonly publishRunbookEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -190,7 +190,7 @@ export interface SourceControlState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether auto publish the Source Control.
+     * Whether auto publish the Source Control. Defaults to `true`.
      */
     publishRunbookEnabled?: pulumi.Input<boolean>;
     /**
@@ -236,7 +236,7 @@ export interface SourceControlArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether auto publish the Source Control.
+     * Whether auto publish the Source Control. Defaults to `true`.
      */
     publishRunbookEnabled?: pulumi.Input<boolean>;
     /**

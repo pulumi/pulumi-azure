@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppSlotSiteConfigAutoHealSettingAction
     {
         /// <summary>
-        /// Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+        /// Predefined action to be taken to an Auto Heal trigger. Possible values are `CustomAction`, `LogEvent` and `Recycle`.
         /// </summary>
         public readonly string ActionType;
         /// <summary>

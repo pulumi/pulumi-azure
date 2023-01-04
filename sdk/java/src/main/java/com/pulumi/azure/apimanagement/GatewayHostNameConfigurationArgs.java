@@ -77,14 +77,14 @@ public final class GatewayHostNameConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * Whether HTTP/2.0 is supported.
+     * Whether HTTP/2.0 is supported. Defaults to `true`.
      * 
      */
     @Import(name="http2Enabled")
     private @Nullable Output<Boolean> http2Enabled;
 
     /**
-     * @return Whether HTTP/2.0 is supported.
+     * @return Whether HTTP/2.0 is supported. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> http2Enabled() {
@@ -268,7 +268,7 @@ public final class GatewayHostNameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param http2Enabled Whether HTTP/2.0 is supported.
+         * @param http2Enabled Whether HTTP/2.0 is supported. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class GatewayHostNameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param http2Enabled Whether HTTP/2.0 is supported.
+         * @param http2Enabled Whether HTTP/2.0 is supported. Defaults to `true`.
          * 
          * @return builder
          * 

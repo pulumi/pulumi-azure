@@ -23,14 +23,14 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
     public static final KeyVaultState Empty = new KeyVaultState();
 
     /**
-     * A list of up to 16 objects describing access policies, as described below.
+     * A list of up to 1024 objects describing access policies, as described below.
      * 
      */
     @Import(name="accessPolicies")
     private @Nullable Output<List<KeyVaultAccessPolicyArgs>> accessPolicies;
 
     /**
-     * @return A list of up to 16 objects describing access policies, as described below.
+     * @return A list of up to 1024 objects describing access policies, as described below.
      * 
      */
     public Optional<Output<List<KeyVaultAccessPolicyArgs>>> accessPolicies() {
@@ -53,14 +53,14 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+     * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
      * 
      */
     @Import(name="enableRbacAuthorization")
     private @Nullable Output<Boolean> enableRbacAuthorization;
 
     /**
-     * @return Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+     * @return Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
      * 
      */
     public Optional<Output<Boolean>> enableRbacAuthorization() {
@@ -68,14 +68,14 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+     * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
      * 
      */
     @Import(name="enabledForDeployment")
     private @Nullable Output<Boolean> enabledForDeployment;
 
     /**
-     * @return Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+     * @return Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
      * 
      */
     public Optional<Output<Boolean>> enabledForDeployment() {
@@ -83,14 +83,14 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+     * Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
      * 
      */
     @Import(name="enabledForDiskEncryption")
     private @Nullable Output<Boolean> enabledForDiskEncryption;
 
     /**
-     * @return Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+     * @return Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
      * 
      */
     public Optional<Output<Boolean>> enabledForDiskEncryption() {
@@ -98,14 +98,14 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+     * Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
      * 
      */
     @Import(name="enabledForTemplateDeployment")
     private @Nullable Output<Boolean> enabledForTemplateDeployment;
 
     /**
-     * @return Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+     * @return Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
      * 
      */
     public Optional<Output<Boolean>> enabledForTemplateDeployment() {
@@ -173,14 +173,14 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+     * Is Purge Protection enabled for this Key Vault?
      * 
      */
     @Import(name="purgeProtectionEnabled")
     private @Nullable Output<Boolean> purgeProtectionEnabled;
 
     /**
-     * @return Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+     * @return Is Purge Protection enabled for this Key Vault?
      * 
      */
     public Optional<Output<Boolean>> purgeProtectionEnabled() {
@@ -318,7 +318,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessPolicies A list of up to 16 objects describing access policies, as described below.
+         * @param accessPolicies A list of up to 1024 objects describing access policies, as described below.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessPolicies A list of up to 16 objects describing access policies, as described below.
+         * @param accessPolicies A list of up to 1024 objects describing access policies, as described below.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessPolicies A list of up to 16 objects describing access policies, as described below.
+         * @param accessPolicies A list of up to 1024 objects describing access policies, as described below.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableRbacAuthorization Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+         * @param enableRbacAuthorization Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableRbacAuthorization Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+         * @param enableRbacAuthorization Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledForDeployment Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+         * @param enabledForDeployment Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledForDeployment Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+         * @param enabledForDeployment Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledForDiskEncryption Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+         * @param enabledForDiskEncryption Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledForDiskEncryption Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+         * @param enabledForDiskEncryption Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledForTemplateDeployment Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+         * @param enabledForTemplateDeployment Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabledForTemplateDeployment Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+         * @param enabledForTemplateDeployment Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
          * 
          * @return builder
          * 
@@ -548,7 +548,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+         * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault?
          * 
          * @return builder
          * 
@@ -559,7 +559,7 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+         * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault?
          * 
          * @return builder
          * 

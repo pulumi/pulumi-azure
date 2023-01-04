@@ -47,7 +47,7 @@ class StandardArgs:
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]] connection_strings: An `connection_string` block as defined below.
-        :param pulumi.Input[bool] enabled: Is the Logic App enabled?
+        :param pulumi.Input[bool] enabled: Is the Logic App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['StandardIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -208,7 +208,7 @@ class StandardArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the Logic App enabled?
+        Is the Logic App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -376,7 +376,7 @@ class _StandardState:
         :param pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
-        :param pulumi.Input[bool] enabled: Is the Logic App enabled?
+        :param pulumi.Input[bool] enabled: Is the Logic App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['StandardIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The Logic App kind - will be `functionapp,workflowapp`
@@ -548,7 +548,7 @@ class _StandardState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the Logic App enabled?
+        Is the Logic App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -877,7 +877,7 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
-        :param pulumi.Input[bool] enabled: Is the Logic App enabled?
+        :param pulumi.Input[bool] enabled: Is the Logic App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['StandardIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -1111,7 +1111,7 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StandardConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
-        :param pulumi.Input[bool] enabled: Is the Logic App enabled?
+        :param pulumi.Input[bool] enabled: Is the Logic App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['StandardIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The Logic App kind - will be `functionapp,workflowapp`
@@ -1230,7 +1230,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is the Logic App enabled?
+        Is the Logic App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 

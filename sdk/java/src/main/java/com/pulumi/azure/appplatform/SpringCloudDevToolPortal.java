@@ -118,14 +118,14 @@ public class SpringCloudDevToolPortal extends com.pulumi.resources.CustomResourc
         return this.applicationLiveViewEnabled;
     }
     /**
-     * The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+     * The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+     * @return The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
      * 
      */
     public Output<String> name() {

@@ -150,11 +150,11 @@ export class Registry extends pulumi.CustomResource {
      */
     public /*out*/ readonly adminUsername!: pulumi.Output<string>;
     /**
-     * Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+     * Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
      */
     public readonly anonymousPullEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+     * Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
      */
     public readonly dataEndpointEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -198,7 +198,7 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+     * Boolean value that indicates whether quarantine policy is enabled.
      */
     public readonly quarantinePolicyEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -316,11 +316,11 @@ export interface RegistryState {
      */
     adminUsername?: pulumi.Input<string>;
     /**
-     * Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+     * Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
      */
     anonymousPullEnabled?: pulumi.Input<boolean>;
     /**
-     * Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+     * Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
      */
     dataEndpointEnabled?: pulumi.Input<boolean>;
     /**
@@ -364,7 +364,7 @@ export interface RegistryState {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+     * Boolean value that indicates whether quarantine policy is enabled.
      */
     quarantinePolicyEnabled?: pulumi.Input<boolean>;
     /**
@@ -402,11 +402,11 @@ export interface RegistryArgs {
      */
     adminEnabled?: pulumi.Input<boolean>;
     /**
-     * Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+     * Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
      */
     anonymousPullEnabled?: pulumi.Input<boolean>;
     /**
-     * Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+     * Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
      */
     dataEndpointEnabled?: pulumi.Input<boolean>;
     /**
@@ -446,7 +446,7 @@ export interface RegistryArgs {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+     * Boolean value that indicates whether quarantine policy is enabled.
      */
     quarantinePolicyEnabled?: pulumi.Input<boolean>;
     /**

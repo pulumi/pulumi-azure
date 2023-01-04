@@ -443,7 +443,7 @@ class PolicyManagedRulesExclusionExcludedRuleSetRuleGroup(dict):
                  rule_group_name: str,
                  excluded_rules: Optional[Sequence[str]] = None):
         """
-        :param str rule_group_name: The name of rule group for exclusion.
+        :param str rule_group_name: The name of rule group for exclusion. Possible values are `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
         :param Sequence[str] excluded_rules: One or more Rule IDs for exclusion.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
@@ -454,7 +454,7 @@ class PolicyManagedRulesExclusionExcludedRuleSetRuleGroup(dict):
     @pulumi.getter(name="ruleGroupName")
     def rule_group_name(self) -> str:
         """
-        The name of rule group for exclusion.
+        The name of rule group for exclusion. Possible values are `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
         """
         return pulumi.get(self, "rule_group_name")
 
@@ -552,7 +552,7 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverride(dict):
                  disabled_rules: Optional[Sequence[str]] = None,
                  rules: Optional[Sequence['outputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule']] = None):
         """
-        :param str rule_group_name: The name of the Rule Group.
+        :param str rule_group_name: The name of the Rule Group. Possible values are `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
         :param Sequence['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs'] rules: One or more `rule` block defined below.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
@@ -565,7 +565,7 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverride(dict):
     @pulumi.getter(name="ruleGroupName")
     def rule_group_name(self) -> str:
         """
-        The name of the Rule Group.
+        The name of the Rule Group. Possible values are `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
         """
         return pulumi.get(self, "rule_group_name")
 
@@ -592,7 +592,7 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule(dict):
         """
         :param str id: Identifier for the managed rule.
         :param str action: Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
-        :param bool enabled: Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+        :param bool enabled: Describes if the managed rule is in enabled state or disabled state.
         """
         pulumi.set(__self__, "id", id)
         if action is not None:
@@ -620,7 +620,7 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+        Describes if the managed rule is in enabled state or disabled state.
         """
         return pulumi.get(self, "enabled")
 

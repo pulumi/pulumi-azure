@@ -200,7 +200,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<string?> TriggerOperator { get; private set; } = null!;
 
         /// <summary>
-        /// The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+        /// The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
         /// </summary>
         [Output("triggerThreshold")]
         public Output<int?> TriggerThreshold { get; private set; } = null!;
@@ -408,7 +408,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? TriggerOperator { get; set; }
 
         /// <summary>
-        /// The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+        /// The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
         /// </summary>
         [Input("triggerThreshold")]
         public Input<int>? TriggerThreshold { get; set; }
@@ -578,7 +578,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? TriggerOperator { get; set; }
 
         /// <summary>
-        /// The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+        /// The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
         /// </summary>
         [Input("triggerThreshold")]
         public Input<int>? TriggerThreshold { get; set; }

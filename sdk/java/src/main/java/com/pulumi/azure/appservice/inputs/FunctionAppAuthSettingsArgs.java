@@ -175,14 +175,14 @@ public final class FunctionAppAuthSettingsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+     * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
      * 
      */
     @Import(name="tokenRefreshExtensionHours")
     private @Nullable Output<Double> tokenRefreshExtensionHours;
 
     /**
-     * @return The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+     * @return The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
      * 
      */
     public Optional<Output<Double>> tokenRefreshExtensionHours() {
@@ -190,14 +190,14 @@ public final class FunctionAppAuthSettingsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+     * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
      * 
      */
     @Import(name="tokenStoreEnabled")
     private @Nullable Output<Boolean> tokenStoreEnabled;
 
     /**
-     * @return If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+     * @return If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> tokenStoreEnabled() {
@@ -492,7 +492,7 @@ public final class FunctionAppAuthSettingsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tokenRefreshExtensionHours The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+         * @param tokenRefreshExtensionHours The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
          * 
          * @return builder
          * 
@@ -503,7 +503,7 @@ public final class FunctionAppAuthSettingsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tokenRefreshExtensionHours The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+         * @param tokenRefreshExtensionHours The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class FunctionAppAuthSettingsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tokenStoreEnabled If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+         * @param tokenStoreEnabled If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class FunctionAppAuthSettingsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tokenStoreEnabled If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+         * @param tokenStoreEnabled If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
          * 
          * @return builder
          * 

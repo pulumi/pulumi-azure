@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// How frequently service should do flow analytics in minutes.
+        /// How frequently service should do flow analytics in minutes. Defaults to `60`.
         /// </summary>
         [Input("intervalInMinutes")]
         public Input<int>? IntervalInMinutes { get; set; }

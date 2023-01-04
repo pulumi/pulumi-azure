@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorRuleConditionsIsDeviceCondition {
     /**
-     * @return Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+     * @return Which device should this rule match on? Possible values `Mobile` or `Desktop`.
      * 
      */
     private @Nullable String matchValues;
@@ -30,7 +30,7 @@ public final class FrontdoorRuleConditionsIsDeviceCondition {
 
     private FrontdoorRuleConditionsIsDeviceCondition() {}
     /**
-     * @return Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+     * @return Which device should this rule match on? Possible values `Mobile` or `Desktop`.
      * 
      */
     public Optional<String> matchValues() {

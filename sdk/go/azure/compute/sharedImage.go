@@ -78,7 +78,7 @@ import (
 type SharedImage struct {
 	pulumi.CustomResourceState
 
-	// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
 	AcceleratedNetworkSupportEnabled pulumi.BoolPtrOutput `pulumi:"acceleratedNetworkSupportEnabled"`
 	// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
 	Architecture pulumi.StringPtrOutput `pulumi:"architecture"`
@@ -118,11 +118,11 @@ type SharedImage struct {
 	ReleaseNoteUri pulumi.StringPtrOutput `pulumi:"releaseNoteUri"`
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
 	Specialized pulumi.BoolPtrOutput `pulumi:"specialized"`
 	// A mapping of tags to assign to the Shared Image.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
 	TrustedLaunchEnabled pulumi.BoolPtrOutput `pulumi:"trustedLaunchEnabled"`
 }
 
@@ -167,7 +167,7 @@ func GetSharedImage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SharedImage resources.
 type sharedImageState struct {
-	// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
 	AcceleratedNetworkSupportEnabled *bool `pulumi:"acceleratedNetworkSupportEnabled"`
 	// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
 	Architecture *string `pulumi:"architecture"`
@@ -207,16 +207,16 @@ type sharedImageState struct {
 	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
 	Specialized *bool `pulumi:"specialized"`
 	// A mapping of tags to assign to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
 	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
 }
 
 type SharedImageState struct {
-	// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
 	AcceleratedNetworkSupportEnabled pulumi.BoolPtrInput
 	// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
 	Architecture pulumi.StringPtrInput
@@ -256,11 +256,11 @@ type SharedImageState struct {
 	ReleaseNoteUri pulumi.StringPtrInput
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
 	Specialized pulumi.BoolPtrInput
 	// A mapping of tags to assign to the Shared Image.
 	Tags pulumi.StringMapInput
-	// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
 	TrustedLaunchEnabled pulumi.BoolPtrInput
 }
 
@@ -269,7 +269,7 @@ func (SharedImageState) ElementType() reflect.Type {
 }
 
 type sharedImageArgs struct {
-	// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
 	AcceleratedNetworkSupportEnabled *bool `pulumi:"acceleratedNetworkSupportEnabled"`
 	// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
 	Architecture *string `pulumi:"architecture"`
@@ -309,17 +309,17 @@ type sharedImageArgs struct {
 	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
 	Specialized *bool `pulumi:"specialized"`
 	// A mapping of tags to assign to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
 	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
 }
 
 // The set of arguments for constructing a SharedImage resource.
 type SharedImageArgs struct {
-	// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
 	AcceleratedNetworkSupportEnabled pulumi.BoolPtrInput
 	// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
 	Architecture pulumi.StringPtrInput
@@ -359,11 +359,11 @@ type SharedImageArgs struct {
 	ReleaseNoteUri pulumi.StringPtrInput
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
 	Specialized pulumi.BoolPtrInput
 	// A mapping of tags to assign to the Shared Image.
 	Tags pulumi.StringMapInput
-	// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
 	TrustedLaunchEnabled pulumi.BoolPtrInput
 }
 
@@ -454,7 +454,7 @@ func (o SharedImageOutput) ToSharedImageOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+// Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
 func (o SharedImageOutput) AcceleratedNetworkSupportEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.BoolPtrOutput { return v.AcceleratedNetworkSupportEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -554,7 +554,7 @@ func (o SharedImageOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
 func (o SharedImageOutput) Specialized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.BoolPtrOutput { return v.Specialized }).(pulumi.BoolPtrOutput)
 }
@@ -564,7 +564,7 @@ func (o SharedImageOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
 func (o SharedImageOutput) TrustedLaunchEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.BoolPtrOutput { return v.TrustedLaunchEnabled }).(pulumi.BoolPtrOutput)
 }

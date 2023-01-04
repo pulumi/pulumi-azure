@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Automation
         public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Whether requests using non-AAD authentication are blocked.
+        /// Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         /// </summary>
         [Output("localAuthenticationEnabled")]
         public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Automation
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether requests using non-AAD authentication are blocked.
+        /// Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.Automation
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether requests using non-AAD authentication are blocked.
+        /// Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }

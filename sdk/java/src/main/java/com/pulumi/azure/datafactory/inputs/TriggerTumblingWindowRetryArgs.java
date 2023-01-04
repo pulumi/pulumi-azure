@@ -31,14 +31,14 @@ public final class TriggerTumblingWindowRetryArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Interval in seconds between each retry if the pipeline run failed.
+     * The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
      * 
      */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
     /**
-     * @return The Interval in seconds between each retry if the pipeline run failed.
+     * @return The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
      * 
      */
     public Optional<Output<Integer>> interval() {
@@ -92,7 +92,7 @@ public final class TriggerTumblingWindowRetryArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param interval The Interval in seconds between each retry if the pipeline run failed.
+         * @param interval The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class TriggerTumblingWindowRetryArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param interval The Interval in seconds between each retry if the pipeline run failed.
+         * @param interval The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
          * 
          * @return builder
          * 

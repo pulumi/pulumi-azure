@@ -36,10 +36,10 @@ class EventHubNamespaceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
-        :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+        :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
         :param pulumi.Input[str] dedicated_cluster_id: Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
         :param pulumi.Input['EventHubNamespaceIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace?
+        :param pulumi.Input[bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
@@ -118,7 +118,7 @@ class EventHubNamespaceArgs:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+        Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
         """
         return pulumi.get(self, "capacity")
 
@@ -154,7 +154,7 @@ class EventHubNamespaceArgs:
     @pulumi.getter(name="localAuthenticationEnabled")
     def local_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is SAS authentication enabled for the EventHub Namespace?
+        Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
@@ -286,7 +286,7 @@ class _EventHubNamespaceState:
         """
         Input properties used for looking up and filtering EventHubNamespace resources.
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
-        :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+        :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
         :param pulumi.Input[str] dedicated_cluster_id: Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_primary_connection_string: The primary connection string for the authorization
                rule `RootManageSharedAccessKey`.
@@ -299,7 +299,7 @@ class _EventHubNamespaceState:
                authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input['EventHubNamespaceIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace?
+        :param pulumi.Input[bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
@@ -370,7 +370,7 @@ class _EventHubNamespaceState:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+        Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
         """
         return pulumi.get(self, "capacity")
 
@@ -482,7 +482,7 @@ class _EventHubNamespaceState:
     @pulumi.getter(name="localAuthenticationEnabled")
     def local_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is SAS authentication enabled for the EventHub Namespace?
+        Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
@@ -663,10 +663,10 @@ class EventHubNamespace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
-        :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+        :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
         :param pulumi.Input[str] dedicated_cluster_id: Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['EventHubNamespaceIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace?
+        :param pulumi.Input[bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
@@ -817,7 +817,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
-        :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+        :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
         :param pulumi.Input[str] dedicated_cluster_id: Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_primary_connection_string: The primary connection string for the authorization
                rule `RootManageSharedAccessKey`.
@@ -830,7 +830,7 @@ class EventHubNamespace(pulumi.CustomResource):
                authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[pulumi.InputType['EventHubNamespaceIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace?
+        :param pulumi.Input[bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
@@ -881,7 +881,7 @@ class EventHubNamespace(pulumi.CustomResource):
     @pulumi.getter
     def capacity(self) -> pulumi.Output[Optional[int]]:
         """
-        Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+        Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
         """
         return pulumi.get(self, "capacity")
 
@@ -957,7 +957,7 @@ class EventHubNamespace(pulumi.CustomResource):
     @pulumi.getter(name="localAuthenticationEnabled")
     def local_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is SAS authentication enabled for the EventHub Namespace?
+        Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 

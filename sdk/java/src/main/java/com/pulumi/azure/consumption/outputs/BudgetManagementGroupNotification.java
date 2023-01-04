@@ -20,7 +20,7 @@ public final class BudgetManagementGroupNotification {
      */
     private List<String> contactEmails;
     /**
-     * @return Should the notification be enabled?
+     * @return Should the notification be enabled? Defaults to `true`.
      * 
      */
     private @Nullable Boolean enabled;
@@ -49,7 +49,7 @@ public final class BudgetManagementGroupNotification {
         return this.contactEmails;
     }
     /**
-     * @return Should the notification be enabled?
+     * @return Should the notification be enabled? Defaults to `true`.
      * 
      */
     public Optional<Boolean> enabled() {

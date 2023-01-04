@@ -47,14 +47,14 @@ public final class ServerMicrosoftSupportAuditingPolicyArgs extends com.pulumi.r
     }
 
     /**
-     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      * 
      */
     @Import(name="logMonitoringEnabled")
     private @Nullable Output<Boolean> logMonitoringEnabled;
 
     /**
-     * @return Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+     * @return Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> logMonitoringEnabled() {
@@ -178,7 +178,7 @@ public final class ServerMicrosoftSupportAuditingPolicyArgs extends com.pulumi.r
         }
 
         /**
-         * @param logMonitoringEnabled Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+         * @param logMonitoringEnabled Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ServerMicrosoftSupportAuditingPolicyArgs extends com.pulumi.r
         }
 
         /**
-         * @param logMonitoringEnabled Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+         * @param logMonitoringEnabled Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
          * 
          * @return builder
          * 

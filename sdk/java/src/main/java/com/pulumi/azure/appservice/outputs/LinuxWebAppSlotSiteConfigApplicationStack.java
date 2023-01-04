@@ -22,7 +22,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String dockerImageTag;
     /**
-     * @return The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
+     * @return The version of .NET to use. Possible values are `3.1`, `5.0`, `6.0` and `7.0`.
      * 
      */
     private @Nullable String dotnetVersion;
@@ -47,7 +47,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String nodeVersion;
     /**
-     * @return The version of PHP to run. Possible values include `7.4`, and `8.0`.
+     * @return The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
      * 
      */
     private @Nullable String phpVersion;
@@ -78,7 +78,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.dockerImageTag);
     }
     /**
-     * @return The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
+     * @return The version of .NET to use. Possible values are `3.1`, `5.0`, `6.0` and `7.0`.
      * 
      */
     public Optional<String> dotnetVersion() {
@@ -113,7 +113,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.nodeVersion);
     }
     /**
-     * @return The version of PHP to run. Possible values include `7.4`, and `8.0`.
+     * @return The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
      * 
      */
     public Optional<String> phpVersion() {

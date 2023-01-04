@@ -99,6 +99,7 @@ const (
 	azureIotCentral            = "IotCentral"            // IoT central
 	azureKeyVault              = "KeyVault"              // Key Vault
 	azureKusto                 = "Kusto"                 // Kusto
+	azureLab                   = "Lab"                   // Lab
 	azureLighthouse            = "Lighthouse"            // Lighthouse
 	azureLogAnalytics          = "LogAnalytics"          // Log Analytics
 	azureLogicApps             = "LogicApps"             // Logic Apps
@@ -778,8 +779,9 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "service_connector_spring_cloud.html.markdown",
 				},
 			},
-			"azurerm_spring_cloud_accelerator":     {Tok: azureResource(azureAppPlatform, "SpringCloudAccelerator")},
-			"azurerm_spring_cloud_dev_tool_portal": {Tok: azureResource(azureAppPlatform, "SpringCloudDevToolPortal")},
+			"azurerm_spring_cloud_accelerator":            {Tok: azureResource(azureAppPlatform, "SpringCloudAccelerator")},
+			"azurerm_spring_cloud_dev_tool_portal":        {Tok: azureResource(azureAppPlatform, "SpringCloudDevToolPortal")},
+			"azurerm_spring_cloud_customized_accelerator": {Tok: azureResource(azureAppPlatform, "SpringCloudCustomizedAccelerator")},
 
 			// Automation
 			"azurerm_automation_account":                {Tok: azureResource(azureAutomation, "Account")},
@@ -868,6 +870,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_batch_pool": {Tok: azureResource(azureBatch, "Pool")},
 			"azurerm_batch_job":  {Tok: azureResource(azureBatch, "Job")},
 
+			// Billing
+			"azurerm_billing_account_cost_management_export": {Tok: azureResource(azureBilling, "AccountCostManagementExport")},
+
 			// Core
 			"azurerm_resource_group": {
 				Tok: azureResource(azureCore, "ResourceGroup"),
@@ -892,9 +897,11 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"azurerm_template_deployment":                {Tok: azureResource(azureCore, "TemplateDeployment")},
-			"azurerm_resource_group_template_deployment": {Tok: azureResource(azureCore, "ResourceGroupTemplateDeployment")},
-			"azurerm_resource_group_policy_assignment":   {Tok: azureResource(azureCore, "ResourceGroupPolicyAssignment")},
+			"azurerm_template_deployment":                          {Tok: azureResource(azureCore, "TemplateDeployment")},
+			"azurerm_resource_deployment_script_azure_cli":         {Tok: azureResource(azureCore, "ResourceDeploymentScriptAzureCli")},
+			"azurerm_resource_deployment_script_azure_power_shell": {Tok: azureResource(azureCore, "ResourceDeploymentScriptPowerShell")},
+			"azurerm_resource_group_template_deployment":           {Tok: azureResource(azureCore, "ResourceGroupTemplateDeployment")},
+			"azurerm_resource_group_policy_assignment":             {Tok: azureResource(azureCore, "ResourceGroupPolicyAssignment")},
 			"azurerm_resource_group_policy_exemption": {
 				Tok: azureResource(azureCore, "ResourceGroupPolicyExemption"),
 				Docs: &tfbridge.DocInfo{
@@ -978,7 +985,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Cognitive
 			"azurerm_cognitive_account":                      {Tok: azureResource(azureCognitive, "Account")},
 			"azurerm_cognitive_account_customer_managed_key": {Tok: azureResource(azureCognitive, "AccountCustomerManagedKey")},
-
+			"azurerm_cognitive_deployment":                   {Tok: azureResource(azureCognitive, "Deployment")},
 			// Compute
 			"azurerm_availability_set": {
 				Tok: azureResource(azureCompute, "AvailabilitySet"),
@@ -1311,6 +1318,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_key_vault_access_policy":           {Tok: azureResource(azureKeyVault, "AccessPolicy")},
 			"azurerm_key_vault_key":                     {Tok: azureResource(azureKeyVault, "Key")},
 			"azurerm_key_vault_secret":                  {Tok: azureResource(azureKeyVault, "Secret")},
+			"azurerm_key_vault_certificate_contacts":    {Tok: azureResource(azureKeyVault, "CertificateContacts")},
 			"azurerm_key_vault_certificate_issuer":      {Tok: azureResource(azureKeyVault, "CertificateIssuer")},
 			"azurerm_key_vault_managed_storage_account": {Tok: azureResource(azureKeyVault, "ManagedStorageAccount")},
 			"azurerm_key_vault_managed_storage_account_sas_token_definition": {
@@ -1319,6 +1327,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_key_vault_managed_hardware_security_module": {
 				Tok: azureResource(azureKeyVault, "ManagedHardwareSecurityModule"),
 			},
+
+			// Lab
+
+			"azurerm_lab_service_plan": {Tok: azureResource(azureLab, "ServicePlan")},
 
 			// LoadBalancer
 			"azurerm_lb": {

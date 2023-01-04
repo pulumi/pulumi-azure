@@ -315,6 +315,21 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         return this.volumePath;
     }
 
+    /**
+     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+     * 
+     */
+    @Import(name="zone")
+    private @Nullable Output<String> zone;
+
+    /**
+     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+     * 
+     */
+    public Optional<Output<String>> zone() {
+        return Optional.ofNullable(this.zone);
+    }
+
     private VolumeArgs() {}
 
     private VolumeArgs(VolumeArgs $) {
@@ -338,6 +353,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.throughputInMibps = $.throughputInMibps;
         this.volumePath = $.volumePath;
+        this.zone = $.zone;
     }
 
     public static Builder builder() {
@@ -784,6 +800,27 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder volumePath(String volumePath) {
             return volumePath(Output.of(volumePath));
+        }
+
+        /**
+         * @param zone Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zone(@Nullable Output<String> zone) {
+            $.zone = zone;
+            return this;
+        }
+
+        /**
+         * @param zone Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zone(String zone) {
+            return zone(Output.of(zone));
         }
 
         public VolumeArgs build() {

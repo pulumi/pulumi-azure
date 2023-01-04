@@ -62,7 +62,7 @@ namespace Pulumi.Azure.MySql
     /// 
     ///     var exampleServer = new Azure.MySql.Server("exampleServer");
     /// 
-    ///     // ...
+    ///     // ...
     ///     var exampleFirewallRule = new Azure.MySql.FirewallRule("exampleFirewallRule", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.MySql
     /// 
     ///     var exampleServer = new Azure.MySql.Server("exampleServer");
     /// 
-    ///     // ...
+    ///     // ...
     ///     var exampleFirewallRule = new Azure.MySql.FirewallRule("exampleFirewallRule", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,

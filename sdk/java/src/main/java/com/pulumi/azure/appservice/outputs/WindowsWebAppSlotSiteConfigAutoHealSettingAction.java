@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsWebAppSlotSiteConfigAutoHealSettingAction {
     /**
-     * @return Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+     * @return Predefined action to be taken to an Auto Heal trigger. Possible values are `CustomAction`, `LogEvent` and `Recycle`.
      * 
      */
     private String actionType;
@@ -30,7 +30,7 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingAction {
 
     private WindowsWebAppSlotSiteConfigAutoHealSettingAction() {}
     /**
-     * @return Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+     * @return Predefined action to be taken to an Auto Heal trigger. Possible values are `CustomAction`, `LogEvent` and `Recycle`.
      * 
      */
     public String actionType() {

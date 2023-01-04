@@ -86,7 +86,7 @@ export class SpringCloudDevToolPortal extends pulumi.CustomResource {
      */
     public readonly applicationLiveViewEnabled!: pulumi.Output<boolean>;
     /**
-     * The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+     * The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -151,7 +151,7 @@ export interface SpringCloudDevToolPortalState {
      */
     applicationLiveViewEnabled?: pulumi.Input<boolean>;
     /**
-     * The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+     * The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -181,7 +181,7 @@ export interface SpringCloudDevToolPortalArgs {
      */
     applicationLiveViewEnabled?: pulumi.Input<boolean>;
     /**
-     * The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+     * The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
      */
     name?: pulumi.Input<string>;
     /**

@@ -215,13 +215,13 @@ type FunctionApp struct {
 	ConnectionStrings FunctionAppConnectionStringArrayOutput `pulumi:"connectionStrings"`
 	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
 	CustomDomainVerificationId pulumi.StringOutput `pulumi:"customDomainVerificationId"`
-	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
 	DailyMemoryTimeQuota pulumi.IntPtrOutput `pulumi:"dailyMemoryTimeQuota"`
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
 	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging pulumi.BoolPtrOutput `pulumi:"enableBuiltinLogging"`
-	// Is the Function App enabled?
+	// Is the Function App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
@@ -235,7 +235,7 @@ type FunctionApp struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
@@ -319,13 +319,13 @@ type functionAppState struct {
 	ConnectionStrings []FunctionAppConnectionString `pulumi:"connectionStrings"`
 	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
 	CustomDomainVerificationId *string `pulumi:"customDomainVerificationId"`
-	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
 	DefaultHostname *string `pulumi:"defaultHostname"`
 	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging *bool `pulumi:"enableBuiltinLogging"`
-	// Is the Function App enabled?
+	// Is the Function App enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
@@ -339,7 +339,7 @@ type functionAppState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
 	Name *string `pulumi:"name"`
-	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
 	OsType *string `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
@@ -376,13 +376,13 @@ type FunctionAppState struct {
 	ConnectionStrings FunctionAppConnectionStringArrayInput
 	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
 	CustomDomainVerificationId pulumi.StringPtrInput
-	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
 	DailyMemoryTimeQuota pulumi.IntPtrInput
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
 	DefaultHostname pulumi.StringPtrInput
 	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging pulumi.BoolPtrInput
-	// Is the Function App enabled?
+	// Is the Function App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
@@ -396,7 +396,7 @@ type FunctionAppState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
 	Name pulumi.StringPtrInput
-	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
 	OsType pulumi.StringPtrInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringPtrInput
@@ -435,11 +435,11 @@ type functionAppArgs struct {
 	ClientCertMode *string `pulumi:"clientCertMode"`
 	// An `connectionString` block as defined below.
 	ConnectionStrings []FunctionAppConnectionString `pulumi:"connectionStrings"`
-	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
 	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging *bool `pulumi:"enableBuiltinLogging"`
-	// Is the Function App enabled?
+	// Is the Function App enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
@@ -451,7 +451,7 @@ type functionAppArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
 	Name *string `pulumi:"name"`
-	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
 	OsType *string `pulumi:"osType"`
 	// The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -481,11 +481,11 @@ type FunctionAppArgs struct {
 	ClientCertMode pulumi.StringPtrInput
 	// An `connectionString` block as defined below.
 	ConnectionStrings FunctionAppConnectionStringArrayInput
-	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
 	DailyMemoryTimeQuota pulumi.IntPtrInput
 	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging pulumi.BoolPtrInput
-	// Is the Function App enabled?
+	// Is the Function App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
@@ -497,7 +497,7 @@ type FunctionAppArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
 	Name pulumi.StringPtrInput
-	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+	// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
 	OsType pulumi.StringPtrInput
 	// The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -632,7 +632,7 @@ func (o FunctionAppOutput) CustomDomainVerificationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.StringOutput { return v.CustomDomainVerificationId }).(pulumi.StringOutput)
 }
 
-// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
 func (o FunctionAppOutput) DailyMemoryTimeQuota() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.IntPtrOutput { return v.DailyMemoryTimeQuota }).(pulumi.IntPtrOutput)
 }
@@ -647,7 +647,7 @@ func (o FunctionAppOutput) EnableBuiltinLogging() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.BoolPtrOutput { return v.EnableBuiltinLogging }).(pulumi.BoolPtrOutput)
 }
 
-// Is the Function App enabled?
+// Is the Function App enabled? Defaults to `true`.
 func (o FunctionAppOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -682,7 +682,7 @@ func (o FunctionAppOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A string indicating the Operating System type for this function app. Possible values are `linux` and “(empty string). Changing this forces a new resource to be created.
+// A string indicating the Operating System type for this function app. Possible values are `linux` and “(empty string). Changing this forces a new resource to be created. Defaults to `""`.
 func (o FunctionAppOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionApp) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
 }

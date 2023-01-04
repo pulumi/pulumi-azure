@@ -158,14 +158,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * Whether requests using non-AAD authentication are blocked.
+     * Whether requests using non-AAD authentication are blocked. Defaults to `true`.
      * 
      */
     @Export(name="localAuthenticationEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> localAuthenticationEnabled;
 
     /**
-     * @return Whether requests using non-AAD authentication are blocked.
+     * @return Whether requests using non-AAD authentication are blocked. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> localAuthenticationEnabled() {

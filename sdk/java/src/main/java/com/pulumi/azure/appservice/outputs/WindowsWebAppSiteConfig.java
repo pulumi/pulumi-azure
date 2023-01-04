@@ -145,7 +145,7 @@ public final class WindowsWebAppSiteConfig {
      */
     private @Nullable Boolean scmUseMainIpRestriction;
     /**
-     * @return Should the Windows Web App use a 32-bit worker.
+     * @return Should the Windows Web App use a 32-bit worker. Defaults to `true`.
      * 
      */
     private @Nullable Boolean use32BitWorker;
@@ -353,7 +353,7 @@ public final class WindowsWebAppSiteConfig {
         return Optional.ofNullable(this.scmUseMainIpRestriction);
     }
     /**
-     * @return Should the Windows Web App use a 32-bit worker.
+     * @return Should the Windows Web App use a 32-bit worker. Defaults to `true`.
      * 
      */
     public Optional<Boolean> use32BitWorker() {

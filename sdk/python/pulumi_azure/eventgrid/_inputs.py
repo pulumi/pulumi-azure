@@ -1551,7 +1551,7 @@ class EventSubscriptionRetryPolicyArgs:
                  event_time_to_live: pulumi.Input[int],
                  max_delivery_attempts: pulumi.Input[int]):
         """
-        :param pulumi.Input[int] event_time_to_live: Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+        :param pulumi.Input[int] event_time_to_live: Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
         :param pulumi.Input[int] max_delivery_attempts: Specifies the maximum number of delivery retry attempts for events.
         """
         pulumi.set(__self__, "event_time_to_live", event_time_to_live)
@@ -1561,7 +1561,7 @@ class EventSubscriptionRetryPolicyArgs:
     @pulumi.getter(name="eventTimeToLive")
     def event_time_to_live(self) -> pulumi.Input[int]:
         """
-        Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+        Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
         """
         return pulumi.get(self, "event_time_to_live")
 
@@ -1679,7 +1679,7 @@ class EventSubscriptionSubjectFilterArgs:
                  subject_begins_with: Optional[pulumi.Input[str]] = None,
                  subject_ends_with: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] case_sensitive: Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
+        :param pulumi.Input[bool] case_sensitive: Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
         :param pulumi.Input[str] subject_begins_with: A string to filter events for an event subscription based on a resource path prefix.
         :param pulumi.Input[str] subject_ends_with: A string to filter events for an event subscription based on a resource path suffix.
         """
@@ -1694,7 +1694,7 @@ class EventSubscriptionSubjectFilterArgs:
     @pulumi.getter(name="caseSensitive")
     def case_sensitive(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
+        Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
         """
         return pulumi.get(self, "case_sensitive")
 
@@ -3034,7 +3034,7 @@ class SystemTopicEventSubscriptionRetryPolicyArgs:
                  event_time_to_live: pulumi.Input[int],
                  max_delivery_attempts: pulumi.Input[int]):
         """
-        :param pulumi.Input[int] event_time_to_live: Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+        :param pulumi.Input[int] event_time_to_live: Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
         :param pulumi.Input[int] max_delivery_attempts: Specifies the maximum number of delivery retry attempts for events.
         """
         pulumi.set(__self__, "event_time_to_live", event_time_to_live)
@@ -3044,7 +3044,7 @@ class SystemTopicEventSubscriptionRetryPolicyArgs:
     @pulumi.getter(name="eventTimeToLive")
     def event_time_to_live(self) -> pulumi.Input[int]:
         """
-        Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+        Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
         """
         return pulumi.get(self, "event_time_to_live")
 
@@ -3162,7 +3162,7 @@ class SystemTopicEventSubscriptionSubjectFilterArgs:
                  subject_begins_with: Optional[pulumi.Input[str]] = None,
                  subject_ends_with: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] case_sensitive: Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
+        :param pulumi.Input[bool] case_sensitive: Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
         :param pulumi.Input[str] subject_begins_with: A string to filter events for an event subscription based on a resource path prefix.
         :param pulumi.Input[str] subject_ends_with: A string to filter events for an event subscription based on a resource path suffix.
         """
@@ -3177,7 +3177,7 @@ class SystemTopicEventSubscriptionSubjectFilterArgs:
     @pulumi.getter(name="caseSensitive")
     def case_sensitive(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
+        Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
         """
         return pulumi.get(self, "case_sensitive")
 

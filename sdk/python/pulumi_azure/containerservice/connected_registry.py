@@ -40,7 +40,7 @@ class ConnectedRegistryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ConnectedRegistryNotificationArgs']]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[str] parent_registry_id: The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] sync_message_ttl: The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
-        :param pulumi.Input[str] sync_schedule: The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+        :param pulumi.Input[str] sync_schedule: The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
         :param pulumi.Input[str] sync_window: The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`.
         """
         pulumi.set(__self__, "container_registry_id", container_registry_id)
@@ -190,7 +190,7 @@ class ConnectedRegistryArgs:
     @pulumi.getter(name="syncSchedule")
     def sync_schedule(self) -> Optional[pulumi.Input[str]]:
         """
-        The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+        The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
         """
         return pulumi.get(self, "sync_schedule")
 
@@ -237,7 +237,7 @@ class _ConnectedRegistryState:
         :param pulumi.Input[Sequence[pulumi.Input['ConnectedRegistryNotificationArgs']]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[str] parent_registry_id: The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] sync_message_ttl: The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
-        :param pulumi.Input[str] sync_schedule: The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+        :param pulumi.Input[str] sync_schedule: The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
         :param pulumi.Input[str] sync_token_id: The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] sync_window: The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`.
         """
@@ -378,7 +378,7 @@ class _ConnectedRegistryState:
     @pulumi.getter(name="syncSchedule")
     def sync_schedule(self) -> Optional[pulumi.Input[str]]:
         """
-        The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+        The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
         """
         return pulumi.get(self, "sync_schedule")
 
@@ -486,7 +486,7 @@ class ConnectedRegistry(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedRegistryNotificationArgs']]]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[str] parent_registry_id: The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] sync_message_ttl: The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
-        :param pulumi.Input[str] sync_schedule: The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+        :param pulumi.Input[str] sync_schedule: The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
         :param pulumi.Input[str] sync_token_id: The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] sync_window: The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`.
         """
@@ -632,7 +632,7 @@ class ConnectedRegistry(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedRegistryNotificationArgs']]]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[str] parent_registry_id: The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] sync_message_ttl: The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
-        :param pulumi.Input[str] sync_schedule: The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+        :param pulumi.Input[str] sync_schedule: The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
         :param pulumi.Input[str] sync_token_id: The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] sync_window: The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`.
         """
@@ -730,7 +730,7 @@ class ConnectedRegistry(pulumi.CustomResource):
     @pulumi.getter(name="syncSchedule")
     def sync_schedule(self) -> pulumi.Output[Optional[str]]:
         """
-        The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+        The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
         """
         return pulumi.get(self, "sync_schedule")
 

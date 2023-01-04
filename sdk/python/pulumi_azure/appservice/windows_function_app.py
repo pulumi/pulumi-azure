@@ -52,14 +52,14 @@ class WindowsFunctionAppArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['WindowsFunctionAppBackupArgs'] backup: A `backup` block as defined below.
-        :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] content_share_force_disabled: Should Content Share Settings be disabled. Defaults to `false`.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
-        :param pulumi.Input[bool] enabled: Is the Function App enabled?
+        :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App. Defaults to `~4`.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['WindowsFunctionAppIdentityArgs'] identity: A `identity` block as defined below.
@@ -205,7 +205,7 @@ class WindowsFunctionAppArgs:
     @pulumi.getter(name="builtinLoggingEnabled")
     def builtin_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         """
         return pulumi.get(self, "builtin_logging_enabled")
 
@@ -289,7 +289,7 @@ class WindowsFunctionAppArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the Function App enabled?
+        Is the Function App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -510,7 +510,7 @@ class _WindowsFunctionAppState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['WindowsFunctionAppBackupArgs'] backup: A `backup` block as defined below.
-        :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
@@ -519,7 +519,7 @@ class _WindowsFunctionAppState:
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         :param pulumi.Input[str] default_hostname: The default hostname of the Windows Function App.
-        :param pulumi.Input[bool] enabled: Is the Function App enabled?
+        :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App. Defaults to `~4`.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['WindowsFunctionAppIdentityArgs'] identity: A `identity` block as defined below.
@@ -657,7 +657,7 @@ class _WindowsFunctionAppState:
     @pulumi.getter(name="builtinLoggingEnabled")
     def builtin_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         """
         return pulumi.get(self, "builtin_logging_enabled")
 
@@ -765,7 +765,7 @@ class _WindowsFunctionAppState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the Function App enabled?
+        Is the Function App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -1126,14 +1126,14 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppBackupArgs']] backup: A `backup` block as defined below.
-        :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] content_share_force_disabled: Should Content Share Settings be disabled. Defaults to `false`.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
-        :param pulumi.Input[bool] enabled: Is the Function App enabled?
+        :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App. Defaults to `~4`.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppIdentityArgs']] identity: A `identity` block as defined below.
@@ -1347,7 +1347,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppBackupArgs']] backup: A `backup` block as defined below.
-        :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
@@ -1356,7 +1356,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         :param pulumi.Input[str] default_hostname: The default hostname of the Windows Function App.
-        :param pulumi.Input[bool] enabled: Is the Function App enabled?
+        :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App. Defaults to `~4`.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppIdentityArgs']] identity: A `identity` block as defined below.
@@ -1451,7 +1451,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
     @pulumi.getter(name="builtinLoggingEnabled")
     def builtin_logging_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         """
         return pulumi.get(self, "builtin_logging_enabled")
 
@@ -1523,7 +1523,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is the Function App enabled?
+        Is the Function App enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 

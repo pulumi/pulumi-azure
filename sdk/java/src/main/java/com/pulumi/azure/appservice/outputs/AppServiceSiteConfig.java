@@ -144,7 +144,7 @@ public final class AppServiceSiteConfig {
      */
     private @Nullable String scmType;
     /**
-     * @return IP security restrictions for scm to use main. Defaults to false.
+     * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
      */
     private @Nullable Boolean scmUseMainIpRestriction;
@@ -349,7 +349,7 @@ public final class AppServiceSiteConfig {
         return Optional.ofNullable(this.scmType);
     }
     /**
-     * @return IP security restrictions for scm to use main. Defaults to false.
+     * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
      */
     public Optional<Boolean> scmUseMainIpRestriction() {

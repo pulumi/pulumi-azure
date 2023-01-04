@@ -89,13 +89,13 @@ namespace Pulumi.Azure.KeyVault
         public Output<Outputs.ManagedHardwareSecurityModuleNetworkAcls> NetworkAcls { get; private set; } = null!;
 
         /// <summary>
-        /// Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+        /// Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
         /// </summary>
         [Output("purgeProtectionEnabled")]
         public Output<bool?> PurgeProtectionEnabled { get; private set; } = null!;
@@ -207,13 +207,13 @@ namespace Pulumi.Azure.KeyVault
         public Input<Inputs.ManagedHardwareSecurityModuleNetworkAclsArgs>? NetworkAcls { get; set; }
 
         /// <summary>
-        /// Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+        /// Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
         /// </summary>
         [Input("purgeProtectionEnabled")]
         public Input<bool>? PurgeProtectionEnabled { get; set; }
@@ -299,13 +299,13 @@ namespace Pulumi.Azure.KeyVault
         public Input<Inputs.ManagedHardwareSecurityModuleNetworkAclsGetArgs>? NetworkAcls { get; set; }
 
         /// <summary>
-        /// Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+        /// Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
         /// </summary>
         [Input("purgeProtectionEnabled")]
         public Input<bool>? PurgeProtectionEnabled { get; set; }

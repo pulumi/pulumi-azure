@@ -225,7 +225,7 @@ type ServerMicrosoftSupportAuditingPolicy struct {
 	BlobStorageEndpoint pulumi.StringPtrOutput `pulumi:"blobStorageEndpoint"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrOutput `pulumi:"logMonitoringEnabled"`
 	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
@@ -282,7 +282,7 @@ type serverMicrosoftSupportAuditingPolicyState struct {
 	BlobStorageEndpoint *string `pulumi:"blobStorageEndpoint"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
 	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
 	ServerId *string `pulumi:"serverId"`
@@ -297,7 +297,7 @@ type ServerMicrosoftSupportAuditingPolicyState struct {
 	BlobStorageEndpoint pulumi.StringPtrInput
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrInput
 	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
 	ServerId pulumi.StringPtrInput
@@ -316,7 +316,7 @@ type serverMicrosoftSupportAuditingPolicyArgs struct {
 	BlobStorageEndpoint *string `pulumi:"blobStorageEndpoint"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
 	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
 	ServerId string `pulumi:"serverId"`
@@ -332,7 +332,7 @@ type ServerMicrosoftSupportAuditingPolicyArgs struct {
 	BlobStorageEndpoint pulumi.StringPtrInput
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrInput
 	// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
 	ServerId pulumi.StringInput
@@ -439,7 +439,7 @@ func (o ServerMicrosoftSupportAuditingPolicyOutput) Enabled() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v *ServerMicrosoftSupportAuditingPolicy) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
 func (o ServerMicrosoftSupportAuditingPolicyOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServerMicrosoftSupportAuditingPolicy) pulumi.BoolPtrOutput { return v.LogMonitoringEnabled }).(pulumi.BoolPtrOutput)
 }

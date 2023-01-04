@@ -103,7 +103,7 @@ type OutboundRule struct {
 	EnableTcpReset pulumi.BoolPtrOutput `pulumi:"enableTcpReset"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations OutboundRuleFrontendIpConfigurationArrayOutput `pulumi:"frontendIpConfigurations"`
-	// The timeout for the TCP idle connection
+	// The timeout for the TCP idle connection Defaults to `4`.
 	IdleTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"idleTimeoutInMinutes"`
 	// The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
@@ -159,7 +159,7 @@ type outboundRuleState struct {
 	EnableTcpReset *bool `pulumi:"enableTcpReset"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations []OutboundRuleFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
-	// The timeout for the TCP idle connection
+	// The timeout for the TCP idle connection Defaults to `4`.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
@@ -178,7 +178,7 @@ type OutboundRuleState struct {
 	EnableTcpReset pulumi.BoolPtrInput
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations OutboundRuleFrontendIpConfigurationArrayInput
-	// The timeout for the TCP idle connection
+	// The timeout for the TCP idle connection Defaults to `4`.
 	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringPtrInput
@@ -201,7 +201,7 @@ type outboundRuleArgs struct {
 	EnableTcpReset *bool `pulumi:"enableTcpReset"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations []OutboundRuleFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
-	// The timeout for the TCP idle connection
+	// The timeout for the TCP idle connection Defaults to `4`.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
@@ -221,7 +221,7 @@ type OutboundRuleArgs struct {
 	EnableTcpReset pulumi.BoolPtrInput
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations OutboundRuleFrontendIpConfigurationArrayInput
-	// The timeout for the TCP idle connection
+	// The timeout for the TCP idle connection Defaults to `4`.
 	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringInput
@@ -340,7 +340,7 @@ func (o OutboundRuleOutput) FrontendIpConfigurations() OutboundRuleFrontendIpCon
 	}).(OutboundRuleFrontendIpConfigurationArrayOutput)
 }
 
-// The timeout for the TCP idle connection
+// The timeout for the TCP idle connection Defaults to `4`.
 func (o OutboundRuleOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OutboundRule) pulumi.IntPtrOutput { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }

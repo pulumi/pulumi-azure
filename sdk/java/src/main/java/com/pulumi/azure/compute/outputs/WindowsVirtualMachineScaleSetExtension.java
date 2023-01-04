@@ -20,7 +20,7 @@ public final class WindowsVirtualMachineScaleSetExtension {
      */
     private @Nullable Boolean autoUpgradeMinorVersion;
     /**
-     * @return Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+     * @return Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
      * 
      */
     private @Nullable Boolean automaticUpgradeEnabled;
@@ -75,7 +75,7 @@ public final class WindowsVirtualMachineScaleSetExtension {
         return Optional.ofNullable(this.autoUpgradeMinorVersion);
     }
     /**
-     * @return Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+     * @return Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
      * 
      */
     public Optional<Boolean> automaticUpgradeEnabled() {

@@ -101,7 +101,7 @@ import (
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 
-	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrOutput `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -151,7 +151,7 @@ func GetVirtualNetworkRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkRule resources.
 type virtualNetworkRuleState struct {
-	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -164,7 +164,7 @@ type virtualNetworkRuleState struct {
 }
 
 type VirtualNetworkRuleState struct {
-	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -181,7 +181,7 @@ func (VirtualNetworkRuleState) ElementType() reflect.Type {
 }
 
 type virtualNetworkRuleArgs struct {
-	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -195,7 +195,7 @@ type virtualNetworkRuleArgs struct {
 
 // The set of arguments for constructing a VirtualNetworkRule resource.
 type VirtualNetworkRuleArgs struct {
-	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -294,7 +294,7 @@ func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx cont
 	return o
 }
 
-// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
 func (o VirtualNetworkRuleOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkRule) pulumi.BoolPtrOutput { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }

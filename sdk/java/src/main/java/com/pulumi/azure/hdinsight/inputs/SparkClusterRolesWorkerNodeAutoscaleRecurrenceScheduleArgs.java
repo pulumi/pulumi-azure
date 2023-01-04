@@ -16,14 +16,14 @@ public final class SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs ex
     public static final SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs Empty = new SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs();
 
     /**
-     * The days of the week to perform autoscale.
+     * The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      * 
      */
     @Import(name="days", required=true)
     private Output<List<String>> days;
 
     /**
-     * @return The days of the week to perform autoscale.
+     * @return The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      * 
      */
     public Output<List<String>> days() {
@@ -87,7 +87,7 @@ public final class SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs ex
         }
 
         /**
-         * @param days The days of the week to perform autoscale.
+         * @param days The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs ex
         }
 
         /**
-         * @param days The days of the week to perform autoscale.
+         * @param days The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs ex
         }
 
         /**
-         * @param days The days of the week to perform autoscale.
+         * @param days The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
          * 
          * @return builder
          * 

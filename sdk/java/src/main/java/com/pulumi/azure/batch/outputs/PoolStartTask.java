@@ -39,7 +39,7 @@ public final class PoolStartTask {
      */
     private @Nullable List<PoolStartTaskResourceFile> resourceFiles;
     /**
-     * @return The number of retry count. Defaults to `1`.
+     * @return The number of retry count.
      * 
      */
     private @Nullable Integer taskRetryMaximum;
@@ -84,7 +84,7 @@ public final class PoolStartTask {
         return this.resourceFiles == null ? List.of() : this.resourceFiles;
     }
     /**
-     * @return The number of retry count. Defaults to `1`.
+     * @return The number of retry count.
      * 
      */
     public Optional<Integer> taskRetryMaximum() {

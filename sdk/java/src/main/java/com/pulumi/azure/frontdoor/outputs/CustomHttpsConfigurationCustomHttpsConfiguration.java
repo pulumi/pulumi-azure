@@ -17,7 +17,7 @@ public final class CustomHttpsConfigurationCustomHttpsConfiguration {
      */
     private @Nullable String azureKeyVaultCertificateSecretName;
     /**
-     * @return The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
+     * @return The version of the Key Vault secret representing the full certificate PFX.
      * 
      */
     private @Nullable String azureKeyVaultCertificateSecretVersion;
@@ -48,7 +48,7 @@ public final class CustomHttpsConfigurationCustomHttpsConfiguration {
         return Optional.ofNullable(this.azureKeyVaultCertificateSecretName);
     }
     /**
-     * @return The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
+     * @return The version of the Key Vault secret representing the full certificate PFX.
      * 
      */
     public Optional<String> azureKeyVaultCertificateSecretVersion() {

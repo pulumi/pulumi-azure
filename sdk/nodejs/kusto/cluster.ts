@@ -74,7 +74,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly allowedIpRanges!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
      */
     public readonly autoStopEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -86,7 +86,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly diskEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
      */
     public readonly doubleEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -250,7 +250,7 @@ export interface ClusterState {
      */
     allowedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
      */
     autoStopEnabled?: pulumi.Input<boolean>;
     /**
@@ -262,7 +262,7 @@ export interface ClusterState {
      */
     diskEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -352,7 +352,7 @@ export interface ClusterArgs {
      */
     allowedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
      */
     autoStopEnabled?: pulumi.Input<boolean>;
     /**
@@ -360,7 +360,7 @@ export interface ClusterArgs {
      */
     diskEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**

@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Compute
     public partial class SharedImage : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         /// </summary>
         [Output("acceleratedNetworkSupportEnabled")]
         public Output<bool?> AcceleratedNetworkSupportEnabled { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         /// </summary>
         [Output("specialized")]
         public Output<bool?> Specialized { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
         /// </summary>
         [Output("trustedLaunchEnabled")]
         public Output<bool?> TrustedLaunchEnabled { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.Compute
     public sealed class SharedImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         /// </summary>
         [Input("acceleratedNetworkSupportEnabled")]
         public Input<bool>? AcceleratedNetworkSupportEnabled { get; set; }
@@ -377,7 +377,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         /// </summary>
         [Input("specialized")]
         public Input<bool>? Specialized { get; set; }
@@ -395,7 +395,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("trustedLaunchEnabled")]
         public Input<bool>? TrustedLaunchEnabled { get; set; }
@@ -409,7 +409,7 @@ namespace Pulumi.Azure.Compute
     public sealed class SharedImageState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         /// </summary>
         [Input("acceleratedNetworkSupportEnabled")]
         public Input<bool>? AcceleratedNetworkSupportEnabled { get; set; }
@@ -535,7 +535,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         /// </summary>
         [Input("specialized")]
         public Input<bool>? Specialized { get; set; }
@@ -553,7 +553,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("trustedLaunchEnabled")]
         public Input<bool>? TrustedLaunchEnabled { get; set; }

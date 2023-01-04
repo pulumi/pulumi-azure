@@ -73,6 +73,11 @@ public final class GetVolumeResult {
      * 
      */
     private String volumePath;
+    /**
+     * @return The Availability Zone in which the Volume is located.
+     * 
+     */
+    private String zone;
 
     private GetVolumeResult() {}
     public String accountName() {
@@ -164,6 +169,13 @@ public final class GetVolumeResult {
     public String volumePath() {
         return this.volumePath;
     }
+    /**
+     * @return The Availability Zone in which the Volume is located.
+     * 
+     */
+    public String zone() {
+        return this.zone;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -189,6 +201,7 @@ public final class GetVolumeResult {
         private Integer storageQuotaInGb;
         private String subnetId;
         private String volumePath;
+        private String zone;
         public Builder() {}
         public Builder(GetVolumeResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -207,6 +220,7 @@ public final class GetVolumeResult {
     	      this.storageQuotaInGb = defaults.storageQuotaInGb;
     	      this.subnetId = defaults.subnetId;
     	      this.volumePath = defaults.volumePath;
+    	      this.zone = defaults.zone;
         }
 
         @CustomType.Setter
@@ -293,6 +307,11 @@ public final class GetVolumeResult {
             this.volumePath = Objects.requireNonNull(volumePath);
             return this;
         }
+        @CustomType.Setter
+        public Builder zone(String zone) {
+            this.zone = Objects.requireNonNull(zone);
+            return this;
+        }
         public GetVolumeResult build() {
             final var o = new GetVolumeResult();
             o.accountName = accountName;
@@ -310,6 +329,7 @@ public final class GetVolumeResult {
             o.storageQuotaInGb = storageQuotaInGb;
             o.subnetId = subnetId;
             o.volumePath = volumePath;
+            o.zone = zone;
             return o;
         }
     }

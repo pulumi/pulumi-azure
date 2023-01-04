@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
     /**
-     * @return The days of the week to perform autoscale.
+     * @return The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      * 
      */
     private List<String> days;
@@ -29,7 +29,7 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
 
     private HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule() {}
     /**
-     * @return The days of the week to perform autoscale.
+     * @return The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      * 
      */
     public List<String> days() {

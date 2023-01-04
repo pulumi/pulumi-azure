@@ -87,7 +87,7 @@ import (
 type Cache struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
 	AutomaticallyRotateKeyToLatestEnabled pulumi.BoolPtrOutput `pulumi:"automaticallyRotateKeyToLatestEnabled"`
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 	CacheSizeInGb pulumi.IntOutput `pulumi:"cacheSizeInGb"`
@@ -109,7 +109,7 @@ type Cache struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A list of IP Addresses where the HPC Cache can be mounted.
 	MountAddresses pulumi.StringArrayOutput `pulumi:"mountAddresses"`
-	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
 	Mtu pulumi.IntPtrOutput `pulumi:"mtu"`
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -166,7 +166,7 @@ func GetCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cache resources.
 type cacheState struct {
-	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
 	AutomaticallyRotateKeyToLatestEnabled *bool `pulumi:"automaticallyRotateKeyToLatestEnabled"`
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 	CacheSizeInGb *int `pulumi:"cacheSizeInGb"`
@@ -188,7 +188,7 @@ type cacheState struct {
 	Location *string `pulumi:"location"`
 	// A list of IP Addresses where the HPC Cache can be mounted.
 	MountAddresses []string `pulumi:"mountAddresses"`
-	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
 	Mtu *int `pulumi:"mtu"`
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -205,7 +205,7 @@ type cacheState struct {
 }
 
 type CacheState struct {
-	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
 	AutomaticallyRotateKeyToLatestEnabled pulumi.BoolPtrInput
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 	CacheSizeInGb pulumi.IntPtrInput
@@ -227,7 +227,7 @@ type CacheState struct {
 	Location pulumi.StringPtrInput
 	// A list of IP Addresses where the HPC Cache can be mounted.
 	MountAddresses pulumi.StringArrayInput
-	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
 	Mtu pulumi.IntPtrInput
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -248,7 +248,7 @@ func (CacheState) ElementType() reflect.Type {
 }
 
 type cacheArgs struct {
-	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
 	AutomaticallyRotateKeyToLatestEnabled *bool `pulumi:"automaticallyRotateKeyToLatestEnabled"`
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 	CacheSizeInGb int `pulumi:"cacheSizeInGb"`
@@ -268,7 +268,7 @@ type cacheArgs struct {
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
 	Mtu *int `pulumi:"mtu"`
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -286,7 +286,7 @@ type cacheArgs struct {
 
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
-	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+	// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
 	AutomaticallyRotateKeyToLatestEnabled pulumi.BoolPtrInput
 	// The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 	CacheSizeInGb pulumi.IntInput
@@ -306,7 +306,7 @@ type CacheArgs struct {
 	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
 	Mtu pulumi.IntPtrInput
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -409,7 +409,7 @@ func (o CacheOutput) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return o
 }
 
-// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+// Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
 func (o CacheOutput) AutomaticallyRotateKeyToLatestEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cache) pulumi.BoolPtrOutput { return v.AutomaticallyRotateKeyToLatestEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -464,7 +464,7 @@ func (o CacheOutput) MountAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringArrayOutput { return v.MountAddresses }).(pulumi.StringArrayOutput)
 }
 
-// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
 func (o CacheOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cache) pulumi.IntPtrOutput { return v.Mtu }).(pulumi.IntPtrOutput)
 }

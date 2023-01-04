@@ -88,7 +88,7 @@ type LinuxFunctionApp struct {
 	AuthSettings LinuxFunctionAppAuthSettingsOutput `pulumi:"authSettings"`
 	// A `backup` block as defined below.
 	Backup LinuxFunctionAppBackupPtrOutput `pulumi:"backup"`
-	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
 	BuiltinLoggingEnabled pulumi.BoolPtrOutput `pulumi:"builtinLoggingEnabled"`
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
@@ -106,7 +106,7 @@ type LinuxFunctionApp struct {
 	DailyMemoryTimeQuota pulumi.IntPtrOutput `pulumi:"dailyMemoryTimeQuota"`
 	// The default hostname of the Linux Function App.
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
-	// Is the Function App enabled?
+	// Is the Function App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The runtime version associated with the Function App. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrOutput `pulumi:"functionsExtensionVersion"`
@@ -208,7 +208,7 @@ type linuxFunctionAppState struct {
 	AuthSettings *LinuxFunctionAppAuthSettings `pulumi:"authSettings"`
 	// A `backup` block as defined below.
 	Backup *LinuxFunctionAppBackup `pulumi:"backup"`
-	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
 	BuiltinLoggingEnabled *bool `pulumi:"builtinLoggingEnabled"`
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
@@ -226,7 +226,7 @@ type linuxFunctionAppState struct {
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
 	// The default hostname of the Linux Function App.
 	DefaultHostname *string `pulumi:"defaultHostname"`
-	// Is the Function App enabled?
+	// Is the Function App enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The runtime version associated with the Function App. Defaults to `~4`.
 	FunctionsExtensionVersion *string `pulumi:"functionsExtensionVersion"`
@@ -283,7 +283,7 @@ type LinuxFunctionAppState struct {
 	AuthSettings LinuxFunctionAppAuthSettingsPtrInput
 	// A `backup` block as defined below.
 	Backup LinuxFunctionAppBackupPtrInput
-	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
 	BuiltinLoggingEnabled pulumi.BoolPtrInput
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrInput
@@ -301,7 +301,7 @@ type LinuxFunctionAppState struct {
 	DailyMemoryTimeQuota pulumi.IntPtrInput
 	// The default hostname of the Linux Function App.
 	DefaultHostname pulumi.StringPtrInput
-	// Is the Function App enabled?
+	// Is the Function App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The runtime version associated with the Function App. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrInput
@@ -362,7 +362,7 @@ type linuxFunctionAppArgs struct {
 	AuthSettings *LinuxFunctionAppAuthSettings `pulumi:"authSettings"`
 	// A `backup` block as defined below.
 	Backup *LinuxFunctionAppBackup `pulumi:"backup"`
-	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
 	BuiltinLoggingEnabled *bool `pulumi:"builtinLoggingEnabled"`
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
@@ -376,7 +376,7 @@ type linuxFunctionAppArgs struct {
 	ContentShareForceDisabled *bool `pulumi:"contentShareForceDisabled"`
 	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
-	// Is the Function App enabled?
+	// Is the Function App enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The runtime version associated with the Function App. Defaults to `~4`.
 	FunctionsExtensionVersion *string `pulumi:"functionsExtensionVersion"`
@@ -422,7 +422,7 @@ type LinuxFunctionAppArgs struct {
 	AuthSettings LinuxFunctionAppAuthSettingsPtrInput
 	// A `backup` block as defined below.
 	Backup LinuxFunctionAppBackupPtrInput
-	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+	// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
 	BuiltinLoggingEnabled pulumi.BoolPtrInput
 	// Should the function app use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrInput
@@ -436,7 +436,7 @@ type LinuxFunctionAppArgs struct {
 	ContentShareForceDisabled pulumi.BoolPtrInput
 	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
 	DailyMemoryTimeQuota pulumi.IntPtrInput
-	// Is the Function App enabled?
+	// Is the Function App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The runtime version associated with the Function App. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrInput
@@ -576,7 +576,7 @@ func (o LinuxFunctionAppOutput) Backup() LinuxFunctionAppBackupPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) LinuxFunctionAppBackupPtrOutput { return v.Backup }).(LinuxFunctionAppBackupPtrOutput)
 }
 
-// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
 func (o LinuxFunctionAppOutput) BuiltinLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.BoolPtrOutput { return v.BuiltinLoggingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -621,7 +621,7 @@ func (o LinuxFunctionAppOutput) DefaultHostname() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringOutput { return v.DefaultHostname }).(pulumi.StringOutput)
 }
 
-// Is the Function App enabled?
+// Is the Function App enabled? Defaults to `true`.
 func (o LinuxFunctionAppOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

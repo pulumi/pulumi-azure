@@ -107,7 +107,7 @@ namespace Pulumi.Azure.Lb
         public Output<ImmutableArray<Outputs.OutboundRuleFrontendIpConfiguration>> FrontendIpConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// The timeout for the TCP idle connection
+        /// The timeout for the TCP idle connection Defaults to `4`.
         /// </summary>
         [Output("idleTimeoutInMinutes")]
         public Output<int?> IdleTimeoutInMinutes { get; private set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.Lb
         }
 
         /// <summary>
-        /// The timeout for the TCP idle connection
+        /// The timeout for the TCP idle connection Defaults to `4`.
         /// </summary>
         [Input("idleTimeoutInMinutes")]
         public Input<int>? IdleTimeoutInMinutes { get; set; }
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.Lb
         }
 
         /// <summary>
-        /// The timeout for the TCP idle connection
+        /// The timeout for the TCP idle connection Defaults to `4`.
         /// </summary>
         [Input("idleTimeoutInMinutes")]
         public Input<int>? IdleTimeoutInMinutes { get; set; }

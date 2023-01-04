@@ -155,7 +155,7 @@ export class Standard extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultHostname!: pulumi.Output<string>;
     /**
-     * Is the Logic App enabled?
+     * Is the Logic App enabled? Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -351,7 +351,7 @@ export interface StandardState {
      */
     defaultHostname?: pulumi.Input<string>;
     /**
-     * Is the Logic App enabled?
+     * Is the Logic App enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -453,7 +453,7 @@ export interface StandardArgs {
      */
     connectionStrings?: pulumi.Input<pulumi.Input<inputs.logicapps.StandardConnectionString>[]>;
     /**
-     * Is the Logic App enabled?
+     * Is the Logic App enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**

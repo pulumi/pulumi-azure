@@ -108,14 +108,14 @@ public final class SourceControlState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Whether auto publish the Source Control.
+     * Whether auto publish the Source Control. Defaults to `true`.
      * 
      */
     @Import(name="publishRunbookEnabled")
     private @Nullable Output<Boolean> publishRunbookEnabled;
 
     /**
-     * @return Whether auto publish the Source Control.
+     * @return Whether auto publish the Source Control. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> publishRunbookEnabled() {
@@ -327,7 +327,7 @@ public final class SourceControlState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param publishRunbookEnabled Whether auto publish the Source Control.
+         * @param publishRunbookEnabled Whether auto publish the Source Control. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class SourceControlState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param publishRunbookEnabled Whether auto publish the Source Control.
+         * @param publishRunbookEnabled Whether auto publish the Source Control. Defaults to `true`.
          * 
          * @return builder
          * 

@@ -216,7 +216,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly managedResourceGroupName!: pulumi.Output<string>;
     /**
-     * Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
+     * Is Virtual Network enabled for all computes in this workspace?  Changing this forces a new resource to be created.
      */
     public readonly managedVirtualNetworkEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -382,7 +382,7 @@ export interface WorkspaceState {
      */
     managedResourceGroupName?: pulumi.Input<string>;
     /**
-     * Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
+     * Is Virtual Network enabled for all computes in this workspace?  Changing this forces a new resource to be created.
      */
     managedVirtualNetworkEnabled?: pulumi.Input<boolean>;
     /**
@@ -472,7 +472,7 @@ export interface WorkspaceArgs {
      */
     managedResourceGroupName?: pulumi.Input<string>;
     /**
-     * Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
+     * Is Virtual Network enabled for all computes in this workspace?  Changing this forces a new resource to be created.
      */
     managedVirtualNetworkEnabled?: pulumi.Input<boolean>;
     /**

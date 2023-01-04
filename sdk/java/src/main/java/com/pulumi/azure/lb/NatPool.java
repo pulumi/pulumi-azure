@@ -111,14 +111,14 @@ public class NatPool extends com.pulumi.resources.CustomResource {
         return this.backendPort;
     }
     /**
-     * Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group.
      * 
      */
     @Export(name="floatingIpEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> floatingIpEnabled;
 
     /**
-     * @return Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * @return Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group.
      * 
      */
     public Output<Optional<Boolean>> floatingIpEnabled() {
@@ -243,14 +243,14 @@ public class NatPool extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     * Is TCP Reset enabled for this Load Balancer Rule?
      * 
      */
     @Export(name="tcpResetEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> tcpResetEnabled;
 
     /**
-     * @return Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     * @return Is TCP Reset enabled for this Load Balancer Rule?
      * 
      */
     public Output<Optional<Boolean>> tcpResetEnabled() {

@@ -290,14 +290,14 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+     * Specifies if On-Demand Bursting is enabled for the Managed Disk.
      * 
      */
     @Import(name="onDemandBurstingEnabled")
     private @Nullable Output<Boolean> onDemandBurstingEnabled;
 
     /**
-     * @return Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+     * @return Specifies if On-Demand Bursting is enabled for the Managed Disk.
      * 
      */
     public Optional<Output<Boolean>> onDemandBurstingEnabled() {
@@ -470,14 +470,14 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="trustedLaunchEnabled")
     private @Nullable Output<Boolean> trustedLaunchEnabled;
 
     /**
-     * @return Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> trustedLaunchEnabled() {
@@ -949,7 +949,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onDemandBurstingEnabled Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+         * @param onDemandBurstingEnabled Specifies if On-Demand Bursting is enabled for the Managed Disk.
          * 
          * @return builder
          * 
@@ -960,7 +960,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onDemandBurstingEnabled Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+         * @param onDemandBurstingEnabled Specifies if On-Demand Bursting is enabled for the Managed Disk.
          * 
          * @return builder
          * 
@@ -1201,7 +1201,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedLaunchEnabled Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param trustedLaunchEnabled Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1212,7 +1212,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedLaunchEnabled Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param trustedLaunchEnabled Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

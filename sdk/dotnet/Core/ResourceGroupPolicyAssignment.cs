@@ -87,7 +87,7 @@ namespace Pulumi.Azure.Core
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if this Policy should be enforced or not?
+        /// Specifies if this Policy should be enforced or not? Defaults to `true`.
         /// </summary>
         [Output("enforce")]
         public Output<bool?> Enforce { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Specifies if this Policy should be enforced or not?
+        /// Specifies if this Policy should be enforced or not? Defaults to `true`.
         /// </summary>
         [Input("enforce")]
         public Input<bool>? Enforce { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Specifies if this Policy should be enforced or not?
+        /// Specifies if this Policy should be enforced or not? Defaults to `true`.
         /// </summary>
         [Input("enforce")]
         public Input<bool>? Enforce { get; set; }

@@ -141,14 +141,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+     * Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="infrastructureEncryptionEnabled")
     private @Nullable Output<Boolean> infrastructureEncryptionEnabled;
 
     /**
-     * @return Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> infrastructureEncryptionEnabled() {
@@ -548,7 +548,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param infrastructureEncryptionEnabled Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param infrastructureEncryptionEnabled Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -559,7 +559,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param infrastructureEncryptionEnabled Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param infrastructureEncryptionEnabled Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

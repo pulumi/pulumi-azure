@@ -148,28 +148,28 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
         return this.networkAcls;
     }
     /**
-     * Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+     * Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether traffic from public networks is permitted. Defaults to `True`. Changing this forces a new resource to be created.
+     * @return Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
-     * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
+     * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
      * 
      */
     @Export(name="purgeProtectionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> purgeProtectionEnabled;
 
     /**
-     * @return Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Is Purge Protection enabled for this Key Vault Managed Hardware Security Module?  Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> purgeProtectionEnabled() {

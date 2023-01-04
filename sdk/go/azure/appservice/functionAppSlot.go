@@ -101,13 +101,13 @@ type FunctionAppSlot struct {
 	AuthSettings FunctionAppSlotAuthSettingsOutput `pulumi:"authSettings"`
 	// A `connectionString` block as defined below.
 	ConnectionStrings FunctionAppSlotConnectionStringArrayOutput `pulumi:"connectionStrings"`
-	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
 	DailyMemoryTimeQuota pulumi.IntPtrOutput `pulumi:"dailyMemoryTimeQuota"`
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
 	// Should the built-in logging of the Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging pulumi.BoolPtrOutput `pulumi:"enableBuiltinLogging"`
-	// Is the Function App enabled?
+	// Is the Function App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
 	FunctionAppName pulumi.StringOutput `pulumi:"functionAppName"`
@@ -202,13 +202,13 @@ type functionAppSlotState struct {
 	AuthSettings *FunctionAppSlotAuthSettings `pulumi:"authSettings"`
 	// A `connectionString` block as defined below.
 	ConnectionStrings []FunctionAppSlotConnectionString `pulumi:"connectionStrings"`
-	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
 	DefaultHostname *string `pulumi:"defaultHostname"`
 	// Should the built-in logging of the Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging *bool `pulumi:"enableBuiltinLogging"`
-	// Is the Function App enabled?
+	// Is the Function App enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
 	FunctionAppName *string `pulumi:"functionAppName"`
@@ -253,13 +253,13 @@ type FunctionAppSlotState struct {
 	AuthSettings FunctionAppSlotAuthSettingsPtrInput
 	// A `connectionString` block as defined below.
 	ConnectionStrings FunctionAppSlotConnectionStringArrayInput
-	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
 	DailyMemoryTimeQuota pulumi.IntPtrInput
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
 	DefaultHostname pulumi.StringPtrInput
 	// Should the built-in logging of the Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging pulumi.BoolPtrInput
-	// Is the Function App enabled?
+	// Is the Function App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
 	FunctionAppName pulumi.StringPtrInput
@@ -308,11 +308,11 @@ type functionAppSlotArgs struct {
 	AuthSettings *FunctionAppSlotAuthSettings `pulumi:"authSettings"`
 	// A `connectionString` block as defined below.
 	ConnectionStrings []FunctionAppSlotConnectionString `pulumi:"connectionStrings"`
-	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
 	// Should the built-in logging of the Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging *bool `pulumi:"enableBuiltinLogging"`
-	// Is the Function App enabled?
+	// Is the Function App enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
 	FunctionAppName string `pulumi:"functionAppName"`
@@ -350,11 +350,11 @@ type FunctionAppSlotArgs struct {
 	AuthSettings FunctionAppSlotAuthSettingsPtrInput
 	// A `connectionString` block as defined below.
 	ConnectionStrings FunctionAppSlotConnectionStringArrayInput
-	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
 	DailyMemoryTimeQuota pulumi.IntPtrInput
 	// Should the built-in logging of the Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging pulumi.BoolPtrInput
-	// Is the Function App enabled?
+	// Is the Function App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
 	FunctionAppName pulumi.StringInput
@@ -489,7 +489,7 @@ func (o FunctionAppSlotOutput) ConnectionStrings() FunctionAppSlotConnectionStri
 	return o.ApplyT(func(v *FunctionAppSlot) FunctionAppSlotConnectionStringArrayOutput { return v.ConnectionStrings }).(FunctionAppSlotConnectionStringArrayOutput)
 }
 
-// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
 func (o FunctionAppSlotOutput) DailyMemoryTimeQuota() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FunctionAppSlot) pulumi.IntPtrOutput { return v.DailyMemoryTimeQuota }).(pulumi.IntPtrOutput)
 }
@@ -504,7 +504,7 @@ func (o FunctionAppSlotOutput) EnableBuiltinLogging() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FunctionAppSlot) pulumi.BoolPtrOutput { return v.EnableBuiltinLogging }).(pulumi.BoolPtrOutput)
 }
 
-// Is the Function App enabled?
+// Is the Function App enabled? Defaults to `true`.
 func (o FunctionAppSlotOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FunctionAppSlot) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

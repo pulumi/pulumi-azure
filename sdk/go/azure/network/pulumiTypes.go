@@ -1578,7 +1578,7 @@ type ApplicationGatewayHttpListener struct {
 	Name string `pulumi:"name"`
 	// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
 	Protocol string `pulumi:"protocol"`
-	// Should Server Name Indication be Required? Defaults to `false`.
+	// Should Server Name Indication be Required?
 	RequireSni *bool `pulumi:"requireSni"`
 	// The ID of the associated SSL Certificate.
 	SslCertificateId *string `pulumi:"sslCertificateId"`
@@ -1624,7 +1624,7 @@ type ApplicationGatewayHttpListenerArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Should Server Name Indication be Required? Defaults to `false`.
+	// Should Server Name Indication be Required?
 	RequireSni pulumi.BoolPtrInput `pulumi:"requireSni"`
 	// The ID of the associated SSL Certificate.
 	SslCertificateId pulumi.StringPtrInput `pulumi:"sslCertificateId"`
@@ -1744,7 +1744,7 @@ func (o ApplicationGatewayHttpListenerOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Should Server Name Indication be Required? Defaults to `false`.
+// Should Server Name Indication be Required?
 func (o ApplicationGatewayHttpListenerOutput) RequireSni() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) *bool { return v.RequireSni }).(pulumi.BoolPtrOutput)
 }
@@ -5482,9 +5482,9 @@ type ApplicationGatewayWafConfiguration struct {
 	MaxRequestBodySizeKb *int `pulumi:"maxRequestBodySizeKb"`
 	// Is Request Body Inspection enabled?  Defaults to `true`.
 	RequestBodyCheck *bool `pulumi:"requestBodyCheck"`
-	// The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
+	// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
 	RuleSetType *string `pulumi:"ruleSetType"`
-	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
+	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 	RuleSetVersion string `pulumi:"ruleSetVersion"`
 }
 
@@ -5514,9 +5514,9 @@ type ApplicationGatewayWafConfigurationArgs struct {
 	MaxRequestBodySizeKb pulumi.IntPtrInput `pulumi:"maxRequestBodySizeKb"`
 	// Is Request Body Inspection enabled?  Defaults to `true`.
 	RequestBodyCheck pulumi.BoolPtrInput `pulumi:"requestBodyCheck"`
-	// The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
+	// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
 	RuleSetType pulumi.StringPtrInput `pulumi:"ruleSetType"`
-	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
+	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 	RuleSetVersion pulumi.StringInput `pulumi:"ruleSetVersion"`
 }
 
@@ -5636,12 +5636,12 @@ func (o ApplicationGatewayWafConfigurationOutput) RequestBodyCheck() pulumi.Bool
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) *bool { return v.RequestBodyCheck }).(pulumi.BoolPtrOutput)
 }
 
-// The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
+// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
 func (o ApplicationGatewayWafConfigurationOutput) RuleSetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) *string { return v.RuleSetType }).(pulumi.StringPtrOutput)
 }
 
-// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
+// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 func (o ApplicationGatewayWafConfigurationOutput) RuleSetVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) string { return v.RuleSetVersion }).(pulumi.StringOutput)
 }
@@ -5740,7 +5740,7 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) RequestBodyCheck() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
+// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
 func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *string {
 		if v == nil {
@@ -5750,7 +5750,7 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
+// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *string {
 		if v == nil {
@@ -5761,7 +5761,7 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetVersion() pulumi.Str
 }
 
 type ApplicationGatewayWafConfigurationDisabledRuleGroup struct {
-	// The rule group where specific rules should be disabled. Accepted values are:  `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
+	// The rule group where specific rules should be disabled. Possible values are `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
 	RuleGroupName string `pulumi:"ruleGroupName"`
 	// A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
 	Rules []int `pulumi:"rules"`
@@ -5779,7 +5779,7 @@ type ApplicationGatewayWafConfigurationDisabledRuleGroupInput interface {
 }
 
 type ApplicationGatewayWafConfigurationDisabledRuleGroupArgs struct {
-	// The rule group where specific rules should be disabled. Accepted values are:  `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
+	// The rule group where specific rules should be disabled. Possible values are `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
 	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
 	// A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
 	Rules pulumi.IntArrayInput `pulumi:"rules"`
@@ -5836,7 +5836,7 @@ func (o ApplicationGatewayWafConfigurationDisabledRuleGroupOutput) ToApplication
 	return o
 }
 
-// The rule group where specific rules should be disabled. Accepted values are:  `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
+// The rule group where specific rules should be disabled. Possible values are `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
 func (o ApplicationGatewayWafConfigurationDisabledRuleGroupOutput) RuleGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayWafConfigurationDisabledRuleGroup) string { return v.RuleGroupName }).(pulumi.StringOutput)
 }
@@ -6199,9 +6199,9 @@ func (o ExpressRouteCircuitPeeringIpv6PtrOutput) SecondaryPeerAddressPrefix() pu
 type ExpressRouteCircuitPeeringIpv6MicrosoftPeering struct {
 	// A list of Advertised Public Prefixes.
 	AdvertisedPublicPrefixes []string `pulumi:"advertisedPublicPrefixes"`
-	// The CustomerASN of the peering.
+	// The CustomerASN of the peering. Defaults to `0`.
 	CustomerAsn *int `pulumi:"customerAsn"`
-	// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+	// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
 	RoutingRegistryName *string `pulumi:"routingRegistryName"`
 }
 
@@ -6219,9 +6219,9 @@ type ExpressRouteCircuitPeeringIpv6MicrosoftPeeringInput interface {
 type ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs struct {
 	// A list of Advertised Public Prefixes.
 	AdvertisedPublicPrefixes pulumi.StringArrayInput `pulumi:"advertisedPublicPrefixes"`
-	// The CustomerASN of the peering.
+	// The CustomerASN of the peering. Defaults to `0`.
 	CustomerAsn pulumi.IntPtrInput `pulumi:"customerAsn"`
-	// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+	// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
 	RoutingRegistryName pulumi.StringPtrInput `pulumi:"routingRegistryName"`
 }
 
@@ -6307,12 +6307,12 @@ func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput) AdvertisedPublicPr
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6MicrosoftPeering) []string { return v.AdvertisedPublicPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// The CustomerASN of the peering.
+// The CustomerASN of the peering. Defaults to `0`.
 func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput) CustomerAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6MicrosoftPeering) *int { return v.CustomerAsn }).(pulumi.IntPtrOutput)
 }
 
-// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
 func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringOutput) RoutingRegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringIpv6MicrosoftPeering) *string { return v.RoutingRegistryName }).(pulumi.StringPtrOutput)
 }
@@ -6351,7 +6351,7 @@ func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) AdvertisedPubli
 	}).(pulumi.StringArrayOutput)
 }
 
-// The CustomerASN of the peering.
+// The CustomerASN of the peering. Defaults to `0`.
 func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) CustomerAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6MicrosoftPeering) *int {
 		if v == nil {
@@ -6361,7 +6361,7 @@ func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) CustomerAsn() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
 func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) RoutingRegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringIpv6MicrosoftPeering) *string {
 		if v == nil {
@@ -6374,9 +6374,9 @@ func (o ExpressRouteCircuitPeeringIpv6MicrosoftPeeringPtrOutput) RoutingRegistry
 type ExpressRouteCircuitPeeringMicrosoftPeeringConfig struct {
 	// A list of Advertised Public Prefixes.
 	AdvertisedPublicPrefixes []string `pulumi:"advertisedPublicPrefixes"`
-	// The CustomerASN of the peering.
+	// The CustomerASN of the peering. Defaults to `0`.
 	CustomerAsn *int `pulumi:"customerAsn"`
-	// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+	// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
 	RoutingRegistryName *string `pulumi:"routingRegistryName"`
 }
 
@@ -6394,9 +6394,9 @@ type ExpressRouteCircuitPeeringMicrosoftPeeringConfigInput interface {
 type ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs struct {
 	// A list of Advertised Public Prefixes.
 	AdvertisedPublicPrefixes pulumi.StringArrayInput `pulumi:"advertisedPublicPrefixes"`
-	// The CustomerASN of the peering.
+	// The CustomerASN of the peering. Defaults to `0`.
 	CustomerAsn pulumi.IntPtrInput `pulumi:"customerAsn"`
-	// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+	// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
 	RoutingRegistryName pulumi.StringPtrInput `pulumi:"routingRegistryName"`
 }
 
@@ -6482,12 +6482,12 @@ func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput) AdvertisedPublic
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringMicrosoftPeeringConfig) []string { return v.AdvertisedPublicPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// The CustomerASN of the peering.
+// The CustomerASN of the peering. Defaults to `0`.
 func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput) CustomerAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringMicrosoftPeeringConfig) *int { return v.CustomerAsn }).(pulumi.IntPtrOutput)
 }
 
-// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
 func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigOutput) RoutingRegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRouteCircuitPeeringMicrosoftPeeringConfig) *string { return v.RoutingRegistryName }).(pulumi.StringPtrOutput)
 }
@@ -6526,7 +6526,7 @@ func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) AdvertisedPub
 	}).(pulumi.StringArrayOutput)
 }
 
-// The CustomerASN of the peering.
+// The CustomerASN of the peering. Defaults to `0`.
 func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) CustomerAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringMicrosoftPeeringConfig) *int {
 		if v == nil {
@@ -6536,7 +6536,7 @@ func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) CustomerAsn()
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
 func (o ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput) RoutingRegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeeringMicrosoftPeeringConfig) *string {
 		if v == nil {
@@ -14389,7 +14389,7 @@ func (o NetworkWatcherFlowLogRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrO
 type NetworkWatcherFlowLogTrafficAnalytics struct {
 	// Boolean flag to enable/disable traffic analytics.
 	Enabled bool `pulumi:"enabled"`
-	// How frequently service should do flow analytics in minutes.
+	// How frequently service should do flow analytics in minutes. Defaults to `60`.
 	IntervalInMinutes *int `pulumi:"intervalInMinutes"`
 	// The resource GUID of the attached workspace.
 	WorkspaceId string `pulumi:"workspaceId"`
@@ -14413,7 +14413,7 @@ type NetworkWatcherFlowLogTrafficAnalyticsInput interface {
 type NetworkWatcherFlowLogTrafficAnalyticsArgs struct {
 	// Boolean flag to enable/disable traffic analytics.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// How frequently service should do flow analytics in minutes.
+	// How frequently service should do flow analytics in minutes. Defaults to `60`.
 	IntervalInMinutes pulumi.IntPtrInput `pulumi:"intervalInMinutes"`
 	// The resource GUID of the attached workspace.
 	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
@@ -14505,7 +14505,7 @@ func (o NetworkWatcherFlowLogTrafficAnalyticsOutput) Enabled() pulumi.BoolOutput
 	return o.ApplyT(func(v NetworkWatcherFlowLogTrafficAnalytics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// How frequently service should do flow analytics in minutes.
+// How frequently service should do flow analytics in minutes. Defaults to `60`.
 func (o NetworkWatcherFlowLogTrafficAnalyticsOutput) IntervalInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkWatcherFlowLogTrafficAnalytics) *int { return v.IntervalInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -14559,7 +14559,7 @@ func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) Enabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// How frequently service should do flow analytics in minutes.
+// How frequently service should do flow analytics in minutes. Defaults to `60`.
 func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) IntervalInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkWatcherFlowLogTrafficAnalytics) *int {
 		if v == nil {
@@ -14600,7 +14600,7 @@ func (o NetworkWatcherFlowLogTrafficAnalyticsPtrOutput) WorkspaceResourceId() pu
 }
 
 type PointToPointVpnGatewayConnectionConfiguration struct {
-	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
 	InternetSecurityEnabled *bool `pulumi:"internetSecurityEnabled"`
 	// The Name which should be used for this Connection Configuration.
 	Name string `pulumi:"name"`
@@ -14622,7 +14622,7 @@ type PointToPointVpnGatewayConnectionConfigurationInput interface {
 }
 
 type PointToPointVpnGatewayConnectionConfigurationArgs struct {
-	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
 	InternetSecurityEnabled pulumi.BoolPtrInput `pulumi:"internetSecurityEnabled"`
 	// The Name which should be used for this Connection Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -14709,7 +14709,7 @@ func (o PointToPointVpnGatewayConnectionConfigurationOutput) ToPointToPointVpnGa
 	}).(PointToPointVpnGatewayConnectionConfigurationPtrOutput)
 }
 
-// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
 func (o PointToPointVpnGatewayConnectionConfigurationOutput) InternetSecurityEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfiguration) *bool { return v.InternetSecurityEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -14757,7 +14757,7 @@ func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) Elem() PointToPo
 	}).(PointToPointVpnGatewayConnectionConfigurationOutput)
 }
 
-// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
 func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) InternetSecurityEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfiguration) *bool {
 		if v == nil {
@@ -16448,9 +16448,9 @@ func (o SubnetDelegationArrayOutput) Index(i pulumi.IntInput) SubnetDelegationOu
 }
 
 type SubnetDelegationServiceDelegation struct {
-	// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/publicIPAddresses/read`,`Microsoft.Network/virtualNetworks/read`,`Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+	// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 	Actions []string `pulumi:"actions"`
-	// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`,`Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
+	// The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
 	Name string `pulumi:"name"`
 }
 
@@ -16466,9 +16466,9 @@ type SubnetDelegationServiceDelegationInput interface {
 }
 
 type SubnetDelegationServiceDelegationArgs struct {
-	// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/publicIPAddresses/read`,`Microsoft.Network/virtualNetworks/read`,`Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+	// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`,`Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
+	// The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -16498,12 +16498,12 @@ func (o SubnetDelegationServiceDelegationOutput) ToSubnetDelegationServiceDelega
 	return o
 }
 
-// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/publicIPAddresses/read`,`Microsoft.Network/virtualNetworks/read`,`Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+// A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 func (o SubnetDelegationServiceDelegationOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SubnetDelegationServiceDelegation) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`,`Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
+// The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
 func (o SubnetDelegationServiceDelegationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SubnetDelegationServiceDelegation) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -23825,7 +23825,7 @@ type VpnSiteLink struct {
 	Name string `pulumi:"name"`
 	// The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
 	ProviderName *string `pulumi:"providerName"`
-	// The speed of the VPN device at the branch location in unit of mbps.
+	// The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
 	SpeedInMbps *int `pulumi:"speedInMbps"`
 }
 
@@ -23853,7 +23853,7 @@ type VpnSiteLinkArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
 	ProviderName pulumi.StringPtrInput `pulumi:"providerName"`
-	// The speed of the VPN device at the branch location in unit of mbps.
+	// The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
 	SpeedInMbps pulumi.IntPtrInput `pulumi:"speedInMbps"`
 }
 
@@ -23938,7 +23938,7 @@ func (o VpnSiteLinkOutput) ProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnSiteLink) *string { return v.ProviderName }).(pulumi.StringPtrOutput)
 }
 
-// The speed of the VPN device at the branch location in unit of mbps.
+// The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
 func (o VpnSiteLinkOutput) SpeedInMbps() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpnSiteLink) *int { return v.SpeedInMbps }).(pulumi.IntPtrOutput)
 }

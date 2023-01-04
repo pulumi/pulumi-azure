@@ -34,14 +34,14 @@ public final class LinuxVirtualMachineScaleSetExtensionArgs extends com.pulumi.r
     }
 
     /**
-     * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+     * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
      * 
      */
     @Import(name="automaticUpgradeEnabled")
     private @Nullable Output<Boolean> automaticUpgradeEnabled;
 
     /**
-     * @return Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+     * @return Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
      * 
      */
     public Optional<Output<Boolean>> automaticUpgradeEnabled() {
@@ -231,7 +231,7 @@ public final class LinuxVirtualMachineScaleSetExtensionArgs extends com.pulumi.r
         }
 
         /**
-         * @param automaticUpgradeEnabled Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+         * @param automaticUpgradeEnabled Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class LinuxVirtualMachineScaleSetExtensionArgs extends com.pulumi.r
         }
 
         /**
-         * @param automaticUpgradeEnabled Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+         * @param automaticUpgradeEnabled Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
          * 
          * @return builder
          * 

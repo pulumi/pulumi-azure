@@ -398,14 +398,14 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.triggerOperator);
     }
     /**
-     * The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+     * The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
      * 
      */
     @Export(name="triggerThreshold", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> triggerThreshold;
 
     /**
-     * @return The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+     * @return The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
      * 
      */
     public Output<Optional<Integer>> triggerThreshold() {

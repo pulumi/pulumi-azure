@@ -123,7 +123,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean to enable or disable this Security Center Automation.
+        /// Boolean to enable or disable this Security Center Automation. Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Boolean to enable or disable this Security Center Automation.
+        /// Boolean to enable or disable this Security Center Automation. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -315,7 +315,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Boolean to enable or disable this Security Center Automation.
+        /// Boolean to enable or disable this Security Center Automation. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

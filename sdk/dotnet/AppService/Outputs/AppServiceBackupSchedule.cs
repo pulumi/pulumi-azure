@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? KeepAtLeastOneBackup;
         /// <summary>
-        /// Specifies the number of days after which Backups should be deleted.
+        /// Specifies the number of days after which Backups should be deleted. Defaults to `30`.
         /// </summary>
         public readonly int? RetentionPeriodInDays;
         /// <summary>

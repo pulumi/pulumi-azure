@@ -76,7 +76,7 @@ type HybridConnection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
 	RelayNamespaceName pulumi.StringOutput `pulumi:"relayNamespaceName"`
-	// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+	// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
 	RequiresClientAuthorization pulumi.BoolPtrOutput `pulumi:"requiresClientAuthorization"`
 	// The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -123,7 +123,7 @@ type hybridConnectionState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
 	RelayNamespaceName *string `pulumi:"relayNamespaceName"`
-	// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+	// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
 	RequiresClientAuthorization *bool `pulumi:"requiresClientAuthorization"`
 	// The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -136,7 +136,7 @@ type HybridConnectionState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
 	RelayNamespaceName pulumi.StringPtrInput
-	// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+	// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
 	RequiresClientAuthorization pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -153,7 +153,7 @@ type hybridConnectionArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
 	RelayNamespaceName string `pulumi:"relayNamespaceName"`
-	// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+	// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
 	RequiresClientAuthorization *bool `pulumi:"requiresClientAuthorization"`
 	// The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -167,7 +167,7 @@ type HybridConnectionArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
 	RelayNamespaceName pulumi.StringInput
-	// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+	// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
 	RequiresClientAuthorization pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -272,7 +272,7 @@ func (o HybridConnectionOutput) RelayNamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *HybridConnection) pulumi.StringOutput { return v.RelayNamespaceName }).(pulumi.StringOutput)
 }
 
-// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
 func (o HybridConnectionOutput) RequiresClientAuthorization() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HybridConnection) pulumi.BoolPtrOutput { return v.RequiresClientAuthorization }).(pulumi.BoolPtrOutput)
 }

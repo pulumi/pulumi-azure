@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string PrivateLinkTargetId;
         /// <summary>
-        /// Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
+        /// Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
         /// </summary>
         public readonly string? RequestMessage;
         /// <summary>

@@ -232,14 +232,14 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Configures the minimum version of TLS required for SSL requests to the SCM site.
+     * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
      * 
      */
     @Import(name="scmMinTlsVersion")
     private @Nullable Output<String> scmMinTlsVersion;
 
     /**
-     * @return Configures the minimum version of TLS required for SSL requests to the SCM site.
+     * @return Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
      * 
      */
     public Optional<Output<String>> scmMinTlsVersion() {
@@ -679,7 +679,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scmMinTlsVersion Configures the minimum version of TLS required for SSL requests to the SCM site.
+         * @param scmMinTlsVersion Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
          * 
          * @return builder
          * 
@@ -690,7 +690,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scmMinTlsVersion Configures the minimum version of TLS required for SSL requests to the SCM site.
+         * @param scmMinTlsVersion Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
          * 
          * @return builder
          * 

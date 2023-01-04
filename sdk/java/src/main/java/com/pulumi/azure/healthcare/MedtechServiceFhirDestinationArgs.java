@@ -38,14 +38,14 @@ public final class MedtechServiceFhirDestinationArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`. Defaults to `Create`.
+     * Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
      * 
      */
     @Import(name="destinationIdentityResolutionType", required=true)
     private Output<String> destinationIdentityResolutionType;
 
     /**
-     * @return Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`. Defaults to `Create`.
+     * @return Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
      * 
      */
     public Output<String> destinationIdentityResolutionType() {
@@ -157,7 +157,7 @@ public final class MedtechServiceFhirDestinationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param destinationIdentityResolutionType Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`. Defaults to `Create`.
+         * @param destinationIdentityResolutionType Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class MedtechServiceFhirDestinationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param destinationIdentityResolutionType Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`. Defaults to `Create`.
+         * @param destinationIdentityResolutionType Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
          * 
          * @return builder
          * 

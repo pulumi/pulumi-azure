@@ -78,7 +78,7 @@ export class SpringCloudConfigurationService extends pulumi.CustomResource {
     }
 
     /**
-     * The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+     * The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -125,7 +125,7 @@ export class SpringCloudConfigurationService extends pulumi.CustomResource {
  */
 export interface SpringCloudConfigurationServiceState {
     /**
-     * The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+     * The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -143,7 +143,7 @@ export interface SpringCloudConfigurationServiceState {
  */
 export interface SpringCloudConfigurationServiceArgs {
     /**
-     * The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+     * The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      */
     name?: pulumi.Input<string>;
     /**

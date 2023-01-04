@@ -72,14 +72,14 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+     * Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      * 
      */
     @Import(name="builtinLoggingEnabled")
     private @Nullable Output<Boolean> builtinLoggingEnabled;
 
     /**
-     * @return Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+     * @return Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> builtinLoggingEnabled() {
@@ -177,14 +177,14 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
      * 
      */
     @Import(name="dailyMemoryTimeQuota")
     private @Nullable Output<Integer> dailyMemoryTimeQuota;
 
     /**
-     * @return The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+     * @return The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> dailyMemoryTimeQuota() {
@@ -207,14 +207,14 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Is the Windows Function App Slot enabled.
+     * Is the Windows Function App Slot enabled. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Is the Windows Function App Slot enabled.
+     * @return Is the Windows Function App Slot enabled. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -237,14 +237,14 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The runtime version associated with the Function App Slot.
+     * The runtime version associated with the Function App Slot. Defaults to `~4`.
      * 
      */
     @Import(name="functionsExtensionVersion")
     private @Nullable Output<String> functionsExtensionVersion;
 
     /**
-     * @return The runtime version associated with the Function App Slot.
+     * @return The runtime version associated with the Function App Slot. Defaults to `~4`.
      * 
      */
     public Optional<Output<String>> functionsExtensionVersion() {
@@ -641,7 +641,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param builtinLoggingEnabled Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+         * @param builtinLoggingEnabled Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -652,7 +652,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param builtinLoggingEnabled Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+         * @param builtinLoggingEnabled Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -798,7 +798,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dailyMemoryTimeQuota The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+         * @param dailyMemoryTimeQuota The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -809,7 +809,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dailyMemoryTimeQuota The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+         * @param dailyMemoryTimeQuota The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -840,7 +840,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enabled Is the Windows Function App Slot enabled.
+         * @param enabled Is the Windows Function App Slot enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -851,7 +851,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enabled Is the Windows Function App Slot enabled.
+         * @param enabled Is the Windows Function App Slot enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -882,7 +882,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param functionsExtensionVersion The runtime version associated with the Function App Slot.
+         * @param functionsExtensionVersion The runtime version associated with the Function App Slot. Defaults to `~4`.
          * 
          * @return builder
          * 
@@ -893,7 +893,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param functionsExtensionVersion The runtime version associated with the Function App Slot.
+         * @param functionsExtensionVersion The runtime version associated with the Function App Slot. Defaults to `~4`.
          * 
          * @return builder
          * 

@@ -194,7 +194,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<Outputs.ApiSubscriptionKeyParameterNames> SubscriptionKeyParameterNames { get; private set; } = null!;
 
         /// <summary>
-        /// Should this API require a subscription key?
+        /// Should this API require a subscription key? Defaults to `true`.
         /// </summary>
         [Output("subscriptionRequired")]
         public Output<bool?> SubscriptionRequired { get; private set; } = null!;
@@ -390,7 +390,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<Inputs.ApiSubscriptionKeyParameterNamesArgs>? SubscriptionKeyParameterNames { get; set; }
 
         /// <summary>
-        /// Should this API require a subscription key?
+        /// Should this API require a subscription key? Defaults to `true`.
         /// </summary>
         [Input("subscriptionRequired")]
         public Input<bool>? SubscriptionRequired { get; set; }
@@ -560,7 +560,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<Inputs.ApiSubscriptionKeyParameterNamesGetArgs>? SubscriptionKeyParameterNames { get; set; }
 
         /// <summary>
-        /// Should this API require a subscription key?
+        /// Should this API require a subscription key? Defaults to `true`.
         /// </summary>
         [Input("subscriptionRequired")]
         public Input<bool>? SubscriptionRequired { get; set; }

@@ -62,14 +62,14 @@ public final class SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs
     }
 
     /**
-     * Indicates whether the Config Server instance will fail to start if the host_key does not match.
+     * Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
      * 
      */
     @Import(name="strictHostKeyCheckingEnabled")
     private @Nullable Output<Boolean> strictHostKeyCheckingEnabled;
 
     /**
-     * @return Indicates whether the Config Server instance will fail to start if the host_key does not match.
+     * @return Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> strictHostKeyCheckingEnabled() {
@@ -167,7 +167,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs
         }
 
         /**
-         * @param strictHostKeyCheckingEnabled Indicates whether the Config Server instance will fail to start if the host_key does not match.
+         * @param strictHostKeyCheckingEnabled Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs
         }
 
         /**
-         * @param strictHostKeyCheckingEnabled Indicates whether the Config Server instance will fail to start if the host_key does not match.
+         * @param strictHostKeyCheckingEnabled Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
          * 
          * @return builder
          * 

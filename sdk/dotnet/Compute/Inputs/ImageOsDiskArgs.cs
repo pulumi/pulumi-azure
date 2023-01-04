@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? OsState { get; set; }
 
         /// <summary>
-        /// Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
+        /// Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }

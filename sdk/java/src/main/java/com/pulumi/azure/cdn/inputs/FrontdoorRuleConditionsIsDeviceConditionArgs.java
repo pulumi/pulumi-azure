@@ -17,14 +17,14 @@ public final class FrontdoorRuleConditionsIsDeviceConditionArgs extends com.pulu
     public static final FrontdoorRuleConditionsIsDeviceConditionArgs Empty = new FrontdoorRuleConditionsIsDeviceConditionArgs();
 
     /**
-     * Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+     * Which device should this rule match on? Possible values `Mobile` or `Desktop`.
      * 
      */
     @Import(name="matchValues")
     private @Nullable Output<String> matchValues;
 
     /**
-     * @return Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+     * @return Which device should this rule match on? Possible values `Mobile` or `Desktop`.
      * 
      */
     public Optional<Output<String>> matchValues() {
@@ -88,7 +88,7 @@ public final class FrontdoorRuleConditionsIsDeviceConditionArgs extends com.pulu
         }
 
         /**
-         * @param matchValues Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+         * @param matchValues Which device should this rule match on? Possible values `Mobile` or `Desktop`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class FrontdoorRuleConditionsIsDeviceConditionArgs extends com.pulu
         }
 
         /**
-         * @param matchValues Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+         * @param matchValues Which device should this rule match on? Possible values `Mobile` or `Desktop`.
          * 
          * @return builder
          * 

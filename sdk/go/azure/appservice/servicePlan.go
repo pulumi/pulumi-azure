@@ -85,7 +85,7 @@ type ServicePlan struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The number of Workers (instances) to be allocated.
 	WorkerCount pulumi.IntOutput `pulumi:"workerCount"`
-	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
 	ZoneBalancingEnabled pulumi.BoolPtrOutput `pulumi:"zoneBalancingEnabled"`
 }
 
@@ -151,7 +151,7 @@ type servicePlanState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The number of Workers (instances) to be allocated.
 	WorkerCount *int `pulumi:"workerCount"`
-	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
 	ZoneBalancingEnabled *bool `pulumi:"zoneBalancingEnabled"`
 }
 
@@ -180,7 +180,7 @@ type ServicePlanState struct {
 	Tags pulumi.StringMapInput
 	// The number of Workers (instances) to be allocated.
 	WorkerCount pulumi.IntPtrInput
-	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
 	ZoneBalancingEnabled pulumi.BoolPtrInput
 }
 
@@ -209,7 +209,7 @@ type servicePlanArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The number of Workers (instances) to be allocated.
 	WorkerCount *int `pulumi:"workerCount"`
-	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
 	ZoneBalancingEnabled *bool `pulumi:"zoneBalancingEnabled"`
 }
 
@@ -235,7 +235,7 @@ type ServicePlanArgs struct {
 	Tags pulumi.StringMapInput
 	// The number of Workers (instances) to be allocated.
 	WorkerCount pulumi.IntPtrInput
-	// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
 	ZoneBalancingEnabled pulumi.BoolPtrInput
 }
 
@@ -386,7 +386,7 @@ func (o ServicePlanOutput) WorkerCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.IntOutput { return v.WorkerCount }).(pulumi.IntOutput)
 }
 
-// Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
 func (o ServicePlanOutput) ZoneBalancingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.BoolPtrOutput { return v.ZoneBalancingEnabled }).(pulumi.BoolPtrOutput)
 }

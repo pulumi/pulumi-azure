@@ -83,14 +83,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+     * Whether to enable the dynamic throttling for this Cognitive Service Account.
      * 
      */
     @Import(name="dynamicThrottlingEnabled")
     private @Nullable Output<Boolean> dynamicThrottlingEnabled;
 
     /**
-     * @return Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+     * @return Whether to enable the dynamic throttling for this Cognitive Service Account.
      * 
      */
     public Optional<Output<Boolean>> dynamicThrottlingEnabled() {
@@ -498,7 +498,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamicThrottlingEnabled Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+         * @param dynamicThrottlingEnabled Whether to enable the dynamic throttling for this Cognitive Service Account.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamicThrottlingEnabled Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+         * @param dynamicThrottlingEnabled Whether to enable the dynamic throttling for this Cognitive Service Account.
          * 
          * @return builder
          * 

@@ -78,14 +78,14 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
     }
 
     /**
-     * Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+     * Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
      * 
      */
     @Import(name="rootSquashEnabled")
     private @Nullable Output<Boolean> rootSquashEnabled;
 
     /**
-     * @return Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+     * @return Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
      * 
      */
     public Optional<Output<Boolean>> rootSquashEnabled() {
@@ -108,14 +108,14 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
     }
 
     /**
-     * Whether allow access to subdirectories under the root export? Defaults to `false`.
+     * Whether allow access to subdirectories under the root export?
      * 
      */
     @Import(name="submountAccessEnabled")
     private @Nullable Output<Boolean> submountAccessEnabled;
 
     /**
-     * @return Whether allow access to subdirectories under the root export? Defaults to `false`.
+     * @return Whether allow access to subdirectories under the root export?
      * 
      */
     public Optional<Output<Boolean>> submountAccessEnabled() {
@@ -123,14 +123,14 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
     }
 
     /**
-     * Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+     * Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
      * 
      */
     @Import(name="suidEnabled")
     private @Nullable Output<Boolean> suidEnabled;
 
     /**
-     * @return Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+     * @return Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
      * 
      */
     public Optional<Output<Boolean>> suidEnabled() {
@@ -253,7 +253,7 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param rootSquashEnabled Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+         * @param rootSquashEnabled Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param rootSquashEnabled Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+         * @param rootSquashEnabled Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param submountAccessEnabled Whether allow access to subdirectories under the root export? Defaults to `false`.
+         * @param submountAccessEnabled Whether allow access to subdirectories under the root export?
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param submountAccessEnabled Whether allow access to subdirectories under the root export? Defaults to `false`.
+         * @param submountAccessEnabled Whether allow access to subdirectories under the root export?
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param suidEnabled Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+         * @param suidEnabled Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param suidEnabled Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+         * @param suidEnabled Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
          * 
          * @return builder
          * 

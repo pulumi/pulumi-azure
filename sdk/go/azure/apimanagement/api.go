@@ -123,7 +123,7 @@ type Api struct {
 	SourceApiId pulumi.StringPtrOutput `pulumi:"sourceApiId"`
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesOutput `pulumi:"subscriptionKeyParameterNames"`
-	// Should this API require a subscription key?
+	// Should this API require a subscription key? Defaults to `true`.
 	SubscriptionRequired pulumi.BoolPtrOutput `pulumi:"subscriptionRequired"`
 	// Absolute URL of the Terms of Service for the API.
 	TermsOfServiceUrl pulumi.StringPtrOutput `pulumi:"termsOfServiceUrl"`
@@ -217,7 +217,7 @@ type apiState struct {
 	SourceApiId *string `pulumi:"sourceApiId"`
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames *ApiSubscriptionKeyParameterNames `pulumi:"subscriptionKeyParameterNames"`
-	// Should this API require a subscription key?
+	// Should this API require a subscription key? Defaults to `true`.
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
 	// Absolute URL of the Terms of Service for the API.
 	TermsOfServiceUrl *string `pulumi:"termsOfServiceUrl"`
@@ -274,7 +274,7 @@ type ApiState struct {
 	SourceApiId pulumi.StringPtrInput
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesPtrInput
-	// Should this API require a subscription key?
+	// Should this API require a subscription key? Defaults to `true`.
 	SubscriptionRequired pulumi.BoolPtrInput
 	// Absolute URL of the Terms of Service for the API.
 	TermsOfServiceUrl pulumi.StringPtrInput
@@ -331,7 +331,7 @@ type apiArgs struct {
 	SourceApiId *string `pulumi:"sourceApiId"`
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames *ApiSubscriptionKeyParameterNames `pulumi:"subscriptionKeyParameterNames"`
-	// Should this API require a subscription key?
+	// Should this API require a subscription key? Defaults to `true`.
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
 	// Absolute URL of the Terms of Service for the API.
 	TermsOfServiceUrl *string `pulumi:"termsOfServiceUrl"`
@@ -385,7 +385,7 @@ type ApiArgs struct {
 	SourceApiId pulumi.StringPtrInput
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesPtrInput
-	// Should this API require a subscription key?
+	// Should this API require a subscription key? Defaults to `true`.
 	SubscriptionRequired pulumi.BoolPtrInput
 	// Absolute URL of the Terms of Service for the API.
 	TermsOfServiceUrl pulumi.StringPtrInput
@@ -591,7 +591,7 @@ func (o ApiOutput) SubscriptionKeyParameterNames() ApiSubscriptionKeyParameterNa
 	return o.ApplyT(func(v *Api) ApiSubscriptionKeyParameterNamesOutput { return v.SubscriptionKeyParameterNames }).(ApiSubscriptionKeyParameterNamesOutput)
 }
 
-// Should this API require a subscription key?
+// Should this API require a subscription key? Defaults to `true`.
 func (o ApiOutput) SubscriptionRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.BoolPtrOutput { return v.SubscriptionRequired }).(pulumi.BoolPtrOutput)
 }

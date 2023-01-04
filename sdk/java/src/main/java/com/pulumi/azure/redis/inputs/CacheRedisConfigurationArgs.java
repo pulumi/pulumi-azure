@@ -123,14 +123,14 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
+     * How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
      * 
      */
     @Import(name="maxmemoryPolicy")
     private @Nullable Output<String> maxmemoryPolicy;
 
     /**
-     * @return How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
+     * @return How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
      * 
      */
     public Optional<Output<String>> maxmemoryPolicy() {
@@ -412,7 +412,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param maxmemoryPolicy How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
+         * @param maxmemoryPolicy How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
          * 
          * @return builder
          * 
@@ -423,7 +423,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param maxmemoryPolicy How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
+         * @param maxmemoryPolicy How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
          * 
          * @return builder
          * 

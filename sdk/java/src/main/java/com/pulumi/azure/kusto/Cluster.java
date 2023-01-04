@@ -107,14 +107,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowedIpRanges);
     }
     /**
-     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
      * 
      */
     @Export(name="autoStopEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoStopEnabled;
 
     /**
-     * @return Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     * @return Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> autoStopEnabled() {
@@ -149,14 +149,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.diskEncryptionEnabled);
     }
     /**
-     * Is the cluster&#39;s double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * Is the cluster&#39;s double encryption enabled?  Changing this forces a new resource to be created.
      * 
      */
     @Export(name="doubleEncryptionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> doubleEncryptionEnabled;
 
     /**
-     * @return Is the cluster&#39;s double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Is the cluster&#39;s double encryption enabled?  Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> doubleEncryptionEnabled() {

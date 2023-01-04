@@ -225,7 +225,7 @@ class FirewallRule(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_server = azure.mysql.Server("exampleServer")
-        # ...
+        # ...
         example_firewall_rule = azure.mysql.FirewallRule("exampleFirewallRule",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,
@@ -240,7 +240,7 @@ class FirewallRule(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_server = azure.mysql.Server("exampleServer")
-        # ...
+        # ...
         example_firewall_rule = azure.mysql.FirewallRule("exampleFirewallRule",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,
@@ -301,7 +301,7 @@ class FirewallRule(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_server = azure.mysql.Server("exampleServer")
-        # ...
+        # ...
         example_firewall_rule = azure.mysql.FirewallRule("exampleFirewallRule",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,
@@ -316,7 +316,7 @@ class FirewallRule(pulumi.CustomResource):
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_server = azure.mysql.Server("exampleServer")
-        # ...
+        # ...
         example_firewall_rule = azure.mysql.FirewallRule("exampleFirewallRule",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,

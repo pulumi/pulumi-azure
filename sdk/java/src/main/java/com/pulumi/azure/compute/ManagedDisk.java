@@ -377,14 +377,14 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkAccessPolicy);
     }
     /**
-     * Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+     * Specifies if On-Demand Bursting is enabled for the Managed Disk.
      * 
      */
     @Export(name="onDemandBurstingEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> onDemandBurstingEnabled;
 
     /**
-     * @return Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+     * @return Specifies if On-Demand Bursting is enabled for the Managed Disk.
      * 
      */
     public Output<Optional<Boolean>> onDemandBurstingEnabled() {
@@ -545,14 +545,14 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return this.tier;
     }
     /**
-     * Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="trustedLaunchEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> trustedLaunchEnabled;
 
     /**
-     * @return Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> trustedLaunchEnabled() {

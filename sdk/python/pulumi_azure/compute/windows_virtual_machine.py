@@ -73,7 +73,7 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         :param pulumi.Input['WindowsVirtualMachineAdditionalCapabilitiesArgs'] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine?
+        :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
@@ -82,7 +82,7 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
-        :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
@@ -302,7 +302,7 @@ class WindowsVirtualMachineArgs:
     @pulumi.getter(name="allowExtensionOperations")
     def allow_extension_operations(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should Extension Operations be allowed on this Virtual Machine?
+        Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         """
         return pulumi.get(self, "allow_extension_operations")
 
@@ -410,7 +410,7 @@ class WindowsVirtualMachineArgs:
     @pulumi.getter(name="enableAutomaticUpdates")
     def enable_automatic_updates(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+        Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         """
         return pulumi.get(self, "enable_automatic_updates")
 
@@ -828,7 +828,7 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine?
+        :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
@@ -837,7 +837,7 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
-        :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
@@ -1034,7 +1034,7 @@ class _WindowsVirtualMachineState:
     @pulumi.getter(name="allowExtensionOperations")
     def allow_extension_operations(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should Extension Operations be allowed on this Virtual Machine?
+        Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         """
         return pulumi.get(self, "allow_extension_operations")
 
@@ -1142,7 +1142,7 @@ class _WindowsVirtualMachineState:
     @pulumi.getter(name="enableAutomaticUpdates")
     def enable_automatic_updates(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+        Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         """
         return pulumi.get(self, "enable_automatic_updates")
 
@@ -1733,7 +1733,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineAdditionalUnattendContentArgs']]]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine?
+        :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
@@ -1742,7 +1742,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
-        :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
@@ -2060,7 +2060,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineAdditionalUnattendContentArgs']]]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine?
+        :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
@@ -2069,7 +2069,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
-        :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
@@ -2203,7 +2203,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="allowExtensionOperations")
     def allow_extension_operations(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should Extension Operations be allowed on this Virtual Machine?
+        Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         """
         return pulumi.get(self, "allow_extension_operations")
 
@@ -2275,7 +2275,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="enableAutomaticUpdates")
     def enable_automatic_updates(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+        Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         """
         return pulumi.get(self, "enable_automatic_updates")
 

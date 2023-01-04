@@ -89,14 +89,14 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoInflateEnabled);
     }
     /**
-     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
      * 
      */
     @Export(name="capacity", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> capacity;
 
     /**
-     * @return Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+     * @return Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
      * 
      */
     public Output<Optional<Integer>> capacity() {
@@ -223,14 +223,14 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * Is SAS authentication enabled for the EventHub Namespace?
+     * Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
      * 
      */
     @Export(name="localAuthenticationEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> localAuthenticationEnabled;
 
     /**
-     * @return Is SAS authentication enabled for the EventHub Namespace?
+     * @return Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> localAuthenticationEnabled() {

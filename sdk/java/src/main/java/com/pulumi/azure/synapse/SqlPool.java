@@ -128,14 +128,14 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.createMode);
     }
     /**
-     * Is transparent data encryption enabled? Defaults to `false`.
+     * Is transparent data encryption enabled?
      * 
      */
     @Export(name="dataEncrypted", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> dataEncrypted;
 
     /**
-     * @return Is transparent data encryption enabled? Defaults to `false`.
+     * @return Is transparent data encryption enabled?
      * 
      */
     public Output<Optional<Boolean>> dataEncrypted() {

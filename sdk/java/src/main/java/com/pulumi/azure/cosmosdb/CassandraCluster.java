@@ -270,14 +270,14 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Is the automatic repair enabled on the Cassandra Cluster?
+     * Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
      * 
      */
     @Export(name="repairEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> repairEnabled;
 
     /**
-     * @return Is the automatic repair enabled on the Cassandra Cluster?
+     * @return Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> repairEnabled() {

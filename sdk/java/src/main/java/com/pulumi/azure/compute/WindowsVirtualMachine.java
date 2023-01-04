@@ -197,14 +197,14 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
         return this.adminUsername;
     }
     /**
-     * Should Extension Operations be allowed on this Virtual Machine?
+     * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      * 
      */
     @Export(name="allowExtensionOperations", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> allowExtensionOperations;
 
     /**
-     * @return Should Extension Operations be allowed on this Virtual Machine?
+     * @return Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> allowExtensionOperations() {
@@ -323,14 +323,14 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.edgeZone);
     }
     /**
-     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
      * 
      */
     @Export(name="enableAutomaticUpdates", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableAutomaticUpdates;
 
     /**
-     * @return Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+     * @return Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enableAutomaticUpdates() {

@@ -16,6 +16,8 @@ __all__ = [
     'AccountNetworkAcls',
     'AccountNetworkAclsVirtualNetworkRule',
     'AccountStorage',
+    'DeploymentModel',
+    'DeploymentScale',
 ]
 
 @pulumi.output_type
@@ -301,5 +303,63 @@ class AccountStorage(dict):
         The client ID of the managed identity associated with the storage resource.
         """
         return pulumi.get(self, "identity_client_id")
+
+
+@pulumi.output_type
+class DeploymentModel(dict):
+    def __init__(__self__, *,
+                 format: str,
+                 name: str,
+                 version: str):
+        """
+        :param str format: The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+        :param str name: The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+        :param str version: The version of Cognitive Services Account Deployment model.
+        """
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def format(self) -> str:
+        """
+        The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version of Cognitive Services Account Deployment model.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class DeploymentScale(dict):
+    def __init__(__self__, *,
+                 type: str):
+        """
+        :param str type: Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "type")
 
 

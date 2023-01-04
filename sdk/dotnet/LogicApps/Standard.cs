@@ -182,7 +182,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> DefaultHostname { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Logic App enabled?
+        /// Is the Logic App enabled? Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -388,7 +388,7 @@ namespace Pulumi.Azure.LogicApps
         }
 
         /// <summary>
-        /// Is the Logic App enabled?
+        /// Is the Logic App enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -556,7 +556,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? DefaultHostname { get; set; }
 
         /// <summary>
-        /// Is the Logic App enabled?
+        /// Is the Logic App enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string PhysicalPath;
         /// <summary>
-        /// Should pre-loading be enabled. Defaults to `false`.
+        /// Should pre-loading be enabled.
         /// </summary>
         public readonly bool Preload;
         /// <summary>

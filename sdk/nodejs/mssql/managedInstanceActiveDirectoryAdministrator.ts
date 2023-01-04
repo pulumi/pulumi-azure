@@ -44,7 +44,7 @@ export class ManagedInstanceActiveDirectoryAdministrator extends pulumi.CustomRe
     }
 
     /**
-     * When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+     * When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
      */
     public readonly azureadAuthenticationOnly!: pulumi.Output<boolean | undefined>;
     /**
@@ -112,7 +112,7 @@ export class ManagedInstanceActiveDirectoryAdministrator extends pulumi.CustomRe
  */
 export interface ManagedInstanceActiveDirectoryAdministratorState {
     /**
-     * When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+     * When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
      */
     azureadAuthenticationOnly?: pulumi.Input<boolean>;
     /**
@@ -138,7 +138,7 @@ export interface ManagedInstanceActiveDirectoryAdministratorState {
  */
 export interface ManagedInstanceActiveDirectoryAdministratorArgs {
     /**
-     * When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+     * When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
      */
     azureadAuthenticationOnly?: pulumi.Input<boolean>;
     /**

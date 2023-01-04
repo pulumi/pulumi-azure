@@ -105,7 +105,7 @@ type AppService struct {
 	CustomDomainVerificationId pulumi.StringOutput `pulumi:"customDomainVerificationId"`
 	// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
 	DefaultSiteHostname pulumi.StringOutput `pulumi:"defaultSiteHostname"`
-	// Is the App Service Enabled?
+	// Is the App Service Enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Can the App Service only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
@@ -196,7 +196,7 @@ type appServiceState struct {
 	CustomDomainVerificationId *string `pulumi:"customDomainVerificationId"`
 	// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
 	DefaultSiteHostname *string `pulumi:"defaultSiteHostname"`
-	// Is the App Service Enabled?
+	// Is the App Service Enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Can the App Service only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
@@ -253,7 +253,7 @@ type AppServiceState struct {
 	CustomDomainVerificationId pulumi.StringPtrInput
 	// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
 	DefaultSiteHostname pulumi.StringPtrInput
-	// Is the App Service Enabled?
+	// Is the App Service Enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Can the App Service only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
@@ -310,7 +310,7 @@ type appServiceArgs struct {
 	ClientCertMode *string `pulumi:"clientCertMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings []AppServiceConnectionString `pulumi:"connectionStrings"`
-	// Is the App Service Enabled?
+	// Is the App Service Enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Can the App Service only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
@@ -354,7 +354,7 @@ type AppServiceArgs struct {
 	ClientCertMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings AppServiceConnectionStringArrayInput
-	// Is the App Service Enabled?
+	// Is the App Service Enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Can the App Service only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
@@ -517,7 +517,7 @@ func (o AppServiceOutput) DefaultSiteHostname() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppService) pulumi.StringOutput { return v.DefaultSiteHostname }).(pulumi.StringOutput)
 }
 
-// Is the App Service Enabled?
+// Is the App Service Enabled? Defaults to `true`.
 func (o AppServiceOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppService) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

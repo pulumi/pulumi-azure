@@ -339,14 +339,14 @@ public final class AlertRuleScheduledArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+     * The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
      * 
      */
     @Import(name="triggerThreshold")
     private @Nullable Output<Integer> triggerThreshold;
 
     /**
-     * @return The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+     * @return The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> triggerThreshold() {
@@ -880,7 +880,7 @@ public final class AlertRuleScheduledArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param triggerThreshold The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+         * @param triggerThreshold The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -891,7 +891,7 @@ public final class AlertRuleScheduledArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param triggerThreshold The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+         * @param triggerThreshold The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
          * 
          * @return builder
          * 

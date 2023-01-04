@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? DockerImageTag;
         /// <summary>
-        /// The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
+        /// The version of .NET to use. Possible values are `3.1`, `5.0`, `6.0` and `7.0`.
         /// </summary>
         public readonly string? DotnetVersion;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? NodeVersion;
         /// <summary>
-        /// The version of PHP to run. Possible values include `7.4`, and `8.0`.
+        /// The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
         /// </summary>
         public readonly string? PhpVersion;
         /// <summary>

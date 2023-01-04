@@ -39,9 +39,9 @@ class CacheAccessPolicyAccessRuleArgs:
         :param pulumi.Input[int] anonymous_gid: The anonymous GID used when `root_squash_enabled` is `true`.
         :param pulumi.Input[int] anonymous_uid: The anonymous UID used when `root_squash_enabled` is `true`.
         :param pulumi.Input[str] filter: The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
-        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-        :param pulumi.Input[bool] submount_access_enabled: Whether allow access to subdirectories under the root export? Defaults to `false`.
-        :param pulumi.Input[bool] suid_enabled: Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
+        :param pulumi.Input[bool] submount_access_enabled: Whether allow access to subdirectories under the root export?
+        :param pulumi.Input[bool] suid_enabled: Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "scope", scope)
@@ -122,7 +122,7 @@ class CacheAccessPolicyAccessRuleArgs:
     @pulumi.getter(name="rootSquashEnabled")
     def root_squash_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+        Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
         """
         return pulumi.get(self, "root_squash_enabled")
 
@@ -134,7 +134,7 @@ class CacheAccessPolicyAccessRuleArgs:
     @pulumi.getter(name="submountAccessEnabled")
     def submount_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether allow access to subdirectories under the root export? Defaults to `false`.
+        Whether allow access to subdirectories under the root export?
         """
         return pulumi.get(self, "submount_access_enabled")
 
@@ -146,7 +146,7 @@ class CacheAccessPolicyAccessRuleArgs:
     @pulumi.getter(name="suidEnabled")
     def suid_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+        Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
         """
         return pulumi.get(self, "suid_enabled")
 
@@ -194,9 +194,9 @@ class CacheDefaultAccessPolicyAccessRuleArgs:
         :param pulumi.Input[int] anonymous_gid: The anonymous GID used when `root_squash_enabled` is `true`.
         :param pulumi.Input[int] anonymous_uid: The anonymous UID used when `root_squash_enabled` is `true`.
         :param pulumi.Input[str] filter: The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
-        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
-        :param pulumi.Input[bool] submount_access_enabled: Whether allow access to subdirectories under the root export? Defaults to `false`.
-        :param pulumi.Input[bool] suid_enabled: Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
+        :param pulumi.Input[bool] submount_access_enabled: Whether allow access to subdirectories under the root export?
+        :param pulumi.Input[bool] suid_enabled: Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "scope", scope)
@@ -277,7 +277,7 @@ class CacheDefaultAccessPolicyAccessRuleArgs:
     @pulumi.getter(name="rootSquashEnabled")
     def root_squash_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+        Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
         """
         return pulumi.get(self, "root_squash_enabled")
 
@@ -289,7 +289,7 @@ class CacheDefaultAccessPolicyAccessRuleArgs:
     @pulumi.getter(name="submountAccessEnabled")
     def submount_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether allow access to subdirectories under the root export? Defaults to `false`.
+        Whether allow access to subdirectories under the root export?
         """
         return pulumi.get(self, "submount_access_enabled")
 
@@ -301,7 +301,7 @@ class CacheDefaultAccessPolicyAccessRuleArgs:
     @pulumi.getter(name="suidEnabled")
     def suid_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+        Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
         """
         return pulumi.get(self, "suid_enabled")
 
@@ -474,8 +474,8 @@ class CacheDirectoryLdapArgs:
         :param pulumi.Input[str] server: The FQDN or IP address of the LDAP server.
         :param pulumi.Input['CacheDirectoryLdapBindArgs'] bind: A `bind` block as defined above.
         :param pulumi.Input[str] certificate_validation_uri: The URI of the CA certificate to validate the LDAP secure connection.
-        :param pulumi.Input[bool] download_certificate_automatically: Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided. Defaults to `false`.
-        :param pulumi.Input[bool] encrypted: Whether the LDAP connection should be encrypted? Defaults to `false`.
+        :param pulumi.Input[bool] download_certificate_automatically: Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
+        :param pulumi.Input[bool] encrypted: Whether the LDAP connection should be encrypted?
         """
         pulumi.set(__self__, "base_dn", base_dn)
         pulumi.set(__self__, "server", server)
@@ -540,7 +540,7 @@ class CacheDirectoryLdapArgs:
     @pulumi.getter(name="downloadCertificateAutomatically")
     def download_certificate_automatically(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided. Defaults to `false`.
+        Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
         """
         return pulumi.get(self, "download_certificate_automatically")
 
@@ -552,7 +552,7 @@ class CacheDirectoryLdapArgs:
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the LDAP connection should be encrypted? Defaults to `false`.
+        Whether the LDAP connection should be encrypted?
         """
         return pulumi.get(self, "encrypted")
 

@@ -19,13 +19,13 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public Input<string>? BackendProtocol { get; set; }
 
         /// <summary>
-        /// Specifies the ingress read time out in seconds. Defaults to 300.
+        /// Specifies the ingress read time out in seconds. Defaults to `300`.
         /// </summary>
         [Input("readTimeoutInSeconds")]
         public Input<int>? ReadTimeoutInSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the ingress send time out in seconds. Defaults to 60.
+        /// Specifies the ingress send time out in seconds. Defaults to `60`.
         /// </summary>
         [Input("sendTimeoutInSeconds")]
         public Input<int>? SendTimeoutInSeconds { get; set; }

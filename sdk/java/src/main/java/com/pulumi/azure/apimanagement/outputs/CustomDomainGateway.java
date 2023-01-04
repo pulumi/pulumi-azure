@@ -25,7 +25,7 @@ public final class CustomDomainGateway {
     private @Nullable String certificateSource;
     private @Nullable String certificateStatus;
     /**
-     * @return Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to false.
+     * @return Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to `false`.
      * 
      */
     private @Nullable Boolean defaultSslBinding;
@@ -41,7 +41,7 @@ public final class CustomDomainGateway {
      */
     private @Nullable String keyVaultId;
     /**
-     * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+     * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
      * 
      */
     private @Nullable Boolean negotiateClientCertificate;
@@ -71,7 +71,7 @@ public final class CustomDomainGateway {
         return Optional.ofNullable(this.certificateStatus);
     }
     /**
-     * @return Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to false.
+     * @return Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to `false`.
      * 
      */
     public Optional<Boolean> defaultSslBinding() {
@@ -95,7 +95,7 @@ public final class CustomDomainGateway {
         return Optional.ofNullable(this.keyVaultId);
     }
     /**
-     * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+     * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
      * 
      */
     public Optional<Boolean> negotiateClientCertificate() {

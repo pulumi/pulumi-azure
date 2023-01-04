@@ -534,9 +534,9 @@ func (o SpringCloudAppIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type SpringCloudAppIngressSettings struct {
 	// Specifies how ingress should communicate with this app backend service. Allowed values are `GRPC` and `Default`. Defaults to `Default`.
 	BackendProtocol *string `pulumi:"backendProtocol"`
-	// Specifies the ingress read time out in seconds. Defaults to 300.
+	// Specifies the ingress read time out in seconds. Defaults to `300`.
 	ReadTimeoutInSeconds *int `pulumi:"readTimeoutInSeconds"`
-	// Specifies the ingress send time out in seconds. Defaults to 60.
+	// Specifies the ingress send time out in seconds. Defaults to `60`.
 	SendTimeoutInSeconds *int `pulumi:"sendTimeoutInSeconds"`
 	// Specifies the type of the affinity, set this to `Cookie` to enable session affinity. Allowed values are `Cookie` and `None`. Defaults to `None`.
 	SessionAffinity *string `pulumi:"sessionAffinity"`
@@ -558,9 +558,9 @@ type SpringCloudAppIngressSettingsInput interface {
 type SpringCloudAppIngressSettingsArgs struct {
 	// Specifies how ingress should communicate with this app backend service. Allowed values are `GRPC` and `Default`. Defaults to `Default`.
 	BackendProtocol pulumi.StringPtrInput `pulumi:"backendProtocol"`
-	// Specifies the ingress read time out in seconds. Defaults to 300.
+	// Specifies the ingress read time out in seconds. Defaults to `300`.
 	ReadTimeoutInSeconds pulumi.IntPtrInput `pulumi:"readTimeoutInSeconds"`
-	// Specifies the ingress send time out in seconds. Defaults to 60.
+	// Specifies the ingress send time out in seconds. Defaults to `60`.
 	SendTimeoutInSeconds pulumi.IntPtrInput `pulumi:"sendTimeoutInSeconds"`
 	// Specifies the type of the affinity, set this to `Cookie` to enable session affinity. Allowed values are `Cookie` and `None`. Defaults to `None`.
 	SessionAffinity pulumi.StringPtrInput `pulumi:"sessionAffinity"`
@@ -650,12 +650,12 @@ func (o SpringCloudAppIngressSettingsOutput) BackendProtocol() pulumi.StringPtrO
 	return o.ApplyT(func(v SpringCloudAppIngressSettings) *string { return v.BackendProtocol }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the ingress read time out in seconds. Defaults to 300.
+// Specifies the ingress read time out in seconds. Defaults to `300`.
 func (o SpringCloudAppIngressSettingsOutput) ReadTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpringCloudAppIngressSettings) *int { return v.ReadTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the ingress send time out in seconds. Defaults to 60.
+// Specifies the ingress send time out in seconds. Defaults to `60`.
 func (o SpringCloudAppIngressSettingsOutput) SendTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpringCloudAppIngressSettings) *int { return v.SendTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -704,7 +704,7 @@ func (o SpringCloudAppIngressSettingsPtrOutput) BackendProtocol() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the ingress read time out in seconds. Defaults to 300.
+// Specifies the ingress read time out in seconds. Defaults to `300`.
 func (o SpringCloudAppIngressSettingsPtrOutput) ReadTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpringCloudAppIngressSettings) *int {
 		if v == nil {
@@ -714,7 +714,7 @@ func (o SpringCloudAppIngressSettingsPtrOutput) ReadTimeoutInSeconds() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the ingress send time out in seconds. Defaults to 60.
+// Specifies the ingress send time out in seconds. Defaults to `60`.
 func (o SpringCloudAppIngressSettingsPtrOutput) SendTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpringCloudAppIngressSettings) *int {
 		if v == nil {
@@ -2065,6 +2065,592 @@ func (o SpringCloudContainerDeploymentQuotaPtrOutput) Memory() pulumi.StringPtrO
 			return nil
 		}
 		return v.Memory
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpringCloudCustomizedAcceleratorGitRepository struct {
+	// A `basicAuth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+	BasicAuth *SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth `pulumi:"basicAuth"`
+	// Specifies the Git repository branch to be used.
+	Branch *string `pulumi:"branch"`
+	// Specifies the Git repository commit to be used.
+	Commit *string `pulumi:"commit"`
+	// Specifies the Git repository tag to be used.
+	GitTag *string `pulumi:"gitTag"`
+	// Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
+	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
+	// A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+	SshAuth *SpringCloudCustomizedAcceleratorGitRepositorySshAuth `pulumi:"sshAuth"`
+	// Specifies Git repository URL for the accelerator.
+	Url string `pulumi:"url"`
+}
+
+// SpringCloudCustomizedAcceleratorGitRepositoryInput is an input type that accepts SpringCloudCustomizedAcceleratorGitRepositoryArgs and SpringCloudCustomizedAcceleratorGitRepositoryOutput values.
+// You can construct a concrete instance of `SpringCloudCustomizedAcceleratorGitRepositoryInput` via:
+//
+//	SpringCloudCustomizedAcceleratorGitRepositoryArgs{...}
+type SpringCloudCustomizedAcceleratorGitRepositoryInput interface {
+	pulumi.Input
+
+	ToSpringCloudCustomizedAcceleratorGitRepositoryOutput() SpringCloudCustomizedAcceleratorGitRepositoryOutput
+	ToSpringCloudCustomizedAcceleratorGitRepositoryOutputWithContext(context.Context) SpringCloudCustomizedAcceleratorGitRepositoryOutput
+}
+
+type SpringCloudCustomizedAcceleratorGitRepositoryArgs struct {
+	// A `basicAuth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+	BasicAuth SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrInput `pulumi:"basicAuth"`
+	// Specifies the Git repository branch to be used.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// Specifies the Git repository commit to be used.
+	Commit pulumi.StringPtrInput `pulumi:"commit"`
+	// Specifies the Git repository tag to be used.
+	GitTag pulumi.StringPtrInput `pulumi:"gitTag"`
+	// Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
+	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
+	// A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+	SshAuth SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrInput `pulumi:"sshAuth"`
+	// Specifies Git repository URL for the accelerator.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (SpringCloudCustomizedAcceleratorGitRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudCustomizedAcceleratorGitRepository)(nil)).Elem()
+}
+
+func (i SpringCloudCustomizedAcceleratorGitRepositoryArgs) ToSpringCloudCustomizedAcceleratorGitRepositoryOutput() SpringCloudCustomizedAcceleratorGitRepositoryOutput {
+	return i.ToSpringCloudCustomizedAcceleratorGitRepositoryOutputWithContext(context.Background())
+}
+
+func (i SpringCloudCustomizedAcceleratorGitRepositoryArgs) ToSpringCloudCustomizedAcceleratorGitRepositoryOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorGitRepositoryOutput)
+}
+
+func (i SpringCloudCustomizedAcceleratorGitRepositoryArgs) ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutput() SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput {
+	return i.ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudCustomizedAcceleratorGitRepositoryArgs) ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorGitRepositoryOutput).ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutputWithContext(ctx)
+}
+
+// SpringCloudCustomizedAcceleratorGitRepositoryPtrInput is an input type that accepts SpringCloudCustomizedAcceleratorGitRepositoryArgs, SpringCloudCustomizedAcceleratorGitRepositoryPtr and SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput values.
+// You can construct a concrete instance of `SpringCloudCustomizedAcceleratorGitRepositoryPtrInput` via:
+//
+//	        SpringCloudCustomizedAcceleratorGitRepositoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpringCloudCustomizedAcceleratorGitRepositoryPtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutput() SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput
+	ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutputWithContext(context.Context) SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput
+}
+
+type springCloudCustomizedAcceleratorGitRepositoryPtrType SpringCloudCustomizedAcceleratorGitRepositoryArgs
+
+func SpringCloudCustomizedAcceleratorGitRepositoryPtr(v *SpringCloudCustomizedAcceleratorGitRepositoryArgs) SpringCloudCustomizedAcceleratorGitRepositoryPtrInput {
+	return (*springCloudCustomizedAcceleratorGitRepositoryPtrType)(v)
+}
+
+func (*springCloudCustomizedAcceleratorGitRepositoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudCustomizedAcceleratorGitRepository)(nil)).Elem()
+}
+
+func (i *springCloudCustomizedAcceleratorGitRepositoryPtrType) ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutput() SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput {
+	return i.ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudCustomizedAcceleratorGitRepositoryPtrType) ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput)
+}
+
+type SpringCloudCustomizedAcceleratorGitRepositoryOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudCustomizedAcceleratorGitRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudCustomizedAcceleratorGitRepository)(nil)).Elem()
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) ToSpringCloudCustomizedAcceleratorGitRepositoryOutput() SpringCloudCustomizedAcceleratorGitRepositoryOutput {
+	return o
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) ToSpringCloudCustomizedAcceleratorGitRepositoryOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositoryOutput {
+	return o
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutput() SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput {
+	return o.ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudCustomizedAcceleratorGitRepository) *SpringCloudCustomizedAcceleratorGitRepository {
+		return &v
+	}).(SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput)
+}
+
+// A `basicAuth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) BasicAuth() SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput {
+	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepository) *SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth {
+		return v.BasicAuth
+	}).(SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput)
+}
+
+// Specifies the Git repository branch to be used.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepository) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Git repository commit to be used.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) Commit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepository) *string { return v.Commit }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Git repository tag to be used.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) GitTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepository) *string { return v.GitTag }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) IntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepository) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) SshAuth() SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput {
+	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepository) *SpringCloudCustomizedAcceleratorGitRepositorySshAuth {
+		return v.SshAuth
+	}).(SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput)
+}
+
+// Specifies Git repository URL for the accelerator.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepository) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudCustomizedAcceleratorGitRepository)(nil)).Elem()
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutput() SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput {
+	return o
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) ToSpringCloudCustomizedAcceleratorGitRepositoryPtrOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput {
+	return o
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) Elem() SpringCloudCustomizedAcceleratorGitRepositoryOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepository) SpringCloudCustomizedAcceleratorGitRepository {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudCustomizedAcceleratorGitRepository
+		return ret
+	}).(SpringCloudCustomizedAcceleratorGitRepositoryOutput)
+}
+
+// A `basicAuth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) BasicAuth() SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepository) *SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth {
+		if v == nil {
+			return nil
+		}
+		return v.BasicAuth
+	}).(SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput)
+}
+
+// Specifies the Git repository branch to be used.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Git repository commit to be used.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) Commit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Commit
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Git repository tag to be used.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) GitTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GitTag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepository) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) SshAuth() SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepository) *SpringCloudCustomizedAcceleratorGitRepositorySshAuth {
+		if v == nil {
+			return nil
+		}
+		return v.SshAuth
+	}).(SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput)
+}
+
+// Specifies Git repository URL for the accelerator.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth struct {
+	// Specifies the password of git repository basic auth.
+	Password string `pulumi:"password"`
+	// Specifies the username of git repository basic auth.
+	Username string `pulumi:"username"`
+}
+
+// SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthInput is an input type that accepts SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs and SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput values.
+// You can construct a concrete instance of `SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthInput` via:
+//
+//	SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs{...}
+type SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthInput interface {
+	pulumi.Input
+
+	ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput() SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput
+	ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutputWithContext(context.Context) SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput
+}
+
+type SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs struct {
+	// Specifies the password of git repository basic auth.
+	Password pulumi.StringInput `pulumi:"password"`
+	// Specifies the username of git repository basic auth.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth)(nil)).Elem()
+}
+
+func (i SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs) ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput() SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput {
+	return i.ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutputWithContext(context.Background())
+}
+
+func (i SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs) ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput)
+}
+
+func (i SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs) ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput() SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput {
+	return i.ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs) ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput).ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutputWithContext(ctx)
+}
+
+// SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrInput is an input type that accepts SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs, SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtr and SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput values.
+// You can construct a concrete instance of `SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrInput` via:
+//
+//	        SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput() SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput
+	ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutputWithContext(context.Context) SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput
+}
+
+type springCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrType SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs
+
+func SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtr(v *SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs) SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrInput {
+	return (*springCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrType)(v)
+}
+
+func (*springCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth)(nil)).Elem()
+}
+
+func (i *springCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrType) ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput() SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput {
+	return i.ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrType) ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput)
+}
+
+type SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth)(nil)).Elem()
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput) ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput() SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput {
+	return o
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput) ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput {
+	return o
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput) ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput() SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput {
+	return o.ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput) ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth) *SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth {
+		return &v
+	}).(SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput)
+}
+
+// Specifies the password of git repository basic auth.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// Specifies the username of git repository basic auth.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth)(nil)).Elem()
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput) ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput() SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput {
+	return o
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput) ToSpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput {
+	return o
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput) Elem() SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth) SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth
+		return ret
+	}).(SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput)
+}
+
+// Specifies the password of git repository basic auth.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the username of git repository basic auth.
+func (o SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpringCloudCustomizedAcceleratorGitRepositorySshAuth struct {
+	// Specifies the Public SSH Key of git repository basic auth.
+	HostKey *string `pulumi:"hostKey"`
+	// Specifies the SSH Key algorithm of git repository basic auth.
+	HostKeyAlgorithm *string `pulumi:"hostKeyAlgorithm"`
+	// Specifies the Private SSH Key of git repository basic auth.
+	PrivateKey string `pulumi:"privateKey"`
+}
+
+// SpringCloudCustomizedAcceleratorGitRepositorySshAuthInput is an input type that accepts SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs and SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput values.
+// You can construct a concrete instance of `SpringCloudCustomizedAcceleratorGitRepositorySshAuthInput` via:
+//
+//	SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs{...}
+type SpringCloudCustomizedAcceleratorGitRepositorySshAuthInput interface {
+	pulumi.Input
+
+	ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput() SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput
+	ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthOutputWithContext(context.Context) SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput
+}
+
+type SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs struct {
+	// Specifies the Public SSH Key of git repository basic auth.
+	HostKey pulumi.StringPtrInput `pulumi:"hostKey"`
+	// Specifies the SSH Key algorithm of git repository basic auth.
+	HostKeyAlgorithm pulumi.StringPtrInput `pulumi:"hostKeyAlgorithm"`
+	// Specifies the Private SSH Key of git repository basic auth.
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+}
+
+func (SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudCustomizedAcceleratorGitRepositorySshAuth)(nil)).Elem()
+}
+
+func (i SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs) ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput() SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput {
+	return i.ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthOutputWithContext(context.Background())
+}
+
+func (i SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs) ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput)
+}
+
+func (i SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs) ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput() SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput {
+	return i.ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs) ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput).ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutputWithContext(ctx)
+}
+
+// SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrInput is an input type that accepts SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs, SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtr and SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput values.
+// You can construct a concrete instance of `SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrInput` via:
+//
+//	        SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput() SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput
+	ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutputWithContext(context.Context) SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput
+}
+
+type springCloudCustomizedAcceleratorGitRepositorySshAuthPtrType SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs
+
+func SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtr(v *SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs) SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrInput {
+	return (*springCloudCustomizedAcceleratorGitRepositorySshAuthPtrType)(v)
+}
+
+func (*springCloudCustomizedAcceleratorGitRepositorySshAuthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudCustomizedAcceleratorGitRepositorySshAuth)(nil)).Elem()
+}
+
+func (i *springCloudCustomizedAcceleratorGitRepositorySshAuthPtrType) ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput() SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput {
+	return i.ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudCustomizedAcceleratorGitRepositorySshAuthPtrType) ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput)
+}
+
+type SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudCustomizedAcceleratorGitRepositorySshAuth)(nil)).Elem()
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput) ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput() SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput {
+	return o
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput) ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput {
+	return o
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput) ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput() SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput {
+	return o.ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput) ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudCustomizedAcceleratorGitRepositorySshAuth) *SpringCloudCustomizedAcceleratorGitRepositorySshAuth {
+		return &v
+	}).(SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput)
+}
+
+// Specifies the Public SSH Key of git repository basic auth.
+func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput) HostKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepositorySshAuth) *string { return v.HostKey }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the SSH Key algorithm of git repository basic auth.
+func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput) HostKeyAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepositorySshAuth) *string { return v.HostKeyAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Private SSH Key of git repository basic auth.
+func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepositorySshAuth) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+type SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudCustomizedAcceleratorGitRepositorySshAuth)(nil)).Elem()
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput) ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput() SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput {
+	return o
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput) ToSpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput {
+	return o
+}
+
+func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput) Elem() SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepositorySshAuth) SpringCloudCustomizedAcceleratorGitRepositorySshAuth {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudCustomizedAcceleratorGitRepositorySshAuth
+		return ret
+	}).(SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput)
+}
+
+// Specifies the Public SSH Key of git repository basic auth.
+func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput) HostKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepositorySshAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the SSH Key algorithm of git repository basic auth.
+func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput) HostKeyAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepositorySshAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostKeyAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Private SSH Key of git repository basic auth.
+func (o SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepositorySshAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKey
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4231,7 +4817,7 @@ type SpringCloudServiceConfigServerGitSettingRepositorySshAuth struct {
 	HostKeyAlgorithm *string `pulumi:"hostKeyAlgorithm"`
 	// The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
 	PrivateKey string `pulumi:"privateKey"`
-	// Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+	// Indicates whether the Config Server instance will fail to start if the hostKey does not match. Defaults to `true`.
 	StrictHostKeyCheckingEnabled *bool `pulumi:"strictHostKeyCheckingEnabled"`
 }
 
@@ -4253,7 +4839,7 @@ type SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs struct {
 	HostKeyAlgorithm pulumi.StringPtrInput `pulumi:"hostKeyAlgorithm"`
 	// The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
 	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
-	// Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+	// Indicates whether the Config Server instance will fail to start if the hostKey does not match. Defaults to `true`.
 	StrictHostKeyCheckingEnabled pulumi.BoolPtrInput `pulumi:"strictHostKeyCheckingEnabled"`
 }
 
@@ -4349,7 +4935,7 @@ func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) Private
 	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepositorySshAuth) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
 
-// Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+// Indicates whether the Config Server instance will fail to start if the hostKey does not match. Defaults to `true`.
 func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) StrictHostKeyCheckingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingRepositorySshAuth) *bool {
 		return v.StrictHostKeyCheckingEnabled
@@ -4410,7 +4996,7 @@ func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput) Priv
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+// Indicates whether the Config Server instance will fail to start if the hostKey does not match. Defaults to `true`.
 func (o SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput) StrictHostKeyCheckingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingRepositorySshAuth) *bool {
 		if v == nil {
@@ -4427,7 +5013,7 @@ type SpringCloudServiceConfigServerGitSettingSshAuth struct {
 	HostKeyAlgorithm *string `pulumi:"hostKeyAlgorithm"`
 	// The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
 	PrivateKey string `pulumi:"privateKey"`
-	// Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+	// Indicates whether the Config Server instance will fail to start if the hostKey does not match. Defaults to `true`.
 	StrictHostKeyCheckingEnabled *bool `pulumi:"strictHostKeyCheckingEnabled"`
 }
 
@@ -4449,7 +5035,7 @@ type SpringCloudServiceConfigServerGitSettingSshAuthArgs struct {
 	HostKeyAlgorithm pulumi.StringPtrInput `pulumi:"hostKeyAlgorithm"`
 	// The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
 	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
-	// Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+	// Indicates whether the Config Server instance will fail to start if the hostKey does not match. Defaults to `true`.
 	StrictHostKeyCheckingEnabled pulumi.BoolPtrInput `pulumi:"strictHostKeyCheckingEnabled"`
 }
 
@@ -4545,7 +5131,7 @@ func (o SpringCloudServiceConfigServerGitSettingSshAuthOutput) PrivateKey() pulu
 	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingSshAuth) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
 
-// Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+// Indicates whether the Config Server instance will fail to start if the hostKey does not match. Defaults to `true`.
 func (o SpringCloudServiceConfigServerGitSettingSshAuthOutput) StrictHostKeyCheckingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SpringCloudServiceConfigServerGitSettingSshAuth) *bool { return v.StrictHostKeyCheckingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -4604,7 +5190,7 @@ func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) PrivateKey() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+// Indicates whether the Config Server instance will fail to start if the hostKey does not match. Defaults to `true`.
 func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) StrictHostKeyCheckingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpringCloudServiceConfigServerGitSettingSshAuth) *bool {
 		if v == nil {
@@ -6282,6 +6868,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudConnectionAuthenticationPtrInput)(nil)).Elem(), SpringCloudConnectionAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudContainerDeploymentQuotaInput)(nil)).Elem(), SpringCloudContainerDeploymentQuotaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudContainerDeploymentQuotaPtrInput)(nil)).Elem(), SpringCloudContainerDeploymentQuotaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCustomizedAcceleratorGitRepositoryInput)(nil)).Elem(), SpringCloudCustomizedAcceleratorGitRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCustomizedAcceleratorGitRepositoryPtrInput)(nil)).Elem(), SpringCloudCustomizedAcceleratorGitRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthInput)(nil)).Elem(), SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrInput)(nil)).Elem(), SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCustomizedAcceleratorGitRepositorySshAuthInput)(nil)).Elem(), SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrInput)(nil)).Elem(), SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudDevToolPortalSsoInput)(nil)).Elem(), SpringCloudDevToolPortalSsoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudDevToolPortalSsoPtrInput)(nil)).Elem(), SpringCloudDevToolPortalSsoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayApiMetadataInput)(nil)).Elem(), SpringCloudGatewayApiMetadataArgs{})
@@ -6358,6 +6950,12 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudConnectionAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudContainerDeploymentQuotaOutput{})
 	pulumi.RegisterOutputType(SpringCloudContainerDeploymentQuotaPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudCustomizedAcceleratorGitRepositoryOutput{})
+	pulumi.RegisterOutputType(SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthOutput{})
+	pulumi.RegisterOutputType(SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudCustomizedAcceleratorGitRepositorySshAuthOutput{})
+	pulumi.RegisterOutputType(SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudDevToolPortalSsoOutput{})
 	pulumi.RegisterOutputType(SpringCloudDevToolPortalSsoPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayApiMetadataOutput{})

@@ -109,9 +109,9 @@ import (
 type SqlPoolExtendedAuditingPolicy struct {
 	pulumi.CustomResourceState
 
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrOutput `pulumi:"logMonitoringEnabled"`
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
 	// The ID of the Synapse SQL pool to set the extended auditing policy. Changing this forces a new resource to be created.
 	SqlPoolId pulumi.StringOutput `pulumi:"sqlPoolId"`
@@ -162,9 +162,9 @@ func GetSqlPoolExtendedAuditingPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlPoolExtendedAuditingPolicy resources.
 type sqlPoolExtendedAuditingPolicyState struct {
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The ID of the Synapse SQL pool to set the extended auditing policy. Changing this forces a new resource to be created.
 	SqlPoolId *string `pulumi:"sqlPoolId"`
@@ -177,9 +177,9 @@ type sqlPoolExtendedAuditingPolicyState struct {
 }
 
 type SqlPoolExtendedAuditingPolicyState struct {
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrInput
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays pulumi.IntPtrInput
 	// The ID of the Synapse SQL pool to set the extended auditing policy. Changing this forces a new resource to be created.
 	SqlPoolId pulumi.StringPtrInput
@@ -196,9 +196,9 @@ func (SqlPoolExtendedAuditingPolicyState) ElementType() reflect.Type {
 }
 
 type sqlPoolExtendedAuditingPolicyArgs struct {
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The ID of the Synapse SQL pool to set the extended auditing policy. Changing this forces a new resource to be created.
 	SqlPoolId string `pulumi:"sqlPoolId"`
@@ -212,9 +212,9 @@ type sqlPoolExtendedAuditingPolicyArgs struct {
 
 // The set of arguments for constructing a SqlPoolExtendedAuditingPolicy resource.
 type SqlPoolExtendedAuditingPolicyArgs struct {
-	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+	// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrInput
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays pulumi.IntPtrInput
 	// The ID of the Synapse SQL pool to set the extended auditing policy. Changing this forces a new resource to be created.
 	SqlPoolId pulumi.StringInput
@@ -313,12 +313,12 @@ func (o SqlPoolExtendedAuditingPolicyOutput) ToSqlPoolExtendedAuditingPolicyOutp
 	return o
 }
 
-// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
 func (o SqlPoolExtendedAuditingPolicyOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SqlPoolExtendedAuditingPolicy) pulumi.BoolPtrOutput { return v.LogMonitoringEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The number of days to retain logs for in the storage account.
+// The number of days to retain logs for in the storage account. Defaults to `0`.
 func (o SqlPoolExtendedAuditingPolicyOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlPoolExtendedAuditingPolicy) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }

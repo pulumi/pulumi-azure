@@ -95,7 +95,7 @@ export class OutboundRule extends pulumi.CustomResource {
      */
     public readonly frontendIpConfigurations!: pulumi.Output<outputs.lb.OutboundRuleFrontendIpConfiguration[] | undefined>;
     /**
-     * The timeout for the TCP idle connection
+     * The timeout for the TCP idle connection Defaults to `4`.
      */
     public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
     /**
@@ -178,7 +178,7 @@ export interface OutboundRuleState {
      */
     frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.lb.OutboundRuleFrontendIpConfiguration>[]>;
     /**
-     * The timeout for the TCP idle connection
+     * The timeout for the TCP idle connection Defaults to `4`.
      */
     idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
@@ -216,7 +216,7 @@ export interface OutboundRuleArgs {
      */
     frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.lb.OutboundRuleFrontendIpConfiguration>[]>;
     /**
-     * The timeout for the TCP idle connection
+     * The timeout for the TCP idle connection Defaults to `4`.
      */
     idleTimeoutInMinutes?: pulumi.Input<number>;
     /**

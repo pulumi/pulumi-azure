@@ -14,7 +14,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule
     {
         /// <summary>
-        /// The days of the week to perform autoscale.
+        /// The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         /// </summary>
         public readonly ImmutableArray<string> Days;
         /// <summary>

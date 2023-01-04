@@ -301,14 +301,14 @@ public class Slot extends com.pulumi.resources.CustomResource {
         return this.defaultSiteHostname;
     }
     /**
-     * Is the App Service Slot Enabled?
+     * Is the App Service Slot Enabled? Defaults to `true`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Is the App Service Slot Enabled?
+     * @return Is the App Service Slot Enabled? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

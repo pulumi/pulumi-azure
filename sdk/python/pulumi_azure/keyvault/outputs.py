@@ -33,6 +33,7 @@ __all__ = [
     'CertificateCertificatePolicySecretProperties',
     'CertificateCertificatePolicyX509CertificateProperties',
     'CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames',
+    'CertificateContactsContact',
     'CertificateIssuerAdmin',
     'KeyVaultAccessPolicy',
     'KeyVaultContact',
@@ -318,7 +319,7 @@ class CertifiateCertificatePolicyKeyProperties(dict):
                  key_size: Optional[int] = None):
         """
         :param bool exportable: Is this certificate exportable? Changing this forces a new resource to be created.
-        :param str key_type: Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+        :param str key_type: Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
         :param bool reuse_key: Is the key reusable? Changing this forces a new resource to be created.
         :param str curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
         :param int key_size: The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
@@ -343,7 +344,7 @@ class CertifiateCertificatePolicyKeyProperties(dict):
     @pulumi.getter(name="keyType")
     def key_type(self) -> str:
         """
-        Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+        Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_type")
 
@@ -934,7 +935,7 @@ class CertificateCertificatePolicyKeyProperties(dict):
                  key_size: Optional[int] = None):
         """
         :param bool exportable: Is this certificate exportable? Changing this forces a new resource to be created.
-        :param str key_type: Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+        :param str key_type: Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
         :param bool reuse_key: Is the key reusable? Changing this forces a new resource to be created.
         :param str curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
         :param int key_size: The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
@@ -959,7 +960,7 @@ class CertificateCertificatePolicyKeyProperties(dict):
     @pulumi.getter(name="keyType")
     def key_type(self) -> str:
         """
-        Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+        Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_type")
 
@@ -1285,6 +1286,48 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
 
 
 @pulumi.output_type
+class CertificateContactsContact(dict):
+    def __init__(__self__, *,
+                 email: str,
+                 name: Optional[str] = None,
+                 phone: Optional[str] = None):
+        """
+        :param str email: E-mail address of the contact.
+        :param str name: Name of the contact.
+        :param str phone: Phone number of the contact.
+        """
+        pulumi.set(__self__, "email", email)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if phone is not None:
+            pulumi.set(__self__, "phone", phone)
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        E-mail address of the contact.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the contact.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def phone(self) -> Optional[str]:
+        """
+        Phone number of the contact.
+        """
+        return pulumi.get(self, "phone")
+
+
+@pulumi.output_type
 class CertificateIssuerAdmin(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1403,7 +1446,7 @@ class KeyVaultAccessPolicy(dict):
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
         :param str application_id: The object ID of an Application in Azure Active Directory.
         :param Sequence[str] certificate_permissions: List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
-        :param Sequence[str] key_permissions: List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
+        :param Sequence[str] key_permissions: List of key permissions. Possible values are `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy` and `SetRotationPolicy`.
         :param Sequence[str] secret_permissions: List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         :param Sequence[str] storage_permissions: List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
         """
@@ -1456,7 +1499,7 @@ class KeyVaultAccessPolicy(dict):
     @pulumi.getter(name="keyPermissions")
     def key_permissions(self) -> Optional[Sequence[str]]:
         """
-        List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
+        List of key permissions. Possible values are `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy` and `SetRotationPolicy`.
         """
         return pulumi.get(self, "key_permissions")
 

@@ -510,11 +510,11 @@ class InferenceClusterSsl(dict):
                  leaf_domain_label: Optional[str] = None,
                  overwrite_existing_domain: Optional[bool] = None):
         """
-        :param str cert: The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
-        :param str cname: The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
-        :param str key: The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
-        :param str leaf_domain_label: The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created.
-        :param bool overwrite_existing_domain: Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param str cert: The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        :param str cname: The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        :param str key: The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        :param str leaf_domain_label: The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        :param bool overwrite_existing_domain: Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
         if cert is not None:
             pulumi.set(__self__, "cert", cert)
@@ -531,7 +531,7 @@ class InferenceClusterSsl(dict):
     @pulumi.getter
     def cert(self) -> Optional[str]:
         """
-        The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
+        The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
         return pulumi.get(self, "cert")
 
@@ -539,7 +539,7 @@ class InferenceClusterSsl(dict):
     @pulumi.getter
     def cname(self) -> Optional[str]:
         """
-        The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
+        The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
         return pulumi.get(self, "cname")
 
@@ -547,7 +547,7 @@ class InferenceClusterSsl(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
+        The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
         return pulumi.get(self, "key")
 
@@ -555,7 +555,7 @@ class InferenceClusterSsl(dict):
     @pulumi.getter(name="leafDomainLabel")
     def leaf_domain_label(self) -> Optional[str]:
         """
-        The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created.
+        The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
         return pulumi.get(self, "leaf_domain_label")
 
@@ -563,7 +563,7 @@ class InferenceClusterSsl(dict):
     @pulumi.getter(name="overwriteExistingDomain")
     def overwrite_existing_domain(self) -> Optional[bool]:
         """
-        Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created.
+        Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
         """
         return pulumi.get(self, "overwrite_existing_domain")
 

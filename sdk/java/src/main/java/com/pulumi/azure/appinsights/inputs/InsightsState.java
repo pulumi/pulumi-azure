@@ -247,14 +247,14 @@ public final class InsightsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+     * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
      * 
      */
     @Import(name="samplingPercentage")
     private @Nullable Output<Double> samplingPercentage;
 
     /**
-     * @return Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+     * @return Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
      * 
      */
     public Optional<Output<Double>> samplingPercentage() {
@@ -650,7 +650,7 @@ public final class InsightsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param samplingPercentage Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+         * @param samplingPercentage Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
          * 
          * @return builder
          * 
@@ -661,7 +661,7 @@ public final class InsightsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param samplingPercentage Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+         * @param samplingPercentage Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorRuleConditionsSslProtocolCondition {
     /**
-     * @return A list of one or more HTTP methods. Possible values include `TLSv1.0`, `TLSv1.1` or `TLS1.2`. If multiple values are specified, they&#39;re evaluated using `OR` logic.
+     * @return A list of one or more HTTP methods. Possible values are `TLSv1`, `TLSv1.1` and `TLSv1.2` logic.
      * 
      */
     private List<String> matchValues;
@@ -31,7 +31,7 @@ public final class FrontdoorRuleConditionsSslProtocolCondition {
 
     private FrontdoorRuleConditionsSslProtocolCondition() {}
     /**
-     * @return A list of one or more HTTP methods. Possible values include `TLSv1.0`, `TLSv1.1` or `TLS1.2`. If multiple values are specified, they&#39;re evaluated using `OR` logic.
+     * @return A list of one or more HTTP methods. Possible values are `TLSv1`, `TLSv1.1` and `TLSv1.2` logic.
      * 
      */
     public List<String> matchValues() {

@@ -144,7 +144,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly imageCleanerEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the interval in hours when images should be cleaned up.
+     * Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
      */
     public readonly imageCleanerIntervalHours!: pulumi.Output<number | undefined>;
     /**
@@ -184,7 +184,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly linuxProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterLinuxProfile | undefined>;
     /**
-     * If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+     * If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      */
     public readonly localAccountDisabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -517,7 +517,7 @@ export interface KubernetesClusterState {
      */
     imageCleanerEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the interval in hours when images should be cleaned up.
+     * Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
      */
     imageCleanerIntervalHours?: pulumi.Input<number>;
     /**
@@ -557,7 +557,7 @@ export interface KubernetesClusterState {
      */
     linuxProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterLinuxProfile>;
     /**
-     * If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+     * If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      */
     localAccountDisabled?: pulumi.Input<boolean>;
     /**
@@ -740,7 +740,7 @@ export interface KubernetesClusterArgs {
      */
     imageCleanerEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the interval in hours when images should be cleaned up.
+     * Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
      */
     imageCleanerIntervalHours?: pulumi.Input<number>;
     /**
@@ -764,7 +764,7 @@ export interface KubernetesClusterArgs {
      */
     linuxProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterLinuxProfile>;
     /**
-     * If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+     * If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      */
     localAccountDisabled?: pulumi.Input<boolean>;
     /**

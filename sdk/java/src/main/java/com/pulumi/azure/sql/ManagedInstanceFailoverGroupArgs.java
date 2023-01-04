@@ -93,14 +93,14 @@ public final class ManagedInstanceFailoverGroupArgs extends com.pulumi.resources
     }
 
     /**
-     * Failover policy for the read-only endpoint. Defaults to `false`.
+     * Failover policy for the read-only endpoint. Defaults to `true`.
      * 
      */
     @Import(name="readonlyEndpointFailoverPolicyEnabled")
     private @Nullable Output<Boolean> readonlyEndpointFailoverPolicyEnabled;
 
     /**
-     * @return Failover policy for the read-only endpoint. Defaults to `false`.
+     * @return Failover policy for the read-only endpoint. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> readonlyEndpointFailoverPolicyEnabled() {
@@ -258,7 +258,7 @@ public final class ManagedInstanceFailoverGroupArgs extends com.pulumi.resources
         }
 
         /**
-         * @param readonlyEndpointFailoverPolicyEnabled Failover policy for the read-only endpoint. Defaults to `false`.
+         * @param readonlyEndpointFailoverPolicyEnabled Failover policy for the read-only endpoint. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class ManagedInstanceFailoverGroupArgs extends com.pulumi.resources
         }
 
         /**
-         * @param readonlyEndpointFailoverPolicyEnabled Failover policy for the read-only endpoint. Defaults to `false`.
+         * @param readonlyEndpointFailoverPolicyEnabled Failover policy for the read-only endpoint. Defaults to `true`.
          * 
          * @return builder
          * 

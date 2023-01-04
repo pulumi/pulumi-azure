@@ -26,11 +26,11 @@ namespace Pulumi.Azure.Hpc.Outputs
         /// </summary>
         public readonly string? CertificateValidationUri;
         /// <summary>
-        /// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided. Defaults to `false`.
+        /// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
         /// </summary>
         public readonly bool? DownloadCertificateAutomatically;
         /// <summary>
-        /// Whether the LDAP connection should be encrypted? Defaults to `false`.
+        /// Whether the LDAP connection should be encrypted?
         /// </summary>
         public readonly bool? Encrypted;
         /// <summary>

@@ -88,7 +88,7 @@ namespace Pulumi.Azure.PostgreSql
     public partial class VirtualNetworkRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+        /// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
         /// </summary>
         [Output("ignoreMissingVnetServiceEndpoint")]
         public Output<bool?> IgnoreMissingVnetServiceEndpoint { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.PostgreSql
     public sealed class VirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+        /// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
         /// </summary>
         [Input("ignoreMissingVnetServiceEndpoint")]
         public Input<bool>? IgnoreMissingVnetServiceEndpoint { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.PostgreSql
     public sealed class VirtualNetworkRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+        /// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
         /// </summary>
         [Input("ignoreMissingVnetServiceEndpoint")]
         public Input<bool>? IgnoreMissingVnetServiceEndpoint { get; set; }

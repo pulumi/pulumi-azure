@@ -30,7 +30,7 @@ class ManagedInstanceSecurityAlertPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies an array of alerts that are disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action` and `Brute_Force`.
         :param pulumi.Input[bool] email_account_admins_enabled: Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: Specifies an array of email addresses to which the alert is sent.
-        :param pulumi.Input[bool] enabled: Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+        :param pulumi.Input[bool] enabled: Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
         :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
@@ -116,7 +116,7 @@ class ManagedInstanceSecurityAlertPolicyArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+        Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
         """
         return pulumi.get(self, "enabled")
 
@@ -178,7 +178,7 @@ class _ManagedInstanceSecurityAlertPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies an array of alerts that are disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action` and `Brute_Force`.
         :param pulumi.Input[bool] email_account_admins_enabled: Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: Specifies an array of email addresses to which the alert is sent.
-        :param pulumi.Input[bool] enabled: Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+        :param pulumi.Input[bool] enabled: Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
         :param pulumi.Input[str] managed_instance_name: Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the MS SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
@@ -244,7 +244,7 @@ class _ManagedInstanceSecurityAlertPolicyState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+        Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
         """
         return pulumi.get(self, "enabled")
 
@@ -509,7 +509,7 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies an array of alerts that are disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action` and `Brute_Force`.
         :param pulumi.Input[bool] email_account_admins_enabled: Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: Specifies an array of email addresses to which the alert is sent.
-        :param pulumi.Input[bool] enabled: Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+        :param pulumi.Input[bool] enabled: Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
         :param pulumi.Input[str] managed_instance_name: Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the MS SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
@@ -775,7 +775,7 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies an array of alerts that are disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action` and `Brute_Force`.
         :param pulumi.Input[bool] email_account_admins_enabled: Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: Specifies an array of email addresses to which the alert is sent.
-        :param pulumi.Input[bool] enabled: Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+        :param pulumi.Input[bool] enabled: Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
         :param pulumi.Input[str] managed_instance_name: Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the MS SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
@@ -825,7 +825,7 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+        Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
         """
         return pulumi.get(self, "enabled")
 

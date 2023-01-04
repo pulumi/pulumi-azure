@@ -18,14 +18,14 @@ public final class AppServiceBackupArgs extends com.pulumi.resources.ResourceArg
     public static final AppServiceBackupArgs Empty = new AppServiceBackupArgs();
 
     /**
-     * Is this Backup enabled?
+     * Is this Backup enabled? Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Is this Backup enabled?
+     * @return Is this Backup enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -105,7 +105,7 @@ public final class AppServiceBackupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enabled Is this Backup enabled?
+         * @param enabled Is this Backup enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class AppServiceBackupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enabled Is this Backup enabled?
+         * @param enabled Is this Backup enabled? Defaults to `true`.
          * 
          * @return builder
          * 

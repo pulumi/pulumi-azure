@@ -83,7 +83,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     }
 
     /**
-     * Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+     * Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
      */
     public readonly ignoreMissingVnetServiceEndpoint!: pulumi.Output<boolean | undefined>;
     /**
@@ -148,7 +148,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
  */
 export interface VirtualNetworkRuleState {
     /**
-     * Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+     * Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
      */
     ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
     /**
@@ -174,7 +174,7 @@ export interface VirtualNetworkRuleState {
  */
 export interface VirtualNetworkRuleArgs {
     /**
-     * Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+     * Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
      */
     ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
     /**

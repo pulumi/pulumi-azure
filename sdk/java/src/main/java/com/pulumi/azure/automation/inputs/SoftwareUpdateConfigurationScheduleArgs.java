@@ -110,14 +110,14 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
     }
 
     /**
-     * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
      * 
      */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
     /**
-     * @return The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * @return The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
      * 
      */
     public Optional<Output<Integer>> interval() {
@@ -395,7 +395,7 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         }
 
         /**
-         * @param interval The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+         * @param interval The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         }
 
         /**
-         * @param interval The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+         * @param interval The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
          * 
          * @return builder
          * 

@@ -458,7 +458,7 @@ type ZoneSoaRecord struct {
 	// The expire time for the SOA record. Defaults to `2419200`.
 	ExpireTime *int    `pulumi:"expireTime"`
 	Fqdn       *string `pulumi:"fqdn"`
-	// The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+	// The domain name of the authoritative name server for the SOA record.
 	HostName string `pulumi:"hostName"`
 	// The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
 	MinimumTtl *int `pulumi:"minimumTtl"`
@@ -491,7 +491,7 @@ type ZoneSoaRecordArgs struct {
 	// The expire time for the SOA record. Defaults to `2419200`.
 	ExpireTime pulumi.IntPtrInput    `pulumi:"expireTime"`
 	Fqdn       pulumi.StringPtrInput `pulumi:"fqdn"`
-	// The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+	// The domain name of the authoritative name server for the SOA record.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `300`.
 	MinimumTtl pulumi.IntPtrInput `pulumi:"minimumTtl"`
@@ -598,7 +598,7 @@ func (o ZoneSoaRecordOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ZoneSoaRecord) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+// The domain name of the authoritative name server for the SOA record.
 func (o ZoneSoaRecordOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v ZoneSoaRecord) string { return v.HostName }).(pulumi.StringOutput)
 }
@@ -686,7 +686,7 @@ func (o ZoneSoaRecordPtrOutput) Fqdn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+// The domain name of the authoritative name server for the SOA record.
 func (o ZoneSoaRecordPtrOutput) HostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ZoneSoaRecord) *string {
 		if v == nil {

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         private InputList<string>? _acceptedProtocols;
 
         /// <summary>
-        /// Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
+        /// Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
         /// </summary>
         public InputList<string> AcceptedProtocols
         {
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         private InputList<string>? _patternsToMatches;
 
         /// <summary>
-        /// The route patterns for the Backend Routing Rule. Defaults to `/*`.
+        /// The route patterns for the Backend Routing Rule.
         /// </summary>
         public InputList<string> PatternsToMatches
         {

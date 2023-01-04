@@ -115,7 +115,7 @@ export class CassandraDatacenter extends pulumi.CustomResource {
      */
     public readonly delegatedManagementSubnetId!: pulumi.Output<string>;
     /**
-     * Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+     * Determines the number of p30 disks that are attached to each node.
      */
     public readonly diskCount!: pulumi.Output<number | undefined>;
     /**
@@ -139,7 +139,7 @@ export class CassandraDatacenter extends pulumi.CustomResource {
      */
     public readonly nodeCount!: pulumi.Output<number | undefined>;
     /**
-     * Determines the selected sku. Defaults to Standard_DS14_v2.
+     * Determines the selected sku.
      */
     public readonly skuName!: pulumi.Output<string | undefined>;
 
@@ -219,7 +219,7 @@ export interface CassandraDatacenterState {
      */
     delegatedManagementSubnetId?: pulumi.Input<string>;
     /**
-     * Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+     * Determines the number of p30 disks that are attached to each node.
      */
     diskCount?: pulumi.Input<number>;
     /**
@@ -243,7 +243,7 @@ export interface CassandraDatacenterState {
      */
     nodeCount?: pulumi.Input<number>;
     /**
-     * Determines the selected sku. Defaults to Standard_DS14_v2.
+     * Determines the selected sku.
      */
     skuName?: pulumi.Input<string>;
 }
@@ -273,7 +273,7 @@ export interface CassandraDatacenterArgs {
      */
     delegatedManagementSubnetId: pulumi.Input<string>;
     /**
-     * Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+     * Determines the number of p30 disks that are attached to each node.
      */
     diskCount?: pulumi.Input<number>;
     /**
@@ -297,7 +297,7 @@ export interface CassandraDatacenterArgs {
      */
     nodeCount?: pulumi.Input<number>;
     /**
-     * Determines the selected sku. Defaults to Standard_DS14_v2.
+     * Determines the selected sku.
      */
     skuName?: pulumi.Input<string>;
 }

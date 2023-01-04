@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether auto publish the Source Control.
+        /// Whether auto publish the Source Control. Defaults to `true`.
         /// </summary>
         [Output("publishRunbookEnabled")]
         public Output<bool?> PublishRunbookEnabled { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether auto publish the Source Control.
+        /// Whether auto publish the Source Control. Defaults to `true`.
         /// </summary>
         [Input("publishRunbookEnabled")]
         public Input<bool>? PublishRunbookEnabled { get; set; }
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether auto publish the Source Control.
+        /// Whether auto publish the Source Control. Defaults to `true`.
         /// </summary>
         [Input("publishRunbookEnabled")]
         public Input<bool>? PublishRunbookEnabled { get; set; }

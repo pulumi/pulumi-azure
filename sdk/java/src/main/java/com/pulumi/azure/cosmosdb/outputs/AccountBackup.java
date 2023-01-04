@@ -28,7 +28,7 @@ public final class AccountBackup {
      */
     private @Nullable String storageRedundancy;
     /**
-     * @return The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+     * @return The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
      * 
      */
     private String type;
@@ -56,7 +56,7 @@ public final class AccountBackup {
         return Optional.ofNullable(this.storageRedundancy);
     }
     /**
-     * @return The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+     * @return The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
      * 
      */
     public String type() {

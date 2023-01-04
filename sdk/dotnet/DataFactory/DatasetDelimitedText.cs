@@ -169,7 +169,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The null value string. Defaults to an empty string.
+        /// The null value string. Defaults to an empty string. Defaults to `""`.
         /// </summary>
         [Output("nullValue")]
         public Output<string?> NullValue { get; private set; } = null!;
@@ -353,7 +353,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The null value string. Defaults to an empty string.
+        /// The null value string. Defaults to an empty string. Defaults to `""`.
         /// </summary>
         [Input("nullValue")]
         public Input<string>? NullValue { get; set; }
@@ -511,7 +511,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The null value string. Defaults to an empty string.
+        /// The null value string. Defaults to an empty string. Defaults to `""`.
         /// </summary>
         [Input("nullValue")]
         public Input<string>? NullValue { get; set; }

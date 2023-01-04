@@ -107,7 +107,7 @@ export class ServicePlan extends pulumi.CustomResource {
      */
     public readonly workerCount!: pulumi.Output<number>;
     /**
-     * Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+     * Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
      */
     public readonly zoneBalancingEnabled!: pulumi.Output<boolean | undefined>;
 
@@ -220,7 +220,7 @@ export interface ServicePlanState {
      */
     workerCount?: pulumi.Input<number>;
     /**
-     * Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+     * Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
      */
     zoneBalancingEnabled?: pulumi.Input<boolean>;
 }
@@ -270,7 +270,7 @@ export interface ServicePlanArgs {
      */
     workerCount?: pulumi.Input<number>;
     /**
-     * Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+     * Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
      */
     zoneBalancingEnabled?: pulumi.Input<boolean>;
 }

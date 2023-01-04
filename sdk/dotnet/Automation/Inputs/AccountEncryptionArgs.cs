@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Automation.Inputs
     public sealed class AccountEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+        /// The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
         /// </summary>
         [Input("keySource")]
         public Input<string>? KeySource { get; set; }

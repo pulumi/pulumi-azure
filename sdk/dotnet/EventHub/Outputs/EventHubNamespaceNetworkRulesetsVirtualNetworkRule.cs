@@ -14,7 +14,7 @@ namespace Pulumi.Azure.EventHub.Outputs
     public sealed class EventHubNamespaceNetworkRulesetsVirtualNetworkRule
     {
         /// <summary>
-        /// Are missing virtual network service endpoints ignored? Defaults to `false`.
+        /// Are missing virtual network service endpoints ignored?
         /// </summary>
         public readonly bool? IgnoreMissingVirtualNetworkServiceEndpoint;
         /// <summary>

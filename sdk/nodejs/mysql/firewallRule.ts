@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleServer = new azure.mysql.Server("exampleServer", {});
- * // ...
+ * // ...
  * const exampleFirewallRule = new azure.mysql.FirewallRule("exampleFirewallRule", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     serverName: exampleServer.name,
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleServer = new azure.mysql.Server("exampleServer", {});
- * // ...
+ * // ...
  * const exampleFirewallRule = new azure.mysql.FirewallRule("exampleFirewallRule", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     serverName: exampleServer.name,

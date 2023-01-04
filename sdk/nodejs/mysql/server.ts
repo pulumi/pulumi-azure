@@ -107,7 +107,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.mysql.ServerIdentity | undefined>;
     /**
-     * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+     * Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      */
     public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -279,7 +279,7 @@ export interface ServerState {
      */
     identity?: pulumi.Input<inputs.mysql.ServerIdentity>;
     /**
-     * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+     * Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      */
     infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -369,7 +369,7 @@ export interface ServerArgs {
      */
     identity?: pulumi.Input<inputs.mysql.ServerIdentity>;
     /**
-     * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+     * Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      */
     infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**

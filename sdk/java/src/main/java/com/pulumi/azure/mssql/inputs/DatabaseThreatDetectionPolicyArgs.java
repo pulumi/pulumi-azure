@@ -33,14 +33,14 @@ public final class DatabaseThreatDetectionPolicyArgs extends com.pulumi.resource
     }
 
     /**
-     * Should the account administrators be emailed when this alert is triggered?
+     * Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
      * 
      */
     @Import(name="emailAccountAdmins")
     private @Nullable Output<String> emailAccountAdmins;
 
     /**
-     * @return Should the account administrators be emailed when this alert is triggered?
+     * @return Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
      * 
      */
     public Optional<Output<String>> emailAccountAdmins() {
@@ -184,7 +184,7 @@ public final class DatabaseThreatDetectionPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param emailAccountAdmins Should the account administrators be emailed when this alert is triggered?
+         * @param emailAccountAdmins Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class DatabaseThreatDetectionPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param emailAccountAdmins Should the account administrators be emailed when this alert is triggered?
+         * @param emailAccountAdmins Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
          * 
          * @return builder
          * 

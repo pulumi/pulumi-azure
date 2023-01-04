@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class AppServiceBackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is this Backup enabled?
+        /// Is this Backup enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

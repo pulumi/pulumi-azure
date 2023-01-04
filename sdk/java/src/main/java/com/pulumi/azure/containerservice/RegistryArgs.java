@@ -40,14 +40,14 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+     * Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
      * 
      */
     @Import(name="anonymousPullEnabled")
     private @Nullable Output<Boolean> anonymousPullEnabled;
 
     /**
-     * @return Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+     * @return Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
      * 
      */
     public Optional<Output<Boolean>> anonymousPullEnabled() {
@@ -55,14 +55,14 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+     * Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
      * 
      */
     @Import(name="dataEndpointEnabled")
     private @Nullable Output<Boolean> dataEndpointEnabled;
 
     /**
-     * @return Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+     * @return Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
      * 
      */
     public Optional<Output<Boolean>> dataEndpointEnabled() {
@@ -205,14 +205,14 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+     * Boolean value that indicates whether quarantine policy is enabled.
      * 
      */
     @Import(name="quarantinePolicyEnabled")
     private @Nullable Output<Boolean> quarantinePolicyEnabled;
 
     /**
-     * @return Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+     * @return Boolean value that indicates whether quarantine policy is enabled.
      * 
      */
     public Optional<Output<Boolean>> quarantinePolicyEnabled() {
@@ -373,7 +373,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param anonymousPullEnabled Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+         * @param anonymousPullEnabled Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param anonymousPullEnabled Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+         * @param anonymousPullEnabled Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataEndpointEnabled Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+         * @param dataEndpointEnabled Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataEndpointEnabled Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+         * @param dataEndpointEnabled Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
          * 
          * @return builder
          * 
@@ -614,7 +614,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param quarantinePolicyEnabled Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+         * @param quarantinePolicyEnabled Boolean value that indicates whether quarantine policy is enabled.
          * 
          * @return builder
          * 
@@ -625,7 +625,7 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param quarantinePolicyEnabled Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+         * @param quarantinePolicyEnabled Boolean value that indicates whether quarantine policy is enabled.
          * 
          * @return builder
          * 

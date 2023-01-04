@@ -200,14 +200,14 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
         return this.adminUsername;
     }
     /**
-     * Should Extension Operations be allowed on this Virtual Machine?
+     * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      * 
      */
     @Export(name="allowExtensionOperations", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> allowExtensionOperations;
 
     /**
-     * @return Should Extension Operations be allowed on this Virtual Machine?
+     * @return Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> allowExtensionOperations() {

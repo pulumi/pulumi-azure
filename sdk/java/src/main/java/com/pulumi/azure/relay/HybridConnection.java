@@ -106,14 +106,14 @@ public class HybridConnection extends com.pulumi.resources.CustomResource {
         return this.relayNamespaceName;
     }
     /**
-     * Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+     * Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
      * 
      */
     @Export(name="requiresClientAuthorization", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> requiresClientAuthorization;
 
     /**
-     * @return Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+     * @return Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> requiresClientAuthorization() {

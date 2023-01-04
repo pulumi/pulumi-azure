@@ -37,7 +37,7 @@ class ServiceArgs:
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -171,7 +171,7 @@ class ServiceArgs:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether public network access is enabled or disabled for this service instance.
+        Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -215,7 +215,7 @@ class _ServiceState:
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -339,7 +339,7 @@ class _ServiceState:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether public network access is enabled or disabled for this service instance.
+        Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -449,7 +449,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -593,7 +593,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -679,7 +679,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether public network access is enabled or disabled for this service instance.
+        Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 

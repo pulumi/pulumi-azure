@@ -63,14 +63,14 @@ public final class AppServiceBackupScheduleArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies the number of days after which Backups should be deleted.
+     * Specifies the number of days after which Backups should be deleted. Defaults to `30`.
      * 
      */
     @Import(name="retentionPeriodInDays")
     private @Nullable Output<Integer> retentionPeriodInDays;
 
     /**
-     * @return Specifies the number of days after which Backups should be deleted.
+     * @return Specifies the number of days after which Backups should be deleted. Defaults to `30`.
      * 
      */
     public Optional<Output<Integer>> retentionPeriodInDays() {
@@ -184,7 +184,7 @@ public final class AppServiceBackupScheduleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param retentionPeriodInDays Specifies the number of days after which Backups should be deleted.
+         * @param retentionPeriodInDays Specifies the number of days after which Backups should be deleted. Defaults to `30`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class AppServiceBackupScheduleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param retentionPeriodInDays Specifies the number of days after which Backups should be deleted.
+         * @param retentionPeriodInDays Specifies the number of days after which Backups should be deleted. Defaults to `30`.
          * 
          * @return builder
          * 

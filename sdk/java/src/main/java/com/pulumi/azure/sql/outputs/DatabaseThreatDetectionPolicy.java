@@ -19,7 +19,7 @@ public final class DatabaseThreatDetectionPolicy {
      */
     private @Nullable List<String> disabledAlerts;
     /**
-     * @return Should the account administrators be emailed when this alert is triggered?
+     * @return Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
      * 
      */
     private @Nullable String emailAccountAdmins;
@@ -58,7 +58,7 @@ public final class DatabaseThreatDetectionPolicy {
         return this.disabledAlerts == null ? List.of() : this.disabledAlerts;
     }
     /**
-     * @return Should the account administrators be emailed when this alert is triggered?
+     * @return Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
      * 
      */
     public Optional<String> emailAccountAdmins() {

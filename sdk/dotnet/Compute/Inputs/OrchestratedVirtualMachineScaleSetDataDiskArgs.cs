@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string> Caching { get; set; } = null!;
 
         /// <summary>
-        /// The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+        /// The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
         /// </summary>
         [Input("createOption")]
         public Input<string>? CreateOption { get; set; }

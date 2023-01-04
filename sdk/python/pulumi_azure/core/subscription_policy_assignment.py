@@ -34,7 +34,7 @@ class SubscriptionPolicyAssignmentArgs:
         :param pulumi.Input[str] subscription_id: The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
-        :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not?
+        :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
         :param pulumi.Input['SubscriptionPolicyAssignmentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
@@ -118,7 +118,7 @@ class SubscriptionPolicyAssignmentArgs:
     @pulumi.getter
     def enforce(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if this Policy should be enforced or not?
+        Specifies if this Policy should be enforced or not? Defaults to `true`.
         """
         return pulumi.get(self, "enforce")
 
@@ -230,7 +230,7 @@ class _SubscriptionPolicyAssignmentState:
         Input properties used for looking up and filtering SubscriptionPolicyAssignment resources.
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
-        :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not?
+        :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
         :param pulumi.Input['SubscriptionPolicyAssignmentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
@@ -294,7 +294,7 @@ class _SubscriptionPolicyAssignmentState:
     @pulumi.getter
     def enforce(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if this Policy should be enforced or not?
+        Specifies if this Policy should be enforced or not? Defaults to `true`.
         """
         return pulumi.get(self, "enforce")
 
@@ -472,7 +472,7 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
-        :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not?
+        :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['SubscriptionPolicyAssignmentIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
@@ -611,7 +611,7 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
-        :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not?
+        :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['SubscriptionPolicyAssignmentIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
@@ -660,7 +660,7 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
     @pulumi.getter
     def enforce(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies if this Policy should be enforced or not?
+        Specifies if this Policy should be enforced or not? Defaults to `true`.
         """
         return pulumi.get(self, "enforce")
 

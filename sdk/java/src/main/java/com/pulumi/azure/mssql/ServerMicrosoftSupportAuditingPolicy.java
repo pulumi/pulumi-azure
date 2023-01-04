@@ -247,14 +247,14 @@ public class ServerMicrosoftSupportAuditingPolicy extends com.pulumi.resources.C
         return Codegen.optional(this.enabled);
     }
     /**
-     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      * 
      */
     @Export(name="logMonitoringEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> logMonitoringEnabled;
 
     /**
-     * @return Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+     * @return Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> logMonitoringEnabled() {

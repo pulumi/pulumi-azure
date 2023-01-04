@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly bool? NegateCondition;
         /// <summary>
-        /// The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+        /// The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
         /// </summary>
         public readonly string? Operator;
 

@@ -2197,10 +2197,10 @@ class KubernetesClusterDefaultNodePool(dict):
         :param str name: The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
         :param str vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
         :param str capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-        :param bool custom_ca_trust_enabled: Specifies whether to trust a Custom CA. Defaults to `false`.
-        :param bool enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
-        :param bool enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
-        :param bool enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
+        :param bool custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
+        :param bool enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
+        :param bool enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+        :param bool enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
         :param bool fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param 'KubernetesClusterDefaultNodePoolKubeletConfigArgs' kubelet_config: A `kubelet_config` block as defined below.
         :param str kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -2324,7 +2324,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="customCaTrustEnabled")
     def custom_ca_trust_enabled(self) -> Optional[bool]:
         """
-        Specifies whether to trust a Custom CA. Defaults to `false`.
+        Specifies whether to trust a Custom CA.
         """
         return pulumi.get(self, "custom_ca_trust_enabled")
 
@@ -2332,7 +2332,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="enableAutoScaling")
     def enable_auto_scaling(self) -> Optional[bool]:
         """
-        Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+        Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
         """
         return pulumi.get(self, "enable_auto_scaling")
 
@@ -2340,7 +2340,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="enableHostEncryption")
     def enable_host_encryption(self) -> Optional[bool]:
         """
-        Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_host_encryption")
 
@@ -2348,7 +2348,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="enableNodePublicIp")
     def enable_node_public_ip(self) -> Optional[bool]:
         """
-        Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
+        Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
@@ -6004,7 +6004,7 @@ class RegistryGeoreplication(dict):
                  zone_redundancy_enabled: Optional[bool] = None):
         """
         :param str location: A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
-        :param bool regional_endpoint_enabled: Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+        :param bool regional_endpoint_enabled: Whether regional endpoint is enabled for this Container Registry?
         :param Mapping[str, str] tags: A mapping of tags to assign to this replication location.
         :param bool zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`. Changing this forces a new resource to be created.
         """
@@ -6028,7 +6028,7 @@ class RegistryGeoreplication(dict):
     @pulumi.getter(name="regionalEndpointEnabled")
     def regional_endpoint_enabled(self) -> Optional[bool]:
         """
-        Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+        Whether regional endpoint is enabled for this Container Registry?
         """
         return pulumi.get(self, "regional_endpoint_enabled")
 

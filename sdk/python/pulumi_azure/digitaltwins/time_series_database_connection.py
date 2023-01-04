@@ -33,7 +33,7 @@ class TimeSeriesDatabaseConnectionArgs:
         :param pulumi.Input[str] kusto_cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kusto_cluster_uri: URI of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kusto_database_name: Name of the Kusto Database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] eventhub_consumer_group_name: Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eventhub_consumer_group_name: Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
         :param pulumi.Input[str] kusto_table_name: Name of the Kusto Table. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
         """
@@ -139,7 +139,7 @@ class TimeSeriesDatabaseConnectionArgs:
     @pulumi.getter(name="eventhubConsumerGroupName")
     def eventhub_consumer_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+        Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
         """
         return pulumi.get(self, "eventhub_consumer_group_name")
 
@@ -188,7 +188,7 @@ class _TimeSeriesDatabaseConnectionState:
         """
         Input properties used for looking up and filtering TimeSeriesDatabaseConnection resources.
         :param pulumi.Input[str] digital_twins_id: The ID of the Digital Twins. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] eventhub_consumer_group_name: Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eventhub_consumer_group_name: Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
         :param pulumi.Input[str] eventhub_name: Name of the Event Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_namespace_endpoint_uri: URI of the Event Hub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_namespace_id: The ID of the Event Hub Namespace. Changing this forces a new resource to be created.
@@ -235,7 +235,7 @@ class _TimeSeriesDatabaseConnectionState:
     @pulumi.getter(name="eventhubConsumerGroupName")
     def eventhub_consumer_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+        Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
         """
         return pulumi.get(self, "eventhub_consumer_group_name")
 
@@ -440,7 +440,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] digital_twins_id: The ID of the Digital Twins. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] eventhub_consumer_group_name: Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eventhub_consumer_group_name: Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
         :param pulumi.Input[str] eventhub_name: Name of the Event Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_namespace_endpoint_uri: URI of the Event Hub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_namespace_id: The ID of the Event Hub Namespace. Changing this forces a new resource to be created.
@@ -623,7 +623,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] digital_twins_id: The ID of the Digital Twins. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] eventhub_consumer_group_name: Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eventhub_consumer_group_name: Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
         :param pulumi.Input[str] eventhub_name: Name of the Event Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_namespace_endpoint_uri: URI of the Event Hub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_namespace_id: The ID of the Event Hub Namespace. Changing this forces a new resource to be created.
@@ -661,7 +661,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
     @pulumi.getter(name="eventhubConsumerGroupName")
     def eventhub_consumer_group_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+        Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
         """
         return pulumi.get(self, "eventhub_consumer_group_name")
 

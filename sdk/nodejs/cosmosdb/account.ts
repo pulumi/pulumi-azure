@@ -218,7 +218,7 @@ export class Account extends pulumi.CustomResource {
     public /*out*/ readonly primaryReadonlySqlConnectionString!: pulumi.Output<string>;
     public /*out*/ readonly primarySqlConnectionString!: pulumi.Output<string>;
     /**
-     * Whether or not public network access is allowed for this CosmosDB account.
+     * Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -504,7 +504,7 @@ export interface AccountState {
     primaryReadonlySqlConnectionString?: pulumi.Input<string>;
     primarySqlConnectionString?: pulumi.Input<string>;
     /**
-     * Whether or not public network access is allowed for this CosmosDB account.
+     * Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -652,7 +652,7 @@ export interface AccountArgs {
      */
     offerType: pulumi.Input<string>;
     /**
-     * Whether or not public network access is allowed for this CosmosDB account.
+     * Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**

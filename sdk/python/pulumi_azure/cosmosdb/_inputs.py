@@ -84,7 +84,7 @@ class AccountBackupArgs:
                  retention_in_hours: Optional[pulumi.Input[int]] = None,
                  storage_redundancy: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+        :param pulumi.Input[str] type: The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
         :param pulumi.Input[int] interval_in_minutes: The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
         :param pulumi.Input[int] retention_in_hours: The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
         :param pulumi.Input[str] storage_redundancy: The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
@@ -101,7 +101,7 @@ class AccountBackupArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+        The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 

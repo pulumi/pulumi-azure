@@ -97,7 +97,7 @@ type Database struct {
 	CreationSourceDatabaseId pulumi.StringOutput `pulumi:"creationSourceDatabaseId"`
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrOutput `pulumi:"elasticPoolId"`
-	// A boolean that specifies if the Geo Backup Policy is enabled.
+	// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
 	GeoBackupEnabled pulumi.BoolPtrOutput `pulumi:"geoBackupEnabled"`
 	// A Database Import block as documented below. Mutually exclusive with `createMode`.
 	Import DatabaseImportPtrOutput `pulumi:"import"`
@@ -187,7 +187,7 @@ type databaseState struct {
 	CreationSourceDatabaseId *string `pulumi:"creationSourceDatabaseId"`
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
-	// A boolean that specifies if the Geo Backup Policy is enabled.
+	// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
 	GeoBackupEnabled *bool `pulumi:"geoBackupEnabled"`
 	// A Database Import block as documented below. Mutually exclusive with `createMode`.
 	Import *DatabaseImport `pulumi:"import"`
@@ -246,7 +246,7 @@ type DatabaseState struct {
 	CreationSourceDatabaseId pulumi.StringPtrInput
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrInput
-	// A boolean that specifies if the Geo Backup Policy is enabled.
+	// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
 	GeoBackupEnabled pulumi.BoolPtrInput
 	// A Database Import block as documented below. Mutually exclusive with `createMode`.
 	Import DatabaseImportPtrInput
@@ -309,7 +309,7 @@ type databaseArgs struct {
 	CreationSourceDatabaseId *string `pulumi:"creationSourceDatabaseId"`
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
-	// A boolean that specifies if the Geo Backup Policy is enabled.
+	// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
 	GeoBackupEnabled *bool `pulumi:"geoBackupEnabled"`
 	// A Database Import block as documented below. Mutually exclusive with `createMode`.
 	Import *DatabaseImport `pulumi:"import"`
@@ -369,7 +369,7 @@ type DatabaseArgs struct {
 	CreationSourceDatabaseId pulumi.StringPtrInput
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrInput
-	// A boolean that specifies if the Geo Backup Policy is enabled.
+	// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
 	GeoBackupEnabled pulumi.BoolPtrInput
 	// A Database Import block as documented below. Mutually exclusive with `createMode`.
 	Import DatabaseImportPtrInput
@@ -529,7 +529,7 @@ func (o DatabaseOutput) ElasticPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.ElasticPoolId }).(pulumi.StringPtrOutput)
 }
 
-// A boolean that specifies if the Geo Backup Policy is enabled.
+// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
 func (o DatabaseOutput) GeoBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.BoolPtrOutput { return v.GeoBackupEnabled }).(pulumi.BoolPtrOutput)
 }

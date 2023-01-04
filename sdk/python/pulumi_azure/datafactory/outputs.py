@@ -4410,7 +4410,7 @@ class LinkedServiceAzureDatabricksInstancePool(dict):
         :param str cluster_version: Spark version of a the cluster.
         :param str instance_pool_id: Identifier of the instance pool within the linked ADB instance.
         :param int max_number_of_workers: The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
-        :param int min_number_of_workers: The minimum number of worker nodes. Defaults to 1.
+        :param int min_number_of_workers: The minimum number of worker nodes. Defaults to `1`.
         """
         pulumi.set(__self__, "cluster_version", cluster_version)
         pulumi.set(__self__, "instance_pool_id", instance_pool_id)
@@ -4447,7 +4447,7 @@ class LinkedServiceAzureDatabricksInstancePool(dict):
     @pulumi.getter(name="minNumberOfWorkers")
     def min_number_of_workers(self) -> Optional[int]:
         """
-        The minimum number of worker nodes. Defaults to 1.
+        The minimum number of worker nodes. Defaults to `1`.
         """
         return pulumi.get(self, "min_number_of_workers")
 
@@ -4556,7 +4556,7 @@ class LinkedServiceAzureDatabricksNewClusterConfig(dict):
         :param Sequence[str] init_scripts: User defined initialization scripts for the cluster.
         :param str log_destination: Location to deliver Spark driver, worker, and event logs.
         :param int max_number_of_workers: The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
-        :param int min_number_of_workers: The minimum number of worker nodes. Defaults to 1.
+        :param int min_number_of_workers: The minimum number of worker nodes. Defaults to `1`.
         :param Mapping[str, str] spark_config: User-specified Spark configuration variables key-value pairs.
         :param Mapping[str, str] spark_environment_variables: User-specified Spark environment variables key-value pairs.
         """
@@ -4639,7 +4639,7 @@ class LinkedServiceAzureDatabricksNewClusterConfig(dict):
     @pulumi.getter(name="minNumberOfWorkers")
     def min_number_of_workers(self) -> Optional[int]:
         """
-        The minimum number of worker nodes. Defaults to 1.
+        The minimum number of worker nodes. Defaults to `1`.
         """
         return pulumi.get(self, "min_number_of_workers")
 
@@ -5345,7 +5345,7 @@ class TriggerTumblingWindowRetry(dict):
                  interval: Optional[int] = None):
         """
         :param int count: The maximum retry attempts if the pipeline run failed.
-        :param int interval: The Interval in seconds between each retry if the pipeline run failed.
+        :param int interval: The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
         """
         pulumi.set(__self__, "count", count)
         if interval is not None:
@@ -5363,7 +5363,7 @@ class TriggerTumblingWindowRetry(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         """
-        The Interval in seconds between each retry if the pipeline run failed.
+        The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
         """
         return pulumi.get(self, "interval")
 

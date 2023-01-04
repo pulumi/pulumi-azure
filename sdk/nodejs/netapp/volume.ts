@@ -126,6 +126,10 @@ export class Volume extends pulumi.CustomResource {
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      */
     public readonly volumePath!: pulumi.Output<string>;
+    /**
+     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+     */
+    public readonly zone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -161,6 +165,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["throughputInMibps"] = state ? state.throughputInMibps : undefined;
             resourceInputs["volumePath"] = state ? state.volumePath : undefined;
+            resourceInputs["zone"] = state ? state.zone : undefined;
         } else {
             const args = argsOrState as VolumeArgs | undefined;
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -204,6 +209,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["throughputInMibps"] = args ? args.throughputInMibps : undefined;
             resourceInputs["volumePath"] = args ? args.volumePath : undefined;
+            resourceInputs["zone"] = args ? args.zone : undefined;
             resourceInputs["mountIpAddresses"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -296,6 +302,10 @@ export interface VolumeState {
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      */
     volumePath?: pulumi.Input<string>;
+    /**
+     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+     */
+    zone?: pulumi.Input<string>;
 }
 
 /**
@@ -379,4 +389,8 @@ export interface VolumeArgs {
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      */
     volumePath: pulumi.Input<string>;
+    /**
+     * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+     */
+    zone?: pulumi.Input<string>;
 }

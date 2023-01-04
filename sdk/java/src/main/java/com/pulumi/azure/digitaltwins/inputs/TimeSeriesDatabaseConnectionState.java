@@ -31,14 +31,14 @@ public final class TimeSeriesDatabaseConnectionState extends com.pulumi.resource
     }
 
     /**
-     * Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+     * Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
      * 
      */
     @Import(name="eventhubConsumerGroupName")
     private @Nullable Output<String> eventhubConsumerGroupName;
 
     /**
-     * @return Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+     * @return Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
      * 
      */
     public Optional<Output<String>> eventhubConsumerGroupName() {
@@ -220,7 +220,7 @@ public final class TimeSeriesDatabaseConnectionState extends com.pulumi.resource
         }
 
         /**
-         * @param eventhubConsumerGroupName Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+         * @param eventhubConsumerGroupName Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class TimeSeriesDatabaseConnectionState extends com.pulumi.resource
         }
 
         /**
-         * @param eventhubConsumerGroupName Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+         * @param eventhubConsumerGroupName Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
          * 
          * @return builder
          * 

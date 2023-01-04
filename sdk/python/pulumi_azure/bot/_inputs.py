@@ -29,14 +29,14 @@ class ChannelDirectLineSiteArgs:
                  v3_allowed: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: The name of the site
-        :param pulumi.Input[bool] enabled: Enables/Disables this site. Enabled by default
+        :param pulumi.Input[bool] enabled: Enables/Disables this site. Enabled by default Defaults to `true`.
         :param pulumi.Input[bool] enhanced_authentication_enabled: Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
         :param pulumi.Input[str] id: Id for the site
         :param pulumi.Input[str] key: Primary key for accessing this site
         :param pulumi.Input[str] key2: Secondary key for accessing this site
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_origins: This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
-        :param pulumi.Input[bool] v1_allowed: Enables v1 of the Directline protocol for this site. Enabled by default
-        :param pulumi.Input[bool] v3_allowed: Enables v3 of the Directline protocol for this site. Enabled by default
+        :param pulumi.Input[bool] v1_allowed: Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
+        :param pulumi.Input[bool] v3_allowed: Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
         """
         pulumi.set(__self__, "name", name)
         if enabled is not None:
@@ -72,7 +72,7 @@ class ChannelDirectLineSiteArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enables/Disables this site. Enabled by default
+        Enables/Disables this site. Enabled by default Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -144,7 +144,7 @@ class ChannelDirectLineSiteArgs:
     @pulumi.getter(name="v1Allowed")
     def v1_allowed(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enables v1 of the Directline protocol for this site. Enabled by default
+        Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
         """
         return pulumi.get(self, "v1_allowed")
 
@@ -156,7 +156,7 @@ class ChannelDirectLineSiteArgs:
     @pulumi.getter(name="v3Allowed")
     def v3_allowed(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enables v3 of the Directline protocol for this site. Enabled by default
+        Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
         """
         return pulumi.get(self, "v3_allowed")
 

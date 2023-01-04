@@ -18,14 +18,14 @@ public final class IotHubDpsLinkedHubArgs extends com.pulumi.resources.ResourceA
     public static final IotHubDpsLinkedHubArgs Empty = new IotHubDpsLinkedHubArgs();
 
     /**
-     * The weight applied to the IoT Hub. Defaults to 0.
+     * The weight applied to the IoT Hub. Defaults to `1`.
      * 
      */
     @Import(name="allocationWeight")
     private @Nullable Output<Integer> allocationWeight;
 
     /**
-     * @return The weight applied to the IoT Hub. Defaults to 0.
+     * @return The weight applied to the IoT Hub. Defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> allocationWeight() {
@@ -33,14 +33,14 @@ public final class IotHubDpsLinkedHubArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
+     * Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
      * 
      */
     @Import(name="applyAllocationPolicy")
     private @Nullable Output<Boolean> applyAllocationPolicy;
 
     /**
-     * @return Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
+     * @return Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> applyAllocationPolicy() {
@@ -121,7 +121,7 @@ public final class IotHubDpsLinkedHubArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param allocationWeight The weight applied to the IoT Hub. Defaults to 0.
+         * @param allocationWeight The weight applied to the IoT Hub. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class IotHubDpsLinkedHubArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param allocationWeight The weight applied to the IoT Hub. Defaults to 0.
+         * @param allocationWeight The weight applied to the IoT Hub. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class IotHubDpsLinkedHubArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param applyAllocationPolicy Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
+         * @param applyAllocationPolicy Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class IotHubDpsLinkedHubArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param applyAllocationPolicy Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
+         * @param applyAllocationPolicy Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
          * 
          * @return builder
          * 
