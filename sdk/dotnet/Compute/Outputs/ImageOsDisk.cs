@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? OsState;
         /// <summary>
-        /// Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
+        /// Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
         /// </summary>
         public readonly string? OsType;
         /// <summary>

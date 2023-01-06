@@ -398,14 +398,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.managedResourceGroupName;
     }
     /**
-     * Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
+     * Is Virtual Network enabled for all computes in this workspace?  Changing this forces a new resource to be created.
      * 
      */
     @Export(name="managedVirtualNetworkEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> managedVirtualNetworkEnabled;
 
     /**
-     * @return Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Is Virtual Network enabled for all computes in this workspace?  Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> managedVirtualNetworkEnabled() {

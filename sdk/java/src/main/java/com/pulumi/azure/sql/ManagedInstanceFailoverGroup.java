@@ -115,14 +115,14 @@ public class ManagedInstanceFailoverGroup extends com.pulumi.resources.CustomRes
         return this.readWriteEndpointFailoverPolicy;
     }
     /**
-     * Failover policy for the read-only endpoint. Defaults to `false`.
+     * Failover policy for the read-only endpoint. Defaults to `true`.
      * 
      */
     @Export(name="readonlyEndpointFailoverPolicyEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> readonlyEndpointFailoverPolicyEnabled;
 
     /**
-     * @return Failover policy for the read-only endpoint. Defaults to `false`.
+     * @return Failover policy for the read-only endpoint. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> readonlyEndpointFailoverPolicyEnabled() {

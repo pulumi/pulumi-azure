@@ -91,7 +91,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly enableFloatingIp!: pulumi.Output<boolean | undefined>;
     /**
-     * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     * Is TCP Reset enabled for this Load Balancer Rule?
      */
     public readonly enableTcpReset!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly frontendIpConfigurationId!: pulumi.Output<string>;
@@ -213,7 +213,7 @@ export interface RuleState {
      */
     enableFloatingIp?: pulumi.Input<boolean>;
     /**
-     * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     * Is TCP Reset enabled for this Load Balancer Rule?
      */
     enableTcpReset?: pulumi.Input<boolean>;
     frontendIpConfigurationId?: pulumi.Input<string>;
@@ -272,7 +272,7 @@ export interface RuleArgs {
      */
     enableFloatingIp?: pulumi.Input<boolean>;
     /**
-     * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     * Is TCP Reset enabled for this Load Balancer Rule?
      */
     enableTcpReset?: pulumi.Input<boolean>;
     /**

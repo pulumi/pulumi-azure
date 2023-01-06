@@ -143,14 +143,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is the Logic App enabled?
+     * Is the Logic App enabled? Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Is the Logic App enabled?
+     * @return Is the Logic App enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -640,7 +640,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Is the Logic App enabled?
+         * @param enabled Is the Logic App enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -651,7 +651,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Is the Logic App enabled?
+         * @param enabled Is the Logic App enabled? Defaults to `true`.
          * 
          * @return builder
          * 

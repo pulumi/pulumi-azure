@@ -14,7 +14,7 @@ namespace Pulumi.Azure.PostgreSql.Outputs
     public sealed class ServerThreatDetectionPolicy
     {
         /// <summary>
-        /// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+        /// Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
         /// </summary>
         public readonly ImmutableArray<string> DisabledAlerts;
         /// <summary>

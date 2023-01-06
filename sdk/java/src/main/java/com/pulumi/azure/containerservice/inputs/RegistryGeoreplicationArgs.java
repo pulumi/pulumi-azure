@@ -33,14 +33,14 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+     * Whether regional endpoint is enabled for this Container Registry?
      * 
      */
     @Import(name="regionalEndpointEnabled")
     private @Nullable Output<Boolean> regionalEndpointEnabled;
 
     /**
-     * @return Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+     * @return Whether regional endpoint is enabled for this Container Registry?
      * 
      */
     public Optional<Output<Boolean>> regionalEndpointEnabled() {
@@ -126,7 +126,7 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param regionalEndpointEnabled Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+         * @param regionalEndpointEnabled Whether regional endpoint is enabled for this Container Registry?
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param regionalEndpointEnabled Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+         * @param regionalEndpointEnabled Whether regional endpoint is enabled for this Container Registry?
          * 
          * @return builder
          * 

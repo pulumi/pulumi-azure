@@ -335,14 +335,14 @@ public class Insights extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.retentionInDays);
     }
     /**
-     * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+     * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
      * 
      */
     @Export(name="samplingPercentage", type=Double.class, parameters={})
     private Output</* @Nullable */ Double> samplingPercentage;
 
     /**
-     * @return Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+     * @return Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
      * 
      */
     public Output<Optional<Double>> samplingPercentage() {

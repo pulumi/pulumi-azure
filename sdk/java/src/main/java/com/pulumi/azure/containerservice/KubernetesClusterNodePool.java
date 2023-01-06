@@ -114,56 +114,56 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.capacityReservationGroupId);
     }
     /**
-     * Specifies whether to trust a Custom CA. Defaults to `false`.
+     * Specifies whether to trust a Custom CA.
      * 
      */
     @Export(name="customCaTrustEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> customCaTrustEnabled;
 
     /**
-     * @return Specifies whether to trust a Custom CA. Defaults to `false`.
+     * @return Specifies whether to trust a Custom CA.
      * 
      */
     public Output<Optional<Boolean>> customCaTrustEnabled() {
         return Codegen.optional(this.customCaTrustEnabled);
     }
     /**
-     * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+     * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
      * 
      */
     @Export(name="enableAutoScaling", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableAutoScaling;
 
     /**
-     * @return Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+     * @return Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
      * 
      */
     public Output<Optional<Boolean>> enableAutoScaling() {
         return Codegen.optional(this.enableAutoScaling);
     }
     /**
-     * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
      * 
      */
     @Export(name="enableHostEncryption", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableHostEncryption;
 
     /**
-     * @return Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> enableHostEncryption() {
         return Codegen.optional(this.enableHostEncryption);
     }
     /**
-     * Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+     * Should each node have a Public IP Address?   Changing this forces a new resource to be created.
      * 
      */
     @Export(name="enableNodePublicIp", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableNodePublicIp;
 
     /**
-     * @return Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+     * @return Should each node have a Public IP Address?   Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> enableNodePublicIp() {

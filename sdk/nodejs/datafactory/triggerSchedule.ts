@@ -90,7 +90,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
      */
     public readonly frequency!: pulumi.Output<string | undefined>;
     /**
-     * The interval for how often the trigger occurs. This defaults to 1.
+     * The interval for how often the trigger occurs. This defaults to `1`.
      */
     public readonly interval!: pulumi.Output<number | undefined>;
     /**
@@ -203,7 +203,7 @@ export interface TriggerScheduleState {
      */
     frequency?: pulumi.Input<string>;
     /**
-     * The interval for how often the trigger occurs. This defaults to 1.
+     * The interval for how often the trigger occurs. This defaults to `1`.
      */
     interval?: pulumi.Input<number>;
     /**
@@ -265,7 +265,7 @@ export interface TriggerScheduleArgs {
      */
     frequency?: pulumi.Input<string>;
     /**
-     * The interval for how often the trigger occurs. This defaults to 1.
+     * The interval for how often the trigger occurs. This defaults to `1`.
      */
     interval?: pulumi.Input<number>;
     /**

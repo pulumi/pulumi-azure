@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> CompanyName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the resource monitoring is enabled?
+        /// Whether the resource monitoring is enabled? Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? CompanyName { get; set; }
 
         /// <summary>
-        /// Whether the resource monitoring is enabled?
+        /// Whether the resource monitoring is enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? CompanyName { get; set; }
 
         /// <summary>
-        /// Whether the resource monitoring is enabled?
+        /// Whether the resource monitoring is enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.EventHub.Outputs
     public sealed class EventSubscriptionRetryPolicy
     {
         /// <summary>
-        /// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+        /// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
         /// </summary>
         public readonly int EventTimeToLive;
         /// <summary>

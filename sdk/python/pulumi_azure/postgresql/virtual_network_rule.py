@@ -24,7 +24,7 @@ class VirtualNetworkRuleArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the PostgreSQL server resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server to which this PostgreSQL virtual network rule will be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet that the PostgreSQL server will be connected to.
-        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
         :param pulumi.Input[str] name: The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -75,7 +75,7 @@ class VirtualNetworkRuleArgs:
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
     def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+        Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
@@ -106,7 +106,7 @@ class _VirtualNetworkRuleState:
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VirtualNetworkRule resources.
-        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
         :param pulumi.Input[str] name: The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the PostgreSQL server resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server to which this PostgreSQL virtual network rule will be applied to. Changing this forces a new resource to be created.
@@ -127,7 +127,7 @@ class _VirtualNetworkRuleState:
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
     def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+        Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
@@ -243,7 +243,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
         :param pulumi.Input[str] name: The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the PostgreSQL server resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server to which this PostgreSQL virtual network rule will be applied to. Changing this forces a new resource to be created.
@@ -363,7 +363,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
         :param pulumi.Input[str] name: The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the PostgreSQL server resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server to which this PostgreSQL virtual network rule will be applied to. Changing this forces a new resource to be created.
@@ -384,7 +384,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
     def ignore_missing_vnet_service_endpoint(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+        Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 

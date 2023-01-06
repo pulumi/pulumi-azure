@@ -19,14 +19,14 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
     public static final OrchestratedVirtualMachineScaleSetExtensionArgs Empty = new OrchestratedVirtualMachineScaleSetExtensionArgs();
 
     /**
-     * Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to true.
+     * Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to `true`.
      * 
      */
     @Import(name="autoUpgradeMinorVersionEnabled")
     private @Nullable Output<Boolean> autoUpgradeMinorVersionEnabled;
 
     /**
-     * @return Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to true.
+     * @return Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> autoUpgradeMinorVersionEnabled() {
@@ -49,14 +49,14 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
     }
 
     /**
-     * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * Should failures from the extension be suppressed? Possible values are `true` or `false`.
      * 
      */
     @Import(name="failureSuppressionEnabled")
     private @Nullable Output<Boolean> failureSuppressionEnabled;
 
     /**
-     * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * @return Should failures from the extension be suppressed? Possible values are `true` or `false`.
      * 
      */
     public Optional<Output<Boolean>> failureSuppressionEnabled() {
@@ -210,7 +210,7 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
         }
 
         /**
-         * @param autoUpgradeMinorVersionEnabled Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to true.
+         * @param autoUpgradeMinorVersionEnabled Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
         }
 
         /**
-         * @param autoUpgradeMinorVersionEnabled Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to true.
+         * @param autoUpgradeMinorVersionEnabled Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
         }
 
         /**
-         * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+         * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
         }
 
         /**
-         * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+         * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`.
          * 
          * @return builder
          * 

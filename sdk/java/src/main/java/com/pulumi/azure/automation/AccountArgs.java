@@ -51,14 +51,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether requests using non-AAD authentication are blocked.
+     * Whether requests using non-AAD authentication are blocked. Defaults to `true`.
      * 
      */
     @Import(name="localAuthenticationEnabled")
     private @Nullable Output<Boolean> localAuthenticationEnabled;
 
     /**
-     * @return Whether requests using non-AAD authentication are blocked.
+     * @return Whether requests using non-AAD authentication are blocked. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> localAuthenticationEnabled() {
@@ -240,7 +240,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localAuthenticationEnabled Whether requests using non-AAD authentication are blocked.
+         * @param localAuthenticationEnabled Whether requests using non-AAD authentication are blocked. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localAuthenticationEnabled Whether requests using non-AAD authentication are blocked.
+         * @param localAuthenticationEnabled Whether requests using non-AAD authentication are blocked. Defaults to `true`.
          * 
          * @return builder
          * 

@@ -31,7 +31,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? KeepAtLeastOneBackup { get; set; }
 
         /// <summary>
-        /// Specifies the number of days after which Backups should be deleted.
+        /// Specifies the number of days after which Backups should be deleted. Defaults to `30`.
         /// </summary>
         [Input("retentionPeriodInDays")]
         public Input<int>? RetentionPeriodInDays { get; set; }

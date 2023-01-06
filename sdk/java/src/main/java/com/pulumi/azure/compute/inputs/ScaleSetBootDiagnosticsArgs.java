@@ -17,14 +17,14 @@ public final class ScaleSetBootDiagnosticsArgs extends com.pulumi.resources.Reso
     public static final ScaleSetBootDiagnosticsArgs Empty = new ScaleSetBootDiagnosticsArgs();
 
     /**
-     * Whether to enable boot diagnostics for the virtual machine.
+     * Whether to enable boot diagnostics for the virtual machine. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether to enable boot diagnostics for the virtual machine.
+     * @return Whether to enable boot diagnostics for the virtual machine. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -72,7 +72,7 @@ public final class ScaleSetBootDiagnosticsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enabled Whether to enable boot diagnostics for the virtual machine.
+         * @param enabled Whether to enable boot diagnostics for the virtual machine. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ScaleSetBootDiagnosticsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enabled Whether to enable boot diagnostics for the virtual machine.
+         * @param enabled Whether to enable boot diagnostics for the virtual machine. Defaults to `true`.
          * 
          * @return builder
          * 

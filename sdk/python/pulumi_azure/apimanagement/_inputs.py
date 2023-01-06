@@ -3357,7 +3357,7 @@ class CustomDomainDeveloperPortalArgs:
         :param pulumi.Input[str] certificate: The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         :param pulumi.Input[str] certificate_password: The password associated with the certificate provided above.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-        :param pulumi.Input[bool] negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        :param pulumi.Input[bool] negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
@@ -3460,7 +3460,7 @@ class CustomDomainDeveloperPortalArgs:
     @pulumi.getter(name="negotiateClientCertificate")
     def negotiate_client_certificate(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
@@ -3515,9 +3515,9 @@ class CustomDomainGatewayArgs:
         :param pulumi.Input[str] host_name: The Hostname to use for the API Proxy Endpoint.
         :param pulumi.Input[str] certificate: The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         :param pulumi.Input[str] certificate_password: The password associated with the certificate provided above.
-        :param pulumi.Input[bool] default_ssl_binding: Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+        :param pulumi.Input[bool] default_ssl_binding: Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-        :param pulumi.Input[bool] negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        :param pulumi.Input[bool] negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
@@ -3601,7 +3601,7 @@ class CustomDomainGatewayArgs:
     @pulumi.getter(name="defaultSslBinding")
     def default_ssl_binding(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+        Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
         """
         return pulumi.get(self, "default_ssl_binding")
 
@@ -3634,7 +3634,7 @@ class CustomDomainGatewayArgs:
     @pulumi.getter(name="negotiateClientCertificate")
     def negotiate_client_certificate(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
@@ -3689,7 +3689,7 @@ class CustomDomainManagementArgs:
         :param pulumi.Input[str] certificate: The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         :param pulumi.Input[str] certificate_password: The password associated with the certificate provided above.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-        :param pulumi.Input[bool] negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        :param pulumi.Input[bool] negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
@@ -3792,7 +3792,7 @@ class CustomDomainManagementArgs:
     @pulumi.getter(name="negotiateClientCertificate")
     def negotiate_client_certificate(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
@@ -3847,7 +3847,7 @@ class CustomDomainPortalArgs:
         :param pulumi.Input[str] certificate: The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         :param pulumi.Input[str] certificate_password: The password associated with the certificate provided above.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-        :param pulumi.Input[bool] negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        :param pulumi.Input[bool] negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
@@ -3950,7 +3950,7 @@ class CustomDomainPortalArgs:
     @pulumi.getter(name="negotiateClientCertificate")
     def negotiate_client_certificate(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
@@ -4005,7 +4005,7 @@ class CustomDomainScmArgs:
         :param pulumi.Input[str] certificate: The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         :param pulumi.Input[str] certificate_password: The password associated with the certificate provided above.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-        :param pulumi.Input[bool] negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        :param pulumi.Input[bool] negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         pulumi.set(__self__, "host_name", host_name)
         if certificate is not None:
@@ -4108,7 +4108,7 @@ class CustomDomainScmArgs:
     @pulumi.getter(name="negotiateClientCertificate")
     def negotiate_client_certificate(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
@@ -6302,7 +6302,7 @@ class ServiceSecurityArgs:
         :param pulumi.Input[bool] tls_rsa_with_aes256_cbc_sha256_ciphers_enabled: Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
         :param pulumi.Input[bool] tls_rsa_with_aes256_cbc_sha_ciphers_enabled: Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
         :param pulumi.Input[bool] tls_rsa_with_aes256_gcm_sha384_ciphers_enabled: Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
-        :param pulumi.Input[bool] triple_des_ciphers_enabled: Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+        :param pulumi.Input[bool] triple_des_ciphers_enabled: Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
         """
         if enable_backend_ssl30 is not None:
             pulumi.set(__self__, "enable_backend_ssl30", enable_backend_ssl30)
@@ -6535,7 +6535,7 @@ class ServiceSecurityArgs:
     @pulumi.getter(name="tripleDesCiphersEnabled")
     def triple_des_ciphers_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+        Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
         """
         return pulumi.get(self, "triple_des_ciphers_enabled")
 

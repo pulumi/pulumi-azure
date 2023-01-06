@@ -32,14 +32,14 @@ public final class ActivityLogAlertCriteriaServiceHealthArgs extends com.pulumi.
     }
 
     /**
-     * Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+     * Locations this alert will monitor. For example, `West Europe`.
      * 
      */
     @Import(name="locations")
     private @Nullable Output<List<String>> locations;
 
     /**
-     * @return Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+     * @return Locations this alert will monitor. For example, `West Europe`.
      * 
      */
     public Optional<Output<List<String>>> locations() {
@@ -119,7 +119,7 @@ public final class ActivityLogAlertCriteriaServiceHealthArgs extends com.pulumi.
         }
 
         /**
-         * @param locations Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+         * @param locations Locations this alert will monitor. For example, `West Europe`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ActivityLogAlertCriteriaServiceHealthArgs extends com.pulumi.
         }
 
         /**
-         * @param locations Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+         * @param locations Locations this alert will monitor. For example, `West Europe`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ActivityLogAlertCriteriaServiceHealthArgs extends com.pulumi.
         }
 
         /**
-         * @param locations Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+         * @param locations Locations this alert will monitor. For example, `West Europe`.
          * 
          * @return builder
          * 

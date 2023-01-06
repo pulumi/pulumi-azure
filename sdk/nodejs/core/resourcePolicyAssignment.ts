@@ -88,7 +88,7 @@ export class ResourcePolicyAssignment extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
-     * Specifies if this Policy should be enforced or not?
+     * Specifies if this Policy should be enforced or not? Defaults to `true`.
      */
     public readonly enforce!: pulumi.Output<boolean | undefined>;
     /**
@@ -192,7 +192,7 @@ export interface ResourcePolicyAssignmentState {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * Specifies if this Policy should be enforced or not?
+     * Specifies if this Policy should be enforced or not? Defaults to `true`.
      */
     enforce?: pulumi.Input<boolean>;
     /**
@@ -246,7 +246,7 @@ export interface ResourcePolicyAssignmentArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * Specifies if this Policy should be enforced or not?
+     * Specifies if this Policy should be enforced or not? Defaults to `true`.
      */
     enforce?: pulumi.Input<boolean>;
     /**

@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Hpc.Outputs
         /// </summary>
         public readonly string? Filter;
         /// <summary>
-        /// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+        /// Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
         /// </summary>
         public readonly bool? RootSquashEnabled;
         /// <summary>
@@ -38,11 +38,11 @@ namespace Pulumi.Azure.Hpc.Outputs
         /// </summary>
         public readonly string Scope;
         /// <summary>
-        /// Whether allow access to subdirectories under the root export? Defaults to `false`.
+        /// Whether allow access to subdirectories under the root export?
         /// </summary>
         public readonly bool? SubmountAccessEnabled;
         /// <summary>
-        /// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+        /// Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
         /// </summary>
         public readonly bool? SuidEnabled;
 

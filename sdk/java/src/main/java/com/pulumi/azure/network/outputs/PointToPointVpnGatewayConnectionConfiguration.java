@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PointToPointVpnGatewayConnectionConfiguration {
     /**
-     * @return Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+     * @return Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
      * 
      */
     private @Nullable Boolean internetSecurityEnabled;
@@ -37,7 +37,7 @@ public final class PointToPointVpnGatewayConnectionConfiguration {
 
     private PointToPointVpnGatewayConnectionConfiguration() {}
     /**
-     * @return Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+     * @return Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
      * 
      */
     public Optional<Boolean> internetSecurityEnabled() {

@@ -92,11 +92,11 @@ import (
 type VirtualNetworkPeering struct {
 	pulumi.CustomResourceState
 
-	// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+	// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
 	AllowForwardedTraffic pulumi.BoolOutput `pulumi:"allowForwardedTraffic"`
 	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
 	AllowGatewayTransit pulumi.BoolOutput `pulumi:"allowGatewayTransit"`
-	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess pulumi.BoolPtrOutput `pulumi:"allowVirtualNetworkAccess"`
 	// The name of the virtual network peering. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -154,11 +154,11 @@ func GetVirtualNetworkPeering(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkPeering resources.
 type virtualNetworkPeeringState struct {
-	// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+	// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
 	AllowForwardedTraffic *bool `pulumi:"allowForwardedTraffic"`
 	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
 	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
-	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
 	// The name of the virtual network peering. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -179,11 +179,11 @@ type virtualNetworkPeeringState struct {
 }
 
 type VirtualNetworkPeeringState struct {
-	// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+	// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
 	AllowForwardedTraffic pulumi.BoolPtrInput
 	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
 	AllowGatewayTransit pulumi.BoolPtrInput
-	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
 	// The name of the virtual network peering. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -208,11 +208,11 @@ func (VirtualNetworkPeeringState) ElementType() reflect.Type {
 }
 
 type virtualNetworkPeeringArgs struct {
-	// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+	// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
 	AllowForwardedTraffic *bool `pulumi:"allowForwardedTraffic"`
 	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
 	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
-	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
 	// The name of the virtual network peering. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -234,11 +234,11 @@ type virtualNetworkPeeringArgs struct {
 
 // The set of arguments for constructing a VirtualNetworkPeering resource.
 type VirtualNetworkPeeringArgs struct {
-	// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+	// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
 	AllowForwardedTraffic pulumi.BoolPtrInput
 	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
 	AllowGatewayTransit pulumi.BoolPtrInput
-	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
 	// The name of the virtual network peering. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -345,7 +345,7 @@ func (o VirtualNetworkPeeringOutput) ToVirtualNetworkPeeringOutputWithContext(ct
 	return o
 }
 
-// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
 func (o VirtualNetworkPeeringOutput) AllowForwardedTraffic() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolOutput { return v.AllowForwardedTraffic }).(pulumi.BoolOutput)
 }
@@ -355,7 +355,7 @@ func (o VirtualNetworkPeeringOutput) AllowGatewayTransit() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolOutput { return v.AllowGatewayTransit }).(pulumi.BoolOutput)
 }
 
-// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
 func (o VirtualNetworkPeeringOutput) AllowVirtualNetworkAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolPtrOutput { return v.AllowVirtualNetworkAccess }).(pulumi.BoolPtrOutput)
 }

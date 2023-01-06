@@ -25,7 +25,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<string> Operator { get; set; } = null!;
 
         /// <summary>
-        /// match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
+        /// match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
         /// </summary>
         [Input("selector")]
         public Input<string>? Selector { get; set; }

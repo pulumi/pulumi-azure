@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class WindowsVirtualMachineScaleSetRollingUpgradePolicy
     {
         /// <summary>
-        /// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+        /// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
         /// </summary>
         public readonly bool? CrossZoneUpgradesEnabled;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string PauseTimeBetweenBatches;
         /// <summary>
-        /// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+        /// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
         /// </summary>
         public readonly bool? PrioritizeUnhealthyInstancesEnabled;
 

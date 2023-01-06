@@ -183,13 +183,13 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> AdminUsername { get; private set; } = null!;
 
         /// <summary>
-        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
         /// </summary>
         [Output("anonymousPullEnabled")]
         public Output<bool?> AnonymousPullEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+        /// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
         /// </summary>
         [Output("dataEndpointEnabled")]
         public Output<bool?> DataEndpointEnabled { get; private set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+        /// Boolean value that indicates whether quarantine policy is enabled.
         /// </summary>
         [Output("quarantinePolicyEnabled")]
         public Output<bool?> QuarantinePolicyEnabled { get; private set; } = null!;
@@ -353,13 +353,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? AdminEnabled { get; set; }
 
         /// <summary>
-        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
         /// </summary>
         [Input("anonymousPullEnabled")]
         public Input<bool>? AnonymousPullEnabled { get; set; }
 
         /// <summary>
-        /// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+        /// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
         /// </summary>
         [Input("dataEndpointEnabled")]
         public Input<bool>? DataEndpointEnabled { get; set; }
@@ -425,7 +425,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+        /// Boolean value that indicates whether quarantine policy is enabled.
         /// </summary>
         [Input("quarantinePolicyEnabled")]
         public Input<bool>? QuarantinePolicyEnabled { get; set; }
@@ -509,13 +509,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? AdminUsername { get; set; }
 
         /// <summary>
-        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+        /// Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
         /// </summary>
         [Input("anonymousPullEnabled")]
         public Input<bool>? AnonymousPullEnabled { get; set; }
 
         /// <summary>
-        /// Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+        /// Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
         /// </summary>
         [Input("dataEndpointEnabled")]
         public Input<bool>? DataEndpointEnabled { get; set; }
@@ -587,7 +587,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+        /// Boolean value that indicates whether quarantine policy is enabled.
         /// </summary>
         [Input("quarantinePolicyEnabled")]
         public Input<bool>? QuarantinePolicyEnabled { get; set; }

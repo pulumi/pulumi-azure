@@ -44,7 +44,7 @@ public final class SoftwareUpdateConfigurationSchedule {
      */
     private @Nullable String frequency;
     /**
-     * @return The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * @return The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
      * 
      */
     private @Nullable Integer interval;
@@ -116,7 +116,7 @@ public final class SoftwareUpdateConfigurationSchedule {
         return Optional.ofNullable(this.frequency);
     }
     /**
-     * @return The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * @return The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
      * 
      */
     public Optional<Integer> interval() {

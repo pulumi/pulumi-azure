@@ -18,7 +18,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DisabledAlerts;
         /// <summary>
-        /// Should the account administrators be emailed when this alert is triggered?
+        /// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
         /// </summary>
         public readonly string? EmailAccountAdmins;
         /// <summary>

@@ -18,14 +18,14 @@ public final class SpringCloudConfigurationServiceArgs extends com.pulumi.resour
     public static final SpringCloudConfigurationServiceArgs Empty = new SpringCloudConfigurationServiceArgs();
 
     /**
-     * The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+     * The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+     * @return The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -89,7 +89,7 @@ public final class SpringCloudConfigurationServiceArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+         * @param name The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class SpringCloudConfigurationServiceArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+         * @param name The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
          * 
          * @return builder
          * 

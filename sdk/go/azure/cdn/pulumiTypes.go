@@ -6539,7 +6539,7 @@ type FrontdoorOriginPrivateLink struct {
 	Location string `pulumi:"location"`
 	// The ID of the Azure Resource to connect to via the Private Link.
 	PrivateLinkTargetId string `pulumi:"privateLinkTargetId"`
-	// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
+	// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
 	RequestMessage *string `pulumi:"requestMessage"`
 	// Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `web` and `sites`.
 	TargetType *string `pulumi:"targetType"`
@@ -6561,7 +6561,7 @@ type FrontdoorOriginPrivateLinkArgs struct {
 	Location pulumi.StringInput `pulumi:"location"`
 	// The ID of the Azure Resource to connect to via the Private Link.
 	PrivateLinkTargetId pulumi.StringInput `pulumi:"privateLinkTargetId"`
-	// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
+	// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
 	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
 	// Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `web` and `sites`.
 	TargetType pulumi.StringPtrInput `pulumi:"targetType"`
@@ -6654,7 +6654,7 @@ func (o FrontdoorOriginPrivateLinkOutput) PrivateLinkTargetId() pulumi.StringOut
 	return o.ApplyT(func(v FrontdoorOriginPrivateLink) string { return v.PrivateLinkTargetId }).(pulumi.StringOutput)
 }
 
-// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
+// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
 func (o FrontdoorOriginPrivateLinkOutput) RequestMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorOriginPrivateLink) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
 }
@@ -6708,7 +6708,7 @@ func (o FrontdoorOriginPrivateLinkPtrOutput) PrivateLinkTargetId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
+// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
 func (o FrontdoorOriginPrivateLinkPtrOutput) RequestMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorOriginPrivateLink) *string {
 		if v == nil {
@@ -7370,17 +7370,17 @@ func (o FrontdoorRuleActionsResponseHeaderActionArrayOutput) Index(i pulumi.IntI
 }
 
 type FrontdoorRuleActionsRouteConfigurationOverrideAction struct {
-	// `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
+	// `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`.
 	CacheBehavior *string `pulumi:"cacheBehavior"`
-	// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
+	// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
 	CacheDuration *string `pulumi:"cacheDuration"`
 	// The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
 	CdnFrontdoorOriginGroupId *string `pulumi:"cdnFrontdoorOriginGroupId"`
-	// Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+	// Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
 	CompressionEnabled *bool `pulumi:"compressionEnabled"`
 	// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
-	// `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
+	// `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`.
 	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
 	// A list of query string parameter names.
 	QueryStringParameters []string `pulumi:"queryStringParameters"`
@@ -7398,17 +7398,17 @@ type FrontdoorRuleActionsRouteConfigurationOverrideActionInput interface {
 }
 
 type FrontdoorRuleActionsRouteConfigurationOverrideActionArgs struct {
-	// `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
+	// `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`.
 	CacheBehavior pulumi.StringPtrInput `pulumi:"cacheBehavior"`
-	// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
+	// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
 	CacheDuration pulumi.StringPtrInput `pulumi:"cacheDuration"`
 	// The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
 	CdnFrontdoorOriginGroupId pulumi.StringPtrInput `pulumi:"cdnFrontdoorOriginGroupId"`
-	// Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+	// Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
 	CompressionEnabled pulumi.BoolPtrInput `pulumi:"compressionEnabled"`
 	// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
 	ForwardingProtocol pulumi.StringPtrInput `pulumi:"forwardingProtocol"`
-	// `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
+	// `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`.
 	QueryStringCachingBehavior pulumi.StringPtrInput `pulumi:"queryStringCachingBehavior"`
 	// A list of query string parameter names.
 	QueryStringParameters pulumi.StringArrayInput `pulumi:"queryStringParameters"`
@@ -7491,12 +7491,12 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) ToFrontdoorR
 	}).(FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput)
 }
 
-// `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
+// `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CacheBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *string { return v.CacheBehavior }).(pulumi.StringPtrOutput)
 }
 
-// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
+// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CacheDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *string { return v.CacheDuration }).(pulumi.StringPtrOutput)
 }
@@ -7508,7 +7508,7 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CdnFrontdoor
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+// Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CompressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *bool { return v.CompressionEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7518,7 +7518,7 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) ForwardingPr
 	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
 }
 
-// `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
+// `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *string {
 		return v.QueryStringCachingBehavior
@@ -7554,7 +7554,7 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) Elem() Fr
 	}).(FrontdoorRuleActionsRouteConfigurationOverrideActionOutput)
 }
 
-// `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
+// `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) CacheBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *string {
 		if v == nil {
@@ -7564,7 +7564,7 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) CacheBeha
 	}).(pulumi.StringPtrOutput)
 }
 
-// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
+// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) CacheDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *string {
 		if v == nil {
@@ -7584,7 +7584,7 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) CdnFrontd
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+// Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) CompressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *bool {
 		if v == nil {
@@ -7604,7 +7604,7 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) Forwardin
 	}).(pulumi.StringPtrOutput)
 }
 
-// `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
+// `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *string {
 		if v == nil {
@@ -7625,13 +7625,13 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) QueryStri
 }
 
 type FrontdoorRuleActionsUrlRedirectAction struct {
-	// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
+	// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `""`.
 	DestinationFragment *string `pulumi:"destinationFragment"`
 	// The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
 	DestinationHostname string `pulumi:"destinationHostname"`
-	// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
+	// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `""`.
 	DestinationPath *string `pulumi:"destinationPath"`
-	// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
+	// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `""`.
 	QueryString *string `pulumi:"queryString"`
 	// The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
 	RedirectProtocol *string `pulumi:"redirectProtocol"`
@@ -7651,13 +7651,13 @@ type FrontdoorRuleActionsUrlRedirectActionInput interface {
 }
 
 type FrontdoorRuleActionsUrlRedirectActionArgs struct {
-	// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
+	// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `""`.
 	DestinationFragment pulumi.StringPtrInput `pulumi:"destinationFragment"`
 	// The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
 	DestinationHostname pulumi.StringInput `pulumi:"destinationHostname"`
-	// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
+	// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `""`.
 	DestinationPath pulumi.StringPtrInput `pulumi:"destinationPath"`
-	// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
+	// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `""`.
 	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
 	// The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
 	RedirectProtocol pulumi.StringPtrInput `pulumi:"redirectProtocol"`
@@ -7742,7 +7742,7 @@ func (o FrontdoorRuleActionsUrlRedirectActionOutput) ToFrontdoorRuleActionsUrlRe
 	}).(FrontdoorRuleActionsUrlRedirectActionPtrOutput)
 }
 
-// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
+// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `""`.
 func (o FrontdoorRuleActionsUrlRedirectActionOutput) DestinationFragment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) *string { return v.DestinationFragment }).(pulumi.StringPtrOutput)
 }
@@ -7752,12 +7752,12 @@ func (o FrontdoorRuleActionsUrlRedirectActionOutput) DestinationHostname() pulum
 	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) string { return v.DestinationHostname }).(pulumi.StringOutput)
 }
 
-// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
+// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `""`.
 func (o FrontdoorRuleActionsUrlRedirectActionOutput) DestinationPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) *string { return v.DestinationPath }).(pulumi.StringPtrOutput)
 }
 
-// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
+// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `""`.
 func (o FrontdoorRuleActionsUrlRedirectActionOutput) QueryString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) *string { return v.QueryString }).(pulumi.StringPtrOutput)
 }
@@ -7796,7 +7796,7 @@ func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) Elem() FrontdoorRuleActi
 	}).(FrontdoorRuleActionsUrlRedirectActionOutput)
 }
 
-// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
+// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `""`.
 func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationFragment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
 		if v == nil {
@@ -7816,7 +7816,7 @@ func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationHostname() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
+// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `""`.
 func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
 		if v == nil {
@@ -7826,7 +7826,7 @@ func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationPath() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
+// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `""`.
 func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) QueryString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
 		if v == nil {
@@ -8668,7 +8668,7 @@ type FrontdoorRuleConditionsCookiesCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -8692,7 +8692,7 @@ type FrontdoorRuleConditionsCookiesConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -8767,7 +8767,7 @@ func (o FrontdoorRuleConditionsCookiesConditionOutput) Operator() pulumi.StringO
 	return o.ApplyT(func(v FrontdoorRuleConditionsCookiesCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsCookiesConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsCookiesCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -8799,7 +8799,7 @@ type FrontdoorRuleConditionsHostNameCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -8821,7 +8821,7 @@ type FrontdoorRuleConditionsHostNameConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -8891,7 +8891,7 @@ func (o FrontdoorRuleConditionsHostNameConditionOutput) Operator() pulumi.String
 	return o.ApplyT(func(v FrontdoorRuleConditionsHostNameCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsHostNameConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsHostNameCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -9032,7 +9032,7 @@ func (o FrontdoorRuleConditionsHttpVersionConditionArrayOutput) Index(i pulumi.I
 }
 
 type FrontdoorRuleConditionsIsDeviceCondition struct {
-	// Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+	// Which device should this rule match on? Possible values `Mobile` or `Desktop`.
 	MatchValues *string `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
@@ -9052,7 +9052,7 @@ type FrontdoorRuleConditionsIsDeviceConditionInput interface {
 }
 
 type FrontdoorRuleConditionsIsDeviceConditionArgs struct {
-	// Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+	// Which device should this rule match on? Possible values `Mobile` or `Desktop`.
 	MatchValues pulumi.StringPtrInput `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
@@ -9111,7 +9111,7 @@ func (o FrontdoorRuleConditionsIsDeviceConditionOutput) ToFrontdoorRuleCondition
 	return o
 }
 
-// Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+// Which device should this rule match on? Possible values `Mobile` or `Desktop`.
 func (o FrontdoorRuleConditionsIsDeviceConditionOutput) MatchValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsIsDeviceCondition) *string { return v.MatchValues }).(pulumi.StringPtrOutput)
 }
@@ -9155,7 +9155,7 @@ type FrontdoorRuleConditionsPostArgsCondition struct {
 	Operator string `pulumi:"operator"`
 	// A string value representing the name of the `POST` argument.
 	PostArgsName string `pulumi:"postArgsName"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -9179,7 +9179,7 @@ type FrontdoorRuleConditionsPostArgsConditionArgs struct {
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// A string value representing the name of the `POST` argument.
 	PostArgsName pulumi.StringInput `pulumi:"postArgsName"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -9254,7 +9254,7 @@ func (o FrontdoorRuleConditionsPostArgsConditionOutput) PostArgsName() pulumi.St
 	return o.ApplyT(func(v FrontdoorRuleConditionsPostArgsCondition) string { return v.PostArgsName }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsPostArgsConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsPostArgsCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -9286,7 +9286,7 @@ type FrontdoorRuleConditionsQueryStringCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -9308,7 +9308,7 @@ type FrontdoorRuleConditionsQueryStringConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -9378,7 +9378,7 @@ func (o FrontdoorRuleConditionsQueryStringConditionOutput) Operator() pulumi.Str
 	return o.ApplyT(func(v FrontdoorRuleConditionsQueryStringCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsQueryStringConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsQueryStringCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -9525,7 +9525,7 @@ type FrontdoorRuleConditionsRequestBodyCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -9547,7 +9547,7 @@ type FrontdoorRuleConditionsRequestBodyConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -9617,7 +9617,7 @@ func (o FrontdoorRuleConditionsRequestBodyConditionOutput) Operator() pulumi.Str
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestBodyCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsRequestBodyConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestBodyCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -9651,7 +9651,7 @@ type FrontdoorRuleConditionsRequestHeaderCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -9675,7 +9675,7 @@ type FrontdoorRuleConditionsRequestHeaderConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -9750,7 +9750,7 @@ func (o FrontdoorRuleConditionsRequestHeaderConditionOutput) Operator() pulumi.S
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestHeaderCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsRequestHeaderConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestHeaderCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -9891,7 +9891,7 @@ func (o FrontdoorRuleConditionsRequestMethodConditionArrayOutput) Index(i pulumi
 }
 
 type FrontdoorRuleConditionsRequestSchemeCondition struct {
-	// The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+	// The requests protocol to match. Possible values include `HTTP` or `HTTPS`.
 	MatchValues *string `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
@@ -9911,7 +9911,7 @@ type FrontdoorRuleConditionsRequestSchemeConditionInput interface {
 }
 
 type FrontdoorRuleConditionsRequestSchemeConditionArgs struct {
-	// The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+	// The requests protocol to match. Possible values include `HTTP` or `HTTPS`.
 	MatchValues pulumi.StringPtrInput `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
@@ -9970,7 +9970,7 @@ func (o FrontdoorRuleConditionsRequestSchemeConditionOutput) ToFrontdoorRuleCond
 	return o
 }
 
-// The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+// The requests protocol to match. Possible values include `HTTP` or `HTTPS`.
 func (o FrontdoorRuleConditionsRequestSchemeConditionOutput) MatchValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestSchemeCondition) *string { return v.MatchValues }).(pulumi.StringPtrOutput)
 }
@@ -10012,7 +10012,7 @@ type FrontdoorRuleConditionsRequestUriCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -10034,7 +10034,7 @@ type FrontdoorRuleConditionsRequestUriConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -10104,7 +10104,7 @@ func (o FrontdoorRuleConditionsRequestUriConditionOutput) Operator() pulumi.Stri
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestUriCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsRequestUriConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestUriCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -10249,7 +10249,7 @@ type FrontdoorRuleConditionsSocketAddressCondition struct {
 	MatchValues []string `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
-	// The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+	// The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
 	Operator *string `pulumi:"operator"`
 }
 
@@ -10269,7 +10269,7 @@ type FrontdoorRuleConditionsSocketAddressConditionArgs struct {
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
-	// The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+	// The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
 }
 
@@ -10334,7 +10334,7 @@ func (o FrontdoorRuleConditionsSocketAddressConditionOutput) NegateCondition() p
 	return o.ApplyT(func(v FrontdoorRuleConditionsSocketAddressCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
 }
 
-// The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+// The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
 func (o FrontdoorRuleConditionsSocketAddressConditionOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsSocketAddressCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
@@ -10360,7 +10360,7 @@ func (o FrontdoorRuleConditionsSocketAddressConditionArrayOutput) Index(i pulumi
 }
 
 type FrontdoorRuleConditionsSslProtocolCondition struct {
-	// A list of one or more HTTP methods. Possible values include `TLSv1.0`, `TLSv1.1` or `TLS1.2`. If multiple values are specified, they're evaluated using `OR` logic.
+	// A list of one or more HTTP methods. Possible values are `TLSv1`, `TLSv1.1` and `TLSv1.2` logic.
 	MatchValues []string `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
@@ -10380,7 +10380,7 @@ type FrontdoorRuleConditionsSslProtocolConditionInput interface {
 }
 
 type FrontdoorRuleConditionsSslProtocolConditionArgs struct {
-	// A list of one or more HTTP methods. Possible values include `TLSv1.0`, `TLSv1.1` or `TLS1.2`. If multiple values are specified, they're evaluated using `OR` logic.
+	// A list of one or more HTTP methods. Possible values are `TLSv1`, `TLSv1.1` and `TLSv1.2` logic.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
@@ -10439,7 +10439,7 @@ func (o FrontdoorRuleConditionsSslProtocolConditionOutput) ToFrontdoorRuleCondit
 	return o
 }
 
-// A list of one or more HTTP methods. Possible values include `TLSv1.0`, `TLSv1.1` or `TLS1.2`. If multiple values are specified, they're evaluated using `OR` logic.
+// A list of one or more HTTP methods. Possible values are `TLSv1`, `TLSv1.1` and `TLSv1.2` logic.
 func (o FrontdoorRuleConditionsSslProtocolConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsSslProtocolCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
@@ -10481,7 +10481,7 @@ type FrontdoorRuleConditionsUrlFileExtensionCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -10503,7 +10503,7 @@ type FrontdoorRuleConditionsUrlFileExtensionConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -10573,7 +10573,7 @@ func (o FrontdoorRuleConditionsUrlFileExtensionConditionOutput) Operator() pulum
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFileExtensionCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsUrlFileExtensionConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFileExtensionCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -10605,7 +10605,7 @@ type FrontdoorRuleConditionsUrlFilenameCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -10627,7 +10627,7 @@ type FrontdoorRuleConditionsUrlFilenameConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -10697,7 +10697,7 @@ func (o FrontdoorRuleConditionsUrlFilenameConditionOutput) Operator() pulumi.Str
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFilenameCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsUrlFilenameConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFilenameCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -10729,7 +10729,7 @@ type FrontdoorRuleConditionsUrlPathCondition struct {
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -10751,7 +10751,7 @@ type FrontdoorRuleConditionsUrlPathConditionArgs struct {
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -10821,7 +10821,7 @@ func (o FrontdoorRuleConditionsUrlPathConditionOutput) Operator() pulumi.StringO
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlPathCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsUrlPathConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlPathCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }

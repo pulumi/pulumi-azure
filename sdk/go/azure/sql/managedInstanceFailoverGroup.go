@@ -35,7 +35,7 @@ type ManagedInstanceFailoverGroup struct {
 	PartnerRegions ManagedInstanceFailoverGroupPartnerRegionArrayOutput `pulumi:"partnerRegions"`
 	// A `readWriteEndpointFailoverPolicy` block as defined below.
 	ReadWriteEndpointFailoverPolicy ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput `pulumi:"readWriteEndpointFailoverPolicy"`
-	// Failover policy for the read-only endpoint. Defaults to `false`.
+	// Failover policy for the read-only endpoint. Defaults to `true`.
 	ReadonlyEndpointFailoverPolicyEnabled pulumi.BoolPtrOutput `pulumi:"readonlyEndpointFailoverPolicyEnabled"`
 	// The name of the Resource Group where the SQL Instance Failover Group should exist. Changing this forces a new SQL Instance Failover Group to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -96,7 +96,7 @@ type managedInstanceFailoverGroupState struct {
 	PartnerRegions []ManagedInstanceFailoverGroupPartnerRegion `pulumi:"partnerRegions"`
 	// A `readWriteEndpointFailoverPolicy` block as defined below.
 	ReadWriteEndpointFailoverPolicy *ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy `pulumi:"readWriteEndpointFailoverPolicy"`
-	// Failover policy for the read-only endpoint. Defaults to `false`.
+	// Failover policy for the read-only endpoint. Defaults to `true`.
 	ReadonlyEndpointFailoverPolicyEnabled *bool `pulumi:"readonlyEndpointFailoverPolicyEnabled"`
 	// The name of the Resource Group where the SQL Instance Failover Group should exist. Changing this forces a new SQL Instance Failover Group to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -117,7 +117,7 @@ type ManagedInstanceFailoverGroupState struct {
 	PartnerRegions ManagedInstanceFailoverGroupPartnerRegionArrayInput
 	// A `readWriteEndpointFailoverPolicy` block as defined below.
 	ReadWriteEndpointFailoverPolicy ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrInput
-	// Failover policy for the read-only endpoint. Defaults to `false`.
+	// Failover policy for the read-only endpoint. Defaults to `true`.
 	ReadonlyEndpointFailoverPolicyEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the SQL Instance Failover Group should exist. Changing this forces a new SQL Instance Failover Group to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -140,7 +140,7 @@ type managedInstanceFailoverGroupArgs struct {
 	PartnerManagedInstanceId string `pulumi:"partnerManagedInstanceId"`
 	// A `readWriteEndpointFailoverPolicy` block as defined below.
 	ReadWriteEndpointFailoverPolicy ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy `pulumi:"readWriteEndpointFailoverPolicy"`
-	// Failover policy for the read-only endpoint. Defaults to `false`.
+	// Failover policy for the read-only endpoint. Defaults to `true`.
 	ReadonlyEndpointFailoverPolicyEnabled *bool `pulumi:"readonlyEndpointFailoverPolicyEnabled"`
 	// The name of the Resource Group where the SQL Instance Failover Group should exist. Changing this forces a new SQL Instance Failover Group to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -158,7 +158,7 @@ type ManagedInstanceFailoverGroupArgs struct {
 	PartnerManagedInstanceId pulumi.StringInput
 	// A `readWriteEndpointFailoverPolicy` block as defined below.
 	ReadWriteEndpointFailoverPolicy ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyInput
-	// Failover policy for the read-only endpoint. Defaults to `false`.
+	// Failover policy for the read-only endpoint. Defaults to `true`.
 	ReadonlyEndpointFailoverPolicyEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the SQL Instance Failover Group should exist. Changing this forces a new SQL Instance Failover Group to be created.
 	ResourceGroupName pulumi.StringInput
@@ -285,7 +285,7 @@ func (o ManagedInstanceFailoverGroupOutput) ReadWriteEndpointFailoverPolicy() Ma
 	}).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput)
 }
 
-// Failover policy for the read-only endpoint. Defaults to `false`.
+// Failover policy for the read-only endpoint. Defaults to `true`.
 func (o ManagedInstanceFailoverGroupOutput) ReadonlyEndpointFailoverPolicyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceFailoverGroup) pulumi.BoolPtrOutput {
 		return v.ReadonlyEndpointFailoverPolicyEnabled

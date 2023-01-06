@@ -98,14 +98,14 @@ public final class CustomDomainDeveloperPortalArgs extends com.pulumi.resources.
     }
 
     /**
-     * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+     * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
      * 
      */
     @Import(name="negotiateClientCertificate")
     private @Nullable Output<Boolean> negotiateClientCertificate;
 
     /**
-     * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+     * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> negotiateClientCertificate() {
@@ -279,7 +279,7 @@ public final class CustomDomainDeveloperPortalArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param negotiateClientCertificate Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         * @param negotiateClientCertificate Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class CustomDomainDeveloperPortalArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param negotiateClientCertificate Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         * @param negotiateClientCertificate Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          * 
          * @return builder
          * 

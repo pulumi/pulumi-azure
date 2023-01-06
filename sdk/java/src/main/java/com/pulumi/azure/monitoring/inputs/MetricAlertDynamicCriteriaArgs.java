@@ -65,14 +65,14 @@ public final class MetricAlertDynamicCriteriaArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`.
+     * The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
      * 
      */
     @Import(name="evaluationFailureCount")
     private @Nullable Output<Integer> evaluationFailureCount;
 
     /**
-     * @return The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`.
+     * @return The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
      * 
      */
     public Optional<Output<Integer>> evaluationFailureCount() {
@@ -80,14 +80,14 @@ public final class MetricAlertDynamicCriteriaArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points.
+     * The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
      * 
      */
     @Import(name="evaluationTotalCount")
     private @Nullable Output<Integer> evaluationTotalCount;
 
     /**
-     * @return The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points.
+     * @return The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
      * 
      */
     public Optional<Output<Integer>> evaluationTotalCount() {
@@ -155,14 +155,14 @@ public final class MetricAlertDynamicCriteriaArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Skip the metric validation to allow creating an alert rule on a custom metric that isn&#39;t yet emitted? Defaults to `false`.
+     * Skip the metric validation to allow creating an alert rule on a custom metric that isn&#39;t yet emitted?
      * 
      */
     @Import(name="skipMetricValidation")
     private @Nullable Output<Boolean> skipMetricValidation;
 
     /**
-     * @return Skip the metric validation to allow creating an alert rule on a custom metric that isn&#39;t yet emitted? Defaults to `false`.
+     * @return Skip the metric validation to allow creating an alert rule on a custom metric that isn&#39;t yet emitted?
      * 
      */
     public Optional<Output<Boolean>> skipMetricValidation() {
@@ -276,7 +276,7 @@ public final class MetricAlertDynamicCriteriaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param evaluationFailureCount The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`.
+         * @param evaluationFailureCount The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class MetricAlertDynamicCriteriaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param evaluationFailureCount The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`.
+         * @param evaluationFailureCount The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class MetricAlertDynamicCriteriaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param evaluationTotalCount The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points.
+         * @param evaluationTotalCount The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class MetricAlertDynamicCriteriaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param evaluationTotalCount The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points.
+         * @param evaluationTotalCount The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class MetricAlertDynamicCriteriaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param skipMetricValidation Skip the metric validation to allow creating an alert rule on a custom metric that isn&#39;t yet emitted? Defaults to `false`.
+         * @param skipMetricValidation Skip the metric validation to allow creating an alert rule on a custom metric that isn&#39;t yet emitted?
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class MetricAlertDynamicCriteriaArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param skipMetricValidation Skip the metric validation to allow creating an alert rule on a custom metric that isn&#39;t yet emitted? Defaults to `false`.
+         * @param skipMetricValidation Skip the metric validation to allow creating an alert rule on a custom metric that isn&#39;t yet emitted?
          * 
          * @return builder
          * 

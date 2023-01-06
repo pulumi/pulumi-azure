@@ -328,6 +328,1126 @@ func (o CustomProviderValidationArrayOutput) Index(i pulumi.IntInput) CustomProv
 	}).(CustomProviderValidationOutput)
 }
 
+type ResourceDeploymentScriptAzureCliContainer struct {
+	// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+	ContainerGroupName *string `pulumi:"containerGroupName"`
+}
+
+// ResourceDeploymentScriptAzureCliContainerInput is an input type that accepts ResourceDeploymentScriptAzureCliContainerArgs and ResourceDeploymentScriptAzureCliContainerOutput values.
+// You can construct a concrete instance of `ResourceDeploymentScriptAzureCliContainerInput` via:
+//
+//	ResourceDeploymentScriptAzureCliContainerArgs{...}
+type ResourceDeploymentScriptAzureCliContainerInput interface {
+	pulumi.Input
+
+	ToResourceDeploymentScriptAzureCliContainerOutput() ResourceDeploymentScriptAzureCliContainerOutput
+	ToResourceDeploymentScriptAzureCliContainerOutputWithContext(context.Context) ResourceDeploymentScriptAzureCliContainerOutput
+}
+
+type ResourceDeploymentScriptAzureCliContainerArgs struct {
+	// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+	ContainerGroupName pulumi.StringPtrInput `pulumi:"containerGroupName"`
+}
+
+func (ResourceDeploymentScriptAzureCliContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDeploymentScriptAzureCliContainer)(nil)).Elem()
+}
+
+func (i ResourceDeploymentScriptAzureCliContainerArgs) ToResourceDeploymentScriptAzureCliContainerOutput() ResourceDeploymentScriptAzureCliContainerOutput {
+	return i.ToResourceDeploymentScriptAzureCliContainerOutputWithContext(context.Background())
+}
+
+func (i ResourceDeploymentScriptAzureCliContainerArgs) ToResourceDeploymentScriptAzureCliContainerOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliContainerOutput)
+}
+
+func (i ResourceDeploymentScriptAzureCliContainerArgs) ToResourceDeploymentScriptAzureCliContainerPtrOutput() ResourceDeploymentScriptAzureCliContainerPtrOutput {
+	return i.ToResourceDeploymentScriptAzureCliContainerPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceDeploymentScriptAzureCliContainerArgs) ToResourceDeploymentScriptAzureCliContainerPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliContainerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliContainerOutput).ToResourceDeploymentScriptAzureCliContainerPtrOutputWithContext(ctx)
+}
+
+// ResourceDeploymentScriptAzureCliContainerPtrInput is an input type that accepts ResourceDeploymentScriptAzureCliContainerArgs, ResourceDeploymentScriptAzureCliContainerPtr and ResourceDeploymentScriptAzureCliContainerPtrOutput values.
+// You can construct a concrete instance of `ResourceDeploymentScriptAzureCliContainerPtrInput` via:
+//
+//	        ResourceDeploymentScriptAzureCliContainerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceDeploymentScriptAzureCliContainerPtrInput interface {
+	pulumi.Input
+
+	ToResourceDeploymentScriptAzureCliContainerPtrOutput() ResourceDeploymentScriptAzureCliContainerPtrOutput
+	ToResourceDeploymentScriptAzureCliContainerPtrOutputWithContext(context.Context) ResourceDeploymentScriptAzureCliContainerPtrOutput
+}
+
+type resourceDeploymentScriptAzureCliContainerPtrType ResourceDeploymentScriptAzureCliContainerArgs
+
+func ResourceDeploymentScriptAzureCliContainerPtr(v *ResourceDeploymentScriptAzureCliContainerArgs) ResourceDeploymentScriptAzureCliContainerPtrInput {
+	return (*resourceDeploymentScriptAzureCliContainerPtrType)(v)
+}
+
+func (*resourceDeploymentScriptAzureCliContainerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDeploymentScriptAzureCliContainer)(nil)).Elem()
+}
+
+func (i *resourceDeploymentScriptAzureCliContainerPtrType) ToResourceDeploymentScriptAzureCliContainerPtrOutput() ResourceDeploymentScriptAzureCliContainerPtrOutput {
+	return i.ToResourceDeploymentScriptAzureCliContainerPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceDeploymentScriptAzureCliContainerPtrType) ToResourceDeploymentScriptAzureCliContainerPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliContainerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliContainerPtrOutput)
+}
+
+type ResourceDeploymentScriptAzureCliContainerOutput struct{ *pulumi.OutputState }
+
+func (ResourceDeploymentScriptAzureCliContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDeploymentScriptAzureCliContainer)(nil)).Elem()
+}
+
+func (o ResourceDeploymentScriptAzureCliContainerOutput) ToResourceDeploymentScriptAzureCliContainerOutput() ResourceDeploymentScriptAzureCliContainerOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliContainerOutput) ToResourceDeploymentScriptAzureCliContainerOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliContainerOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliContainerOutput) ToResourceDeploymentScriptAzureCliContainerPtrOutput() ResourceDeploymentScriptAzureCliContainerPtrOutput {
+	return o.ToResourceDeploymentScriptAzureCliContainerPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceDeploymentScriptAzureCliContainerOutput) ToResourceDeploymentScriptAzureCliContainerPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliContainerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDeploymentScriptAzureCliContainer) *ResourceDeploymentScriptAzureCliContainer {
+		return &v
+	}).(ResourceDeploymentScriptAzureCliContainerPtrOutput)
+}
+
+// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+func (o ResourceDeploymentScriptAzureCliContainerOutput) ContainerGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceDeploymentScriptAzureCliContainer) *string { return v.ContainerGroupName }).(pulumi.StringPtrOutput)
+}
+
+type ResourceDeploymentScriptAzureCliContainerPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceDeploymentScriptAzureCliContainerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDeploymentScriptAzureCliContainer)(nil)).Elem()
+}
+
+func (o ResourceDeploymentScriptAzureCliContainerPtrOutput) ToResourceDeploymentScriptAzureCliContainerPtrOutput() ResourceDeploymentScriptAzureCliContainerPtrOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliContainerPtrOutput) ToResourceDeploymentScriptAzureCliContainerPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliContainerPtrOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliContainerPtrOutput) Elem() ResourceDeploymentScriptAzureCliContainerOutput {
+	return o.ApplyT(func(v *ResourceDeploymentScriptAzureCliContainer) ResourceDeploymentScriptAzureCliContainer {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceDeploymentScriptAzureCliContainer
+		return ret
+	}).(ResourceDeploymentScriptAzureCliContainerOutput)
+}
+
+// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+func (o ResourceDeploymentScriptAzureCliContainerPtrOutput) ContainerGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDeploymentScriptAzureCliContainer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceDeploymentScriptAzureCliEnvironmentVariable struct {
+	// Specifies the name of the environment variable.
+	Name string `pulumi:"name"`
+	// Specifies the value of the secure environment variable.
+	SecureValue *string `pulumi:"secureValue"`
+	// Specifies the value of the environment variable.
+	Value *string `pulumi:"value"`
+}
+
+// ResourceDeploymentScriptAzureCliEnvironmentVariableInput is an input type that accepts ResourceDeploymentScriptAzureCliEnvironmentVariableArgs and ResourceDeploymentScriptAzureCliEnvironmentVariableOutput values.
+// You can construct a concrete instance of `ResourceDeploymentScriptAzureCliEnvironmentVariableInput` via:
+//
+//	ResourceDeploymentScriptAzureCliEnvironmentVariableArgs{...}
+type ResourceDeploymentScriptAzureCliEnvironmentVariableInput interface {
+	pulumi.Input
+
+	ToResourceDeploymentScriptAzureCliEnvironmentVariableOutput() ResourceDeploymentScriptAzureCliEnvironmentVariableOutput
+	ToResourceDeploymentScriptAzureCliEnvironmentVariableOutputWithContext(context.Context) ResourceDeploymentScriptAzureCliEnvironmentVariableOutput
+}
+
+type ResourceDeploymentScriptAzureCliEnvironmentVariableArgs struct {
+	// Specifies the name of the environment variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the value of the secure environment variable.
+	SecureValue pulumi.StringPtrInput `pulumi:"secureValue"`
+	// Specifies the value of the environment variable.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ResourceDeploymentScriptAzureCliEnvironmentVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDeploymentScriptAzureCliEnvironmentVariable)(nil)).Elem()
+}
+
+func (i ResourceDeploymentScriptAzureCliEnvironmentVariableArgs) ToResourceDeploymentScriptAzureCliEnvironmentVariableOutput() ResourceDeploymentScriptAzureCliEnvironmentVariableOutput {
+	return i.ToResourceDeploymentScriptAzureCliEnvironmentVariableOutputWithContext(context.Background())
+}
+
+func (i ResourceDeploymentScriptAzureCliEnvironmentVariableArgs) ToResourceDeploymentScriptAzureCliEnvironmentVariableOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliEnvironmentVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliEnvironmentVariableOutput)
+}
+
+// ResourceDeploymentScriptAzureCliEnvironmentVariableArrayInput is an input type that accepts ResourceDeploymentScriptAzureCliEnvironmentVariableArray and ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput values.
+// You can construct a concrete instance of `ResourceDeploymentScriptAzureCliEnvironmentVariableArrayInput` via:
+//
+//	ResourceDeploymentScriptAzureCliEnvironmentVariableArray{ ResourceDeploymentScriptAzureCliEnvironmentVariableArgs{...} }
+type ResourceDeploymentScriptAzureCliEnvironmentVariableArrayInput interface {
+	pulumi.Input
+
+	ToResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput() ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput
+	ToResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutputWithContext(context.Context) ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput
+}
+
+type ResourceDeploymentScriptAzureCliEnvironmentVariableArray []ResourceDeploymentScriptAzureCliEnvironmentVariableInput
+
+func (ResourceDeploymentScriptAzureCliEnvironmentVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceDeploymentScriptAzureCliEnvironmentVariable)(nil)).Elem()
+}
+
+func (i ResourceDeploymentScriptAzureCliEnvironmentVariableArray) ToResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput() ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput {
+	return i.ToResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceDeploymentScriptAzureCliEnvironmentVariableArray) ToResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput)
+}
+
+type ResourceDeploymentScriptAzureCliEnvironmentVariableOutput struct{ *pulumi.OutputState }
+
+func (ResourceDeploymentScriptAzureCliEnvironmentVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDeploymentScriptAzureCliEnvironmentVariable)(nil)).Elem()
+}
+
+func (o ResourceDeploymentScriptAzureCliEnvironmentVariableOutput) ToResourceDeploymentScriptAzureCliEnvironmentVariableOutput() ResourceDeploymentScriptAzureCliEnvironmentVariableOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliEnvironmentVariableOutput) ToResourceDeploymentScriptAzureCliEnvironmentVariableOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliEnvironmentVariableOutput {
+	return o
+}
+
+// Specifies the name of the environment variable.
+func (o ResourceDeploymentScriptAzureCliEnvironmentVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceDeploymentScriptAzureCliEnvironmentVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the value of the secure environment variable.
+func (o ResourceDeploymentScriptAzureCliEnvironmentVariableOutput) SecureValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceDeploymentScriptAzureCliEnvironmentVariable) *string { return v.SecureValue }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the value of the environment variable.
+func (o ResourceDeploymentScriptAzureCliEnvironmentVariableOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceDeploymentScriptAzureCliEnvironmentVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceDeploymentScriptAzureCliEnvironmentVariable)(nil)).Elem()
+}
+
+func (o ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput) ToResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput() ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput) ToResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) ResourceDeploymentScriptAzureCliEnvironmentVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceDeploymentScriptAzureCliEnvironmentVariable {
+		return vs[0].([]ResourceDeploymentScriptAzureCliEnvironmentVariable)[vs[1].(int)]
+	}).(ResourceDeploymentScriptAzureCliEnvironmentVariableOutput)
+}
+
+type ResourceDeploymentScriptAzureCliIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
+	// Type of the managed identity.
+	Type string `pulumi:"type"`
+}
+
+// ResourceDeploymentScriptAzureCliIdentityInput is an input type that accepts ResourceDeploymentScriptAzureCliIdentityArgs and ResourceDeploymentScriptAzureCliIdentityOutput values.
+// You can construct a concrete instance of `ResourceDeploymentScriptAzureCliIdentityInput` via:
+//
+//	ResourceDeploymentScriptAzureCliIdentityArgs{...}
+type ResourceDeploymentScriptAzureCliIdentityInput interface {
+	pulumi.Input
+
+	ToResourceDeploymentScriptAzureCliIdentityOutput() ResourceDeploymentScriptAzureCliIdentityOutput
+	ToResourceDeploymentScriptAzureCliIdentityOutputWithContext(context.Context) ResourceDeploymentScriptAzureCliIdentityOutput
+}
+
+type ResourceDeploymentScriptAzureCliIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// Type of the managed identity.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ResourceDeploymentScriptAzureCliIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDeploymentScriptAzureCliIdentity)(nil)).Elem()
+}
+
+func (i ResourceDeploymentScriptAzureCliIdentityArgs) ToResourceDeploymentScriptAzureCliIdentityOutput() ResourceDeploymentScriptAzureCliIdentityOutput {
+	return i.ToResourceDeploymentScriptAzureCliIdentityOutputWithContext(context.Background())
+}
+
+func (i ResourceDeploymentScriptAzureCliIdentityArgs) ToResourceDeploymentScriptAzureCliIdentityOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliIdentityOutput)
+}
+
+func (i ResourceDeploymentScriptAzureCliIdentityArgs) ToResourceDeploymentScriptAzureCliIdentityPtrOutput() ResourceDeploymentScriptAzureCliIdentityPtrOutput {
+	return i.ToResourceDeploymentScriptAzureCliIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceDeploymentScriptAzureCliIdentityArgs) ToResourceDeploymentScriptAzureCliIdentityPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliIdentityOutput).ToResourceDeploymentScriptAzureCliIdentityPtrOutputWithContext(ctx)
+}
+
+// ResourceDeploymentScriptAzureCliIdentityPtrInput is an input type that accepts ResourceDeploymentScriptAzureCliIdentityArgs, ResourceDeploymentScriptAzureCliIdentityPtr and ResourceDeploymentScriptAzureCliIdentityPtrOutput values.
+// You can construct a concrete instance of `ResourceDeploymentScriptAzureCliIdentityPtrInput` via:
+//
+//	        ResourceDeploymentScriptAzureCliIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceDeploymentScriptAzureCliIdentityPtrInput interface {
+	pulumi.Input
+
+	ToResourceDeploymentScriptAzureCliIdentityPtrOutput() ResourceDeploymentScriptAzureCliIdentityPtrOutput
+	ToResourceDeploymentScriptAzureCliIdentityPtrOutputWithContext(context.Context) ResourceDeploymentScriptAzureCliIdentityPtrOutput
+}
+
+type resourceDeploymentScriptAzureCliIdentityPtrType ResourceDeploymentScriptAzureCliIdentityArgs
+
+func ResourceDeploymentScriptAzureCliIdentityPtr(v *ResourceDeploymentScriptAzureCliIdentityArgs) ResourceDeploymentScriptAzureCliIdentityPtrInput {
+	return (*resourceDeploymentScriptAzureCliIdentityPtrType)(v)
+}
+
+func (*resourceDeploymentScriptAzureCliIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDeploymentScriptAzureCliIdentity)(nil)).Elem()
+}
+
+func (i *resourceDeploymentScriptAzureCliIdentityPtrType) ToResourceDeploymentScriptAzureCliIdentityPtrOutput() ResourceDeploymentScriptAzureCliIdentityPtrOutput {
+	return i.ToResourceDeploymentScriptAzureCliIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceDeploymentScriptAzureCliIdentityPtrType) ToResourceDeploymentScriptAzureCliIdentityPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliIdentityPtrOutput)
+}
+
+type ResourceDeploymentScriptAzureCliIdentityOutput struct{ *pulumi.OutputState }
+
+func (ResourceDeploymentScriptAzureCliIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDeploymentScriptAzureCliIdentity)(nil)).Elem()
+}
+
+func (o ResourceDeploymentScriptAzureCliIdentityOutput) ToResourceDeploymentScriptAzureCliIdentityOutput() ResourceDeploymentScriptAzureCliIdentityOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliIdentityOutput) ToResourceDeploymentScriptAzureCliIdentityOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliIdentityOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliIdentityOutput) ToResourceDeploymentScriptAzureCliIdentityPtrOutput() ResourceDeploymentScriptAzureCliIdentityPtrOutput {
+	return o.ToResourceDeploymentScriptAzureCliIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceDeploymentScriptAzureCliIdentityOutput) ToResourceDeploymentScriptAzureCliIdentityPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDeploymentScriptAzureCliIdentity) *ResourceDeploymentScriptAzureCliIdentity {
+		return &v
+	}).(ResourceDeploymentScriptAzureCliIdentityPtrOutput)
+}
+
+func (o ResourceDeploymentScriptAzureCliIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceDeploymentScriptAzureCliIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// Type of the managed identity.
+func (o ResourceDeploymentScriptAzureCliIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceDeploymentScriptAzureCliIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ResourceDeploymentScriptAzureCliIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceDeploymentScriptAzureCliIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDeploymentScriptAzureCliIdentity)(nil)).Elem()
+}
+
+func (o ResourceDeploymentScriptAzureCliIdentityPtrOutput) ToResourceDeploymentScriptAzureCliIdentityPtrOutput() ResourceDeploymentScriptAzureCliIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliIdentityPtrOutput) ToResourceDeploymentScriptAzureCliIdentityPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliIdentityPtrOutput) Elem() ResourceDeploymentScriptAzureCliIdentityOutput {
+	return o.ApplyT(func(v *ResourceDeploymentScriptAzureCliIdentity) ResourceDeploymentScriptAzureCliIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceDeploymentScriptAzureCliIdentity
+		return ret
+	}).(ResourceDeploymentScriptAzureCliIdentityOutput)
+}
+
+func (o ResourceDeploymentScriptAzureCliIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceDeploymentScriptAzureCliIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Type of the managed identity.
+func (o ResourceDeploymentScriptAzureCliIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDeploymentScriptAzureCliIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceDeploymentScriptAzureCliStorageAccount struct {
+	// Specifies the storage account access key.
+	Key string `pulumi:"key"`
+	// Specifies the storage account name.
+	Name string `pulumi:"name"`
+}
+
+// ResourceDeploymentScriptAzureCliStorageAccountInput is an input type that accepts ResourceDeploymentScriptAzureCliStorageAccountArgs and ResourceDeploymentScriptAzureCliStorageAccountOutput values.
+// You can construct a concrete instance of `ResourceDeploymentScriptAzureCliStorageAccountInput` via:
+//
+//	ResourceDeploymentScriptAzureCliStorageAccountArgs{...}
+type ResourceDeploymentScriptAzureCliStorageAccountInput interface {
+	pulumi.Input
+
+	ToResourceDeploymentScriptAzureCliStorageAccountOutput() ResourceDeploymentScriptAzureCliStorageAccountOutput
+	ToResourceDeploymentScriptAzureCliStorageAccountOutputWithContext(context.Context) ResourceDeploymentScriptAzureCliStorageAccountOutput
+}
+
+type ResourceDeploymentScriptAzureCliStorageAccountArgs struct {
+	// Specifies the storage account access key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies the storage account name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ResourceDeploymentScriptAzureCliStorageAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDeploymentScriptAzureCliStorageAccount)(nil)).Elem()
+}
+
+func (i ResourceDeploymentScriptAzureCliStorageAccountArgs) ToResourceDeploymentScriptAzureCliStorageAccountOutput() ResourceDeploymentScriptAzureCliStorageAccountOutput {
+	return i.ToResourceDeploymentScriptAzureCliStorageAccountOutputWithContext(context.Background())
+}
+
+func (i ResourceDeploymentScriptAzureCliStorageAccountArgs) ToResourceDeploymentScriptAzureCliStorageAccountOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliStorageAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliStorageAccountOutput)
+}
+
+func (i ResourceDeploymentScriptAzureCliStorageAccountArgs) ToResourceDeploymentScriptAzureCliStorageAccountPtrOutput() ResourceDeploymentScriptAzureCliStorageAccountPtrOutput {
+	return i.ToResourceDeploymentScriptAzureCliStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceDeploymentScriptAzureCliStorageAccountArgs) ToResourceDeploymentScriptAzureCliStorageAccountPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliStorageAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliStorageAccountOutput).ToResourceDeploymentScriptAzureCliStorageAccountPtrOutputWithContext(ctx)
+}
+
+// ResourceDeploymentScriptAzureCliStorageAccountPtrInput is an input type that accepts ResourceDeploymentScriptAzureCliStorageAccountArgs, ResourceDeploymentScriptAzureCliStorageAccountPtr and ResourceDeploymentScriptAzureCliStorageAccountPtrOutput values.
+// You can construct a concrete instance of `ResourceDeploymentScriptAzureCliStorageAccountPtrInput` via:
+//
+//	        ResourceDeploymentScriptAzureCliStorageAccountArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceDeploymentScriptAzureCliStorageAccountPtrInput interface {
+	pulumi.Input
+
+	ToResourceDeploymentScriptAzureCliStorageAccountPtrOutput() ResourceDeploymentScriptAzureCliStorageAccountPtrOutput
+	ToResourceDeploymentScriptAzureCliStorageAccountPtrOutputWithContext(context.Context) ResourceDeploymentScriptAzureCliStorageAccountPtrOutput
+}
+
+type resourceDeploymentScriptAzureCliStorageAccountPtrType ResourceDeploymentScriptAzureCliStorageAccountArgs
+
+func ResourceDeploymentScriptAzureCliStorageAccountPtr(v *ResourceDeploymentScriptAzureCliStorageAccountArgs) ResourceDeploymentScriptAzureCliStorageAccountPtrInput {
+	return (*resourceDeploymentScriptAzureCliStorageAccountPtrType)(v)
+}
+
+func (*resourceDeploymentScriptAzureCliStorageAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDeploymentScriptAzureCliStorageAccount)(nil)).Elem()
+}
+
+func (i *resourceDeploymentScriptAzureCliStorageAccountPtrType) ToResourceDeploymentScriptAzureCliStorageAccountPtrOutput() ResourceDeploymentScriptAzureCliStorageAccountPtrOutput {
+	return i.ToResourceDeploymentScriptAzureCliStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceDeploymentScriptAzureCliStorageAccountPtrType) ToResourceDeploymentScriptAzureCliStorageAccountPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliStorageAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptAzureCliStorageAccountPtrOutput)
+}
+
+type ResourceDeploymentScriptAzureCliStorageAccountOutput struct{ *pulumi.OutputState }
+
+func (ResourceDeploymentScriptAzureCliStorageAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDeploymentScriptAzureCliStorageAccount)(nil)).Elem()
+}
+
+func (o ResourceDeploymentScriptAzureCliStorageAccountOutput) ToResourceDeploymentScriptAzureCliStorageAccountOutput() ResourceDeploymentScriptAzureCliStorageAccountOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliStorageAccountOutput) ToResourceDeploymentScriptAzureCliStorageAccountOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliStorageAccountOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliStorageAccountOutput) ToResourceDeploymentScriptAzureCliStorageAccountPtrOutput() ResourceDeploymentScriptAzureCliStorageAccountPtrOutput {
+	return o.ToResourceDeploymentScriptAzureCliStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceDeploymentScriptAzureCliStorageAccountOutput) ToResourceDeploymentScriptAzureCliStorageAccountPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliStorageAccountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDeploymentScriptAzureCliStorageAccount) *ResourceDeploymentScriptAzureCliStorageAccount {
+		return &v
+	}).(ResourceDeploymentScriptAzureCliStorageAccountPtrOutput)
+}
+
+// Specifies the storage account access key.
+func (o ResourceDeploymentScriptAzureCliStorageAccountOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceDeploymentScriptAzureCliStorageAccount) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies the storage account name.
+func (o ResourceDeploymentScriptAzureCliStorageAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceDeploymentScriptAzureCliStorageAccount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ResourceDeploymentScriptAzureCliStorageAccountPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceDeploymentScriptAzureCliStorageAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDeploymentScriptAzureCliStorageAccount)(nil)).Elem()
+}
+
+func (o ResourceDeploymentScriptAzureCliStorageAccountPtrOutput) ToResourceDeploymentScriptAzureCliStorageAccountPtrOutput() ResourceDeploymentScriptAzureCliStorageAccountPtrOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliStorageAccountPtrOutput) ToResourceDeploymentScriptAzureCliStorageAccountPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptAzureCliStorageAccountPtrOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptAzureCliStorageAccountPtrOutput) Elem() ResourceDeploymentScriptAzureCliStorageAccountOutput {
+	return o.ApplyT(func(v *ResourceDeploymentScriptAzureCliStorageAccount) ResourceDeploymentScriptAzureCliStorageAccount {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceDeploymentScriptAzureCliStorageAccount
+		return ret
+	}).(ResourceDeploymentScriptAzureCliStorageAccountOutput)
+}
+
+// Specifies the storage account access key.
+func (o ResourceDeploymentScriptAzureCliStorageAccountPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDeploymentScriptAzureCliStorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the storage account name.
+func (o ResourceDeploymentScriptAzureCliStorageAccountPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDeploymentScriptAzureCliStorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceDeploymentScriptPowerShellContainer struct {
+	// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+	ContainerGroupName *string `pulumi:"containerGroupName"`
+}
+
+// ResourceDeploymentScriptPowerShellContainerInput is an input type that accepts ResourceDeploymentScriptPowerShellContainerArgs and ResourceDeploymentScriptPowerShellContainerOutput values.
+// You can construct a concrete instance of `ResourceDeploymentScriptPowerShellContainerInput` via:
+//
+//	ResourceDeploymentScriptPowerShellContainerArgs{...}
+type ResourceDeploymentScriptPowerShellContainerInput interface {
+	pulumi.Input
+
+	ToResourceDeploymentScriptPowerShellContainerOutput() ResourceDeploymentScriptPowerShellContainerOutput
+	ToResourceDeploymentScriptPowerShellContainerOutputWithContext(context.Context) ResourceDeploymentScriptPowerShellContainerOutput
+}
+
+type ResourceDeploymentScriptPowerShellContainerArgs struct {
+	// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+	ContainerGroupName pulumi.StringPtrInput `pulumi:"containerGroupName"`
+}
+
+func (ResourceDeploymentScriptPowerShellContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDeploymentScriptPowerShellContainer)(nil)).Elem()
+}
+
+func (i ResourceDeploymentScriptPowerShellContainerArgs) ToResourceDeploymentScriptPowerShellContainerOutput() ResourceDeploymentScriptPowerShellContainerOutput {
+	return i.ToResourceDeploymentScriptPowerShellContainerOutputWithContext(context.Background())
+}
+
+func (i ResourceDeploymentScriptPowerShellContainerArgs) ToResourceDeploymentScriptPowerShellContainerOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellContainerOutput)
+}
+
+func (i ResourceDeploymentScriptPowerShellContainerArgs) ToResourceDeploymentScriptPowerShellContainerPtrOutput() ResourceDeploymentScriptPowerShellContainerPtrOutput {
+	return i.ToResourceDeploymentScriptPowerShellContainerPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceDeploymentScriptPowerShellContainerArgs) ToResourceDeploymentScriptPowerShellContainerPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellContainerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellContainerOutput).ToResourceDeploymentScriptPowerShellContainerPtrOutputWithContext(ctx)
+}
+
+// ResourceDeploymentScriptPowerShellContainerPtrInput is an input type that accepts ResourceDeploymentScriptPowerShellContainerArgs, ResourceDeploymentScriptPowerShellContainerPtr and ResourceDeploymentScriptPowerShellContainerPtrOutput values.
+// You can construct a concrete instance of `ResourceDeploymentScriptPowerShellContainerPtrInput` via:
+//
+//	        ResourceDeploymentScriptPowerShellContainerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceDeploymentScriptPowerShellContainerPtrInput interface {
+	pulumi.Input
+
+	ToResourceDeploymentScriptPowerShellContainerPtrOutput() ResourceDeploymentScriptPowerShellContainerPtrOutput
+	ToResourceDeploymentScriptPowerShellContainerPtrOutputWithContext(context.Context) ResourceDeploymentScriptPowerShellContainerPtrOutput
+}
+
+type resourceDeploymentScriptPowerShellContainerPtrType ResourceDeploymentScriptPowerShellContainerArgs
+
+func ResourceDeploymentScriptPowerShellContainerPtr(v *ResourceDeploymentScriptPowerShellContainerArgs) ResourceDeploymentScriptPowerShellContainerPtrInput {
+	return (*resourceDeploymentScriptPowerShellContainerPtrType)(v)
+}
+
+func (*resourceDeploymentScriptPowerShellContainerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDeploymentScriptPowerShellContainer)(nil)).Elem()
+}
+
+func (i *resourceDeploymentScriptPowerShellContainerPtrType) ToResourceDeploymentScriptPowerShellContainerPtrOutput() ResourceDeploymentScriptPowerShellContainerPtrOutput {
+	return i.ToResourceDeploymentScriptPowerShellContainerPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceDeploymentScriptPowerShellContainerPtrType) ToResourceDeploymentScriptPowerShellContainerPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellContainerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellContainerPtrOutput)
+}
+
+type ResourceDeploymentScriptPowerShellContainerOutput struct{ *pulumi.OutputState }
+
+func (ResourceDeploymentScriptPowerShellContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDeploymentScriptPowerShellContainer)(nil)).Elem()
+}
+
+func (o ResourceDeploymentScriptPowerShellContainerOutput) ToResourceDeploymentScriptPowerShellContainerOutput() ResourceDeploymentScriptPowerShellContainerOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellContainerOutput) ToResourceDeploymentScriptPowerShellContainerOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellContainerOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellContainerOutput) ToResourceDeploymentScriptPowerShellContainerPtrOutput() ResourceDeploymentScriptPowerShellContainerPtrOutput {
+	return o.ToResourceDeploymentScriptPowerShellContainerPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceDeploymentScriptPowerShellContainerOutput) ToResourceDeploymentScriptPowerShellContainerPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellContainerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDeploymentScriptPowerShellContainer) *ResourceDeploymentScriptPowerShellContainer {
+		return &v
+	}).(ResourceDeploymentScriptPowerShellContainerPtrOutput)
+}
+
+// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+func (o ResourceDeploymentScriptPowerShellContainerOutput) ContainerGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceDeploymentScriptPowerShellContainer) *string { return v.ContainerGroupName }).(pulumi.StringPtrOutput)
+}
+
+type ResourceDeploymentScriptPowerShellContainerPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceDeploymentScriptPowerShellContainerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDeploymentScriptPowerShellContainer)(nil)).Elem()
+}
+
+func (o ResourceDeploymentScriptPowerShellContainerPtrOutput) ToResourceDeploymentScriptPowerShellContainerPtrOutput() ResourceDeploymentScriptPowerShellContainerPtrOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellContainerPtrOutput) ToResourceDeploymentScriptPowerShellContainerPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellContainerPtrOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellContainerPtrOutput) Elem() ResourceDeploymentScriptPowerShellContainerOutput {
+	return o.ApplyT(func(v *ResourceDeploymentScriptPowerShellContainer) ResourceDeploymentScriptPowerShellContainer {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceDeploymentScriptPowerShellContainer
+		return ret
+	}).(ResourceDeploymentScriptPowerShellContainerOutput)
+}
+
+// Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+func (o ResourceDeploymentScriptPowerShellContainerPtrOutput) ContainerGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDeploymentScriptPowerShellContainer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceDeploymentScriptPowerShellEnvironmentVariable struct {
+	// Specifies the name of the environment variable.
+	Name string `pulumi:"name"`
+	// Specifies the value of the secure environment variable.
+	SecureValue *string `pulumi:"secureValue"`
+	// Specifies the value of the environment variable.
+	Value *string `pulumi:"value"`
+}
+
+// ResourceDeploymentScriptPowerShellEnvironmentVariableInput is an input type that accepts ResourceDeploymentScriptPowerShellEnvironmentVariableArgs and ResourceDeploymentScriptPowerShellEnvironmentVariableOutput values.
+// You can construct a concrete instance of `ResourceDeploymentScriptPowerShellEnvironmentVariableInput` via:
+//
+//	ResourceDeploymentScriptPowerShellEnvironmentVariableArgs{...}
+type ResourceDeploymentScriptPowerShellEnvironmentVariableInput interface {
+	pulumi.Input
+
+	ToResourceDeploymentScriptPowerShellEnvironmentVariableOutput() ResourceDeploymentScriptPowerShellEnvironmentVariableOutput
+	ToResourceDeploymentScriptPowerShellEnvironmentVariableOutputWithContext(context.Context) ResourceDeploymentScriptPowerShellEnvironmentVariableOutput
+}
+
+type ResourceDeploymentScriptPowerShellEnvironmentVariableArgs struct {
+	// Specifies the name of the environment variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the value of the secure environment variable.
+	SecureValue pulumi.StringPtrInput `pulumi:"secureValue"`
+	// Specifies the value of the environment variable.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ResourceDeploymentScriptPowerShellEnvironmentVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDeploymentScriptPowerShellEnvironmentVariable)(nil)).Elem()
+}
+
+func (i ResourceDeploymentScriptPowerShellEnvironmentVariableArgs) ToResourceDeploymentScriptPowerShellEnvironmentVariableOutput() ResourceDeploymentScriptPowerShellEnvironmentVariableOutput {
+	return i.ToResourceDeploymentScriptPowerShellEnvironmentVariableOutputWithContext(context.Background())
+}
+
+func (i ResourceDeploymentScriptPowerShellEnvironmentVariableArgs) ToResourceDeploymentScriptPowerShellEnvironmentVariableOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellEnvironmentVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellEnvironmentVariableOutput)
+}
+
+// ResourceDeploymentScriptPowerShellEnvironmentVariableArrayInput is an input type that accepts ResourceDeploymentScriptPowerShellEnvironmentVariableArray and ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput values.
+// You can construct a concrete instance of `ResourceDeploymentScriptPowerShellEnvironmentVariableArrayInput` via:
+//
+//	ResourceDeploymentScriptPowerShellEnvironmentVariableArray{ ResourceDeploymentScriptPowerShellEnvironmentVariableArgs{...} }
+type ResourceDeploymentScriptPowerShellEnvironmentVariableArrayInput interface {
+	pulumi.Input
+
+	ToResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput() ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput
+	ToResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutputWithContext(context.Context) ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput
+}
+
+type ResourceDeploymentScriptPowerShellEnvironmentVariableArray []ResourceDeploymentScriptPowerShellEnvironmentVariableInput
+
+func (ResourceDeploymentScriptPowerShellEnvironmentVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceDeploymentScriptPowerShellEnvironmentVariable)(nil)).Elem()
+}
+
+func (i ResourceDeploymentScriptPowerShellEnvironmentVariableArray) ToResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput() ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput {
+	return i.ToResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceDeploymentScriptPowerShellEnvironmentVariableArray) ToResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput)
+}
+
+type ResourceDeploymentScriptPowerShellEnvironmentVariableOutput struct{ *pulumi.OutputState }
+
+func (ResourceDeploymentScriptPowerShellEnvironmentVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDeploymentScriptPowerShellEnvironmentVariable)(nil)).Elem()
+}
+
+func (o ResourceDeploymentScriptPowerShellEnvironmentVariableOutput) ToResourceDeploymentScriptPowerShellEnvironmentVariableOutput() ResourceDeploymentScriptPowerShellEnvironmentVariableOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellEnvironmentVariableOutput) ToResourceDeploymentScriptPowerShellEnvironmentVariableOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellEnvironmentVariableOutput {
+	return o
+}
+
+// Specifies the name of the environment variable.
+func (o ResourceDeploymentScriptPowerShellEnvironmentVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceDeploymentScriptPowerShellEnvironmentVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the value of the secure environment variable.
+func (o ResourceDeploymentScriptPowerShellEnvironmentVariableOutput) SecureValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceDeploymentScriptPowerShellEnvironmentVariable) *string { return v.SecureValue }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the value of the environment variable.
+func (o ResourceDeploymentScriptPowerShellEnvironmentVariableOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceDeploymentScriptPowerShellEnvironmentVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceDeploymentScriptPowerShellEnvironmentVariable)(nil)).Elem()
+}
+
+func (o ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput) ToResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput() ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput) ToResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) ResourceDeploymentScriptPowerShellEnvironmentVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceDeploymentScriptPowerShellEnvironmentVariable {
+		return vs[0].([]ResourceDeploymentScriptPowerShellEnvironmentVariable)[vs[1].(int)]
+	}).(ResourceDeploymentScriptPowerShellEnvironmentVariableOutput)
+}
+
+type ResourceDeploymentScriptPowerShellIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
+	// Type of the managed identity.
+	Type string `pulumi:"type"`
+}
+
+// ResourceDeploymentScriptPowerShellIdentityInput is an input type that accepts ResourceDeploymentScriptPowerShellIdentityArgs and ResourceDeploymentScriptPowerShellIdentityOutput values.
+// You can construct a concrete instance of `ResourceDeploymentScriptPowerShellIdentityInput` via:
+//
+//	ResourceDeploymentScriptPowerShellIdentityArgs{...}
+type ResourceDeploymentScriptPowerShellIdentityInput interface {
+	pulumi.Input
+
+	ToResourceDeploymentScriptPowerShellIdentityOutput() ResourceDeploymentScriptPowerShellIdentityOutput
+	ToResourceDeploymentScriptPowerShellIdentityOutputWithContext(context.Context) ResourceDeploymentScriptPowerShellIdentityOutput
+}
+
+type ResourceDeploymentScriptPowerShellIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// Type of the managed identity.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ResourceDeploymentScriptPowerShellIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDeploymentScriptPowerShellIdentity)(nil)).Elem()
+}
+
+func (i ResourceDeploymentScriptPowerShellIdentityArgs) ToResourceDeploymentScriptPowerShellIdentityOutput() ResourceDeploymentScriptPowerShellIdentityOutput {
+	return i.ToResourceDeploymentScriptPowerShellIdentityOutputWithContext(context.Background())
+}
+
+func (i ResourceDeploymentScriptPowerShellIdentityArgs) ToResourceDeploymentScriptPowerShellIdentityOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellIdentityOutput)
+}
+
+func (i ResourceDeploymentScriptPowerShellIdentityArgs) ToResourceDeploymentScriptPowerShellIdentityPtrOutput() ResourceDeploymentScriptPowerShellIdentityPtrOutput {
+	return i.ToResourceDeploymentScriptPowerShellIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceDeploymentScriptPowerShellIdentityArgs) ToResourceDeploymentScriptPowerShellIdentityPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellIdentityOutput).ToResourceDeploymentScriptPowerShellIdentityPtrOutputWithContext(ctx)
+}
+
+// ResourceDeploymentScriptPowerShellIdentityPtrInput is an input type that accepts ResourceDeploymentScriptPowerShellIdentityArgs, ResourceDeploymentScriptPowerShellIdentityPtr and ResourceDeploymentScriptPowerShellIdentityPtrOutput values.
+// You can construct a concrete instance of `ResourceDeploymentScriptPowerShellIdentityPtrInput` via:
+//
+//	        ResourceDeploymentScriptPowerShellIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceDeploymentScriptPowerShellIdentityPtrInput interface {
+	pulumi.Input
+
+	ToResourceDeploymentScriptPowerShellIdentityPtrOutput() ResourceDeploymentScriptPowerShellIdentityPtrOutput
+	ToResourceDeploymentScriptPowerShellIdentityPtrOutputWithContext(context.Context) ResourceDeploymentScriptPowerShellIdentityPtrOutput
+}
+
+type resourceDeploymentScriptPowerShellIdentityPtrType ResourceDeploymentScriptPowerShellIdentityArgs
+
+func ResourceDeploymentScriptPowerShellIdentityPtr(v *ResourceDeploymentScriptPowerShellIdentityArgs) ResourceDeploymentScriptPowerShellIdentityPtrInput {
+	return (*resourceDeploymentScriptPowerShellIdentityPtrType)(v)
+}
+
+func (*resourceDeploymentScriptPowerShellIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDeploymentScriptPowerShellIdentity)(nil)).Elem()
+}
+
+func (i *resourceDeploymentScriptPowerShellIdentityPtrType) ToResourceDeploymentScriptPowerShellIdentityPtrOutput() ResourceDeploymentScriptPowerShellIdentityPtrOutput {
+	return i.ToResourceDeploymentScriptPowerShellIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceDeploymentScriptPowerShellIdentityPtrType) ToResourceDeploymentScriptPowerShellIdentityPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellIdentityPtrOutput)
+}
+
+type ResourceDeploymentScriptPowerShellIdentityOutput struct{ *pulumi.OutputState }
+
+func (ResourceDeploymentScriptPowerShellIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDeploymentScriptPowerShellIdentity)(nil)).Elem()
+}
+
+func (o ResourceDeploymentScriptPowerShellIdentityOutput) ToResourceDeploymentScriptPowerShellIdentityOutput() ResourceDeploymentScriptPowerShellIdentityOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellIdentityOutput) ToResourceDeploymentScriptPowerShellIdentityOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellIdentityOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellIdentityOutput) ToResourceDeploymentScriptPowerShellIdentityPtrOutput() ResourceDeploymentScriptPowerShellIdentityPtrOutput {
+	return o.ToResourceDeploymentScriptPowerShellIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceDeploymentScriptPowerShellIdentityOutput) ToResourceDeploymentScriptPowerShellIdentityPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDeploymentScriptPowerShellIdentity) *ResourceDeploymentScriptPowerShellIdentity {
+		return &v
+	}).(ResourceDeploymentScriptPowerShellIdentityPtrOutput)
+}
+
+func (o ResourceDeploymentScriptPowerShellIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceDeploymentScriptPowerShellIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// Type of the managed identity.
+func (o ResourceDeploymentScriptPowerShellIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceDeploymentScriptPowerShellIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ResourceDeploymentScriptPowerShellIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceDeploymentScriptPowerShellIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDeploymentScriptPowerShellIdentity)(nil)).Elem()
+}
+
+func (o ResourceDeploymentScriptPowerShellIdentityPtrOutput) ToResourceDeploymentScriptPowerShellIdentityPtrOutput() ResourceDeploymentScriptPowerShellIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellIdentityPtrOutput) ToResourceDeploymentScriptPowerShellIdentityPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellIdentityPtrOutput) Elem() ResourceDeploymentScriptPowerShellIdentityOutput {
+	return o.ApplyT(func(v *ResourceDeploymentScriptPowerShellIdentity) ResourceDeploymentScriptPowerShellIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceDeploymentScriptPowerShellIdentity
+		return ret
+	}).(ResourceDeploymentScriptPowerShellIdentityOutput)
+}
+
+func (o ResourceDeploymentScriptPowerShellIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceDeploymentScriptPowerShellIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Type of the managed identity.
+func (o ResourceDeploymentScriptPowerShellIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDeploymentScriptPowerShellIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceDeploymentScriptPowerShellStorageAccount struct {
+	// Specifies the storage account access key.
+	Key string `pulumi:"key"`
+	// Specifies the storage account name.
+	Name string `pulumi:"name"`
+}
+
+// ResourceDeploymentScriptPowerShellStorageAccountInput is an input type that accepts ResourceDeploymentScriptPowerShellStorageAccountArgs and ResourceDeploymentScriptPowerShellStorageAccountOutput values.
+// You can construct a concrete instance of `ResourceDeploymentScriptPowerShellStorageAccountInput` via:
+//
+//	ResourceDeploymentScriptPowerShellStorageAccountArgs{...}
+type ResourceDeploymentScriptPowerShellStorageAccountInput interface {
+	pulumi.Input
+
+	ToResourceDeploymentScriptPowerShellStorageAccountOutput() ResourceDeploymentScriptPowerShellStorageAccountOutput
+	ToResourceDeploymentScriptPowerShellStorageAccountOutputWithContext(context.Context) ResourceDeploymentScriptPowerShellStorageAccountOutput
+}
+
+type ResourceDeploymentScriptPowerShellStorageAccountArgs struct {
+	// Specifies the storage account access key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies the storage account name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ResourceDeploymentScriptPowerShellStorageAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDeploymentScriptPowerShellStorageAccount)(nil)).Elem()
+}
+
+func (i ResourceDeploymentScriptPowerShellStorageAccountArgs) ToResourceDeploymentScriptPowerShellStorageAccountOutput() ResourceDeploymentScriptPowerShellStorageAccountOutput {
+	return i.ToResourceDeploymentScriptPowerShellStorageAccountOutputWithContext(context.Background())
+}
+
+func (i ResourceDeploymentScriptPowerShellStorageAccountArgs) ToResourceDeploymentScriptPowerShellStorageAccountOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellStorageAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellStorageAccountOutput)
+}
+
+func (i ResourceDeploymentScriptPowerShellStorageAccountArgs) ToResourceDeploymentScriptPowerShellStorageAccountPtrOutput() ResourceDeploymentScriptPowerShellStorageAccountPtrOutput {
+	return i.ToResourceDeploymentScriptPowerShellStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceDeploymentScriptPowerShellStorageAccountArgs) ToResourceDeploymentScriptPowerShellStorageAccountPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellStorageAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellStorageAccountOutput).ToResourceDeploymentScriptPowerShellStorageAccountPtrOutputWithContext(ctx)
+}
+
+// ResourceDeploymentScriptPowerShellStorageAccountPtrInput is an input type that accepts ResourceDeploymentScriptPowerShellStorageAccountArgs, ResourceDeploymentScriptPowerShellStorageAccountPtr and ResourceDeploymentScriptPowerShellStorageAccountPtrOutput values.
+// You can construct a concrete instance of `ResourceDeploymentScriptPowerShellStorageAccountPtrInput` via:
+//
+//	        ResourceDeploymentScriptPowerShellStorageAccountArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceDeploymentScriptPowerShellStorageAccountPtrInput interface {
+	pulumi.Input
+
+	ToResourceDeploymentScriptPowerShellStorageAccountPtrOutput() ResourceDeploymentScriptPowerShellStorageAccountPtrOutput
+	ToResourceDeploymentScriptPowerShellStorageAccountPtrOutputWithContext(context.Context) ResourceDeploymentScriptPowerShellStorageAccountPtrOutput
+}
+
+type resourceDeploymentScriptPowerShellStorageAccountPtrType ResourceDeploymentScriptPowerShellStorageAccountArgs
+
+func ResourceDeploymentScriptPowerShellStorageAccountPtr(v *ResourceDeploymentScriptPowerShellStorageAccountArgs) ResourceDeploymentScriptPowerShellStorageAccountPtrInput {
+	return (*resourceDeploymentScriptPowerShellStorageAccountPtrType)(v)
+}
+
+func (*resourceDeploymentScriptPowerShellStorageAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDeploymentScriptPowerShellStorageAccount)(nil)).Elem()
+}
+
+func (i *resourceDeploymentScriptPowerShellStorageAccountPtrType) ToResourceDeploymentScriptPowerShellStorageAccountPtrOutput() ResourceDeploymentScriptPowerShellStorageAccountPtrOutput {
+	return i.ToResourceDeploymentScriptPowerShellStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceDeploymentScriptPowerShellStorageAccountPtrType) ToResourceDeploymentScriptPowerShellStorageAccountPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellStorageAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellStorageAccountPtrOutput)
+}
+
+type ResourceDeploymentScriptPowerShellStorageAccountOutput struct{ *pulumi.OutputState }
+
+func (ResourceDeploymentScriptPowerShellStorageAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDeploymentScriptPowerShellStorageAccount)(nil)).Elem()
+}
+
+func (o ResourceDeploymentScriptPowerShellStorageAccountOutput) ToResourceDeploymentScriptPowerShellStorageAccountOutput() ResourceDeploymentScriptPowerShellStorageAccountOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellStorageAccountOutput) ToResourceDeploymentScriptPowerShellStorageAccountOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellStorageAccountOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellStorageAccountOutput) ToResourceDeploymentScriptPowerShellStorageAccountPtrOutput() ResourceDeploymentScriptPowerShellStorageAccountPtrOutput {
+	return o.ToResourceDeploymentScriptPowerShellStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceDeploymentScriptPowerShellStorageAccountOutput) ToResourceDeploymentScriptPowerShellStorageAccountPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellStorageAccountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDeploymentScriptPowerShellStorageAccount) *ResourceDeploymentScriptPowerShellStorageAccount {
+		return &v
+	}).(ResourceDeploymentScriptPowerShellStorageAccountPtrOutput)
+}
+
+// Specifies the storage account access key.
+func (o ResourceDeploymentScriptPowerShellStorageAccountOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceDeploymentScriptPowerShellStorageAccount) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Specifies the storage account name.
+func (o ResourceDeploymentScriptPowerShellStorageAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceDeploymentScriptPowerShellStorageAccount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ResourceDeploymentScriptPowerShellStorageAccountPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceDeploymentScriptPowerShellStorageAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDeploymentScriptPowerShellStorageAccount)(nil)).Elem()
+}
+
+func (o ResourceDeploymentScriptPowerShellStorageAccountPtrOutput) ToResourceDeploymentScriptPowerShellStorageAccountPtrOutput() ResourceDeploymentScriptPowerShellStorageAccountPtrOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellStorageAccountPtrOutput) ToResourceDeploymentScriptPowerShellStorageAccountPtrOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellStorageAccountPtrOutput {
+	return o
+}
+
+func (o ResourceDeploymentScriptPowerShellStorageAccountPtrOutput) Elem() ResourceDeploymentScriptPowerShellStorageAccountOutput {
+	return o.ApplyT(func(v *ResourceDeploymentScriptPowerShellStorageAccount) ResourceDeploymentScriptPowerShellStorageAccount {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceDeploymentScriptPowerShellStorageAccount
+		return ret
+	}).(ResourceDeploymentScriptPowerShellStorageAccountOutput)
+}
+
+// Specifies the storage account access key.
+func (o ResourceDeploymentScriptPowerShellStorageAccountPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDeploymentScriptPowerShellStorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the storage account name.
+func (o ResourceDeploymentScriptPowerShellStorageAccountPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDeploymentScriptPowerShellStorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type ResourceGroupCostManagementExportExportDataOptions struct {
 	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 	TimeFrame string `pulumi:"timeFrame"`
@@ -2269,6 +3389,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomProviderResourceTypeArrayInput)(nil)).Elem(), CustomProviderResourceTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomProviderValidationInput)(nil)).Elem(), CustomProviderValidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomProviderValidationArrayInput)(nil)).Elem(), CustomProviderValidationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDeploymentScriptAzureCliContainerInput)(nil)).Elem(), ResourceDeploymentScriptAzureCliContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDeploymentScriptAzureCliContainerPtrInput)(nil)).Elem(), ResourceDeploymentScriptAzureCliContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDeploymentScriptAzureCliEnvironmentVariableInput)(nil)).Elem(), ResourceDeploymentScriptAzureCliEnvironmentVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDeploymentScriptAzureCliEnvironmentVariableArrayInput)(nil)).Elem(), ResourceDeploymentScriptAzureCliEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDeploymentScriptAzureCliIdentityInput)(nil)).Elem(), ResourceDeploymentScriptAzureCliIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDeploymentScriptAzureCliIdentityPtrInput)(nil)).Elem(), ResourceDeploymentScriptAzureCliIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDeploymentScriptAzureCliStorageAccountInput)(nil)).Elem(), ResourceDeploymentScriptAzureCliStorageAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDeploymentScriptAzureCliStorageAccountPtrInput)(nil)).Elem(), ResourceDeploymentScriptAzureCliStorageAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDeploymentScriptPowerShellContainerInput)(nil)).Elem(), ResourceDeploymentScriptPowerShellContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDeploymentScriptPowerShellContainerPtrInput)(nil)).Elem(), ResourceDeploymentScriptPowerShellContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDeploymentScriptPowerShellEnvironmentVariableInput)(nil)).Elem(), ResourceDeploymentScriptPowerShellEnvironmentVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDeploymentScriptPowerShellEnvironmentVariableArrayInput)(nil)).Elem(), ResourceDeploymentScriptPowerShellEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDeploymentScriptPowerShellIdentityInput)(nil)).Elem(), ResourceDeploymentScriptPowerShellIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDeploymentScriptPowerShellIdentityPtrInput)(nil)).Elem(), ResourceDeploymentScriptPowerShellIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDeploymentScriptPowerShellStorageAccountInput)(nil)).Elem(), ResourceDeploymentScriptPowerShellStorageAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDeploymentScriptPowerShellStorageAccountPtrInput)(nil)).Elem(), ResourceDeploymentScriptPowerShellStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportExportDataOptionsInput)(nil)).Elem(), ResourceGroupCostManagementExportExportDataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportExportDataOptionsPtrInput)(nil)).Elem(), ResourceGroupCostManagementExportExportDataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportExportDataStorageLocationInput)(nil)).Elem(), ResourceGroupCostManagementExportExportDataStorageLocationArgs{})
@@ -2301,6 +3437,22 @@ func init() {
 	pulumi.RegisterOutputType(CustomProviderResourceTypeArrayOutput{})
 	pulumi.RegisterOutputType(CustomProviderValidationOutput{})
 	pulumi.RegisterOutputType(CustomProviderValidationArrayOutput{})
+	pulumi.RegisterOutputType(ResourceDeploymentScriptAzureCliContainerOutput{})
+	pulumi.RegisterOutputType(ResourceDeploymentScriptAzureCliContainerPtrOutput{})
+	pulumi.RegisterOutputType(ResourceDeploymentScriptAzureCliEnvironmentVariableOutput{})
+	pulumi.RegisterOutputType(ResourceDeploymentScriptAzureCliEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(ResourceDeploymentScriptAzureCliIdentityOutput{})
+	pulumi.RegisterOutputType(ResourceDeploymentScriptAzureCliIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceDeploymentScriptAzureCliStorageAccountOutput{})
+	pulumi.RegisterOutputType(ResourceDeploymentScriptAzureCliStorageAccountPtrOutput{})
+	pulumi.RegisterOutputType(ResourceDeploymentScriptPowerShellContainerOutput{})
+	pulumi.RegisterOutputType(ResourceDeploymentScriptPowerShellContainerPtrOutput{})
+	pulumi.RegisterOutputType(ResourceDeploymentScriptPowerShellEnvironmentVariableOutput{})
+	pulumi.RegisterOutputType(ResourceDeploymentScriptPowerShellEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(ResourceDeploymentScriptPowerShellIdentityOutput{})
+	pulumi.RegisterOutputType(ResourceDeploymentScriptPowerShellIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceDeploymentScriptPowerShellStorageAccountOutput{})
+	pulumi.RegisterOutputType(ResourceDeploymentScriptPowerShellStorageAccountPtrOutput{})
 	pulumi.RegisterOutputType(ResourceGroupCostManagementExportExportDataOptionsOutput{})
 	pulumi.RegisterOutputType(ResourceGroupCostManagementExportExportDataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ResourceGroupCostManagementExportExportDataStorageLocationOutput{})

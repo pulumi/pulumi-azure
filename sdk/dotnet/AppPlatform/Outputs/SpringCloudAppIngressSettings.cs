@@ -18,11 +18,11 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// </summary>
         public readonly string? BackendProtocol;
         /// <summary>
-        /// Specifies the ingress read time out in seconds. Defaults to 300.
+        /// Specifies the ingress read time out in seconds. Defaults to `300`.
         /// </summary>
         public readonly int? ReadTimeoutInSeconds;
         /// <summary>
-        /// Specifies the ingress send time out in seconds. Defaults to 60.
+        /// Specifies the ingress send time out in seconds. Defaults to `60`.
         /// </summary>
         public readonly int? SendTimeoutInSeconds;
         /// <summary>

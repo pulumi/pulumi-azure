@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Iot.Inputs
     public sealed class IotHubDpsLinkedHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The weight applied to the IoT Hub. Defaults to 0.
+        /// The weight applied to the IoT Hub. Defaults to `1`.
         /// </summary>
         [Input("allocationWeight")]
         public Input<int>? AllocationWeight { get; set; }
 
         /// <summary>
-        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
+        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
         /// </summary>
         [Input("applyAllocationPolicy")]
         public Input<bool>? ApplyAllocationPolicy { get; set; }

@@ -182,14 +182,14 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+     * The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
      * 
      */
     @Export(name="path", type=String.class, parameters={})
     private Output</* @Nullable */ String> path;
 
     /**
-     * @return The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+     * @return The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
      * 
      */
     public Output<Optional<String>> path() {

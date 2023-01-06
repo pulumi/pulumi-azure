@@ -19,7 +19,7 @@ public final class WindowsWebAppSiteConfigVirtualApplication {
      */
     private String physicalPath;
     /**
-     * @return Should pre-loading be enabled. Defaults to `false`.
+     * @return Should pre-loading be enabled.
      * 
      */
     private Boolean preload;
@@ -43,7 +43,7 @@ public final class WindowsWebAppSiteConfigVirtualApplication {
         return this.physicalPath;
     }
     /**
-     * @return Should pre-loading be enabled. Defaults to `false`.
+     * @return Should pre-loading be enabled.
      * 
      */
     public Boolean preload() {

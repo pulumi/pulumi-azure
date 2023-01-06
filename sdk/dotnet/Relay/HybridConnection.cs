@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Relay
         public Output<string> RelayNamespaceName { get; private set; } = null!;
 
         /// <summary>
-        /// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+        /// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
         /// </summary>
         [Output("requiresClientAuthorization")]
         public Output<bool?> RequiresClientAuthorization { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.Relay
         public Input<string> RelayNamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+        /// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
         /// </summary>
         [Input("requiresClientAuthorization")]
         public Input<bool>? RequiresClientAuthorization { get; set; }
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.Relay
         public Input<string>? RelayNamespaceName { get; set; }
 
         /// <summary>
-        /// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+        /// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
         /// </summary>
         [Input("requiresClientAuthorization")]
         public Input<bool>? RequiresClientAuthorization { get; set; }

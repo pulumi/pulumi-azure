@@ -20,6 +20,11 @@ export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
 utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
+export { CertificateContactsArgs, CertificateContactsState } from "./certificateContacts";
+export type CertificateContacts = import("./certificateContacts").CertificateContacts;
+export const CertificateContacts: typeof import("./certificateContacts").CertificateContacts = null as any;
+utilities.lazyLoad(exports, ["CertificateContacts"], () => require("./certificateContacts"));
+
 export { CertificateIssuerArgs, CertificateIssuerState } from "./certificateIssuer";
 export type CertificateIssuer = import("./certificateIssuer").CertificateIssuer;
 export const CertificateIssuer: typeof import("./certificateIssuer").CertificateIssuer = null as any;
@@ -116,6 +121,8 @@ const _module = {
                 return new Certifiate(name, <any>undefined, { urn })
             case "azure:keyvault/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "azure:keyvault/certificateContacts:CertificateContacts":
+                return new CertificateContacts(name, <any>undefined, { urn })
             case "azure:keyvault/certificateIssuer:CertificateIssuer":
                 return new CertificateIssuer(name, <any>undefined, { urn })
             case "azure:keyvault/key:Key":
@@ -138,6 +145,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "keyvault/accessPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/certifiate", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/certificate", _module)
+pulumi.runtime.registerResourceModule("azure", "keyvault/certificateContacts", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/certificateIssuer", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/key", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/keyVault", _module)

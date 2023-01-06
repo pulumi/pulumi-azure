@@ -224,7 +224,7 @@ type ScaleSet struct {
 	Overprovision pulumi.BoolPtrOutput `pulumi:"overprovision"`
 	// A plan block as documented below.
 	Plan ScaleSetPlanPtrOutput `pulumi:"plan"`
-	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
+	// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
@@ -328,7 +328,7 @@ type scaleSetState struct {
 	Overprovision *bool `pulumi:"overprovision"`
 	// A plan block as documented below.
 	Plan *ScaleSetPlan `pulumi:"plan"`
-	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
+	// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
@@ -386,7 +386,7 @@ type ScaleSetState struct {
 	Overprovision pulumi.BoolPtrInput
 	// A plan block as documented below.
 	Plan ScaleSetPlanPtrInput
-	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
+	// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
 	ProximityPlacementGroupId pulumi.StringPtrInput
@@ -448,7 +448,7 @@ type scaleSetArgs struct {
 	Overprovision *bool `pulumi:"overprovision"`
 	// A plan block as documented below.
 	Plan *ScaleSetPlan `pulumi:"plan"`
-	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
+	// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
@@ -507,7 +507,7 @@ type ScaleSetArgs struct {
 	Overprovision pulumi.BoolPtrInput
 	// A plan block as documented below.
 	Plan ScaleSetPlanPtrInput
-	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
+	// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
 	ProximityPlacementGroupId pulumi.StringPtrInput
@@ -699,7 +699,7 @@ func (o ScaleSetOutput) Plan() ScaleSetPlanPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetPlanPtrOutput { return v.Plan }).(ScaleSetPlanPtrOutput)
 }
 
-// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
+// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 func (o ScaleSetOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.StringPtrOutput { return v.Priority }).(pulumi.StringPtrOutput)
 }

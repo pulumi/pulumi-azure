@@ -255,14 +255,14 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.managedRules);
     }
     /**
-     * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+     * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
      * 
      */
     @Export(name="mode", type=String.class, parameters={})
     private Output<String> mode;
 
     /**
-     * @return The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+     * @return The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
      * 
      */
     public Output<String> mode() {

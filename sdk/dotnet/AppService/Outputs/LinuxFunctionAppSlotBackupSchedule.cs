@@ -30,7 +30,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? LastExecutionTime;
         /// <summary>
-        /// After how many days backups should be deleted.
+        /// After how many days backups should be deleted. Defaults to `30`.
         /// </summary>
         public readonly int? RetentionPeriodDays;
         /// <summary>

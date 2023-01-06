@@ -91,14 +91,14 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Should Extension Operations be allowed on this Virtual Machine?
+     * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      * 
      */
     @Import(name="allowExtensionOperations")
     private @Nullable Output<Boolean> allowExtensionOperations;
 
     /**
-     * @return Should Extension Operations be allowed on this Virtual Machine?
+     * @return Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> allowExtensionOperations() {
@@ -932,7 +932,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allowExtensionOperations Should Extension Operations be allowed on this Virtual Machine?
+         * @param allowExtensionOperations Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -943,7 +943,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allowExtensionOperations Should Extension Operations be allowed on this Virtual Machine?
+         * @param allowExtensionOperations Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
          * 
          * @return builder
          * 

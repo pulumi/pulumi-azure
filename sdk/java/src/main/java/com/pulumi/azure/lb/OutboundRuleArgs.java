@@ -80,14 +80,14 @@ public final class OutboundRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The timeout for the TCP idle connection
+     * The timeout for the TCP idle connection Defaults to `4`.
      * 
      */
     @Import(name="idleTimeoutInMinutes")
     private @Nullable Output<Integer> idleTimeoutInMinutes;
 
     /**
-     * @return The timeout for the TCP idle connection
+     * @return The timeout for the TCP idle connection Defaults to `4`.
      * 
      */
     public Optional<Output<Integer>> idleTimeoutInMinutes() {
@@ -265,7 +265,7 @@ public final class OutboundRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param idleTimeoutInMinutes The timeout for the TCP idle connection
+         * @param idleTimeoutInMinutes The timeout for the TCP idle connection Defaults to `4`.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class OutboundRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param idleTimeoutInMinutes The timeout for the TCP idle connection
+         * @param idleTimeoutInMinutes The timeout for the TCP idle connection Defaults to `4`.
          * 
          * @return builder
          * 

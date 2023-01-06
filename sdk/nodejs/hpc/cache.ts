@@ -76,7 +76,7 @@ export class Cache extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+     * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
      */
     public readonly automaticallyRotateKeyToLatestEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -120,7 +120,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public /*out*/ readonly mountAddresses!: pulumi.Output<string[]>;
     /**
-     * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+     * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
      */
     public readonly mtu!: pulumi.Output<number | undefined>;
     /**
@@ -222,7 +222,7 @@ export class Cache extends pulumi.CustomResource {
  */
 export interface CacheState {
     /**
-     * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+     * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
      */
     automaticallyRotateKeyToLatestEnabled?: pulumi.Input<boolean>;
     /**
@@ -266,7 +266,7 @@ export interface CacheState {
      */
     mountAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+     * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
      */
     mtu?: pulumi.Input<number>;
     /**
@@ -300,7 +300,7 @@ export interface CacheState {
  */
 export interface CacheArgs {
     /**
-     * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+     * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
      */
     automaticallyRotateKeyToLatestEnabled?: pulumi.Input<boolean>;
     /**
@@ -340,7 +340,7 @@ export interface CacheArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+     * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
      */
     mtu?: pulumi.Input<number>;
     /**

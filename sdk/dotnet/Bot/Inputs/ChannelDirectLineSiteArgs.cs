@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Bot.Inputs
     public sealed class ChannelDirectLineSiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables/Disables this site. Enabled by default
+        /// Enables/Disables this site. Enabled by default Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -81,13 +81,13 @@ namespace Pulumi.Azure.Bot.Inputs
         }
 
         /// <summary>
-        /// Enables v1 of the Directline protocol for this site. Enabled by default
+        /// Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
         /// </summary>
         [Input("v1Allowed")]
         public Input<bool>? V1Allowed { get; set; }
 
         /// <summary>
-        /// Enables v3 of the Directline protocol for this site. Enabled by default
+        /// Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
         /// </summary>
         [Input("v3Allowed")]
         public Input<bool>? V3Allowed { get; set; }

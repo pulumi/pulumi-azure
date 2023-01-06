@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScaleSetNetworkProfile {
     /**
-     * @return Specifies whether to enable accelerated networking or not. Defaults to `false`.
+     * @return Specifies whether to enable accelerated networking or not.
      * 
      */
     private @Nullable Boolean acceleratedNetworking;
@@ -53,7 +53,7 @@ public final class ScaleSetNetworkProfile {
 
     private ScaleSetNetworkProfile() {}
     /**
-     * @return Specifies whether to enable accelerated networking or not. Defaults to `false`.
+     * @return Specifies whether to enable accelerated networking or not.
      * 
      */
     public Optional<Boolean> acceleratedNetworking() {

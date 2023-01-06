@@ -18,14 +18,14 @@ public final class WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs extends
     public static final WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs Empty = new WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs();
 
     /**
-     * Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+     * Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
      * 
      */
     @Import(name="crossZoneUpgradesEnabled")
     private @Nullable Output<Boolean> crossZoneUpgradesEnabled;
 
     /**
-     * @return Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+     * @return Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
      * 
      */
     public Optional<Output<Boolean>> crossZoneUpgradesEnabled() {
@@ -93,14 +93,14 @@ public final class WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs extends
     }
 
     /**
-     * Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+     * Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
      * 
      */
     @Import(name="prioritizeUnhealthyInstancesEnabled")
     private @Nullable Output<Boolean> prioritizeUnhealthyInstancesEnabled;
 
     /**
-     * @return Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+     * @return Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
      * 
      */
     public Optional<Output<Boolean>> prioritizeUnhealthyInstancesEnabled() {
@@ -137,7 +137,7 @@ public final class WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs extends
         }
 
         /**
-         * @param crossZoneUpgradesEnabled Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+         * @param crossZoneUpgradesEnabled Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs extends
         }
 
         /**
-         * @param crossZoneUpgradesEnabled Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+         * @param crossZoneUpgradesEnabled Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs extends
         }
 
         /**
-         * @param prioritizeUnhealthyInstancesEnabled Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+         * @param prioritizeUnhealthyInstancesEnabled Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs extends
         }
 
         /**
-         * @param prioritizeUnhealthyInstancesEnabled Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+         * @param prioritizeUnhealthyInstancesEnabled Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
          * 
          * @return builder
          * 

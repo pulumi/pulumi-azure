@@ -474,14 +474,14 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * Should the Windows Web App use a 32-bit worker.
+     * Should the Windows Web App use a 32-bit worker. Defaults to `true`.
      * 
      */
     @Import(name="use32BitWorker")
     private @Nullable Output<Boolean> use32BitWorker;
 
     /**
-     * @return Should the Windows Web App use a 32-bit worker.
+     * @return Should the Windows Web App use a 32-bit worker. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> use32BitWorker() {
@@ -1267,7 +1267,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param use32BitWorker Should the Windows Web App use a 32-bit worker.
+         * @param use32BitWorker Should the Windows Web App use a 32-bit worker. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -1278,7 +1278,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param use32BitWorker Should the Windows Web App use a 32-bit worker.
+         * @param use32BitWorker Should the Windows Web App use a 32-bit worker. Defaults to `true`.
          * 
          * @return builder
          * 

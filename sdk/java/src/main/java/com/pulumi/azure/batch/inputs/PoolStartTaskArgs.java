@@ -83,14 +83,14 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of retry count. Defaults to `1`.
+     * The number of retry count.
      * 
      */
     @Import(name="taskRetryMaximum")
     private @Nullable Output<Integer> taskRetryMaximum;
 
     /**
-     * @return The number of retry count. Defaults to `1`.
+     * @return The number of retry count.
      * 
      */
     public Optional<Output<Integer>> taskRetryMaximum() {
@@ -262,7 +262,7 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskRetryMaximum The number of retry count. Defaults to `1`.
+         * @param taskRetryMaximum The number of retry count.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskRetryMaximum The number of retry count. Defaults to `1`.
+         * @param taskRetryMaximum The number of retry count.
          * 
          * @return builder
          * 

@@ -80,7 +80,7 @@ type OrchestratedVirtualMachineScaleSet struct {
 	// One or more `dataDisk` blocks as defined below.
 	DataDisks               OrchestratedVirtualMachineScaleSetDataDiskArrayOutput `pulumi:"dataDisks"`
 	EncryptionAtHostEnabled pulumi.BoolPtrOutput                                  `pulumi:"encryptionAtHostEnabled"`
-	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
 	ExtensionOperationsEnabled pulumi.BoolOutput `pulumi:"extensionOperationsEnabled"`
@@ -190,7 +190,7 @@ type orchestratedVirtualMachineScaleSetState struct {
 	// One or more `dataDisk` blocks as defined below.
 	DataDisks               []OrchestratedVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
 	EncryptionAtHostEnabled *bool                                        `pulumi:"encryptionAtHostEnabled"`
-	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
 	ExtensionOperationsEnabled *bool `pulumi:"extensionOperationsEnabled"`
@@ -259,7 +259,7 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	// One or more `dataDisk` blocks as defined below.
 	DataDisks               OrchestratedVirtualMachineScaleSetDataDiskArrayInput
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
-	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
 	ExtensionOperationsEnabled pulumi.BoolPtrInput
@@ -332,7 +332,7 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	// One or more `dataDisk` blocks as defined below.
 	DataDisks               []OrchestratedVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
 	EncryptionAtHostEnabled *bool                                        `pulumi:"encryptionAtHostEnabled"`
-	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
 	ExtensionOperationsEnabled *bool `pulumi:"extensionOperationsEnabled"`
@@ -400,7 +400,7 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	// One or more `dataDisk` blocks as defined below.
 	DataDisks               OrchestratedVirtualMachineScaleSetDataDiskArrayInput
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
-	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
 	ExtensionOperationsEnabled pulumi.BoolPtrInput
@@ -581,7 +581,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) EncryptionAtHostEnabled() pulu
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.EncryptionAtHostEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOutput) EvictionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
 }

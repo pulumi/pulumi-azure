@@ -140,14 +140,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The cluster SKU to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new VMware Cluster to be created.
+     * The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Cluster to be created.
      * 
      */
     @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
-     * @return The cluster SKU to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new VMware Cluster to be created.
+     * @return The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Cluster to be created.
      * 
      */
     public Output<String> skuName() {

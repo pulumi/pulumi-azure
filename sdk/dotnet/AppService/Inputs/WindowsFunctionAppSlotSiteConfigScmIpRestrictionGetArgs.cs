@@ -37,7 +37,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The priority value of this `ip_restriction`.
+        /// The priority value of this `ip_restriction`. Defaults to `65000`.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }

@@ -37,7 +37,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<string>? CustomQueryString { get; set; }
 
         /// <summary>
-        /// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+        /// Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`.
         /// </summary>
         [Input("redirectProtocol", required: true)]
         public Input<string> RedirectProtocol { get; set; } = null!;

@@ -142,11 +142,11 @@ export class Plan extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+     * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
      */
     public readonly perSiteScaling!: pulumi.Output<boolean | undefined>;
     /**
-     * Is this App Service Plan `Reserved`. Defaults to `false`.
+     * Is this App Service Plan `Reserved`.
      */
     public readonly reserved!: pulumi.Output<boolean | undefined>;
     /**
@@ -162,7 +162,7 @@ export class Plan extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+     * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
      */
     public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
@@ -249,11 +249,11 @@ export interface PlanState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+     * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
      */
     perSiteScaling?: pulumi.Input<boolean>;
     /**
-     * Is this App Service Plan `Reserved`. Defaults to `false`.
+     * Is this App Service Plan `Reserved`.
      */
     reserved?: pulumi.Input<boolean>;
     /**
@@ -269,7 +269,7 @@ export interface PlanState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+     * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
      */
     zoneRedundant?: pulumi.Input<boolean>;
 }
@@ -300,11 +300,11 @@ export interface PlanArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+     * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
      */
     perSiteScaling?: pulumi.Input<boolean>;
     /**
-     * Is this App Service Plan `Reserved`. Defaults to `false`.
+     * Is this App Service Plan `Reserved`.
      */
     reserved?: pulumi.Input<boolean>;
     /**
@@ -320,7 +320,7 @@ export interface PlanArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+     * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
      */
     zoneRedundant?: pulumi.Input<boolean>;
 }

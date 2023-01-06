@@ -37,13 +37,13 @@ namespace Pulumi.Azure.Monitoring.Inputs
         }
 
         /// <summary>
-        /// The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`.
+        /// The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
         /// </summary>
         [Input("evaluationFailureCount")]
         public Input<int>? EvaluationFailureCount { get; set; }
 
         /// <summary>
-        /// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points.
+        /// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
         /// </summary>
         [Input("evaluationTotalCount")]
         public Input<int>? EvaluationTotalCount { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> Operator { get; set; } = null!;
 
         /// <summary>
-        /// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+        /// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted?
         /// </summary>
         [Input("skipMetricValidation")]
         public Input<bool>? SkipMetricValidation { get; set; }

@@ -85,7 +85,7 @@ import (
 type SpringCloudConfigurationService struct {
 	pulumi.CustomResourceState
 
-	// The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+	// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `repository` blocks as defined below.
 	Repositories SpringCloudConfigurationServiceRepositoryArrayOutput `pulumi:"repositories"`
@@ -125,7 +125,7 @@ func GetSpringCloudConfigurationService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudConfigurationService resources.
 type springCloudConfigurationServiceState struct {
-	// The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+	// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 	Name *string `pulumi:"name"`
 	// One or more `repository` blocks as defined below.
 	Repositories []SpringCloudConfigurationServiceRepository `pulumi:"repositories"`
@@ -134,7 +134,7 @@ type springCloudConfigurationServiceState struct {
 }
 
 type SpringCloudConfigurationServiceState struct {
-	// The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+	// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 	Name pulumi.StringPtrInput
 	// One or more `repository` blocks as defined below.
 	Repositories SpringCloudConfigurationServiceRepositoryArrayInput
@@ -147,7 +147,7 @@ func (SpringCloudConfigurationServiceState) ElementType() reflect.Type {
 }
 
 type springCloudConfigurationServiceArgs struct {
-	// The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+	// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 	Name *string `pulumi:"name"`
 	// One or more `repository` blocks as defined below.
 	Repositories []SpringCloudConfigurationServiceRepository `pulumi:"repositories"`
@@ -157,7 +157,7 @@ type springCloudConfigurationServiceArgs struct {
 
 // The set of arguments for constructing a SpringCloudConfigurationService resource.
 type SpringCloudConfigurationServiceArgs struct {
-	// The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+	// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 	Name pulumi.StringPtrInput
 	// One or more `repository` blocks as defined below.
 	Repositories SpringCloudConfigurationServiceRepositoryArrayInput
@@ -252,7 +252,7 @@ func (o SpringCloudConfigurationServiceOutput) ToSpringCloudConfigurationService
 	return o
 }
 
-// The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
 func (o SpringCloudConfigurationServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudConfigurationService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

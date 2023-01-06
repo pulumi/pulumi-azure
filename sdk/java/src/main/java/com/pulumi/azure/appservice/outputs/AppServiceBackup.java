@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppServiceBackup {
     /**
-     * @return Is this Backup enabled?
+     * @return Is this Backup enabled? Defaults to `true`.
      * 
      */
     private @Nullable Boolean enabled;
@@ -36,7 +36,7 @@ public final class AppServiceBackup {
 
     private AppServiceBackup() {}
     /**
-     * @return Is this Backup enabled?
+     * @return Is this Backup enabled? Defaults to `true`.
      * 
      */
     public Optional<Boolean> enabled() {

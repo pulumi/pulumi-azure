@@ -26,11 +26,11 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.MetricAlertDynamicCriteriaDimension> Dimensions;
         /// <summary>
-        /// The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`.
+        /// The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
         /// </summary>
         public readonly int? EvaluationFailureCount;
         /// <summary>
-        /// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points.
+        /// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
         /// </summary>
         public readonly int? EvaluationTotalCount;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string Operator;
         /// <summary>
-        /// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+        /// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted?
         /// </summary>
         public readonly bool? SkipMetricValidation;
 

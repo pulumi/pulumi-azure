@@ -85,7 +85,7 @@ export class GroupPolicyAssignment extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
-     * Specifies if this Policy should be enforced or not?
+     * Specifies if this Policy should be enforced or not? Defaults to `true`.
      */
     public readonly enforce!: pulumi.Output<boolean | undefined>;
     /**
@@ -189,7 +189,7 @@ export interface GroupPolicyAssignmentState {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * Specifies if this Policy should be enforced or not?
+     * Specifies if this Policy should be enforced or not? Defaults to `true`.
      */
     enforce?: pulumi.Input<boolean>;
     /**
@@ -243,7 +243,7 @@ export interface GroupPolicyAssignmentArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * Specifies if this Policy should be enforced or not?
+     * Specifies if this Policy should be enforced or not? Defaults to `true`.
      */
     enforce?: pulumi.Input<boolean>;
     /**

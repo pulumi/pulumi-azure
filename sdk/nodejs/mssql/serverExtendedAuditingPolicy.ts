@@ -158,11 +158,11 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      */
     public readonly logMonitoringEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The number of days to retain logs for in the storage account.
+     * The number of days to retain logs for in the storage account. Defaults to `0`.
      */
     public readonly retentionInDays!: pulumi.Output<number | undefined>;
     /**
@@ -237,11 +237,11 @@ export interface ServerExtendedAuditingPolicyState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      */
     logMonitoringEnabled?: pulumi.Input<boolean>;
     /**
-     * The number of days to retain logs for in the storage account.
+     * The number of days to retain logs for in the storage account. Defaults to `0`.
      */
     retentionInDays?: pulumi.Input<number>;
     /**
@@ -275,11 +275,11 @@ export interface ServerExtendedAuditingPolicyArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      */
     logMonitoringEnabled?: pulumi.Input<boolean>;
     /**
-     * The number of days to retain logs for in the storage account.
+     * The number of days to retain logs for in the storage account. Defaults to `0`.
      */
     retentionInDays?: pulumi.Input<number>;
     /**

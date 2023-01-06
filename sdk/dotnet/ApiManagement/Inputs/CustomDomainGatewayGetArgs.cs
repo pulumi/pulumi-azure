@@ -51,7 +51,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string>? CertificateStatus { get; set; }
 
         /// <summary>
-        /// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+        /// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
         /// </summary>
         [Input("defaultSslBinding")]
         public Input<bool>? DefaultSslBinding { get; set; }
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         /// </summary>
         [Input("negotiateClientCertificate")]
         public Input<bool>? NegotiateClientCertificate { get; set; }

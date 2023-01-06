@@ -63,14 +63,14 @@ public final class CertificateCertificatePolicyKeyPropertiesArgs extends com.pul
     }
 
     /**
-     * Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+     * Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="keyType", required=true)
     private Output<String> keyType;
 
     /**
-     * @return Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+     * @return Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> keyType() {
@@ -184,7 +184,7 @@ public final class CertificateCertificatePolicyKeyPropertiesArgs extends com.pul
         }
 
         /**
-         * @param keyType Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+         * @param keyType Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class CertificateCertificatePolicyKeyPropertiesArgs extends com.pul
         }
 
         /**
-         * @param keyType Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+         * @param keyType Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

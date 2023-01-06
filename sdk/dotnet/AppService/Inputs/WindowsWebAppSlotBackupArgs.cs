@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsWebAppSlotBackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should this backup job be enabled?
+        /// Should this backup job be enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

@@ -239,14 +239,14 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
         return this.workerCount;
     }
     /**
-     * Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+     * Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="zoneBalancingEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> zoneBalancingEnabled;
 
     /**
-     * @return Should the Service Plan balance across Availability Zones in the region. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> zoneBalancingEnabled() {

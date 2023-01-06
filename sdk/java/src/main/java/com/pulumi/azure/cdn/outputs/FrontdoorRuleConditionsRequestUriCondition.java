@@ -29,7 +29,7 @@ public final class FrontdoorRuleConditionsRequestUriCondition {
      */
     private String operator;
     /**
-     * @return A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+     * @return A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
      * 
      */
     private @Nullable List<String> transforms;
@@ -57,7 +57,7 @@ public final class FrontdoorRuleConditionsRequestUriCondition {
         return this.operator;
     }
     /**
-     * @return A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+     * @return A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
      * 
      */
     public List<String> transforms() {

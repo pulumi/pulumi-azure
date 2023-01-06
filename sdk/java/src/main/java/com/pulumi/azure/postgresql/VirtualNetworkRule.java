@@ -102,14 +102,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:postgresql/virtualNetworkRule:VirtualNetworkRule")
 public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
     /**
-     * Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+     * Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
      * 
      */
     @Export(name="ignoreMissingVnetServiceEndpoint", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> ignoreMissingVnetServiceEndpoint;
 
     /**
-     * @return Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+     * @return Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
      * 
      */
     public Output<Optional<Boolean>> ignoreMissingVnetServiceEndpoint() {

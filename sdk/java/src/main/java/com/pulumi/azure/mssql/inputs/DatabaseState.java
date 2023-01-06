@@ -99,14 +99,14 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A boolean that specifies if the Geo Backup Policy is enabled.
+     * A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
      * 
      */
     @Import(name="geoBackupEnabled")
     private @Nullable Output<Boolean> geoBackupEnabled;
 
     /**
-     * @return A boolean that specifies if the Geo Backup Policy is enabled.
+     * @return A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> geoBackupEnabled() {
@@ -600,7 +600,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geoBackupEnabled A boolean that specifies if the Geo Backup Policy is enabled.
+         * @param geoBackupEnabled A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -611,7 +611,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geoBackupEnabled A boolean that specifies if the Geo Backup Policy is enabled.
+         * @param geoBackupEnabled A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
          * 
          * @return builder
          * 

@@ -18,14 +18,14 @@ public final class SqlPoolWorkloadGroupArgs extends com.pulumi.resources.Resourc
     public static final SqlPoolWorkloadGroupArgs Empty = new SqlPoolWorkloadGroupArgs();
 
     /**
-     * The workload group importance level.
+     * The workload group importance level. Defaults to `normal`.
      * 
      */
     @Import(name="importance")
     private @Nullable Output<String> importance;
 
     /**
-     * @return The workload group importance level.
+     * @return The workload group importance level. Defaults to `normal`.
      * 
      */
     public Optional<Output<String>> importance() {
@@ -48,14 +48,14 @@ public final class SqlPoolWorkloadGroupArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The workload group request maximum grant percentage.
+     * The workload group request maximum grant percentage. Defaults to `3`.
      * 
      */
     @Import(name="maxResourcePercentPerRequest")
     private @Nullable Output<Double> maxResourcePercentPerRequest;
 
     /**
-     * @return The workload group request maximum grant percentage.
+     * @return The workload group request maximum grant percentage. Defaults to `3`.
      * 
      */
     public Optional<Output<Double>> maxResourcePercentPerRequest() {
@@ -169,7 +169,7 @@ public final class SqlPoolWorkloadGroupArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param importance The workload group importance level.
+         * @param importance The workload group importance level. Defaults to `normal`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class SqlPoolWorkloadGroupArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param importance The workload group importance level.
+         * @param importance The workload group importance level. Defaults to `normal`.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class SqlPoolWorkloadGroupArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param maxResourcePercentPerRequest The workload group request maximum grant percentage.
+         * @param maxResourcePercentPerRequest The workload group request maximum grant percentage. Defaults to `3`.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class SqlPoolWorkloadGroupArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param maxResourcePercentPerRequest The workload group request maximum grant percentage.
+         * @param maxResourcePercentPerRequest The workload group request maximum grant percentage. Defaults to `3`.
          * 
          * @return builder
          * 

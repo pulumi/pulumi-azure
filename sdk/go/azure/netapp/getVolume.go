@@ -92,6 +92,8 @@ type LookupVolumeResult struct {
 	SubnetId string `pulumi:"subnetId"`
 	// The unique file path of the volume.
 	VolumePath string `pulumi:"volumePath"`
+	// The Availability Zone in which the Volume is located.
+	Zone string `pulumi:"zone"`
 }
 
 func LookupVolumeOutput(ctx *pulumi.Context, args LookupVolumeOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeResultOutput {
@@ -209,6 +211,11 @@ func (o LookupVolumeResultOutput) SubnetId() pulumi.StringOutput {
 // The unique file path of the volume.
 func (o LookupVolumeResultOutput) VolumePath() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.VolumePath }).(pulumi.StringOutput)
+}
+
+// The Availability Zone in which the Volume is located.
+func (o LookupVolumeResultOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.Zone }).(pulumi.StringOutput)
 }
 
 func init() {

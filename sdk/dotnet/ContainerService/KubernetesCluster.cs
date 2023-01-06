@@ -174,7 +174,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> ImageCleanerEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the interval in hours when images should be cleaned up.
+        /// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
         /// </summary>
         [Output("imageCleanerIntervalHours")]
         public Output<int?> ImageCleanerIntervalHours { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterLinuxProfile?> LinuxProfile { get; private set; } = null!;
 
         /// <summary>
-        /// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        /// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         /// </summary>
         [Output("localAccountDisabled")]
         public Output<bool?> LocalAccountDisabled { get; private set; } = null!;
@@ -560,7 +560,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? ImageCleanerEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the interval in hours when images should be cleaned up.
+        /// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
         /// </summary>
         [Input("imageCleanerIntervalHours")]
         public Input<int>? ImageCleanerIntervalHours { get; set; }
@@ -596,7 +596,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterLinuxProfileArgs>? LinuxProfile { get; set; }
 
         /// <summary>
-        /// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        /// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         /// </summary>
         [Input("localAccountDisabled")]
         public Input<bool>? LocalAccountDisabled { get; set; }
@@ -877,7 +877,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? ImageCleanerEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the interval in hours when images should be cleaned up.
+        /// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
         /// </summary>
         [Input("imageCleanerIntervalHours")]
         public Input<int>? ImageCleanerIntervalHours { get; set; }
@@ -977,7 +977,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterLinuxProfileGetArgs>? LinuxProfile { get; set; }
 
         /// <summary>
-        /// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        /// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         /// </summary>
         [Input("localAccountDisabled")]
         public Input<bool>? LocalAccountDisabled { get; set; }

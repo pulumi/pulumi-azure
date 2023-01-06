@@ -48,14 +48,14 @@ public final class RulesEngineRuleMatchConditionArgs extends com.pulumi.resource
     }
 
     /**
-     * match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
+     * match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
      * 
      */
     @Import(name="selector")
     private @Nullable Output<String> selector;
 
     /**
-     * @return match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
+     * @return match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
      * 
      */
     public Optional<Output<String>> selector() {
@@ -179,7 +179,7 @@ public final class RulesEngineRuleMatchConditionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param selector match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
+         * @param selector match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class RulesEngineRuleMatchConditionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param selector match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
+         * @param selector match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
          * 
          * @return builder
          * 

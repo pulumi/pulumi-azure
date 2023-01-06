@@ -102,7 +102,7 @@ type Service struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Whether public network access is enabled or disabled for this service instance.
+	// Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -157,7 +157,7 @@ type serviceState struct {
 	Location *string `pulumi:"location"`
 	// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Whether public network access is enabled or disabled for this service instance.
+	// Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -181,7 +181,7 @@ type ServiceState struct {
 	Location pulumi.StringPtrInput
 	// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Whether public network access is enabled or disabled for this service instance.
+	// Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -209,7 +209,7 @@ type serviceArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Whether public network access is enabled or disabled for this service instance.
+	// Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -234,7 +234,7 @@ type ServiceArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Whether public network access is enabled or disabled for this service instance.
+	// Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -368,7 +368,7 @@ func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether public network access is enabled or disabled for this service instance.
+// Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
 func (o ServiceOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }

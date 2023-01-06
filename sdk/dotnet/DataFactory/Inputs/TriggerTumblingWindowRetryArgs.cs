@@ -19,7 +19,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<int> Count { get; set; } = null!;
 
         /// <summary>
-        /// The Interval in seconds between each retry if the pipeline run failed.
+        /// The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }

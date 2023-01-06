@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Network
     public partial class VirtualNetworkPeering : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+        /// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
         /// </summary>
         [Output("allowForwardedTraffic")]
         public Output<bool> AllowForwardedTraffic { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Network
         public Output<bool> AllowGatewayTransit { get; private set; } = null!;
 
         /// <summary>
-        /// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+        /// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
         /// </summary>
         [Output("allowVirtualNetworkAccess")]
         public Output<bool?> AllowVirtualNetworkAccess { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkPeeringArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+        /// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
         /// </summary>
         [Input("allowForwardedTraffic")]
         public Input<bool>? AllowForwardedTraffic { get; set; }
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? AllowGatewayTransit { get; set; }
 
         /// <summary>
-        /// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+        /// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
         /// </summary>
         [Input("allowVirtualNetworkAccess")]
         public Input<bool>? AllowVirtualNetworkAccess { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkPeeringState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+        /// Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
         /// </summary>
         [Input("allowForwardedTraffic")]
         public Input<bool>? AllowForwardedTraffic { get; set; }
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? AllowGatewayTransit { get; set; }
 
         /// <summary>
-        /// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+        /// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
         /// </summary>
         [Input("allowVirtualNetworkAccess")]
         public Input<bool>? AllowVirtualNetworkAccess { get; set; }

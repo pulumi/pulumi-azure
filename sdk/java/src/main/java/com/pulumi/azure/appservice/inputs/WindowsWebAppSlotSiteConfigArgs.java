@@ -25,14 +25,14 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
     public static final WindowsWebAppSlotSiteConfigArgs Empty = new WindowsWebAppSlotSiteConfigArgs();
 
     /**
-     * If this Windows Web App Slot is Always On enabled. Defaults to `false`.
+     * If this Windows Web App Slot is Always On enabled. Defaults to `true`.
      * 
      */
     @Import(name="alwaysOn")
     private @Nullable Output<Boolean> alwaysOn;
 
     /**
-     * @return If this Windows Web App Slot is Always On enabled. Defaults to `false`.
+     * @return If this Windows Web App Slot is Always On enabled. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> alwaysOn() {
@@ -560,7 +560,7 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param alwaysOn If this Windows Web App Slot is Always On enabled. Defaults to `false`.
+         * @param alwaysOn If this Windows Web App Slot is Always On enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -571,7 +571,7 @@ public final class WindowsWebAppSlotSiteConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param alwaysOn If this Windows Web App Slot is Always On enabled. Defaults to `false`.
+         * @param alwaysOn If this Windows Web App Slot is Always On enabled. Defaults to `true`.
          * 
          * @return builder
          * 

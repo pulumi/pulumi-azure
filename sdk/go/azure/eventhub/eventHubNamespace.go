@@ -66,7 +66,7 @@ type EventHubNamespace struct {
 
 	// Is Auto Inflate enabled for the EventHub Namespace?
 	AutoInflateEnabled pulumi.BoolPtrOutput `pulumi:"autoInflateEnabled"`
-	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
 	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
 	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
 	DedicatedClusterId pulumi.StringPtrOutput `pulumi:"dedicatedClusterId"`
@@ -88,7 +88,7 @@ type EventHubNamespace struct {
 	DefaultSecondaryKey pulumi.StringOutput `pulumi:"defaultSecondaryKey"`
 	// An `identity` block as defined below.
 	Identity EventHubNamespaceIdentityPtrOutput `pulumi:"identity"`
-	// Is SAS authentication enabled for the EventHub Namespace?
+	// Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -158,7 +158,7 @@ func GetEventHubNamespace(ctx *pulumi.Context,
 type eventHubNamespaceState struct {
 	// Is Auto Inflate enabled for the EventHub Namespace?
 	AutoInflateEnabled *bool `pulumi:"autoInflateEnabled"`
-	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
 	Capacity *int `pulumi:"capacity"`
 	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
 	DedicatedClusterId *string `pulumi:"dedicatedClusterId"`
@@ -180,7 +180,7 @@ type eventHubNamespaceState struct {
 	DefaultSecondaryKey *string `pulumi:"defaultSecondaryKey"`
 	// An `identity` block as defined below.
 	Identity *EventHubNamespaceIdentity `pulumi:"identity"`
-	// Is SAS authentication enabled for the EventHub Namespace?
+	// Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -207,7 +207,7 @@ type eventHubNamespaceState struct {
 type EventHubNamespaceState struct {
 	// Is Auto Inflate enabled for the EventHub Namespace?
 	AutoInflateEnabled pulumi.BoolPtrInput
-	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
 	Capacity pulumi.IntPtrInput
 	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
 	DedicatedClusterId pulumi.StringPtrInput
@@ -229,7 +229,7 @@ type EventHubNamespaceState struct {
 	DefaultSecondaryKey pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity EventHubNamespaceIdentityPtrInput
-	// Is SAS authentication enabled for the EventHub Namespace?
+	// Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -260,13 +260,13 @@ func (EventHubNamespaceState) ElementType() reflect.Type {
 type eventHubNamespaceArgs struct {
 	// Is Auto Inflate enabled for the EventHub Namespace?
 	AutoInflateEnabled *bool `pulumi:"autoInflateEnabled"`
-	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
 	Capacity *int `pulumi:"capacity"`
 	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
 	DedicatedClusterId *string `pulumi:"dedicatedClusterId"`
 	// An `identity` block as defined below.
 	Identity *EventHubNamespaceIdentity `pulumi:"identity"`
-	// Is SAS authentication enabled for the EventHub Namespace?
+	// Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -294,13 +294,13 @@ type eventHubNamespaceArgs struct {
 type EventHubNamespaceArgs struct {
 	// Is Auto Inflate enabled for the EventHub Namespace?
 	AutoInflateEnabled pulumi.BoolPtrInput
-	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
 	Capacity pulumi.IntPtrInput
 	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
 	DedicatedClusterId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity EventHubNamespaceIdentityPtrInput
-	// Is SAS authentication enabled for the EventHub Namespace?
+	// Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -416,7 +416,7 @@ func (o EventHubNamespaceOutput) AutoInflateEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventHubNamespace) pulumi.BoolPtrOutput { return v.AutoInflateEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
 func (o EventHubNamespaceOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventHubNamespace) pulumi.IntPtrOutput { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -465,7 +465,7 @@ func (o EventHubNamespaceOutput) Identity() EventHubNamespaceIdentityPtrOutput {
 	return o.ApplyT(func(v *EventHubNamespace) EventHubNamespaceIdentityPtrOutput { return v.Identity }).(EventHubNamespaceIdentityPtrOutput)
 }
 
-// Is SAS authentication enabled for the EventHub Namespace?
+// Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
 func (o EventHubNamespaceOutput) LocalAuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventHubNamespace) pulumi.BoolPtrOutput { return v.LocalAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }

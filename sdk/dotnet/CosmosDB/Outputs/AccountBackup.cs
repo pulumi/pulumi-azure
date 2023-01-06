@@ -26,7 +26,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly string? StorageRedundancy;
         /// <summary>
-        /// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+        /// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
         /// </summary>
         public readonly string Type;
 

@@ -71,12 +71,12 @@ public final class FunctionAppSlotAuthSettings {
      */
     private @Nullable String runtimeVersion;
     /**
-     * @return The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+     * @return The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
      * 
      */
     private @Nullable Double tokenRefreshExtensionHours;
     /**
-     * @return If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+     * @return If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
      * 
      */
     private @Nullable Boolean tokenStoreEnabled;
@@ -163,14 +163,14 @@ public final class FunctionAppSlotAuthSettings {
         return Optional.ofNullable(this.runtimeVersion);
     }
     /**
-     * @return The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+     * @return The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
      * 
      */
     public Optional<Double> tokenRefreshExtensionHours() {
         return Optional.ofNullable(this.tokenRefreshExtensionHours);
     }
     /**
-     * @return If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+     * @return If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
      * 
      */
     public Optional<Boolean> tokenStoreEnabled() {

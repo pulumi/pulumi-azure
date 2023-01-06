@@ -37,7 +37,7 @@ class SourceControlArgs:
         :param pulumi.Input[str] branch: Specify the repo branch of the Source Control. Empty value is valid only for `VsoTfvc`.
         :param pulumi.Input[str] description: A short description of the Source Control.
         :param pulumi.Input[str] name: The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
-        :param pulumi.Input[bool] publish_runbook_enabled: Whether auto publish the Source Control.
+        :param pulumi.Input[bool] publish_runbook_enabled: Whether auto publish the Source Control. Defaults to `true`.
         """
         pulumi.set(__self__, "automation_account_id", automation_account_id)
         pulumi.set(__self__, "folder_path", folder_path)
@@ -167,7 +167,7 @@ class SourceControlArgs:
     @pulumi.getter(name="publishRunbookEnabled")
     def publish_runbook_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether auto publish the Source Control.
+        Whether auto publish the Source Control. Defaults to `true`.
         """
         return pulumi.get(self, "publish_runbook_enabled")
 
@@ -197,7 +197,7 @@ class _SourceControlState:
         :param pulumi.Input[str] description: A short description of the Source Control.
         :param pulumi.Input[str] folder_path: The folder path of the source control. This Path must be relative.
         :param pulumi.Input[str] name: The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
-        :param pulumi.Input[bool] publish_runbook_enabled: Whether auto publish the Source Control.
+        :param pulumi.Input[bool] publish_runbook_enabled: Whether auto publish the Source Control. Defaults to `true`.
         :param pulumi.Input[str] repository_url: The Repository URL of the source control.
         :param pulumi.Input['SourceControlSecurityArgs'] security: A `security` block as defined below.
         :param pulumi.Input[str] source_control_type: The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
@@ -299,7 +299,7 @@ class _SourceControlState:
     @pulumi.getter(name="publishRunbookEnabled")
     def publish_runbook_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether auto publish the Source Control.
+        Whether auto publish the Source Control. Defaults to `true`.
         """
         return pulumi.get(self, "publish_runbook_enabled")
 
@@ -397,7 +397,7 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.Input[str] description: A short description of the Source Control.
         :param pulumi.Input[str] folder_path: The folder path of the source control. This Path must be relative.
         :param pulumi.Input[str] name: The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
-        :param pulumi.Input[bool] publish_runbook_enabled: Whether auto publish the Source Control.
+        :param pulumi.Input[bool] publish_runbook_enabled: Whether auto publish the Source Control. Defaults to `true`.
         :param pulumi.Input[str] repository_url: The Repository URL of the source control.
         :param pulumi.Input[pulumi.InputType['SourceControlSecurityArgs']] security: A `security` block as defined below.
         :param pulumi.Input[str] source_control_type: The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
@@ -524,7 +524,7 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.Input[str] description: A short description of the Source Control.
         :param pulumi.Input[str] folder_path: The folder path of the source control. This Path must be relative.
         :param pulumi.Input[str] name: The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
-        :param pulumi.Input[bool] publish_runbook_enabled: Whether auto publish the Source Control.
+        :param pulumi.Input[bool] publish_runbook_enabled: Whether auto publish the Source Control. Defaults to `true`.
         :param pulumi.Input[str] repository_url: The Repository URL of the source control.
         :param pulumi.Input[pulumi.InputType['SourceControlSecurityArgs']] security: A `security` block as defined below.
         :param pulumi.Input[str] source_control_type: The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
@@ -597,7 +597,7 @@ class SourceControl(pulumi.CustomResource):
     @pulumi.getter(name="publishRunbookEnabled")
     def publish_runbook_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether auto publish the Source Control.
+        Whether auto publish the Source Control. Defaults to `true`.
         """
         return pulumi.get(self, "publish_runbook_enabled")
 

@@ -1236,8 +1236,8 @@ class IotHubDpsLinkedHub(dict):
         """
         :param str connection_string: The connection string to connect to the IoT Hub.
         :param str location: The location of the IoT hub.
-        :param int allocation_weight: The weight applied to the IoT Hub. Defaults to 0.
-        :param bool apply_allocation_policy: Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
+        :param int allocation_weight: The weight applied to the IoT Hub. Defaults to `1`.
+        :param bool apply_allocation_policy: Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
         :param str hostname: The IoT Hub hostname.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -1269,7 +1269,7 @@ class IotHubDpsLinkedHub(dict):
     @pulumi.getter(name="allocationWeight")
     def allocation_weight(self) -> Optional[int]:
         """
-        The weight applied to the IoT Hub. Defaults to 0.
+        The weight applied to the IoT Hub. Defaults to `1`.
         """
         return pulumi.get(self, "allocation_weight")
 
@@ -1277,7 +1277,7 @@ class IotHubDpsLinkedHub(dict):
     @pulumi.getter(name="applyAllocationPolicy")
     def apply_allocation_policy(self) -> Optional[bool]:
         """
-        Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
+        Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
         """
         return pulumi.get(self, "apply_allocation_policy")
 

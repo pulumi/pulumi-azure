@@ -25,7 +25,7 @@ class ManagedInstanceActiveDirectoryAdministratorArgs:
         :param pulumi.Input[str] managed_instance_id: The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] object_id: The Object ID of the principal to set as the Managed Instance Administrator.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory Tenant ID.
-        :param pulumi.Input[bool] azuread_authentication_only: When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+        :param pulumi.Input[bool] azuread_authentication_only: When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
         """
         pulumi.set(__self__, "login_username", login_username)
         pulumi.set(__self__, "managed_instance_id", managed_instance_id)
@@ -86,7 +86,7 @@ class ManagedInstanceActiveDirectoryAdministratorArgs:
     @pulumi.getter(name="azureadAuthenticationOnly")
     def azuread_authentication_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+        When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
         """
         return pulumi.get(self, "azuread_authentication_only")
 
@@ -105,7 +105,7 @@ class _ManagedInstanceActiveDirectoryAdministratorState:
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ManagedInstanceActiveDirectoryAdministrator resources.
-        :param pulumi.Input[bool] azuread_authentication_only: When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+        :param pulumi.Input[bool] azuread_authentication_only: When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
         :param pulumi.Input[str] login_username: The login name of the principal to set as the Managed Instance Administrator.
         :param pulumi.Input[str] managed_instance_id: The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] object_id: The Object ID of the principal to set as the Managed Instance Administrator.
@@ -126,7 +126,7 @@ class _ManagedInstanceActiveDirectoryAdministratorState:
     @pulumi.getter(name="azureadAuthenticationOnly")
     def azuread_authentication_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+        When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
         """
         return pulumi.get(self, "azuread_authentication_only")
 
@@ -207,7 +207,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] azuread_authentication_only: When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+        :param pulumi.Input[bool] azuread_authentication_only: When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
         :param pulumi.Input[str] login_username: The login name of the principal to set as the Managed Instance Administrator.
         :param pulumi.Input[str] managed_instance_id: The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] object_id: The Object ID of the principal to set as the Managed Instance Administrator.
@@ -294,7 +294,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] azuread_authentication_only: When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+        :param pulumi.Input[bool] azuread_authentication_only: When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
         :param pulumi.Input[str] login_username: The login name of the principal to set as the Managed Instance Administrator.
         :param pulumi.Input[str] managed_instance_id: The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] object_id: The Object ID of the principal to set as the Managed Instance Administrator.
@@ -315,7 +315,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
     @pulumi.getter(name="azureadAuthenticationOnly")
     def azuread_authentication_only(self) -> pulumi.Output[Optional[bool]]:
         """
-        When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+        When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
         """
         return pulumi.get(self, "azuread_authentication_only")
 

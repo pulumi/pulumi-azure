@@ -32,7 +32,7 @@ class WebTestArgs:
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
         :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
-        :param pulumi.Input[str] kind: = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kind: The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
         :param pulumi.Input[str] description: Purpose/user defined descriptive test for this WebTest.
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
@@ -106,7 +106,7 @@ class WebTestArgs:
     @pulumi.getter
     def kind(self) -> pulumi.Input[str]:
         """
-        = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+        The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kind")
 
@@ -249,7 +249,7 @@ class _WebTestState:
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
-        :param pulumi.Input[str] kind: = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kind: The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
         :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a
                new resource to be created.
@@ -363,7 +363,7 @@ class _WebTestState:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+        The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kind")
 
@@ -525,7 +525,7 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
-        :param pulumi.Input[str] kind: = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kind: The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
         :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a
                new resource to be created.
@@ -682,7 +682,7 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
-        :param pulumi.Input[str] kind: = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kind: The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
         :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a
                new resource to be created.
@@ -763,7 +763,7 @@ class WebTest(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[str]:
         """
-        = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+        The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kind")
 

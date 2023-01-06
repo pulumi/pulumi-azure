@@ -181,14 +181,14 @@ public class Product extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Is a Subscription required to access API&#39;s included in this Product?
+     * Is a Subscription required to access API&#39;s included in this Product? Defaults to `true`.
      * 
      */
     @Export(name="subscriptionRequired", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> subscriptionRequired;
 
     /**
-     * @return Is a Subscription required to access API&#39;s included in this Product?
+     * @return Is a Subscription required to access API&#39;s included in this Product? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> subscriptionRequired() {

@@ -63,14 +63,14 @@ public final class FrontdoorRuleConditionsQueryStringConditionArgs extends com.p
     }
 
     /**
-     * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+     * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
      * 
      */
     @Import(name="transforms")
     private @Nullable Output<List<String>> transforms;
 
     /**
-     * @return A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+     * @return A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
      * 
      */
     public Optional<Output<List<String>>> transforms() {
@@ -178,7 +178,7 @@ public final class FrontdoorRuleConditionsQueryStringConditionArgs extends com.p
         }
 
         /**
-         * @param transforms A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+         * @param transforms A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class FrontdoorRuleConditionsQueryStringConditionArgs extends com.p
         }
 
         /**
-         * @param transforms A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+         * @param transforms A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class FrontdoorRuleConditionsQueryStringConditionArgs extends com.p
         }
 
         /**
-         * @param transforms A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+         * @param transforms A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
          * 
          * @return builder
          * 

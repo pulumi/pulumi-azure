@@ -64,14 +64,14 @@ public final class BudgetSubscriptionNotificationArgs extends com.pulumi.resourc
     }
 
     /**
-     * Should the notification be enabled?
+     * Should the notification be enabled? Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Should the notification be enabled?
+     * @return Should the notification be enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -247,7 +247,7 @@ public final class BudgetSubscriptionNotificationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param enabled Should the notification be enabled?
+         * @param enabled Should the notification be enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class BudgetSubscriptionNotificationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param enabled Should the notification be enabled?
+         * @param enabled Should the notification be enabled? Defaults to `true`.
          * 
          * @return builder
          * 

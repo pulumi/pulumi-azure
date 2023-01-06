@@ -206,7 +206,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> NetworkAccessPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+        /// Specifies if On-Demand Bursting is enabled for the Managed Disk.
         /// </summary>
         [Output("onDemandBurstingEnabled")]
         public Output<bool?> OnDemandBurstingEnabled { get; private set; } = null!;
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> Tier { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
         /// </summary>
         [Output("trustedLaunchEnabled")]
         public Output<bool?> TrustedLaunchEnabled { get; private set; } = null!;
@@ -450,7 +450,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? NetworkAccessPolicy { get; set; }
 
         /// <summary>
-        /// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+        /// Specifies if On-Demand Bursting is enabled for the Managed Disk.
         /// </summary>
         [Input("onDemandBurstingEnabled")]
         public Input<bool>? OnDemandBurstingEnabled { get; set; }
@@ -528,7 +528,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Tier { get; set; }
 
         /// <summary>
-        /// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
         /// </summary>
         [Input("trustedLaunchEnabled")]
         public Input<bool>? TrustedLaunchEnabled { get; set; }
@@ -662,7 +662,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? NetworkAccessPolicy { get; set; }
 
         /// <summary>
-        /// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+        /// Specifies if On-Demand Bursting is enabled for the Managed Disk.
         /// </summary>
         [Input("onDemandBurstingEnabled")]
         public Input<bool>? OnDemandBurstingEnabled { get; set; }
@@ -740,7 +740,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Tier { get; set; }
 
         /// <summary>
-        /// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
         /// </summary>
         [Input("trustedLaunchEnabled")]
         public Input<bool>? TrustedLaunchEnabled { get; set; }

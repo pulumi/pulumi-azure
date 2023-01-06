@@ -150,14 +150,14 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.backup);
     }
     /**
-     * Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+     * Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      * 
      */
     @Export(name="builtinLoggingEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> builtinLoggingEnabled;
 
     /**
-     * @return Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+     * @return Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> builtinLoggingEnabled() {
@@ -248,14 +248,14 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
         return this.customDomainVerificationId;
     }
     /**
-     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
      * 
      */
     @Export(name="dailyMemoryTimeQuota", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> dailyMemoryTimeQuota;
 
     /**
-     * @return The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+     * @return The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
      * 
      */
     public Output<Optional<Integer>> dailyMemoryTimeQuota() {
@@ -276,14 +276,14 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
         return this.defaultHostname;
     }
     /**
-     * Is the Windows Function App Slot enabled.
+     * Is the Windows Function App Slot enabled. Defaults to `true`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Is the Windows Function App Slot enabled.
+     * @return Is the Windows Function App Slot enabled. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -304,14 +304,14 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
         return this.functionAppId;
     }
     /**
-     * The runtime version associated with the Function App Slot.
+     * The runtime version associated with the Function App Slot. Defaults to `~4`.
      * 
      */
     @Export(name="functionsExtensionVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> functionsExtensionVersion;
 
     /**
-     * @return The runtime version associated with the Function App Slot.
+     * @return The runtime version associated with the Function App Slot. Defaults to `~4`.
      * 
      */
     public Output<Optional<String>> functionsExtensionVersion() {

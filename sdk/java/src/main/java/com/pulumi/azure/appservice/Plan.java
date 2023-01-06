@@ -292,28 +292,28 @@ public class Plan extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+     * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
      * 
      */
     @Export(name="perSiteScaling", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> perSiteScaling;
 
     /**
-     * @return Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+     * @return Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
      * 
      */
     public Output<Optional<Boolean>> perSiteScaling() {
         return Codegen.optional(this.perSiteScaling);
     }
     /**
-     * Is this App Service Plan `Reserved`. Defaults to `false`.
+     * Is this App Service Plan `Reserved`.
      * 
      */
     @Export(name="reserved", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> reserved;
 
     /**
-     * @return Is this App Service Plan `Reserved`. Defaults to `false`.
+     * @return Is this App Service Plan `Reserved`.
      * 
      */
     public Output<Optional<Boolean>> reserved() {
@@ -362,14 +362,14 @@ public class Plan extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+     * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="zoneRedundant", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> zoneRedundant;
 
     /**
-     * @return Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+     * @return Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> zoneRedundant() {

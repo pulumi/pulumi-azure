@@ -159,7 +159,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Is the automatic repair enabled on the Cassandra Cluster?
+        /// Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         /// </summary>
         [Output("repairEnabled")]
         public Output<bool?> RepairEnabled { get; private set; } = null!;
@@ -321,7 +321,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Is the automatic repair enabled on the Cassandra Cluster?
+        /// Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         /// </summary>
         [Input("repairEnabled")]
         public Input<bool>? RepairEnabled { get; set; }
@@ -447,7 +447,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Is the automatic repair enabled on the Cassandra Cluster?
+        /// Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         /// </summary>
         [Input("repairEnabled")]
         public Input<bool>? RepairEnabled { get; set; }

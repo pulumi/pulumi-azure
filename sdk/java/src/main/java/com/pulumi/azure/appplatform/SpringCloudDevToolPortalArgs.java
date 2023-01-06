@@ -48,14 +48,14 @@ public final class SpringCloudDevToolPortalArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+     * The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+     * @return The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -179,7 +179,7 @@ public final class SpringCloudDevToolPortalArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+         * @param name The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class SpringCloudDevToolPortalArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+         * @param name The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
          * 
          * @return builder
          * 

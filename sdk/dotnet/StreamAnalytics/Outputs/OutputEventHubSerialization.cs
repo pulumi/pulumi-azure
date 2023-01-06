@@ -18,7 +18,7 @@ namespace Pulumi.Azure.StreamAnalytics.Outputs
         /// </summary>
         public readonly string? Encoding;
         /// <summary>
-        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
+        /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
         /// </summary>
         public readonly string? FieldDelimiter;
         /// <summary>

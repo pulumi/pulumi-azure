@@ -11,7 +11,7 @@ import (
 )
 
 type ChannelDirectLineSite struct {
-	// Enables/Disables this site. Enabled by default
+	// Enables/Disables this site. Enabled by default Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
 	EnhancedAuthenticationEnabled *bool `pulumi:"enhancedAuthenticationEnabled"`
@@ -25,9 +25,9 @@ type ChannelDirectLineSite struct {
 	Name string `pulumi:"name"`
 	// This field is required when `isSecureSiteEnabled` is enabled. Determines which origins can establish a Directline conversation for this site.
 	TrustedOrigins []string `pulumi:"trustedOrigins"`
-	// Enables v1 of the Directline protocol for this site. Enabled by default
+	// Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
 	V1Allowed *bool `pulumi:"v1Allowed"`
-	// Enables v3 of the Directline protocol for this site. Enabled by default
+	// Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
 	V3Allowed *bool `pulumi:"v3Allowed"`
 }
 
@@ -43,7 +43,7 @@ type ChannelDirectLineSiteInput interface {
 }
 
 type ChannelDirectLineSiteArgs struct {
-	// Enables/Disables this site. Enabled by default
+	// Enables/Disables this site. Enabled by default Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
 	EnhancedAuthenticationEnabled pulumi.BoolPtrInput `pulumi:"enhancedAuthenticationEnabled"`
@@ -57,9 +57,9 @@ type ChannelDirectLineSiteArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// This field is required when `isSecureSiteEnabled` is enabled. Determines which origins can establish a Directline conversation for this site.
 	TrustedOrigins pulumi.StringArrayInput `pulumi:"trustedOrigins"`
-	// Enables v1 of the Directline protocol for this site. Enabled by default
+	// Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
 	V1Allowed pulumi.BoolPtrInput `pulumi:"v1Allowed"`
-	// Enables v3 of the Directline protocol for this site. Enabled by default
+	// Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
 	V3Allowed pulumi.BoolPtrInput `pulumi:"v3Allowed"`
 }
 
@@ -114,7 +114,7 @@ func (o ChannelDirectLineSiteOutput) ToChannelDirectLineSiteOutputWithContext(ct
 	return o
 }
 
-// Enables/Disables this site. Enabled by default
+// Enables/Disables this site. Enabled by default Defaults to `true`.
 func (o ChannelDirectLineSiteOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChannelDirectLineSite) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -149,12 +149,12 @@ func (o ChannelDirectLineSiteOutput) TrustedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ChannelDirectLineSite) []string { return v.TrustedOrigins }).(pulumi.StringArrayOutput)
 }
 
-// Enables v1 of the Directline protocol for this site. Enabled by default
+// Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
 func (o ChannelDirectLineSiteOutput) V1Allowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChannelDirectLineSite) *bool { return v.V1Allowed }).(pulumi.BoolPtrOutput)
 }
 
-// Enables v3 of the Directline protocol for this site. Enabled by default
+// Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
 func (o ChannelDirectLineSiteOutput) V3Allowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ChannelDirectLineSite) *bool { return v.V3Allowed }).(pulumi.BoolPtrOutput)
 }

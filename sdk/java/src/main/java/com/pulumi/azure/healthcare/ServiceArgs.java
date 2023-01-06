@@ -134,14 +134,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether public network access is enabled or disabled for this service instance.
+     * Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether public network access is enabled or disabled for this service instance.
+     * @return Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -373,7 +373,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether public network access is enabled or disabled for this service instance.
+         * @param publicNetworkAccessEnabled Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether public network access is enabled or disabled for this service instance.
+         * @param publicNetworkAccessEnabled Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
          * 
          * @return builder
          * 

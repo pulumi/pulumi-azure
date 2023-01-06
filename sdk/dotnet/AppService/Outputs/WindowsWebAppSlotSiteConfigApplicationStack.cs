@@ -30,7 +30,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? DockerContainerTag;
         /// <summary>
-        /// The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0` .
+        /// The version of .NET to use when `current_stack` is set to `dotnet`. Possible values are `v2.0`, `v3.0`, `core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0` .
         /// </summary>
         public readonly string? DotnetVersion;
         /// <summary>

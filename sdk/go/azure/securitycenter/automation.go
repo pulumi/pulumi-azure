@@ -126,7 +126,7 @@ type Automation struct {
 	Actions AutomationActionArrayOutput `pulumi:"actions"`
 	// Specifies the description for the Security Center Automation.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Boolean to enable or disable this Security Center Automation.
+	// Boolean to enable or disable this Security Center Automation. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -187,7 +187,7 @@ type automationState struct {
 	Actions []AutomationAction `pulumi:"actions"`
 	// Specifies the description for the Security Center Automation.
 	Description *string `pulumi:"description"`
-	// Boolean to enable or disable this Security Center Automation.
+	// Boolean to enable or disable this Security Center Automation. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
 	Location *string `pulumi:"location"`
@@ -208,7 +208,7 @@ type AutomationState struct {
 	Actions AutomationActionArrayInput
 	// Specifies the description for the Security Center Automation.
 	Description pulumi.StringPtrInput
-	// Boolean to enable or disable this Security Center Automation.
+	// Boolean to enable or disable this Security Center Automation. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
 	Location pulumi.StringPtrInput
@@ -233,7 +233,7 @@ type automationArgs struct {
 	Actions []AutomationAction `pulumi:"actions"`
 	// Specifies the description for the Security Center Automation.
 	Description *string `pulumi:"description"`
-	// Boolean to enable or disable this Security Center Automation.
+	// Boolean to enable or disable this Security Center Automation. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
 	Location *string `pulumi:"location"`
@@ -255,7 +255,7 @@ type AutomationArgs struct {
 	Actions AutomationActionArrayInput
 	// Specifies the description for the Security Center Automation.
 	Description pulumi.StringPtrInput
-	// Boolean to enable or disable this Security Center Automation.
+	// Boolean to enable or disable this Security Center Automation. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
 	Location pulumi.StringPtrInput
@@ -368,7 +368,7 @@ func (o AutomationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Automation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Boolean to enable or disable this Security Center Automation.
+// Boolean to enable or disable this Security Center Automation. Defaults to `true`.
 func (o AutomationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Automation) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

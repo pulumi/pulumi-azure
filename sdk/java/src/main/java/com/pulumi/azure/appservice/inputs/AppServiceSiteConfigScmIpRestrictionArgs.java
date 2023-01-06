@@ -18,14 +18,14 @@ public final class AppServiceSiteConfigScmIpRestrictionArgs extends com.pulumi.r
     public static final AppServiceSiteConfigScmIpRestrictionArgs Empty = new AppServiceSiteConfigScmIpRestrictionArgs();
 
     /**
-     * Allow or Deny access for this IP range. Defaults to Allow.
+     * Allow or Deny access for this IP range. Defaults to `Allow`.
      * 
      */
     @Import(name="action")
     private @Nullable Output<String> action;
 
     /**
-     * @return Allow or Deny access for this IP range. Defaults to Allow.
+     * @return Allow or Deny access for this IP range. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> action() {
@@ -153,7 +153,7 @@ public final class AppServiceSiteConfigScmIpRestrictionArgs extends com.pulumi.r
         }
 
         /**
-         * @param action Allow or Deny access for this IP range. Defaults to Allow.
+         * @param action Allow or Deny access for this IP range. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class AppServiceSiteConfigScmIpRestrictionArgs extends com.pulumi.r
         }
 
         /**
-         * @param action Allow or Deny access for this IP range. Defaults to Allow.
+         * @param action Allow or Deny access for this IP range. Defaults to `Allow`.
          * 
          * @return builder
          * 

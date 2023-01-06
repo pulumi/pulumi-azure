@@ -288,14 +288,14 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return this.defaultHostname;
     }
     /**
-     * Is the Logic App enabled?
+     * Is the Logic App enabled? Defaults to `true`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Is the Logic App enabled?
+     * @return Is the Logic App enabled? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

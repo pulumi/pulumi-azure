@@ -8,6 +8,7 @@ import typing
 from .access_policy import *
 from .certifiate import *
 from .certificate import *
+from .certificate_contacts import *
 from .certificate_issuer import *
 from .get_access_policy import *
 from .get_certificate import *

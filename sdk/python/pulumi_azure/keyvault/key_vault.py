@@ -37,17 +37,17 @@ class KeyVaultArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-        :param pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]] access_policies: A list of up to 16 objects describing access policies, as described below.
+        :param pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]] access_policies: A list of up to 1024 objects describing access policies, as described below.
         :param pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]] contacts: One or more `contact` block as defined below.
-        :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
-        :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
-        :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
-        :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+        :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+        :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
+        :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
+        :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         :param pulumi.Input['KeyVaultNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault?
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -121,7 +121,7 @@ class KeyVaultArgs:
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]]:
         """
-        A list of up to 16 objects describing access policies, as described below.
+        A list of up to 1024 objects describing access policies, as described below.
         """
         return pulumi.get(self, "access_policies")
 
@@ -145,7 +145,7 @@ class KeyVaultArgs:
     @pulumi.getter(name="enableRbacAuthorization")
     def enable_rbac_authorization(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+        Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         """
         return pulumi.get(self, "enable_rbac_authorization")
 
@@ -157,7 +157,7 @@ class KeyVaultArgs:
     @pulumi.getter(name="enabledForDeployment")
     def enabled_for_deployment(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+        Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         """
         return pulumi.get(self, "enabled_for_deployment")
 
@@ -169,7 +169,7 @@ class KeyVaultArgs:
     @pulumi.getter(name="enabledForDiskEncryption")
     def enabled_for_disk_encryption(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+        Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         """
         return pulumi.get(self, "enabled_for_disk_encryption")
 
@@ -181,7 +181,7 @@ class KeyVaultArgs:
     @pulumi.getter(name="enabledForTemplateDeployment")
     def enabled_for_template_deployment(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+        Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         """
         return pulumi.get(self, "enabled_for_template_deployment")
 
@@ -241,7 +241,7 @@ class KeyVaultArgs:
     @pulumi.getter(name="purgeProtectionEnabled")
     def purge_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+        Is Purge Protection enabled for this Key Vault?
         """
         return pulumi.get(self, "purge_protection_enabled")
 
@@ -296,17 +296,17 @@ class _KeyVaultState:
                  vault_uri: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering KeyVault resources.
-        :param pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]] access_policies: A list of up to 16 objects describing access policies, as described below.
+        :param pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]] access_policies: A list of up to 1024 objects describing access policies, as described below.
         :param pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]] contacts: One or more `contact` block as defined below.
-        :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
-        :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
-        :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
-        :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+        :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+        :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
+        :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
+        :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         :param pulumi.Input['KeyVaultNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault?
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
@@ -353,7 +353,7 @@ class _KeyVaultState:
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]]:
         """
-        A list of up to 16 objects describing access policies, as described below.
+        A list of up to 1024 objects describing access policies, as described below.
         """
         return pulumi.get(self, "access_policies")
 
@@ -377,7 +377,7 @@ class _KeyVaultState:
     @pulumi.getter(name="enableRbacAuthorization")
     def enable_rbac_authorization(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+        Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         """
         return pulumi.get(self, "enable_rbac_authorization")
 
@@ -389,7 +389,7 @@ class _KeyVaultState:
     @pulumi.getter(name="enabledForDeployment")
     def enabled_for_deployment(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+        Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         """
         return pulumi.get(self, "enabled_for_deployment")
 
@@ -401,7 +401,7 @@ class _KeyVaultState:
     @pulumi.getter(name="enabledForDiskEncryption")
     def enabled_for_disk_encryption(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+        Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         """
         return pulumi.get(self, "enabled_for_disk_encryption")
 
@@ -413,7 +413,7 @@ class _KeyVaultState:
     @pulumi.getter(name="enabledForTemplateDeployment")
     def enabled_for_template_deployment(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+        Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         """
         return pulumi.get(self, "enabled_for_template_deployment")
 
@@ -473,7 +473,7 @@ class _KeyVaultState:
     @pulumi.getter(name="purgeProtectionEnabled")
     def purge_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+        Is Purge Protection enabled for this Key Vault?
         """
         return pulumi.get(self, "purge_protection_enabled")
 
@@ -583,6 +583,8 @@ class KeyVault(pulumi.CustomResource):
 
         > **Note:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `access_policy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
 
+        > **Note:** It's possible to define Key Vault Certificate Contacts both within the `keyvault.KeyVault` resource via the `contact` block and by using the `keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
+
         ## Example Usage
 
         ```python
@@ -618,17 +620,17 @@ class KeyVault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 16 objects describing access policies, as described below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 1024 objects describing access policies, as described below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultContactArgs']]]] contacts: One or more `contact` block as defined below.
-        :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
-        :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
-        :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
-        :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+        :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+        :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
+        :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
+        :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         :param pulumi.Input[pulumi.InputType['KeyVaultNetworkAclsArgs']] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault?
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
@@ -647,6 +649,8 @@ class KeyVault(pulumi.CustomResource):
         ## Disclaimers
 
         > **Note:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `access_policy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
+
+        > **Note:** It's possible to define Key Vault Certificate Contacts both within the `keyvault.KeyVault` resource via the `contact` block and by using the `keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
 
         ## Example Usage
 
@@ -778,17 +782,17 @@ class KeyVault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 16 objects describing access policies, as described below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 1024 objects describing access policies, as described below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultContactArgs']]]] contacts: One or more `contact` block as defined below.
-        :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
-        :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
-        :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
-        :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+        :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+        :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
+        :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
+        :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         :param pulumi.Input[pulumi.InputType['KeyVaultNetworkAclsArgs']] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault?
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
@@ -823,7 +827,7 @@ class KeyVault(pulumi.CustomResource):
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> pulumi.Output[Sequence['outputs.KeyVaultAccessPolicy']]:
         """
-        A list of up to 16 objects describing access policies, as described below.
+        A list of up to 1024 objects describing access policies, as described below.
         """
         return pulumi.get(self, "access_policies")
 
@@ -839,7 +843,7 @@ class KeyVault(pulumi.CustomResource):
     @pulumi.getter(name="enableRbacAuthorization")
     def enable_rbac_authorization(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+        Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         """
         return pulumi.get(self, "enable_rbac_authorization")
 
@@ -847,7 +851,7 @@ class KeyVault(pulumi.CustomResource):
     @pulumi.getter(name="enabledForDeployment")
     def enabled_for_deployment(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+        Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         """
         return pulumi.get(self, "enabled_for_deployment")
 
@@ -855,7 +859,7 @@ class KeyVault(pulumi.CustomResource):
     @pulumi.getter(name="enabledForDiskEncryption")
     def enabled_for_disk_encryption(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+        Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         """
         return pulumi.get(self, "enabled_for_disk_encryption")
 
@@ -863,7 +867,7 @@ class KeyVault(pulumi.CustomResource):
     @pulumi.getter(name="enabledForTemplateDeployment")
     def enabled_for_template_deployment(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+        Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         """
         return pulumi.get(self, "enabled_for_template_deployment")
 
@@ -903,7 +907,7 @@ class KeyVault(pulumi.CustomResource):
     @pulumi.getter(name="purgeProtectionEnabled")
     def purge_protection_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+        Is Purge Protection enabled for this Key Vault?
         """
         return pulumi.get(self, "purge_protection_enabled")
 

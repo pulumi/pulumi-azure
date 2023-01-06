@@ -55,14 +55,14 @@ public final class ZoneSoaRecordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+     * The domain name of the authoritative name server for the SOA record.
      * 
      */
     @Import(name="hostName", required=true)
     private Output<String> hostName;
 
     /**
-     * @return The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+     * @return The domain name of the authoritative name server for the SOA record.
      * 
      */
     public Output<String> hostName() {
@@ -244,7 +244,7 @@ public final class ZoneSoaRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostName The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+         * @param hostName The domain name of the authoritative name server for the SOA record.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class ZoneSoaRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostName The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+         * @param hostName The domain name of the authoritative name server for the SOA record.
          * 
          * @return builder
          * 

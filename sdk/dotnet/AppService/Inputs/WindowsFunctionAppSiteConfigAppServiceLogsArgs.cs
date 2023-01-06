@@ -13,13 +13,13 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsFunctionAppSiteConfigAppServiceLogsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The amount of disk space to use for logs. Valid values are between `25` and `100`.
+        /// The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
         /// </summary>
         [Input("diskQuotaMb")]
         public Input<int>? DiskQuotaMb { get; set; }
 
         /// <summary>
-        /// The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+        /// The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
         /// </summary>
         [Input("retentionPeriodDays")]
         public Input<int>? RetentionPeriodDays { get; set; }

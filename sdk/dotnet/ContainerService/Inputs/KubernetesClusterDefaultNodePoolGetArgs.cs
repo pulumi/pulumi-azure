@@ -19,25 +19,25 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? CapacityReservationGroupId { get; set; }
 
         /// <summary>
-        /// Specifies whether to trust a Custom CA. Defaults to `false`.
+        /// Specifies whether to trust a Custom CA.
         /// </summary>
         [Input("customCaTrustEnabled")]
         public Input<bool>? CustomCaTrustEnabled { get; set; }
 
         /// <summary>
-        /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+        /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
         /// </summary>
         [Input("enableAutoScaling")]
         public Input<bool>? EnableAutoScaling { get; set; }
 
         /// <summary>
-        /// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableHostEncryption")]
         public Input<bool>? EnableHostEncryption { get; set; }
 
         /// <summary>
-        /// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableNodePublicIp")]
         public Input<bool>? EnableNodePublicIp { get; set; }

@@ -19,14 +19,14 @@ public final class DiskEncryptionSetState extends com.pulumi.resources.ResourceA
     public static final DiskEncryptionSetState Empty = new DiskEncryptionSetState();
 
     /**
-     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
      * 
      */
     @Import(name="autoKeyRotationEnabled")
     private @Nullable Output<Boolean> autoKeyRotationEnabled;
 
     /**
-     * @return Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+     * @return Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
      * 
      */
     public Optional<Output<Boolean>> autoKeyRotationEnabled() {
@@ -186,7 +186,7 @@ public final class DiskEncryptionSetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param autoKeyRotationEnabled Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+         * @param autoKeyRotationEnabled Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class DiskEncryptionSetState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param autoKeyRotationEnabled Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+         * @param autoKeyRotationEnabled Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
          * 
          * @return builder
          * 

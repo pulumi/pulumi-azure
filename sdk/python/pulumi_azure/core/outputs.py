@@ -13,6 +13,14 @@ __all__ = [
     'CustomProviderAction',
     'CustomProviderResourceType',
     'CustomProviderValidation',
+    'ResourceDeploymentScriptAzureCliContainer',
+    'ResourceDeploymentScriptAzureCliEnvironmentVariable',
+    'ResourceDeploymentScriptAzureCliIdentity',
+    'ResourceDeploymentScriptAzureCliStorageAccount',
+    'ResourceDeploymentScriptPowerShellContainer',
+    'ResourceDeploymentScriptPowerShellEnvironmentVariable',
+    'ResourceDeploymentScriptPowerShellIdentity',
+    'ResourceDeploymentScriptPowerShellStorageAccount',
     'ResourceGroupCostManagementExportExportDataOptions',
     'ResourceGroupCostManagementExportExportDataStorageLocation',
     'ResourceGroupPolicyAssignmentIdentity',
@@ -131,6 +139,338 @@ class CustomProviderValidation(dict):
         The endpoint where the validation specification is located.
         """
         return pulumi.get(self, "specification")
+
+
+@pulumi.output_type
+class ResourceDeploymentScriptAzureCliContainer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerGroupName":
+            suggest = "container_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceDeploymentScriptAzureCliContainer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceDeploymentScriptAzureCliContainer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceDeploymentScriptAzureCliContainer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_group_name: Optional[str] = None):
+        """
+        :param str container_group_name: Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+        """
+        if container_group_name is not None:
+            pulumi.set(__self__, "container_group_name", container_group_name)
+
+    @property
+    @pulumi.getter(name="containerGroupName")
+    def container_group_name(self) -> Optional[str]:
+        """
+        Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+        """
+        return pulumi.get(self, "container_group_name")
+
+
+@pulumi.output_type
+class ResourceDeploymentScriptAzureCliEnvironmentVariable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secureValue":
+            suggest = "secure_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceDeploymentScriptAzureCliEnvironmentVariable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceDeploymentScriptAzureCliEnvironmentVariable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceDeploymentScriptAzureCliEnvironmentVariable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 secure_value: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str name: Specifies the name of the environment variable.
+        :param str secure_value: Specifies the value of the secure environment variable.
+        :param str value: Specifies the value of the environment variable.
+        """
+        pulumi.set(__self__, "name", name)
+        if secure_value is not None:
+            pulumi.set(__self__, "secure_value", secure_value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="secureValue")
+    def secure_value(self) -> Optional[str]:
+        """
+        Specifies the value of the secure environment variable.
+        """
+        return pulumi.get(self, "secure_value")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Specifies the value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ResourceDeploymentScriptAzureCliIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceDeploymentScriptAzureCliIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceDeploymentScriptAzureCliIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceDeploymentScriptAzureCliIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 type: str):
+        """
+        :param str type: Type of the managed identity.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the managed identity.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ResourceDeploymentScriptAzureCliStorageAccount(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 name: str):
+        """
+        :param str key: Specifies the storage account access key.
+        :param str name: Specifies the storage account name.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Specifies the storage account access key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the storage account name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ResourceDeploymentScriptPowerShellContainer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerGroupName":
+            suggest = "container_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceDeploymentScriptPowerShellContainer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceDeploymentScriptPowerShellContainer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceDeploymentScriptPowerShellContainer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_group_name: Optional[str] = None):
+        """
+        :param str container_group_name: Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+        """
+        if container_group_name is not None:
+            pulumi.set(__self__, "container_group_name", container_group_name)
+
+    @property
+    @pulumi.getter(name="containerGroupName")
+    def container_group_name(self) -> Optional[str]:
+        """
+        Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+        """
+        return pulumi.get(self, "container_group_name")
+
+
+@pulumi.output_type
+class ResourceDeploymentScriptPowerShellEnvironmentVariable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secureValue":
+            suggest = "secure_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceDeploymentScriptPowerShellEnvironmentVariable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceDeploymentScriptPowerShellEnvironmentVariable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceDeploymentScriptPowerShellEnvironmentVariable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 secure_value: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str name: Specifies the name of the environment variable.
+        :param str secure_value: Specifies the value of the secure environment variable.
+        :param str value: Specifies the value of the environment variable.
+        """
+        pulumi.set(__self__, "name", name)
+        if secure_value is not None:
+            pulumi.set(__self__, "secure_value", secure_value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="secureValue")
+    def secure_value(self) -> Optional[str]:
+        """
+        Specifies the value of the secure environment variable.
+        """
+        return pulumi.get(self, "secure_value")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Specifies the value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ResourceDeploymentScriptPowerShellIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceDeploymentScriptPowerShellIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceDeploymentScriptPowerShellIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceDeploymentScriptPowerShellIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 type: str):
+        """
+        :param str type: Type of the managed identity.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the managed identity.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ResourceDeploymentScriptPowerShellStorageAccount(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 name: str):
+        """
+        :param str key: Specifies the storage account access key.
+        :param str name: Specifies the storage account name.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Specifies the storage account access key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the storage account name.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

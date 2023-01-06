@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class AppServiceSiteConfigScmIpRestrictionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow or Deny access for this IP range. Defaults to Allow.
+        /// Allow or Deny access for this IP range. Defaults to `Allow`.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }

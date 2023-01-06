@@ -210,14 +210,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+     * Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="infrastructureEncryptionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> infrastructureEncryptionEnabled;
 
     /**
-     * @return Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> infrastructureEncryptionEnabled() {

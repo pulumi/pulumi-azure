@@ -140,7 +140,7 @@ type Insights struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
-	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
 	SamplingPercentage pulumi.Float64PtrOutput `pulumi:"samplingPercentage"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -219,7 +219,7 @@ type insightsState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
-	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -259,7 +259,7 @@ type InsightsState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
 	RetentionInDays pulumi.IntPtrInput
-	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
 	SamplingPercentage pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -297,7 +297,7 @@ type insightsArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
-	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -332,7 +332,7 @@ type InsightsArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
 	RetentionInDays pulumi.IntPtrInput
-	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
 	SamplingPercentage pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -503,7 +503,7 @@ func (o InsightsOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Insights) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
 func (o InsightsOutput) SamplingPercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Insights) pulumi.Float64PtrOutput { return v.SamplingPercentage }).(pulumi.Float64PtrOutput)
 }

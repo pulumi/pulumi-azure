@@ -115,14 +115,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+     * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="evictionPolicy")
     private @Nullable Output<String> evictionPolicy;
 
     /**
-     * @return The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+     * @return The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> evictionPolicy() {
@@ -708,7 +708,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param evictionPolicy The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+         * @param evictionPolicy The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -719,7 +719,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param evictionPolicy The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+         * @param evictionPolicy The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

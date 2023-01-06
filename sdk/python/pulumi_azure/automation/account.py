@@ -31,7 +31,7 @@ class AccountArgs:
         :param pulumi.Input[str] sku_name: The SKU of the account. Possible values are `Basic` and `Free`.
         :param pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]] encryptions: An `encryption` block as defined below.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked.
+        :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
@@ -106,7 +106,7 @@ class AccountArgs:
     @pulumi.getter(name="localAuthenticationEnabled")
     def local_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether requests using non-AAD authentication are blocked.
+        Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
@@ -188,7 +188,7 @@ class _AccountState:
         :param pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]] encryptions: An `encryption` block as defined below.
         :param pulumi.Input[str] hybrid_service_url: The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked.
+        :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
@@ -301,7 +301,7 @@ class _AccountState:
     @pulumi.getter(name="localAuthenticationEnabled")
     def local_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether requests using non-AAD authentication are blocked.
+        Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
@@ -437,7 +437,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]]] encryptions: An `encryption` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked.
+        :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
@@ -568,7 +568,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]]] encryptions: An `encryption` block as defined below.
         :param pulumi.Input[str] hybrid_service_url: The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked.
+        :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
@@ -648,7 +648,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="localAuthenticationEnabled")
     def local_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether requests using non-AAD authentication are blocked.
+        Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 

@@ -209,14 +209,14 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
         return this.delegatedManagementSubnetId;
     }
     /**
-     * Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+     * Determines the number of p30 disks that are attached to each node.
      * 
      */
     @Export(name="diskCount", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> diskCount;
 
     /**
-     * @return Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+     * @return Determines the number of p30 disks that are attached to each node.
      * 
      */
     public Output<Optional<Integer>> diskCount() {
@@ -293,14 +293,14 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.nodeCount);
     }
     /**
-     * Determines the selected sku. Defaults to Standard_DS14_v2.
+     * Determines the selected sku.
      * 
      */
     @Export(name="skuName", type=String.class, parameters={})
     private Output</* @Nullable */ String> skuName;
 
     /**
-     * @return Determines the selected sku. Defaults to Standard_DS14_v2.
+     * @return Determines the selected sku.
      * 
      */
     public Output<Optional<String>> skuName() {

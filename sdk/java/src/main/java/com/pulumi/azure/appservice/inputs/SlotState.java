@@ -131,14 +131,14 @@ public final class SlotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is the App Service Slot Enabled?
+     * Is the App Service Slot Enabled? Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Is the App Service Slot Enabled?
+     * @return Is the App Service Slot Enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -510,7 +510,7 @@ public final class SlotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Is the App Service Slot Enabled?
+         * @param enabled Is the App Service Slot Enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -521,7 +521,7 @@ public final class SlotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Is the App Service Slot Enabled?
+         * @param enabled Is the App Service Slot Enabled? Defaults to `true`.
          * 
          * @return builder
          * 

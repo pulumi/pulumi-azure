@@ -4119,13 +4119,13 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Te
 type KubernetesClusterDefaultNodePool struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
-	// Specifies whether to trust a Custom CA. Defaults to `false`.
+	// Specifies whether to trust a Custom CA.
 	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
-	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
-	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
 	FipsEnabled *bool   `pulumi:"fipsEnabled"`
@@ -4200,13 +4200,13 @@ type KubernetesClusterDefaultNodePoolInput interface {
 type KubernetesClusterDefaultNodePoolArgs struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput `pulumi:"capacityReservationGroupId"`
-	// Specifies whether to trust a Custom CA. Defaults to `false`.
+	// Specifies whether to trust a Custom CA.
 	CustomCaTrustEnabled pulumi.BoolPtrInput `pulumi:"customCaTrustEnabled"`
-	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
-	// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
 	EnableHostEncryption pulumi.BoolPtrInput `pulumi:"enableHostEncryption"`
-	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
 	FipsEnabled pulumi.BoolPtrInput   `pulumi:"fipsEnabled"`
@@ -4349,22 +4349,22 @@ func (o KubernetesClusterDefaultNodePoolOutput) CapacityReservationGroupId() pul
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to trust a Custom CA. Defaults to `false`.
+// Specifies whether to trust a Custom CA.
 func (o KubernetesClusterDefaultNodePoolOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.CustomCaTrustEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 func (o KubernetesClusterDefaultNodePoolOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
-// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+// Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) EnableHostEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableHostEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
+// Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
 }
@@ -4556,7 +4556,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) CapacityReservationGroupId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to trust a Custom CA. Defaults to `false`.
+// Specifies whether to trust a Custom CA.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -4566,7 +4566,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) CustomCaTrustEnabled() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -4576,7 +4576,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableAutoScaling() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+// Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableHostEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -4586,7 +4586,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableHostEncryption() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
+// Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -12589,7 +12589,7 @@ func (o RegistryEncryptionPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 type RegistryGeoreplication struct {
 	// A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
 	Location string `pulumi:"location"`
-	// Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+	// Whether regional endpoint is enabled for this Container Registry?
 	RegionalEndpointEnabled *bool `pulumi:"regionalEndpointEnabled"`
 	// A mapping of tags to assign to this replication location.
 	Tags map[string]string `pulumi:"tags"`
@@ -12611,7 +12611,7 @@ type RegistryGeoreplicationInput interface {
 type RegistryGeoreplicationArgs struct {
 	// A location where the container registry should be geo-replicated. Changing this forces a new resource to be created.
 	Location pulumi.StringInput `pulumi:"location"`
-	// Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+	// Whether regional endpoint is enabled for this Container Registry?
 	RegionalEndpointEnabled pulumi.BoolPtrInput `pulumi:"regionalEndpointEnabled"`
 	// A mapping of tags to assign to this replication location.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -12675,7 +12675,7 @@ func (o RegistryGeoreplicationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryGeoreplication) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+// Whether regional endpoint is enabled for this Container Registry?
 func (o RegistryGeoreplicationOutput) RegionalEndpointEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RegistryGeoreplication) *bool { return v.RegionalEndpointEnabled }).(pulumi.BoolPtrOutput)
 }

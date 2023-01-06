@@ -110,7 +110,7 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+     * TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
@@ -215,7 +215,7 @@ export interface EnterpriseDatabaseState {
      */
     name?: pulumi.Input<string>;
     /**
-     * TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+     * TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
      */
     port?: pulumi.Input<number>;
     /**
@@ -271,7 +271,7 @@ export interface EnterpriseDatabaseArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+     * TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
      */
     port?: pulumi.Input<number>;
     /**

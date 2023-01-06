@@ -17,14 +17,14 @@ public final class LogProfileRetentionPolicyArgs extends com.pulumi.resources.Re
     public static final LogProfileRetentionPolicyArgs Empty = new LogProfileRetentionPolicyArgs();
 
     /**
-     * The number of days for the retention policy. Defaults to 0.
+     * The number of days for the retention policy. Defaults to `0`.
      * 
      */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
     /**
-     * @return The number of days for the retention policy. Defaults to 0.
+     * @return The number of days for the retention policy. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> days() {
@@ -72,7 +72,7 @@ public final class LogProfileRetentionPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param days The number of days for the retention policy. Defaults to 0.
+         * @param days The number of days for the retention policy. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class LogProfileRetentionPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param days The number of days for the retention policy. Defaults to 0.
+         * @param days The number of days for the retention policy. Defaults to `0`.
          * 
          * @return builder
          * 

@@ -258,28 +258,28 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return this.adminUsername;
     }
     /**
-     * Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+     * Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
      * 
      */
     @Export(name="anonymousPullEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> anonymousPullEnabled;
 
     /**
-     * @return Whether allows anonymous (unauthenticated) pull access to this Container Registry? Defaults to `false`. This is only supported on resources with the `Standard` or `Premium` SKU.
+     * @return Whether allows anonymous (unauthenticated) pull access to this Container Registry?  This is only supported on resources with the `Standard` or `Premium` SKU.
      * 
      */
     public Output<Optional<Boolean>> anonymousPullEnabled() {
         return Codegen.optional(this.anonymousPullEnabled);
     }
     /**
-     * Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+     * Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
      * 
      */
     @Export(name="dataEndpointEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> dataEndpointEnabled;
 
     /**
-     * @return Whether to enable dedicated data endpoints for this Container Registry? Defaults to `false`. This is only supported on resources with the `Premium` SKU.
+     * @return Whether to enable dedicated data endpoints for this Container Registry?  This is only supported on resources with the `Premium` SKU.
      * 
      */
     public Output<Optional<Boolean>> dataEndpointEnabled() {
@@ -426,14 +426,14 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
-     * Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+     * Boolean value that indicates whether quarantine policy is enabled.
      * 
      */
     @Export(name="quarantinePolicyEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> quarantinePolicyEnabled;
 
     /**
-     * @return Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+     * @return Boolean value that indicates whether quarantine policy is enabled.
      * 
      */
     public Output<Optional<Boolean>> quarantinePolicyEnabled() {

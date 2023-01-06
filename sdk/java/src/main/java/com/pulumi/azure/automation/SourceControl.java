@@ -154,14 +154,14 @@ public class SourceControl extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Whether auto publish the Source Control.
+     * Whether auto publish the Source Control. Defaults to `true`.
      * 
      */
     @Export(name="publishRunbookEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publishRunbookEnabled;
 
     /**
-     * @return Whether auto publish the Source Control.
+     * @return Whether auto publish the Source Control. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> publishRunbookEnabled() {

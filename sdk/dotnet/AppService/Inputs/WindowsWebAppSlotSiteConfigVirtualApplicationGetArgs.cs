@@ -19,7 +19,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string> PhysicalPath { get; set; } = null!;
 
         /// <summary>
-        /// Should pre-loading be enabled. Defaults to `false`.
+        /// Should pre-loading be enabled.
         /// </summary>
         [Input("preload", required: true)]
         public Input<bool> Preload { get; set; } = null!;

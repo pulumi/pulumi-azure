@@ -33,7 +33,7 @@ public final class ImageOsDisk {
      */
     private @Nullable String osState;
     /**
-     * @return Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
+     * @return Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
      * 
      */
     private @Nullable String osType;
@@ -73,7 +73,7 @@ public final class ImageOsDisk {
         return Optional.ofNullable(this.osState);
     }
     /**
-     * @return Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
+     * @return Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
      * 
      */
     public Optional<String> osType() {

@@ -110,14 +110,14 @@ public final class WebTestArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+     * The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="kind", required=true)
     private Output<String> kind;
 
     /**
-     * @return = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+     * @return The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> kind() {
@@ -389,7 +389,7 @@ public final class WebTestArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kind = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+         * @param kind The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class WebTestArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kind = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+         * @param kind The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

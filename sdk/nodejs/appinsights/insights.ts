@@ -143,7 +143,7 @@ export class Insights extends pulumi.CustomResource {
      */
     public readonly retentionInDays!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+     * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
      */
     public readonly samplingPercentage!: pulumi.Output<number | undefined>;
     /**
@@ -286,7 +286,7 @@ export interface InsightsState {
      */
     retentionInDays?: pulumi.Input<number>;
     /**
-     * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+     * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
      */
     samplingPercentage?: pulumi.Input<number>;
     /**
@@ -353,7 +353,7 @@ export interface InsightsArgs {
      */
     retentionInDays?: pulumi.Input<number>;
     /**
-     * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+     * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
      */
     samplingPercentage?: pulumi.Input<number>;
     /**

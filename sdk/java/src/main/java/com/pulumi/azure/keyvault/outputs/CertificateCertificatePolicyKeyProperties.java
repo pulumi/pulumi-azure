@@ -29,7 +29,7 @@ public final class CertificateCertificatePolicyKeyProperties {
      */
     private @Nullable Integer keySize;
     /**
-     * @return Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+     * @return Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
      * 
      */
     private String keyType;
@@ -62,7 +62,7 @@ public final class CertificateCertificatePolicyKeyProperties {
         return Optional.ofNullable(this.keySize);
     }
     /**
-     * @return Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+     * @return Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
      * 
      */
     public String keyType() {

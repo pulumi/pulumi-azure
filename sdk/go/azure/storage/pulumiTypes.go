@@ -5232,25 +5232,25 @@ func (o ManagementPolicyRuleActionsOutput) Version() ManagementPolicyRuleActions
 }
 
 type ManagementPolicyRuleActionsBaseBlob struct {
-	// The age in days after creation to delete the blob. Must be between `0` and `99999`.
+	// The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
 	DeleteAfterDaysSinceCreationGreaterThan *int `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
-	// The age in days after last access time to delete the blob. Must be between `0` and `99999`.
+	// The age in days after last access time to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
 	DeleteAfterDaysSinceLastAccessTimeGreaterThan *int `pulumi:"deleteAfterDaysSinceLastAccessTimeGreaterThan"`
-	// The age in days after last modification to delete the blob. Must be between 0 and 99999.
+	// The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
 	DeleteAfterDaysSinceModificationGreaterThan *int `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
-	// The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
+	// The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
 	TierToArchiveAfterDaysSinceCreationGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceCreationGreaterThan"`
-	// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
+	// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
 	TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan"`
-	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
 	TierToArchiveAfterDaysSinceLastTierChangeGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceLastTierChangeGreaterThan"`
-	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
+	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
 	TierToArchiveAfterDaysSinceModificationGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
-	// The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+	// The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
 	TierToCoolAfterDaysSinceCreationGreaterThan *int `pulumi:"tierToCoolAfterDaysSinceCreationGreaterThan"`
-	// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+	// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
 	TierToCoolAfterDaysSinceLastAccessTimeGreaterThan *int `pulumi:"tierToCoolAfterDaysSinceLastAccessTimeGreaterThan"`
-	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
+	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
 	TierToCoolAfterDaysSinceModificationGreaterThan *int `pulumi:"tierToCoolAfterDaysSinceModificationGreaterThan"`
 }
 
@@ -5266,25 +5266,25 @@ type ManagementPolicyRuleActionsBaseBlobInput interface {
 }
 
 type ManagementPolicyRuleActionsBaseBlobArgs struct {
-	// The age in days after creation to delete the blob. Must be between `0` and `99999`.
+	// The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
 	DeleteAfterDaysSinceCreationGreaterThan pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
-	// The age in days after last access time to delete the blob. Must be between `0` and `99999`.
+	// The age in days after last access time to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
 	DeleteAfterDaysSinceLastAccessTimeGreaterThan pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceLastAccessTimeGreaterThan"`
-	// The age in days after last modification to delete the blob. Must be between 0 and 99999.
+	// The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
 	DeleteAfterDaysSinceModificationGreaterThan pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
-	// The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
+	// The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
 	TierToArchiveAfterDaysSinceCreationGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceCreationGreaterThan"`
-	// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
+	// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
 	TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan"`
-	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
 	TierToArchiveAfterDaysSinceLastTierChangeGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceLastTierChangeGreaterThan"`
-	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
+	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
 	TierToArchiveAfterDaysSinceModificationGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
-	// The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+	// The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
 	TierToCoolAfterDaysSinceCreationGreaterThan pulumi.IntPtrInput `pulumi:"tierToCoolAfterDaysSinceCreationGreaterThan"`
-	// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+	// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
 	TierToCoolAfterDaysSinceLastAccessTimeGreaterThan pulumi.IntPtrInput `pulumi:"tierToCoolAfterDaysSinceLastAccessTimeGreaterThan"`
-	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
+	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
 	TierToCoolAfterDaysSinceModificationGreaterThan pulumi.IntPtrInput `pulumi:"tierToCoolAfterDaysSinceModificationGreaterThan"`
 }
 
@@ -5365,64 +5365,64 @@ func (o ManagementPolicyRuleActionsBaseBlobOutput) ToManagementPolicyRuleActions
 	}).(ManagementPolicyRuleActionsBaseBlobPtrOutput)
 }
 
-// The age in days after creation to delete the blob. Must be between `0` and `99999`.
+// The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last access time to delete the blob. Must be between `0` and `99999`.
+// The age in days after last access time to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) DeleteAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
 		return v.DeleteAfterDaysSinceLastAccessTimeGreaterThan
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last modification to delete the blob. Must be between 0 and 99999.
+// The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int { return v.DeleteAfterDaysSinceModificationGreaterThan }).(pulumi.IntPtrOutput)
 }
 
-// The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
+// The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToArchiveAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
 		return v.TierToArchiveAfterDaysSinceCreationGreaterThan
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
+// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
 		return v.TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToArchiveAfterDaysSinceLastTierChangeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
 		return v.TierToArchiveAfterDaysSinceLastTierChangeGreaterThan
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
+// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
 		return v.TierToArchiveAfterDaysSinceModificationGreaterThan
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+// The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToCoolAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int { return v.TierToCoolAfterDaysSinceCreationGreaterThan }).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToCoolAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
 		return v.TierToCoolAfterDaysSinceLastAccessTimeGreaterThan
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
+// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToCoolAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
 		return v.TierToCoolAfterDaysSinceModificationGreaterThan
@@ -5453,7 +5453,7 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) Elem() ManagementPolicyRul
 	}).(ManagementPolicyRuleActionsBaseBlobOutput)
 }
 
-// The age in days after creation to delete the blob. Must be between `0` and `99999`.
+// The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
 		if v == nil {
@@ -5463,7 +5463,7 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) DeleteAfterDaysSinceCreati
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last access time to delete the blob. Must be between `0` and `99999`.
+// The age in days after last access time to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) DeleteAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
 		if v == nil {
@@ -5473,7 +5473,7 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) DeleteAfterDaysSinceLastAc
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last modification to delete the blob. Must be between 0 and 99999.
+// The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
 		if v == nil {
@@ -5483,7 +5483,7 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) DeleteAfterDaysSinceModifi
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
+// The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
 		if v == nil {
@@ -5493,7 +5493,7 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinc
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
+// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
 		if v == nil {
@@ -5503,7 +5503,7 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinc
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinceLastTierChangeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
 		if v == nil {
@@ -5513,7 +5513,7 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinc
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
+// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
 		if v == nil {
@@ -5523,7 +5523,7 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinc
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+// The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToCoolAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
 		if v == nil {
@@ -5533,7 +5533,7 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToCoolAfterDaysSinceCr
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToCoolAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
 		if v == nil {
@@ -5543,7 +5543,7 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToCoolAfterDaysSinceLa
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
+// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToCoolAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
 		if v == nil {
@@ -5554,13 +5554,13 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToCoolAfterDaysSinceMo
 }
 
 type ManagementPolicyRuleActionsSnapshot struct {
-	// The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
+	// The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999. Defaults to `-1`.
 	ChangeTierToArchiveAfterDaysSinceCreation *int `pulumi:"changeTierToArchiveAfterDaysSinceCreation"`
-	// The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
+	// The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999. Defaults to `-1`.
 	ChangeTierToCoolAfterDaysSinceCreation *int `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
-	// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
+	// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999. Defaults to `-1`.
 	DeleteAfterDaysSinceCreationGreaterThan *int `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
-	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
 	TierToArchiveAfterDaysSinceLastTierChangeGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceLastTierChangeGreaterThan"`
 }
 
@@ -5576,13 +5576,13 @@ type ManagementPolicyRuleActionsSnapshotInput interface {
 }
 
 type ManagementPolicyRuleActionsSnapshotArgs struct {
-	// The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
+	// The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999. Defaults to `-1`.
 	ChangeTierToArchiveAfterDaysSinceCreation pulumi.IntPtrInput `pulumi:"changeTierToArchiveAfterDaysSinceCreation"`
-	// The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
+	// The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999. Defaults to `-1`.
 	ChangeTierToCoolAfterDaysSinceCreation pulumi.IntPtrInput `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
-	// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
+	// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999. Defaults to `-1`.
 	DeleteAfterDaysSinceCreationGreaterThan pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
-	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
 	TierToArchiveAfterDaysSinceLastTierChangeGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceLastTierChangeGreaterThan"`
 }
 
@@ -5663,22 +5663,22 @@ func (o ManagementPolicyRuleActionsSnapshotOutput) ToManagementPolicyRuleActions
 	}).(ManagementPolicyRuleActionsSnapshotPtrOutput)
 }
 
-// The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
+// The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsSnapshotOutput) ChangeTierToArchiveAfterDaysSinceCreation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsSnapshot) *int { return v.ChangeTierToArchiveAfterDaysSinceCreation }).(pulumi.IntPtrOutput)
 }
 
-// The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
+// The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsSnapshotOutput) ChangeTierToCoolAfterDaysSinceCreation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsSnapshot) *int { return v.ChangeTierToCoolAfterDaysSinceCreation }).(pulumi.IntPtrOutput)
 }
 
-// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
+// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsSnapshotOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsSnapshot) *int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsSnapshotOutput) TierToArchiveAfterDaysSinceLastTierChangeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsSnapshot) *int {
 		return v.TierToArchiveAfterDaysSinceLastTierChangeGreaterThan
@@ -5709,7 +5709,7 @@ func (o ManagementPolicyRuleActionsSnapshotPtrOutput) Elem() ManagementPolicyRul
 	}).(ManagementPolicyRuleActionsSnapshotOutput)
 }
 
-// The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
+// The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsSnapshotPtrOutput) ChangeTierToArchiveAfterDaysSinceCreation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsSnapshot) *int {
 		if v == nil {
@@ -5719,7 +5719,7 @@ func (o ManagementPolicyRuleActionsSnapshotPtrOutput) ChangeTierToArchiveAfterDa
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
+// The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsSnapshotPtrOutput) ChangeTierToCoolAfterDaysSinceCreation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsSnapshot) *int {
 		if v == nil {
@@ -5729,7 +5729,7 @@ func (o ManagementPolicyRuleActionsSnapshotPtrOutput) ChangeTierToCoolAfterDaysS
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
+// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsSnapshotPtrOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsSnapshot) *int {
 		if v == nil {
@@ -5739,7 +5739,7 @@ func (o ManagementPolicyRuleActionsSnapshotPtrOutput) DeleteAfterDaysSinceCreati
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsSnapshotPtrOutput) TierToArchiveAfterDaysSinceLastTierChangeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsSnapshot) *int {
 		if v == nil {
@@ -5750,13 +5750,13 @@ func (o ManagementPolicyRuleActionsSnapshotPtrOutput) TierToArchiveAfterDaysSinc
 }
 
 type ManagementPolicyRuleActionsVersion struct {
-	// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
+	// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
 	ChangeTierToArchiveAfterDaysSinceCreation *int `pulumi:"changeTierToArchiveAfterDaysSinceCreation"`
-	// The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999.
+	// The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
 	ChangeTierToCoolAfterDaysSinceCreation *int `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
-	// The age in days after creation to delete the blob version. Must be between 0 and 99999.
+	// The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
 	DeleteAfterDaysSinceCreation *int `pulumi:"deleteAfterDaysSinceCreation"`
-	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
 	TierToArchiveAfterDaysSinceLastTierChangeGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceLastTierChangeGreaterThan"`
 }
 
@@ -5772,13 +5772,13 @@ type ManagementPolicyRuleActionsVersionInput interface {
 }
 
 type ManagementPolicyRuleActionsVersionArgs struct {
-	// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
+	// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
 	ChangeTierToArchiveAfterDaysSinceCreation pulumi.IntPtrInput `pulumi:"changeTierToArchiveAfterDaysSinceCreation"`
-	// The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999.
+	// The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
 	ChangeTierToCoolAfterDaysSinceCreation pulumi.IntPtrInput `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
-	// The age in days after creation to delete the blob version. Must be between 0 and 99999.
+	// The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
 	DeleteAfterDaysSinceCreation pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceCreation"`
-	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+	// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
 	TierToArchiveAfterDaysSinceLastTierChangeGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceLastTierChangeGreaterThan"`
 }
 
@@ -5859,22 +5859,22 @@ func (o ManagementPolicyRuleActionsVersionOutput) ToManagementPolicyRuleActionsV
 	}).(ManagementPolicyRuleActionsVersionPtrOutput)
 }
 
-// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
+// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsVersionOutput) ChangeTierToArchiveAfterDaysSinceCreation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsVersion) *int { return v.ChangeTierToArchiveAfterDaysSinceCreation }).(pulumi.IntPtrOutput)
 }
 
-// The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999.
+// The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsVersionOutput) ChangeTierToCoolAfterDaysSinceCreation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsVersion) *int { return v.ChangeTierToCoolAfterDaysSinceCreation }).(pulumi.IntPtrOutput)
 }
 
-// The age in days after creation to delete the blob version. Must be between 0 and 99999.
+// The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsVersionOutput) DeleteAfterDaysSinceCreation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsVersion) *int { return v.DeleteAfterDaysSinceCreation }).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsVersionOutput) TierToArchiveAfterDaysSinceLastTierChangeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsVersion) *int {
 		return v.TierToArchiveAfterDaysSinceLastTierChangeGreaterThan
@@ -5905,7 +5905,7 @@ func (o ManagementPolicyRuleActionsVersionPtrOutput) Elem() ManagementPolicyRule
 	}).(ManagementPolicyRuleActionsVersionOutput)
 }
 
-// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
+// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsVersionPtrOutput) ChangeTierToArchiveAfterDaysSinceCreation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsVersion) *int {
 		if v == nil {
@@ -5915,7 +5915,7 @@ func (o ManagementPolicyRuleActionsVersionPtrOutput) ChangeTierToArchiveAfterDay
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999.
+// The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsVersionPtrOutput) ChangeTierToCoolAfterDaysSinceCreation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsVersion) *int {
 		if v == nil {
@@ -5925,7 +5925,7 @@ func (o ManagementPolicyRuleActionsVersionPtrOutput) ChangeTierToCoolAfterDaysSi
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after creation to delete the blob version. Must be between 0 and 99999.
+// The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsVersionPtrOutput) DeleteAfterDaysSinceCreation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsVersion) *int {
 		if v == nil {
@@ -5935,7 +5935,7 @@ func (o ManagementPolicyRuleActionsVersionPtrOutput) DeleteAfterDaysSinceCreatio
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
 func (o ManagementPolicyRuleActionsVersionPtrOutput) TierToArchiveAfterDaysSinceLastTierChangeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsVersion) *int {
 		if v == nil {

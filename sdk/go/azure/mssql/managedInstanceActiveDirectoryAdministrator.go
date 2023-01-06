@@ -25,7 +25,7 @@ import (
 type ManagedInstanceActiveDirectoryAdministrator struct {
 	pulumi.CustomResourceState
 
-	// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+	// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
 	AzureadAuthenticationOnly pulumi.BoolPtrOutput `pulumi:"azureadAuthenticationOnly"`
 	// The login name of the principal to set as the Managed Instance Administrator.
 	LoginUsername pulumi.StringOutput `pulumi:"loginUsername"`
@@ -78,7 +78,7 @@ func GetManagedInstanceActiveDirectoryAdministrator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedInstanceActiveDirectoryAdministrator resources.
 type managedInstanceActiveDirectoryAdministratorState struct {
-	// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+	// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
 	AzureadAuthenticationOnly *bool `pulumi:"azureadAuthenticationOnly"`
 	// The login name of the principal to set as the Managed Instance Administrator.
 	LoginUsername *string `pulumi:"loginUsername"`
@@ -91,7 +91,7 @@ type managedInstanceActiveDirectoryAdministratorState struct {
 }
 
 type ManagedInstanceActiveDirectoryAdministratorState struct {
-	// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+	// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
 	AzureadAuthenticationOnly pulumi.BoolPtrInput
 	// The login name of the principal to set as the Managed Instance Administrator.
 	LoginUsername pulumi.StringPtrInput
@@ -108,7 +108,7 @@ func (ManagedInstanceActiveDirectoryAdministratorState) ElementType() reflect.Ty
 }
 
 type managedInstanceActiveDirectoryAdministratorArgs struct {
-	// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+	// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
 	AzureadAuthenticationOnly *bool `pulumi:"azureadAuthenticationOnly"`
 	// The login name of the principal to set as the Managed Instance Administrator.
 	LoginUsername string `pulumi:"loginUsername"`
@@ -122,7 +122,7 @@ type managedInstanceActiveDirectoryAdministratorArgs struct {
 
 // The set of arguments for constructing a ManagedInstanceActiveDirectoryAdministrator resource.
 type ManagedInstanceActiveDirectoryAdministratorArgs struct {
-	// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+	// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
 	AzureadAuthenticationOnly pulumi.BoolPtrInput
 	// The login name of the principal to set as the Managed Instance Administrator.
 	LoginUsername pulumi.StringInput
@@ -221,7 +221,7 @@ func (o ManagedInstanceActiveDirectoryAdministratorOutput) ToManagedInstanceActi
 	return o
 }
 
-// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
 func (o ManagedInstanceActiveDirectoryAdministratorOutput) AzureadAuthenticationOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceActiveDirectoryAdministrator) pulumi.BoolPtrOutput {
 		return v.AzureadAuthenticationOnly

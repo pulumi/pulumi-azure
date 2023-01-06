@@ -117,14 +117,14 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+     * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
      * 
      */
     @Import(name="perSiteScaling")
     private @Nullable Output<Boolean> perSiteScaling;
 
     /**
-     * @return Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+     * @return Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
      * 
      */
     public Optional<Output<Boolean>> perSiteScaling() {
@@ -132,14 +132,14 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is this App Service Plan `Reserved`. Defaults to `false`.
+     * Is this App Service Plan `Reserved`.
      * 
      */
     @Import(name="reserved")
     private @Nullable Output<Boolean> reserved;
 
     /**
-     * @return Is this App Service Plan `Reserved`. Defaults to `false`.
+     * @return Is this App Service Plan `Reserved`.
      * 
      */
     public Optional<Output<Boolean>> reserved() {
@@ -192,14 +192,14 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+     * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="zoneRedundant")
     private @Nullable Output<Boolean> zoneRedundant;
 
     /**
-     * @return Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+     * @return Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> zoneRedundant() {
@@ -378,7 +378,7 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param perSiteScaling Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+         * @param perSiteScaling Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param perSiteScaling Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+         * @param perSiteScaling Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reserved Is this App Service Plan `Reserved`. Defaults to `false`.
+         * @param reserved Is this App Service Plan `Reserved`.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reserved Is this App Service Plan `Reserved`. Defaults to `false`.
+         * @param reserved Is this App Service Plan `Reserved`.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneRedundant Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+         * @param zoneRedundant Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneRedundant Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+         * @param zoneRedundant Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -85,7 +85,7 @@ type SpringCloudDevToolPortal struct {
 	ApplicationAcceleratorEnabled pulumi.BoolOutput `pulumi:"applicationAcceleratorEnabled"`
 	// Should the Application Live View be enabled?
 	ApplicationLiveViewEnabled pulumi.BoolOutput `pulumi:"applicationLiveViewEnabled"`
-	// The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+	// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Is public network access enabled?
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
@@ -131,7 +131,7 @@ type springCloudDevToolPortalState struct {
 	ApplicationAcceleratorEnabled *bool `pulumi:"applicationAcceleratorEnabled"`
 	// Should the Application Live View be enabled?
 	ApplicationLiveViewEnabled *bool `pulumi:"applicationLiveViewEnabled"`
-	// The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+	// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
 	Name *string `pulumi:"name"`
 	// Is public network access enabled?
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -146,7 +146,7 @@ type SpringCloudDevToolPortalState struct {
 	ApplicationAcceleratorEnabled pulumi.BoolPtrInput
 	// Should the Application Live View be enabled?
 	ApplicationLiveViewEnabled pulumi.BoolPtrInput
-	// The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+	// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
 	Name pulumi.StringPtrInput
 	// Is public network access enabled?
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -165,7 +165,7 @@ type springCloudDevToolPortalArgs struct {
 	ApplicationAcceleratorEnabled *bool `pulumi:"applicationAcceleratorEnabled"`
 	// Should the Application Live View be enabled?
 	ApplicationLiveViewEnabled *bool `pulumi:"applicationLiveViewEnabled"`
-	// The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+	// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
 	Name *string `pulumi:"name"`
 	// Is public network access enabled?
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -181,7 +181,7 @@ type SpringCloudDevToolPortalArgs struct {
 	ApplicationAcceleratorEnabled pulumi.BoolPtrInput
 	// Should the Application Live View be enabled?
 	ApplicationLiveViewEnabled pulumi.BoolPtrInput
-	// The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+	// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
 	Name pulumi.StringPtrInput
 	// Is public network access enabled?
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -288,7 +288,7 @@ func (o SpringCloudDevToolPortalOutput) ApplicationLiveViewEnabled() pulumi.Bool
 	return o.ApplyT(func(v *SpringCloudDevToolPortal) pulumi.BoolOutput { return v.ApplicationLiveViewEnabled }).(pulumi.BoolOutput)
 }
 
-// The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+// The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
 func (o SpringCloudDevToolPortalOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudDevToolPortal) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

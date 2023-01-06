@@ -66,7 +66,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         /// </summary>
         [Input("negotiateClientCertificate")]
         public Input<bool>? NegotiateClientCertificate { get; set; }

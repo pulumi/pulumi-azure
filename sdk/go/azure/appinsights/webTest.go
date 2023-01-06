@@ -93,7 +93,7 @@ type WebTest struct {
 	Frequency pulumi.IntPtrOutput `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations pulumi.StringArrayOutput `pulumi:"geoLocations"`
-	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+	// The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -167,7 +167,7 @@ type webTestState struct {
 	Frequency *int `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations []string `pulumi:"geoLocations"`
-	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+	// The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
 	Location *string `pulumi:"location"`
@@ -198,7 +198,7 @@ type WebTestState struct {
 	Frequency pulumi.IntPtrInput
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations pulumi.StringArrayInput
-	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+	// The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
 	Location pulumi.StringPtrInput
@@ -233,7 +233,7 @@ type webTestArgs struct {
 	Frequency *int `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations []string `pulumi:"geoLocations"`
-	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+	// The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
 	Kind string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
 	Location *string `pulumi:"location"`
@@ -264,7 +264,7 @@ type WebTestArgs struct {
 	Frequency pulumi.IntPtrInput
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
 	GeoLocations pulumi.StringArrayInput
-	// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+	// The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
 	Kind pulumi.StringInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
 	Location pulumi.StringPtrInput
@@ -398,7 +398,7 @@ func (o WebTestOutput) GeoLocations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WebTest) pulumi.StringArrayOutput { return v.GeoLocations }).(pulumi.StringArrayOutput)
 }
 
-// = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+// The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
 func (o WebTestOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebTest) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
 }

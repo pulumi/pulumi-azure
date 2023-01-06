@@ -229,7 +229,7 @@ namespace Pulumi.Azure.Cdn
         public Output<ImmutableArray<Outputs.FrontdoorFirewallPolicyManagedRule>> ManagedRules { get; private set; } = null!;
 
         /// <summary>
-        /// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+        /// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
         /// </summary>
         [Output("mode")]
         public Output<string> Mode { get; private set; } = null!;
@@ -353,7 +353,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+        /// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
@@ -457,7 +457,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+        /// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }

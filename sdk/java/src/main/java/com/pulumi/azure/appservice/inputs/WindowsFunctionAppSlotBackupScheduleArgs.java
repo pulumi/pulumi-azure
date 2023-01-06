@@ -78,14 +78,14 @@ public final class WindowsFunctionAppSlotBackupScheduleArgs extends com.pulumi.r
     }
 
     /**
-     * After how many days backups should be deleted.
+     * After how many days backups should be deleted. Defaults to `30`.
      * 
      */
     @Import(name="retentionPeriodDays")
     private @Nullable Output<Integer> retentionPeriodDays;
 
     /**
-     * @return After how many days backups should be deleted.
+     * @return After how many days backups should be deleted. Defaults to `30`.
      * 
      */
     public Optional<Output<Integer>> retentionPeriodDays() {
@@ -221,7 +221,7 @@ public final class WindowsFunctionAppSlotBackupScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param retentionPeriodDays After how many days backups should be deleted.
+         * @param retentionPeriodDays After how many days backups should be deleted. Defaults to `30`.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class WindowsFunctionAppSlotBackupScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param retentionPeriodDays After how many days backups should be deleted.
+         * @param retentionPeriodDays After how many days backups should be deleted. Defaults to `30`.
          * 
          * @return builder
          * 

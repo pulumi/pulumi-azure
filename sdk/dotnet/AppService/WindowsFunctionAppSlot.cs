@@ -91,7 +91,7 @@ namespace Pulumi.Azure.AppService
         public Output<Outputs.WindowsFunctionAppSlotBackup?> Backup { get; private set; } = null!;
 
         /// <summary>
-        /// Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        /// Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         /// </summary>
         [Output("builtinLoggingEnabled")]
         public Output<bool?> BuiltinLoggingEnabled { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> CustomDomainVerificationId { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+        /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         /// </summary>
         [Output("dailyMemoryTimeQuota")]
         public Output<int?> DailyMemoryTimeQuota { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> DefaultHostname { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Windows Function App Slot enabled.
+        /// Is the Windows Function App Slot enabled. Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> FunctionAppId { get; private set; } = null!;
 
         /// <summary>
-        /// The runtime version associated with the Function App Slot.
+        /// The runtime version associated with the Function App Slot. Defaults to `~4`.
         /// </summary>
         [Output("functionsExtensionVersion")]
         public Output<string?> FunctionsExtensionVersion { get; private set; } = null!;
@@ -346,7 +346,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.WindowsFunctionAppSlotBackupArgs>? Backup { get; set; }
 
         /// <summary>
-        /// Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        /// Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         /// </summary>
         [Input("builtinLoggingEnabled")]
         public Input<bool>? BuiltinLoggingEnabled { get; set; }
@@ -388,13 +388,13 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? ContentShareForceDisabled { get; set; }
 
         /// <summary>
-        /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+        /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         /// </summary>
         [Input("dailyMemoryTimeQuota")]
         public Input<int>? DailyMemoryTimeQuota { get; set; }
 
         /// <summary>
-        /// Is the Windows Function App Slot enabled.
+        /// Is the Windows Function App Slot enabled. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -406,7 +406,7 @@ namespace Pulumi.Azure.AppService
         public Input<string> FunctionAppId { get; set; } = null!;
 
         /// <summary>
-        /// The runtime version associated with the Function App Slot.
+        /// The runtime version associated with the Function App Slot. Defaults to `~4`.
         /// </summary>
         [Input("functionsExtensionVersion")]
         public Input<string>? FunctionsExtensionVersion { get; set; }
@@ -538,7 +538,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.WindowsFunctionAppSlotBackupGetArgs>? Backup { get; set; }
 
         /// <summary>
-        /// Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+        /// Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         /// </summary>
         [Input("builtinLoggingEnabled")]
         public Input<bool>? BuiltinLoggingEnabled { get; set; }
@@ -596,7 +596,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
+        /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         /// </summary>
         [Input("dailyMemoryTimeQuota")]
         public Input<int>? DailyMemoryTimeQuota { get; set; }
@@ -608,7 +608,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? DefaultHostname { get; set; }
 
         /// <summary>
-        /// Is the Windows Function App Slot enabled.
+        /// Is the Windows Function App Slot enabled. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -620,7 +620,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? FunctionAppId { get; set; }
 
         /// <summary>
-        /// The runtime version associated with the Function App Slot.
+        /// The runtime version associated with the Function App Slot. Defaults to `~4`.
         /// </summary>
         [Input("functionsExtensionVersion")]
         public Input<string>? FunctionsExtensionVersion { get; set; }

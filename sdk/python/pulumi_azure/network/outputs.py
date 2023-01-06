@@ -1064,7 +1064,7 @@ class ApplicationGatewayHttpListener(dict):
         :param str host_name: The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
         :param Sequence[str] host_names: A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
         :param str id: The ID of the Rewrite Rule Set
-        :param bool require_sni: Should Server Name Indication be Required? Defaults to `false`.
+        :param bool require_sni: Should Server Name Indication be Required?
         :param str ssl_certificate_id: The ID of the associated SSL Certificate.
         :param str ssl_certificate_name: The name of the associated SSL Certificate which should be used for this HTTP Listener.
         :param str ssl_profile_id: The ID of the associated SSL Profile.
@@ -1191,7 +1191,7 @@ class ApplicationGatewayHttpListener(dict):
     @pulumi.getter(name="requireSni")
     def require_sni(self) -> Optional[bool]:
         """
-        Should Server Name Indication be Required? Defaults to `false`.
+        Should Server Name Indication be Required?
         """
         return pulumi.get(self, "require_sni")
 
@@ -3393,13 +3393,13 @@ class ApplicationGatewayWafConfiguration(dict):
         """
         :param bool enabled: Is the Web Application Firewall enabled?
         :param str firewall_mode: The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
-        :param str rule_set_version: The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
+        :param str rule_set_version: The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
         :param Sequence['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs'] disabled_rule_groups: one or more `disabled_rule_group` blocks as defined below.
         :param Sequence['ApplicationGatewayWafConfigurationExclusionArgs'] exclusions: one or more `exclusion` blocks as defined below.
         :param int file_upload_limit_mb: The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
         :param int max_request_body_size_kb: The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
         :param bool request_body_check: Is Request Body Inspection enabled?  Defaults to `true`.
-        :param str rule_set_type: The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
+        :param str rule_set_type: The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "firewall_mode", firewall_mode)
@@ -3437,7 +3437,7 @@ class ApplicationGatewayWafConfiguration(dict):
     @pulumi.getter(name="ruleSetVersion")
     def rule_set_version(self) -> str:
         """
-        The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
+        The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
         """
         return pulumi.get(self, "rule_set_version")
 
@@ -3485,7 +3485,7 @@ class ApplicationGatewayWafConfiguration(dict):
     @pulumi.getter(name="ruleSetType")
     def rule_set_type(self) -> Optional[str]:
         """
-        The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
+        The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
         """
         return pulumi.get(self, "rule_set_type")
 
@@ -3513,7 +3513,7 @@ class ApplicationGatewayWafConfigurationDisabledRuleGroup(dict):
                  rule_group_name: str,
                  rules: Optional[Sequence[int]] = None):
         """
-        :param str rule_group_name: The rule group where specific rules should be disabled. Accepted values are:  `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
+        :param str rule_group_name: The rule group where specific rules should be disabled. Possible values are `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
         :param Sequence[int] rules: A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
@@ -3524,7 +3524,7 @@ class ApplicationGatewayWafConfigurationDisabledRuleGroup(dict):
     @pulumi.getter(name="ruleGroupName")
     def rule_group_name(self) -> str:
         """
-        The rule group where specific rules should be disabled. Accepted values are:  `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
+        The rule group where specific rules should be disabled. Possible values are `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
         """
         return pulumi.get(self, "rule_group_name")
 
@@ -3715,8 +3715,8 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeering(dict):
                  routing_registry_name: Optional[str] = None):
         """
         :param Sequence[str] advertised_public_prefixes: A list of Advertised Public Prefixes.
-        :param int customer_asn: The CustomerASN of the peering.
-        :param str routing_registry_name: The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+        :param int customer_asn: The CustomerASN of the peering. Defaults to `0`.
+        :param str routing_registry_name: The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         """
         if advertised_public_prefixes is not None:
             pulumi.set(__self__, "advertised_public_prefixes", advertised_public_prefixes)
@@ -3737,7 +3737,7 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeering(dict):
     @pulumi.getter(name="customerAsn")
     def customer_asn(self) -> Optional[int]:
         """
-        The CustomerASN of the peering.
+        The CustomerASN of the peering. Defaults to `0`.
         """
         return pulumi.get(self, "customer_asn")
 
@@ -3745,7 +3745,7 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeering(dict):
     @pulumi.getter(name="routingRegistryName")
     def routing_registry_name(self) -> Optional[str]:
         """
-        The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+        The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         """
         return pulumi.get(self, "routing_registry_name")
 
@@ -3779,8 +3779,8 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
                  routing_registry_name: Optional[str] = None):
         """
         :param Sequence[str] advertised_public_prefixes: A list of Advertised Public Prefixes.
-        :param int customer_asn: The CustomerASN of the peering.
-        :param str routing_registry_name: The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+        :param int customer_asn: The CustomerASN of the peering. Defaults to `0`.
+        :param str routing_registry_name: The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         """
         pulumi.set(__self__, "advertised_public_prefixes", advertised_public_prefixes)
         if customer_asn is not None:
@@ -3800,7 +3800,7 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
     @pulumi.getter(name="customerAsn")
     def customer_asn(self) -> Optional[int]:
         """
-        The CustomerASN of the peering.
+        The CustomerASN of the peering. Defaults to `0`.
         """
         return pulumi.get(self, "customer_asn")
 
@@ -3808,7 +3808,7 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
     @pulumi.getter(name="routingRegistryName")
     def routing_registry_name(self) -> Optional[str]:
         """
-        The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+        The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         """
         return pulumi.get(self, "routing_registry_name")
 
@@ -7639,7 +7639,7 @@ class NetworkWatcherFlowLogTrafficAnalytics(dict):
         :param str workspace_id: The resource GUID of the attached workspace.
         :param str workspace_region: The location of the attached workspace.
         :param str workspace_resource_id: The resource ID of the attached workspace.
-        :param int interval_in_minutes: How frequently service should do flow analytics in minutes.
+        :param int interval_in_minutes: How frequently service should do flow analytics in minutes. Defaults to `60`.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -7684,7 +7684,7 @@ class NetworkWatcherFlowLogTrafficAnalytics(dict):
     @pulumi.getter(name="intervalInMinutes")
     def interval_in_minutes(self) -> Optional[int]:
         """
-        How frequently service should do flow analytics in minutes.
+        How frequently service should do flow analytics in minutes. Defaults to `60`.
         """
         return pulumi.get(self, "interval_in_minutes")
 
@@ -7718,7 +7718,7 @@ class PointToPointVpnGatewayConnectionConfiguration(dict):
         """
         :param str name: The Name which should be used for this Connection Configuration.
         :param 'PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs' vpn_client_address_pool: A `vpn_client_address_pool` block as defined below.
-        :param bool internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+        :param bool internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
         :param 'PointToPointVpnGatewayConnectionConfigurationRouteArgs' route: A `route` block as defined below.
         """
         pulumi.set(__self__, "name", name)
@@ -7748,7 +7748,7 @@ class PointToPointVpnGatewayConnectionConfiguration(dict):
     @pulumi.getter(name="internetSecurityEnabled")
     def internet_security_enabled(self) -> Optional[bool]:
         """
-        Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+        Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
         """
         return pulumi.get(self, "internet_security_enabled")
 
@@ -8427,8 +8427,8 @@ class SubnetDelegationServiceDelegation(dict):
                  name: str,
                  actions: Optional[Sequence[str]] = None):
         """
-        :param str name: The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`,`Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
-        :param Sequence[str] actions: A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/publicIPAddresses/read`,`Microsoft.Network/virtualNetworks/read`,`Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+        :param str name: The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
+        :param Sequence[str] actions: A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
         """
         pulumi.set(__self__, "name", name)
         if actions is not None:
@@ -8438,7 +8438,7 @@ class SubnetDelegationServiceDelegation(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`,`Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
+        The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
         """
         return pulumi.get(self, "name")
 
@@ -8446,7 +8446,7 @@ class SubnetDelegationServiceDelegation(dict):
     @pulumi.getter
     def actions(self) -> Optional[Sequence[str]]:
         """
-        A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/publicIPAddresses/read`,`Microsoft.Network/virtualNetworks/read`,`Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+        A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
         """
         return pulumi.get(self, "actions")
 
@@ -11579,7 +11579,7 @@ class VpnSiteLink(dict):
         :param str id: The ID of the VPN Site Link.
         :param str ip_address: The IP address of this VPN Site Link.
         :param str provider_name: The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
-        :param int speed_in_mbps: The speed of the VPN device at the branch location in unit of mbps.
+        :param int speed_in_mbps: The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
         """
         pulumi.set(__self__, "name", name)
         if bgp is not None:
@@ -11647,7 +11647,7 @@ class VpnSiteLink(dict):
     @pulumi.getter(name="speedInMbps")
     def speed_in_mbps(self) -> Optional[int]:
         """
-        The speed of the VPN device at the branch location in unit of mbps.
+        The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
         """
         return pulumi.get(self, "speed_in_mbps")
 

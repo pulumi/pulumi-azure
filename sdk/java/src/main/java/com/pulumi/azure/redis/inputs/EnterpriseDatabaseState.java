@@ -139,14 +139,14 @@ public final class EnterpriseDatabaseState extends com.pulumi.resources.Resource
     }
 
     /**
-     * TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+     * TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+     * @return TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -430,7 +430,7 @@ public final class EnterpriseDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param port TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+         * @param port TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class EnterpriseDatabaseState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param port TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+         * @param port TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
          * 
          * @return builder
          * 

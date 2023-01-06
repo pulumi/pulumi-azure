@@ -673,7 +673,7 @@ type CertifiateCertificatePolicyKeyProperties struct {
 	Exportable bool `pulumi:"exportable"`
 	// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
 	KeySize *int `pulumi:"keySize"`
-	// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+	// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
 	KeyType string `pulumi:"keyType"`
 	// Is the key reusable? Changing this forces a new resource to be created.
 	ReuseKey bool `pulumi:"reuseKey"`
@@ -697,7 +697,7 @@ type CertifiateCertificatePolicyKeyPropertiesArgs struct {
 	Exportable pulumi.BoolInput `pulumi:"exportable"`
 	// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
 	KeySize pulumi.IntPtrInput `pulumi:"keySize"`
-	// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+	// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
 	KeyType pulumi.StringInput `pulumi:"keyType"`
 	// Is the key reusable? Changing this forces a new resource to be created.
 	ReuseKey pulumi.BoolInput `pulumi:"reuseKey"`
@@ -795,7 +795,7 @@ func (o CertifiateCertificatePolicyKeyPropertiesOutput) KeySize() pulumi.IntPtrO
 	return o.ApplyT(func(v CertifiateCertificatePolicyKeyProperties) *int { return v.KeySize }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyKeyPropertiesOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyKeyProperties) string { return v.KeyType }).(pulumi.StringOutput)
 }
@@ -859,7 +859,7 @@ func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) KeySize() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) *string {
 		if v == nil {
@@ -2298,7 +2298,7 @@ type CertificateCertificatePolicyKeyProperties struct {
 	Exportable bool `pulumi:"exportable"`
 	// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
 	KeySize *int `pulumi:"keySize"`
-	// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+	// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
 	KeyType string `pulumi:"keyType"`
 	// Is the key reusable? Changing this forces a new resource to be created.
 	ReuseKey bool `pulumi:"reuseKey"`
@@ -2322,7 +2322,7 @@ type CertificateCertificatePolicyKeyPropertiesArgs struct {
 	Exportable pulumi.BoolInput `pulumi:"exportable"`
 	// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
 	KeySize pulumi.IntPtrInput `pulumi:"keySize"`
-	// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+	// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
 	KeyType pulumi.StringInput `pulumi:"keyType"`
 	// Is the key reusable? Changing this forces a new resource to be created.
 	ReuseKey pulumi.BoolInput `pulumi:"reuseKey"`
@@ -2420,7 +2420,7 @@ func (o CertificateCertificatePolicyKeyPropertiesOutput) KeySize() pulumi.IntPtr
 	return o.ApplyT(func(v CertificateCertificatePolicyKeyProperties) *int { return v.KeySize }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyKeyPropertiesOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyKeyProperties) string { return v.KeyType }).(pulumi.StringOutput)
 }
@@ -2484,7 +2484,7 @@ func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) KeySize() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyKeyProperties) *string {
 		if v == nil {
@@ -3260,6 +3260,121 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeN
 	}).(pulumi.StringArrayOutput)
 }
 
+type CertificateContactsContact struct {
+	// E-mail address of the contact.
+	Email string `pulumi:"email"`
+	// Name of the contact.
+	Name *string `pulumi:"name"`
+	// Phone number of the contact.
+	Phone *string `pulumi:"phone"`
+}
+
+// CertificateContactsContactInput is an input type that accepts CertificateContactsContactArgs and CertificateContactsContactOutput values.
+// You can construct a concrete instance of `CertificateContactsContactInput` via:
+//
+//	CertificateContactsContactArgs{...}
+type CertificateContactsContactInput interface {
+	pulumi.Input
+
+	ToCertificateContactsContactOutput() CertificateContactsContactOutput
+	ToCertificateContactsContactOutputWithContext(context.Context) CertificateContactsContactOutput
+}
+
+type CertificateContactsContactArgs struct {
+	// E-mail address of the contact.
+	Email pulumi.StringInput `pulumi:"email"`
+	// Name of the contact.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Phone number of the contact.
+	Phone pulumi.StringPtrInput `pulumi:"phone"`
+}
+
+func (CertificateContactsContactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateContactsContact)(nil)).Elem()
+}
+
+func (i CertificateContactsContactArgs) ToCertificateContactsContactOutput() CertificateContactsContactOutput {
+	return i.ToCertificateContactsContactOutputWithContext(context.Background())
+}
+
+func (i CertificateContactsContactArgs) ToCertificateContactsContactOutputWithContext(ctx context.Context) CertificateContactsContactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateContactsContactOutput)
+}
+
+// CertificateContactsContactArrayInput is an input type that accepts CertificateContactsContactArray and CertificateContactsContactArrayOutput values.
+// You can construct a concrete instance of `CertificateContactsContactArrayInput` via:
+//
+//	CertificateContactsContactArray{ CertificateContactsContactArgs{...} }
+type CertificateContactsContactArrayInput interface {
+	pulumi.Input
+
+	ToCertificateContactsContactArrayOutput() CertificateContactsContactArrayOutput
+	ToCertificateContactsContactArrayOutputWithContext(context.Context) CertificateContactsContactArrayOutput
+}
+
+type CertificateContactsContactArray []CertificateContactsContactInput
+
+func (CertificateContactsContactArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateContactsContact)(nil)).Elem()
+}
+
+func (i CertificateContactsContactArray) ToCertificateContactsContactArrayOutput() CertificateContactsContactArrayOutput {
+	return i.ToCertificateContactsContactArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateContactsContactArray) ToCertificateContactsContactArrayOutputWithContext(ctx context.Context) CertificateContactsContactArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateContactsContactArrayOutput)
+}
+
+type CertificateContactsContactOutput struct{ *pulumi.OutputState }
+
+func (CertificateContactsContactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateContactsContact)(nil)).Elem()
+}
+
+func (o CertificateContactsContactOutput) ToCertificateContactsContactOutput() CertificateContactsContactOutput {
+	return o
+}
+
+func (o CertificateContactsContactOutput) ToCertificateContactsContactOutputWithContext(ctx context.Context) CertificateContactsContactOutput {
+	return o
+}
+
+// E-mail address of the contact.
+func (o CertificateContactsContactOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateContactsContact) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// Name of the contact.
+func (o CertificateContactsContactOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateContactsContact) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Phone number of the contact.
+func (o CertificateContactsContactOutput) Phone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateContactsContact) *string { return v.Phone }).(pulumi.StringPtrOutput)
+}
+
+type CertificateContactsContactArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateContactsContactArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateContactsContact)(nil)).Elem()
+}
+
+func (o CertificateContactsContactArrayOutput) ToCertificateContactsContactArrayOutput() CertificateContactsContactArrayOutput {
+	return o
+}
+
+func (o CertificateContactsContactArrayOutput) ToCertificateContactsContactArrayOutputWithContext(ctx context.Context) CertificateContactsContactArrayOutput {
+	return o
+}
+
+func (o CertificateContactsContactArrayOutput) Index(i pulumi.IntInput) CertificateContactsContactOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateContactsContact {
+		return vs[0].([]CertificateContactsContact)[vs[1].(int)]
+	}).(CertificateContactsContactOutput)
+}
+
 type CertificateIssuerAdmin struct {
 	// E-mail address of the admin.
 	EmailAddress string `pulumi:"emailAddress"`
@@ -3389,7 +3504,7 @@ type KeyVaultAccessPolicy struct {
 	ApplicationId *string `pulumi:"applicationId"`
 	// List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
 	CertificatePermissions []string `pulumi:"certificatePermissions"`
-	// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
+	// List of key permissions. Possible values are `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy` and `SetRotationPolicy`.
 	KeyPermissions []string `pulumi:"keyPermissions"`
 	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
 	ObjectId string `pulumi:"objectId"`
@@ -3417,7 +3532,7 @@ type KeyVaultAccessPolicyArgs struct {
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
 	// List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
 	CertificatePermissions pulumi.StringArrayInput `pulumi:"certificatePermissions"`
-	// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
+	// List of key permissions. Possible values are `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy` and `SetRotationPolicy`.
 	KeyPermissions pulumi.StringArrayInput `pulumi:"keyPermissions"`
 	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
 	ObjectId pulumi.StringInput `pulumi:"objectId"`
@@ -3490,7 +3605,7 @@ func (o KeyVaultAccessPolicyOutput) CertificatePermissions() pulumi.StringArrayO
 	return o.ApplyT(func(v KeyVaultAccessPolicy) []string { return v.CertificatePermissions }).(pulumi.StringArrayOutput)
 }
 
-// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
+// List of key permissions. Possible values are `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy` and `SetRotationPolicy`.
 func (o KeyVaultAccessPolicyOutput) KeyPermissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyVaultAccessPolicy) []string { return v.KeyPermissions }).(pulumi.StringArrayOutput)
 }
@@ -5464,6 +5579,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateCertificatePolicyX509CertificatePropertiesPtrInput)(nil)).Elem(), CertificateCertificatePolicyX509CertificatePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesInput)(nil)).Elem(), CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrInput)(nil)).Elem(), CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateContactsContactInput)(nil)).Elem(), CertificateContactsContactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateContactsContactArrayInput)(nil)).Elem(), CertificateContactsContactArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateIssuerAdminInput)(nil)).Elem(), CertificateIssuerAdminArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateIssuerAdminArrayInput)(nil)).Elem(), CertificateIssuerAdminArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultAccessPolicyInput)(nil)).Elem(), KeyVaultAccessPolicyArgs{})
@@ -5538,6 +5655,8 @@ func init() {
 	pulumi.RegisterOutputType(CertificateCertificatePolicyX509CertificatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput{})
+	pulumi.RegisterOutputType(CertificateContactsContactOutput{})
+	pulumi.RegisterOutputType(CertificateContactsContactArrayOutput{})
 	pulumi.RegisterOutputType(CertificateIssuerAdminOutput{})
 	pulumi.RegisterOutputType(CertificateIssuerAdminArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultAccessPolicyOutput{})

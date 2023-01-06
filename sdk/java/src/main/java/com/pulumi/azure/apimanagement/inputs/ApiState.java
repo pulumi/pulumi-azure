@@ -347,14 +347,14 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Should this API require a subscription key?
+     * Should this API require a subscription key? Defaults to `true`.
      * 
      */
     @Import(name="subscriptionRequired")
     private @Nullable Output<Boolean> subscriptionRequired;
 
     /**
-     * @return Should this API require a subscription key?
+     * @return Should this API require a subscription key? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> subscriptionRequired() {
@@ -930,7 +930,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subscriptionRequired Should this API require a subscription key?
+         * @param subscriptionRequired Should this API require a subscription key? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -941,7 +941,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subscriptionRequired Should this API require a subscription key?
+         * @param subscriptionRequired Should this API require a subscription key? Defaults to `true`.
          * 
          * @return builder
          * 

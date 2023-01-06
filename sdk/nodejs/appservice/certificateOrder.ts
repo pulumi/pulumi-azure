@@ -65,7 +65,7 @@ export class CertificateOrder extends pulumi.CustomResource {
      */
     public /*out*/ readonly appServiceCertificateNotRenewableReasons!: pulumi.Output<string[]>;
     /**
-     * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+     * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
      */
     public readonly autoRenew!: pulumi.Output<boolean | undefined>;
     /**
@@ -97,7 +97,7 @@ export class CertificateOrder extends pulumi.CustomResource {
      */
     public /*out*/ readonly isPrivateKeyExternal!: pulumi.Output<boolean>;
     /**
-     * Certificate key size.  Defaults to 2048.
+     * Certificate key size.  Defaults to `2048`.
      */
     public readonly keySize!: pulumi.Output<number | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface CertificateOrderState {
      */
     appServiceCertificateNotRenewableReasons?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+     * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
      */
     autoRenew?: pulumi.Input<boolean>;
     /**
@@ -240,7 +240,7 @@ export interface CertificateOrderState {
      */
     isPrivateKeyExternal?: pulumi.Input<boolean>;
     /**
-     * Certificate key size.  Defaults to 2048.
+     * Certificate key size.  Defaults to `2048`.
      */
     keySize?: pulumi.Input<number>;
     /**
@@ -286,7 +286,7 @@ export interface CertificateOrderState {
  */
 export interface CertificateOrderArgs {
     /**
-     * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+     * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
      */
     autoRenew?: pulumi.Input<boolean>;
     /**
@@ -298,7 +298,7 @@ export interface CertificateOrderArgs {
      */
     distinguishedName?: pulumi.Input<string>;
     /**
-     * Certificate key size.  Defaults to 2048.
+     * Certificate key size.  Defaults to `2048`.
      */
     keySize?: pulumi.Input<number>;
     /**

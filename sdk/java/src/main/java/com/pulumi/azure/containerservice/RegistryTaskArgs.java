@@ -270,14 +270,14 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+     * The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
      * 
      */
     @Import(name="timeoutInSeconds")
     private @Nullable Output<Integer> timeoutInSeconds;
 
     /**
-     * @return The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+     * @return The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
      * 
      */
     public Optional<Output<Integer>> timeoutInSeconds() {
@@ -687,7 +687,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeoutInSeconds The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+         * @param timeoutInSeconds The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
          * 
          * @return builder
          * 
@@ -698,7 +698,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeoutInSeconds The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+         * @param timeoutInSeconds The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
          * 
          * @return builder
          * 

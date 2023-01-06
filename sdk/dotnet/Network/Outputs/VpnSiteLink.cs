@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? ProviderName;
         /// <summary>
-        /// The speed of the VPN device at the branch location in unit of mbps.
+        /// The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
         /// </summary>
         public readonly int? SpeedInMbps;
 

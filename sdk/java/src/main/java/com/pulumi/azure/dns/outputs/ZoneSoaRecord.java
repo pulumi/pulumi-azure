@@ -25,7 +25,7 @@ public final class ZoneSoaRecord {
     private @Nullable Integer expireTime;
     private @Nullable String fqdn;
     /**
-     * @return The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+     * @return The domain name of the authoritative name server for the SOA record.
      * 
      */
     private String hostName;
@@ -79,7 +79,7 @@ public final class ZoneSoaRecord {
         return Optional.ofNullable(this.fqdn);
     }
     /**
-     * @return The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+     * @return The domain name of the authoritative name server for the SOA record.
      * 
      */
     public String hostName() {

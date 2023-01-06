@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxFunctionAppSiteConfigAppServiceLogs {
     /**
-     * @return The amount of disk space to use for logs. Valid values are between `25` and `100`.
+     * @return The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
      * 
      */
     private @Nullable Integer diskQuotaMb;
     /**
-     * @return The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+     * @return The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
      * 
      */
     private @Nullable Integer retentionPeriodDays;
 
     private LinuxFunctionAppSiteConfigAppServiceLogs() {}
     /**
-     * @return The amount of disk space to use for logs. Valid values are between `25` and `100`.
+     * @return The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
      * 
      */
     public Optional<Integer> diskQuotaMb() {
         return Optional.ofNullable(this.diskQuotaMb);
     }
     /**
-     * @return The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+     * @return The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
      * 
      */
     public Optional<Integer> retentionPeriodDays() {

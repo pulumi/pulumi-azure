@@ -61,10 +61,10 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA. Defaults to `false`.
-        :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
+        :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address?   Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
@@ -218,7 +218,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="customCaTrustEnabled")
     def custom_ca_trust_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether to trust a Custom CA. Defaults to `false`.
+        Specifies whether to trust a Custom CA.
         """
         return pulumi.get(self, "custom_ca_trust_enabled")
 
@@ -230,7 +230,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="enableAutoScaling")
     def enable_auto_scaling(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+        Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
         """
         return pulumi.get(self, "enable_auto_scaling")
 
@@ -242,7 +242,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="enableHostEncryption")
     def enable_host_encryption(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_host_encryption")
 
@@ -254,7 +254,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="enableNodePublicIp")
     def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+        Should each node have a Public IP Address?   Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
@@ -705,10 +705,10 @@ class _KubernetesClusterNodePoolState:
         """
         Input properties used for looking up and filtering KubernetesClusterNodePool resources.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA. Defaults to `false`.
-        :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
+        :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address?   Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
@@ -842,7 +842,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="customCaTrustEnabled")
     def custom_ca_trust_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether to trust a Custom CA. Defaults to `false`.
+        Specifies whether to trust a Custom CA.
         """
         return pulumi.get(self, "custom_ca_trust_enabled")
 
@@ -854,7 +854,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="enableAutoScaling")
     def enable_auto_scaling(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+        Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
         """
         return pulumi.get(self, "enable_auto_scaling")
 
@@ -866,7 +866,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="enableHostEncryption")
     def enable_host_encryption(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_host_encryption")
 
@@ -878,7 +878,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="enableNodePublicIp")
     def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+        Should each node have a Public IP Address?   Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
@@ -1400,10 +1400,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA. Defaults to `false`.
-        :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
+        :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address?   Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
@@ -1656,10 +1656,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA. Defaults to `false`.
-        :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
-        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
+        :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address?   Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
@@ -1754,7 +1754,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="customCaTrustEnabled")
     def custom_ca_trust_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether to trust a Custom CA. Defaults to `false`.
+        Specifies whether to trust a Custom CA.
         """
         return pulumi.get(self, "custom_ca_trust_enabled")
 
@@ -1762,7 +1762,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="enableAutoScaling")
     def enable_auto_scaling(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). Defaults to `false`.
+        Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
         """
         return pulumi.get(self, "enable_auto_scaling")
 
@@ -1770,7 +1770,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="enableHostEncryption")
     def enable_host_encryption(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        Should the nodes in this Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_host_encryption")
 
@@ -1778,7 +1778,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="enableNodePublicIp")
     def enable_node_public_ip(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
+        Should each node have a Public IP Address?   Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_node_public_ip")
 

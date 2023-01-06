@@ -36,7 +36,7 @@ public final class CustomDomainScm {
      */
     private @Nullable String keyVaultId;
     /**
-     * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+     * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
      * 
      */
     private @Nullable Boolean negotiateClientCertificate;
@@ -83,7 +83,7 @@ public final class CustomDomainScm {
         return Optional.ofNullable(this.keyVaultId);
     }
     /**
-     * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+     * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
      * 
      */
     public Optional<Boolean> negotiateClientCertificate() {

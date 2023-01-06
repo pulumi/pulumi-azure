@@ -85,7 +85,7 @@ export class DicomService extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly privateEndpoints!: pulumi.Output<outputs.healthcare.DicomServicePrivateEndpoint[]>;
     /**
-     * Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+     * Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -162,7 +162,7 @@ export interface DicomServiceState {
     name?: pulumi.Input<string>;
     privateEndpoints?: pulumi.Input<pulumi.Input<inputs.healthcare.DicomServicePrivateEndpoint>[]>;
     /**
-     * Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+     * Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -193,7 +193,7 @@ export interface DicomServiceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+     * Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

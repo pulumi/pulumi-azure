@@ -150,14 +150,14 @@ public class Automation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Boolean to enable or disable this Security Center Automation.
+     * Boolean to enable or disable this Security Center Automation. Defaults to `true`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Boolean to enable or disable this Security Center Automation.
+     * @return Boolean to enable or disable this Security Center Automation. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

@@ -75,7 +75,7 @@ type Account struct {
 	HybridServiceUrl pulumi.StringOutput `pulumi:"hybridServiceUrl"`
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
-	// Whether requests using non-AAD authentication are blocked.
+	// Whether requests using non-AAD authentication are blocked. Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -144,7 +144,7 @@ type accountState struct {
 	HybridServiceUrl *string `pulumi:"hybridServiceUrl"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
-	// Whether requests using non-AAD authentication are blocked.
+	// Whether requests using non-AAD authentication are blocked. Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -174,7 +174,7 @@ type AccountState struct {
 	HybridServiceUrl pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
-	// Whether requests using non-AAD authentication are blocked.
+	// Whether requests using non-AAD authentication are blocked. Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -200,7 +200,7 @@ type accountArgs struct {
 	Encryptions []AccountEncryption `pulumi:"encryptions"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
-	// Whether requests using non-AAD authentication are blocked.
+	// Whether requests using non-AAD authentication are blocked. Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -222,7 +222,7 @@ type AccountArgs struct {
 	Encryptions AccountEncryptionArrayInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
-	// Whether requests using non-AAD authentication are blocked.
+	// Whether requests using non-AAD authentication are blocked. Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -355,7 +355,7 @@ func (o AccountOutput) Identity() AccountIdentityPtrOutput {
 	return o.ApplyT(func(v *Account) AccountIdentityPtrOutput { return v.Identity }).(AccountIdentityPtrOutput)
 }
 
-// Whether requests using non-AAD authentication are blocked.
+// Whether requests using non-AAD authentication are blocked. Defaults to `true`.
 func (o AccountOutput) LocalAuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.LocalAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }

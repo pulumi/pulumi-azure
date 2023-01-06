@@ -176,7 +176,7 @@ type Standard struct {
 	CustomDomainVerificationId pulumi.StringOutput `pulumi:"customDomainVerificationId"`
 	// The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
-	// Is the Logic App enabled?
+	// Is the Logic App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Can the Logic App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
@@ -278,7 +278,7 @@ type standardState struct {
 	CustomDomainVerificationId *string `pulumi:"customDomainVerificationId"`
 	// The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
 	DefaultHostname *string `pulumi:"defaultHostname"`
-	// Is the Logic App enabled?
+	// Is the Logic App enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Can the Logic App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
@@ -333,7 +333,7 @@ type StandardState struct {
 	CustomDomainVerificationId pulumi.StringPtrInput
 	// The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
 	DefaultHostname pulumi.StringPtrInput
-	// Is the Logic App enabled?
+	// Is the Logic App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Can the Logic App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
@@ -388,7 +388,7 @@ type standardArgs struct {
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// An `connectionString` block as defined below.
 	ConnectionStrings []StandardConnectionString `pulumi:"connectionStrings"`
-	// Is the Logic App enabled?
+	// Is the Logic App enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Can the Logic App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
@@ -432,7 +432,7 @@ type StandardArgs struct {
 	ClientCertificateMode pulumi.StringPtrInput
 	// An `connectionString` block as defined below.
 	ConnectionStrings StandardConnectionStringArrayInput
-	// Is the Logic App enabled?
+	// Is the Logic App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Can the Logic App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
@@ -589,7 +589,7 @@ func (o StandardOutput) DefaultHostname() pulumi.StringOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.DefaultHostname }).(pulumi.StringOutput)
 }
 
-// Is the Logic App enabled?
+// Is the Logic App enabled? Defaults to `true`.
 func (o StandardOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Standard) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

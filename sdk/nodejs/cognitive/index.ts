@@ -15,6 +15,11 @@ export type AccountCustomerManagedKey = import("./accountCustomerManagedKey").Ac
 export const AccountCustomerManagedKey: typeof import("./accountCustomerManagedKey").AccountCustomerManagedKey = null as any;
 utilities.lazyLoad(exports, ["AccountCustomerManagedKey"], () => require("./accountCustomerManagedKey"));
 
+export { DeploymentArgs, DeploymentState } from "./deployment";
+export type Deployment = import("./deployment").Deployment;
+export const Deployment: typeof import("./deployment").Deployment = null as any;
+utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
+
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
@@ -29,6 +34,8 @@ const _module = {
                 return new Account(name, <any>undefined, { urn })
             case "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey":
                 return new AccountCustomerManagedKey(name, <any>undefined, { urn })
+            case "azure:cognitive/deployment:Deployment":
+                return new Deployment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -36,3 +43,4 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "cognitive/account", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/accountCustomerManagedKey", _module)
+pulumi.runtime.registerResourceModule("azure", "cognitive/deployment", _module)

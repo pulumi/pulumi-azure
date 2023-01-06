@@ -304,14 +304,14 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the interval in hours when images should be cleaned up.
+     * Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
      * 
      */
     @Import(name="imageCleanerIntervalHours")
     private @Nullable Output<Integer> imageCleanerIntervalHours;
 
     /**
-     * @return Specifies the interval in hours when images should be cleaned up.
+     * @return Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
      * 
      */
     public Optional<Output<Integer>> imageCleanerIntervalHours() {
@@ -454,14 +454,14 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+     * If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      * 
      */
     @Import(name="localAccountDisabled")
     private @Nullable Output<Boolean> localAccountDisabled;
 
     /**
-     * @return If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+     * @return If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      * 
      */
     public Optional<Output<Boolean>> localAccountDisabled() {
@@ -1345,7 +1345,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param imageCleanerIntervalHours Specifies the interval in hours when images should be cleaned up.
+         * @param imageCleanerIntervalHours Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
          * 
          * @return builder
          * 
@@ -1356,7 +1356,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param imageCleanerIntervalHours Specifies the interval in hours when images should be cleaned up.
+         * @param imageCleanerIntervalHours Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
          * 
          * @return builder
          * 
@@ -1575,7 +1575,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param localAccountDisabled If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+         * @param localAccountDisabled If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
          * 
          * @return builder
          * 
@@ -1586,7 +1586,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param localAccountDisabled If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+         * @param localAccountDisabled If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
          * 
          * @return builder
          * 

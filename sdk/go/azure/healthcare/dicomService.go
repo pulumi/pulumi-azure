@@ -74,7 +74,7 @@ type DicomService struct {
 	// Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
 	Name             pulumi.StringOutput                    `pulumi:"name"`
 	PrivateEndpoints DicomServicePrivateEndpointArrayOutput `pulumi:"privateEndpoints"`
-	// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+	// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The url of the Healthcare DICOM Services.
 	ServiceUrl pulumi.StringOutput    `pulumi:"serviceUrl"`
@@ -124,7 +124,7 @@ type dicomServiceState struct {
 	// Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
 	Name             *string                       `pulumi:"name"`
 	PrivateEndpoints []DicomServicePrivateEndpoint `pulumi:"privateEndpoints"`
-	// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+	// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The url of the Healthcare DICOM Services.
 	ServiceUrl *string           `pulumi:"serviceUrl"`
@@ -143,7 +143,7 @@ type DicomServiceState struct {
 	// Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
 	Name             pulumi.StringPtrInput
 	PrivateEndpoints DicomServicePrivateEndpointArrayInput
-	// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+	// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The url of the Healthcare DICOM Services.
 	ServiceUrl pulumi.StringPtrInput
@@ -163,7 +163,7 @@ type dicomServiceArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
 	Name *string `pulumi:"name"`
-	// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+	// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool             `pulumi:"publicNetworkAccessEnabled"`
 	Tags                       map[string]string `pulumi:"tags"`
 	// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
@@ -178,7 +178,7 @@ type DicomServiceArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
 	Name pulumi.StringPtrInput
-	// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+	// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	Tags                       pulumi.StringMapInput
 	// Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
@@ -296,7 +296,7 @@ func (o DicomServiceOutput) PrivateEndpoints() DicomServicePrivateEndpointArrayO
 	return o.ApplyT(func(v *DicomService) DicomServicePrivateEndpointArrayOutput { return v.PrivateEndpoints }).(DicomServicePrivateEndpointArrayOutput)
 }
 
-// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
 func (o DicomServiceOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DicomService) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }

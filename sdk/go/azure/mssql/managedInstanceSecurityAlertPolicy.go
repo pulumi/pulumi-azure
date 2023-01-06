@@ -285,7 +285,7 @@ type ManagedInstanceSecurityAlertPolicy struct {
 	EmailAccountAdminsEnabled pulumi.BoolPtrOutput `pulumi:"emailAccountAdminsEnabled"`
 	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses pulumi.StringArrayOutput `pulumi:"emailAddresses"`
-	// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+	// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceName pulumi.StringOutput `pulumi:"managedInstanceName"`
@@ -347,7 +347,7 @@ type managedInstanceSecurityAlertPolicyState struct {
 	EmailAccountAdminsEnabled *bool `pulumi:"emailAccountAdminsEnabled"`
 	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses []string `pulumi:"emailAddresses"`
-	// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+	// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
 	Enabled *bool `pulumi:"enabled"`
 	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceName *string `pulumi:"managedInstanceName"`
@@ -368,7 +368,7 @@ type ManagedInstanceSecurityAlertPolicyState struct {
 	EmailAccountAdminsEnabled pulumi.BoolPtrInput
 	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses pulumi.StringArrayInput
-	// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+	// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
 	Enabled pulumi.BoolPtrInput
 	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceName pulumi.StringPtrInput
@@ -393,7 +393,7 @@ type managedInstanceSecurityAlertPolicyArgs struct {
 	EmailAccountAdminsEnabled *bool `pulumi:"emailAccountAdminsEnabled"`
 	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses []string `pulumi:"emailAddresses"`
-	// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+	// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
 	Enabled *bool `pulumi:"enabled"`
 	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceName string `pulumi:"managedInstanceName"`
@@ -415,7 +415,7 @@ type ManagedInstanceSecurityAlertPolicyArgs struct {
 	EmailAccountAdminsEnabled pulumi.BoolPtrInput
 	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses pulumi.StringArrayInput
-	// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+	// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
 	Enabled pulumi.BoolPtrInput
 	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceName pulumi.StringInput
@@ -531,7 +531,7 @@ func (o ManagedInstanceSecurityAlertPolicyOutput) EmailAddresses() pulumi.String
 	return o.ApplyT(func(v *ManagedInstanceSecurityAlertPolicy) pulumi.StringArrayOutput { return v.EmailAddresses }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
 func (o ManagedInstanceSecurityAlertPolicyOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceSecurityAlertPolicy) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

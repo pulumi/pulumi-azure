@@ -13,25 +13,25 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class ManagementPolicyRuleActionsSnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
+        /// The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999. Defaults to `-1`.
         /// </summary>
         [Input("changeTierToArchiveAfterDaysSinceCreation")]
         public Input<int>? ChangeTierToArchiveAfterDaysSinceCreation { get; set; }
 
         /// <summary>
-        /// The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
+        /// The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999. Defaults to `-1`.
         /// </summary>
         [Input("changeTierToCoolAfterDaysSinceCreation")]
         public Input<int>? ChangeTierToCoolAfterDaysSinceCreation { get; set; }
 
         /// <summary>
-        /// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
+        /// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999. Defaults to `-1`.
         /// </summary>
         [Input("deleteAfterDaysSinceCreationGreaterThan")]
         public Input<int>? DeleteAfterDaysSinceCreationGreaterThan { get; set; }
 
         /// <summary>
-        /// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+        /// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
         /// </summary>
         [Input("tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")]
         public Input<int>? TierToArchiveAfterDaysSinceLastTierChangeGreaterThan { get; set; }

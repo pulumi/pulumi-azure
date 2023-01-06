@@ -161,7 +161,7 @@ type Account struct {
 	PrimaryReadonlyKey                 pulumi.StringOutput `pulumi:"primaryReadonlyKey"`
 	PrimaryReadonlySqlConnectionString pulumi.StringOutput `pulumi:"primaryReadonlySqlConnectionString"`
 	PrimarySqlConnectionString         pulumi.StringOutput `pulumi:"primarySqlConnectionString"`
-	// Whether or not public network access is allowed for this CosmosDB account.
+	// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// A list of read endpoints available for this CosmosDB account.
 	ReadEndpoints pulumi.StringArrayOutput `pulumi:"readEndpoints"`
@@ -298,7 +298,7 @@ type accountState struct {
 	PrimaryReadonlyKey                 *string `pulumi:"primaryReadonlyKey"`
 	PrimaryReadonlySqlConnectionString *string `pulumi:"primaryReadonlySqlConnectionString"`
 	PrimarySqlConnectionString         *string `pulumi:"primarySqlConnectionString"`
-	// Whether or not public network access is allowed for this CosmosDB account.
+	// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A list of read endpoints available for this CosmosDB account.
 	ReadEndpoints []string `pulumi:"readEndpoints"`
@@ -383,7 +383,7 @@ type AccountState struct {
 	PrimaryReadonlyKey                 pulumi.StringPtrInput
 	PrimaryReadonlySqlConnectionString pulumi.StringPtrInput
 	PrimarySqlConnectionString         pulumi.StringPtrInput
-	// Whether or not public network access is allowed for this CosmosDB account.
+	// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A list of read endpoints available for this CosmosDB account.
 	ReadEndpoints pulumi.StringArrayInput
@@ -462,7 +462,7 @@ type accountArgs struct {
 	NetworkAclBypassIds []string `pulumi:"networkAclBypassIds"`
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
 	OfferType string `pulumi:"offerType"`
-	// Whether or not public network access is allowed for this CosmosDB account.
+	// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -528,7 +528,7 @@ type AccountArgs struct {
 	NetworkAclBypassIds pulumi.StringArrayInput
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
 	OfferType pulumi.StringInput
-	// Whether or not public network access is allowed for this CosmosDB account.
+	// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -785,7 +785,7 @@ func (o AccountOutput) PrimarySqlConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimarySqlConnectionString }).(pulumi.StringOutput)
 }
 
-// Whether or not public network access is allowed for this CosmosDB account.
+// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
 func (o AccountOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }

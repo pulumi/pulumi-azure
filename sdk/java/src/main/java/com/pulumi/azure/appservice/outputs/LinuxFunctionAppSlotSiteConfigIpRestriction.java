@@ -34,7 +34,7 @@ public final class LinuxFunctionAppSlotSiteConfigIpRestriction {
      */
     private @Nullable String name;
     /**
-     * @return The priority value of this `ip_restriction`.
+     * @return The priority value of this `ip_restriction`. Defaults to `65000`.
      * 
      */
     private @Nullable Integer priority;
@@ -79,7 +79,7 @@ public final class LinuxFunctionAppSlotSiteConfigIpRestriction {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The priority value of this `ip_restriction`.
+     * @return The priority value of this `ip_restriction`. Defaults to `65000`.
      * 
      */
     public Optional<Integer> priority() {

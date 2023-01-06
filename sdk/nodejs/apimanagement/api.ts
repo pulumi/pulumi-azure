@@ -160,7 +160,7 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly subscriptionKeyParameterNames!: pulumi.Output<outputs.apimanagement.ApiSubscriptionKeyParameterNames>;
     /**
-     * Should this API require a subscription key?
+     * Should this API require a subscription key? Defaults to `true`.
      */
     public readonly subscriptionRequired!: pulumi.Output<boolean | undefined>;
     /**
@@ -353,7 +353,7 @@ export interface ApiState {
      */
     subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames>;
     /**
-     * Should this API require a subscription key?
+     * Should this API require a subscription key? Defaults to `true`.
      */
     subscriptionRequired?: pulumi.Input<boolean>;
     /**
@@ -457,7 +457,7 @@ export interface ApiArgs {
      */
     subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames>;
     /**
-     * Should this API require a subscription key?
+     * Should this API require a subscription key? Defaults to `true`.
      */
     subscriptionRequired?: pulumi.Input<boolean>;
     /**

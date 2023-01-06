@@ -263,14 +263,14 @@ public final class DatasetDelimitedTextArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The null value string. Defaults to an empty string.
+     * The null value string. Defaults to an empty string. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="nullValue")
     private @Nullable Output<String> nullValue;
 
     /**
-     * @return The null value string. Defaults to an empty string.
+     * @return The null value string. Defaults to an empty string. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> nullValue() {
@@ -728,7 +728,7 @@ public final class DatasetDelimitedTextArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param nullValue The null value string. Defaults to an empty string.
+         * @param nullValue The null value string. Defaults to an empty string. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class DatasetDelimitedTextArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param nullValue The null value string. Defaults to an empty string.
+         * @param nullValue The null value string. Defaults to an empty string. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 

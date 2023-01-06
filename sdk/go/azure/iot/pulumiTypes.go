@@ -2415,9 +2415,9 @@ func (o IotHubDpsIpFilterRuleArrayOutput) Index(i pulumi.IntInput) IotHubDpsIpFi
 }
 
 type IotHubDpsLinkedHub struct {
-	// The weight applied to the IoT Hub. Defaults to 0.
+	// The weight applied to the IoT Hub. Defaults to `1`.
 	AllocationWeight *int `pulumi:"allocationWeight"`
-	// Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
+	// Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
 	ApplyAllocationPolicy *bool `pulumi:"applyAllocationPolicy"`
 	// The connection string to connect to the IoT Hub.
 	ConnectionString string `pulumi:"connectionString"`
@@ -2439,9 +2439,9 @@ type IotHubDpsLinkedHubInput interface {
 }
 
 type IotHubDpsLinkedHubArgs struct {
-	// The weight applied to the IoT Hub. Defaults to 0.
+	// The weight applied to the IoT Hub. Defaults to `1`.
 	AllocationWeight pulumi.IntPtrInput `pulumi:"allocationWeight"`
-	// Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
+	// Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
 	ApplyAllocationPolicy pulumi.BoolPtrInput `pulumi:"applyAllocationPolicy"`
 	// The connection string to connect to the IoT Hub.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
@@ -2502,12 +2502,12 @@ func (o IotHubDpsLinkedHubOutput) ToIotHubDpsLinkedHubOutputWithContext(ctx cont
 	return o
 }
 
-// The weight applied to the IoT Hub. Defaults to 0.
+// The weight applied to the IoT Hub. Defaults to `1`.
 func (o IotHubDpsLinkedHubOutput) AllocationWeight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IotHubDpsLinkedHub) *int { return v.AllocationWeight }).(pulumi.IntPtrOutput)
 }
 
-// Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
+// Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
 func (o IotHubDpsLinkedHubOutput) ApplyAllocationPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IotHubDpsLinkedHub) *bool { return v.ApplyAllocationPolicy }).(pulumi.BoolPtrOutput)
 }

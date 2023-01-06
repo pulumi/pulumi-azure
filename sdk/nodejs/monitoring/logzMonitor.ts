@@ -74,7 +74,7 @@ export class LogzMonitor extends pulumi.CustomResource {
      */
     public readonly companyName!: pulumi.Output<string | undefined>;
     /**
-     * Whether the resource monitoring is enabled?
+     * Whether the resource monitoring is enabled? Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -175,7 +175,7 @@ export interface LogzMonitorState {
      */
     companyName?: pulumi.Input<string>;
     /**
-     * Whether the resource monitoring is enabled?
+     * Whether the resource monitoring is enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -225,7 +225,7 @@ export interface LogzMonitorArgs {
      */
     companyName?: pulumi.Input<string>;
     /**
-     * Whether the resource monitoring is enabled?
+     * Whether the resource monitoring is enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**

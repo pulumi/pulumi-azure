@@ -165,14 +165,14 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
         return this.connectionStrings;
     }
     /**
-     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
      * 
      */
     @Export(name="dailyMemoryTimeQuota", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> dailyMemoryTimeQuota;
 
     /**
-     * @return The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+     * @return The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
      * 
      */
     public Output<Optional<Integer>> dailyMemoryTimeQuota() {
@@ -207,14 +207,14 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableBuiltinLogging);
     }
     /**
-     * Is the Function App enabled?
+     * Is the Function App enabled? Defaults to `true`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Is the Function App enabled?
+     * @return Is the Function App enabled? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

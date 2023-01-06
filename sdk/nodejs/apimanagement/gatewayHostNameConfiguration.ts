@@ -102,7 +102,7 @@ export class GatewayHostNameConfiguration extends pulumi.CustomResource {
      */
     public readonly hostName!: pulumi.Output<string>;
     /**
-     * Whether HTTP/2.0 is supported.
+     * Whether HTTP/2.0 is supported. Defaults to `true`.
      */
     public readonly http2Enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -194,7 +194,7 @@ export interface GatewayHostNameConfigurationState {
      */
     hostName?: pulumi.Input<string>;
     /**
-     * Whether HTTP/2.0 is supported.
+     * Whether HTTP/2.0 is supported. Defaults to `true`.
      */
     http2Enabled?: pulumi.Input<boolean>;
     /**
@@ -236,7 +236,7 @@ export interface GatewayHostNameConfigurationArgs {
      */
     hostName: pulumi.Input<string>;
     /**
-     * Whether HTTP/2.0 is supported.
+     * Whether HTTP/2.0 is supported. Defaults to `true`.
      */
     http2Enabled?: pulumi.Input<boolean>;
     /**

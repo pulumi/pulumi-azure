@@ -112,7 +112,7 @@ type KubernetesCluster struct {
 	Identity KubernetesClusterIdentityPtrOutput `pulumi:"identity"`
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled pulumi.BoolPtrOutput `pulumi:"imageCleanerEnabled"`
-	// Specifies the interval in hours when images should be cleaned up.
+	// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
 	ImageCleanerIntervalHours pulumi.IntPtrOutput `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrOutput `pulumi:"ingressApplicationGateway"`
@@ -132,7 +132,7 @@ type KubernetesCluster struct {
 	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrOutput `pulumi:"linuxProfile"`
-	// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+	// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 	LocalAccountDisabled pulumi.BoolPtrOutput `pulumi:"localAccountDisabled"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -269,7 +269,7 @@ type kubernetesClusterState struct {
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled *bool `pulumi:"imageCleanerEnabled"`
-	// Specifies the interval in hours when images should be cleaned up.
+	// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
 	ImageCleanerIntervalHours *int `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway *KubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
@@ -289,7 +289,7 @@ type kubernetesClusterState struct {
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile *KubernetesClusterLinuxProfile `pulumi:"linuxProfile"`
-	// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+	// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 	LocalAccountDisabled *bool `pulumi:"localAccountDisabled"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -385,7 +385,7 @@ type KubernetesClusterState struct {
 	Identity KubernetesClusterIdentityPtrInput
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled pulumi.BoolPtrInput
-	// Specifies the interval in hours when images should be cleaned up.
+	// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
 	ImageCleanerIntervalHours pulumi.IntPtrInput
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrInput
@@ -405,7 +405,7 @@ type KubernetesClusterState struct {
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrInput
-	// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+	// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 	LocalAccountDisabled pulumi.BoolPtrInput
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -501,7 +501,7 @@ type kubernetesClusterArgs struct {
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled *bool `pulumi:"imageCleanerEnabled"`
-	// Specifies the interval in hours when images should be cleaned up.
+	// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
 	ImageCleanerIntervalHours *int `pulumi:"imageCleanerIntervalHours"`
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway *KubernetesClusterIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
@@ -513,7 +513,7 @@ type kubernetesClusterArgs struct {
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
 	LinuxProfile *KubernetesClusterLinuxProfile `pulumi:"linuxProfile"`
-	// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+	// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 	LocalAccountDisabled *bool `pulumi:"localAccountDisabled"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -600,7 +600,7 @@ type KubernetesClusterArgs struct {
 	Identity KubernetesClusterIdentityPtrInput
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled pulumi.BoolPtrInput
-	// Specifies the interval in hours when images should be cleaned up.
+	// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
 	ImageCleanerIntervalHours pulumi.IntPtrInput
 	// A `ingressApplicationGateway` block as defined below.
 	IngressApplicationGateway KubernetesClusterIngressApplicationGatewayPtrInput
@@ -612,7 +612,7 @@ type KubernetesClusterArgs struct {
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.
 	LinuxProfile KubernetesClusterLinuxProfilePtrInput
-	// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+	// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 	LocalAccountDisabled pulumi.BoolPtrInput
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -844,7 +844,7 @@ func (o KubernetesClusterOutput) ImageCleanerEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.ImageCleanerEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the interval in hours when images should be cleaned up.
+// Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
 func (o KubernetesClusterOutput) ImageCleanerIntervalHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.IntPtrOutput { return v.ImageCleanerIntervalHours }).(pulumi.IntPtrOutput)
 }
@@ -898,7 +898,7 @@ func (o KubernetesClusterOutput) LinuxProfile() KubernetesClusterLinuxProfilePtr
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterLinuxProfilePtrOutput { return v.LinuxProfile }).(KubernetesClusterLinuxProfilePtrOutput)
 }
 
-// If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
 func (o KubernetesClusterOutput) LocalAccountDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.LocalAccountDisabled }).(pulumi.BoolPtrOutput)
 }

@@ -35,7 +35,8 @@ class VolumeArgs:
                  security_style: Optional[pulumi.Input[str]] = None,
                  snapshot_directory_visible: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 throughput_in_mibps: Optional[pulumi.Input[float]] = None):
+                 throughput_in_mibps: Optional[pulumi.Input[float]] = None,
+                 zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Volume resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
@@ -57,6 +58,7 @@ class VolumeArgs:
         :param pulumi.Input[bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] throughput_in_mibps: Throughput of this volume in Mibps.
+        :param pulumi.Input[str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "pool_name", pool_name)
@@ -91,6 +93,8 @@ class VolumeArgs:
             pulumi.set(__self__, "tags", tags)
         if throughput_in_mibps is not None:
             pulumi.set(__self__, "throughput_in_mibps", throughput_in_mibps)
+        if zone is not None:
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="accountName")
@@ -329,6 +333,18 @@ class VolumeArgs:
     def throughput_in_mibps(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "throughput_in_mibps", value)
 
+    @property
+    @pulumi.getter
+    def zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+        """
+        return pulumi.get(self, "zone")
+
+    @zone.setter
+    def zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zone", value)
+
 
 @pulumi.input_type
 class _VolumeState:
@@ -353,7 +369,8 @@ class _VolumeState:
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_in_mibps: Optional[pulumi.Input[float]] = None,
-                 volume_path: Optional[pulumi.Input[str]] = None):
+                 volume_path: Optional[pulumi.Input[str]] = None,
+                 zone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Volume resources.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
@@ -376,6 +393,7 @@ class _VolumeState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] throughput_in_mibps: Throughput of this volume in Mibps.
         :param pulumi.Input[str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -419,6 +437,8 @@ class _VolumeState:
             pulumi.set(__self__, "throughput_in_mibps", throughput_in_mibps)
         if volume_path is not None:
             pulumi.set(__self__, "volume_path", volume_path)
+        if zone is not None:
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="accountName")
@@ -669,6 +689,18 @@ class _VolumeState:
     def volume_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "volume_path", value)
 
+    @property
+    @pulumi.getter
+    def zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+        """
+        return pulumi.get(self, "zone")
+
+    @zone.setter
+    def zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zone", value)
+
 
 class Volume(pulumi.CustomResource):
     @overload
@@ -695,6 +727,7 @@ class Volume(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  volume_path: Optional[pulumi.Input[str]] = None,
+                 zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a NetApp Volume.
@@ -728,6 +761,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] throughput_in_mibps: Throughput of this volume in Mibps.
         :param pulumi.Input[str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
         """
         ...
     @overload
@@ -781,6 +815,7 @@ class Volume(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  volume_path: Optional[pulumi.Input[str]] = None,
+                 zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -824,6 +859,7 @@ class Volume(pulumi.CustomResource):
             if volume_path is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_path'")
             __props__.__dict__["volume_path"] = volume_path
+            __props__.__dict__["zone"] = zone
             __props__.__dict__["mount_ip_addresses"] = None
         super(Volume, __self__).__init__(
             'azure:netapp/volume:Volume',
@@ -855,7 +891,8 @@ class Volume(pulumi.CustomResource):
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             throughput_in_mibps: Optional[pulumi.Input[float]] = None,
-            volume_path: Optional[pulumi.Input[str]] = None) -> 'Volume':
+            volume_path: Optional[pulumi.Input[str]] = None,
+            zone: Optional[pulumi.Input[str]] = None) -> 'Volume':
         """
         Get an existing Volume resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -883,6 +920,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] throughput_in_mibps: Throughput of this volume in Mibps.
         :param pulumi.Input[str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -909,6 +947,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["throughput_in_mibps"] = throughput_in_mibps
         __props__.__dict__["volume_path"] = volume_path
+        __props__.__dict__["zone"] = zone
         return Volume(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1075,4 +1114,12 @@ class Volume(pulumi.CustomResource):
         A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "volume_path")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+        """
+        return pulumi.get(self, "zone")
 

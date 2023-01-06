@@ -103,7 +103,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Is a Subscription required to access API's included in this Product?
+        /// Is a Subscription required to access API's included in this Product? Defaults to `true`.
         /// </summary>
         [Output("subscriptionRequired")]
         public Output<bool?> SubscriptionRequired { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Is a Subscription required to access API's included in this Product?
+        /// Is a Subscription required to access API's included in this Product? Defaults to `true`.
         /// </summary>
         [Input("subscriptionRequired")]
         public Input<bool>? SubscriptionRequired { get; set; }
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Is a Subscription required to access API's included in this Product?
+        /// Is a Subscription required to access API's included in this Product? Defaults to `true`.
         /// </summary>
         [Input("subscriptionRequired")]
         public Input<bool>? SubscriptionRequired { get; set; }

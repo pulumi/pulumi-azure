@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class ScaleSetNetworkProfileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to enable accelerated networking or not. Defaults to `false`.
+        /// Specifies whether to enable accelerated networking or not.
         /// </summary>
         [Input("acceleratedNetworking")]
         public Input<bool>? AcceleratedNetworking { get; set; }

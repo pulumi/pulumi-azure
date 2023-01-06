@@ -69,6 +69,7 @@ import * as iot from "./iot";
 import * as iotcentral from "./iotcentral";
 import * as keyvault from "./keyvault";
 import * as kusto from "./kusto";
+import * as lab from "./lab";
 import * as lb from "./lb";
 import * as lighthouse from "./lighthouse";
 import * as loadtest from "./loadtest";
@@ -182,6 +183,7 @@ export {
     iotcentral,
     keyvault,
     kusto,
+    lab,
     lb,
     lighthouse,
     loadtest,

@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Iot.Outputs
     public sealed class IotHubDpsLinkedHub
     {
         /// <summary>
-        /// The weight applied to the IoT Hub. Defaults to 0.
+        /// The weight applied to the IoT Hub. Defaults to `1`.
         /// </summary>
         public readonly int? AllocationWeight;
         /// <summary>
-        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
+        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
         /// </summary>
         public readonly bool? ApplyAllocationPolicy;
         /// <summary>

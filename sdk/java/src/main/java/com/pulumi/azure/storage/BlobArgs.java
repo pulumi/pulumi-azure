@@ -124,14 +124,14 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
+     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="size")
     private @Nullable Output<Integer> size;
 
     /**
-     * @return Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
+     * @return Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> size() {
@@ -415,7 +415,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param size Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
+         * @param size Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param size Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
+         * @param size Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

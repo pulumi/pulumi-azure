@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppSlotSiteConfig
     {
         /// <summary>
-        /// If this Windows Web App Slot is Always On enabled. Defaults to `false`.
+        /// If this Windows Web App Slot is Always On enabled. Defaults to `true`.
         /// </summary>
         public readonly bool? AlwaysOn;
         /// <summary>

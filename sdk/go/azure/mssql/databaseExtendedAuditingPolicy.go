@@ -92,9 +92,9 @@ type DatabaseExtendedAuditingPolicy struct {
 	DatabaseId pulumi.StringOutput `pulumi:"databaseId"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Enable audit events to Azure Monitor?
+	// Enable audit events to Azure Monitor? Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrOutput `pulumi:"logMonitoringEnabled"`
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
 	// The access key to use for the auditing storage account.
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
@@ -147,9 +147,9 @@ type databaseExtendedAuditingPolicyState struct {
 	DatabaseId *string `pulumi:"databaseId"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Enable audit events to Azure Monitor?
+	// Enable audit events to Azure Monitor? Defaults to `true`.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The access key to use for the auditing storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
@@ -164,9 +164,9 @@ type DatabaseExtendedAuditingPolicyState struct {
 	DatabaseId pulumi.StringPtrInput
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Enable audit events to Azure Monitor?
+	// Enable audit events to Azure Monitor? Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrInput
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays pulumi.IntPtrInput
 	// The access key to use for the auditing storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput
@@ -185,9 +185,9 @@ type databaseExtendedAuditingPolicyArgs struct {
 	DatabaseId string `pulumi:"databaseId"`
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Enable audit events to Azure Monitor?
+	// Enable audit events to Azure Monitor? Defaults to `true`.
 	LogMonitoringEnabled *bool `pulumi:"logMonitoringEnabled"`
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The access key to use for the auditing storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
@@ -203,9 +203,9 @@ type DatabaseExtendedAuditingPolicyArgs struct {
 	DatabaseId pulumi.StringInput
 	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Enable audit events to Azure Monitor?
+	// Enable audit events to Azure Monitor? Defaults to `true`.
 	LogMonitoringEnabled pulumi.BoolPtrInput
-	// The number of days to retain logs for in the storage account.
+	// The number of days to retain logs for in the storage account. Defaults to `0`.
 	RetentionInDays pulumi.IntPtrInput
 	// The access key to use for the auditing storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput
@@ -312,12 +312,12 @@ func (o DatabaseExtendedAuditingPolicyOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Enable audit events to Azure Monitor?
+// Enable audit events to Azure Monitor? Defaults to `true`.
 func (o DatabaseExtendedAuditingPolicyOutput) LogMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) pulumi.BoolPtrOutput { return v.LogMonitoringEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The number of days to retain logs for in the storage account.
+// The number of days to retain logs for in the storage account. Defaults to `0`.
 func (o DatabaseExtendedAuditingPolicyOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }

@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// The CustomerASN of the peering.
+        /// The CustomerASN of the peering. Defaults to `0`.
         /// </summary>
         [Input("customerAsn")]
         public Input<int>? CustomerAsn { get; set; }
 
         /// <summary>
-        /// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+        /// The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         /// </summary>
         [Input("routingRegistryName")]
         public Input<string>? RoutingRegistryName { get; set; }

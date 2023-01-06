@@ -109,7 +109,7 @@ type RegistryTask struct {
 	SourceTriggers RegistryTaskSourceTriggerArrayOutput `pulumi:"sourceTriggers"`
 	// A mapping of tags which should be assigned to the Container Registry Task.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+	// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
 	TimeoutInSeconds pulumi.IntPtrOutput `pulumi:"timeoutInSeconds"`
 	// One or more `timerTrigger` blocks as defined below.
 	TimerTriggers RegistryTaskTimerTriggerArrayOutput `pulumi:"timerTriggers"`
@@ -179,7 +179,7 @@ type registryTaskState struct {
 	SourceTriggers []RegistryTaskSourceTrigger `pulumi:"sourceTriggers"`
 	// A mapping of tags which should be assigned to the Container Registry Task.
 	Tags map[string]string `pulumi:"tags"`
-	// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+	// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
 	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
 	// One or more `timerTrigger` blocks as defined below.
 	TimerTriggers []RegistryTaskTimerTrigger `pulumi:"timerTriggers"`
@@ -218,7 +218,7 @@ type RegistryTaskState struct {
 	SourceTriggers RegistryTaskSourceTriggerArrayInput
 	// A mapping of tags which should be assigned to the Container Registry Task.
 	Tags pulumi.StringMapInput
-	// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+	// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
 	TimeoutInSeconds pulumi.IntPtrInput
 	// One or more `timerTrigger` blocks as defined below.
 	TimerTriggers RegistryTaskTimerTriggerArrayInput
@@ -261,7 +261,7 @@ type registryTaskArgs struct {
 	SourceTriggers []RegistryTaskSourceTrigger `pulumi:"sourceTriggers"`
 	// A mapping of tags which should be assigned to the Container Registry Task.
 	Tags map[string]string `pulumi:"tags"`
-	// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+	// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
 	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
 	// One or more `timerTrigger` blocks as defined below.
 	TimerTriggers []RegistryTaskTimerTrigger `pulumi:"timerTriggers"`
@@ -301,7 +301,7 @@ type RegistryTaskArgs struct {
 	SourceTriggers RegistryTaskSourceTriggerArrayInput
 	// A mapping of tags which should be assigned to the Container Registry Task.
 	Tags pulumi.StringMapInput
-	// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+	// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
 	TimeoutInSeconds pulumi.IntPtrInput
 	// One or more `timerTrigger` blocks as defined below.
 	TimerTriggers RegistryTaskTimerTriggerArrayInput
@@ -474,7 +474,7 @@ func (o RegistryTaskOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RegistryTask) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+// The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
 func (o RegistryTaskOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RegistryTask) pulumi.IntPtrOutput { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }

@@ -971,7 +971,7 @@ export namespace apimanagement {
          */
         keyVaultId?: string;
         /**
-         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
         negotiateClientCertificate?: boolean;
         sslKeyvaultIdentityClientId?: string;
@@ -991,7 +991,7 @@ export namespace apimanagement {
         certificateSource: string;
         certificateStatus: string;
         /**
-         * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+         * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
          */
         defaultSslBinding: boolean;
         expiry: string;
@@ -1004,7 +1004,7 @@ export namespace apimanagement {
          */
         keyVaultId?: string;
         /**
-         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
         negotiateClientCertificate?: boolean;
         sslKeyvaultIdentityClientId?: string;
@@ -1033,7 +1033,7 @@ export namespace apimanagement {
          */
         keyVaultId?: string;
         /**
-         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
         negotiateClientCertificate?: boolean;
         sslKeyvaultIdentityClientId?: string;
@@ -1062,7 +1062,7 @@ export namespace apimanagement {
          */
         keyVaultId?: string;
         /**
-         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
         negotiateClientCertificate?: boolean;
         sslKeyvaultIdentityClientId?: string;
@@ -1091,7 +1091,7 @@ export namespace apimanagement {
          */
         keyVaultId?: string;
         /**
-         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
         negotiateClientCertificate?: boolean;
         sslKeyvaultIdentityClientId?: string;
@@ -1891,7 +1891,7 @@ export namespace apimanagement {
          */
         tlsRsaWithAes256GcmSha384CiphersEnabled?: boolean;
         /**
-         * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+         * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
          */
         tripleDesCiphersEnabled?: boolean;
     }
@@ -2479,11 +2479,11 @@ export namespace appplatform {
          */
         backendProtocol?: string;
         /**
-         * Specifies the ingress read time out in seconds. Defaults to 300.
+         * Specifies the ingress read time out in seconds. Defaults to `300`.
          */
         readTimeoutInSeconds?: number;
         /**
-         * Specifies the ingress send time out in seconds. Defaults to 60.
+         * Specifies the ingress send time out in seconds. Defaults to `60`.
          */
         sendTimeoutInSeconds?: number;
         /**
@@ -2638,6 +2638,63 @@ export namespace appplatform {
          * Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
          */
         memory: string;
+    }
+
+    export interface SpringCloudCustomizedAcceleratorGitRepository {
+        /**
+         * A `basicAuth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+         */
+        basicAuth?: outputs.appplatform.SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth;
+        /**
+         * Specifies the Git repository branch to be used.
+         */
+        branch?: string;
+        /**
+         * Specifies the Git repository commit to be used.
+         */
+        commit?: string;
+        /**
+         * Specifies the Git repository tag to be used.
+         */
+        gitTag?: string;
+        /**
+         * Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
+         */
+        intervalInSeconds?: number;
+        /**
+         * A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+         */
+        sshAuth?: outputs.appplatform.SpringCloudCustomizedAcceleratorGitRepositorySshAuth;
+        /**
+         * Specifies Git repository URL for the accelerator.
+         */
+        url: string;
+    }
+
+    export interface SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth {
+        /**
+         * Specifies the password of git repository basic auth.
+         */
+        password: string;
+        /**
+         * Specifies the username of git repository basic auth.
+         */
+        username: string;
+    }
+
+    export interface SpringCloudCustomizedAcceleratorGitRepositorySshAuth {
+        /**
+         * Specifies the Public SSH Key of git repository basic auth.
+         */
+        hostKey?: string;
+        /**
+         * Specifies the SSH Key algorithm of git repository basic auth.
+         */
+        hostKeyAlgorithm?: string;
+        /**
+         * Specifies the Private SSH Key of git repository basic auth.
+         */
+        privateKey: string;
     }
 
     export interface SpringCloudDevToolPortalSso {
@@ -2890,7 +2947,7 @@ export namespace appplatform {
          */
         privateKey: string;
         /**
-         * Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+         * Indicates whether the Config Server instance will fail to start if the hostKey does not match. Defaults to `true`.
          */
         strictHostKeyCheckingEnabled?: boolean;
     }
@@ -2909,7 +2966,7 @@ export namespace appplatform {
          */
         privateKey: string;
         /**
-         * Indicates whether the Config Server instance will fail to start if the hostKey does not match.
+         * Indicates whether the Config Server instance will fail to start if the hostKey does not match. Defaults to `true`.
          */
         strictHostKeyCheckingEnabled?: boolean;
     }
@@ -3017,11 +3074,11 @@ export namespace appservice {
          */
         runtimeVersion?: string;
         /**
-         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
          */
         tokenRefreshExtensionHours?: number;
         /**
-         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
          */
         tokenStoreEnabled?: boolean;
         /**
@@ -3101,7 +3158,7 @@ export namespace appservice {
 
     export interface AppServiceBackup {
         /**
-         * Is this Backup enabled?
+         * Is this Backup enabled? Defaults to `true`.
          */
         enabled?: boolean;
         /**
@@ -3132,7 +3189,7 @@ export namespace appservice {
          */
         keepAtLeastOneBackup?: boolean;
         /**
-         * Specifies the number of days after which Backups should be deleted.
+         * Specifies the number of days after which Backups should be deleted. Defaults to `30`.
          */
         retentionPeriodInDays?: number;
         /**
@@ -3356,7 +3413,7 @@ export namespace appservice {
          */
         scmType: string;
         /**
-         * IP security restrictions for scm to use main. Defaults to false.
+         * IP security restrictions for scm to use main. Defaults to `false`.
          */
         scmUseMainIpRestriction?: boolean;
         /**
@@ -3440,7 +3497,7 @@ export namespace appservice {
 
     export interface AppServiceSiteConfigScmIpRestriction {
         /**
-         * Allow or Deny access for this IP range. Defaults to Allow.
+         * Allow or Deny access for this IP range. Defaults to `Allow`.
          */
         action?: string;
         /**
@@ -3678,11 +3735,11 @@ export namespace appservice {
          */
         runtimeVersion?: string;
         /**
-         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
          */
         tokenRefreshExtensionHours?: number;
         /**
-         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
          */
         tokenStoreEnabled?: boolean;
         /**
@@ -3874,11 +3931,11 @@ export namespace appservice {
          */
         scmIpRestrictions: outputs.appservice.FunctionAppSiteConfigScmIpRestriction[];
         /**
-         * The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+         * The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
          */
         scmType: string;
         /**
-         * IP security restrictions for scm to use main. Defaults to false.
+         * IP security restrictions for scm to use main. Defaults to `false`.
          */
         scmUseMainIpRestriction?: boolean;
         /**
@@ -3958,7 +4015,7 @@ export namespace appservice {
 
     export interface FunctionAppSiteConfigScmIpRestriction {
         /**
-         * Allow or Deny access for this IP range. Defaults to Allow.
+         * Allow or Deny access for this IP range. Defaults to `Allow`.
          */
         action?: string;
         /**
@@ -4059,11 +4116,11 @@ export namespace appservice {
          */
         runtimeVersion?: string;
         /**
-         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
          */
         tokenRefreshExtensionHours?: number;
         /**
-         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
          */
         tokenStoreEnabled?: boolean;
         /**
@@ -7672,7 +7729,7 @@ export namespace appservice {
 
     export interface LinuxFunctionAppBackup {
         /**
-         * Should this backup job be enabled?
+         * Should this backup job be enabled? Defaults to `true`.
          */
         enabled?: boolean;
         /**
@@ -7704,7 +7761,7 @@ export namespace appservice {
         keepAtLeastOneBackup?: boolean;
         lastExecutionTime: string;
         /**
-         * After how many days backups should be deleted.
+         * After how many days backups should be deleted. Defaults to `30`.
          */
         retentionPeriodDays?: number;
         /**
@@ -7887,11 +7944,11 @@ export namespace appservice {
 
     export interface LinuxFunctionAppSiteConfigAppServiceLogs {
         /**
-         * The amount of disk space to use for logs. Valid values are between `25` and `100`.
+         * The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
          */
         diskQuotaMb?: number;
         /**
-         * The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+         * The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
          */
         retentionPeriodDays?: number;
     }
@@ -7983,7 +8040,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The priority value of this `ipRestriction`.
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
          */
         priority?: number;
         /**
@@ -8002,7 +8059,7 @@ export namespace appservice {
          */
         xAzureFdids?: string[];
         /**
-         * Specifies if a Front Door Health Probe should be expected.
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          */
         xFdHealthProbe?: string;
         /**
@@ -8033,7 +8090,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The priority value of this `ipRestriction`.
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
          */
         priority?: number;
         /**
@@ -8052,7 +8109,7 @@ export namespace appservice {
          */
         xAzureFdids?: string[];
         /**
-         * Specifies if a Front Door Health Probe should be expected.
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          */
         xFdHealthProbe?: string;
         /**
@@ -8251,7 +8308,7 @@ export namespace appservice {
 
     export interface LinuxFunctionAppSlotBackup {
         /**
-         * Should this backup job be enabled?
+         * Should this backup job be enabled? Defaults to `true`.
          */
         enabled?: boolean;
         /**
@@ -8286,7 +8343,7 @@ export namespace appservice {
          */
         lastExecutionTime: string;
         /**
-         * After how many days backups should be deleted.
+         * After how many days backups should be deleted. Defaults to `30`.
          */
         retentionPeriodDays?: number;
         /**
@@ -8482,11 +8539,11 @@ export namespace appservice {
 
     export interface LinuxFunctionAppSlotSiteConfigAppServiceLogs {
         /**
-         * The amount of disk space to use for logs. Valid values are between `25` and `100`.
+         * The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
          */
         diskQuotaMb?: number;
         /**
-         * The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+         * The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
          */
         retentionPeriodDays?: number;
     }
@@ -8578,7 +8635,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The priority value of this `ipRestriction`.
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
          */
         priority?: number;
         /**
@@ -8597,7 +8654,7 @@ export namespace appservice {
          */
         xAzureFdids?: string[];
         /**
-         * Specifies if a Front Door Health Probe should be expected.
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          */
         xFdHealthProbe?: string;
         /**
@@ -8628,7 +8685,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The priority value of this `ipRestriction`.
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
          */
         priority?: number;
         /**
@@ -8647,7 +8704,7 @@ export namespace appservice {
          */
         xAzureFdids?: string[];
         /**
-         * Specifies if a Front Door Health Probe should be expected.
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          */
         xFdHealthProbe?: string;
         /**
@@ -8911,7 +8968,7 @@ export namespace appservice {
 
     export interface LinuxWebAppBackup {
         /**
-         * Should this backup job be enabled?
+         * Should this backup job be enabled? Defaults to `true`.
          */
         enabled?: boolean;
         /**
@@ -8943,7 +9000,7 @@ export namespace appservice {
         keepAtLeastOneBackup?: boolean;
         lastExecutionTime: string;
         /**
-         * After how many days backups should be deleted.
+         * After how many days backups should be deleted. Defaults to `30`.
          */
         retentionPeriodDays?: number;
         /**
@@ -9216,7 +9273,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PHP to run. Possible values include `7.4`, and `8.0`.
+         * The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
          */
         phpVersion?: string;
         /**
@@ -9352,7 +9409,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The priority value of this `ipRestriction`.
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
          */
         priority?: number;
         /**
@@ -9371,7 +9428,7 @@ export namespace appservice {
          */
         xAzureFdids?: string[];
         /**
-         * Specifies if a Front Door Health Probe should be expected.
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          */
         xFdHealthProbe?: string;
         /**
@@ -9402,7 +9459,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The priority value of this `ipRestriction`.
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
          */
         priority?: number;
         /**
@@ -9421,7 +9478,7 @@ export namespace appservice {
          */
         xAzureFdids?: string[];
         /**
-         * Specifies if a Front Door Health Probe should be expected.
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          */
         xFdHealthProbe?: string;
         /**
@@ -9620,7 +9677,7 @@ export namespace appservice {
 
     export interface LinuxWebAppSlotBackup {
         /**
-         * Should this backup job be enabled?
+         * Should this backup job be enabled? Defaults to `true`.
          */
         enabled?: boolean;
         /**
@@ -9652,7 +9709,7 @@ export namespace appservice {
         keepAtLeastOneBackup?: boolean;
         lastExecutionTime: string;
         /**
-         * After how many days backups should be deleted.
+         * After how many days backups should be deleted. Defaults to `30`.
          */
         retentionPeriodDays?: number;
         /**
@@ -9775,7 +9832,7 @@ export namespace appservice {
 
     export interface LinuxWebAppSlotSiteConfig {
         /**
-         * If this Linux Web App is Always On enabled. Defaults to `false`.
+         * If this Linux Web App is Always On enabled. Defaults to `true`.
          */
         alwaysOn?: boolean;
         /**
@@ -9906,7 +9963,7 @@ export namespace appservice {
          */
         dockerImageTag?: string;
         /**
-         * The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
+         * The version of .NET to use. Possible values are `3.1`, `5.0`, `6.0` and `7.0`.
          */
         dotnetVersion?: string;
         /**
@@ -9926,7 +9983,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PHP to run. Possible values include `7.4`, and `8.0`.
+         * The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
          */
         phpVersion?: string;
         /**
@@ -10062,7 +10119,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The priority value of this `ipRestriction`.
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
          */
         priority?: number;
         /**
@@ -10081,7 +10138,7 @@ export namespace appservice {
          */
         xAzureFdids?: string[];
         /**
-         * Specifies if a Front Door Health Probe should be expected.
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          */
         xFdHealthProbe?: string;
         /**
@@ -10112,7 +10169,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The priority value of this `ipRestriction`.
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
          */
         priority?: number;
         /**
@@ -10131,7 +10188,7 @@ export namespace appservice {
          */
         xAzureFdids?: string[];
         /**
-         * Specifies if a Front Door Health Probe should be expected.
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          */
         xFdHealthProbe?: string;
         /**
@@ -10277,11 +10334,11 @@ export namespace appservice {
          */
         runtimeVersion?: string;
         /**
-         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
+         * The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
          */
         tokenRefreshExtensionHours?: number;
         /**
-         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
+         * If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
          */
         tokenStoreEnabled?: boolean;
         /**
@@ -10577,7 +10634,7 @@ export namespace appservice {
          */
         scmType: string;
         /**
-         * IP security restrictions for scm to use main. Defaults to false.
+         * IP security restrictions for scm to use main. Defaults to `false`.
          */
         scmUseMainIpRestriction?: boolean;
         /**
@@ -10762,7 +10819,7 @@ export namespace appservice {
 
     export interface SourceControlGithubActionConfigurationCodeConfiguration {
         /**
-         * The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+         * The value to use for the Runtime Stack in the workflow file content for code base apps. Possible values are `dotnetcore`, `spring`, `tomcat`, `node` and `python`. Changing this forces a new resource to be created.
          */
         runtimeStack: string;
         /**
@@ -11030,7 +11087,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppBackup {
         /**
-         * Should this backup job be enabled?
+         * Should this backup job be enabled? Defaults to `true`.
          */
         enabled?: boolean;
         /**
@@ -11062,7 +11119,7 @@ export namespace appservice {
         keepAtLeastOneBackup?: boolean;
         lastExecutionTime: string;
         /**
-         * After how many days backups should be deleted.
+         * After how many days backups should be deleted. Defaults to `30`.
          */
         retentionPeriodDays?: number;
         /**
@@ -11237,11 +11294,11 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSiteConfigAppServiceLogs {
         /**
-         * The amount of disk space to use for logs. Valid values are between `25` and `100`.
+         * The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
          */
         diskQuotaMb?: number;
         /**
-         * The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+         * The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
          */
         retentionPeriodDays?: number;
     }
@@ -11302,7 +11359,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The priority value of this `ipRestriction`.
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
          */
         priority?: number;
         /**
@@ -11321,7 +11378,7 @@ export namespace appservice {
          */
         xAzureFdids?: string[];
         /**
-         * Specifies if a Front Door Health Probe should be expected.
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          */
         xFdHealthProbe?: string;
         /**
@@ -11352,7 +11409,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The priority value of this `ipRestriction`.
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
          */
         priority?: number;
         /**
@@ -11371,7 +11428,7 @@ export namespace appservice {
          */
         xAzureFdids?: string[];
         /**
-         * Specifies if a Front Door Health Probe should be expected.
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          */
         xFdHealthProbe?: string;
         /**
@@ -11570,7 +11627,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSlotBackup {
         /**
-         * Should this backup job be enabled?
+         * Should this backup job be enabled? Defaults to `true`.
          */
         enabled?: boolean;
         /**
@@ -11605,7 +11662,7 @@ export namespace appservice {
          */
         lastExecutionTime: string;
         /**
-         * After how many days backups should be deleted.
+         * After how many days backups should be deleted. Defaults to `30`.
          */
         retentionPeriodDays?: number;
         /**
@@ -11770,7 +11827,7 @@ export namespace appservice {
          */
         scmUseMainIpRestriction?: boolean;
         /**
-         * Should the Windows Web App use a 32-bit worker.
+         * Should the Windows Web App use a 32-bit worker. Defaults to `true`.
          */
         use32BitWorker?: boolean;
         /**
@@ -11793,11 +11850,11 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSlotSiteConfigAppServiceLogs {
         /**
-         * The amount of disk space to use for logs. Valid values are between `25` and `100`.
+         * The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
          */
         diskQuotaMb?: number;
         /**
-         * The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
+         * The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
          */
         retentionPeriodDays?: number;
     }
@@ -11858,7 +11915,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The priority value of this `ipRestriction`.
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
          */
         priority?: number;
         /**
@@ -11908,7 +11965,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The priority value of this `ipRestriction`.
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
          */
         priority?: number;
         /**
@@ -12191,7 +12248,7 @@ export namespace appservice {
 
     export interface WindowsWebAppBackup {
         /**
-         * Should this backup job be enabled?
+         * Should this backup job be enabled? Defaults to `true`.
          */
         enabled?: boolean;
         /**
@@ -12223,7 +12280,7 @@ export namespace appservice {
         keepAtLeastOneBackup?: boolean;
         lastExecutionTime: string;
         /**
-         * After how many days backups should be deleted.
+         * After how many days backups should be deleted. Defaults to `30`.
          */
         retentionPeriodDays?: number;
         /**
@@ -12446,7 +12503,7 @@ export namespace appservice {
          */
         scmUseMainIpRestriction?: boolean;
         /**
-         * Should the Windows Web App use a 32-bit worker.
+         * Should the Windows Web App use a 32-bit worker. Defaults to `true`.
          */
         use32BitWorker?: boolean;
         /**
@@ -12657,7 +12714,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The priority value of this `ipRestriction`.
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
          */
         priority?: number;
         /**
@@ -12676,7 +12733,7 @@ export namespace appservice {
          */
         xAzureFdids?: string[];
         /**
-         * Specifies if a Front Door Health Probe should be expected.
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          */
         xFdHealthProbe?: string;
         /**
@@ -12707,7 +12764,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The priority value of this `ipRestriction`.
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
          */
         priority?: number;
         /**
@@ -12726,7 +12783,7 @@ export namespace appservice {
          */
         xAzureFdids?: string[];
         /**
-         * Specifies if a Front Door Health Probe should be expected.
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          */
         xFdHealthProbe?: string;
         /**
@@ -12745,7 +12802,7 @@ export namespace appservice {
          */
         physicalPath: string;
         /**
-         * Should pre-loading be enabled. Defaults to `false`.
+         * Should pre-loading be enabled.
          */
         preload: boolean;
         /**
@@ -12955,7 +13012,7 @@ export namespace appservice {
 
     export interface WindowsWebAppSlotBackup {
         /**
-         * Should this backup job be enabled?
+         * Should this backup job be enabled? Defaults to `true`.
          */
         enabled?: boolean;
         /**
@@ -12987,7 +13044,7 @@ export namespace appservice {
         keepAtLeastOneBackup?: boolean;
         lastExecutionTime: string;
         /**
-         * After how many days backups should be deleted.
+         * After how many days backups should be deleted. Defaults to `30`.
          */
         retentionPeriodDays?: number;
         /**
@@ -13110,7 +13167,7 @@ export namespace appservice {
 
     export interface WindowsWebAppSlotSiteConfig {
         /**
-         * If this Windows Web App Slot is Always On enabled. Defaults to `false`.
+         * If this Windows Web App Slot is Always On enabled. Defaults to `true`.
          */
         alwaysOn?: boolean;
         /**
@@ -13253,7 +13310,7 @@ export namespace appservice {
          */
         dockerContainerTag?: string;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0` .
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values are `v2.0`, `v3.0`, `core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0` .
          */
         dotnetVersion?: string;
         /**
@@ -13295,7 +13352,7 @@ export namespace appservice {
 
     export interface WindowsWebAppSlotSiteConfigAutoHealSettingAction {
         /**
-         * Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+         * Predefined action to be taken to an Auto Heal trigger. Possible values are `CustomAction`, `LogEvent` and `Recycle`.
          */
         actionType: string;
         /**
@@ -13424,7 +13481,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The priority value of this `ipRestriction`.
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
          */
         priority?: number;
         /**
@@ -13443,7 +13500,7 @@ export namespace appservice {
          */
         xAzureFdids?: string[];
         /**
-         * Specifies if a Front Door Health Probe should be expected.
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          */
         xFdHealthProbe?: string;
         /**
@@ -13474,7 +13531,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The priority value of this `ipRestriction`.
+         * The priority value of this `ipRestriction`. Defaults to `65000`.
          */
         priority?: number;
         /**
@@ -13493,7 +13550,7 @@ export namespace appservice {
          */
         xAzureFdids?: string[];
         /**
-         * Specifies if a Front Door Health Probe should be expected.
+         * Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
          */
         xFdHealthProbe?: string;
         /**
@@ -13512,7 +13569,7 @@ export namespace appservice {
          */
         physicalPath: string;
         /**
-         * Should pre-loading be enabled. Defaults to `false`.
+         * Should pre-loading be enabled.
          */
         preload: boolean;
         /**
@@ -13652,7 +13709,7 @@ export namespace authorization {
 export namespace automation {
     export interface AccountEncryption {
         /**
-         * The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+         * The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
          */
         keySource: string;
         /**
@@ -13930,7 +13987,7 @@ export namespace automation {
          */
         frequency?: string;
         /**
-         * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+         * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
          */
         interval?: number;
         /**
@@ -15335,7 +15392,7 @@ export namespace batch {
          */
         resourceFiles?: outputs.batch.PoolStartTaskResourceFile[];
         /**
-         * The number of retry count. Defaults to `1`.
+         * The number of retry count.
          */
         taskRetryMaximum?: number;
         /**
@@ -15523,6 +15580,31 @@ export namespace batch {
 
 }
 
+export namespace billing {
+    export interface AccountCostManagementExportExportDataOptions {
+        /**
+         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+         */
+        timeFrame: string;
+        /**
+         * The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
+         */
+        type: string;
+    }
+
+    export interface AccountCostManagementExportExportDataStorageLocation {
+        /**
+         * The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
+         */
+        containerId: string;
+        /**
+         * The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+         */
+        rootFolderPath: string;
+    }
+
+}
+
 export namespace blueprint {
     export interface AssignmentIdentity {
         /**
@@ -15540,7 +15622,7 @@ export namespace blueprint {
 export namespace bot {
     export interface ChannelDirectLineSite {
         /**
-         * Enables/Disables this site. Enabled by default
+         * Enables/Disables this site. Enabled by default Defaults to `true`.
          */
         enabled?: boolean;
         /**
@@ -15568,11 +15650,11 @@ export namespace bot {
          */
         trustedOrigins?: string[];
         /**
-         * Enables v1 of the Directline protocol for this site. Enabled by default
+         * Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
          */
         v1Allowed?: boolean;
         /**
-         * Enables v3 of the Directline protocol for this site. Enabled by default
+         * Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
          */
         v3Allowed?: boolean;
     }
@@ -16455,7 +16537,7 @@ export namespace cdn {
          */
         privateLinkTargetId: string;
         /**
-         * Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
+         * Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
          */
         requestMessage?: string;
         /**
@@ -16538,11 +16620,11 @@ export namespace cdn {
 
     export interface FrontdoorRuleActionsRouteConfigurationOverrideAction {
         /**
-         * `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
+         * `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`.
          */
         cacheBehavior?: string;
         /**
-         * When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
+         * When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
          */
         cacheDuration?: string;
         /**
@@ -16550,7 +16632,7 @@ export namespace cdn {
          */
         cdnFrontdoorOriginGroupId?: string;
         /**
-         * Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+         * Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
          */
         compressionEnabled?: boolean;
         /**
@@ -16558,7 +16640,7 @@ export namespace cdn {
          */
         forwardingProtocol?: string;
         /**
-         * `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
+         * `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`.
          */
         queryStringCachingBehavior?: string;
         /**
@@ -16569,7 +16651,7 @@ export namespace cdn {
 
     export interface FrontdoorRuleActionsUrlRedirectAction {
         /**
-         * The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
+         * The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `""`.
          */
         destinationFragment?: string;
         /**
@@ -16577,11 +16659,11 @@ export namespace cdn {
          */
         destinationHostname: string;
         /**
-         * The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
+         * The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `""`.
          */
         destinationPath?: string;
         /**
-         * The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
+         * The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `""`.
          */
         queryString?: string;
         /**
@@ -16721,7 +16803,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -16740,7 +16822,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -16762,7 +16844,7 @@ export namespace cdn {
 
     export interface FrontdoorRuleConditionsIsDeviceCondition {
         /**
-         * Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+         * Which device should this rule match on? Possible values `Mobile` or `Desktop`.
          */
         matchValues?: string;
         /**
@@ -16793,7 +16875,7 @@ export namespace cdn {
          */
         postArgsName: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -16812,7 +16894,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -16846,7 +16928,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -16869,7 +16951,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -16891,7 +16973,7 @@ export namespace cdn {
 
     export interface FrontdoorRuleConditionsRequestSchemeCondition {
         /**
-         * The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+         * The requests protocol to match. Possible values include `HTTP` or `HTTPS`.
          */
         matchValues?: string;
         /**
@@ -16918,7 +17000,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -16948,14 +17030,14 @@ export namespace cdn {
          */
         negateCondition?: boolean;
         /**
-         * The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+         * The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
          */
         operator?: string;
     }
 
     export interface FrontdoorRuleConditionsSslProtocolCondition {
         /**
-         * A list of one or more HTTP methods. Possible values include `TLSv1.0`, `TLSv1.1` or `TLS1.2`. If multiple values are specified, they're evaluated using `OR` logic.
+         * A list of one or more HTTP methods. Possible values are `TLSv1`, `TLSv1.1` and `TLSv1.2` logic.
          */
         matchValues: string[];
         /**
@@ -16982,7 +17064,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -17001,7 +17083,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -17020,7 +17102,7 @@ export namespace cdn {
          */
         operator: string;
         /**
-         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
          */
         transforms?: string[];
     }
@@ -17218,6 +17300,28 @@ export namespace cognitive {
          * Full resource id of a Microsoft.Storage resource.
          */
         storageAccountId: string;
+    }
+
+    export interface DeploymentModel {
+        /**
+         * The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+         */
+        format: string;
+        /**
+         * The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * The version of Cognitive Services Account Deployment model.
+         */
+        version: string;
+    }
+
+    export interface DeploymentScale {
+        /**
+         * Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+         */
+        type: string;
     }
 
 }
@@ -17825,7 +17929,7 @@ export namespace compute {
          */
         osState?: string;
         /**
-         * Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
+         * Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
          */
         osType?: string;
         /**
@@ -17986,7 +18090,7 @@ export namespace compute {
          */
         enabled: boolean;
         /**
-         * Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+         * Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
          */
         gracePeriod?: string;
     }
@@ -18052,7 +18156,7 @@ export namespace compute {
          */
         autoUpgradeMinorVersion?: boolean;
         /**
-         * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+         * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
          */
         automaticUpgradeEnabled?: boolean;
         /**
@@ -18310,7 +18414,7 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetRollingUpgradePolicy {
         /**
-         * Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+         * Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
          */
         crossZoneUpgradesEnabled?: boolean;
         /**
@@ -18330,7 +18434,7 @@ export namespace compute {
          */
         pauseTimeBetweenBatches: string;
         /**
-         * Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+         * Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
          */
         prioritizeUnhealthyInstancesEnabled?: boolean;
     }
@@ -18396,22 +18500,22 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetTerminateNotification {
         /**
-         * Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+         * Should the terminate notification be enabled on this Virtual Machine Scale Set?
          */
         enabled: boolean;
         /**
-         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
          */
         timeout?: string;
     }
 
     export interface LinuxVirtualMachineScaleSetTerminationNotification {
         /**
-         * Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+         * Should the termination notification be enabled on this Virtual Machine Scale Set?
          */
         enabled: boolean;
         /**
-         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
          */
         timeout?: string;
     }
@@ -18455,11 +18559,11 @@ export namespace compute {
 
     export interface LinuxVirtualMachineTerminationNotification {
         /**
-         * Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+         * Should the termination notification be enabled on this Virtual Machine?
          */
         enabled: boolean;
         /**
-         * Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         * Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
          */
         timeout?: string;
     }
@@ -18532,7 +18636,7 @@ export namespace compute {
          */
         caching: string;
         /**
-         * The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+         * The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
          */
         createOption?: string;
         /**
@@ -18558,7 +18662,7 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetExtension {
         /**
-         * Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to true.
+         * Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
          */
         autoUpgradeMinorVersionEnabled?: boolean;
         /**
@@ -18566,7 +18670,7 @@ export namespace compute {
          */
         extensionsToProvisionAfterVmCreations?: string[];
         /**
-         * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+         * Should failures from the extension be suppressed? Possible values are `true` or `false`.
          */
         failureSuppressionEnabled?: boolean;
         /**
@@ -18710,7 +18814,7 @@ export namespace compute {
          */
         publicIpPrefixId?: string;
         /**
-         * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+         * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
          */
         skuName?: string;
         /**
@@ -18961,7 +19065,7 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetTerminationNotification {
         /**
-         * Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false` Defaults to `false`.
+         * Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
          */
         enabled: boolean;
         /**
@@ -19010,7 +19114,7 @@ export namespace compute {
 
     export interface ScaleSetBootDiagnostics {
         /**
-         * Whether to enable boot diagnostics for the virtual machine.
+         * Whether to enable boot diagnostics for the virtual machine. Defaults to `true`.
          */
         enabled?: boolean;
         /**
@@ -19068,7 +19172,7 @@ export namespace compute {
 
     export interface ScaleSetNetworkProfile {
         /**
-         * Specifies whether to enable accelerated networking or not. Defaults to `false`.
+         * Specifies whether to enable accelerated networking or not.
          */
         acceleratedNetworking?: boolean;
         /**
@@ -19956,7 +20060,7 @@ export namespace compute {
          */
         enabled: boolean;
         /**
-         * Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+         * Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
          */
         gracePeriod?: string;
     }
@@ -20022,7 +20126,7 @@ export namespace compute {
          */
         autoUpgradeMinorVersion?: boolean;
         /**
-         * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+         * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
          */
         automaticUpgradeEnabled?: boolean;
         /**
@@ -20280,7 +20384,7 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetRollingUpgradePolicy {
         /**
-         * Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+         * Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
          */
         crossZoneUpgradesEnabled?: boolean;
         /**
@@ -20300,7 +20404,7 @@ export namespace compute {
          */
         pauseTimeBetweenBatches: string;
         /**
-         * Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+         * Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
          */
         prioritizeUnhealthyInstancesEnabled?: boolean;
     }
@@ -20370,22 +20474,22 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetTerminateNotification {
         /**
-         * Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+         * Should the terminate notification be enabled on this Virtual Machine Scale Set?
          */
         enabled: boolean;
         /**
-         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
          */
         timeout?: string;
     }
 
     export interface WindowsVirtualMachineScaleSetTerminationNotification {
         /**
-         * Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+         * Should the termination notification be enabled on this Virtual Machine Scale Set?
          */
         enabled: boolean;
         /**
-         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
          */
         timeout?: string;
     }
@@ -20444,11 +20548,11 @@ export namespace compute {
 
     export interface WindowsVirtualMachineTerminationNotification {
         /**
-         * Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+         * Should the termination notification be enabled on this Virtual Machine?
          */
         enabled: boolean;
         /**
-         * Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         * Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
          */
         timeout?: string;
     }
@@ -20667,7 +20771,7 @@ export namespace consumption {
          */
         contactEmails: string[];
         /**
-         * Should the notification be enabled?
+         * Should the notification be enabled? Defaults to `true`.
          */
         enabled?: boolean;
         /**
@@ -20797,7 +20901,7 @@ export namespace consumption {
          */
         contactRoles?: string[];
         /**
-         * Should the notification be enabled?
+         * Should the notification be enabled? Defaults to `true`.
          */
         enabled?: boolean;
         /**
@@ -20927,7 +21031,7 @@ export namespace consumption {
          */
         contactRoles?: string[];
         /**
-         * Should the notification be enabled?
+         * Should the notification be enabled? Defaults to `true`.
          */
         enabled?: boolean;
         /**
@@ -22161,19 +22265,19 @@ export namespace containerservice {
          */
         capacityReservationGroupId?: string;
         /**
-         * Specifies whether to trust a Custom CA. Defaults to `false`.
+         * Specifies whether to trust a Custom CA.
          */
         customCaTrustEnabled?: boolean;
         /**
-         * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
+         * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
          */
         enableAutoScaling?: boolean;
         /**
-         * Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+         * Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
          */
         enableHostEncryption?: boolean;
         /**
-         * Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
+         * Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
          */
         enableNodePublicIp?: boolean;
         /**
@@ -23161,7 +23265,7 @@ export namespace containerservice {
          */
         location: string;
         /**
-         * Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+         * Whether regional endpoint is enabled for this Container Registry?
          */
         regionalEndpointEnabled?: boolean;
         /**
@@ -23631,6 +23735,88 @@ export namespace core {
         tenantId: string;
     }
 
+    export interface ResourceDeploymentScriptAzureCliContainer {
+        /**
+         * Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+         */
+        containerGroupName?: string;
+    }
+
+    export interface ResourceDeploymentScriptAzureCliEnvironmentVariable {
+        /**
+         * Specifies the name of the environment variable.
+         */
+        name: string;
+        /**
+         * Specifies the value of the secure environment variable.
+         */
+        secureValue?: string;
+        /**
+         * Specifies the value of the environment variable.
+         */
+        value?: string;
+    }
+
+    export interface ResourceDeploymentScriptAzureCliIdentity {
+        identityIds: string[];
+        /**
+         * Type of the managed identity.
+         */
+        type: string;
+    }
+
+    export interface ResourceDeploymentScriptAzureCliStorageAccount {
+        /**
+         * Specifies the storage account access key.
+         */
+        key: string;
+        /**
+         * Specifies the storage account name.
+         */
+        name: string;
+    }
+
+    export interface ResourceDeploymentScriptPowerShellContainer {
+        /**
+         * Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+         */
+        containerGroupName?: string;
+    }
+
+    export interface ResourceDeploymentScriptPowerShellEnvironmentVariable {
+        /**
+         * Specifies the name of the environment variable.
+         */
+        name: string;
+        /**
+         * Specifies the value of the secure environment variable.
+         */
+        secureValue?: string;
+        /**
+         * Specifies the value of the environment variable.
+         */
+        value?: string;
+    }
+
+    export interface ResourceDeploymentScriptPowerShellIdentity {
+        identityIds: string[];
+        /**
+         * Type of the managed identity.
+         */
+        type: string;
+    }
+
+    export interface ResourceDeploymentScriptPowerShellStorageAccount {
+        /**
+         * Specifies the storage account access key.
+         */
+        key: string;
+        /**
+         * Specifies the storage account name.
+         */
+        name: string;
+    }
+
     export interface ResourceGroupCostManagementExportExportDataOptions {
         /**
          * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
@@ -23800,7 +23986,7 @@ export namespace cosmosdb {
          */
         storageRedundancy: string;
         /**
-         * The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+         * The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
          */
         type: string;
     }
@@ -26070,7 +26256,7 @@ export namespace datafactory {
          */
         maxNumberOfWorkers?: number;
         /**
-         * The minimum number of worker nodes. Defaults to 1.
+         * The minimum number of worker nodes. Defaults to `1`.
          */
         minNumberOfWorkers?: number;
     }
@@ -26112,7 +26298,7 @@ export namespace datafactory {
          */
         maxNumberOfWorkers?: number;
         /**
-         * The minimum number of worker nodes. Defaults to 1.
+         * The minimum number of worker nodes. Defaults to `1`.
          */
         minNumberOfWorkers?: number;
         /**
@@ -26323,7 +26509,7 @@ export namespace datafactory {
          */
         count: number;
         /**
-         * The Interval in seconds between each retry if the pipeline run failed.
+         * The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
          */
         interval?: number;
     }
@@ -26963,7 +27149,7 @@ export namespace dns {
         expireTime?: number;
         fqdn: string;
         /**
-         * The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+         * The domain name of the authoritative name server for the SOA record.
          */
         hostName: string;
         /**
@@ -27128,7 +27314,7 @@ export namespace domainservices {
         certificateExpiry: string;
         certificateThumbprint: string;
         /**
-         * Whether to enable secure LDAP for the managed domain. Defaults to `false`. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
+         * Whether to enable secure LDAP for the managed domain. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
          */
         enabled: boolean;
         /**
@@ -27665,7 +27851,7 @@ export namespace eventgrid {
 
     export interface EventSubscriptionRetryPolicy {
         /**
-         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
          */
         eventTimeToLive: number;
         /**
@@ -27702,7 +27888,7 @@ export namespace eventgrid {
 
     export interface EventSubscriptionSubjectFilter {
         /**
-         * Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
+         * Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value
          */
         caseSensitive?: boolean;
         /**
@@ -28156,7 +28342,7 @@ export namespace eventgrid {
 
     export interface SystemTopicEventSubscriptionRetryPolicy {
         /**
-         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
          */
         eventTimeToLive: number;
         /**
@@ -28193,7 +28379,7 @@ export namespace eventgrid {
 
     export interface SystemTopicEventSubscriptionSubjectFilter {
         /**
-         * Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
+         * Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value
          */
         caseSensitive?: boolean;
         /**
@@ -28569,7 +28755,7 @@ export namespace eventhub {
 
     export interface EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
         /**
-         * Are missing virtual network service endpoints ignored? Defaults to `false`.
+         * Are missing virtual network service endpoints ignored?
          */
         ignoreMissingVirtualNetworkServiceEndpoint?: boolean;
         /**
@@ -28920,7 +29106,7 @@ export namespace eventhub {
 
     export interface EventSubscriptionRetryPolicy {
         /**
-         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
          */
         eventTimeToLive: number;
         /**
@@ -28957,7 +29143,7 @@ export namespace eventhub {
 
     export interface EventSubscriptionSubjectFilter {
         /**
-         * Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
+         * Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value
          */
         caseSensitive?: boolean;
         /**
@@ -29116,7 +29302,7 @@ export namespace frontdoor {
          */
         azureKeyVaultCertificateSecretName?: string;
         /**
-         * The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
+         * The version of the Key Vault secret representing the full certificate PFX.
          */
         azureKeyVaultCertificateSecretVersion?: string;
         /**
@@ -29371,7 +29557,7 @@ export namespace frontdoor {
          */
         path?: string;
         /**
-         * Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+         * Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
          */
         probeMethod?: string;
         /**
@@ -29451,7 +29637,7 @@ export namespace frontdoor {
 
     export interface FrontdoorRoutingRule {
         /**
-         * Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
+         * Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
          */
         acceptedProtocols: string[];
         /**
@@ -29475,7 +29661,7 @@ export namespace frontdoor {
          */
         name: string;
         /**
-         * The route patterns for the Backend Routing Rule. Defaults to `/*`.
+         * The route patterns for the Backend Routing Rule.
          */
         patternsToMatches: string[];
         /**
@@ -29537,7 +29723,7 @@ export namespace frontdoor {
          */
         customQueryString?: string;
         /**
-         * Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+         * Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`.
          */
         redirectProtocol: string;
         /**
@@ -29616,7 +29802,7 @@ export namespace frontdoor {
          */
         operator: string;
         /**
-         * match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
+         * match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
          */
         selector?: string;
         /**
@@ -29842,7 +30028,7 @@ export namespace hdinsight {
          */
         virtualNetworkId?: string;
         /**
-         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -29896,7 +30082,7 @@ export namespace hdinsight {
          */
         virtualNetworkId?: string;
         /**
-         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -29921,7 +30107,7 @@ export namespace hdinsight {
 
     export interface HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
         /**
-         * The days of the week to perform autoscale.
+         * The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
          */
         days: string[];
         /**
@@ -29975,7 +30161,7 @@ export namespace hdinsight {
          */
         virtualNetworkId?: string;
         /**
-         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -30245,7 +30431,7 @@ export namespace hdinsight {
         targetInstanceCount: number;
         uninstallScriptActions?: outputs.hdinsight.HadoopClusterRolesEdgeNodeUninstallScriptAction[];
         /**
-         * The Size of the Virtual Machine which should be used as the Edge Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -30329,7 +30515,7 @@ export namespace hdinsight {
          */
         virtualNetworkId?: string;
         /**
-         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -30383,7 +30569,7 @@ export namespace hdinsight {
          */
         virtualNetworkId?: string;
         /**
-         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -30423,7 +30609,7 @@ export namespace hdinsight {
 
     export interface HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
         /**
-         * The days of the week to perform autoscale.
+         * The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
          */
         days: string[];
         /**
@@ -30477,7 +30663,7 @@ export namespace hdinsight {
          */
         virtualNetworkId?: string;
         /**
-         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -30754,7 +30940,7 @@ export namespace hdinsight {
          */
         virtualNetworkId?: string;
         /**
-         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -30808,7 +30994,7 @@ export namespace hdinsight {
          */
         virtualNetworkId?: string;
         /**
-         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -30848,7 +31034,7 @@ export namespace hdinsight {
 
     export interface InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
         /**
-         * The days of the week to perform autoscale.
+         * The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
          */
         days: string[];
         /**
@@ -30902,7 +31088,7 @@ export namespace hdinsight {
          */
         virtualNetworkId?: string;
         /**
-         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -31194,7 +31380,7 @@ export namespace hdinsight {
          */
         virtualNetworkId?: string;
         /**
-         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -31231,7 +31417,7 @@ export namespace hdinsight {
          */
         virtualNetworkId?: string;
         /**
-         * The Size of the Virtual Machine which should be used as the Kafka Management Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Kafka Management Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -31276,7 +31462,7 @@ export namespace hdinsight {
          */
         virtualNetworkId?: string;
         /**
-         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -31313,7 +31499,7 @@ export namespace hdinsight {
          */
         virtualNetworkId?: string;
         /**
-         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -31587,7 +31773,7 @@ export namespace hdinsight {
          */
         virtualNetworkId?: string;
         /**
-         * The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -31641,7 +31827,7 @@ export namespace hdinsight {
          */
         virtualNetworkId?: string;
         /**
-         * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -31681,7 +31867,7 @@ export namespace hdinsight {
 
     export interface SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
         /**
-         * The days of the week to perform autoscale.
+         * The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
          */
         days: string[];
         /**
@@ -31735,7 +31921,7 @@ export namespace hdinsight {
          */
         virtualNetworkId?: string;
         /**
-         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
+         * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
          */
         vmSize: string;
     }
@@ -32124,7 +32310,7 @@ export namespace hpc {
          */
         filter?: string;
         /**
-         * Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+         * Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
          */
         rootSquashEnabled?: boolean;
         /**
@@ -32132,11 +32318,11 @@ export namespace hpc {
          */
         scope: string;
         /**
-         * Whether allow access to subdirectories under the root export? Defaults to `false`.
+         * Whether allow access to subdirectories under the root export?
          */
         submountAccessEnabled?: boolean;
         /**
-         * Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+         * Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
          */
         suidEnabled?: boolean;
     }
@@ -32166,7 +32352,7 @@ export namespace hpc {
          */
         filter?: string;
         /**
-         * Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+         * Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
          */
         rootSquashEnabled?: boolean;
         /**
@@ -32174,11 +32360,11 @@ export namespace hpc {
          */
         scope: string;
         /**
-         * Whether allow access to subdirectories under the root export? Defaults to `false`.
+         * Whether allow access to subdirectories under the root export?
          */
         submountAccessEnabled?: boolean;
         /**
-         * Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+         * Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
          */
         suidEnabled?: boolean;
     }
@@ -32239,11 +32425,11 @@ export namespace hpc {
          */
         certificateValidationUri?: string;
         /**
-         * Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided. Defaults to `false`.
+         * Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided.
          */
         downloadCertificateAutomatically?: boolean;
         /**
-         * Whether the LDAP connection should be encrypted? Defaults to `false`.
+         * Whether the LDAP connection should be encrypted?
          */
         encrypted?: boolean;
         /**
@@ -32662,11 +32848,11 @@ export namespace iot {
 
     export interface IotHubDpsLinkedHub {
         /**
-         * The weight applied to the IoT Hub. Defaults to 0.
+         * The weight applied to the IoT Hub. Defaults to `1`.
          */
         allocationWeight?: number;
         /**
-         * Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
+         * Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
          */
         applyAllocationPolicy?: boolean;
         /**
@@ -32946,7 +33132,7 @@ export namespace keyvault {
          */
         keySize: number;
         /**
-         * Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+         * Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
          */
         keyType: string;
         /**
@@ -33111,7 +33297,7 @@ export namespace keyvault {
          */
         keySize: number;
         /**
-         * Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+         * Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
          */
         keyType: string;
         /**
@@ -33192,6 +33378,21 @@ export namespace keyvault {
          * A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
          */
         upns?: string[];
+    }
+
+    export interface CertificateContactsContact {
+        /**
+         * E-mail address of the contact.
+         */
+        email: string;
+        /**
+         * Name of the contact.
+         */
+        name?: string;
+        /**
+         * Phone number of the contact.
+         */
+        phone?: string;
     }
 
     export interface CertificateIssuerAdmin {
@@ -33404,7 +33605,7 @@ export namespace keyvault {
          */
         certificatePermissions?: string[];
         /**
-         * List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
+         * List of key permissions. Possible values are `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy` and `SetRotationPolicy`.
          */
         keyPermissions?: string[];
         /**
@@ -33554,6 +33755,66 @@ export namespace kusto {
          * The subnet resource id.
          */
         subnetId: string;
+    }
+
+}
+
+export namespace lab {
+    export interface ServicePlanDefaultAutoShutdown {
+        /**
+         * The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+         */
+        disconnectDelay?: string;
+        /**
+         * The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+         */
+        idleDelay?: string;
+        /**
+         * The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
+         */
+        noConnectDelay?: string;
+        /**
+         * Will a VM get shutdown when it has idled for a period of time? Possible values are `LowUsage` and `UserAbsence`.
+         */
+        shutdownOnIdle?: string;
+    }
+
+    export interface ServicePlanDefaultConnection {
+        /**
+         * The enabled access level for Client Access over RDP. Possible values are `Private` and `Public`.
+         */
+        clientRdpAccess?: string;
+        /**
+         * The enabled access level for Client Access over SSH. Possible values are `Private` and `Public`.
+         */
+        clientSshAccess?: string;
+        /**
+         * The enabled access level for Web Access over RDP. Possible values are `Private` and `Public`.
+         */
+        webRdpAccess?: string;
+        /**
+         * The enabled access level for Web Access over SSH. Possible values are `Private` and `Public`.
+         */
+        webSshAccess?: string;
+    }
+
+    export interface ServicePlanSupport {
+        /**
+         * The email address for the support contact.
+         */
+        email?: string;
+        /**
+         * The instructions for users of the Lab Service Plan.
+         */
+        instructions?: string;
+        /**
+         * The phone number for the support contact.
+         */
+        phone?: string;
+        /**
+         * The web address for users of the Lab Service Plan.
+         */
+        url?: string;
     }
 
 }
@@ -34208,7 +34469,7 @@ export namespace logicapps {
          */
         scmIpRestrictions: outputs.logicapps.StandardSiteConfigScmIpRestriction[];
         /**
-         * Configures the minimum version of TLS required for SSL requests to the SCM site.
+         * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
          */
         scmMinTlsVersion: string;
         /**
@@ -34599,23 +34860,23 @@ export namespace machinelearning {
 
     export interface InferenceClusterSsl {
         /**
-         * The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
+         * The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
          */
         cert?: string;
         /**
-         * The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
+         * The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
          */
         cname?: string;
         /**
-         * The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
+         * The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
          */
         key?: string;
         /**
-         * The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created.
+         * The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
          */
         leafDomainLabel?: string;
         /**
-         * Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created.
+         * Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
          */
         overwriteExistingDomain?: boolean;
     }
@@ -35536,7 +35797,7 @@ export namespace media {
 
     export interface TransformOutputBuiltinPreset {
         /**
-         * The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
+         * The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
          */
         presetName: string;
     }
@@ -36233,7 +36494,7 @@ export namespace monitoring {
          */
         events?: string[];
         /**
-         * Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+         * Locations this alert will monitor. For example, `West Europe`.
          */
         locations?: string[];
         /**
@@ -36882,7 +37143,7 @@ export namespace monitoring {
          */
         threshold: number;
         /**
-         * Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+         * Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`.
          */
         timeAggregation: string;
         /**
@@ -36924,7 +37185,7 @@ export namespace monitoring {
          */
         type: string;
         /**
-         * The number of instances involved in the scaling action. Defaults to `1`.
+         * The number of instances involved in the scaling action.
          */
         value: number;
     }
@@ -37559,7 +37820,7 @@ export namespace monitoring {
 
     export interface LogProfileRetentionPolicy {
         /**
-         * The number of days for the retention policy. Defaults to 0.
+         * The number of days for the retention policy. Defaults to `0`.
          */
         days?: number;
         /**
@@ -37741,11 +38002,11 @@ export namespace monitoring {
          */
         dimensions?: outputs.monitoring.MetricAlertDynamicCriteriaDimension[];
         /**
-         * The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`.
+         * The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`. Defaults to `4`.
          */
         evaluationFailureCount?: number;
         /**
-         * The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points.
+         * The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points. Defaults to `4`.
          */
         evaluationTotalCount?: number;
         /**
@@ -37765,7 +38026,7 @@ export namespace monitoring {
          */
         operator: string;
         /**
-         * Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+         * Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted?
          */
         skipMetricValidation?: boolean;
     }
@@ -38017,7 +38278,7 @@ export namespace mssql {
          */
         disabledAlerts?: string[];
         /**
-         * Should the account administrators be emailed when this alert is triggered?
+         * Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
          */
         emailAccountAdmins?: string;
         /**
@@ -38070,7 +38331,7 @@ export namespace mssql {
          */
         family?: string;
         /**
-         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Changing this forces a new resource to be created.
+         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Possible values are `BasicPool`, `StandardPool`, `PremiumPool`, `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5` and `BC_DC`. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -38331,7 +38592,7 @@ export namespace mssql {
          */
         storageBlobEndpoint: string;
         /**
-         * Include or exclude system databases from auto backup. Defaults to `false`.
+         * Include or exclude system databases from auto backup.
          */
         systemDatabasesBackupEnabled?: boolean;
     }
@@ -38652,7 +38913,7 @@ export namespace mysql {
 
     export interface ServerThreatDetectionPolicy {
         /**
-         * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+         * Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
          */
         disabledAlerts?: string[];
         /**
@@ -39175,7 +39436,7 @@ export namespace network {
          */
         protocol: string;
         /**
-         * Should Server Name Indication be Required? Defaults to `false`.
+         * Should Server Name Indication be Required?
          */
         requireSni?: boolean;
         /**
@@ -39806,18 +40067,18 @@ export namespace network {
          */
         requestBodyCheck?: boolean;
         /**
-         * The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
+         * The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
          */
         ruleSetType?: string;
         /**
-         * The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
+         * The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
          */
         ruleSetVersion: string;
     }
 
     export interface ApplicationGatewayWafConfigurationDisabledRuleGroup {
         /**
-         * The rule group where specific rules should be disabled. Accepted values are:  `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
+         * The rule group where specific rules should be disabled. Possible values are `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
          */
         ruleGroupName: string;
         /**
@@ -39870,11 +40131,11 @@ export namespace network {
          */
         advertisedPublicPrefixes?: string[];
         /**
-         * The CustomerASN of the peering.
+         * The CustomerASN of the peering. Defaults to `0`.
          */
         customerAsn?: number;
         /**
-         * The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+         * The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
          */
         routingRegistryName?: string;
     }
@@ -39885,11 +40146,11 @@ export namespace network {
          */
         advertisedPublicPrefixes: string[];
         /**
-         * The CustomerASN of the peering.
+         * The CustomerASN of the peering. Defaults to `0`.
          */
         customerAsn?: number;
         /**
-         * The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+         * The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
          */
         routingRegistryName?: string;
     }
@@ -41579,7 +41840,7 @@ export namespace network {
          */
         enabled: boolean;
         /**
-         * How frequently service should do flow analytics in minutes.
+         * How frequently service should do flow analytics in minutes. Defaults to `60`.
          */
         intervalInMinutes?: number;
         /**
@@ -41598,7 +41859,7 @@ export namespace network {
 
     export interface PointToPointVpnGatewayConnectionConfiguration {
         /**
-         * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
+         * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
          */
         internetSecurityEnabled?: boolean;
         /**
@@ -41789,11 +42050,11 @@ export namespace network {
 
     export interface SubnetDelegationServiceDelegation {
         /**
-         * A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/publicIPAddresses/read`,`Microsoft.Network/virtualNetworks/read`,`Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+         * A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
          */
         actions?: string[];
         /**
-         * The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`,`Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
+         * The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
          */
         name: string;
     }
@@ -42680,7 +42941,7 @@ export namespace network {
          */
         providerName?: string;
         /**
-         * The speed of the VPN device at the branch location in unit of mbps.
+         * The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
          */
         speedInMbps?: number;
     }
@@ -43207,7 +43468,7 @@ export namespace postgresql {
 
     export interface ServerThreatDetectionPolicy {
         /**
-         * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+         * Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
          */
         disabledAlerts?: string[];
         /**
@@ -43745,7 +44006,7 @@ export namespace redis {
          */
         maxmemoryDelta: number;
         /**
-         * How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
+         * How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
          */
         maxmemoryPolicy?: string;
         /**
@@ -43776,11 +44037,11 @@ export namespace redis {
 
     export interface EnterpriseDatabaseModule {
         /**
-         * Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
+         * Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
          */
         args?: string;
         /**
-         * The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+         * The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
          */
         name: string;
         version: string;
@@ -45173,7 +45434,7 @@ export namespace sql {
          */
         disabledAlerts?: string[];
         /**
-         * Should the account administrators be emailed when this alert is triggered?
+         * Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
          */
         emailAccountAdmins?: string;
         /**
@@ -46232,81 +46493,81 @@ export namespace storage {
 
     export interface ManagementPolicyRuleActionsBaseBlob {
         /**
-         * The age in days after creation to delete the blob. Must be between `0` and `99999`.
+         * The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
          */
         deleteAfterDaysSinceCreationGreaterThan?: number;
         /**
-         * The age in days after last access time to delete the blob. Must be between `0` and `99999`.
+         * The age in days after last access time to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
          */
         deleteAfterDaysSinceLastAccessTimeGreaterThan?: number;
         /**
-         * The age in days after last modification to delete the blob. Must be between 0 and 99999.
+         * The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
          */
         deleteAfterDaysSinceModificationGreaterThan?: number;
         /**
-         * The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
+         * The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
          */
         tierToArchiveAfterDaysSinceCreationGreaterThan?: number;
         /**
-         * The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`.
+         * The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
          */
         tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan?: number;
         /**
-         * The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+         * The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
          */
         tierToArchiveAfterDaysSinceLastTierChangeGreaterThan?: number;
         /**
-         * The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
+         * The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
          */
         tierToArchiveAfterDaysSinceModificationGreaterThan?: number;
         /**
-         * The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+         * The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
          */
         tierToCoolAfterDaysSinceCreationGreaterThan?: number;
         /**
-         * The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
+         * The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
          */
         tierToCoolAfterDaysSinceLastAccessTimeGreaterThan?: number;
         /**
-         * The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
+         * The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
          */
         tierToCoolAfterDaysSinceModificationGreaterThan?: number;
     }
 
     export interface ManagementPolicyRuleActionsSnapshot {
         /**
-         * The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
+         * The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999. Defaults to `-1`.
          */
         changeTierToArchiveAfterDaysSinceCreation?: number;
         /**
-         * The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
+         * The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999. Defaults to `-1`.
          */
         changeTierToCoolAfterDaysSinceCreation?: number;
         /**
-         * The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
+         * The age in days after creation to delete the blob snapshot. Must be between 0 and 99999. Defaults to `-1`.
          */
         deleteAfterDaysSinceCreationGreaterThan?: number;
         /**
-         * The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+         * The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
          */
         tierToArchiveAfterDaysSinceLastTierChangeGreaterThan?: number;
     }
 
     export interface ManagementPolicyRuleActionsVersion {
         /**
-         * The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
+         * The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
          */
         changeTierToArchiveAfterDaysSinceCreation?: number;
         /**
-         * The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999.
+         * The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
          */
         changeTierToCoolAfterDaysSinceCreation?: number;
         /**
-         * The age in days after creation to delete the blob version. Must be between 0 and 99999.
+         * The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
          */
         deleteAfterDaysSinceCreation?: number;
         /**
-         * The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+         * The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
          */
         tierToArchiveAfterDaysSinceLastTierChangeGreaterThan?: number;
     }
@@ -46503,7 +46764,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -46522,7 +46783,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -46541,7 +46802,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -46560,7 +46821,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `    ` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -46579,7 +46840,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -46594,7 +46855,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -46609,7 +46870,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -46624,7 +46885,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -46639,7 +46900,7 @@ export namespace streamanalytics {
          */
         encoding?: string;
         /**
-         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are `` (space), `,` (comma), `` (tab), `|` (pipe) and `;`.
+         * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
          */
         fieldDelimiter?: string;
         /**
@@ -47080,7 +47341,7 @@ export namespace waf {
          */
         excludedRules?: string[];
         /**
-         * The name of rule group for exclusion.
+         * The name of rule group for exclusion. Possible values are `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
          */
         ruleGroupName: string;
     }
@@ -47106,7 +47367,7 @@ export namespace waf {
          */
         disabledRules: string[];
         /**
-         * The name of the Rule Group.
+         * The name of the Rule Group. Possible values are `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
          */
         ruleGroupName: string;
         /**
@@ -47121,7 +47382,7 @@ export namespace waf {
          */
         action?: string;
         /**
-         * Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+         * Describes if the managed rule is in enabled state or disabled state.
          */
         enabled?: boolean;
         /**

@@ -102,7 +102,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<Outputs.FunctionAppSlotConnectionString>> ConnectionStrings { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         /// </summary>
         [Output("dailyMemoryTimeQuota")]
         public Output<int?> DailyMemoryTimeQuota { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.AppService
         public Output<bool?> EnableBuiltinLogging { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Function App enabled?
+        /// Is the Function App enabled? Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         /// </summary>
         [Input("dailyMemoryTimeQuota")]
         public Input<int>? DailyMemoryTimeQuota { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? EnableBuiltinLogging { get; set; }
 
         /// <summary>
-        /// Is the Function App enabled?
+        /// Is the Function App enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -458,7 +458,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         /// </summary>
         [Input("dailyMemoryTimeQuota")]
         public Input<int>? DailyMemoryTimeQuota { get; set; }
@@ -476,7 +476,7 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? EnableBuiltinLogging { get; set; }
 
         /// <summary>
-        /// Is the Function App enabled?
+        /// Is the Function App enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

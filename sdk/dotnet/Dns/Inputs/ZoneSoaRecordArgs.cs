@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Dns.Inputs
         public Input<string>? Fqdn { get; set; }
 
         /// <summary>
-        /// The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+        /// The domain name of the authoritative name server for the SOA record.
         /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;

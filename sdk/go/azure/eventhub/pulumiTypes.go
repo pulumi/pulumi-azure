@@ -2362,7 +2362,7 @@ func (o EventHubNamespaceNetworkRulesetsIpRuleArrayOutput) Index(i pulumi.IntInp
 }
 
 type EventHubNamespaceNetworkRulesetsVirtualNetworkRule struct {
-	// Are missing virtual network service endpoints ignored? Defaults to `false`.
+	// Are missing virtual network service endpoints ignored?
 	IgnoreMissingVirtualNetworkServiceEndpoint *bool `pulumi:"ignoreMissingVirtualNetworkServiceEndpoint"`
 	// The id of the subnet to match on.
 	SubnetId string `pulumi:"subnetId"`
@@ -2380,7 +2380,7 @@ type EventHubNamespaceNetworkRulesetsVirtualNetworkRuleInput interface {
 }
 
 type EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs struct {
-	// Are missing virtual network service endpoints ignored? Defaults to `false`.
+	// Are missing virtual network service endpoints ignored?
 	IgnoreMissingVirtualNetworkServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVirtualNetworkServiceEndpoint"`
 	// The id of the subnet to match on.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -2437,7 +2437,7 @@ func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput) ToEventHubName
 	return o
 }
 
-// Are missing virtual network service endpoints ignored? Defaults to `false`.
+// Are missing virtual network service endpoints ignored?
 func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput) IgnoreMissingVirtualNetworkServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventHubNamespaceNetworkRulesetsVirtualNetworkRule) *bool {
 		return v.IgnoreMissingVirtualNetworkServiceEndpoint
@@ -5599,7 +5599,7 @@ func (o EventSubscriptionDeliveryPropertyArrayOutput) Index(i pulumi.IntInput) E
 }
 
 type EventSubscriptionRetryPolicy struct {
-	// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+	// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
 	EventTimeToLive int `pulumi:"eventTimeToLive"`
 	// Specifies the maximum number of delivery retry attempts for events.
 	MaxDeliveryAttempts int `pulumi:"maxDeliveryAttempts"`
@@ -5617,7 +5617,7 @@ type EventSubscriptionRetryPolicyInput interface {
 }
 
 type EventSubscriptionRetryPolicyArgs struct {
-	// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+	// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
 	EventTimeToLive pulumi.IntInput `pulumi:"eventTimeToLive"`
 	// Specifies the maximum number of delivery retry attempts for events.
 	MaxDeliveryAttempts pulumi.IntInput `pulumi:"maxDeliveryAttempts"`
@@ -5700,7 +5700,7 @@ func (o EventSubscriptionRetryPolicyOutput) ToEventSubscriptionRetryPolicyPtrOut
 	}).(EventSubscriptionRetryPolicyPtrOutput)
 }
 
-// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
 func (o EventSubscriptionRetryPolicyOutput) EventTimeToLive() pulumi.IntOutput {
 	return o.ApplyT(func(v EventSubscriptionRetryPolicy) int { return v.EventTimeToLive }).(pulumi.IntOutput)
 }
@@ -5734,7 +5734,7 @@ func (o EventSubscriptionRetryPolicyPtrOutput) Elem() EventSubscriptionRetryPoli
 	}).(EventSubscriptionRetryPolicyOutput)
 }
 
-// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
 func (o EventSubscriptionRetryPolicyPtrOutput) EventTimeToLive() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionRetryPolicy) *int {
 		if v == nil {
@@ -6086,7 +6086,7 @@ func (o EventSubscriptionStorageQueueEndpointPtrOutput) StorageAccountId() pulum
 }
 
 type EventSubscriptionSubjectFilter struct {
-	// Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
+	// Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value
 	CaseSensitive *bool `pulumi:"caseSensitive"`
 	// A string to filter events for an event subscription based on a resource path prefix.
 	SubjectBeginsWith *string `pulumi:"subjectBeginsWith"`
@@ -6106,7 +6106,7 @@ type EventSubscriptionSubjectFilterInput interface {
 }
 
 type EventSubscriptionSubjectFilterArgs struct {
-	// Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
+	// Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value
 	CaseSensitive pulumi.BoolPtrInput `pulumi:"caseSensitive"`
 	// A string to filter events for an event subscription based on a resource path prefix.
 	SubjectBeginsWith pulumi.StringPtrInput `pulumi:"subjectBeginsWith"`
@@ -6191,7 +6191,7 @@ func (o EventSubscriptionSubjectFilterOutput) ToEventSubscriptionSubjectFilterPt
 	}).(EventSubscriptionSubjectFilterPtrOutput)
 }
 
-// Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
+// Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value
 func (o EventSubscriptionSubjectFilterOutput) CaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionSubjectFilter) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
 }
@@ -6230,7 +6230,7 @@ func (o EventSubscriptionSubjectFilterPtrOutput) Elem() EventSubscriptionSubject
 	}).(EventSubscriptionSubjectFilterOutput)
 }
 
-// Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
+// Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value
 func (o EventSubscriptionSubjectFilterPtrOutput) CaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionSubjectFilter) *bool {
 		if v == nil {

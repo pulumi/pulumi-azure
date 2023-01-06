@@ -26,14 +26,14 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
     public static final FirewallPolicyArgs Empty = new FirewallPolicyArgs();
 
     /**
-     * Whether enable auto learn private ip range. Defaults to `false`.
+     * Whether enable auto learn private ip range.
      * 
      */
     @Import(name="autoLearnPrivateRangesEnabled")
     private @Nullable Output<Boolean> autoLearnPrivateRangesEnabled;
 
     /**
-     * @return Whether enable auto learn private ip range. Defaults to `false`.
+     * @return Whether enable auto learn private ip range.
      * 
      */
     public Optional<Output<Boolean>> autoLearnPrivateRangesEnabled() {
@@ -321,7 +321,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param autoLearnPrivateRangesEnabled Whether enable auto learn private ip range. Defaults to `false`.
+         * @param autoLearnPrivateRangesEnabled Whether enable auto learn private ip range.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param autoLearnPrivateRangesEnabled Whether enable auto learn private ip range. Defaults to `false`.
+         * @param autoLearnPrivateRangesEnabled Whether enable auto learn private ip range.
          * 
          * @return builder
          * 

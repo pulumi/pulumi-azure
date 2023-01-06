@@ -37,10 +37,10 @@ class PlanArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         :param pulumi.Input[str] name: Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
-        :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`. Defaults to `false`.
+        :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
+        :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+        :param pulumi.Input[bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
@@ -162,7 +162,7 @@ class PlanArgs:
     @pulumi.getter(name="perSiteScaling")
     def per_site_scaling(self) -> Optional[pulumi.Input[bool]]:
         """
-        Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+        Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         """
         return pulumi.get(self, "per_site_scaling")
 
@@ -174,7 +174,7 @@ class PlanArgs:
     @pulumi.getter
     def reserved(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is this App Service Plan `Reserved`. Defaults to `false`.
+        Is this App Service Plan `Reserved`.
         """
         return pulumi.get(self, "reserved")
 
@@ -198,7 +198,7 @@ class PlanArgs:
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+        Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_redundant")
 
@@ -231,12 +231,12 @@ class _PlanState:
         :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         :param pulumi.Input[int] maximum_number_of_workers: The maximum number of workers supported with the App Service Plan's sku.
         :param pulumi.Input[str] name: Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
-        :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`. Defaults to `false`.
+        :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
+        :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         :param pulumi.Input['PlanSkuArgs'] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+        :param pulumi.Input[bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
         """
         if app_service_environment_id is not None:
             pulumi.set(__self__, "app_service_environment_id", app_service_environment_id)
@@ -350,7 +350,7 @@ class _PlanState:
     @pulumi.getter(name="perSiteScaling")
     def per_site_scaling(self) -> Optional[pulumi.Input[bool]]:
         """
-        Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+        Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         """
         return pulumi.get(self, "per_site_scaling")
 
@@ -362,7 +362,7 @@ class _PlanState:
     @pulumi.getter
     def reserved(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is this App Service Plan `Reserved`. Defaults to `false`.
+        Is this App Service Plan `Reserved`.
         """
         return pulumi.get(self, "reserved")
 
@@ -410,7 +410,7 @@ class _PlanState:
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+        Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_redundant")
 
@@ -520,12 +520,12 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         :param pulumi.Input[str] name: Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
-        :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`. Defaults to `false`.
+        :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
+        :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['PlanSkuArgs']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+        :param pulumi.Input[bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -698,12 +698,12 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         :param pulumi.Input[int] maximum_number_of_workers: The maximum number of workers supported with the App Service Plan's sku.
         :param pulumi.Input[str] name: Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
-        :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`. Defaults to `false`.
+        :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
+        :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['PlanSkuArgs']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+        :param pulumi.Input[bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -781,7 +781,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter(name="perSiteScaling")
     def per_site_scaling(self) -> pulumi.Output[Optional[bool]]:
         """
-        Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+        Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         """
         return pulumi.get(self, "per_site_scaling")
 
@@ -789,7 +789,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter
     def reserved(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is this App Service Plan `Reserved`. Defaults to `false`.
+        Is this App Service Plan `Reserved`.
         """
         return pulumi.get(self, "reserved")
 
@@ -821,7 +821,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+        Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_redundant")
 

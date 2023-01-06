@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Datadog
         public Output<string> LoginUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the SingleSignOn configuration.
+        /// The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Datadog
         public Input<string> EnterpriseApplicationId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the SingleSignOn configuration.
+        /// The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -174,7 +174,7 @@ namespace Pulumi.Azure.Datadog
         public Input<string>? LoginUrl { get; set; }
 
         /// <summary>
-        /// The name of the SingleSignOn configuration.
+        /// The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

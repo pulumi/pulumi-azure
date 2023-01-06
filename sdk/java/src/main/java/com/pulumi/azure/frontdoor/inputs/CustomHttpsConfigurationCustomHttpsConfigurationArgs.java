@@ -31,14 +31,14 @@ public final class CustomHttpsConfigurationCustomHttpsConfigurationArgs extends 
     }
 
     /**
-     * The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
+     * The version of the Key Vault secret representing the full certificate PFX.
      * 
      */
     @Import(name="azureKeyVaultCertificateSecretVersion")
     private @Nullable Output<String> azureKeyVaultCertificateSecretVersion;
 
     /**
-     * @return The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
+     * @return The version of the Key Vault secret representing the full certificate PFX.
      * 
      */
     public Optional<Output<String>> azureKeyVaultCertificateSecretVersion() {
@@ -156,7 +156,7 @@ public final class CustomHttpsConfigurationCustomHttpsConfigurationArgs extends 
         }
 
         /**
-         * @param azureKeyVaultCertificateSecretVersion The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
+         * @param azureKeyVaultCertificateSecretVersion The version of the Key Vault secret representing the full certificate PFX.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class CustomHttpsConfigurationCustomHttpsConfigurationArgs extends 
         }
 
         /**
-         * @param azureKeyVaultCertificateSecretVersion The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
+         * @param azureKeyVaultCertificateSecretVersion The version of the Key Vault secret representing the full certificate PFX.
          * 
          * @return builder
          * 

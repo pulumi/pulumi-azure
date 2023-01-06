@@ -114,7 +114,7 @@ export class LinkService extends pulumi.CustomResource {
      */
     public readonly autoApprovalSubscriptionIds!: pulumi.Output<string[] | undefined>;
     /**
-     * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     * Should the Private Link Service support the Proxy Protocol?
      */
     public readonly enableProxyProtocol!: pulumi.Output<boolean | undefined>;
     /**
@@ -215,7 +215,7 @@ export interface LinkServiceState {
      */
     autoApprovalSubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     * Should the Private Link Service support the Proxy Protocol?
      */
     enableProxyProtocol?: pulumi.Input<boolean>;
     /**
@@ -261,7 +261,7 @@ export interface LinkServiceArgs {
      */
     autoApprovalSubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     * Should the Private Link Service support the Proxy Protocol?
      */
     enableProxyProtocol?: pulumi.Input<boolean>;
     /**

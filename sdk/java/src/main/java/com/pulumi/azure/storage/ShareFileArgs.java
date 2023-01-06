@@ -107,14 +107,14 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+     * The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+     * @return The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> path() {
@@ -310,7 +310,7 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param path The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+         * @param path The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param path The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+         * @param path The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 

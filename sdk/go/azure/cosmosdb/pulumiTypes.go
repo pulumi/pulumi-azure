@@ -154,7 +154,7 @@ type AccountBackup struct {
 	RetentionInHours *int `pulumi:"retentionInHours"`
 	// The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
 	StorageRedundancy *string `pulumi:"storageRedundancy"`
-	// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+	// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -176,7 +176,7 @@ type AccountBackupArgs struct {
 	RetentionInHours pulumi.IntPtrInput `pulumi:"retentionInHours"`
 	// The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
 	StorageRedundancy pulumi.StringPtrInput `pulumi:"storageRedundancy"`
-	// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+	// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -272,7 +272,7 @@ func (o AccountBackupOutput) StorageRedundancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountBackup) *string { return v.StorageRedundancy }).(pulumi.StringPtrOutput)
 }
 
-// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
 func (o AccountBackupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountBackup) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -331,7 +331,7 @@ func (o AccountBackupPtrOutput) StorageRedundancy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
 func (o AccountBackupPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountBackup) *string {
 		if v == nil {

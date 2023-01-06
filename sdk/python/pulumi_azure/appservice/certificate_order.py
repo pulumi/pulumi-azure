@@ -29,10 +29,10 @@ class CertificateOrderArgs:
         """
         The set of arguments for constructing a CertificateOrder resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+        :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
-        :param pulumi.Input[int] key_size: Certificate key size.  Defaults to 2048.
+        :param pulumi.Input[int] key_size: Certificate key size.  Defaults to `2048`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`.
@@ -75,7 +75,7 @@ class CertificateOrderArgs:
     @pulumi.getter(name="autoRenew")
     def auto_renew(self) -> Optional[pulumi.Input[bool]]:
         """
-        true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+        true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         """
         return pulumi.get(self, "auto_renew")
 
@@ -111,7 +111,7 @@ class CertificateOrderArgs:
     @pulumi.getter(name="keySize")
     def key_size(self) -> Optional[pulumi.Input[int]]:
         """
-        Certificate key size.  Defaults to 2048.
+        Certificate key size.  Defaults to `2048`.
         """
         return pulumi.get(self, "key_size")
 
@@ -205,7 +205,7 @@ class _CertificateOrderState:
         """
         Input properties used for looking up and filtering CertificateOrder resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] app_service_certificate_not_renewable_reasons: Reasons why App Service Certificate is not renewable at the current moment.
-        :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+        :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateOrderCertificateArgs']]] certificates: State of the Key Vault secret. A `certificates` block as defined below.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
@@ -213,7 +213,7 @@ class _CertificateOrderState:
         :param pulumi.Input[str] expiration_time: Certificate expiration time.
         :param pulumi.Input[str] intermediate_thumbprint: Certificate thumbprint intermediate certificate.
         :param pulumi.Input[bool] is_private_key_external: Whether the private key is external or not.
-        :param pulumi.Input[int] key_size: Certificate key size.  Defaults to 2048.
+        :param pulumi.Input[int] key_size: Certificate key size.  Defaults to `2048`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`.
@@ -279,7 +279,7 @@ class _CertificateOrderState:
     @pulumi.getter(name="autoRenew")
     def auto_renew(self) -> Optional[pulumi.Input[bool]]:
         """
-        true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+        true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         """
         return pulumi.get(self, "auto_renew")
 
@@ -375,7 +375,7 @@ class _CertificateOrderState:
     @pulumi.getter(name="keySize")
     def key_size(self) -> Optional[pulumi.Input[int]]:
         """
-        Certificate key size.  Defaults to 2048.
+        Certificate key size.  Defaults to `2048`.
         """
         return pulumi.get(self, "key_size")
 
@@ -535,10 +535,10 @@ class CertificateOrder(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+        :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
-        :param pulumi.Input[int] key_size: Certificate key size.  Defaults to 2048.
+        :param pulumi.Input[int] key_size: Certificate key size.  Defaults to `2048`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`.
@@ -669,7 +669,7 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] app_service_certificate_not_renewable_reasons: Reasons why App Service Certificate is not renewable at the current moment.
-        :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+        :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateOrderCertificateArgs']]]] certificates: State of the Key Vault secret. A `certificates` block as defined below.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
@@ -677,7 +677,7 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_time: Certificate expiration time.
         :param pulumi.Input[str] intermediate_thumbprint: Certificate thumbprint intermediate certificate.
         :param pulumi.Input[bool] is_private_key_external: Whether the private key is external or not.
-        :param pulumi.Input[int] key_size: Certificate key size.  Defaults to 2048.
+        :param pulumi.Input[int] key_size: Certificate key size.  Defaults to `2048`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`.
@@ -725,7 +725,7 @@ class CertificateOrder(pulumi.CustomResource):
     @pulumi.getter(name="autoRenew")
     def auto_renew(self) -> pulumi.Output[Optional[bool]]:
         """
-        true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+        true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         """
         return pulumi.get(self, "auto_renew")
 
@@ -789,7 +789,7 @@ class CertificateOrder(pulumi.CustomResource):
     @pulumi.getter(name="keySize")
     def key_size(self) -> pulumi.Output[Optional[int]]:
         """
-        Certificate key size.  Defaults to 2048.
+        Certificate key size.  Defaults to `2048`.
         """
         return pulumi.get(self, "key_size")
 

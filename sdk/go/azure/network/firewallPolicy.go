@@ -59,7 +59,7 @@ import (
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 
-	// Whether enable auto learn private ip range. Defaults to `false`.
+	// Whether enable auto learn private ip range.
 	AutoLearnPrivateRangesEnabled pulumi.BoolPtrOutput `pulumi:"autoLearnPrivateRangesEnabled"`
 	// The ID of the base Firewall Policy.
 	BasePolicyId pulumi.StringPtrOutput `pulumi:"basePolicyId"`
@@ -133,7 +133,7 @@ func GetFirewallPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallPolicy resources.
 type firewallPolicyState struct {
-	// Whether enable auto learn private ip range. Defaults to `false`.
+	// Whether enable auto learn private ip range.
 	AutoLearnPrivateRangesEnabled *bool `pulumi:"autoLearnPrivateRangesEnabled"`
 	// The ID of the base Firewall Policy.
 	BasePolicyId *string `pulumi:"basePolicyId"`
@@ -176,7 +176,7 @@ type firewallPolicyState struct {
 }
 
 type FirewallPolicyState struct {
-	// Whether enable auto learn private ip range. Defaults to `false`.
+	// Whether enable auto learn private ip range.
 	AutoLearnPrivateRangesEnabled pulumi.BoolPtrInput
 	// The ID of the base Firewall Policy.
 	BasePolicyId pulumi.StringPtrInput
@@ -223,7 +223,7 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 }
 
 type firewallPolicyArgs struct {
-	// Whether enable auto learn private ip range. Defaults to `false`.
+	// Whether enable auto learn private ip range.
 	AutoLearnPrivateRangesEnabled *bool `pulumi:"autoLearnPrivateRangesEnabled"`
 	// The ID of the base Firewall Policy.
 	BasePolicyId *string `pulumi:"basePolicyId"`
@@ -261,7 +261,7 @@ type firewallPolicyArgs struct {
 
 // The set of arguments for constructing a FirewallPolicy resource.
 type FirewallPolicyArgs struct {
-	// Whether enable auto learn private ip range. Defaults to `false`.
+	// Whether enable auto learn private ip range.
 	AutoLearnPrivateRangesEnabled pulumi.BoolPtrInput
 	// The ID of the base Firewall Policy.
 	BasePolicyId pulumi.StringPtrInput
@@ -384,7 +384,7 @@ func (o FirewallPolicyOutput) ToFirewallPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Whether enable auto learn private ip range. Defaults to `false`.
+// Whether enable auto learn private ip range.
 func (o FirewallPolicyOutput) AutoLearnPrivateRangesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.BoolPtrOutput { return v.AutoLearnPrivateRangesEnabled }).(pulumi.BoolPtrOutput)
 }

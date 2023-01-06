@@ -46,14 +46,14 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
     }
 
     /**
-     * The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
+     * The version of .NET to use. Possible values are `3.1`, `5.0`, `6.0` and `7.0`.
      * 
      */
     @Import(name="dotnetVersion")
     private @Nullable Output<String> dotnetVersion;
 
     /**
-     * @return The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
+     * @return The version of .NET to use. Possible values are `3.1`, `5.0`, `6.0` and `7.0`.
      * 
      */
     public Optional<Output<String>> dotnetVersion() {
@@ -121,14 +121,14 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
     }
 
     /**
-     * The version of PHP to run. Possible values include `7.4`, and `8.0`.
+     * The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
      * 
      */
     @Import(name="phpVersion")
     private @Nullable Output<String> phpVersion;
 
     /**
-     * @return The version of PHP to run. Possible values include `7.4`, and `8.0`.
+     * @return The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
      * 
      */
     public Optional<Output<String>> phpVersion() {
@@ -241,7 +241,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
+         * @param dotnetVersion The version of .NET to use. Possible values are `3.1`, `5.0`, `6.0` and `7.0`.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         }
 
         /**
-         * @param dotnetVersion The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
+         * @param dotnetVersion The version of .NET to use. Possible values are `3.1`, `5.0`, `6.0` and `7.0`.
          * 
          * @return builder
          * 
@@ -346,7 +346,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         }
 
         /**
-         * @param phpVersion The version of PHP to run. Possible values include `7.4`, and `8.0`.
+         * @param phpVersion The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         }
 
         /**
-         * @param phpVersion The version of PHP to run. Possible values include `7.4`, and `8.0`.
+         * @param phpVersion The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
          * 
          * @return builder
          * 

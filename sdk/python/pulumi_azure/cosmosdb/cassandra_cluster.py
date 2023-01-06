@@ -43,7 +43,7 @@ class CassandraClusterArgs:
         :param pulumi.Input['CassandraClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
-        :param pulumi.Input[bool] repair_enabled: Is the automatic repair enabled on the Cassandra Cluster?
+        :param pulumi.Input[bool] repair_enabled: Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] version: The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
         """
@@ -209,7 +209,7 @@ class CassandraClusterArgs:
     @pulumi.getter(name="repairEnabled")
     def repair_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the automatic repair enabled on the Cassandra Cluster?
+        Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         """
         return pulumi.get(self, "repair_enabled")
 
@@ -271,7 +271,7 @@ class _CassandraClusterState:
         :param pulumi.Input['CassandraClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
-        :param pulumi.Input[bool] repair_enabled: Is the automatic repair enabled on the Cassandra Cluster?
+        :param pulumi.Input[bool] repair_enabled: Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] version: The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
@@ -429,7 +429,7 @@ class _CassandraClusterState:
     @pulumi.getter(name="repairEnabled")
     def repair_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the automatic repair enabled on the Cassandra Cluster?
+        Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         """
         return pulumi.get(self, "repair_enabled")
 
@@ -552,7 +552,7 @@ class CassandraCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CassandraClusterIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
-        :param pulumi.Input[bool] repair_enabled: Is the automatic repair enabled on the Cassandra Cluster?
+        :param pulumi.Input[bool] repair_enabled: Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] version: The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
@@ -710,7 +710,7 @@ class CassandraCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CassandraClusterIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
-        :param pulumi.Input[bool] repair_enabled: Is the automatic repair enabled on the Cassandra Cluster?
+        :param pulumi.Input[bool] repair_enabled: Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] version: The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
@@ -819,7 +819,7 @@ class CassandraCluster(pulumi.CustomResource):
     @pulumi.getter(name="repairEnabled")
     def repair_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is the automatic repair enabled on the Cassandra Cluster?
+        Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
         """
         return pulumi.get(self, "repair_enabled")
 

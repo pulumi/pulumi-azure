@@ -99,14 +99,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:hpc/cache:Cache")
 public class Cache extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+     * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
      * 
      */
     @Export(name="automaticallyRotateKeyToLatestEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> automaticallyRotateKeyToLatestEnabled;
 
     /**
-     * @return Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+     * @return Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
      * 
      */
     public Output<Optional<Boolean>> automaticallyRotateKeyToLatestEnabled() {
@@ -253,14 +253,14 @@ public class Cache extends com.pulumi.resources.CustomResource {
         return this.mountAddresses;
     }
     /**
-     * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+     * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
      * 
      */
     @Export(name="mtu", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> mtu;
 
     /**
-     * @return The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+     * @return The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
      * 
      */
     public Output<Optional<Integer>> mtu() {

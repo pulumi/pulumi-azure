@@ -70,7 +70,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.StandardSiteConfigScmIpRestriction> ScmIpRestrictions;
         /// <summary>
-        /// Configures the minimum version of TLS required for SSL requests to the SCM site.
+        /// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
         /// </summary>
         public readonly string? ScmMinTlsVersion;
         /// <summary>

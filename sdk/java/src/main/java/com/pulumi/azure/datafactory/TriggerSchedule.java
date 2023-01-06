@@ -171,14 +171,14 @@ public class TriggerSchedule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.frequency);
     }
     /**
-     * The interval for how often the trigger occurs. This defaults to 1.
+     * The interval for how often the trigger occurs. This defaults to `1`.
      * 
      */
     @Export(name="interval", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> interval;
 
     /**
-     * @return The interval for how often the trigger occurs. This defaults to 1.
+     * @return The interval for how often the trigger occurs. This defaults to `1`.
      * 
      */
     public Output<Optional<Integer>> interval() {

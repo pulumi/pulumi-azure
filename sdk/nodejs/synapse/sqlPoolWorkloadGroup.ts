@@ -85,7 +85,7 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The workload group importance level.
+     * The workload group importance level. Defaults to `normal`.
      */
     public readonly importance!: pulumi.Output<string | undefined>;
     /**
@@ -93,7 +93,7 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
      */
     public readonly maxResourcePercent!: pulumi.Output<number>;
     /**
-     * The workload group request maximum grant percentage.
+     * The workload group request maximum grant percentage. Defaults to `3`.
      */
     public readonly maxResourcePercentPerRequest!: pulumi.Output<number | undefined>;
     /**
@@ -168,7 +168,7 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
  */
 export interface SqlPoolWorkloadGroupState {
     /**
-     * The workload group importance level.
+     * The workload group importance level. Defaults to `normal`.
      */
     importance?: pulumi.Input<string>;
     /**
@@ -176,7 +176,7 @@ export interface SqlPoolWorkloadGroupState {
      */
     maxResourcePercent?: pulumi.Input<number>;
     /**
-     * The workload group request maximum grant percentage.
+     * The workload group request maximum grant percentage. Defaults to `3`.
      */
     maxResourcePercentPerRequest?: pulumi.Input<number>;
     /**
@@ -206,7 +206,7 @@ export interface SqlPoolWorkloadGroupState {
  */
 export interface SqlPoolWorkloadGroupArgs {
     /**
-     * The workload group importance level.
+     * The workload group importance level. Defaults to `normal`.
      */
     importance?: pulumi.Input<string>;
     /**
@@ -214,7 +214,7 @@ export interface SqlPoolWorkloadGroupArgs {
      */
     maxResourcePercent: pulumi.Input<number>;
     /**
-     * The workload group request maximum grant percentage.
+     * The workload group request maximum grant percentage. Defaults to `3`.
      */
     maxResourcePercentPerRequest?: pulumi.Input<number>;
     /**

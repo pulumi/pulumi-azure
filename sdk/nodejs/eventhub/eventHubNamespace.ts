@@ -68,7 +68,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
      */
     public readonly autoInflateEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
      */
     public readonly capacity!: pulumi.Output<number | undefined>;
     /**
@@ -108,7 +108,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.eventhub.EventHubNamespaceIdentity | undefined>;
     /**
-     * Is SAS authentication enabled for the EventHub Namespace?
+     * Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
      */
     public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -232,7 +232,7 @@ export interface EventHubNamespaceState {
      */
     autoInflateEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
      */
     capacity?: pulumi.Input<number>;
     /**
@@ -272,7 +272,7 @@ export interface EventHubNamespaceState {
      */
     identity?: pulumi.Input<inputs.eventhub.EventHubNamespaceIdentity>;
     /**
-     * Is SAS authentication enabled for the EventHub Namespace?
+     * Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
      */
     localAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
@@ -326,7 +326,7 @@ export interface EventHubNamespaceArgs {
      */
     autoInflateEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
+     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
      */
     capacity?: pulumi.Input<number>;
     /**
@@ -338,7 +338,7 @@ export interface EventHubNamespaceArgs {
      */
     identity?: pulumi.Input<inputs.eventhub.EventHubNamespaceIdentity>;
     /**
-     * Is SAS authentication enabled for the EventHub Namespace?
+     * Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
      */
     localAuthenticationEnabled?: pulumi.Input<boolean>;
     /**

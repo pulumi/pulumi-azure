@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelDirectLineSite {
     /**
-     * @return Enables/Disables this site. Enabled by default
+     * @return Enables/Disables this site. Enabled by default Defaults to `true`.
      * 
      */
     private @Nullable Boolean enabled;
@@ -49,19 +49,19 @@ public final class ChannelDirectLineSite {
      */
     private @Nullable List<String> trustedOrigins;
     /**
-     * @return Enables v1 of the Directline protocol for this site. Enabled by default
+     * @return Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
      * 
      */
     private @Nullable Boolean v1Allowed;
     /**
-     * @return Enables v3 of the Directline protocol for this site. Enabled by default
+     * @return Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
      * 
      */
     private @Nullable Boolean v3Allowed;
 
     private ChannelDirectLineSite() {}
     /**
-     * @return Enables/Disables this site. Enabled by default
+     * @return Enables/Disables this site. Enabled by default Defaults to `true`.
      * 
      */
     public Optional<Boolean> enabled() {
@@ -110,14 +110,14 @@ public final class ChannelDirectLineSite {
         return this.trustedOrigins == null ? List.of() : this.trustedOrigins;
     }
     /**
-     * @return Enables v1 of the Directline protocol for this site. Enabled by default
+     * @return Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
      * 
      */
     public Optional<Boolean> v1Allowed() {
         return Optional.ofNullable(this.v1Allowed);
     }
     /**
-     * @return Enables v3 of the Directline protocol for this site. Enabled by default
+     * @return Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
      * 
      */
     public Optional<Boolean> v3Allowed() {

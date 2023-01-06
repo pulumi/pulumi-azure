@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Certifiate{}
 	case "azure:keyvault/certificate:Certificate":
 		r = &Certificate{}
+	case "azure:keyvault/certificateContacts:CertificateContacts":
+		r = &CertificateContacts{}
 	case "azure:keyvault/certificateIssuer:CertificateIssuer":
 		r = &CertificateIssuer{}
 	case "azure:keyvault/key:Key":
@@ -67,6 +69,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"keyvault/certificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"keyvault/certificateContacts",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

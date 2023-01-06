@@ -77,14 +77,14 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
+     * Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
      * 
      */
     @Import(name="osType")
     private @Nullable Output<String> osType;
 
     /**
-     * @return Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
+     * @return Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
      * 
      */
     public Optional<Output<String>> osType() {
@@ -220,7 +220,7 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osType Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
+         * @param osType Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osType Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
+         * @param osType Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
          * 
          * @return builder
          * 

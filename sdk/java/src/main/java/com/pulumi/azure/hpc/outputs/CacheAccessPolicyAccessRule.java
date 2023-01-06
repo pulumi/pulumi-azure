@@ -34,7 +34,7 @@ public final class CacheAccessPolicyAccessRule {
      */
     private @Nullable String filter;
     /**
-     * @return Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+     * @return Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
      * 
      */
     private @Nullable Boolean rootSquashEnabled;
@@ -44,12 +44,12 @@ public final class CacheAccessPolicyAccessRule {
      */
     private String scope;
     /**
-     * @return Whether allow access to subdirectories under the root export? Defaults to `false`.
+     * @return Whether allow access to subdirectories under the root export?
      * 
      */
     private @Nullable Boolean submountAccessEnabled;
     /**
-     * @return Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+     * @return Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
      * 
      */
     private @Nullable Boolean suidEnabled;
@@ -84,7 +84,7 @@ public final class CacheAccessPolicyAccessRule {
         return Optional.ofNullable(this.filter);
     }
     /**
-     * @return Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+     * @return Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
      * 
      */
     public Optional<Boolean> rootSquashEnabled() {
@@ -98,14 +98,14 @@ public final class CacheAccessPolicyAccessRule {
         return this.scope;
     }
     /**
-     * @return Whether allow access to subdirectories under the root export? Defaults to `false`.
+     * @return Whether allow access to subdirectories under the root export?
      * 
      */
     public Optional<Boolean> submountAccessEnabled() {
         return Optional.ofNullable(this.submountAccessEnabled);
     }
     /**
-     * @return Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
+     * @return Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
      * 
      */
     public Optional<Boolean> suidEnabled() {

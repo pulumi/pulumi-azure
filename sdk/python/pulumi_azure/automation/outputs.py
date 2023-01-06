@@ -69,7 +69,7 @@ class AccountEncryption(dict):
                  user_assigned_identity_id: Optional[str] = None):
         """
         :param str key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
-        :param str key_source: The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+        :param str key_source: The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
         :param str user_assigned_identity_id: The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
@@ -90,7 +90,7 @@ class AccountEncryption(dict):
     @pulumi.getter(name="keySource")
     def key_source(self) -> Optional[str]:
         """
-        The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+        The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
         """
         return pulumi.get(self, "key_source")
 
@@ -928,7 +928,7 @@ class SoftwareUpdateConfigurationSchedule(dict):
         :param str description: A description for this Schedule.
         :param str expiry_time: The end time of the schedule.
         :param str frequency: The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
-        :param int interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+        :param int interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
         :param bool is_enabled: Whether the schedule is enabled.
         :param Sequence['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs'] monthly_occurrences: List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         :param str start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
@@ -1021,7 +1021,7 @@ class SoftwareUpdateConfigurationSchedule(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         """
-        The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+        The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
         """
         return pulumi.get(self, "interval")
 

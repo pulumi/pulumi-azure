@@ -136,7 +136,7 @@ export class RegistryTask extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+     * The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
      */
     public readonly timeoutInSeconds!: pulumi.Output<number | undefined>;
     /**
@@ -273,7 +273,7 @@ export interface RegistryTaskState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+     * The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
      */
     timeoutInSeconds?: pulumi.Input<number>;
     /**
@@ -351,7 +351,7 @@ export interface RegistryTaskArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+     * The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
      */
     timeoutInSeconds?: pulumi.Input<number>;
     /**

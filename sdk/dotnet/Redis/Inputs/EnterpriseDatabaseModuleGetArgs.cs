@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Redis.Inputs
     public sealed class EnterpriseDatabaseModuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
+        /// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
         /// </summary>
         [Input("args")]
         public Input<string>? Args { get; set; }
 
         /// <summary>
-        /// The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+        /// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

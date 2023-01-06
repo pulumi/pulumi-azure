@@ -16,6 +16,8 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// &gt; **Note:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
     /// 
+    /// &gt; **Note:** It's possible to define Key Vault Certificate Contacts both within the `azure.keyvault.KeyVault` resource via the `contact` block and by using the `azure.keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -78,7 +80,7 @@ namespace Pulumi.Azure.KeyVault
     public partial class KeyVault : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of up to 16 objects describing access policies, as described below.
+        /// A list of up to 1024 objects describing access policies, as described below.
         /// </summary>
         [Output("accessPolicies")]
         public Output<ImmutableArray<Outputs.KeyVaultAccessPolicy>> AccessPolicies { get; private set; } = null!;
@@ -90,25 +92,25 @@ namespace Pulumi.Azure.KeyVault
         public Output<ImmutableArray<Outputs.KeyVaultContact>> Contacts { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+        /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         /// </summary>
         [Output("enableRbacAuthorization")]
         public Output<bool?> EnableRbacAuthorization { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+        /// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         /// </summary>
         [Output("enabledForDeployment")]
         public Output<bool?> EnabledForDeployment { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+        /// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         /// </summary>
         [Output("enabledForDiskEncryption")]
         public Output<bool?> EnabledForDiskEncryption { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+        /// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         /// </summary>
         [Output("enabledForTemplateDeployment")]
         public Output<bool?> EnabledForTemplateDeployment { get; private set; } = null!;
@@ -138,7 +140,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+        /// Is Purge Protection enabled for this Key Vault?
         /// </summary>
         [Output("purgeProtectionEnabled")]
         public Output<bool?> PurgeProtectionEnabled { get; private set; } = null!;
@@ -229,7 +231,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<Inputs.KeyVaultAccessPolicyArgs>? _accessPolicies;
 
         /// <summary>
-        /// A list of up to 16 objects describing access policies, as described below.
+        /// A list of up to 1024 objects describing access policies, as described below.
         /// </summary>
         public InputList<Inputs.KeyVaultAccessPolicyArgs> AccessPolicies
         {
@@ -250,25 +252,25 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+        /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         /// </summary>
         [Input("enableRbacAuthorization")]
         public Input<bool>? EnableRbacAuthorization { get; set; }
 
         /// <summary>
-        /// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+        /// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         /// </summary>
         [Input("enabledForDeployment")]
         public Input<bool>? EnabledForDeployment { get; set; }
 
         /// <summary>
-        /// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+        /// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         /// </summary>
         [Input("enabledForDiskEncryption")]
         public Input<bool>? EnabledForDiskEncryption { get; set; }
 
         /// <summary>
-        /// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+        /// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         /// </summary>
         [Input("enabledForTemplateDeployment")]
         public Input<bool>? EnabledForTemplateDeployment { get; set; }
@@ -298,7 +300,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+        /// Is Purge Protection enabled for this Key Vault?
         /// </summary>
         [Input("purgeProtectionEnabled")]
         public Input<bool>? PurgeProtectionEnabled { get; set; }
@@ -351,7 +353,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<Inputs.KeyVaultAccessPolicyGetArgs>? _accessPolicies;
 
         /// <summary>
-        /// A list of up to 16 objects describing access policies, as described below.
+        /// A list of up to 1024 objects describing access policies, as described below.
         /// </summary>
         public InputList<Inputs.KeyVaultAccessPolicyGetArgs> AccessPolicies
         {
@@ -372,25 +374,25 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+        /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         /// </summary>
         [Input("enableRbacAuthorization")]
         public Input<bool>? EnableRbacAuthorization { get; set; }
 
         /// <summary>
-        /// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+        /// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         /// </summary>
         [Input("enabledForDeployment")]
         public Input<bool>? EnabledForDeployment { get; set; }
 
         /// <summary>
-        /// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+        /// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         /// </summary>
         [Input("enabledForDiskEncryption")]
         public Input<bool>? EnabledForDiskEncryption { get; set; }
 
         /// <summary>
-        /// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+        /// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         /// </summary>
         [Input("enabledForTemplateDeployment")]
         public Input<bool>? EnabledForTemplateDeployment { get; set; }
@@ -420,7 +422,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+        /// Is Purge Protection enabled for this Key Vault?
         /// </summary>
         [Input("purgeProtectionEnabled")]
         public Input<bool>? PurgeProtectionEnabled { get; set; }

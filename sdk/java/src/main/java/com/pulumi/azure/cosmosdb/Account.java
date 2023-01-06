@@ -551,14 +551,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.primarySqlConnectionString;
     }
     /**
-     * Whether or not public network access is allowed for this CosmosDB account.
+     * Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
      * 
      */
     @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether or not public network access is allowed for this CosmosDB account.
+     * @return Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {

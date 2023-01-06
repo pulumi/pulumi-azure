@@ -20,14 +20,14 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
     public static final FrontdoorRoutingRuleArgs Empty = new FrontdoorRoutingRuleArgs();
 
     /**
-     * Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
+     * Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
      * 
      */
     @Import(name="acceptedProtocols", required=true)
     private Output<List<String>> acceptedProtocols;
 
     /**
-     * @return Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
+     * @return Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
      * 
      */
     public Output<List<String>> acceptedProtocols() {
@@ -110,14 +110,14 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The route patterns for the Backend Routing Rule. Defaults to `/*`.
+     * The route patterns for the Backend Routing Rule.
      * 
      */
     @Import(name="patternsToMatches", required=true)
     private Output<List<String>> patternsToMatches;
 
     /**
-     * @return The route patterns for the Backend Routing Rule. Defaults to `/*`.
+     * @return The route patterns for the Backend Routing Rule.
      * 
      */
     public Output<List<String>> patternsToMatches() {
@@ -171,7 +171,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param acceptedProtocols Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
+         * @param acceptedProtocols Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param acceptedProtocols Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
+         * @param acceptedProtocols Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param acceptedProtocols Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
+         * @param acceptedProtocols Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param patternsToMatches The route patterns for the Backend Routing Rule. Defaults to `/*`.
+         * @param patternsToMatches The route patterns for the Backend Routing Rule.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param patternsToMatches The route patterns for the Backend Routing Rule. Defaults to `/*`.
+         * @param patternsToMatches The route patterns for the Backend Routing Rule.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param patternsToMatches The route patterns for the Backend Routing Rule. Defaults to `/*`.
+         * @param patternsToMatches The route patterns for the Backend Routing Rule.
          * 
          * @return builder
          * 

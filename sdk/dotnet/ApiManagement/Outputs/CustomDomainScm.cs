@@ -33,7 +33,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string? KeyVaultId;
         /// <summary>
-        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         /// </summary>
         public readonly bool? NegotiateClientCertificate;
         public readonly string? SslKeyvaultIdentityClientId;

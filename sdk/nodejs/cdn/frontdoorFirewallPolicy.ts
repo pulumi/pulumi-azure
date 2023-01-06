@@ -183,7 +183,7 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
      */
     public readonly managedRules!: pulumi.Output<outputs.cdn.FrontdoorFirewallPolicyManagedRule[] | undefined>;
     /**
-     * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+     * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
      */
     public readonly mode!: pulumi.Output<string>;
     /**
@@ -290,7 +290,7 @@ export interface FrontdoorFirewallPolicyState {
      */
     managedRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRule>[]>;
     /**
-     * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+     * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
      */
     mode?: pulumi.Input<string>;
     /**
@@ -340,7 +340,7 @@ export interface FrontdoorFirewallPolicyArgs {
      */
     managedRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRule>[]>;
     /**
-     * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+     * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
      */
     mode: pulumi.Input<string>;
     /**

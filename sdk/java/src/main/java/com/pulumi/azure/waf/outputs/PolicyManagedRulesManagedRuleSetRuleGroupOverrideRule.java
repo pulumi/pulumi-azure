@@ -18,7 +18,7 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule {
      */
     private @Nullable String action;
     /**
-     * @return Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+     * @return Describes if the managed rule is in enabled state or disabled state.
      * 
      */
     private @Nullable Boolean enabled;
@@ -37,7 +37,7 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule {
         return Optional.ofNullable(this.action);
     }
     /**
-     * @return Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+     * @return Describes if the managed rule is in enabled state or disabled state.
      * 
      */
     public Optional<Boolean> enabled() {

@@ -33,14 +33,14 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
     }
 
     /**
-     * The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+     * The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
      * 
      */
     @Import(name="createOption")
     private @Nullable Output<String> createOption;
 
     /**
-     * @return The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+     * @return The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
      * 
      */
     public Optional<Output<String>> createOption() {
@@ -182,7 +182,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param createOption The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+         * @param createOption The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param createOption The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+         * @param createOption The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
          * 
          * @return builder
          * 

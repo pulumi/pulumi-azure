@@ -3184,7 +3184,7 @@ class FrontdoorOriginPrivateLinkArgs:
         """
         :param pulumi.Input[str] location: Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_link_target_id: The ID of the Azure Resource to connect to via the Private Link.
-        :param pulumi.Input[str] request_message: Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
+        :param pulumi.Input[str] request_message: Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
         :param pulumi.Input[str] target_type: Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
         """
         pulumi.set(__self__, "location", location)
@@ -3222,7 +3222,7 @@ class FrontdoorOriginPrivateLinkArgs:
     @pulumi.getter(name="requestMessage")
     def request_message(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for Front Door Private Link Origin`.
+        Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
         """
         return pulumi.get(self, "request_message")
 
@@ -3518,12 +3518,12 @@ class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs:
                  query_string_caching_behavior: Optional[pulumi.Input[str]] = None,
                  query_string_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] cache_behavior: `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
-        :param pulumi.Input[str] cache_duration: When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
+        :param pulumi.Input[str] cache_behavior: `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`.
+        :param pulumi.Input[str] cache_duration: When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
         :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
-        :param pulumi.Input[bool] compression_enabled: Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+        :param pulumi.Input[bool] compression_enabled: Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
         :param pulumi.Input[str] forwarding_protocol: The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
-        :param pulumi.Input[str] query_string_caching_behavior: `IncludeSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
+        :param pulumi.Input[str] query_string_caching_behavior: `IncludeSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] query_string_parameters: A list of query string parameter names.
         """
         if cache_behavior is not None:
@@ -3545,7 +3545,7 @@ class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs:
     @pulumi.getter(name="cacheBehavior")
     def cache_behavior(self) -> Optional[pulumi.Input[str]]:
         """
-        `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`. Defaults to `HonorOrigin`.
+        `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`.
         """
         return pulumi.get(self, "cache_behavior")
 
@@ -3557,7 +3557,7 @@ class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs:
     @pulumi.getter(name="cacheDuration")
     def cache_duration(self) -> Optional[pulumi.Input[str]]:
         """
-        When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`). Defaults to `1.12:00:00`.
+        When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
         """
         return pulumi.get(self, "cache_duration")
 
@@ -3581,7 +3581,7 @@ class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs:
     @pulumi.getter(name="compressionEnabled")
     def compression_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the Front Door dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+        Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
         """
         return pulumi.get(self, "compression_enabled")
 
@@ -3605,7 +3605,7 @@ class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs:
     @pulumi.getter(name="queryStringCachingBehavior")
     def query_string_caching_behavior(self) -> Optional[pulumi.Input[str]]:
         """
-        `IncludeSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
+        `IncludeSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`.
         """
         return pulumi.get(self, "query_string_caching_behavior")
 
@@ -3638,9 +3638,9 @@ class FrontdoorRuleActionsUrlRedirectActionArgs:
         """
         :param pulumi.Input[str] destination_hostname: The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
         :param pulumi.Input[str] redirect_type: The response type to return to the requestor. Possible values include `Moved`, `Found` , `TemporaryRedirect` or `PermanentRedirect`.
-        :param pulumi.Input[str] destination_fragment: The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
-        :param pulumi.Input[str] destination_path: The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
-        :param pulumi.Input[str] query_string: The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
+        :param pulumi.Input[str] destination_fragment: The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `""`.
+        :param pulumi.Input[str] destination_path: The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `""`.
+        :param pulumi.Input[str] query_string: The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `""`.
         :param pulumi.Input[str] redirect_protocol: The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
         """
         pulumi.set(__self__, "destination_hostname", destination_hostname)
@@ -3682,7 +3682,7 @@ class FrontdoorRuleActionsUrlRedirectActionArgs:
     @pulumi.getter(name="destinationFragment")
     def destination_fragment(self) -> Optional[pulumi.Input[str]]:
         """
-        The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
+        The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `""`.
         """
         return pulumi.get(self, "destination_fragment")
 
@@ -3694,7 +3694,7 @@ class FrontdoorRuleActionsUrlRedirectActionArgs:
     @pulumi.getter(name="destinationPath")
     def destination_path(self) -> Optional[pulumi.Input[str]]:
         """
-        The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
+        The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `""`.
         """
         return pulumi.get(self, "destination_path")
 
@@ -3706,7 +3706,7 @@ class FrontdoorRuleActionsUrlRedirectActionArgs:
     @pulumi.getter(name="queryString")
     def query_string(self) -> Optional[pulumi.Input[str]]:
         """
-        The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string.
+        The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `""`.
         """
         return pulumi.get(self, "query_string")
 
@@ -4158,7 +4158,7 @@ class FrontdoorRuleConditionsCookiesConditionArgs:
         :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "cookie_name", cookie_name)
         pulumi.set(__self__, "operator", operator)
@@ -4221,7 +4221,7 @@ class FrontdoorRuleConditionsCookiesConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -4241,7 +4241,7 @@ class FrontdoorRuleConditionsHostNameConditionArgs:
         :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of one or more string values representing the value of the request hostname to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
@@ -4291,7 +4291,7 @@ class FrontdoorRuleConditionsHostNameConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -4361,7 +4361,7 @@ class FrontdoorRuleConditionsIsDeviceConditionArgs:
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  operator: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] match_values: Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+        :param pulumi.Input[str] match_values: Which device should this rule match on? Possible values `Mobile` or `Desktop`.
         :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
         :param pulumi.Input[str] operator: Possible value `Equal`. Defaults to `Equal`.
         """
@@ -4376,7 +4376,7 @@ class FrontdoorRuleConditionsIsDeviceConditionArgs:
     @pulumi.getter(name="matchValues")
     def match_values(self) -> Optional[pulumi.Input[str]]:
         """
-        Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+        Which device should this rule match on? Possible values `Mobile` or `Desktop`.
         """
         return pulumi.get(self, "match_values")
 
@@ -4422,7 +4422,7 @@ class FrontdoorRuleConditionsPostArgsConditionArgs:
         :param pulumi.Input[str] post_args_name: A string value representing the name of the `POST` argument.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: One or more string or integer values(e.g. "1") representing the value of the `POST` argument to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "post_args_name", post_args_name)
@@ -4485,7 +4485,7 @@ class FrontdoorRuleConditionsPostArgsConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -4505,7 +4505,7 @@ class FrontdoorRuleConditionsQueryStringConditionArgs:
         :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: One or more string or integer values(e.g. "1") representing the value of the query string to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
@@ -4555,7 +4555,7 @@ class FrontdoorRuleConditionsQueryStringConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -4630,7 +4630,7 @@ class FrontdoorRuleConditionsRequestBodyConditionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of one or more string or integer values(e.g. "1") representing the value of the request body text to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
@@ -4679,7 +4679,7 @@ class FrontdoorRuleConditionsRequestBodyConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -4701,7 +4701,7 @@ class FrontdoorRuleConditionsRequestHeaderConditionArgs:
         :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "header_name", header_name)
         pulumi.set(__self__, "operator", operator)
@@ -4764,7 +4764,7 @@ class FrontdoorRuleConditionsRequestHeaderConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -4834,7 +4834,7 @@ class FrontdoorRuleConditionsRequestSchemeConditionArgs:
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  operator: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] match_values: The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+        :param pulumi.Input[str] match_values: The requests protocol to match. Possible values include `HTTP` or `HTTPS`.
         :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
         :param pulumi.Input[str] operator: Possible value `Equal`. Defaults to `Equal`.
         """
@@ -4849,7 +4849,7 @@ class FrontdoorRuleConditionsRequestSchemeConditionArgs:
     @pulumi.getter(name="matchValues")
     def match_values(self) -> Optional[pulumi.Input[str]]:
         """
-        The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+        The requests protocol to match. Possible values include `HTTP` or `HTTPS`.
         """
         return pulumi.get(self, "match_values")
 
@@ -4893,7 +4893,7 @@ class FrontdoorRuleConditionsRequestUriConditionArgs:
         :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: One or more string or integer values(e.g. "1") representing the value of the request URL to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
@@ -4943,7 +4943,7 @@ class FrontdoorRuleConditionsRequestUriConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -5014,7 +5014,7 @@ class FrontdoorRuleConditionsSocketAddressConditionArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
         :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param pulumi.Input[str] operator: The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+        :param pulumi.Input[str] operator: The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
         """
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
@@ -5051,7 +5051,7 @@ class FrontdoorRuleConditionsSocketAddressConditionArgs:
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+        The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
         """
         return pulumi.get(self, "operator")
 
@@ -5067,7 +5067,7 @@ class FrontdoorRuleConditionsSslProtocolConditionArgs:
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  operator: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of one or more HTTP methods. Possible values include `TLSv1.0`, `TLSv1.1` or `TLS1.2`. If multiple values are specified, they're evaluated using `OR` logic.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of one or more HTTP methods. Possible values are `TLSv1`, `TLSv1.1` and `TLSv1.2` logic.
         :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
         :param pulumi.Input[str] operator: Possible value `Equal`. Defaults to `Equal`.
         """
@@ -5081,7 +5081,7 @@ class FrontdoorRuleConditionsSslProtocolConditionArgs:
     @pulumi.getter(name="matchValues")
     def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of one or more HTTP methods. Possible values include `TLSv1.0`, `TLSv1.1` or `TLS1.2`. If multiple values are specified, they're evaluated using `OR` logic.
+        A list of one or more HTTP methods. Possible values are `TLSv1`, `TLSv1.1` and `TLSv1.2` logic.
         """
         return pulumi.get(self, "match_values")
 
@@ -5125,7 +5125,7 @@ class FrontdoorRuleConditionsUrlFileExtensionConditionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of one or more string or integer values(e.g. "1") representing the value of the request file extension to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
@@ -5174,7 +5174,7 @@ class FrontdoorRuleConditionsUrlFileExtensionConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -5194,7 +5194,7 @@ class FrontdoorRuleConditionsUrlFilenameConditionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
         :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
@@ -5243,7 +5243,7 @@ class FrontdoorRuleConditionsUrlFilenameConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 
@@ -5263,7 +5263,7 @@ class FrontdoorRuleConditionsUrlPathConditionArgs:
         :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: One or more string or integer values(e.g. "1") representing the value of the request path to match. Don't include the leading slash (`/`). If multiple values are specified, they're evaluated using `OR` logic.
         :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
@@ -5313,7 +5313,7 @@ class FrontdoorRuleConditionsUrlPathConditionArgs:
     @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         return pulumi.get(self, "transforms")
 

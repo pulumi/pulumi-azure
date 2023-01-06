@@ -92,14 +92,14 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Should Extension Operations be allowed on this Virtual Machine?
+     * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      * 
      */
     @Import(name="allowExtensionOperations")
     private @Nullable Output<Boolean> allowExtensionOperations;
 
     /**
-     * @return Should Extension Operations be allowed on this Virtual Machine?
+     * @return Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> allowExtensionOperations() {
@@ -227,14 +227,14 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+     * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
      * 
      */
     @Import(name="enableAutomaticUpdates")
     private @Nullable Output<Boolean> enableAutomaticUpdates;
 
     /**
-     * @return Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+     * @return Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enableAutomaticUpdates() {
@@ -901,7 +901,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param allowExtensionOperations Should Extension Operations be allowed on this Virtual Machine?
+         * @param allowExtensionOperations Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -912,7 +912,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param allowExtensionOperations Should Extension Operations be allowed on this Virtual Machine?
+         * @param allowExtensionOperations Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -1090,7 +1090,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param enableAutomaticUpdates Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+         * @param enableAutomaticUpdates Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -1101,7 +1101,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param enableAutomaticUpdates Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+         * @param enableAutomaticUpdates Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
          * 
          * @return builder
          * 

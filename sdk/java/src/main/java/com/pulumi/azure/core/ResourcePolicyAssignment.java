@@ -121,14 +121,14 @@ public class ResourcePolicyAssignment extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.displayName);
     }
     /**
-     * Specifies if this Policy should be enforced or not?
+     * Specifies if this Policy should be enforced or not? Defaults to `true`.
      * 
      */
     @Export(name="enforce", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enforce;
 
     /**
-     * @return Specifies if this Policy should be enforced or not?
+     * @return Specifies if this Policy should be enforced or not? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enforce() {

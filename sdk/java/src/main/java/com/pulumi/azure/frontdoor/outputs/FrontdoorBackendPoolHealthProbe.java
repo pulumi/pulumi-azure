@@ -39,7 +39,7 @@ public final class FrontdoorBackendPoolHealthProbe {
      */
     private @Nullable String path;
     /**
-     * @return Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+     * @return Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
      * 
      */
     private @Nullable String probeMethod;
@@ -86,7 +86,7 @@ public final class FrontdoorBackendPoolHealthProbe {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+     * @return Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
      * 
      */
     public Optional<String> probeMethod() {

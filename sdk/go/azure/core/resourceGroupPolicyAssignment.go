@@ -98,7 +98,7 @@ type ResourceGroupPolicyAssignment struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Display Name for this Policy Assignment.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Specifies if this Policy should be enforced or not?
+	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce pulumi.BoolPtrOutput `pulumi:"enforce"`
 	// An `identity` block as defined below.
 	Identity ResourceGroupPolicyAssignmentIdentityPtrOutput `pulumi:"identity"`
@@ -159,7 +159,7 @@ type resourceGroupPolicyAssignmentState struct {
 	Description *string `pulumi:"description"`
 	// The Display Name for this Policy Assignment.
 	DisplayName *string `pulumi:"displayName"`
-	// Specifies if this Policy should be enforced or not?
+	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce *bool `pulumi:"enforce"`
 	// An `identity` block as defined below.
 	Identity *ResourceGroupPolicyAssignmentIdentity `pulumi:"identity"`
@@ -186,7 +186,7 @@ type ResourceGroupPolicyAssignmentState struct {
 	Description pulumi.StringPtrInput
 	// The Display Name for this Policy Assignment.
 	DisplayName pulumi.StringPtrInput
-	// Specifies if this Policy should be enforced or not?
+	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity ResourceGroupPolicyAssignmentIdentityPtrInput
@@ -217,7 +217,7 @@ type resourceGroupPolicyAssignmentArgs struct {
 	Description *string `pulumi:"description"`
 	// The Display Name for this Policy Assignment.
 	DisplayName *string `pulumi:"displayName"`
-	// Specifies if this Policy should be enforced or not?
+	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce *bool `pulumi:"enforce"`
 	// An `identity` block as defined below.
 	Identity *ResourceGroupPolicyAssignmentIdentity `pulumi:"identity"`
@@ -245,7 +245,7 @@ type ResourceGroupPolicyAssignmentArgs struct {
 	Description pulumi.StringPtrInput
 	// The Display Name for this Policy Assignment.
 	DisplayName pulumi.StringPtrInput
-	// Specifies if this Policy should be enforced or not?
+	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity ResourceGroupPolicyAssignmentIdentityPtrInput
@@ -364,7 +364,7 @@ func (o ResourceGroupPolicyAssignmentOutput) DisplayName() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *ResourceGroupPolicyAssignment) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies if this Policy should be enforced or not?
+// Specifies if this Policy should be enforced or not? Defaults to `true`.
 func (o ResourceGroupPolicyAssignmentOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResourceGroupPolicyAssignment) pulumi.BoolPtrOutput { return v.Enforce }).(pulumi.BoolPtrOutput)
 }

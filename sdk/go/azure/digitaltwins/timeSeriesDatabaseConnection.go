@@ -169,7 +169,7 @@ type TimeSeriesDatabaseConnection struct {
 
 	// The ID of the Digital Twins. Changing this forces a new resource to be created.
 	DigitalTwinsId pulumi.StringOutput `pulumi:"digitalTwinsId"`
-	// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+	// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
 	EventhubConsumerGroupName pulumi.StringPtrOutput `pulumi:"eventhubConsumerGroupName"`
 	// Name of the Event Hub. Changing this forces a new resource to be created.
 	EventhubName pulumi.StringOutput `pulumi:"eventhubName"`
@@ -241,7 +241,7 @@ func GetTimeSeriesDatabaseConnection(ctx *pulumi.Context,
 type timeSeriesDatabaseConnectionState struct {
 	// The ID of the Digital Twins. Changing this forces a new resource to be created.
 	DigitalTwinsId *string `pulumi:"digitalTwinsId"`
-	// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+	// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
 	EventhubConsumerGroupName *string `pulumi:"eventhubConsumerGroupName"`
 	// Name of the Event Hub. Changing this forces a new resource to be created.
 	EventhubName *string `pulumi:"eventhubName"`
@@ -264,7 +264,7 @@ type timeSeriesDatabaseConnectionState struct {
 type TimeSeriesDatabaseConnectionState struct {
 	// The ID of the Digital Twins. Changing this forces a new resource to be created.
 	DigitalTwinsId pulumi.StringPtrInput
-	// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+	// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
 	EventhubConsumerGroupName pulumi.StringPtrInput
 	// Name of the Event Hub. Changing this forces a new resource to be created.
 	EventhubName pulumi.StringPtrInput
@@ -291,7 +291,7 @@ func (TimeSeriesDatabaseConnectionState) ElementType() reflect.Type {
 type timeSeriesDatabaseConnectionArgs struct {
 	// The ID of the Digital Twins. Changing this forces a new resource to be created.
 	DigitalTwinsId string `pulumi:"digitalTwinsId"`
-	// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+	// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
 	EventhubConsumerGroupName *string `pulumi:"eventhubConsumerGroupName"`
 	// Name of the Event Hub. Changing this forces a new resource to be created.
 	EventhubName string `pulumi:"eventhubName"`
@@ -315,7 +315,7 @@ type timeSeriesDatabaseConnectionArgs struct {
 type TimeSeriesDatabaseConnectionArgs struct {
 	// The ID of the Digital Twins. Changing this forces a new resource to be created.
 	DigitalTwinsId pulumi.StringInput
-	// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+	// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
 	EventhubConsumerGroupName pulumi.StringPtrInput
 	// Name of the Event Hub. Changing this forces a new resource to be created.
 	EventhubName pulumi.StringInput
@@ -427,7 +427,7 @@ func (o TimeSeriesDatabaseConnectionOutput) DigitalTwinsId() pulumi.StringOutput
 	return o.ApplyT(func(v *TimeSeriesDatabaseConnection) pulumi.StringOutput { return v.DigitalTwinsId }).(pulumi.StringOutput)
 }
 
-// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created.
+// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
 func (o TimeSeriesDatabaseConnectionOutput) EventhubConsumerGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TimeSeriesDatabaseConnection) pulumi.StringPtrOutput { return v.EventhubConsumerGroupName }).(pulumi.StringPtrOutput)
 }

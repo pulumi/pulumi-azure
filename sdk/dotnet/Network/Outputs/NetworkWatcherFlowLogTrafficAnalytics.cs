@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// How frequently service should do flow analytics in minutes.
+        /// How frequently service should do flow analytics in minutes. Defaults to `60`.
         /// </summary>
         public readonly int? IntervalInMinutes;
         /// <summary>

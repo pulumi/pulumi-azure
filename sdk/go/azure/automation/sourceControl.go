@@ -71,7 +71,7 @@ type SourceControl struct {
 	FolderPath pulumi.StringOutput `pulumi:"folderPath"`
 	// The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Whether auto publish the Source Control.
+	// Whether auto publish the Source Control. Defaults to `true`.
 	PublishRunbookEnabled pulumi.BoolPtrOutput `pulumi:"publishRunbookEnabled"`
 	// The Repository URL of the source control.
 	RepositoryUrl pulumi.StringOutput `pulumi:"repositoryUrl"`
@@ -137,7 +137,7 @@ type sourceControlState struct {
 	FolderPath *string `pulumi:"folderPath"`
 	// The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
 	Name *string `pulumi:"name"`
-	// Whether auto publish the Source Control.
+	// Whether auto publish the Source Control. Defaults to `true`.
 	PublishRunbookEnabled *bool `pulumi:"publishRunbookEnabled"`
 	// The Repository URL of the source control.
 	RepositoryUrl *string `pulumi:"repositoryUrl"`
@@ -160,7 +160,7 @@ type SourceControlState struct {
 	FolderPath pulumi.StringPtrInput
 	// The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
 	Name pulumi.StringPtrInput
-	// Whether auto publish the Source Control.
+	// Whether auto publish the Source Control. Defaults to `true`.
 	PublishRunbookEnabled pulumi.BoolPtrInput
 	// The Repository URL of the source control.
 	RepositoryUrl pulumi.StringPtrInput
@@ -187,7 +187,7 @@ type sourceControlArgs struct {
 	FolderPath string `pulumi:"folderPath"`
 	// The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
 	Name *string `pulumi:"name"`
-	// Whether auto publish the Source Control.
+	// Whether auto publish the Source Control. Defaults to `true`.
 	PublishRunbookEnabled *bool `pulumi:"publishRunbookEnabled"`
 	// The Repository URL of the source control.
 	RepositoryUrl string `pulumi:"repositoryUrl"`
@@ -211,7 +211,7 @@ type SourceControlArgs struct {
 	FolderPath pulumi.StringInput
 	// The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
 	Name pulumi.StringPtrInput
-	// Whether auto publish the Source Control.
+	// Whether auto publish the Source Control. Defaults to `true`.
 	PublishRunbookEnabled pulumi.BoolPtrInput
 	// The Repository URL of the source control.
 	RepositoryUrl pulumi.StringInput
@@ -338,7 +338,7 @@ func (o SourceControlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceControl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether auto publish the Source Control.
+// Whether auto publish the Source Control. Defaults to `true`.
 func (o SourceControlOutput) PublishRunbookEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SourceControl) pulumi.BoolPtrOutput { return v.PublishRunbookEnabled }).(pulumi.BoolPtrOutput)
 }

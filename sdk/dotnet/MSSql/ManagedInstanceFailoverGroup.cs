@@ -58,7 +58,7 @@ namespace Pulumi.Azure.MSSql
         public Output<Outputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy> ReadWriteEndpointFailoverPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Failover policy for the read-only endpoint. Defaults to `false`.
+        /// Failover policy for the read-only endpoint. Defaults to `true`.
         /// </summary>
         [Output("readonlyEndpointFailoverPolicyEnabled")]
         public Output<bool?> ReadonlyEndpointFailoverPolicyEnabled { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.MSSql
         public Input<Inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs> ReadWriteEndpointFailoverPolicy { get; set; } = null!;
 
         /// <summary>
-        /// Failover policy for the read-only endpoint. Defaults to `false`.
+        /// Failover policy for the read-only endpoint. Defaults to `true`.
         /// </summary>
         [Input("readonlyEndpointFailoverPolicyEnabled")]
         public Input<bool>? ReadonlyEndpointFailoverPolicyEnabled { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.MSSql
         public Input<Inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyGetArgs>? ReadWriteEndpointFailoverPolicy { get; set; }
 
         /// <summary>
-        /// Failover policy for the read-only endpoint. Defaults to `false`.
+        /// Failover policy for the read-only endpoint. Defaults to `true`.
         /// </summary>
         [Input("readonlyEndpointFailoverPolicyEnabled")]
         public Input<bool>? ReadonlyEndpointFailoverPolicyEnabled { get; set; }

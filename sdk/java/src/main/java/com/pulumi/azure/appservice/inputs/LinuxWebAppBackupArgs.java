@@ -18,14 +18,14 @@ public final class LinuxWebAppBackupArgs extends com.pulumi.resources.ResourceAr
     public static final LinuxWebAppBackupArgs Empty = new LinuxWebAppBackupArgs();
 
     /**
-     * Should this backup job be enabled?
+     * Should this backup job be enabled? Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Should this backup job be enabled?
+     * @return Should this backup job be enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -105,7 +105,7 @@ public final class LinuxWebAppBackupArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param enabled Should this backup job be enabled?
+         * @param enabled Should this backup job be enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class LinuxWebAppBackupArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param enabled Should this backup job be enabled?
+         * @param enabled Should this backup job be enabled? Defaults to `true`.
          * 
          * @return builder
          * 

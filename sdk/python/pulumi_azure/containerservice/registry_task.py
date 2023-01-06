@@ -52,7 +52,7 @@ class RegistryTaskArgs:
         :param pulumi.Input['RegistryTaskRegistryCredentialArgs'] registry_credential: One `registry_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskSourceTriggerArgs']]] source_triggers: One or more `source_trigger` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Container Registry Task.
-        :param pulumi.Input[int] timeout_in_seconds: The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+        :param pulumi.Input[int] timeout_in_seconds: The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]] timer_triggers: One or more `timer_trigger` blocks as defined below.
         """
         pulumi.set(__self__, "container_registry_id", container_registry_id)
@@ -287,7 +287,7 @@ class RegistryTaskArgs:
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+        The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
@@ -347,7 +347,7 @@ class _RegistryTaskState:
         :param pulumi.Input['RegistryTaskRegistryCredentialArgs'] registry_credential: One `registry_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskSourceTriggerArgs']]] source_triggers: One or more `source_trigger` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Container Registry Task.
-        :param pulumi.Input[int] timeout_in_seconds: The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+        :param pulumi.Input[int] timeout_in_seconds: The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskTimerTriggerArgs']]] timer_triggers: One or more `timer_trigger` blocks as defined below.
         """
         if agent_pool_name is not None:
@@ -583,7 +583,7 @@ class _RegistryTaskState:
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+        The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
@@ -681,7 +681,7 @@ class RegistryTask(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RegistryTaskRegistryCredentialArgs']] registry_credential: One `registry_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskSourceTriggerArgs']]]] source_triggers: One or more `source_trigger` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Container Registry Task.
-        :param pulumi.Input[int] timeout_in_seconds: The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+        :param pulumi.Input[int] timeout_in_seconds: The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskTimerTriggerArgs']]]] timer_triggers: One or more `timer_trigger` blocks as defined below.
         """
         ...
@@ -838,7 +838,7 @@ class RegistryTask(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RegistryTaskRegistryCredentialArgs']] registry_credential: One `registry_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskSourceTriggerArgs']]]] source_triggers: One or more `source_trigger` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Container Registry Task.
-        :param pulumi.Input[int] timeout_in_seconds: The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+        :param pulumi.Input[int] timeout_in_seconds: The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTaskTimerTriggerArgs']]]] timer_triggers: One or more `timer_trigger` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -997,7 +997,7 @@ class RegistryTask(pulumi.CustomResource):
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to 3600.
+        The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
         """
         return pulumi.get(self, "timeout_in_seconds")
 

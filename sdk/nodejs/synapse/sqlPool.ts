@@ -86,7 +86,7 @@ export class SqlPool extends pulumi.CustomResource {
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
-     * Is transparent data encryption enabled? Defaults to `false`.
+     * Is transparent data encryption enabled?
      */
     public readonly dataEncrypted!: pulumi.Output<boolean | undefined>;
     /**
@@ -172,7 +172,7 @@ export interface SqlPoolState {
      */
     createMode?: pulumi.Input<string>;
     /**
-     * Is transparent data encryption enabled? Defaults to `false`.
+     * Is transparent data encryption enabled?
      */
     dataEncrypted?: pulumi.Input<boolean>;
     /**
@@ -214,7 +214,7 @@ export interface SqlPoolArgs {
      */
     createMode?: pulumi.Input<string>;
     /**
-     * Is transparent data encryption enabled? Defaults to `false`.
+     * Is transparent data encryption enabled?
      */
     dataEncrypted?: pulumi.Input<boolean>;
     /**

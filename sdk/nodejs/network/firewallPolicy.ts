@@ -59,7 +59,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Whether enable auto learn private ip range. Defaults to `false`.
+     * Whether enable auto learn private ip range.
      */
     public readonly autoLearnPrivateRangesEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -208,7 +208,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
  */
 export interface FirewallPolicyState {
     /**
-     * Whether enable auto learn private ip range. Defaults to `false`.
+     * Whether enable auto learn private ip range.
      */
     autoLearnPrivateRangesEnabled?: pulumi.Input<boolean>;
     /**
@@ -294,7 +294,7 @@ export interface FirewallPolicyState {
  */
 export interface FirewallPolicyArgs {
     /**
-     * Whether enable auto learn private ip range. Defaults to `false`.
+     * Whether enable auto learn private ip range.
      */
     autoLearnPrivateRangesEnabled?: pulumi.Input<boolean>;
     /**

@@ -176,13 +176,13 @@ namespace Pulumi.Azure.AppService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+        /// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         /// </summary>
         [Output("perSiteScaling")]
         public Output<bool?> PerSiteScaling { get; private set; } = null!;
 
         /// <summary>
-        /// Is this App Service Plan `Reserved`. Defaults to `false`.
+        /// Is this App Service Plan `Reserved`.
         /// </summary>
         [Output("reserved")]
         public Output<bool?> Reserved { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+        /// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zoneRedundant")]
         public Output<bool?> ZoneRedundant { get; private set; } = null!;
@@ -291,13 +291,13 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+        /// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         /// </summary>
         [Input("perSiteScaling")]
         public Input<bool>? PerSiteScaling { get; set; }
 
         /// <summary>
-        /// Is this App Service Plan `Reserved`. Defaults to `false`.
+        /// Is this App Service Plan `Reserved`.
         /// </summary>
         [Input("reserved")]
         public Input<bool>? Reserved { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+        /// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }
@@ -380,13 +380,13 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+        /// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         /// </summary>
         [Input("perSiteScaling")]
         public Input<bool>? PerSiteScaling { get; set; }
 
         /// <summary>
-        /// Is this App Service Plan `Reserved`. Defaults to `false`.
+        /// Is this App Service Plan `Reserved`.
         /// </summary>
         [Input("reserved")]
         public Input<bool>? Reserved { get; set; }
@@ -416,7 +416,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+        /// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }

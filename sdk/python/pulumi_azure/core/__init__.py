@@ -18,6 +18,8 @@ from .get_template_spec_version import *
 from .get_tenant_template_deployment import *
 from .get_user_assigned_identity import *
 from .portal_tenant_configuration import *
+from .resource_deployment_script_azure_cli import *
+from .resource_deployment_script_power_shell import *
 from .resource_group import *
 from .resource_group_cost_management_export import *
 from .resource_group_policy_assignment import *

@@ -22,14 +22,14 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
     public static final SharedImageState Empty = new SharedImageState();
 
     /**
-     * Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="acceleratedNetworkSupportEnabled")
     private @Nullable Output<Boolean> acceleratedNetworkSupportEnabled;
 
     /**
-     * @return Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> acceleratedNetworkSupportEnabled() {
@@ -322,14 +322,14 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="specialized")
     private @Nullable Output<Boolean> specialized;
 
     /**
-     * @return Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> specialized() {
@@ -352,14 +352,14 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="trustedLaunchEnabled")
     private @Nullable Output<Boolean> trustedLaunchEnabled;
 
     /**
-     * @return Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> trustedLaunchEnabled() {
@@ -413,7 +413,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acceleratedNetworkSupportEnabled Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param acceleratedNetworkSupportEnabled Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acceleratedNetworkSupportEnabled Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param acceleratedNetworkSupportEnabled Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -843,7 +843,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param specialized Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+         * @param specialized Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -854,7 +854,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param specialized Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+         * @param specialized Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -885,7 +885,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedLaunchEnabled Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param trustedLaunchEnabled Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -896,7 +896,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedLaunchEnabled Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param trustedLaunchEnabled Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

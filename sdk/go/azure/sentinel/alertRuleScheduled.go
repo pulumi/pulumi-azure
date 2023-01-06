@@ -128,7 +128,7 @@ type AlertRuleScheduled struct {
 	Techniques pulumi.StringArrayOutput `pulumi:"techniques"`
 	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
 	TriggerOperator pulumi.StringPtrOutput `pulumi:"triggerOperator"`
-	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
 	TriggerThreshold pulumi.IntPtrOutput `pulumi:"triggerThreshold"`
 }
 
@@ -215,7 +215,7 @@ type alertRuleScheduledState struct {
 	Techniques []string `pulumi:"techniques"`
 	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
 	TriggerOperator *string `pulumi:"triggerOperator"`
-	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
 	TriggerThreshold *int `pulumi:"triggerThreshold"`
 }
 
@@ -262,7 +262,7 @@ type AlertRuleScheduledState struct {
 	Techniques pulumi.StringArrayInput
 	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
 	TriggerOperator pulumi.StringPtrInput
-	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
 	TriggerThreshold pulumi.IntPtrInput
 }
 
@@ -313,7 +313,7 @@ type alertRuleScheduledArgs struct {
 	Techniques []string `pulumi:"techniques"`
 	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
 	TriggerOperator *string `pulumi:"triggerOperator"`
-	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
 	TriggerThreshold *int `pulumi:"triggerThreshold"`
 }
 
@@ -361,7 +361,7 @@ type AlertRuleScheduledArgs struct {
 	Techniques pulumi.StringArrayInput
 	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
 	TriggerOperator pulumi.StringPtrInput
-	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
 	TriggerThreshold pulumi.IntPtrInput
 }
 
@@ -561,7 +561,7 @@ func (o AlertRuleScheduledOutput) TriggerOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertRuleScheduled) pulumi.StringPtrOutput { return v.TriggerOperator }).(pulumi.StringPtrOutput)
 }
 
-// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
 func (o AlertRuleScheduledOutput) TriggerThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AlertRuleScheduled) pulumi.IntPtrOutput { return v.TriggerThreshold }).(pulumi.IntPtrOutput)
 }

@@ -171,14 +171,14 @@ public class RegistryWebook extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for &#39;foo:bar&#39; only. `foo` is equivalent to `foo:latest`. Empty means all events.
+     * Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for &#39;foo:bar&#39; only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `&#34;&#34;`.
      * 
      */
     @Export(name="scope", type=String.class, parameters={})
     private Output</* @Nullable */ String> scope;
 
     /**
-     * @return Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for &#39;foo:bar&#39; only. `foo` is equivalent to `foo:latest`. Empty means all events.
+     * @return Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for &#39;foo:bar&#39; only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `&#34;&#34;`.
      * 
      */
     public Output<Optional<String>> scope() {

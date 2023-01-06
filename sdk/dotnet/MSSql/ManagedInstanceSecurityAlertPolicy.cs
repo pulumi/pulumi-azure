@@ -286,7 +286,7 @@ namespace Pulumi.Azure.MSSql
         public Output<ImmutableArray<string>> EmailAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+        /// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -402,7 +402,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+        /// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -486,7 +486,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+        /// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

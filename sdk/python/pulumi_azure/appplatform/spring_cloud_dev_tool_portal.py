@@ -27,7 +27,7 @@ class SpringCloudDevToolPortalArgs:
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         :param pulumi.Input[bool] application_accelerator_enabled: Should the Accelerator plugin be enabled?
         :param pulumi.Input[bool] application_live_view_enabled: Should the Application Live View be enabled?
-        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled?
         :param pulumi.Input['SpringCloudDevToolPortalSsoArgs'] sso: A `sso` block as defined below.
         """
@@ -83,7 +83,7 @@ class SpringCloudDevToolPortalArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+        The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         """
         return pulumi.get(self, "name")
 
@@ -129,7 +129,7 @@ class _SpringCloudDevToolPortalState:
         Input properties used for looking up and filtering SpringCloudDevToolPortal resources.
         :param pulumi.Input[bool] application_accelerator_enabled: Should the Accelerator plugin be enabled?
         :param pulumi.Input[bool] application_live_view_enabled: Should the Application Live View be enabled?
-        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled?
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         :param pulumi.Input['SpringCloudDevToolPortalSsoArgs'] sso: A `sso` block as defined below.
@@ -175,7 +175,7 @@ class _SpringCloudDevToolPortalState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+        The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         """
         return pulumi.get(self, "name")
 
@@ -277,7 +277,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] application_accelerator_enabled: Should the Accelerator plugin be enabled?
         :param pulumi.Input[bool] application_live_view_enabled: Should the Application Live View be enabled?
-        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled?
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudDevToolPortalSsoArgs']] sso: A `sso` block as defined below.
@@ -392,7 +392,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] application_accelerator_enabled: Should the Accelerator plugin be enabled?
         :param pulumi.Input[bool] application_live_view_enabled: Should the Application Live View be enabled?
-        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled?
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudDevToolPortalSsoArgs']] sso: A `sso` block as defined below.
@@ -429,7 +429,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Spring Cloud Dev Tool Portal. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
+        The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         """
         return pulumi.get(self, "name")
 

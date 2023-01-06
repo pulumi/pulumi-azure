@@ -32,14 +32,14 @@ public final class SpringCloudAppIngressSettingsArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies the ingress read time out in seconds. Defaults to 300.
+     * Specifies the ingress read time out in seconds. Defaults to `300`.
      * 
      */
     @Import(name="readTimeoutInSeconds")
     private @Nullable Output<Integer> readTimeoutInSeconds;
 
     /**
-     * @return Specifies the ingress read time out in seconds. Defaults to 300.
+     * @return Specifies the ingress read time out in seconds. Defaults to `300`.
      * 
      */
     public Optional<Output<Integer>> readTimeoutInSeconds() {
@@ -47,14 +47,14 @@ public final class SpringCloudAppIngressSettingsArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies the ingress send time out in seconds. Defaults to 60.
+     * Specifies the ingress send time out in seconds. Defaults to `60`.
      * 
      */
     @Import(name="sendTimeoutInSeconds")
     private @Nullable Output<Integer> sendTimeoutInSeconds;
 
     /**
-     * @return Specifies the ingress send time out in seconds. Defaults to 60.
+     * @return Specifies the ingress send time out in seconds. Defaults to `60`.
      * 
      */
     public Optional<Output<Integer>> sendTimeoutInSeconds() {
@@ -141,7 +141,7 @@ public final class SpringCloudAppIngressSettingsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param readTimeoutInSeconds Specifies the ingress read time out in seconds. Defaults to 300.
+         * @param readTimeoutInSeconds Specifies the ingress read time out in seconds. Defaults to `300`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class SpringCloudAppIngressSettingsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param readTimeoutInSeconds Specifies the ingress read time out in seconds. Defaults to 300.
+         * @param readTimeoutInSeconds Specifies the ingress read time out in seconds. Defaults to `300`.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class SpringCloudAppIngressSettingsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param sendTimeoutInSeconds Specifies the ingress send time out in seconds. Defaults to 60.
+         * @param sendTimeoutInSeconds Specifies the ingress send time out in seconds. Defaults to `60`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class SpringCloudAppIngressSettingsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param sendTimeoutInSeconds Specifies the ingress send time out in seconds. Defaults to 60.
+         * @param sendTimeoutInSeconds Specifies the ingress send time out in seconds. Defaults to `60`.
          * 
          * @return builder
          * 

@@ -45,7 +45,7 @@ public final class VirtualMachineAutoBackup {
      */
     private String storageBlobEndpoint;
     /**
-     * @return Include or exclude system databases from auto backup. Defaults to `false`.
+     * @return Include or exclude system databases from auto backup.
      * 
      */
     private @Nullable Boolean systemDatabasesBackupEnabled;
@@ -94,7 +94,7 @@ public final class VirtualMachineAutoBackup {
         return this.storageBlobEndpoint;
     }
     /**
-     * @return Include or exclude system databases from auto backup. Defaults to `false`.
+     * @return Include or exclude system databases from auto backup.
      * 
      */
     public Optional<Boolean> systemDatabasesBackupEnabled() {

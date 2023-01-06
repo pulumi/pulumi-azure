@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> XAzureFdids;
         /// <summary>
-        /// Specifies if a Front Door Health Probe should be expected.
+        /// Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
         /// </summary>
         public readonly string? XFdHealthProbe;
         /// <summary>

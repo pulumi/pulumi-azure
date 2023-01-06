@@ -38,7 +38,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string StorageBlobEndpoint;
         /// <summary>
-        /// Include or exclude system databases from auto backup. Defaults to `false`.
+        /// Include or exclude system databases from auto backup.
         /// </summary>
         public readonly bool? SystemDatabasesBackupEnabled;
 

@@ -140,7 +140,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> DelegatedManagementSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+        /// Determines the number of p30 disks that are attached to each node.
         /// </summary>
         [Output("diskCount")]
         public Output<int?> DiskCount { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<int?> NodeCount { get; private set; } = null!;
 
         /// <summary>
-        /// Determines the selected sku. Defaults to Standard_DS14_v2.
+        /// Determines the selected sku.
         /// </summary>
         [Output("skuName")]
         public Output<string?> SkuName { get; private set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> DelegatedManagementSubnetId { get; set; } = null!;
 
         /// <summary>
-        /// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+        /// Determines the number of p30 disks that are attached to each node.
         /// </summary>
         [Input("diskCount")]
         public Input<int>? DiskCount { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? NodeCount { get; set; }
 
         /// <summary>
-        /// Determines the selected sku. Defaults to Standard_DS14_v2.
+        /// Determines the selected sku.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -338,7 +338,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? DelegatedManagementSubnetId { get; set; }
 
         /// <summary>
-        /// Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+        /// Determines the number of p30 disks that are attached to each node.
         /// </summary>
         [Input("diskCount")]
         public Input<int>? DiskCount { get; set; }
@@ -374,7 +374,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? NodeCount { get; set; }
 
         /// <summary>
-        /// Determines the selected sku. Defaults to Standard_DS14_v2.
+        /// Determines the selected sku.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

@@ -77,7 +77,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     }
 
     /**
-     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
      */
     public readonly allowForwardedTraffic!: pulumi.Output<boolean>;
     /**
@@ -85,7 +85,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      */
     public readonly allowGatewayTransit!: pulumi.Output<boolean>;
     /**
-     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
      */
     public readonly allowVirtualNetworkAccess!: pulumi.Output<boolean | undefined>;
     /**
@@ -166,7 +166,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
  */
 export interface VirtualNetworkPeeringState {
     /**
-     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
      */
     allowForwardedTraffic?: pulumi.Input<boolean>;
     /**
@@ -174,7 +174,7 @@ export interface VirtualNetworkPeeringState {
      */
     allowGatewayTransit?: pulumi.Input<boolean>;
     /**
-     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
      */
     allowVirtualNetworkAccess?: pulumi.Input<boolean>;
     /**
@@ -210,7 +210,7 @@ export interface VirtualNetworkPeeringState {
  */
 export interface VirtualNetworkPeeringArgs {
     /**
-     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to false.
+     * Controls if forwarded traffic from  VMs in the remote virtual network is allowed. Defaults to `false`.
      */
     allowForwardedTraffic?: pulumi.Input<boolean>;
     /**
@@ -218,7 +218,7 @@ export interface VirtualNetworkPeeringArgs {
      */
     allowGatewayTransit?: pulumi.Input<boolean>;
     /**
-     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to true.
+     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
      */
     allowVirtualNetworkAccess?: pulumi.Input<boolean>;
     /**

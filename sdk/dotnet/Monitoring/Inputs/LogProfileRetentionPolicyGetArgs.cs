@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class LogProfileRetentionPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of days for the retention policy. Defaults to 0.
+        /// The number of days for the retention policy. Defaults to `0`.
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }

@@ -29,7 +29,7 @@ class GatewayHostNameConfigurationArgs:
         :param pulumi.Input[str] certificate_id: The certificate ID to be used for TLS connection establishment.
         :param pulumi.Input[str] gateway_name: The name of the API Management Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_name: The host name to use for the API Management Gateway Host Name Configuration.
-        :param pulumi.Input[bool] http2_enabled: Whether HTTP/2.0 is supported.
+        :param pulumi.Input[bool] http2_enabled: Whether HTTP/2.0 is supported. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] request_client_certificate_enabled: Whether the API Management Gateway requests a client certificate.
         :param pulumi.Input[bool] tls10_enabled: Whether TLS 1.0 is supported.
@@ -102,7 +102,7 @@ class GatewayHostNameConfigurationArgs:
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether HTTP/2.0 is supported.
+        Whether HTTP/2.0 is supported. Defaults to `true`.
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -177,7 +177,7 @@ class _GatewayHostNameConfigurationState:
         :param pulumi.Input[str] certificate_id: The certificate ID to be used for TLS connection establishment.
         :param pulumi.Input[str] gateway_name: The name of the API Management Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_name: The host name to use for the API Management Gateway Host Name Configuration.
-        :param pulumi.Input[bool] http2_enabled: Whether HTTP/2.0 is supported.
+        :param pulumi.Input[bool] http2_enabled: Whether HTTP/2.0 is supported. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] request_client_certificate_enabled: Whether the API Management Gateway requests a client certificate.
         :param pulumi.Input[bool] tls10_enabled: Whether TLS 1.0 is supported.
@@ -254,7 +254,7 @@ class _GatewayHostNameConfigurationState:
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether HTTP/2.0 is supported.
+        Whether HTTP/2.0 is supported. Defaults to `true`.
         """
         return pulumi.get(self, "http2_enabled")
 
@@ -381,7 +381,7 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_id: The certificate ID to be used for TLS connection establishment.
         :param pulumi.Input[str] gateway_name: The name of the API Management Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_name: The host name to use for the API Management Gateway Host Name Configuration.
-        :param pulumi.Input[bool] http2_enabled: Whether HTTP/2.0 is supported.
+        :param pulumi.Input[bool] http2_enabled: Whether HTTP/2.0 is supported. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] request_client_certificate_enabled: Whether the API Management Gateway requests a client certificate.
         :param pulumi.Input[bool] tls10_enabled: Whether TLS 1.0 is supported.
@@ -522,7 +522,7 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_id: The certificate ID to be used for TLS connection establishment.
         :param pulumi.Input[str] gateway_name: The name of the API Management Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_name: The host name to use for the API Management Gateway Host Name Configuration.
-        :param pulumi.Input[bool] http2_enabled: Whether HTTP/2.0 is supported.
+        :param pulumi.Input[bool] http2_enabled: Whether HTTP/2.0 is supported. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] request_client_certificate_enabled: Whether the API Management Gateway requests a client certificate.
         :param pulumi.Input[bool] tls10_enabled: Whether TLS 1.0 is supported.
@@ -579,7 +579,7 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether HTTP/2.0 is supported.
+        Whether HTTP/2.0 is supported. Defaults to `true`.
         """
         return pulumi.get(self, "http2_enabled")
 

@@ -179,14 +179,14 @@ public class WebTest extends com.pulumi.resources.CustomResource {
         return this.geoLocations;
     }
     /**
-     * = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+     * The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="kind", type=String.class, parameters={})
     private Output<String> kind;
 
     /**
-     * @return = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+     * @return The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> kind() {

@@ -126,14 +126,14 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
+     * The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
      * 
      */
     @Import(name="ruleSetType")
     private @Nullable Output<String> ruleSetType;
 
     /**
-     * @return The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
+     * @return The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
      * 
      */
     public Optional<Output<String>> ruleSetType() {
@@ -141,14 +141,14 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
+     * The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
      * 
      */
     @Import(name="ruleSetVersion", required=true)
     private Output<String> ruleSetVersion;
 
     /**
-     * @return The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
+     * @return The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
      * 
      */
     public Output<String> ruleSetVersion() {
@@ -355,7 +355,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param ruleSetType The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
+         * @param ruleSetType The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param ruleSetType The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
+         * @param ruleSetType The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param ruleSetVersion The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
+         * @param ruleSetVersion The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param ruleSetVersion The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
+         * @param ruleSetVersion The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
          * 
          * @return builder
          * 

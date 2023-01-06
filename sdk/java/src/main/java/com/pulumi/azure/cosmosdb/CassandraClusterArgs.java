@@ -171,14 +171,14 @@ public final class CassandraClusterArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Is the automatic repair enabled on the Cassandra Cluster?
+     * Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
      * 
      */
     @Import(name="repairEnabled")
     private @Nullable Output<Boolean> repairEnabled;
 
     /**
-     * @return Is the automatic repair enabled on the Cassandra Cluster?
+     * @return Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> repairEnabled() {
@@ -508,7 +508,7 @@ public final class CassandraClusterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param repairEnabled Is the automatic repair enabled on the Cassandra Cluster?
+         * @param repairEnabled Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -519,7 +519,7 @@ public final class CassandraClusterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param repairEnabled Is the automatic repair enabled on the Cassandra Cluster?
+         * @param repairEnabled Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
          * 
          * @return builder
          * 

@@ -1787,7 +1787,7 @@ type StandardSiteConfig struct {
 	RuntimeScaleMonitoringEnabled *bool `pulumi:"runtimeScaleMonitoringEnabled"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
 	ScmIpRestrictions []StandardSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
-	// Configures the minimum version of TLS required for SSL requests to the SCM site.
+	// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
 	ScmMinTlsVersion *string `pulumi:"scmMinTlsVersion"`
 	// The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 	ScmType *string `pulumi:"scmType"`
@@ -1841,7 +1841,7 @@ type StandardSiteConfigArgs struct {
 	RuntimeScaleMonitoringEnabled pulumi.BoolPtrInput `pulumi:"runtimeScaleMonitoringEnabled"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
 	ScmIpRestrictions StandardSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
-	// Configures the minimum version of TLS required for SSL requests to the SCM site.
+	// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
 	ScmMinTlsVersion pulumi.StringPtrInput `pulumi:"scmMinTlsVersion"`
 	// The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
 	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
@@ -2002,7 +2002,7 @@ func (o StandardSiteConfigOutput) ScmIpRestrictions() StandardSiteConfigScmIpRes
 	return o.ApplyT(func(v StandardSiteConfig) []StandardSiteConfigScmIpRestriction { return v.ScmIpRestrictions }).(StandardSiteConfigScmIpRestrictionArrayOutput)
 }
 
-// Configures the minimum version of TLS required for SSL requests to the SCM site.
+// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
 func (o StandardSiteConfigOutput) ScmMinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *string { return v.ScmMinTlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -2196,7 +2196,7 @@ func (o StandardSiteConfigPtrOutput) ScmIpRestrictions() StandardSiteConfigScmIp
 	}).(StandardSiteConfigScmIpRestrictionArrayOutput)
 }
 
-// Configures the minimum version of TLS required for SSL requests to the SCM site.
+// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
 func (o StandardSiteConfigPtrOutput) ScmMinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StandardSiteConfig) *string {
 		if v == nil {

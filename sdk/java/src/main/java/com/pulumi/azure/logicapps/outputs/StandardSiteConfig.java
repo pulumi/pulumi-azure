@@ -88,7 +88,7 @@ public final class StandardSiteConfig {
      */
     private @Nullable List<StandardSiteConfigScmIpRestriction> scmIpRestrictions;
     /**
-     * @return Configures the minimum version of TLS required for SSL requests to the SCM site.
+     * @return Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
      * 
      */
     private @Nullable String scmMinTlsVersion;
@@ -218,7 +218,7 @@ public final class StandardSiteConfig {
         return this.scmIpRestrictions == null ? List.of() : this.scmIpRestrictions;
     }
     /**
-     * @return Configures the minimum version of TLS required for SSL requests to the SCM site.
+     * @return Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
      * 
      */
     public Optional<String> scmMinTlsVersion() {

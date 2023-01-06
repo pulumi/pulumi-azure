@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly double Threshold;
         /// <summary>
-        /// Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+        /// Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`.
         /// </summary>
         public readonly string TimeAggregation;
         /// <summary>

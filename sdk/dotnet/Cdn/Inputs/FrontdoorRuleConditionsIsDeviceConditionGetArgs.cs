@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class FrontdoorRuleConditionsIsDeviceConditionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+        /// Which device should this rule match on? Possible values `Mobile` or `Desktop`.
         /// </summary>
         [Input("matchValues")]
         public Input<string>? MatchValues { get; set; }

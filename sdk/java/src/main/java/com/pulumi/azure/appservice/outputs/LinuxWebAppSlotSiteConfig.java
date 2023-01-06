@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxWebAppSlotSiteConfig {
     /**
-     * @return If this Linux Web App is Always On enabled. Defaults to `false`.
+     * @return If this Linux Web App is Always On enabled. Defaults to `true`.
      * 
      */
     private @Nullable Boolean alwaysOn;
@@ -171,7 +171,7 @@ public final class LinuxWebAppSlotSiteConfig {
 
     private LinuxWebAppSlotSiteConfig() {}
     /**
-     * @return If this Linux Web App is Always On enabled. Defaults to `false`.
+     * @return If this Linux Web App is Always On enabled. Defaults to `true`.
      * 
      */
     public Optional<Boolean> alwaysOn() {

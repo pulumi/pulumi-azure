@@ -118,13 +118,13 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+        /// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
         /// </summary>
         [Input("scmType")]
         public Input<string>? ScmType { get; set; }
 
         /// <summary>
-        /// IP security restrictions for scm to use main. Defaults to false.
+        /// IP security restrictions for scm to use main. Defaults to `false`.
         /// </summary>
         [Input("scmUseMainIpRestriction")]
         public Input<bool>? ScmUseMainIpRestriction { get; set; }

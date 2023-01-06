@@ -1279,7 +1279,7 @@ type ImageOsDisk struct {
 	ManagedDiskId *string `pulumi:"managedDiskId"`
 	// Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
 	OsState *string `pulumi:"osState"`
-	// Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
+	// Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
 	OsType *string `pulumi:"osType"`
 	// Specifies the size of the image to be created. The target size can't be smaller than the source size.
 	SizeGb *int `pulumi:"sizeGb"`
@@ -1305,7 +1305,7 @@ type ImageOsDiskArgs struct {
 	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
 	// Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
 	OsState pulumi.StringPtrInput `pulumi:"osState"`
-	// Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
+	// Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// Specifies the size of the image to be created. The target size can't be smaller than the source size.
 	SizeGb pulumi.IntPtrInput `pulumi:"sizeGb"`
@@ -1408,7 +1408,7 @@ func (o ImageOsDiskOutput) OsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOsDisk) *string { return v.OsState }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
+// Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
 func (o ImageOsDiskOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOsDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
@@ -1482,7 +1482,7 @@ func (o ImageOsDiskPtrOutput) OsState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
+// Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
 func (o ImageOsDiskPtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageOsDisk) *string {
 		if v == nil {
@@ -3068,7 +3068,7 @@ func (o LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput) Index(i pulumi.IntInp
 type LinuxVirtualMachineScaleSetAutomaticInstanceRepair struct {
 	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
 	Enabled bool `pulumi:"enabled"`
-	// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+	// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
 	GracePeriod *string `pulumi:"gracePeriod"`
 }
 
@@ -3086,7 +3086,7 @@ type LinuxVirtualMachineScaleSetAutomaticInstanceRepairInput interface {
 type LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs struct {
 	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+	// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
 	GracePeriod pulumi.StringPtrInput `pulumi:"gracePeriod"`
 }
 
@@ -3172,7 +3172,7 @@ func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) Enabled() pulu
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticInstanceRepair) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
 func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticInstanceRepair) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
 }
@@ -3211,7 +3211,7 @@ func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Enabled() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
 func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAutomaticInstanceRepair) *string {
 		if v == nil {
@@ -3689,7 +3689,7 @@ func (o LinuxVirtualMachineScaleSetDataDiskArrayOutput) Index(i pulumi.IntInput)
 type LinuxVirtualMachineScaleSetExtension struct {
 	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
@@ -3724,7 +3724,7 @@ type LinuxVirtualMachineScaleSetExtensionInput interface {
 type LinuxVirtualMachineScaleSetExtensionArgs struct {
 	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
-	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput `pulumi:"automaticUpgradeEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
@@ -3801,7 +3801,7 @@ func (o LinuxVirtualMachineScaleSetExtensionOutput) AutoUpgradeMinorVersion() pu
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
 }
 
-// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 func (o LinuxVirtualMachineScaleSetExtensionOutput) AutomaticUpgradeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtension) *bool { return v.AutomaticUpgradeEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -5548,7 +5548,7 @@ func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringPtrOu
 }
 
 type LinuxVirtualMachineScaleSetRollingUpgradePolicy struct {
-	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
 	CrossZoneUpgradesEnabled *bool `pulumi:"crossZoneUpgradesEnabled"`
 	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 	MaxBatchInstancePercent int `pulumi:"maxBatchInstancePercent"`
@@ -5558,7 +5558,7 @@ type LinuxVirtualMachineScaleSetRollingUpgradePolicy struct {
 	MaxUnhealthyUpgradedInstancePercent int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 	PauseTimeBetweenBatches string `pulumi:"pauseTimeBetweenBatches"`
-	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
 	PrioritizeUnhealthyInstancesEnabled *bool `pulumi:"prioritizeUnhealthyInstancesEnabled"`
 }
 
@@ -5574,7 +5574,7 @@ type LinuxVirtualMachineScaleSetRollingUpgradePolicyInput interface {
 }
 
 type LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
-	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
 	CrossZoneUpgradesEnabled pulumi.BoolPtrInput `pulumi:"crossZoneUpgradesEnabled"`
 	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 	MaxBatchInstancePercent pulumi.IntInput `pulumi:"maxBatchInstancePercent"`
@@ -5584,7 +5584,7 @@ type LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
 	MaxUnhealthyUpgradedInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 	PauseTimeBetweenBatches pulumi.StringInput `pulumi:"pauseTimeBetweenBatches"`
-	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
 	PrioritizeUnhealthyInstancesEnabled pulumi.BoolPtrInput `pulumi:"prioritizeUnhealthyInstancesEnabled"`
 }
 
@@ -5665,7 +5665,7 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) ToLinuxVirtualMac
 	}).(LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
 }
 
-// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) CrossZoneUpgradesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) *bool { return v.CrossZoneUpgradesEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -5692,7 +5692,7 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenB
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
 }
 
-// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) PrioritizeUnhealthyInstancesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) *bool {
 		return v.PrioritizeUnhealthyInstancesEnabled
@@ -5723,7 +5723,7 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) Elem() LinuxVi
 	}).(LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput)
 }
 
-// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) CrossZoneUpgradesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetRollingUpgradePolicy) *bool {
 		if v == nil {
@@ -5773,7 +5773,7 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PauseTimeBetwe
 	}).(pulumi.StringPtrOutput)
 }
 
-// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PrioritizeUnhealthyInstancesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetRollingUpgradePolicy) *bool {
 		if v == nil {
@@ -6495,9 +6495,9 @@ func (o LinuxVirtualMachineScaleSetSpotRestorePtrOutput) Timeout() pulumi.String
 }
 
 type LinuxVirtualMachineScaleSetTerminateNotification struct {
-	// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+	// Should the terminate notification be enabled on this Virtual Machine Scale Set?
 	Enabled bool `pulumi:"enabled"`
-	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 	Timeout *string `pulumi:"timeout"`
 }
 
@@ -6513,9 +6513,9 @@ type LinuxVirtualMachineScaleSetTerminateNotificationInput interface {
 }
 
 type LinuxVirtualMachineScaleSetTerminateNotificationArgs struct {
-	// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+	// Should the terminate notification be enabled on this Virtual Machine Scale Set?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
 }
 
@@ -6596,12 +6596,12 @@ func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) ToLinuxVirtualMa
 	}).(LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput)
 }
 
-// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+// Should the terminate notification be enabled on this Virtual Machine Scale Set?
 func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetTerminateNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 func (o LinuxVirtualMachineScaleSetTerminateNotificationOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetTerminateNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
@@ -6630,7 +6630,7 @@ func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) Elem() LinuxV
 	}).(LinuxVirtualMachineScaleSetTerminateNotificationOutput)
 }
 
-// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+// Should the terminate notification be enabled on this Virtual Machine Scale Set?
 func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetTerminateNotification) *bool {
 		if v == nil {
@@ -6640,7 +6640,7 @@ func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) Enabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetTerminateNotification) *string {
 		if v == nil {
@@ -6651,9 +6651,9 @@ func (o LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput) Timeout() pul
 }
 
 type LinuxVirtualMachineScaleSetTerminationNotification struct {
-	// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+	// Should the termination notification be enabled on this Virtual Machine Scale Set?
 	Enabled bool `pulumi:"enabled"`
-	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 	Timeout *string `pulumi:"timeout"`
 }
 
@@ -6669,9 +6669,9 @@ type LinuxVirtualMachineScaleSetTerminationNotificationInput interface {
 }
 
 type LinuxVirtualMachineScaleSetTerminationNotificationArgs struct {
-	// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+	// Should the termination notification be enabled on this Virtual Machine Scale Set?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
 }
 
@@ -6752,12 +6752,12 @@ func (o LinuxVirtualMachineScaleSetTerminationNotificationOutput) ToLinuxVirtual
 	}).(LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput)
 }
 
-// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+// Should the termination notification be enabled on this Virtual Machine Scale Set?
 func (o LinuxVirtualMachineScaleSetTerminationNotificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetTerminationNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 func (o LinuxVirtualMachineScaleSetTerminationNotificationOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetTerminationNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
@@ -6786,7 +6786,7 @@ func (o LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput) Elem() Linu
 	}).(LinuxVirtualMachineScaleSetTerminationNotificationOutput)
 }
 
-// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+// Should the termination notification be enabled on this Virtual Machine Scale Set?
 func (o LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetTerminationNotification) *bool {
 		if v == nil {
@@ -6796,7 +6796,7 @@ func (o LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput) Enabled() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 func (o LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetTerminationNotification) *string {
 		if v == nil {
@@ -7204,9 +7204,9 @@ func (o LinuxVirtualMachineSourceImageReferencePtrOutput) Version() pulumi.Strin
 }
 
 type LinuxVirtualMachineTerminationNotification struct {
-	// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+	// Should the termination notification be enabled on this Virtual Machine?
 	Enabled bool `pulumi:"enabled"`
-	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 	Timeout *string `pulumi:"timeout"`
 }
 
@@ -7222,9 +7222,9 @@ type LinuxVirtualMachineTerminationNotificationInput interface {
 }
 
 type LinuxVirtualMachineTerminationNotificationArgs struct {
-	// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+	// Should the termination notification be enabled on this Virtual Machine?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
 }
 
@@ -7305,12 +7305,12 @@ func (o LinuxVirtualMachineTerminationNotificationOutput) ToLinuxVirtualMachineT
 	}).(LinuxVirtualMachineTerminationNotificationPtrOutput)
 }
 
-// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+// Should the termination notification be enabled on this Virtual Machine?
 func (o LinuxVirtualMachineTerminationNotificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineTerminationNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 func (o LinuxVirtualMachineTerminationNotificationOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineTerminationNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
@@ -7339,7 +7339,7 @@ func (o LinuxVirtualMachineTerminationNotificationPtrOutput) Elem() LinuxVirtual
 	}).(LinuxVirtualMachineTerminationNotificationOutput)
 }
 
-// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+// Should the termination notification be enabled on this Virtual Machine?
 func (o LinuxVirtualMachineTerminationNotificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineTerminationNotification) *bool {
 		if v == nil {
@@ -7349,7 +7349,7 @@ func (o LinuxVirtualMachineTerminationNotificationPtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 func (o LinuxVirtualMachineTerminationNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineTerminationNotification) *string {
 		if v == nil {
@@ -8283,7 +8283,7 @@ func (o OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput) StorageAccou
 type OrchestratedVirtualMachineScaleSetDataDisk struct {
 	// The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
 	Caching string `pulumi:"caching"`
-	// The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+	// The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
 	CreateOption *string `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -8312,7 +8312,7 @@ type OrchestratedVirtualMachineScaleSetDataDiskInput interface {
 type OrchestratedVirtualMachineScaleSetDataDiskArgs struct {
 	// The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
 	Caching pulumi.StringInput `pulumi:"caching"`
-	// The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+	// The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
 	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
@@ -8383,7 +8383,7 @@ func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) Caching() pulumi.Strin
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
-// The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+// The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) CreateOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *string { return v.CreateOption }).(pulumi.StringPtrOutput)
 }
@@ -8441,11 +8441,11 @@ func (o OrchestratedVirtualMachineScaleSetDataDiskArrayOutput) Index(i pulumi.In
 }
 
 type OrchestratedVirtualMachineScaleSetExtension struct {
-	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to true.
+	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersionEnabled *bool `pulumi:"autoUpgradeMinorVersionEnabled"`
 	// An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
 	ExtensionsToProvisionAfterVmCreations []string `pulumi:"extensionsToProvisionAfterVmCreations"`
-	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	// Should failures from the extension be suppressed? Possible values are `true` or `false`.
 	FailureSuppressionEnabled *bool `pulumi:"failureSuppressionEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceExtensionExecutionOnChange *string `pulumi:"forceExtensionExecutionOnChange"`
@@ -8476,11 +8476,11 @@ type OrchestratedVirtualMachineScaleSetExtensionInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetExtensionArgs struct {
-	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to true.
+	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersionEnabled pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersionEnabled"`
 	// An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
 	ExtensionsToProvisionAfterVmCreations pulumi.StringArrayInput `pulumi:"extensionsToProvisionAfterVmCreations"`
-	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	// Should failures from the extension be suppressed? Possible values are `true` or `false`.
 	FailureSuppressionEnabled pulumi.BoolPtrInput `pulumi:"failureSuppressionEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceExtensionExecutionOnChange pulumi.StringPtrInput `pulumi:"forceExtensionExecutionOnChange"`
@@ -8550,7 +8550,7 @@ func (o OrchestratedVirtualMachineScaleSetExtensionOutput) ToOrchestratedVirtual
 	return o
 }
 
-// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to true.
+// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 func (o OrchestratedVirtualMachineScaleSetExtensionOutput) AutoUpgradeMinorVersionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) *bool { return v.AutoUpgradeMinorVersionEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -8562,7 +8562,7 @@ func (o OrchestratedVirtualMachineScaleSetExtensionOutput) ExtensionsToProvision
 	}).(pulumi.StringArrayOutput)
 }
 
-// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+// Should failures from the extension be suppressed? Possible values are `true` or `false`.
 func (o OrchestratedVirtualMachineScaleSetExtensionOutput) FailureSuppressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) *bool { return v.FailureSuppressionEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -9276,7 +9276,7 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAd
 	Name string `pulumi:"name"`
 	// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
-	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
 	Version *string `pulumi:"version"`
@@ -9304,7 +9304,7 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAd
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 	PublicIpPrefixId pulumi.StringPtrInput `pulumi:"publicIpPrefixId"`
-	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput `pulumi:"skuName"`
 	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
 	Version pulumi.StringPtrInput `pulumi:"version"`
@@ -9396,7 +9396,7 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicI
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
 		return v.SkuName
@@ -11761,7 +11761,7 @@ func (o OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput) Version
 }
 
 type OrchestratedVirtualMachineScaleSetTerminationNotification struct {
-	// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false` Defaults to `false`.
+	// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
 	Enabled bool `pulumi:"enabled"`
 	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in `ISO 8601` format. Defaults to `PT5M`.
 	Timeout *string `pulumi:"timeout"`
@@ -11779,7 +11779,7 @@ type OrchestratedVirtualMachineScaleSetTerminationNotificationInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetTerminationNotificationArgs struct {
-	// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false` Defaults to `false`.
+	// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in `ISO 8601` format. Defaults to `PT5M`.
 	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
@@ -11862,7 +11862,7 @@ func (o OrchestratedVirtualMachineScaleSetTerminationNotificationOutput) ToOrche
 	}).(OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput)
 }
 
-// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false` Defaults to `false`.
+// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
 func (o OrchestratedVirtualMachineScaleSetTerminationNotificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetTerminationNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -11896,7 +11896,7 @@ func (o OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput) Elem
 	}).(OrchestratedVirtualMachineScaleSetTerminationNotificationOutput)
 }
 
-// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false` Defaults to `false`.
+// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
 func (o OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetTerminationNotification) *bool {
 		if v == nil {
@@ -12225,7 +12225,7 @@ func (o PacketCaptureStorageLocationPtrOutput) StoragePath() pulumi.StringPtrOut
 }
 
 type ScaleSetBootDiagnostics struct {
-	// Whether to enable boot diagnostics for the virtual machine.
+	// Whether to enable boot diagnostics for the virtual machine. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Blob endpoint for the storage account to hold the virtual machine's diagnostic files. This must be the root of a storage account, and not a storage container.
 	StorageUri string `pulumi:"storageUri"`
@@ -12243,7 +12243,7 @@ type ScaleSetBootDiagnosticsInput interface {
 }
 
 type ScaleSetBootDiagnosticsArgs struct {
-	// Whether to enable boot diagnostics for the virtual machine.
+	// Whether to enable boot diagnostics for the virtual machine. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Blob endpoint for the storage account to hold the virtual machine's diagnostic files. This must be the root of a storage account, and not a storage container.
 	StorageUri pulumi.StringInput `pulumi:"storageUri"`
@@ -12326,7 +12326,7 @@ func (o ScaleSetBootDiagnosticsOutput) ToScaleSetBootDiagnosticsPtrOutputWithCon
 	}).(ScaleSetBootDiagnosticsPtrOutput)
 }
 
-// Whether to enable boot diagnostics for the virtual machine.
+// Whether to enable boot diagnostics for the virtual machine. Defaults to `true`.
 func (o ScaleSetBootDiagnosticsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScaleSetBootDiagnostics) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -12360,7 +12360,7 @@ func (o ScaleSetBootDiagnosticsPtrOutput) Elem() ScaleSetBootDiagnosticsOutput {
 	}).(ScaleSetBootDiagnosticsOutput)
 }
 
-// Whether to enable boot diagnostics for the virtual machine.
+// Whether to enable boot diagnostics for the virtual machine. Defaults to `true`.
 func (o ScaleSetBootDiagnosticsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScaleSetBootDiagnostics) *bool {
 		if v == nil {
@@ -12712,7 +12712,7 @@ func (o ScaleSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ScaleSetNetworkProfile struct {
-	// Specifies whether to enable accelerated networking or not. Defaults to `false`.
+	// Specifies whether to enable accelerated networking or not.
 	AcceleratedNetworking *bool `pulumi:"acceleratedNetworking"`
 	// A dnsSettings block as documented below.
 	DnsSettings *ScaleSetNetworkProfileDnsSettings `pulumi:"dnsSettings"`
@@ -12740,7 +12740,7 @@ type ScaleSetNetworkProfileInput interface {
 }
 
 type ScaleSetNetworkProfileArgs struct {
-	// Specifies whether to enable accelerated networking or not. Defaults to `false`.
+	// Specifies whether to enable accelerated networking or not.
 	AcceleratedNetworking pulumi.BoolPtrInput `pulumi:"acceleratedNetworking"`
 	// A dnsSettings block as documented below.
 	DnsSettings ScaleSetNetworkProfileDnsSettingsPtrInput `pulumi:"dnsSettings"`
@@ -12807,7 +12807,7 @@ func (o ScaleSetNetworkProfileOutput) ToScaleSetNetworkProfileOutputWithContext(
 	return o
 }
 
-// Specifies whether to enable accelerated networking or not. Defaults to `false`.
+// Specifies whether to enable accelerated networking or not.
 func (o ScaleSetNetworkProfileOutput) AcceleratedNetworking() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScaleSetNetworkProfile) *bool { return v.AcceleratedNetworking }).(pulumi.BoolPtrOutput)
 }
@@ -21184,7 +21184,7 @@ func (o WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput) Index
 type WindowsVirtualMachineScaleSetAutomaticInstanceRepair struct {
 	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
 	Enabled bool `pulumi:"enabled"`
-	// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+	// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
 	GracePeriod *string `pulumi:"gracePeriod"`
 }
 
@@ -21202,7 +21202,7 @@ type WindowsVirtualMachineScaleSetAutomaticInstanceRepairInput interface {
 type WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs struct {
 	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+	// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
 	GracePeriod pulumi.StringPtrInput `pulumi:"gracePeriod"`
 }
 
@@ -21288,7 +21288,7 @@ func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) Enabled() pu
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticInstanceRepair) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
 func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticInstanceRepair) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
 }
@@ -21327,7 +21327,7 @@ func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Enabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
 func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAutomaticInstanceRepair) *string {
 		if v == nil {
@@ -21805,7 +21805,7 @@ func (o WindowsVirtualMachineScaleSetDataDiskArrayOutput) Index(i pulumi.IntInpu
 type WindowsVirtualMachineScaleSetExtension struct {
 	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
@@ -21840,7 +21840,7 @@ type WindowsVirtualMachineScaleSetExtensionInput interface {
 type WindowsVirtualMachineScaleSetExtensionArgs struct {
 	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
-	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput `pulumi:"automaticUpgradeEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
@@ -21917,7 +21917,7 @@ func (o WindowsVirtualMachineScaleSetExtensionOutput) AutoUpgradeMinorVersion() 
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
 }
 
-// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 func (o WindowsVirtualMachineScaleSetExtensionOutput) AutomaticUpgradeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtension) *bool { return v.AutomaticUpgradeEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -23666,7 +23666,7 @@ func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringPtr
 }
 
 type WindowsVirtualMachineScaleSetRollingUpgradePolicy struct {
-	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
 	CrossZoneUpgradesEnabled *bool `pulumi:"crossZoneUpgradesEnabled"`
 	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 	MaxBatchInstancePercent int `pulumi:"maxBatchInstancePercent"`
@@ -23676,7 +23676,7 @@ type WindowsVirtualMachineScaleSetRollingUpgradePolicy struct {
 	MaxUnhealthyUpgradedInstancePercent int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 	PauseTimeBetweenBatches string `pulumi:"pauseTimeBetweenBatches"`
-	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
 	PrioritizeUnhealthyInstancesEnabled *bool `pulumi:"prioritizeUnhealthyInstancesEnabled"`
 }
 
@@ -23692,7 +23692,7 @@ type WindowsVirtualMachineScaleSetRollingUpgradePolicyInput interface {
 }
 
 type WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
-	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
 	CrossZoneUpgradesEnabled pulumi.BoolPtrInput `pulumi:"crossZoneUpgradesEnabled"`
 	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 	MaxBatchInstancePercent pulumi.IntInput `pulumi:"maxBatchInstancePercent"`
@@ -23702,7 +23702,7 @@ type WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
 	MaxUnhealthyUpgradedInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 	PauseTimeBetweenBatches pulumi.StringInput `pulumi:"pauseTimeBetweenBatches"`
-	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
 	PrioritizeUnhealthyInstancesEnabled pulumi.BoolPtrInput `pulumi:"prioritizeUnhealthyInstancesEnabled"`
 }
 
@@ -23783,7 +23783,7 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) ToWindowsVirtua
 	}).(WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
 }
 
-// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) CrossZoneUpgradesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) *bool { return v.CrossZoneUpgradesEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -23810,7 +23810,7 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) PauseTimeBetwee
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
 }
 
-// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) PrioritizeUnhealthyInstancesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) *bool {
 		return v.PrioritizeUnhealthyInstancesEnabled
@@ -23841,7 +23841,7 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) Elem() Windo
 	}).(WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput)
 }
 
-// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) CrossZoneUpgradesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetRollingUpgradePolicy) *bool {
 		if v == nil {
@@ -23891,7 +23891,7 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PauseTimeBet
 	}).(pulumi.StringPtrOutput)
 }
 
-// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PrioritizeUnhealthyInstancesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetRollingUpgradePolicy) *bool {
 		if v == nil {
@@ -24622,9 +24622,9 @@ func (o WindowsVirtualMachineScaleSetSpotRestorePtrOutput) Timeout() pulumi.Stri
 }
 
 type WindowsVirtualMachineScaleSetTerminateNotification struct {
-	// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+	// Should the terminate notification be enabled on this Virtual Machine Scale Set?
 	Enabled bool `pulumi:"enabled"`
-	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 	Timeout *string `pulumi:"timeout"`
 }
 
@@ -24640,9 +24640,9 @@ type WindowsVirtualMachineScaleSetTerminateNotificationInput interface {
 }
 
 type WindowsVirtualMachineScaleSetTerminateNotificationArgs struct {
-	// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+	// Should the terminate notification be enabled on this Virtual Machine Scale Set?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
 }
 
@@ -24723,12 +24723,12 @@ func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) ToWindowsVirtu
 	}).(WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput)
 }
 
-// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+// Should the terminate notification be enabled on this Virtual Machine Scale Set?
 func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetTerminateNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 func (o WindowsVirtualMachineScaleSetTerminateNotificationOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetTerminateNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
@@ -24757,7 +24757,7 @@ func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) Elem() Wind
 	}).(WindowsVirtualMachineScaleSetTerminateNotificationOutput)
 }
 
-// Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+// Should the terminate notification be enabled on this Virtual Machine Scale Set?
 func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetTerminateNotification) *bool {
 		if v == nil {
@@ -24767,7 +24767,7 @@ func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) Enabled() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetTerminateNotification) *string {
 		if v == nil {
@@ -24778,9 +24778,9 @@ func (o WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput) Timeout() p
 }
 
 type WindowsVirtualMachineScaleSetTerminationNotification struct {
-	// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+	// Should the termination notification be enabled on this Virtual Machine Scale Set?
 	Enabled bool `pulumi:"enabled"`
-	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 	Timeout *string `pulumi:"timeout"`
 }
 
@@ -24796,9 +24796,9 @@ type WindowsVirtualMachineScaleSetTerminationNotificationInput interface {
 }
 
 type WindowsVirtualMachineScaleSetTerminationNotificationArgs struct {
-	// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+	// Should the termination notification be enabled on this Virtual Machine Scale Set?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
 }
 
@@ -24879,12 +24879,12 @@ func (o WindowsVirtualMachineScaleSetTerminationNotificationOutput) ToWindowsVir
 	}).(WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput)
 }
 
-// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+// Should the termination notification be enabled on this Virtual Machine Scale Set?
 func (o WindowsVirtualMachineScaleSetTerminationNotificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetTerminationNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 func (o WindowsVirtualMachineScaleSetTerminationNotificationOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetTerminationNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
@@ -24913,7 +24913,7 @@ func (o WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput) Elem() Wi
 	}).(WindowsVirtualMachineScaleSetTerminationNotificationOutput)
 }
 
-// Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+// Should the termination notification be enabled on this Virtual Machine Scale Set?
 func (o WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetTerminationNotification) *bool {
 		if v == nil {
@@ -24923,7 +24923,7 @@ func (o WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput) Enabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+// Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 func (o WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetTerminationNotification) *string {
 		if v == nil {
@@ -25446,9 +25446,9 @@ func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Version() pulumi.Str
 }
 
 type WindowsVirtualMachineTerminationNotification struct {
-	// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+	// Should the termination notification be enabled on this Virtual Machine?
 	Enabled bool `pulumi:"enabled"`
-	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 	Timeout *string `pulumi:"timeout"`
 }
 
@@ -25464,9 +25464,9 @@ type WindowsVirtualMachineTerminationNotificationInput interface {
 }
 
 type WindowsVirtualMachineTerminationNotificationArgs struct {
-	// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+	// Should the termination notification be enabled on this Virtual Machine?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
 }
 
@@ -25547,12 +25547,12 @@ func (o WindowsVirtualMachineTerminationNotificationOutput) ToWindowsVirtualMach
 	}).(WindowsVirtualMachineTerminationNotificationPtrOutput)
 }
 
-// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+// Should the termination notification be enabled on this Virtual Machine?
 func (o WindowsVirtualMachineTerminationNotificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineTerminationNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 func (o WindowsVirtualMachineTerminationNotificationOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineTerminationNotification) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
@@ -25581,7 +25581,7 @@ func (o WindowsVirtualMachineTerminationNotificationPtrOutput) Elem() WindowsVir
 	}).(WindowsVirtualMachineTerminationNotificationOutput)
 }
 
-// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+// Should the termination notification be enabled on this Virtual Machine?
 func (o WindowsVirtualMachineTerminationNotificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineTerminationNotification) *bool {
 		if v == nil {
@@ -25591,7 +25591,7 @@ func (o WindowsVirtualMachineTerminationNotificationPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 func (o WindowsVirtualMachineTerminationNotificationPtrOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineTerminationNotification) *string {
 		if v == nil {

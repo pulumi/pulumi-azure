@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The number of instances involved in the scaling action. Defaults to `1`.
+        /// The number of instances involved in the scaling action.
         /// </summary>
         [Input("value", required: true)]
         public Input<int> Value { get; set; } = null!;

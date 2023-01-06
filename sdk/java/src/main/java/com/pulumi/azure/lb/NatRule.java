@@ -163,14 +163,14 @@ public class NatRule extends com.pulumi.resources.CustomResource {
         return this.enableFloatingIp;
     }
     /**
-     * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     * Is TCP Reset enabled for this Load Balancer Rule?
      * 
      */
     @Export(name="enableTcpReset", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableTcpReset;
 
     /**
-     * @return Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     * @return Is TCP Reset enabled for this Load Balancer Rule?
      * 
      */
     public Output<Optional<Boolean>> enableTcpReset() {

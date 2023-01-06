@@ -17,14 +17,14 @@ public final class LinuxVirtualMachineScaleSetTerminateNotificationArgs extends 
     public static final LinuxVirtualMachineScaleSetTerminateNotificationArgs Empty = new LinuxVirtualMachineScaleSetTerminateNotificationArgs();
 
     /**
-     * Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+     * Should the terminate notification be enabled on this Virtual Machine Scale Set?
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+     * @return Should the terminate notification be enabled on this Virtual Machine Scale Set?
      * 
      */
     public Output<Boolean> enabled() {
@@ -32,14 +32,14 @@ public final class LinuxVirtualMachineScaleSetTerminateNotificationArgs extends 
     }
 
     /**
-     * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+     * Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<String> timeout;
 
     /**
-     * @return Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+     * @return Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
      * 
      */
     public Optional<Output<String>> timeout() {
@@ -72,7 +72,7 @@ public final class LinuxVirtualMachineScaleSetTerminateNotificationArgs extends 
         }
 
         /**
-         * @param enabled Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+         * @param enabled Should the terminate notification be enabled on this Virtual Machine Scale Set?
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class LinuxVirtualMachineScaleSetTerminateNotificationArgs extends 
         }
 
         /**
-         * @param enabled Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+         * @param enabled Should the terminate notification be enabled on this Virtual Machine Scale Set?
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class LinuxVirtualMachineScaleSetTerminateNotificationArgs extends 
         }
 
         /**
-         * @param timeout Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         * @param timeout Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class LinuxVirtualMachineScaleSetTerminateNotificationArgs extends 
         }
 
         /**
-         * @param timeout Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+         * @param timeout Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
          * 
          * @return builder
          * 

@@ -93,14 +93,14 @@ public final class CassandraDatacenterArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+     * Determines the number of p30 disks that are attached to each node.
      * 
      */
     @Import(name="diskCount")
     private @Nullable Output<Integer> diskCount;
 
     /**
-     * @return Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+     * @return Determines the number of p30 disks that are attached to each node.
      * 
      */
     public Optional<Output<Integer>> diskCount() {
@@ -183,14 +183,14 @@ public final class CassandraDatacenterArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Determines the selected sku. Defaults to Standard_DS14_v2.
+     * Determines the selected sku.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return Determines the selected sku. Defaults to Standard_DS14_v2.
+     * @return Determines the selected sku.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -338,7 +338,7 @@ public final class CassandraDatacenterArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param diskCount Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+         * @param diskCount Determines the number of p30 disks that are attached to each node.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class CassandraDatacenterArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param diskCount Determines the number of p30 disks that are attached to each node. Defaults to `4`.
+         * @param diskCount Determines the number of p30 disks that are attached to each node.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class CassandraDatacenterArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param skuName Determines the selected sku. Defaults to Standard_DS14_v2.
+         * @param skuName Determines the selected sku.
          * 
          * @return builder
          * 
@@ -475,7 +475,7 @@ public final class CassandraDatacenterArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param skuName Determines the selected sku. Defaults to Standard_DS14_v2.
+         * @param skuName Determines the selected sku.
          * 
          * @return builder
          * 

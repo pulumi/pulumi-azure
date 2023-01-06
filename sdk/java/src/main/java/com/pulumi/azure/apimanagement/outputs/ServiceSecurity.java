@@ -92,7 +92,7 @@ public final class ServiceSecurity {
      */
     private @Nullable Boolean tlsRsaWithAes256GcmSha384CiphersEnabled;
     /**
-     * @return Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+     * @return Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
      * 
      */
     private @Nullable Boolean tripleDesCiphersEnabled;
@@ -211,7 +211,7 @@ public final class ServiceSecurity {
         return Optional.ofNullable(this.tlsRsaWithAes256GcmSha384CiphersEnabled);
     }
     /**
-     * @return Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
+     * @return Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
      * 
      */
     public Optional<Boolean> tripleDesCiphersEnabled() {

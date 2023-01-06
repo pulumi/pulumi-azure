@@ -37,7 +37,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? LastExecutionTime { get; set; }
 
         /// <summary>
-        /// After how many days backups should be deleted.
+        /// After how many days backups should be deleted. Defaults to `30`.
         /// </summary>
         [Input("retentionPeriodDays")]
         public Input<int>? RetentionPeriodDays { get; set; }

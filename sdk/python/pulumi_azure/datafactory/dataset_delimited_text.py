@@ -55,7 +55,7 @@ class DatasetDelimitedTextArgs:
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input['DatasetDelimitedTextHttpServerLocationArgs'] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string.
+        :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string. Defaults to `""`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] quote_character: The quote character. Defaults to `"`.
         :param pulumi.Input[str] row_delimiter: The row delimiter. Defaults to any of the following values on read: `\\r\\n`, `\\r`, `\\n`, and `\\n` or `\\r\\n` on write by mapping data flow and Copy activity respectively.
@@ -298,7 +298,7 @@ class DatasetDelimitedTextArgs:
     @pulumi.getter(name="nullValue")
     def null_value(self) -> Optional[pulumi.Input[str]]:
         """
-        The null value string. Defaults to an empty string.
+        The null value string. Defaults to an empty string. Defaults to `""`.
         """
         return pulumi.get(self, "null_value")
 
@@ -397,7 +397,7 @@ class _DatasetDelimitedTextState:
         :param pulumi.Input['DatasetDelimitedTextHttpServerLocationArgs'] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string.
+        :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string. Defaults to `""`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] quote_character: The quote character. Defaults to `"`.
         :param pulumi.Input[str] row_delimiter: The row delimiter. Defaults to any of the following values on read: `\\r\\n`, `\\r`, `\\n`, and `\\n` or `\\r\\n` on write by mapping data flow and Copy activity respectively.
@@ -642,7 +642,7 @@ class _DatasetDelimitedTextState:
     @pulumi.getter(name="nullValue")
     def null_value(self) -> Optional[pulumi.Input[str]]:
         """
-        The null value string. Defaults to an empty string.
+        The null value string. Defaults to an empty string. Defaults to `""`.
         """
         return pulumi.get(self, "null_value")
 
@@ -786,7 +786,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextHttpServerLocationArgs']] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string.
+        :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string. Defaults to `""`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] quote_character: The quote character. Defaults to `"`.
         :param pulumi.Input[str] row_delimiter: The row delimiter. Defaults to any of the following values on read: `\\r\\n`, `\\r`, `\\n`, and `\\n` or `\\r\\n` on write by mapping data flow and Copy activity respectively.
@@ -964,7 +964,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextHttpServerLocationArgs']] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string.
+        :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string. Defaults to `""`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] quote_character: The quote character. Defaults to `"`.
         :param pulumi.Input[str] row_delimiter: The row delimiter. Defaults to any of the following values on read: `\\r\\n`, `\\r`, `\\n`, and `\\n` or `\\r\\n` on write by mapping data flow and Copy activity respectively.
@@ -1129,7 +1129,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
     @pulumi.getter(name="nullValue")
     def null_value(self) -> pulumi.Output[Optional[str]]:
         """
-        The null value string. Defaults to an empty string.
+        The null value string. Defaults to an empty string. Defaults to `""`.
         """
         return pulumi.get(self, "null_value")
 

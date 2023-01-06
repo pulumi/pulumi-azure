@@ -19,7 +19,7 @@ public final class RegistryGeoreplication {
      */
     private String location;
     /**
-     * @return Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+     * @return Whether regional endpoint is enabled for this Container Registry?
      * 
      */
     private @Nullable Boolean regionalEndpointEnabled;
@@ -43,7 +43,7 @@ public final class RegistryGeoreplication {
         return this.location;
     }
     /**
-     * @return Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
+     * @return Whether regional endpoint is enabled for this Container Registry?
      * 
      */
     public Optional<Boolean> regionalEndpointEnabled() {

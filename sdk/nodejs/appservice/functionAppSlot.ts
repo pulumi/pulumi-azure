@@ -99,7 +99,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
      */
     public readonly connectionStrings!: pulumi.Output<outputs.appservice.FunctionAppSlotConnectionString[]>;
     /**
-     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
      */
     public readonly dailyMemoryTimeQuota!: pulumi.Output<number | undefined>;
     /**
@@ -111,7 +111,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
      */
     public readonly enableBuiltinLogging!: pulumi.Output<boolean | undefined>;
     /**
-     * Is the Function App enabled?
+     * Is the Function App enabled? Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -286,7 +286,7 @@ export interface FunctionAppSlotState {
      */
     connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSlotConnectionString>[]>;
     /**
-     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
      */
     dailyMemoryTimeQuota?: pulumi.Input<number>;
     /**
@@ -298,7 +298,7 @@ export interface FunctionAppSlotState {
      */
     enableBuiltinLogging?: pulumi.Input<boolean>;
     /**
-     * Is the Function App enabled?
+     * Is the Function App enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -388,7 +388,7 @@ export interface FunctionAppSlotArgs {
      */
     connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSlotConnectionString>[]>;
     /**
-     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
      */
     dailyMemoryTimeQuota?: pulumi.Input<number>;
     /**
@@ -396,7 +396,7 @@ export interface FunctionAppSlotArgs {
      */
     enableBuiltinLogging?: pulumi.Input<boolean>;
     /**
-     * Is the Function App enabled?
+     * Is the Function App enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**

@@ -24,7 +24,7 @@ namespace Pulumi.Azure.MSSql
     public partial class ManagedInstanceActiveDirectoryAdministrator : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+        /// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
         /// </summary>
         [Output("azureadAuthenticationOnly")]
         public Output<bool?> AzureadAuthenticationOnly { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class ManagedInstanceActiveDirectoryAdministratorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+        /// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
         /// </summary>
         [Input("azureadAuthenticationOnly")]
         public Input<bool>? AzureadAuthenticationOnly { get; set; }
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class ManagedInstanceActiveDirectoryAdministratorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
+        /// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
         /// </summary>
         [Input("azureadAuthenticationOnly")]
         public Input<bool>? AzureadAuthenticationOnly { get; set; }

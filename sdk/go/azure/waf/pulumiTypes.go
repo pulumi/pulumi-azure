@@ -846,7 +846,7 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) Version() pulumi.St
 type PolicyManagedRulesExclusionExcludedRuleSetRuleGroup struct {
 	// One or more Rule IDs for exclusion.
 	ExcludedRules []string `pulumi:"excludedRules"`
-	// The name of rule group for exclusion.
+	// The name of rule group for exclusion. Possible values are `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
 	RuleGroupName string `pulumi:"ruleGroupName"`
 }
 
@@ -864,7 +864,7 @@ type PolicyManagedRulesExclusionExcludedRuleSetRuleGroupInput interface {
 type PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs struct {
 	// One or more Rule IDs for exclusion.
 	ExcludedRules pulumi.StringArrayInput `pulumi:"excludedRules"`
-	// The name of rule group for exclusion.
+	// The name of rule group for exclusion. Possible values are `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
 	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
 }
 
@@ -924,7 +924,7 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput) ExcludedRules
 	return o.ApplyT(func(v PolicyManagedRulesExclusionExcludedRuleSetRuleGroup) []string { return v.ExcludedRules }).(pulumi.StringArrayOutput)
 }
 
-// The name of rule group for exclusion.
+// The name of rule group for exclusion. Possible values are `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
 func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput) RuleGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyManagedRulesExclusionExcludedRuleSetRuleGroup) string { return v.RuleGroupName }).(pulumi.StringOutput)
 }
@@ -1069,7 +1069,7 @@ func (o PolicyManagedRulesManagedRuleSetArrayOutput) Index(i pulumi.IntInput) Po
 type PolicyManagedRulesManagedRuleSetRuleGroupOverride struct {
 	// Deprecated: `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
 	DisabledRules []string `pulumi:"disabledRules"`
-	// The name of the Rule Group.
+	// The name of the Rule Group. Possible values are `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
 	RuleGroupName string `pulumi:"ruleGroupName"`
 	// One or more `rule` block defined below.
 	Rules []PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule `pulumi:"rules"`
@@ -1089,7 +1089,7 @@ type PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput interface {
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs struct {
 	// Deprecated: `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
 	DisabledRules pulumi.StringArrayInput `pulumi:"disabledRules"`
-	// The name of the Rule Group.
+	// The name of the Rule Group. Possible values are `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
 	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
 	// One or more `rule` block defined below.
 	Rules PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayInput `pulumi:"rules"`
@@ -1151,7 +1151,7 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) DisabledRules()
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverride) []string { return v.DisabledRules }).(pulumi.StringArrayOutput)
 }
 
-// The name of the Rule Group.
+// The name of the Rule Group. Possible values are `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION` and `REQUEST-944-APPLICATION-ATTACK-JAVA`.
 func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) RuleGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverride) string { return v.RuleGroupName }).(pulumi.StringOutput)
 }
@@ -1186,7 +1186,7 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput) Index(i pu
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule struct {
 	// Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
 	Action *string `pulumi:"action"`
-	// Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+	// Describes if the managed rule is in enabled state or disabled state.
 	Enabled *bool `pulumi:"enabled"`
 	// Identifier for the managed rule.
 	Id string `pulumi:"id"`
@@ -1206,7 +1206,7 @@ type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleInput interface {
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs struct {
 	// Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+	// Describes if the managed rule is in enabled state or disabled state.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Identifier for the managed rule.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -1268,7 +1268,7 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput) Action() pu
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+// Describes if the managed rule is in enabled state or disabled state.
 func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

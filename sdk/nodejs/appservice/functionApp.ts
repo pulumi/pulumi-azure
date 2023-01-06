@@ -164,7 +164,7 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly customDomainVerificationId!: pulumi.Output<string>;
     /**
-     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
      */
     public readonly dailyMemoryTimeQuota!: pulumi.Output<number | undefined>;
     /**
@@ -176,7 +176,7 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly enableBuiltinLogging!: pulumi.Output<boolean | undefined>;
     /**
-     * Is the Function App enabled?
+     * Is the Function App enabled? Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -204,7 +204,7 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
      */
     public readonly osType!: pulumi.Output<string | undefined>;
     /**
@@ -366,7 +366,7 @@ export interface FunctionAppState {
      */
     customDomainVerificationId?: pulumi.Input<string>;
     /**
-     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
      */
     dailyMemoryTimeQuota?: pulumi.Input<number>;
     /**
@@ -378,7 +378,7 @@ export interface FunctionAppState {
      */
     enableBuiltinLogging?: pulumi.Input<boolean>;
     /**
-     * Is the Function App enabled?
+     * Is the Function App enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -406,7 +406,7 @@ export interface FunctionAppState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
      */
     osType?: pulumi.Input<string>;
     /**
@@ -476,7 +476,7 @@ export interface FunctionAppArgs {
      */
     connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppConnectionString>[]>;
     /**
-     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
      */
     dailyMemoryTimeQuota?: pulumi.Input<number>;
     /**
@@ -484,7 +484,7 @@ export interface FunctionAppArgs {
      */
     enableBuiltinLogging?: pulumi.Input<boolean>;
     /**
-     * Is the Function App enabled?
+     * Is the Function App enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -508,7 +508,7 @@ export interface FunctionAppArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
      */
     osType?: pulumi.Input<string>;
     /**

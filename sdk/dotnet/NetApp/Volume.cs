@@ -146,6 +146,12 @@ namespace Pulumi.Azure.NetApp
         [Output("volumePath")]
         public Output<string> VolumePath { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+        /// </summary>
+        [Output("zone")]
+        public Output<string?> Zone { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Volume resource with the given unique name, arguments, and options.
@@ -327,6 +333,12 @@ namespace Pulumi.Azure.NetApp
         [Input("volumePath", required: true)]
         public Input<string> VolumePath { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+        /// </summary>
+        [Input("zone")]
+        public Input<string>? Zone { get; set; }
+
         public VolumeArgs()
         {
         }
@@ -481,6 +493,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("volumePath")]
         public Input<string>? VolumePath { get; set; }
+
+        /// <summary>
+        /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature)
+        /// </summary>
+        [Input("zone")]
+        public Input<string>? Zone { get; set; }
 
         public VolumeState()
         {

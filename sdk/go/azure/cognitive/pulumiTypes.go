@@ -747,6 +747,318 @@ func (o AccountStorageArrayOutput) Index(i pulumi.IntInput) AccountStorageOutput
 	}).(AccountStorageOutput)
 }
 
+type DeploymentModel struct {
+	// The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+	Format string `pulumi:"format"`
+	// The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The version of Cognitive Services Account Deployment model.
+	Version string `pulumi:"version"`
+}
+
+// DeploymentModelInput is an input type that accepts DeploymentModelArgs and DeploymentModelOutput values.
+// You can construct a concrete instance of `DeploymentModelInput` via:
+//
+//	DeploymentModelArgs{...}
+type DeploymentModelInput interface {
+	pulumi.Input
+
+	ToDeploymentModelOutput() DeploymentModelOutput
+	ToDeploymentModelOutputWithContext(context.Context) DeploymentModelOutput
+}
+
+type DeploymentModelArgs struct {
+	// The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+	Format pulumi.StringInput `pulumi:"format"`
+	// The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The version of Cognitive Services Account Deployment model.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (DeploymentModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentModel)(nil)).Elem()
+}
+
+func (i DeploymentModelArgs) ToDeploymentModelOutput() DeploymentModelOutput {
+	return i.ToDeploymentModelOutputWithContext(context.Background())
+}
+
+func (i DeploymentModelArgs) ToDeploymentModelOutputWithContext(ctx context.Context) DeploymentModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentModelOutput)
+}
+
+func (i DeploymentModelArgs) ToDeploymentModelPtrOutput() DeploymentModelPtrOutput {
+	return i.ToDeploymentModelPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentModelArgs) ToDeploymentModelPtrOutputWithContext(ctx context.Context) DeploymentModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentModelOutput).ToDeploymentModelPtrOutputWithContext(ctx)
+}
+
+// DeploymentModelPtrInput is an input type that accepts DeploymentModelArgs, DeploymentModelPtr and DeploymentModelPtrOutput values.
+// You can construct a concrete instance of `DeploymentModelPtrInput` via:
+//
+//	        DeploymentModelArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentModelPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentModelPtrOutput() DeploymentModelPtrOutput
+	ToDeploymentModelPtrOutputWithContext(context.Context) DeploymentModelPtrOutput
+}
+
+type deploymentModelPtrType DeploymentModelArgs
+
+func DeploymentModelPtr(v *DeploymentModelArgs) DeploymentModelPtrInput {
+	return (*deploymentModelPtrType)(v)
+}
+
+func (*deploymentModelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentModel)(nil)).Elem()
+}
+
+func (i *deploymentModelPtrType) ToDeploymentModelPtrOutput() DeploymentModelPtrOutput {
+	return i.ToDeploymentModelPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentModelPtrType) ToDeploymentModelPtrOutputWithContext(ctx context.Context) DeploymentModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentModelPtrOutput)
+}
+
+type DeploymentModelOutput struct{ *pulumi.OutputState }
+
+func (DeploymentModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentModel)(nil)).Elem()
+}
+
+func (o DeploymentModelOutput) ToDeploymentModelOutput() DeploymentModelOutput {
+	return o
+}
+
+func (o DeploymentModelOutput) ToDeploymentModelOutputWithContext(ctx context.Context) DeploymentModelOutput {
+	return o
+}
+
+func (o DeploymentModelOutput) ToDeploymentModelPtrOutput() DeploymentModelPtrOutput {
+	return o.ToDeploymentModelPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentModelOutput) ToDeploymentModelPtrOutputWithContext(ctx context.Context) DeploymentModelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentModel) *DeploymentModel {
+		return &v
+	}).(DeploymentModelPtrOutput)
+}
+
+// The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+func (o DeploymentModelOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentModel) string { return v.Format }).(pulumi.StringOutput)
+}
+
+// The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+func (o DeploymentModelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentModel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The version of Cognitive Services Account Deployment model.
+func (o DeploymentModelOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentModel) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type DeploymentModelPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentModelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentModel)(nil)).Elem()
+}
+
+func (o DeploymentModelPtrOutput) ToDeploymentModelPtrOutput() DeploymentModelPtrOutput {
+	return o
+}
+
+func (o DeploymentModelPtrOutput) ToDeploymentModelPtrOutputWithContext(ctx context.Context) DeploymentModelPtrOutput {
+	return o
+}
+
+func (o DeploymentModelPtrOutput) Elem() DeploymentModelOutput {
+	return o.ApplyT(func(v *DeploymentModel) DeploymentModel {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentModel
+		return ret
+	}).(DeploymentModelOutput)
+}
+
+// The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+func (o DeploymentModelPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentModel) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+func (o DeploymentModelPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentModel) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of Cognitive Services Account Deployment model.
+func (o DeploymentModelPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentModel) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeploymentScale struct {
+	// Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+	Type string `pulumi:"type"`
+}
+
+// DeploymentScaleInput is an input type that accepts DeploymentScaleArgs and DeploymentScaleOutput values.
+// You can construct a concrete instance of `DeploymentScaleInput` via:
+//
+//	DeploymentScaleArgs{...}
+type DeploymentScaleInput interface {
+	pulumi.Input
+
+	ToDeploymentScaleOutput() DeploymentScaleOutput
+	ToDeploymentScaleOutputWithContext(context.Context) DeploymentScaleOutput
+}
+
+type DeploymentScaleArgs struct {
+	// Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DeploymentScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentScale)(nil)).Elem()
+}
+
+func (i DeploymentScaleArgs) ToDeploymentScaleOutput() DeploymentScaleOutput {
+	return i.ToDeploymentScaleOutputWithContext(context.Background())
+}
+
+func (i DeploymentScaleArgs) ToDeploymentScaleOutputWithContext(ctx context.Context) DeploymentScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScaleOutput)
+}
+
+func (i DeploymentScaleArgs) ToDeploymentScalePtrOutput() DeploymentScalePtrOutput {
+	return i.ToDeploymentScalePtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentScaleArgs) ToDeploymentScalePtrOutputWithContext(ctx context.Context) DeploymentScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScaleOutput).ToDeploymentScalePtrOutputWithContext(ctx)
+}
+
+// DeploymentScalePtrInput is an input type that accepts DeploymentScaleArgs, DeploymentScalePtr and DeploymentScalePtrOutput values.
+// You can construct a concrete instance of `DeploymentScalePtrInput` via:
+//
+//	        DeploymentScaleArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentScalePtrInput interface {
+	pulumi.Input
+
+	ToDeploymentScalePtrOutput() DeploymentScalePtrOutput
+	ToDeploymentScalePtrOutputWithContext(context.Context) DeploymentScalePtrOutput
+}
+
+type deploymentScalePtrType DeploymentScaleArgs
+
+func DeploymentScalePtr(v *DeploymentScaleArgs) DeploymentScalePtrInput {
+	return (*deploymentScalePtrType)(v)
+}
+
+func (*deploymentScalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentScale)(nil)).Elem()
+}
+
+func (i *deploymentScalePtrType) ToDeploymentScalePtrOutput() DeploymentScalePtrOutput {
+	return i.ToDeploymentScalePtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentScalePtrType) ToDeploymentScalePtrOutputWithContext(ctx context.Context) DeploymentScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScalePtrOutput)
+}
+
+type DeploymentScaleOutput struct{ *pulumi.OutputState }
+
+func (DeploymentScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentScale)(nil)).Elem()
+}
+
+func (o DeploymentScaleOutput) ToDeploymentScaleOutput() DeploymentScaleOutput {
+	return o
+}
+
+func (o DeploymentScaleOutput) ToDeploymentScaleOutputWithContext(ctx context.Context) DeploymentScaleOutput {
+	return o
+}
+
+func (o DeploymentScaleOutput) ToDeploymentScalePtrOutput() DeploymentScalePtrOutput {
+	return o.ToDeploymentScalePtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentScaleOutput) ToDeploymentScalePtrOutputWithContext(ctx context.Context) DeploymentScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentScale) *DeploymentScale {
+		return &v
+	}).(DeploymentScalePtrOutput)
+}
+
+// Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+func (o DeploymentScaleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentScale) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DeploymentScalePtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentScale)(nil)).Elem()
+}
+
+func (o DeploymentScalePtrOutput) ToDeploymentScalePtrOutput() DeploymentScalePtrOutput {
+	return o
+}
+
+func (o DeploymentScalePtrOutput) ToDeploymentScalePtrOutputWithContext(ctx context.Context) DeploymentScalePtrOutput {
+	return o
+}
+
+func (o DeploymentScalePtrOutput) Elem() DeploymentScaleOutput {
+	return o.ApplyT(func(v *DeploymentScale) DeploymentScale {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentScale
+		return ret
+	}).(DeploymentScaleOutput)
+}
+
+// Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+func (o DeploymentScalePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentScale) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyTypeInput)(nil)).Elem(), AccountCustomerManagedKeyTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyTypePtrInput)(nil)).Elem(), AccountCustomerManagedKeyTypeArgs{})
@@ -758,6 +1070,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkAclsVirtualNetworkRuleArrayInput)(nil)).Elem(), AccountNetworkAclsVirtualNetworkRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountStorageInput)(nil)).Elem(), AccountStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountStorageArrayInput)(nil)).Elem(), AccountStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModelInput)(nil)).Elem(), DeploymentModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModelPtrInput)(nil)).Elem(), DeploymentModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentScaleInput)(nil)).Elem(), DeploymentScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentScalePtrInput)(nil)).Elem(), DeploymentScaleArgs{})
 	pulumi.RegisterOutputType(AccountCustomerManagedKeyTypeOutput{})
 	pulumi.RegisterOutputType(AccountCustomerManagedKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
@@ -768,4 +1084,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountNetworkAclsVirtualNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(AccountStorageOutput{})
 	pulumi.RegisterOutputType(AccountStorageArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentModelOutput{})
+	pulumi.RegisterOutputType(DeploymentModelPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentScaleOutput{})
+	pulumi.RegisterOutputType(DeploymentScalePtrOutput{})
 }

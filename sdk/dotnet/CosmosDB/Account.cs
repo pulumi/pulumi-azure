@@ -281,7 +281,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> PrimarySqlConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not public network access is allowed for this CosmosDB account.
+        /// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -573,7 +573,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> OfferType { get; set; } = null!;
 
         /// <summary>
-        /// Whether or not public network access is allowed for this CosmosDB account.
+        /// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -875,7 +875,7 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
-        /// Whether or not public network access is allowed for this CosmosDB account.
+        /// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

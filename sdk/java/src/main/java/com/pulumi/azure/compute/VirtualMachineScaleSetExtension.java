@@ -114,14 +114,14 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
         return Codegen.optional(this.autoUpgradeMinorVersion);
     }
     /**
-     * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+     * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
      * 
      */
     @Export(name="automaticUpgradeEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> automaticUpgradeEnabled;
 
     /**
-     * @return Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+     * @return Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
      * 
      */
     public Output<Optional<Boolean>> automaticUpgradeEnabled() {

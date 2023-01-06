@@ -12,12 +12,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EnterpriseDatabaseModule {
     /**
-     * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
+     * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
      * 
      */
     private @Nullable String args;
     /**
-     * @return The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+     * @return The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
      * 
      */
     private String name;
@@ -25,14 +25,14 @@ public final class EnterpriseDatabaseModule {
 
     private EnterpriseDatabaseModule() {}
     /**
-     * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
+     * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<String> args() {
         return Optional.ofNullable(this.args);
     }
     /**
-     * @return The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+     * @return The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
      * 
      */
     public String name() {

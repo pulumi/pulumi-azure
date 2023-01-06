@@ -97,14 +97,14 @@ public final class FrontdoorFirewallPolicyArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+     * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
      * 
      */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
     /**
-     * @return The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+     * @return The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
      * 
      */
     public Output<String> mode() {
@@ -346,7 +346,7 @@ public final class FrontdoorFirewallPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param mode The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+         * @param mode The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class FrontdoorFirewallPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param mode The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
+         * @param mode The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
          * 
          * @return builder
          * 

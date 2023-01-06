@@ -265,14 +265,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
+     * Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<String> priority;
 
     /**
-     * @return Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
+     * @return Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> priority() {
@@ -850,7 +850,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
+         * @param priority Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -861,7 +861,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
+         * @param priority Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

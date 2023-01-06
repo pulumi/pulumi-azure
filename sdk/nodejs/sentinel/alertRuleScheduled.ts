@@ -165,7 +165,7 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
      */
     public readonly triggerOperator!: pulumi.Output<string | undefined>;
     /**
-     * The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+     * The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
      */
     public readonly triggerThreshold!: pulumi.Output<number | undefined>;
 
@@ -335,7 +335,7 @@ export interface AlertRuleScheduledState {
      */
     triggerOperator?: pulumi.Input<string>;
     /**
-     * The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+     * The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
      */
     triggerThreshold?: pulumi.Input<number>;
 }
@@ -429,7 +429,7 @@ export interface AlertRuleScheduledArgs {
      */
     triggerOperator?: pulumi.Input<string>;
     /**
-     * The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+     * The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
      */
     triggerThreshold?: pulumi.Input<number>;
 }

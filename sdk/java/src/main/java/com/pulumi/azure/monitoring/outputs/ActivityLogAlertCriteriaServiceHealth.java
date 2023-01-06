@@ -17,7 +17,7 @@ public final class ActivityLogAlertCriteriaServiceHealth {
      */
     private @Nullable List<String> events;
     /**
-     * @return Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+     * @return Locations this alert will monitor. For example, `West Europe`.
      * 
      */
     private @Nullable List<String> locations;
@@ -36,7 +36,7 @@ public final class ActivityLogAlertCriteriaServiceHealth {
         return this.events == null ? List.of() : this.events;
     }
     /**
-     * @return Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+     * @return Locations this alert will monitor. For example, `West Europe`.
      * 
      */
     public List<String> locations() {

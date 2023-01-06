@@ -61,14 +61,14 @@ public final class CustomDomainGatewayArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to false.
+     * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to `false`.
      * 
      */
     @Import(name="defaultSslBinding")
     private @Nullable Output<Boolean> defaultSslBinding;
 
     /**
-     * @return Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to false.
+     * @return Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> defaultSslBinding() {
@@ -113,14 +113,14 @@ public final class CustomDomainGatewayArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+     * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
      * 
      */
     @Import(name="negotiateClientCertificate")
     private @Nullable Output<Boolean> negotiateClientCertificate;
 
     /**
-     * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+     * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> negotiateClientCertificate() {
@@ -244,7 +244,7 @@ public final class CustomDomainGatewayArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param defaultSslBinding Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to false.
+         * @param defaultSslBinding Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class CustomDomainGatewayArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param defaultSslBinding Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to false.
+         * @param defaultSslBinding Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class CustomDomainGatewayArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param negotiateClientCertificate Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         * @param negotiateClientCertificate Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class CustomDomainGatewayArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param negotiateClientCertificate Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         * @param negotiateClientCertificate Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          * 
          * @return builder
          * 

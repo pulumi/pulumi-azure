@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScaleSetBootDiagnostics {
     /**
-     * @return Whether to enable boot diagnostics for the virtual machine.
+     * @return Whether to enable boot diagnostics for the virtual machine. Defaults to `true`.
      * 
      */
     private @Nullable Boolean enabled;
@@ -25,7 +25,7 @@ public final class ScaleSetBootDiagnostics {
 
     private ScaleSetBootDiagnostics() {}
     /**
-     * @return Whether to enable boot diagnostics for the virtual machine.
+     * @return Whether to enable boot diagnostics for the virtual machine. Defaults to `true`.
      * 
      */
     public Optional<Boolean> enabled() {

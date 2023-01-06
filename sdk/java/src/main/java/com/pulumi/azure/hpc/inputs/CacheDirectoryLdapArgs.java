@@ -63,14 +63,14 @@ public final class CacheDirectoryLdapArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided. Defaults to `false`.
+     * Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
      * 
      */
     @Import(name="downloadCertificateAutomatically")
     private @Nullable Output<Boolean> downloadCertificateAutomatically;
 
     /**
-     * @return Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided. Defaults to `false`.
+     * @return Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
      * 
      */
     public Optional<Output<Boolean>> downloadCertificateAutomatically() {
@@ -78,14 +78,14 @@ public final class CacheDirectoryLdapArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Whether the LDAP connection should be encrypted? Defaults to `false`.
+     * Whether the LDAP connection should be encrypted?
      * 
      */
     @Import(name="encrypted")
     private @Nullable Output<Boolean> encrypted;
 
     /**
-     * @return Whether the LDAP connection should be encrypted? Defaults to `false`.
+     * @return Whether the LDAP connection should be encrypted?
      * 
      */
     public Optional<Output<Boolean>> encrypted() {
@@ -200,7 +200,7 @@ public final class CacheDirectoryLdapArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param downloadCertificateAutomatically Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided. Defaults to `false`.
+         * @param downloadCertificateAutomatically Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class CacheDirectoryLdapArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param downloadCertificateAutomatically Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided. Defaults to `false`.
+         * @param downloadCertificateAutomatically Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class CacheDirectoryLdapArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param encrypted Whether the LDAP connection should be encrypted? Defaults to `false`.
+         * @param encrypted Whether the LDAP connection should be encrypted?
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class CacheDirectoryLdapArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param encrypted Whether the LDAP connection should be encrypted? Defaults to `false`.
+         * @param encrypted Whether the LDAP connection should be encrypted?
          * 
          * @return builder
          * 

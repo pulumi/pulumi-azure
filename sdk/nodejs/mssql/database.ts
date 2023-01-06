@@ -100,7 +100,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly elasticPoolId!: pulumi.Output<string | undefined>;
     /**
-     * A boolean that specifies if the Geo Backup Policy is enabled.
+     * A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
      */
     public readonly geoBackupEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -297,7 +297,7 @@ export interface DatabaseState {
      */
     elasticPoolId?: pulumi.Input<string>;
     /**
-     * A boolean that specifies if the Geo Backup Policy is enabled.
+     * A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
      */
     geoBackupEnabled?: pulumi.Input<boolean>;
     /**
@@ -415,7 +415,7 @@ export interface DatabaseArgs {
      */
     elasticPoolId?: pulumi.Input<string>;
     /**
-     * A boolean that specifies if the Geo Backup Policy is enabled.
+     * A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
      */
     geoBackupEnabled?: pulumi.Input<boolean>;
     /**

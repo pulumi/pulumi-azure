@@ -23,6 +23,9 @@ __all__ = [
     'SpringCloudConfigurationServiceRepository',
     'SpringCloudConnectionAuthentication',
     'SpringCloudContainerDeploymentQuota',
+    'SpringCloudCustomizedAcceleratorGitRepository',
+    'SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth',
+    'SpringCloudCustomizedAcceleratorGitRepositorySshAuth',
     'SpringCloudDevToolPortalSso',
     'SpringCloudGatewayApiMetadata',
     'SpringCloudGatewayCors',
@@ -326,8 +329,8 @@ class SpringCloudAppIngressSettings(dict):
                  session_cookie_max_age: Optional[int] = None):
         """
         :param str backend_protocol: Specifies how ingress should communicate with this app backend service. Allowed values are `GRPC` and `Default`. Defaults to `Default`.
-        :param int read_timeout_in_seconds: Specifies the ingress read time out in seconds. Defaults to 300.
-        :param int send_timeout_in_seconds: Specifies the ingress send time out in seconds. Defaults to 60.
+        :param int read_timeout_in_seconds: Specifies the ingress read time out in seconds. Defaults to `300`.
+        :param int send_timeout_in_seconds: Specifies the ingress send time out in seconds. Defaults to `60`.
         :param str session_affinity: Specifies the type of the affinity, set this to `Cookie` to enable session affinity. Allowed values are `Cookie` and `None`. Defaults to `None`.
         :param int session_cookie_max_age: Specifies the time in seconds until the cookie expires.
         """
@@ -354,7 +357,7 @@ class SpringCloudAppIngressSettings(dict):
     @pulumi.getter(name="readTimeoutInSeconds")
     def read_timeout_in_seconds(self) -> Optional[int]:
         """
-        Specifies the ingress read time out in seconds. Defaults to 300.
+        Specifies the ingress read time out in seconds. Defaults to `300`.
         """
         return pulumi.get(self, "read_timeout_in_seconds")
 
@@ -362,7 +365,7 @@ class SpringCloudAppIngressSettings(dict):
     @pulumi.getter(name="sendTimeoutInSeconds")
     def send_timeout_in_seconds(self) -> Optional[int]:
         """
-        Specifies the ingress send time out in seconds. Defaults to 60.
+        Specifies the ingress send time out in seconds. Defaults to `60`.
         """
         return pulumi.get(self, "send_timeout_in_seconds")
 
@@ -870,6 +873,211 @@ class SpringCloudContainerDeploymentQuota(dict):
         Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
         """
         return pulumi.get(self, "memory")
+
+
+@pulumi.output_type
+class SpringCloudCustomizedAcceleratorGitRepository(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "basicAuth":
+            suggest = "basic_auth"
+        elif key == "gitTag":
+            suggest = "git_tag"
+        elif key == "intervalInSeconds":
+            suggest = "interval_in_seconds"
+        elif key == "sshAuth":
+            suggest = "ssh_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudCustomizedAcceleratorGitRepository. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudCustomizedAcceleratorGitRepository.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudCustomizedAcceleratorGitRepository.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 basic_auth: Optional['outputs.SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth'] = None,
+                 branch: Optional[str] = None,
+                 commit: Optional[str] = None,
+                 git_tag: Optional[str] = None,
+                 interval_in_seconds: Optional[int] = None,
+                 ssh_auth: Optional['outputs.SpringCloudCustomizedAcceleratorGitRepositorySshAuth'] = None):
+        """
+        :param str url: Specifies Git repository URL for the accelerator.
+        :param 'SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs' basic_auth: A `basic_auth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+        :param str branch: Specifies the Git repository branch to be used.
+        :param str commit: Specifies the Git repository commit to be used.
+        :param str git_tag: Specifies the Git repository tag to be used.
+        :param int interval_in_seconds: Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
+        :param 'SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs' ssh_auth: A `ssh_auth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+        """
+        pulumi.set(__self__, "url", url)
+        if basic_auth is not None:
+            pulumi.set(__self__, "basic_auth", basic_auth)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if commit is not None:
+            pulumi.set(__self__, "commit", commit)
+        if git_tag is not None:
+            pulumi.set(__self__, "git_tag", git_tag)
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if ssh_auth is not None:
+            pulumi.set(__self__, "ssh_auth", ssh_auth)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Specifies Git repository URL for the accelerator.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="basicAuth")
+    def basic_auth(self) -> Optional['outputs.SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth']:
+        """
+        A `basic_auth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+        """
+        return pulumi.get(self, "basic_auth")
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[str]:
+        """
+        Specifies the Git repository branch to be used.
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter
+    def commit(self) -> Optional[str]:
+        """
+        Specifies the Git repository commit to be used.
+        """
+        return pulumi.get(self, "commit")
+
+    @property
+    @pulumi.getter(name="gitTag")
+    def git_tag(self) -> Optional[str]:
+        """
+        Specifies the Git repository tag to be used.
+        """
+        return pulumi.get(self, "git_tag")
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[int]:
+        """
+        Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="sshAuth")
+    def ssh_auth(self) -> Optional['outputs.SpringCloudCustomizedAcceleratorGitRepositorySshAuth']:
+        """
+        A `ssh_auth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+        """
+        return pulumi.get(self, "ssh_auth")
+
+
+@pulumi.output_type
+class SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth(dict):
+    def __init__(__self__, *,
+                 password: str,
+                 username: str):
+        """
+        :param str password: Specifies the password of git repository basic auth.
+        :param str username: Specifies the username of git repository basic auth.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        Specifies the password of git repository basic auth.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        Specifies the username of git repository basic auth.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class SpringCloudCustomizedAcceleratorGitRepositorySshAuth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateKey":
+            suggest = "private_key"
+        elif key == "hostKey":
+            suggest = "host_key"
+        elif key == "hostKeyAlgorithm":
+            suggest = "host_key_algorithm"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudCustomizedAcceleratorGitRepositorySshAuth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudCustomizedAcceleratorGitRepositorySshAuth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudCustomizedAcceleratorGitRepositorySshAuth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_key: str,
+                 host_key: Optional[str] = None,
+                 host_key_algorithm: Optional[str] = None):
+        """
+        :param str private_key: Specifies the Private SSH Key of git repository basic auth.
+        :param str host_key: Specifies the Public SSH Key of git repository basic auth.
+        :param str host_key_algorithm: Specifies the SSH Key algorithm of git repository basic auth.
+        """
+        pulumi.set(__self__, "private_key", private_key)
+        if host_key is not None:
+            pulumi.set(__self__, "host_key", host_key)
+        if host_key_algorithm is not None:
+            pulumi.set(__self__, "host_key_algorithm", host_key_algorithm)
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> str:
+        """
+        Specifies the Private SSH Key of git repository basic auth.
+        """
+        return pulumi.get(self, "private_key")
+
+    @property
+    @pulumi.getter(name="hostKey")
+    def host_key(self) -> Optional[str]:
+        """
+        Specifies the Public SSH Key of git repository basic auth.
+        """
+        return pulumi.get(self, "host_key")
+
+    @property
+    @pulumi.getter(name="hostKeyAlgorithm")
+    def host_key_algorithm(self) -> Optional[str]:
+        """
+        Specifies the SSH Key algorithm of git repository basic auth.
+        """
+        return pulumi.get(self, "host_key_algorithm")
 
 
 @pulumi.output_type
@@ -1733,7 +1941,7 @@ class SpringCloudServiceConfigServerGitSettingRepositorySshAuth(dict):
         :param str private_key: The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
         :param str host_key: The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
         :param str host_key_algorithm: The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Required only if `host-key` exists.
-        :param bool strict_host_key_checking_enabled: Indicates whether the Config Server instance will fail to start if the host_key does not match.
+        :param bool strict_host_key_checking_enabled: Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
         """
         pulumi.set(__self__, "private_key", private_key)
         if host_key is not None:
@@ -1771,7 +1979,7 @@ class SpringCloudServiceConfigServerGitSettingRepositorySshAuth(dict):
     @pulumi.getter(name="strictHostKeyCheckingEnabled")
     def strict_host_key_checking_enabled(self) -> Optional[bool]:
         """
-        Indicates whether the Config Server instance will fail to start if the host_key does not match.
+        Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
         """
         return pulumi.get(self, "strict_host_key_checking_enabled")
 
@@ -1810,7 +2018,7 @@ class SpringCloudServiceConfigServerGitSettingSshAuth(dict):
         :param str private_key: The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
         :param str host_key: The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
         :param str host_key_algorithm: The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Required only if `host-key` exists.
-        :param bool strict_host_key_checking_enabled: Indicates whether the Config Server instance will fail to start if the host_key does not match.
+        :param bool strict_host_key_checking_enabled: Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
         """
         pulumi.set(__self__, "private_key", private_key)
         if host_key is not None:
@@ -1848,7 +2056,7 @@ class SpringCloudServiceConfigServerGitSettingSshAuth(dict):
     @pulumi.getter(name="strictHostKeyCheckingEnabled")
     def strict_host_key_checking_enabled(self) -> Optional[bool]:
         """
-        Indicates whether the Config Server instance will fail to start if the host_key does not match.
+        Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
         """
         return pulumi.get(self, "strict_host_key_checking_enabled")
 

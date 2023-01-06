@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsWebAppSlotSiteConfig {
     /**
-     * @return If this Windows Web App Slot is Always On enabled. Defaults to `false`.
+     * @return If this Windows Web App Slot is Always On enabled. Defaults to `true`.
      * 
      */
     private @Nullable Boolean alwaysOn;
@@ -177,7 +177,7 @@ public final class WindowsWebAppSlotSiteConfig {
 
     private WindowsWebAppSlotSiteConfig() {}
     /**
-     * @return If this Windows Web App Slot is Always On enabled. Defaults to `false`.
+     * @return If this Windows Web App Slot is Always On enabled. Defaults to `true`.
      * 
      */
     public Optional<Boolean> alwaysOn() {

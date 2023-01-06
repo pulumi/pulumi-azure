@@ -352,14 +352,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.imageCleanerEnabled);
     }
     /**
-     * Specifies the interval in hours when images should be cleaned up.
+     * Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
      * 
      */
     @Export(name="imageCleanerIntervalHours", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> imageCleanerIntervalHours;
 
     /**
-     * @return Specifies the interval in hours when images should be cleaned up.
+     * @return Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
      * 
      */
     public Output<Optional<Integer>> imageCleanerIntervalHours() {
@@ -492,14 +492,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.linuxProfile);
     }
     /**
-     * If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+     * If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      * 
      */
     @Export(name="localAccountDisabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> localAccountDisabled;
 
     /**
-     * @return If `true` local accounts will be disabled. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+     * @return If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      * 
      */
     public Output<Optional<Boolean>> localAccountDisabled() {

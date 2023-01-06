@@ -194,14 +194,14 @@ public class DataCollectionRuleAssociation extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.description);
     }
     /**
-     * The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
+     * The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
+     * @return The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
      * 
      */
     public Output<String> name() {

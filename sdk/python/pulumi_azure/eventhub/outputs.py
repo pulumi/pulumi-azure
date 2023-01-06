@@ -1032,7 +1032,7 @@ class EventHubNamespaceNetworkRulesetsVirtualNetworkRule(dict):
                  ignore_missing_virtual_network_service_endpoint: Optional[bool] = None):
         """
         :param str subnet_id: The id of the subnet to match on.
-        :param bool ignore_missing_virtual_network_service_endpoint: Are missing virtual network service endpoints ignored? Defaults to `false`.
+        :param bool ignore_missing_virtual_network_service_endpoint: Are missing virtual network service endpoints ignored?
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if ignore_missing_virtual_network_service_endpoint is not None:
@@ -1050,7 +1050,7 @@ class EventHubNamespaceNetworkRulesetsVirtualNetworkRule(dict):
     @pulumi.getter(name="ignoreMissingVirtualNetworkServiceEndpoint")
     def ignore_missing_virtual_network_service_endpoint(self) -> Optional[bool]:
         """
-        Are missing virtual network service endpoints ignored? Defaults to `false`.
+        Are missing virtual network service endpoints ignored?
         """
         return pulumi.get(self, "ignore_missing_virtual_network_service_endpoint")
 
@@ -2138,7 +2138,7 @@ class EventSubscriptionRetryPolicy(dict):
                  event_time_to_live: int,
                  max_delivery_attempts: int):
         """
-        :param int event_time_to_live: Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+        :param int event_time_to_live: Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
         :param int max_delivery_attempts: Specifies the maximum number of delivery retry attempts for events.
         """
         pulumi.set(__self__, "event_time_to_live", event_time_to_live)
@@ -2148,7 +2148,7 @@ class EventSubscriptionRetryPolicy(dict):
     @pulumi.getter(name="eventTimeToLive")
     def event_time_to_live(self) -> int:
         """
-        Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+        Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
         """
         return pulumi.get(self, "event_time_to_live")
 
@@ -2299,7 +2299,7 @@ class EventSubscriptionSubjectFilter(dict):
                  subject_begins_with: Optional[str] = None,
                  subject_ends_with: Optional[str] = None):
         """
-        :param bool case_sensitive: Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
+        :param bool case_sensitive: Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
         :param str subject_begins_with: A string to filter events for an event subscription based on a resource path prefix.
         :param str subject_ends_with: A string to filter events for an event subscription based on a resource path suffix.
         """
@@ -2314,7 +2314,7 @@ class EventSubscriptionSubjectFilter(dict):
     @pulumi.getter(name="caseSensitive")
     def case_sensitive(self) -> Optional[bool]:
         """
-        Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
+        Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
         """
         return pulumi.get(self, "case_sensitive")
 

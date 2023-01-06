@@ -59,7 +59,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<string> StorageBlobEndpoint { get; set; } = null!;
 
         /// <summary>
-        /// Include or exclude system databases from auto backup. Defaults to `false`.
+        /// Include or exclude system databases from auto backup.
         /// </summary>
         [Input("systemDatabasesBackupEnabled")]
         public Input<bool>? SystemDatabasesBackupEnabled { get; set; }

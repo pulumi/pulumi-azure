@@ -70,14 +70,14 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     * Is TCP Reset enabled for this Load Balancer Rule?
      * 
      */
     @Import(name="enableTcpReset")
     private @Nullable Output<Boolean> enableTcpReset;
 
     /**
-     * @return Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     * @return Is TCP Reset enabled for this Load Balancer Rule?
      * 
      */
     public Optional<Output<Boolean>> enableTcpReset() {
@@ -337,7 +337,7 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableTcpReset Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+         * @param enableTcpReset Is TCP Reset enabled for this Load Balancer Rule?
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class NatRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableTcpReset Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+         * @param enableTcpReset Is TCP Reset enabled for this Load Balancer Rule?
          * 
          * @return builder
          * 

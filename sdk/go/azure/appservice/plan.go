@@ -191,9 +191,9 @@ type Plan struct {
 	MaximumNumberOfWorkers pulumi.IntOutput `pulumi:"maximumNumberOfWorkers"`
 	// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
 	PerSiteScaling pulumi.BoolPtrOutput `pulumi:"perSiteScaling"`
-	// Is this App Service Plan `Reserved`. Defaults to `false`.
+	// Is this App Service Plan `Reserved`.
 	Reserved pulumi.BoolPtrOutput `pulumi:"reserved"`
 	// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -201,7 +201,7 @@ type Plan struct {
 	Sku PlanSkuOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
 	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
@@ -253,9 +253,9 @@ type planState struct {
 	MaximumNumberOfWorkers *int `pulumi:"maximumNumberOfWorkers"`
 	// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
 	PerSiteScaling *bool `pulumi:"perSiteScaling"`
-	// Is this App Service Plan `Reserved`. Defaults to `false`.
+	// Is this App Service Plan `Reserved`.
 	Reserved *bool `pulumi:"reserved"`
 	// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -263,7 +263,7 @@ type planState struct {
 	Sku *PlanSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
@@ -281,9 +281,9 @@ type PlanState struct {
 	MaximumNumberOfWorkers pulumi.IntPtrInput
 	// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
 	PerSiteScaling pulumi.BoolPtrInput
-	// Is this App Service Plan `Reserved`. Defaults to `false`.
+	// Is this App Service Plan `Reserved`.
 	Reserved pulumi.BoolPtrInput
 	// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -291,7 +291,7 @@ type PlanState struct {
 	Sku PlanSkuPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -311,9 +311,9 @@ type planArgs struct {
 	MaximumElasticWorkerCount *int `pulumi:"maximumElasticWorkerCount"`
 	// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
 	PerSiteScaling *bool `pulumi:"perSiteScaling"`
-	// Is this App Service Plan `Reserved`. Defaults to `false`.
+	// Is this App Service Plan `Reserved`.
 	Reserved *bool `pulumi:"reserved"`
 	// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -321,7 +321,7 @@ type planArgs struct {
 	Sku PlanSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
@@ -338,9 +338,9 @@ type PlanArgs struct {
 	MaximumElasticWorkerCount pulumi.IntPtrInput
 	// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
 	PerSiteScaling pulumi.BoolPtrInput
-	// Is this App Service Plan `Reserved`. Defaults to `false`.
+	// Is this App Service Plan `Reserved`.
 	Reserved pulumi.BoolPtrInput
 	// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -348,7 +348,7 @@ type PlanArgs struct {
 	Sku PlanSkuInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -473,12 +473,12 @@ func (o PlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
 func (o PlanOutput) PerSiteScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Plan) pulumi.BoolPtrOutput { return v.PerSiteScaling }).(pulumi.BoolPtrOutput)
 }
 
-// Is this App Service Plan `Reserved`. Defaults to `false`.
+// Is this App Service Plan `Reserved`.
 func (o PlanOutput) Reserved() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Plan) pulumi.BoolPtrOutput { return v.Reserved }).(pulumi.BoolPtrOutput)
 }
@@ -498,7 +498,7 @@ func (o PlanOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created. Defaults to `false`.
+// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
 func (o PlanOutput) ZoneRedundant() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Plan) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
 }

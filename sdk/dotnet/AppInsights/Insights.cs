@@ -181,7 +181,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<int?> RetentionInDays { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+        /// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
         /// </summary>
         [Output("samplingPercentage")]
         public Output<double?> SamplingPercentage { get; private set; } = null!;
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<int>? RetentionInDays { get; set; }
 
         /// <summary>
-        /// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+        /// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
         /// </summary>
         [Input("samplingPercentage")]
         public Input<double>? SamplingPercentage { get; set; }
@@ -466,7 +466,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<int>? RetentionInDays { get; set; }
 
         /// <summary>
-        /// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+        /// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
         /// </summary>
         [Input("samplingPercentage")]
         public Input<double>? SamplingPercentage { get; set; }

@@ -60,14 +60,14 @@ public final class AutoscaleSettingProfileRuleScaleActionArgs extends com.pulumi
     }
 
     /**
-     * The number of instances involved in the scaling action. Defaults to `1`.
+     * The number of instances involved in the scaling action.
      * 
      */
     @Import(name="value", required=true)
     private Output<Integer> value;
 
     /**
-     * @return The number of instances involved in the scaling action. Defaults to `1`.
+     * @return The number of instances involved in the scaling action.
      * 
      */
     public Output<Integer> value() {
@@ -165,7 +165,7 @@ public final class AutoscaleSettingProfileRuleScaleActionArgs extends com.pulumi
         }
 
         /**
-         * @param value The number of instances involved in the scaling action. Defaults to `1`.
+         * @param value The number of instances involved in the scaling action.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class AutoscaleSettingProfileRuleScaleActionArgs extends com.pulumi
         }
 
         /**
-         * @param value The number of instances involved in the scaling action. Defaults to `1`.
+         * @param value The number of instances involved in the scaling action.
          * 
          * @return builder
          * 

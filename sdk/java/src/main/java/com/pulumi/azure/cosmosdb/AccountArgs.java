@@ -419,14 +419,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether or not public network access is allowed for this CosmosDB account.
+     * Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether or not public network access is allowed for this CosmosDB account.
+     * @return Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -1124,7 +1124,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether or not public network access is allowed for this CosmosDB account.
+         * @param publicNetworkAccessEnabled Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -1135,7 +1135,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether or not public network access is allowed for this CosmosDB account.
+         * @param publicNetworkAccessEnabled Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
          * 
          * @return builder
          * 

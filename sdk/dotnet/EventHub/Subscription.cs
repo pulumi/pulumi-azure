@@ -89,7 +89,7 @@ namespace Pulumi.Azure.EventHub
         public Output<bool?> DeadLetteringOnFilterEvaluationError { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+        /// Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         /// </summary>
         [Output("deadLetteringOnMessageExpiration")]
         public Output<bool?> DeadLetteringOnMessageExpiration { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> DefaultMessageTtl { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+        /// Boolean flag which controls whether the Subscription supports batched operations.
         /// </summary>
         [Output("enableBatchedOperations")]
         public Output<bool?> EnableBatchedOperations { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
         /// </summary>
         [Output("requiresSession")]
         public Output<bool?> RequiresSession { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.EventHub
         public Input<bool>? DeadLetteringOnFilterEvaluationError { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+        /// Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         /// </summary>
         [Input("deadLetteringOnMessageExpiration")]
         public Input<bool>? DeadLetteringOnMessageExpiration { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? DefaultMessageTtl { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+        /// Boolean flag which controls whether the Subscription supports batched operations.
         /// </summary>
         [Input("enableBatchedOperations")]
         public Input<bool>? EnableBatchedOperations { get; set; }
@@ -273,7 +273,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
         /// </summary>
         [Input("requiresSession")]
         public Input<bool>? RequiresSession { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.EventHub
         public Input<bool>? DeadLetteringOnFilterEvaluationError { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+        /// Boolean flag which controls whether the Subscription has dead letter support when a message expires.
         /// </summary>
         [Input("deadLetteringOnMessageExpiration")]
         public Input<bool>? DeadLetteringOnMessageExpiration { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? DefaultMessageTtl { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+        /// Boolean flag which controls whether the Subscription supports batched operations.
         /// </summary>
         [Input("enableBatchedOperations")]
         public Input<bool>? EnableBatchedOperations { get; set; }
@@ -371,7 +371,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
         /// </summary>
         [Input("requiresSession")]
         public Input<bool>? RequiresSession { get; set; }

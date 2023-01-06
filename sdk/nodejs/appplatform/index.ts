@@ -100,6 +100,11 @@ export type SpringCloudCustomDomain = import("./springCloudCustomDomain").Spring
 export const SpringCloudCustomDomain: typeof import("./springCloudCustomDomain").SpringCloudCustomDomain = null as any;
 utilities.lazyLoad(exports, ["SpringCloudCustomDomain"], () => require("./springCloudCustomDomain"));
 
+export { SpringCloudCustomizedAcceleratorArgs, SpringCloudCustomizedAcceleratorState } from "./springCloudCustomizedAccelerator";
+export type SpringCloudCustomizedAccelerator = import("./springCloudCustomizedAccelerator").SpringCloudCustomizedAccelerator;
+export const SpringCloudCustomizedAccelerator: typeof import("./springCloudCustomizedAccelerator").SpringCloudCustomizedAccelerator = null as any;
+utilities.lazyLoad(exports, ["SpringCloudCustomizedAccelerator"], () => require("./springCloudCustomizedAccelerator"));
+
 export { SpringCloudDevToolPortalArgs, SpringCloudDevToolPortalState } from "./springCloudDevToolPortal";
 export type SpringCloudDevToolPortal = import("./springCloudDevToolPortal").SpringCloudDevToolPortal;
 export const SpringCloudDevToolPortal: typeof import("./springCloudDevToolPortal").SpringCloudDevToolPortal = null as any;
@@ -174,6 +179,8 @@ const _module = {
                 return new SpringCloudContainerDeployment(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain":
                 return new SpringCloudCustomDomain(name, <any>undefined, { urn })
+            case "azure:appplatform/springCloudCustomizedAccelerator:SpringCloudCustomizedAccelerator":
+                return new SpringCloudCustomizedAccelerator(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal":
                 return new SpringCloudDevToolPortal(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudGateway:SpringCloudGateway":
@@ -210,6 +217,7 @@ pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudConfigura
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudContainerDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudCustomDomain", _module)
+pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudCustomizedAccelerator", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudDevToolPortal", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudGateway", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudGatewayCustomDomain", _module)

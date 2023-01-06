@@ -87,7 +87,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.automation.AccountIdentity | undefined>;
     /**
-     * Whether requests using non-AAD authentication are blocked.
+     * Whether requests using non-AAD authentication are blocked. Defaults to `true`.
      */
     public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -202,7 +202,7 @@ export interface AccountState {
      */
     identity?: pulumi.Input<inputs.automation.AccountIdentity>;
     /**
-     * Whether requests using non-AAD authentication are blocked.
+     * Whether requests using non-AAD authentication are blocked. Defaults to `true`.
      */
     localAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
@@ -245,7 +245,7 @@ export interface AccountArgs {
      */
     identity?: pulumi.Input<inputs.automation.AccountIdentity>;
     /**
-     * Whether requests using non-AAD authentication are blocked.
+     * Whether requests using non-AAD authentication are blocked. Defaults to `true`.
      */
     localAuthenticationEnabled?: pulumi.Input<boolean>;
     /**

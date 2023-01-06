@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<string>? _transforms;
 
         /// <summary>
-        /// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`. Details can be found in the `Condition Transform List` below.
+        /// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         /// </summary>
         public InputList<string> Transforms
         {

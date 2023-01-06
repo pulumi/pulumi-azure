@@ -103,7 +103,7 @@ export class WebTest extends pulumi.CustomResource {
      */
     public readonly geoLocations!: pulumi.Output<string[]>;
     /**
-     * = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+     * The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
      */
     public readonly kind!: pulumi.Output<string>;
     /**
@@ -226,7 +226,7 @@ export interface WebTestState {
      */
     geoLocations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+     * The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
      */
     kind?: pulumi.Input<string>;
     /**
@@ -286,7 +286,7 @@ export interface WebTestArgs {
      */
     geoLocations: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+     * The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
      */
     kind: pulumi.Input<string>;
     /**

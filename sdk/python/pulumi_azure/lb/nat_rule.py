@@ -36,7 +36,7 @@ class NatRuleArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] backend_address_pool_id: Specifies a reference to backendAddressPool resource.
         :param pulumi.Input[bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-        :param pulumi.Input[bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        :param pulumi.Input[bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule?
         :param pulumi.Input[int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[int] frontend_port_end: The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
         :param pulumi.Input[int] frontend_port_start: The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
@@ -153,7 +153,7 @@ class NatRuleArgs:
     @pulumi.getter(name="enableTcpReset")
     def enable_tcp_reset(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        Is TCP Reset enabled for this Load Balancer Rule?
         """
         return pulumi.get(self, "enable_tcp_reset")
 
@@ -245,7 +245,7 @@ class _NatRuleState:
         :param pulumi.Input[str] backend_address_pool_id: Specifies a reference to backendAddressPool resource.
         :param pulumi.Input[int] backend_port: The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
         :param pulumi.Input[bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-        :param pulumi.Input[bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        :param pulumi.Input[bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule?
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration exposing this rule.
         :param pulumi.Input[int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[int] frontend_port_end: The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
@@ -336,7 +336,7 @@ class _NatRuleState:
     @pulumi.getter(name="enableTcpReset")
     def enable_tcp_reset(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        Is TCP Reset enabled for this Load Balancer Rule?
         """
         return pulumi.get(self, "enable_tcp_reset")
 
@@ -501,7 +501,7 @@ class NatRule(pulumi.CustomResource):
         :param pulumi.Input[str] backend_address_pool_id: Specifies a reference to backendAddressPool resource.
         :param pulumi.Input[int] backend_port: The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
         :param pulumi.Input[bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-        :param pulumi.Input[bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        :param pulumi.Input[bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule?
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration exposing this rule.
         :param pulumi.Input[int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[int] frontend_port_end: The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
@@ -630,7 +630,7 @@ class NatRule(pulumi.CustomResource):
         :param pulumi.Input[str] backend_address_pool_id: Specifies a reference to backendAddressPool resource.
         :param pulumi.Input[int] backend_port: The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
         :param pulumi.Input[bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-        :param pulumi.Input[bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        :param pulumi.Input[bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule?
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration exposing this rule.
         :param pulumi.Input[int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[int] frontend_port_end: The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
@@ -695,7 +695,7 @@ class NatRule(pulumi.CustomResource):
     @pulumi.getter(name="enableTcpReset")
     def enable_tcp_reset(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        Is TCP Reset enabled for this Load Balancer Rule?
         """
         return pulumi.get(self, "enable_tcp_reset")
 

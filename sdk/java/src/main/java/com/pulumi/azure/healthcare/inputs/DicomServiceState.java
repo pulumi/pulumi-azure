@@ -89,14 +89,14 @@ public final class DicomServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+     * Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+     * @return Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -280,7 +280,7 @@ public final class DicomServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+         * @param publicNetworkAccessEnabled Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class DicomServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+         * @param publicNetworkAccessEnabled Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
          * 
          * @return builder
          * 

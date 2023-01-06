@@ -78,7 +78,7 @@ class CustomHttpsConfigurationCustomHttpsConfiguration(dict):
                  provisioning_substate: Optional[str] = None):
         """
         :param str azure_key_vault_certificate_secret_name: The name of the Key Vault secret representing the full certificate PFX.
-        :param str azure_key_vault_certificate_secret_version: The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
+        :param str azure_key_vault_certificate_secret_version: The version of the Key Vault secret representing the full certificate PFX.
         :param str azure_key_vault_certificate_vault_id: The ID of the Key Vault containing the SSL certificate.
         :param str certificate_source: Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
         :param str minimum_tls_version: Minimum client TLS version supported.
@@ -110,7 +110,7 @@ class CustomHttpsConfigurationCustomHttpsConfiguration(dict):
     @pulumi.getter(name="azureKeyVaultCertificateSecretVersion")
     def azure_key_vault_certificate_secret_version(self) -> Optional[str]:
         """
-        The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
+        The version of the Key Vault secret representing the full certificate PFX.
         """
         return pulumi.get(self, "azure_key_vault_certificate_secret_version")
 
@@ -945,7 +945,7 @@ class FrontdoorBackendPoolHealthProbe(dict):
         :param str id: The ID of the FrontDoor.
         :param int interval_in_seconds: The number of seconds between each Health Probe. Defaults to `120`.
         :param str path: The path to use for the Health Probe. Default is `/`.
-        :param str probe_method: Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+        :param str probe_method: Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
         :param str protocol: Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
         """
         pulumi.set(__self__, "name", name)
@@ -1006,7 +1006,7 @@ class FrontdoorBackendPoolHealthProbe(dict):
     @pulumi.getter(name="probeMethod")
     def probe_method(self) -> Optional[str]:
         """
-        Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
+        Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
         """
         return pulumi.get(self, "probe_method")
 
@@ -1362,10 +1362,10 @@ class FrontdoorRoutingRule(dict):
                  id: Optional[str] = None,
                  redirect_configuration: Optional['outputs.FrontdoorRoutingRuleRedirectConfiguration'] = None):
         """
-        :param Sequence[str] accepted_protocols: Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
+        :param Sequence[str] accepted_protocols: Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
         :param Sequence[str] frontend_endpoints: The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
         :param str name: Specifies the name of the Routing Rule. Changing this forces a new resource to be created.
-        :param Sequence[str] patterns_to_matches: The route patterns for the Backend Routing Rule. Defaults to `/*`.
+        :param Sequence[str] patterns_to_matches: The route patterns for the Backend Routing Rule.
         :param bool enabled: `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
         :param 'FrontdoorRoutingRuleForwardingConfigurationArgs' forwarding_configuration: A `forwarding_configuration` block as defined below.
         :param str id: The ID of the FrontDoor.
@@ -1388,7 +1388,7 @@ class FrontdoorRoutingRule(dict):
     @pulumi.getter(name="acceptedProtocols")
     def accepted_protocols(self) -> Sequence[str]:
         """
-        Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`. Defaults to `Http`.
+        Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
         """
         return pulumi.get(self, "accepted_protocols")
 
@@ -1412,7 +1412,7 @@ class FrontdoorRoutingRule(dict):
     @pulumi.getter(name="patternsToMatches")
     def patterns_to_matches(self) -> Sequence[str]:
         """
-        The route patterns for the Backend Routing Rule. Defaults to `/*`.
+        The route patterns for the Backend Routing Rule.
         """
         return pulumi.get(self, "patterns_to_matches")
 
@@ -1619,7 +1619,7 @@ class FrontdoorRoutingRuleRedirectConfiguration(dict):
                  custom_path: Optional[str] = None,
                  custom_query_string: Optional[str] = None):
         """
-        :param str redirect_protocol: Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+        :param str redirect_protocol: Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`.
         :param str redirect_type: Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
         :param str custom_fragment: The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
         :param str custom_host: Set this to change the URL for the redirection.
@@ -1641,7 +1641,7 @@ class FrontdoorRoutingRuleRedirectConfiguration(dict):
     @pulumi.getter(name="redirectProtocol")
     def redirect_protocol(self) -> str:
         """
-        Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+        Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`.
         """
         return pulumi.get(self, "redirect_protocol")
 
@@ -1959,7 +1959,7 @@ class RulesEngineRuleMatchCondition(dict):
         """
         :param str operator: can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
         :param bool negate_condition: can be set to `true` or `false` to negate the given condition. Defaults to `true`.
-        :param str selector: match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
+        :param str selector: match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
         :param Sequence[str] transforms: can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
         :param Sequence[str] values: (array) can contain one or more strings.
         :param str variable: can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
@@ -1996,7 +1996,7 @@ class RulesEngineRuleMatchCondition(dict):
     @pulumi.getter
     def selector(self) -> Optional[str]:
         """
-        match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
+        match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
         """
         return pulumi.get(self, "selector")
 

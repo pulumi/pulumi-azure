@@ -15,6 +15,8 @@ __all__ = [
     'AccountNetworkAclsArgs',
     'AccountNetworkAclsVirtualNetworkRuleArgs',
     'AccountStorageArgs',
+    'DeploymentModelArgs',
+    'DeploymentScaleArgs',
 ]
 
 @pulumi.input_type
@@ -253,5 +255,79 @@ class AccountStorageArgs:
     @identity_client_id.setter
     def identity_client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "identity_client_id", value)
+
+
+@pulumi.input_type
+class DeploymentModelArgs:
+    def __init__(__self__, *,
+                 format: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] format: The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+        :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] version: The version of Cognitive Services Account Deployment model.
+        """
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def format(self) -> pulumi.Input[str]:
+        """
+        The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: pulumi.Input[str]):
+        pulumi.set(self, "format", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[str]:
+        """
+        The version of Cognitive Services Account Deployment model.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class DeploymentScaleArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] type: Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Deployment scale type. Possible value is `Standard`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 

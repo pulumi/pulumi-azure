@@ -105,7 +105,7 @@ export class Automation extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Boolean to enable or disable this Security Center Automation.
+     * Boolean to enable or disable this Security Center Automation. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -197,7 +197,7 @@ export interface AutomationState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Boolean to enable or disable this Security Center Automation.
+     * Boolean to enable or disable this Security Center Automation. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -239,7 +239,7 @@ export interface AutomationArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Boolean to enable or disable this Security Center Automation.
+     * Boolean to enable or disable this Security Center Automation. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**

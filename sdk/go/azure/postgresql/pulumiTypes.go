@@ -692,7 +692,7 @@ func (o ServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ServerThreatDetectionPolicy struct {
-	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+	// Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
 	DisabledAlerts []string `pulumi:"disabledAlerts"`
 	// Should the account administrators be emailed when this alert is triggered?
 	EmailAccountAdmins *bool `pulumi:"emailAccountAdmins"`
@@ -720,7 +720,7 @@ type ServerThreatDetectionPolicyInput interface {
 }
 
 type ServerThreatDetectionPolicyArgs struct {
-	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+	// Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
 	DisabledAlerts pulumi.StringArrayInput `pulumi:"disabledAlerts"`
 	// Should the account administrators be emailed when this alert is triggered?
 	EmailAccountAdmins pulumi.BoolPtrInput `pulumi:"emailAccountAdmins"`
@@ -813,7 +813,7 @@ func (o ServerThreatDetectionPolicyOutput) ToServerThreatDetectionPolicyPtrOutpu
 	}).(ServerThreatDetectionPolicyPtrOutput)
 }
 
-// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+// Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
 func (o ServerThreatDetectionPolicyOutput) DisabledAlerts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerThreatDetectionPolicy) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
 }
@@ -872,7 +872,7 @@ func (o ServerThreatDetectionPolicyPtrOutput) Elem() ServerThreatDetectionPolicy
 	}).(ServerThreatDetectionPolicyOutput)
 }
 
-// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+// Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
 func (o ServerThreatDetectionPolicyPtrOutput) DisabledAlerts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerThreatDetectionPolicy) []string {
 		if v == nil {

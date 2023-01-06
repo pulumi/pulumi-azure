@@ -25,8 +25,8 @@ class DatabaseExtendedAuditingPolicyArgs:
         The set of arguments for constructing a DatabaseExtendedAuditingPolicy resource.
         :param pulumi.Input[str] database_id: The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
-        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor?
-        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
+        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? Defaults to `true`.
+        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
@@ -73,7 +73,7 @@ class DatabaseExtendedAuditingPolicyArgs:
     @pulumi.getter(name="logMonitoringEnabled")
     def log_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable audit events to Azure Monitor?
+        Enable audit events to Azure Monitor? Defaults to `true`.
         """
         return pulumi.get(self, "log_monitoring_enabled")
 
@@ -85,7 +85,7 @@ class DatabaseExtendedAuditingPolicyArgs:
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of days to retain logs for in the storage account.
+        The number of days to retain logs for in the storage account. Defaults to `0`.
         """
         return pulumi.get(self, "retention_in_days")
 
@@ -144,8 +144,8 @@ class _DatabaseExtendedAuditingPolicyState:
         Input properties used for looking up and filtering DatabaseExtendedAuditingPolicy resources.
         :param pulumi.Input[str] database_id: The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
-        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor?
-        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
+        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? Defaults to `true`.
+        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
@@ -193,7 +193,7 @@ class _DatabaseExtendedAuditingPolicyState:
     @pulumi.getter(name="logMonitoringEnabled")
     def log_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable audit events to Azure Monitor?
+        Enable audit events to Azure Monitor? Defaults to `true`.
         """
         return pulumi.get(self, "log_monitoring_enabled")
 
@@ -205,7 +205,7 @@ class _DatabaseExtendedAuditingPolicyState:
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of days to retain logs for in the storage account.
+        The number of days to retain logs for in the storage account. Defaults to `0`.
         """
         return pulumi.get(self, "retention_in_days")
 
@@ -305,8 +305,8 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_id: The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
-        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor?
-        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
+        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? Defaults to `true`.
+        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
@@ -423,8 +423,8 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_id: The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
-        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor?
-        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
+        :param pulumi.Input[bool] log_monitoring_enabled: Enable audit events to Azure Monitor? Defaults to `true`.
+        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
@@ -462,7 +462,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
     @pulumi.getter(name="logMonitoringEnabled")
     def log_monitoring_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable audit events to Azure Monitor?
+        Enable audit events to Azure Monitor? Defaults to `true`.
         """
         return pulumi.get(self, "log_monitoring_enabled")
 
@@ -470,7 +470,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of days to retain logs for in the storage account.
+        The number of days to retain logs for in the storage account. Defaults to `0`.
         """
         return pulumi.get(self, "retention_in_days")
 

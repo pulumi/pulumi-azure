@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorRuleConditionsRequestSchemeCondition {
     /**
-     * @return The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+     * @return The requests protocol to match. Possible values include `HTTP` or `HTTPS`.
      * 
      */
     private @Nullable String matchValues;
@@ -30,7 +30,7 @@ public final class FrontdoorRuleConditionsRequestSchemeCondition {
 
     private FrontdoorRuleConditionsRequestSchemeCondition() {}
     /**
-     * @return The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+     * @return The requests protocol to match. Possible values include `HTTP` or `HTTPS`.
      * 
      */
     public Optional<String> matchValues() {

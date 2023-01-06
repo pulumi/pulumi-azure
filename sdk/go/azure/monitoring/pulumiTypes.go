@@ -5744,7 +5744,7 @@ func (o ActivityLogAlertCriteriaResourceHealthArrayOutput) Index(i pulumi.IntInp
 type ActivityLogAlertCriteriaServiceHealth struct {
 	// Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, `ActionRequired` and `Security`.
 	Events []string `pulumi:"events"`
-	// Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+	// Locations this alert will monitor. For example, `West Europe`.
 	Locations []string `pulumi:"locations"`
 	// Services this alert will monitor. For example, `Activity Logs & Alerts`, `Action Groups`. Defaults to all Services.
 	Services []string `pulumi:"services"`
@@ -5764,7 +5764,7 @@ type ActivityLogAlertCriteriaServiceHealthInput interface {
 type ActivityLogAlertCriteriaServiceHealthArgs struct {
 	// Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, `ActionRequired` and `Security`.
 	Events pulumi.StringArrayInput `pulumi:"events"`
-	// Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+	// Locations this alert will monitor. For example, `West Europe`.
 	Locations pulumi.StringArrayInput `pulumi:"locations"`
 	// Services this alert will monitor. For example, `Activity Logs & Alerts`, `Action Groups`. Defaults to all Services.
 	Services pulumi.StringArrayInput `pulumi:"services"`
@@ -5826,7 +5826,7 @@ func (o ActivityLogAlertCriteriaServiceHealthOutput) Events() pulumi.StringArray
 	return o.ApplyT(func(v ActivityLogAlertCriteriaServiceHealth) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
 
-// Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+// Locations this alert will monitor. For example, `West Europe`.
 func (o ActivityLogAlertCriteriaServiceHealthOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteriaServiceHealth) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
@@ -12544,7 +12544,7 @@ type AutoscaleSettingProfileRuleMetricTrigger struct {
 	Statistic string `pulumi:"statistic"`
 	// Specifies the threshold of the metric that triggers the scale action.
 	Threshold float64 `pulumi:"threshold"`
-	// Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+	// Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`.
 	TimeAggregation string `pulumi:"timeAggregation"`
 	// Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
 	TimeGrain string `pulumi:"timeGrain"`
@@ -12580,7 +12580,7 @@ type AutoscaleSettingProfileRuleMetricTriggerArgs struct {
 	Statistic pulumi.StringInput `pulumi:"statistic"`
 	// Specifies the threshold of the metric that triggers the scale action.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+	// Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`.
 	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
 	// Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
 	TimeGrain pulumi.StringInput `pulumi:"timeGrain"`
@@ -12656,7 +12656,7 @@ func (o AutoscaleSettingProfileRuleMetricTriggerOutput) Threshold() pulumi.Float
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
+// Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`.
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) TimeAggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
@@ -12793,7 +12793,7 @@ type AutoscaleSettingProfileRuleScaleAction struct {
 	Direction string `pulumi:"direction"`
 	// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount`, `PercentChangeCount` and `ServiceAllowedNextValue`.
 	Type string `pulumi:"type"`
-	// The number of instances involved in the scaling action. Defaults to `1`.
+	// The number of instances involved in the scaling action.
 	Value int `pulumi:"value"`
 }
 
@@ -12815,7 +12815,7 @@ type AutoscaleSettingProfileRuleScaleActionArgs struct {
 	Direction pulumi.StringInput `pulumi:"direction"`
 	// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount`, `PercentChangeCount` and `ServiceAllowedNextValue`.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The number of instances involved in the scaling action. Defaults to `1`.
+	// The number of instances involved in the scaling action.
 	Value pulumi.IntInput `pulumi:"value"`
 }
 
@@ -12860,7 +12860,7 @@ func (o AutoscaleSettingProfileRuleScaleActionOutput) Type() pulumi.StringOutput
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleScaleAction) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The number of instances involved in the scaling action. Defaults to `1`.
+// The number of instances involved in the scaling action.
 func (o AutoscaleSettingProfileRuleScaleActionOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleScaleAction) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -14620,7 +14620,7 @@ func (o DiagnosticSettingMetricRetentionPolicyPtrOutput) Enabled() pulumi.BoolPt
 }
 
 type LogProfileRetentionPolicy struct {
-	// The number of days for the retention policy. Defaults to 0.
+	// The number of days for the retention policy. Defaults to `0`.
 	Days *int `pulumi:"days"`
 	// A boolean value to indicate whether the retention policy is enabled.
 	Enabled bool `pulumi:"enabled"`
@@ -14638,7 +14638,7 @@ type LogProfileRetentionPolicyInput interface {
 }
 
 type LogProfileRetentionPolicyArgs struct {
-	// The number of days for the retention policy. Defaults to 0.
+	// The number of days for the retention policy. Defaults to `0`.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 	// A boolean value to indicate whether the retention policy is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -14721,7 +14721,7 @@ func (o LogProfileRetentionPolicyOutput) ToLogProfileRetentionPolicyPtrOutputWit
 	}).(LogProfileRetentionPolicyPtrOutput)
 }
 
-// The number of days for the retention policy. Defaults to 0.
+// The number of days for the retention policy. Defaults to `0`.
 func (o LogProfileRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LogProfileRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -14755,7 +14755,7 @@ func (o LogProfileRetentionPolicyPtrOutput) Elem() LogProfileRetentionPolicyOutp
 	}).(LogProfileRetentionPolicyOutput)
 }
 
-// The number of days for the retention policy. Defaults to 0.
+// The number of days for the retention policy. Defaults to `0`.
 func (o LogProfileRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LogProfileRetentionPolicy) *int {
 		if v == nil {
@@ -16143,9 +16143,9 @@ type MetricAlertDynamicCriteria struct {
 	AlertSensitivity string `pulumi:"alertSensitivity"`
 	// One or more `dimension` blocks as defined below.
 	Dimensions []MetricAlertDynamicCriteriaDimension `pulumi:"dimensions"`
-	// The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`.
+	// The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`. Defaults to `4`.
 	EvaluationFailureCount *int `pulumi:"evaluationFailureCount"`
-	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points.
+	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points. Defaults to `4`.
 	EvaluationTotalCount *int `pulumi:"evaluationTotalCount"`
 	// The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
 	IgnoreDataBefore *string `pulumi:"ignoreDataBefore"`
@@ -16155,7 +16155,7 @@ type MetricAlertDynamicCriteria struct {
 	MetricNamespace string `pulumi:"metricNamespace"`
 	// The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
 	Operator string `pulumi:"operator"`
-	// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+	// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted?
 	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
 }
 
@@ -16177,9 +16177,9 @@ type MetricAlertDynamicCriteriaArgs struct {
 	AlertSensitivity pulumi.StringInput `pulumi:"alertSensitivity"`
 	// One or more `dimension` blocks as defined below.
 	Dimensions MetricAlertDynamicCriteriaDimensionArrayInput `pulumi:"dimensions"`
-	// The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`.
+	// The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`. Defaults to `4`.
 	EvaluationFailureCount pulumi.IntPtrInput `pulumi:"evaluationFailureCount"`
-	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points.
+	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points. Defaults to `4`.
 	EvaluationTotalCount pulumi.IntPtrInput `pulumi:"evaluationTotalCount"`
 	// The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
 	IgnoreDataBefore pulumi.StringPtrInput `pulumi:"ignoreDataBefore"`
@@ -16189,7 +16189,7 @@ type MetricAlertDynamicCriteriaArgs struct {
 	MetricNamespace pulumi.StringInput `pulumi:"metricNamespace"`
 	// The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+	// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted?
 	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
 }
 
@@ -16285,12 +16285,12 @@ func (o MetricAlertDynamicCriteriaOutput) Dimensions() MetricAlertDynamicCriteri
 	return o.ApplyT(func(v MetricAlertDynamicCriteria) []MetricAlertDynamicCriteriaDimension { return v.Dimensions }).(MetricAlertDynamicCriteriaDimensionArrayOutput)
 }
 
-// The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`.
+// The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`. Defaults to `4`.
 func (o MetricAlertDynamicCriteriaOutput) EvaluationFailureCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MetricAlertDynamicCriteria) *int { return v.EvaluationFailureCount }).(pulumi.IntPtrOutput)
 }
 
-// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points.
+// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points. Defaults to `4`.
 func (o MetricAlertDynamicCriteriaOutput) EvaluationTotalCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MetricAlertDynamicCriteria) *int { return v.EvaluationTotalCount }).(pulumi.IntPtrOutput)
 }
@@ -16315,7 +16315,7 @@ func (o MetricAlertDynamicCriteriaOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertDynamicCriteria) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted?
 func (o MetricAlertDynamicCriteriaOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MetricAlertDynamicCriteria) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
 }
@@ -16374,7 +16374,7 @@ func (o MetricAlertDynamicCriteriaPtrOutput) Dimensions() MetricAlertDynamicCrit
 	}).(MetricAlertDynamicCriteriaDimensionArrayOutput)
 }
 
-// The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`.
+// The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`. Defaults to `4`.
 func (o MetricAlertDynamicCriteriaPtrOutput) EvaluationFailureCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MetricAlertDynamicCriteria) *int {
 		if v == nil {
@@ -16384,7 +16384,7 @@ func (o MetricAlertDynamicCriteriaPtrOutput) EvaluationFailureCount() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points.
+// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points. Defaults to `4`.
 func (o MetricAlertDynamicCriteriaPtrOutput) EvaluationTotalCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MetricAlertDynamicCriteria) *int {
 		if v == nil {
@@ -16434,7 +16434,7 @@ func (o MetricAlertDynamicCriteriaPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted?
 func (o MetricAlertDynamicCriteriaPtrOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MetricAlertDynamicCriteria) *bool {
 		if v == nil {

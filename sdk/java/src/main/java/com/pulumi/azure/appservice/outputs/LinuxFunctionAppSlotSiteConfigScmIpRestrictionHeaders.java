@@ -18,7 +18,7 @@ public final class LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeaders {
      */
     private @Nullable List<String> xAzureFdids;
     /**
-     * @return Specifies if a Front Door Health Probe should be expected.
+     * @return Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
      * 
      */
     private @Nullable String xFdHealthProbe;
@@ -42,7 +42,7 @@ public final class LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeaders {
         return this.xAzureFdids == null ? List.of() : this.xAzureFdids;
     }
     /**
-     * @return Specifies if a Front Door Health Probe should be expected.
+     * @return Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
      * 
      */
     public Optional<String> xFdHealthProbe() {

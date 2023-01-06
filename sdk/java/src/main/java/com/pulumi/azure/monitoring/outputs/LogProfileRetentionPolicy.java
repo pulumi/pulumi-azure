@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LogProfileRetentionPolicy {
     /**
-     * @return The number of days for the retention policy. Defaults to 0.
+     * @return The number of days for the retention policy. Defaults to `0`.
      * 
      */
     private @Nullable Integer days;
@@ -25,7 +25,7 @@ public final class LogProfileRetentionPolicy {
 
     private LogProfileRetentionPolicy() {}
     /**
-     * @return The number of days for the retention policy. Defaults to 0.
+     * @return The number of days for the retention policy. Defaults to `0`.
      * 
      */
     public Optional<Integer> days() {

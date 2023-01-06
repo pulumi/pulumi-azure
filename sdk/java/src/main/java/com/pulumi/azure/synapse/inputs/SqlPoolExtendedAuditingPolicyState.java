@@ -18,14 +18,14 @@ public final class SqlPoolExtendedAuditingPolicyState extends com.pulumi.resourc
     public static final SqlPoolExtendedAuditingPolicyState Empty = new SqlPoolExtendedAuditingPolicyState();
 
     /**
-     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+     * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
      * 
      */
     @Import(name="logMonitoringEnabled")
     private @Nullable Output<Boolean> logMonitoringEnabled;
 
     /**
-     * @return Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+     * @return Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> logMonitoringEnabled() {
@@ -33,14 +33,14 @@ public final class SqlPoolExtendedAuditingPolicyState extends com.pulumi.resourc
     }
 
     /**
-     * The number of days to retain logs for in the storage account.
+     * The number of days to retain logs for in the storage account. Defaults to `0`.
      * 
      */
     @Import(name="retentionInDays")
     private @Nullable Output<Integer> retentionInDays;
 
     /**
-     * @return The number of days to retain logs for in the storage account.
+     * @return The number of days to retain logs for in the storage account. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> retentionInDays() {
@@ -137,7 +137,7 @@ public final class SqlPoolExtendedAuditingPolicyState extends com.pulumi.resourc
         }
 
         /**
-         * @param logMonitoringEnabled Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+         * @param logMonitoringEnabled Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class SqlPoolExtendedAuditingPolicyState extends com.pulumi.resourc
         }
 
         /**
-         * @param logMonitoringEnabled Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
+         * @param logMonitoringEnabled Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class SqlPoolExtendedAuditingPolicyState extends com.pulumi.resourc
         }
 
         /**
-         * @param retentionInDays The number of days to retain logs for in the storage account.
+         * @param retentionInDays The number of days to retain logs for in the storage account. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class SqlPoolExtendedAuditingPolicyState extends com.pulumi.resourc
         }
 
         /**
-         * @param retentionInDays The number of days to retain logs for in the storage account.
+         * @param retentionInDays The number of days to retain logs for in the storage account. Defaults to `0`.
          * 
          * @return builder
          * 

@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<Outputs.AccountCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+        /// Whether to enable the dynamic throttling for this Cognitive Service Account.
         /// </summary>
         [Output("dynamicThrottlingEnabled")]
         public Output<bool?> DynamicThrottlingEnabled { get; private set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<Inputs.AccountCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
 
         /// <summary>
-        /// Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+        /// Whether to enable the dynamic throttling for this Cognitive Service Account.
         /// </summary>
         [Input("dynamicThrottlingEnabled")]
         public Input<bool>? DynamicThrottlingEnabled { get; set; }
@@ -446,7 +446,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<Inputs.AccountCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
 
         /// <summary>
-        /// Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+        /// Whether to enable the dynamic throttling for this Cognitive Service Account.
         /// </summary>
         [Input("dynamicThrottlingEnabled")]
         public Input<bool>? DynamicThrottlingEnabled { get; set; }

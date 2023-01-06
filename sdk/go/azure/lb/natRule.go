@@ -36,7 +36,7 @@ type NatRule struct {
 	BackendPort pulumi.IntOutput `pulumi:"backendPort"`
 	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp pulumi.BoolOutput `pulumi:"enableFloatingIp"`
-	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+	// Is TCP Reset enabled for this Load Balancer Rule?
 	EnableTcpReset            pulumi.BoolPtrOutput `pulumi:"enableTcpReset"`
 	FrontendIpConfigurationId pulumi.StringOutput  `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration exposing this rule.
@@ -110,7 +110,7 @@ type natRuleState struct {
 	BackendPort *int `pulumi:"backendPort"`
 	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp *bool `pulumi:"enableFloatingIp"`
-	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+	// Is TCP Reset enabled for this Load Balancer Rule?
 	EnableTcpReset            *bool   `pulumi:"enableTcpReset"`
 	FrontendIpConfigurationId *string `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration exposing this rule.
@@ -141,7 +141,7 @@ type NatRuleState struct {
 	BackendPort pulumi.IntPtrInput
 	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp pulumi.BoolPtrInput
-	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+	// Is TCP Reset enabled for this Load Balancer Rule?
 	EnableTcpReset            pulumi.BoolPtrInput
 	FrontendIpConfigurationId pulumi.StringPtrInput
 	// The name of the frontend IP configuration exposing this rule.
@@ -175,7 +175,7 @@ type natRuleArgs struct {
 	BackendPort int `pulumi:"backendPort"`
 	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp *bool `pulumi:"enableFloatingIp"`
-	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+	// Is TCP Reset enabled for this Load Balancer Rule?
 	EnableTcpReset *bool `pulumi:"enableTcpReset"`
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName string `pulumi:"frontendIpConfigurationName"`
@@ -205,7 +205,7 @@ type NatRuleArgs struct {
 	BackendPort pulumi.IntInput
 	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp pulumi.BoolPtrInput
-	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+	// Is TCP Reset enabled for this Load Balancer Rule?
 	EnableTcpReset pulumi.BoolPtrInput
 	// The name of the frontend IP configuration exposing this rule.
 	FrontendIpConfigurationName pulumi.StringInput
@@ -333,7 +333,7 @@ func (o NatRuleOutput) EnableFloatingIp() pulumi.BoolOutput {
 	return o.ApplyT(func(v *NatRule) pulumi.BoolOutput { return v.EnableFloatingIp }).(pulumi.BoolOutput)
 }
 
-// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+// Is TCP Reset enabled for this Load Balancer Rule?
 func (o NatRuleOutput) EnableTcpReset() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NatRule) pulumi.BoolPtrOutput { return v.EnableTcpReset }).(pulumi.BoolPtrOutput)
 }

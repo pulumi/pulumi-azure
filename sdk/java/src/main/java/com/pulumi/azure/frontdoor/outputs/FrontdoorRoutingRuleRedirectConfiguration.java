@@ -32,7 +32,7 @@ public final class FrontdoorRoutingRuleRedirectConfiguration {
      */
     private @Nullable String customQueryString;
     /**
-     * @return Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+     * @return Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`.
      * 
      */
     private String redirectProtocol;
@@ -72,7 +72,7 @@ public final class FrontdoorRoutingRuleRedirectConfiguration {
         return Optional.ofNullable(this.customQueryString);
     }
     /**
-     * @return Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
+     * @return Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`.
      * 
      */
     public String redirectProtocol() {

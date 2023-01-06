@@ -32,14 +32,14 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs ext
     }
 
     /**
-     * Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+     * Describes if the managed rule is in enabled state or disabled state.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+     * @return Describes if the managed rule is in enabled state or disabled state.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -109,7 +109,7 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs ext
         }
 
         /**
-         * @param enabled Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+         * @param enabled Describes if the managed rule is in enabled state or disabled state.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs ext
         }
 
         /**
-         * @param enabled Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+         * @param enabled Describes if the managed rule is in enabled state or disabled state.
          * 
          * @return builder
          * 

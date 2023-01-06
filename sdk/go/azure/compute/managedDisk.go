@@ -155,7 +155,7 @@ type ManagedDisk struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
 	NetworkAccessPolicy pulumi.StringPtrOutput `pulumi:"networkAccessPolicy"`
-	// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
 	OnDemandBurstingEnabled pulumi.BoolPtrOutput `pulumi:"onDemandBurstingEnabled"`
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
@@ -179,7 +179,7 @@ type ManagedDisk struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier pulumi.StringOutput `pulumi:"tier"`
-	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
 	TrustedLaunchEnabled pulumi.BoolPtrOutput `pulumi:"trustedLaunchEnabled"`
 	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
 	UploadSizeBytes pulumi.IntPtrOutput `pulumi:"uploadSizeBytes"`
@@ -261,7 +261,7 @@ type managedDiskState struct {
 	Name *string `pulumi:"name"`
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
-	// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
 	OnDemandBurstingEnabled *bool `pulumi:"onDemandBurstingEnabled"`
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType *string `pulumi:"osType"`
@@ -285,7 +285,7 @@ type managedDiskState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier *string `pulumi:"tier"`
-	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
 	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
 	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
 	UploadSizeBytes *int `pulumi:"uploadSizeBytes"`
@@ -330,7 +330,7 @@ type ManagedDiskState struct {
 	Name pulumi.StringPtrInput
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
 	NetworkAccessPolicy pulumi.StringPtrInput
-	// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
 	OnDemandBurstingEnabled pulumi.BoolPtrInput
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrInput
@@ -354,7 +354,7 @@ type ManagedDiskState struct {
 	Tags pulumi.StringMapInput
 	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier pulumi.StringPtrInput
-	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
 	TrustedLaunchEnabled pulumi.BoolPtrInput
 	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
 	UploadSizeBytes pulumi.IntPtrInput
@@ -403,7 +403,7 @@ type managedDiskArgs struct {
 	Name *string `pulumi:"name"`
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
-	// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
 	OnDemandBurstingEnabled *bool `pulumi:"onDemandBurstingEnabled"`
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType *string `pulumi:"osType"`
@@ -427,7 +427,7 @@ type managedDiskArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier *string `pulumi:"tier"`
-	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
 	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
 	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
 	UploadSizeBytes *int `pulumi:"uploadSizeBytes"`
@@ -473,7 +473,7 @@ type ManagedDiskArgs struct {
 	Name pulumi.StringPtrInput
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
 	NetworkAccessPolicy pulumi.StringPtrInput
-	// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
 	OnDemandBurstingEnabled pulumi.BoolPtrInput
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrInput
@@ -497,7 +497,7 @@ type ManagedDiskArgs struct {
 	Tags pulumi.StringMapInput
 	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier pulumi.StringPtrInput
-	// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+	// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
 	TrustedLaunchEnabled pulumi.BoolPtrInput
 	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
 	UploadSizeBytes pulumi.IntPtrInput
@@ -682,7 +682,7 @@ func (o ManagedDiskOutput) NetworkAccessPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.NetworkAccessPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Specifies if On-Demand Bursting is enabled for the Managed Disk. Defaults to `false`.
+// Specifies if On-Demand Bursting is enabled for the Managed Disk.
 func (o ManagedDiskOutput) OnDemandBurstingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.BoolPtrOutput { return v.OnDemandBurstingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -742,7 +742,7 @@ func (o ManagedDiskOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringOutput { return v.Tier }).(pulumi.StringOutput)
 }
 
-// Specifies if Trusted Launch is enabled for the Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
 func (o ManagedDiskOutput) TrustedLaunchEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.BoolPtrOutput { return v.TrustedLaunchEnabled }).(pulumi.BoolPtrOutput)
 }

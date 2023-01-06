@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CustomProvider{}
 	case "azure:core/portalTenantConfiguration:PortalTenantConfiguration":
 		r = &PortalTenantConfiguration{}
+	case "azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli":
+		r = &ResourceDeploymentScriptAzureCli{}
+	case "azure:core/resourceDeploymentScriptPowerShell:ResourceDeploymentScriptPowerShell":
+		r = &ResourceDeploymentScriptPowerShell{}
 	case "azure:core/resourceGroup:ResourceGroup":
 		r = &ResourceGroup{}
 	case "azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport":
@@ -82,6 +86,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"core/portalTenantConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"core/resourceDeploymentScriptAzureCli",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"core/resourceDeploymentScriptPowerShell",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

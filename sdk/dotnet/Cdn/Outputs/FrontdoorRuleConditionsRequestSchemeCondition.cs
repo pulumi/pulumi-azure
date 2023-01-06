@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorRuleConditionsRequestSchemeCondition
     {
         /// <summary>
-        /// The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+        /// The requests protocol to match. Possible values include `HTTP` or `HTTPS`.
         /// </summary>
         public readonly string? MatchValues;
         /// <summary>

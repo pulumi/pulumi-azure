@@ -88,7 +88,7 @@ export class MedtechServiceFhirDestination extends pulumi.CustomResource {
     public readonly destinationFhirMappingJson!: pulumi.Output<string>;
     public readonly destinationFhirServiceId!: pulumi.Output<string>;
     /**
-     * Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`. Defaults to `Create`.
+     * Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
      */
     public readonly destinationIdentityResolutionType!: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export interface MedtechServiceFhirDestinationState {
     destinationFhirMappingJson?: pulumi.Input<string>;
     destinationFhirServiceId?: pulumi.Input<string>;
     /**
-     * Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`. Defaults to `Create`.
+     * Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
      */
     destinationIdentityResolutionType?: pulumi.Input<string>;
     /**
@@ -186,7 +186,7 @@ export interface MedtechServiceFhirDestinationArgs {
     destinationFhirMappingJson: pulumi.Input<string>;
     destinationFhirServiceId: pulumi.Input<string>;
     /**
-     * Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`. Defaults to `Create`.
+     * Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
      */
     destinationIdentityResolutionType: pulumi.Input<string>;
     /**

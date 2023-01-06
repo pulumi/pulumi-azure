@@ -310,14 +310,14 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
         return Codegen.optional(this.emailAddresses);
     }
     /**
-     * Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+     * Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+     * @return Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

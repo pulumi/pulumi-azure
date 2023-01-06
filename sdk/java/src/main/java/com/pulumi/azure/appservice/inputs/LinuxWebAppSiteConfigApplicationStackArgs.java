@@ -121,14 +121,14 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     }
 
     /**
-     * The version of PHP to run. Possible values include `7.4`, and `8.0`.
+     * The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
      * 
      */
     @Import(name="phpVersion")
     private @Nullable Output<String> phpVersion;
 
     /**
-     * @return The version of PHP to run. Possible values include `7.4`, and `8.0`.
+     * @return The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
      * 
      */
     public Optional<Output<String>> phpVersion() {
@@ -346,7 +346,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @param phpVersion The version of PHP to run. Possible values include `7.4`, and `8.0`.
+         * @param phpVersion The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @param phpVersion The version of PHP to run. Possible values include `7.4`, and `8.0`.
+         * @param phpVersion The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
          * 
          * @return builder
          * 

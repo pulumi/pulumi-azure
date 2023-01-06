@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Consumption.Inputs
         }
 
         /// <summary>
-        /// Should the notification be enabled?
+        /// Should the notification be enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

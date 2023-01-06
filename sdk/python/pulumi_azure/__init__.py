@@ -120,6 +120,8 @@ if typing.TYPE_CHECKING:
     keyvault = __keyvault
     import pulumi_azure.kusto as __kusto
     kusto = __kusto
+    import pulumi_azure.lab as __lab
+    lab = __lab
     import pulumi_azure.lb as __lb
     lb = __lb
     import pulumi_azure.lighthouse as __lighthouse
@@ -286,6 +288,7 @@ else:
     iotcentral = _utilities.lazy_import('pulumi_azure.iotcentral')
     keyvault = _utilities.lazy_import('pulumi_azure.keyvault')
     kusto = _utilities.lazy_import('pulumi_azure.kusto')
+    lab = _utilities.lazy_import('pulumi_azure.lab')
     lb = _utilities.lazy_import('pulumi_azure.lb')
     lighthouse = _utilities.lazy_import('pulumi_azure.lighthouse')
     loadtest = _utilities.lazy_import('pulumi_azure.loadtest')
@@ -943,6 +946,14 @@ _utilities.register(
   "fqn": "pulumi_azure.appplatform",
   "classes": {
    "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain": "SpringCloudCustomDomain"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appplatform/springCloudCustomizedAccelerator",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudCustomizedAccelerator:SpringCloudCustomizedAccelerator": "SpringCloudCustomizedAccelerator"
   }
  },
  {
@@ -1667,6 +1678,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "billing/accountCostManagementExport",
+  "fqn": "pulumi_azure.billing",
+  "classes": {
+   "azure:billing/accountCostManagementExport:AccountCostManagementExport": "AccountCostManagementExport"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "blueprint/assignment",
   "fqn": "pulumi_azure.blueprint",
   "classes": {
@@ -1935,6 +1954,14 @@ _utilities.register(
   "fqn": "pulumi_azure.cognitive",
   "classes": {
    "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey": "AccountCustomerManagedKey"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cognitive/deployment",
+  "fqn": "pulumi_azure.cognitive",
+  "classes": {
+   "azure:cognitive/deployment:Deployment": "Deployment"
   }
  },
  {
@@ -2383,6 +2410,22 @@ _utilities.register(
   "fqn": "pulumi_azure.core",
   "classes": {
    "azure:core/portalTenantConfiguration:PortalTenantConfiguration": "PortalTenantConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "core/resourceDeploymentScriptAzureCli",
+  "fqn": "pulumi_azure.core",
+  "classes": {
+   "azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli": "ResourceDeploymentScriptAzureCli"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "core/resourceDeploymentScriptPowerShell",
+  "fqn": "pulumi_azure.core",
+  "classes": {
+   "azure:core/resourceDeploymentScriptPowerShell:ResourceDeploymentScriptPowerShell": "ResourceDeploymentScriptPowerShell"
   }
  },
  {
@@ -4163,6 +4206,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "keyvault/certificateContacts",
+  "fqn": "pulumi_azure.keyvault",
+  "classes": {
+   "azure:keyvault/certificateContacts:CertificateContacts": "CertificateContacts"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "keyvault/certificateIssuer",
   "fqn": "pulumi_azure.keyvault",
   "classes": {
@@ -4303,6 +4354,14 @@ _utilities.register(
   "fqn": "pulumi_azure.kusto",
   "classes": {
    "azure:kusto/script:Script": "Script"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "lab/servicePlan",
+  "fqn": "pulumi_azure.lab",
+  "classes": {
+   "azure:lab/servicePlan:ServicePlan": "ServicePlan"
   }
  },
  {

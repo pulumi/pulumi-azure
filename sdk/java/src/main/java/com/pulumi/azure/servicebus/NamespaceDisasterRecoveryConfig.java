@@ -95,14 +95,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig")
 public class NamespaceDisasterRecoveryConfig extends com.pulumi.resources.CustomResource {
     /**
-     * The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+     * The Shared access policies used to access the connection string for the alias.
      * 
      */
     @Export(name="aliasAuthorizationRuleId", type=String.class, parameters={})
     private Output</* @Nullable */ String> aliasAuthorizationRuleId;
 
     /**
-     * @return The Shared access policies used to access the connection string for the alias. Defaults to `RootManageSharedAccessKey`.
+     * @return The Shared access policies used to access the connection string for the alias.
      * 
      */
     public Output<Optional<String>> aliasAuthorizationRuleId() {

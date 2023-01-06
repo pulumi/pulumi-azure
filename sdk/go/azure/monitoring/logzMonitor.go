@@ -72,7 +72,7 @@ type LogzMonitor struct {
 
 	// Name of the Logz organization. Changing this forces a new logz Monitor to be created.
 	CompanyName pulumi.StringPtrOutput `pulumi:"companyName"`
-	// Whether the resource monitoring is enabled?
+	// Whether the resource monitoring is enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
 	EnterpriseAppId pulumi.StringPtrOutput `pulumi:"enterpriseAppId"`
@@ -134,7 +134,7 @@ func GetLogzMonitor(ctx *pulumi.Context,
 type logzMonitorState struct {
 	// Name of the Logz organization. Changing this forces a new logz Monitor to be created.
 	CompanyName *string `pulumi:"companyName"`
-	// Whether the resource monitoring is enabled?
+	// Whether the resource monitoring is enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
 	EnterpriseAppId *string `pulumi:"enterpriseAppId"`
@@ -159,7 +159,7 @@ type logzMonitorState struct {
 type LogzMonitorState struct {
 	// Name of the Logz organization. Changing this forces a new logz Monitor to be created.
 	CompanyName pulumi.StringPtrInput
-	// Whether the resource monitoring is enabled?
+	// Whether the resource monitoring is enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
 	EnterpriseAppId pulumi.StringPtrInput
@@ -188,7 +188,7 @@ func (LogzMonitorState) ElementType() reflect.Type {
 type logzMonitorArgs struct {
 	// Name of the Logz organization. Changing this forces a new logz Monitor to be created.
 	CompanyName *string `pulumi:"companyName"`
-	// Whether the resource monitoring is enabled?
+	// Whether the resource monitoring is enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
 	EnterpriseAppId *string `pulumi:"enterpriseAppId"`
@@ -210,7 +210,7 @@ type logzMonitorArgs struct {
 type LogzMonitorArgs struct {
 	// Name of the Logz organization. Changing this forces a new logz Monitor to be created.
 	CompanyName pulumi.StringPtrInput
-	// Whether the resource monitoring is enabled?
+	// Whether the resource monitoring is enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
 	EnterpriseAppId pulumi.StringPtrInput
@@ -320,7 +320,7 @@ func (o LogzMonitorOutput) CompanyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogzMonitor) pulumi.StringPtrOutput { return v.CompanyName }).(pulumi.StringPtrOutput)
 }
 
-// Whether the resource monitoring is enabled?
+// Whether the resource monitoring is enabled? Defaults to `true`.
 func (o LogzMonitorOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogzMonitor) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

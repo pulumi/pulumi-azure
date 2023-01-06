@@ -75,7 +75,7 @@ export class SharedImage extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
      */
     public readonly acceleratedNetworkSupportEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -155,7 +155,7 @@ export class SharedImage extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
      */
     public readonly specialized!: pulumi.Output<boolean | undefined>;
     /**
@@ -163,7 +163,7 @@ export class SharedImage extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
      */
     public readonly trustedLaunchEnabled!: pulumi.Output<boolean | undefined>;
 
@@ -251,7 +251,7 @@ export class SharedImage extends pulumi.CustomResource {
  */
 export interface SharedImageState {
     /**
-     * Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
      */
     acceleratedNetworkSupportEnabled?: pulumi.Input<boolean>;
     /**
@@ -331,7 +331,7 @@ export interface SharedImageState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
      */
     specialized?: pulumi.Input<boolean>;
     /**
@@ -339,7 +339,7 @@ export interface SharedImageState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
      */
     trustedLaunchEnabled?: pulumi.Input<boolean>;
 }
@@ -349,7 +349,7 @@ export interface SharedImageState {
  */
 export interface SharedImageArgs {
     /**
-     * Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
      */
     acceleratedNetworkSupportEnabled?: pulumi.Input<boolean>;
     /**
@@ -429,7 +429,7 @@ export interface SharedImageArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
      */
     specialized?: pulumi.Input<boolean>;
     /**
@@ -437,7 +437,7 @@ export interface SharedImageArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
      */
     trustedLaunchEnabled?: pulumi.Input<boolean>;
 }

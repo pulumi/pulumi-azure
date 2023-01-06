@@ -143,7 +143,7 @@ class CacheRedisConfigurationArgs:
         :param pulumi.Input[int] maxclients: Returns the max number of connected clients at the same time.
         :param pulumi.Input[int] maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
         :param pulumi.Input[int] maxmemory_delta: The max-memory delta for this Redis instance. Defaults are shown below.
-        :param pulumi.Input[str] maxmemory_policy: How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
+        :param pulumi.Input[str] maxmemory_policy: How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
         :param pulumi.Input[int] maxmemory_reserved: Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
         :param pulumi.Input[str] notify_keyspace_events: Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
         :param pulumi.Input[bool] rdb_backup_enabled: Is Backup Enabled? Only supported on Premium SKUs.
@@ -268,7 +268,7 @@ class CacheRedisConfigurationArgs:
     @pulumi.getter(name="maxmemoryPolicy")
     def maxmemory_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
+        How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
         """
         return pulumi.get(self, "maxmemory_policy")
 
@@ -356,8 +356,8 @@ class EnterpriseDatabaseModuleArgs:
                  args: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
-        :param pulumi.Input[str] args: Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] args: Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
         """
         pulumi.set(__self__, "name", name)
         if args is not None:
@@ -369,7 +369,7 @@ class EnterpriseDatabaseModuleArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+        The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "name")
 
@@ -381,7 +381,7 @@ class EnterpriseDatabaseModuleArgs:
     @pulumi.getter
     def args(self) -> Optional[pulumi.Input[str]]:
         """
-        Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
+        Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
         """
         return pulumi.get(self, "args")
 

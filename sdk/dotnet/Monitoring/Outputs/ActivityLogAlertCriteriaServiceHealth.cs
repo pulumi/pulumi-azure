@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Events;
         /// <summary>
-        /// Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+        /// Locations this alert will monitor. For example, `West Europe`.
         /// </summary>
         public readonly ImmutableArray<string> Locations;
         /// <summary>

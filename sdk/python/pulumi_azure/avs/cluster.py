@@ -21,7 +21,7 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[int] cluster_node_count: The count of the VMware Cluster nodes.
-        :param pulumi.Input[str] sku_name: The cluster SKU to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new VMware Cluster to be created.
+        :param pulumi.Input[str] sku_name: The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Cluster to be created.
         :param pulumi.Input[str] vmware_cloud_id: The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
         """
@@ -47,7 +47,7 @@ class ClusterArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        The cluster SKU to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new VMware Cluster to be created.
+        The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Cluster to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -95,7 +95,7 @@ class _ClusterState:
         :param pulumi.Input[int] cluster_number: A number that identifies this VMware Cluster in its VMware Private Cloud.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] hosts: A list of host of the VMware Cluster.
         :param pulumi.Input[str] name: The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
-        :param pulumi.Input[str] sku_name: The cluster SKU to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new VMware Cluster to be created.
+        :param pulumi.Input[str] sku_name: The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Cluster to be created.
         :param pulumi.Input[str] vmware_cloud_id: The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
         """
         if cluster_node_count is not None:
@@ -163,7 +163,7 @@ class _ClusterState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The cluster SKU to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new VMware Cluster to be created.
+        The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Cluster to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -233,7 +233,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cluster_node_count: The count of the VMware Cluster nodes.
         :param pulumi.Input[str] name: The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
-        :param pulumi.Input[str] sku_name: The cluster SKU to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new VMware Cluster to be created.
+        :param pulumi.Input[str] sku_name: The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Cluster to be created.
         :param pulumi.Input[str] vmware_cloud_id: The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
         """
         ...
@@ -344,7 +344,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[int] cluster_number: A number that identifies this VMware Cluster in its VMware Private Cloud.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] hosts: A list of host of the VMware Cluster.
         :param pulumi.Input[str] name: The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
-        :param pulumi.Input[str] sku_name: The cluster SKU to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new VMware Cluster to be created.
+        :param pulumi.Input[str] sku_name: The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Cluster to be created.
         :param pulumi.Input[str] vmware_cloud_id: The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -395,7 +395,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        The cluster SKU to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new VMware Cluster to be created.
+        The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Cluster to be created.
         """
         return pulumi.get(self, "sku_name")
 

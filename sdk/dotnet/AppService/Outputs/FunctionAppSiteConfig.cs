@@ -75,11 +75,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.FunctionAppSiteConfigScmIpRestriction> ScmIpRestrictions;
         /// <summary>
-        /// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+        /// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
         /// </summary>
         public readonly string? ScmType;
         /// <summary>
-        /// IP security restrictions for scm to use main. Defaults to false.
+        /// IP security restrictions for scm to use main. Defaults to `false`.
         /// </summary>
         public readonly bool? ScmUseMainIpRestriction;
         /// <summary>

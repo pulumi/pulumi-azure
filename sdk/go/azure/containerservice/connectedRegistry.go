@@ -112,7 +112,7 @@ type ConnectedRegistry struct {
 	ParentRegistryId pulumi.StringPtrOutput `pulumi:"parentRegistryId"`
 	// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
 	SyncMessageTtl pulumi.StringPtrOutput `pulumi:"syncMessageTtl"`
-	// The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+	// The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
 	SyncSchedule pulumi.StringPtrOutput `pulumi:"syncSchedule"`
 	// The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
 	SyncTokenId pulumi.StringOutput `pulumi:"syncTokenId"`
@@ -173,7 +173,7 @@ type connectedRegistryState struct {
 	ParentRegistryId *string `pulumi:"parentRegistryId"`
 	// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
 	SyncMessageTtl *string `pulumi:"syncMessageTtl"`
-	// The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+	// The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
 	SyncSchedule *string `pulumi:"syncSchedule"`
 	// The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
 	SyncTokenId *string `pulumi:"syncTokenId"`
@@ -200,7 +200,7 @@ type ConnectedRegistryState struct {
 	ParentRegistryId pulumi.StringPtrInput
 	// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
 	SyncMessageTtl pulumi.StringPtrInput
-	// The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+	// The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
 	SyncSchedule pulumi.StringPtrInput
 	// The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
 	SyncTokenId pulumi.StringPtrInput
@@ -231,7 +231,7 @@ type connectedRegistryArgs struct {
 	ParentRegistryId *string `pulumi:"parentRegistryId"`
 	// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
 	SyncMessageTtl *string `pulumi:"syncMessageTtl"`
-	// The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+	// The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
 	SyncSchedule *string `pulumi:"syncSchedule"`
 	// The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
 	SyncTokenId string `pulumi:"syncTokenId"`
@@ -259,7 +259,7 @@ type ConnectedRegistryArgs struct {
 	ParentRegistryId pulumi.StringPtrInput
 	// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
 	SyncMessageTtl pulumi.StringPtrInput
-	// The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+	// The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
 	SyncSchedule pulumi.StringPtrInput
 	// The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
 	SyncTokenId pulumi.StringInput
@@ -399,7 +399,7 @@ func (o ConnectedRegistryOutput) SyncMessageTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringPtrOutput { return v.SyncMessageTtl }).(pulumi.StringPtrOutput)
 }
 
-// The cron expression indicating the schedule that the Connected Registry will sync with its parent.
+// The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
 func (o ConnectedRegistryOutput) SyncSchedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringPtrOutput { return v.SyncSchedule }).(pulumi.StringPtrOutput)
 }

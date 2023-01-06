@@ -33,14 +33,14 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs extends co
     }
 
     /**
-     * The CustomerASN of the peering.
+     * The CustomerASN of the peering. Defaults to `0`.
      * 
      */
     @Import(name="customerAsn")
     private @Nullable Output<Integer> customerAsn;
 
     /**
-     * @return The CustomerASN of the peering.
+     * @return The CustomerASN of the peering. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> customerAsn() {
@@ -48,14 +48,14 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs extends co
     }
 
     /**
-     * The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+     * The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
      * 
      */
     @Import(name="routingRegistryName")
     private @Nullable Output<String> routingRegistryName;
 
     /**
-     * @return The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+     * @return The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
      * 
      */
     public Optional<Output<String>> routingRegistryName() {
@@ -120,7 +120,7 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs extends co
         }
 
         /**
-         * @param customerAsn The CustomerASN of the peering.
+         * @param customerAsn The CustomerASN of the peering. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs extends co
         }
 
         /**
-         * @param customerAsn The CustomerASN of the peering.
+         * @param customerAsn The CustomerASN of the peering. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs extends co
         }
 
         /**
-         * @param routingRegistryName The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+         * @param routingRegistryName The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs extends co
         }
 
         /**
-         * @param routingRegistryName The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
+         * @param routingRegistryName The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
          * 
          * @return builder
          * 

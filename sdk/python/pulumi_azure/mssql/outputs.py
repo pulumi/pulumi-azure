@@ -323,7 +323,7 @@ class DatabaseThreatDetectionPolicy(dict):
                  storage_endpoint: Optional[str] = None):
         """
         :param Sequence[str] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-        :param str email_account_admins: Should the account administrators be emailed when this alert is triggered?
+        :param str email_account_admins: Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
         :param Sequence[str] email_addresses: A list of email addresses which alerts should be sent to.
         :param int retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
         :param str state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
@@ -357,7 +357,7 @@ class DatabaseThreatDetectionPolicy(dict):
     @pulumi.getter(name="emailAccountAdmins")
     def email_account_admins(self) -> Optional[str]:
         """
-        Should the account administrators be emailed when this alert is triggered?
+        Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
         """
         return pulumi.get(self, "email_account_admins")
 
@@ -477,7 +477,7 @@ class ElasticPoolSku(dict):
                  family: Optional[str] = None):
         """
         :param int capacity: The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
-        :param str name: Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Changing this forces a new resource to be created.
+        :param str name: Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Possible values are `BasicPool`, `StandardPool`, `PremiumPool`, `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5` and `BC_DC`. Changing this forces a new resource to be created.
         :param str tier: The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
         :param str family: The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
         """
@@ -499,7 +499,7 @@ class ElasticPoolSku(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Changing this forces a new resource to be created.
+        Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Possible values are `BasicPool`, `StandardPool`, `PremiumPool`, `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5` and `BC_DC`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1215,7 +1215,7 @@ class VirtualMachineAutoBackup(dict):
         :param bool encryption_enabled: Enable or disable encryption for backups. Defaults to `false`.
         :param str encryption_password: Encryption password to use. Must be specified when encryption is enabled.
         :param 'VirtualMachineAutoBackupManualScheduleArgs' manual_schedule: A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
-        :param bool system_databases_backup_enabled: Include or exclude system databases from auto backup. Defaults to `false`.
+        :param bool system_databases_backup_enabled: Include or exclude system databases from auto backup.
         """
         pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
         pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
@@ -1281,7 +1281,7 @@ class VirtualMachineAutoBackup(dict):
     @pulumi.getter(name="systemDatabasesBackupEnabled")
     def system_databases_backup_enabled(self) -> Optional[bool]:
         """
-        Include or exclude system databases from auto backup. Defaults to `false`.
+        Include or exclude system databases from auto backup.
         """
         return pulumi.get(self, "system_databases_backup_enabled")
 

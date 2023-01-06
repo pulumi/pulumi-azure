@@ -90,7 +90,7 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly deadLetteringOnFilterEvaluationError!: pulumi.Output<boolean | undefined>;
     /**
-     * Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+     * Boolean flag which controls whether the Subscription has dead letter support when a message expires.
      */
     public readonly deadLetteringOnMessageExpiration!: pulumi.Output<boolean | undefined>;
     /**
@@ -98,7 +98,7 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly defaultMessageTtl!: pulumi.Output<string>;
     /**
-     * Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+     * Boolean flag which controls whether the Subscription supports batched operations.
      */
     public readonly enableBatchedOperations!: pulumi.Output<boolean | undefined>;
     /**
@@ -122,7 +122,7 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+     * Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
      */
     public readonly requiresSession!: pulumi.Output<boolean | undefined>;
     /**
@@ -215,7 +215,7 @@ export interface SubscriptionState {
      */
     deadLetteringOnFilterEvaluationError?: pulumi.Input<boolean>;
     /**
-     * Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+     * Boolean flag which controls whether the Subscription has dead letter support when a message expires.
      */
     deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
     /**
@@ -223,7 +223,7 @@ export interface SubscriptionState {
      */
     defaultMessageTtl?: pulumi.Input<string>;
     /**
-     * Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+     * Boolean flag which controls whether the Subscription supports batched operations.
      */
     enableBatchedOperations?: pulumi.Input<boolean>;
     /**
@@ -247,7 +247,7 @@ export interface SubscriptionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+     * Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
      */
     requiresSession?: pulumi.Input<boolean>;
     /**
@@ -281,7 +281,7 @@ export interface SubscriptionArgs {
      */
     deadLetteringOnFilterEvaluationError?: pulumi.Input<boolean>;
     /**
-     * Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+     * Boolean flag which controls whether the Subscription has dead letter support when a message expires.
      */
     deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
     /**
@@ -289,7 +289,7 @@ export interface SubscriptionArgs {
      */
     defaultMessageTtl?: pulumi.Input<string>;
     /**
-     * Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+     * Boolean flag which controls whether the Subscription supports batched operations.
      */
     enableBatchedOperations?: pulumi.Input<boolean>;
     /**
@@ -313,7 +313,7 @@ export interface SubscriptionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+     * Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
      */
     requiresSession?: pulumi.Input<boolean>;
     /**

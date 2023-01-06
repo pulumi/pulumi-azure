@@ -112,7 +112,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> HostName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether HTTP/2.0 is supported.
+        /// Whether HTTP/2.0 is supported. Defaults to `true`.
         /// </summary>
         [Output("http2Enabled")]
         public Output<bool?> Http2Enabled { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> HostName { get; set; } = null!;
 
         /// <summary>
-        /// Whether HTTP/2.0 is supported.
+        /// Whether HTTP/2.0 is supported. Defaults to `true`.
         /// </summary>
         [Input("http2Enabled")]
         public Input<bool>? Http2Enabled { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? HostName { get; set; }
 
         /// <summary>
-        /// Whether HTTP/2.0 is supported.
+        /// Whether HTTP/2.0 is supported. Defaults to `true`.
         /// </summary>
         [Input("http2Enabled")]
         public Input<bool>? Http2Enabled { get; set; }

@@ -39,7 +39,7 @@ class CacheArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+        :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         :param pulumi.Input['CacheDefaultAccessPolicyArgs'] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input['CacheDirectoryActiveDirectoryArgs'] directory_active_directory: A `directory_active_directory` block as defined below.
         :param pulumi.Input['CacheDirectoryFlatFileArgs'] directory_flat_file: A `directory_flat_file` block as defined below.
@@ -48,7 +48,7 @@ class CacheArgs:
         :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+        :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the HPC Cache.
@@ -136,7 +136,7 @@ class CacheArgs:
     @pulumi.getter(name="automaticallyRotateKeyToLatestEnabled")
     def automatically_rotate_key_to_latest_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+        Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         """
         return pulumi.get(self, "automatically_rotate_key_to_latest_enabled")
 
@@ -244,7 +244,7 @@ class CacheArgs:
     @pulumi.getter
     def mtu(self) -> Optional[pulumi.Input[int]]:
         """
-        The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+        The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
         """
         return pulumi.get(self, "mtu")
 
@@ -312,7 +312,7 @@ class _CacheState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Cache resources.
-        :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+        :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         :param pulumi.Input['CacheDefaultAccessPolicyArgs'] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input['CacheDirectoryActiveDirectoryArgs'] directory_active_directory: A `directory_active_directory` block as defined below.
@@ -323,7 +323,7 @@ class _CacheState:
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_addresses: A list of IP Addresses where the HPC Cache can be mounted.
-        :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+        :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
@@ -372,7 +372,7 @@ class _CacheState:
     @pulumi.getter(name="automaticallyRotateKeyToLatestEnabled")
     def automatically_rotate_key_to_latest_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+        Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         """
         return pulumi.get(self, "automatically_rotate_key_to_latest_enabled")
 
@@ -504,7 +504,7 @@ class _CacheState:
     @pulumi.getter
     def mtu(self) -> Optional[pulumi.Input[int]]:
         """
-        The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+        The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
         """
         return pulumi.get(self, "mtu")
 
@@ -648,7 +648,7 @@ class Cache(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+        :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']] directory_active_directory: A `directory_active_directory` block as defined below.
@@ -658,7 +658,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+        :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
@@ -812,7 +812,7 @@ class Cache(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+        :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']] directory_active_directory: A `directory_active_directory` block as defined below.
@@ -823,7 +823,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_addresses: A list of IP Addresses where the HPC Cache can be mounted.
-        :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+        :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
@@ -859,7 +859,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter(name="automaticallyRotateKeyToLatestEnabled")
     def automatically_rotate_key_to_latest_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+        Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         """
         return pulumi.get(self, "automatically_rotate_key_to_latest_enabled")
 
@@ -947,7 +947,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter
     def mtu(self) -> pulumi.Output[Optional[int]]:
         """
-        The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+        The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
         """
         return pulumi.get(self, "mtu")
 

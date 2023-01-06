@@ -83,7 +83,7 @@ namespace Pulumi.Azure.Healthcare
         public Output<ImmutableArray<Outputs.DicomServicePrivateEndpoint>> PrivateEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+        /// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+        /// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.Healthcare
         }
 
         /// <summary>
-        /// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+        /// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

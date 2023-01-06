@@ -31,13 +31,13 @@ namespace Pulumi.Azure.Hpc.Inputs
         public Input<string>? CertificateValidationUri { get; set; }
 
         /// <summary>
-        /// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided. Defaults to `false`.
+        /// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
         /// </summary>
         [Input("downloadCertificateAutomatically")]
         public Input<bool>? DownloadCertificateAutomatically { get; set; }
 
         /// <summary>
-        /// Whether the LDAP connection should be encrypted? Defaults to `false`.
+        /// Whether the LDAP connection should be encrypted?
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }

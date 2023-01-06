@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The number of instances involved in the scaling action. Defaults to `1`.
+        /// The number of instances involved in the scaling action.
         /// </summary>
         public readonly int Value;
 

@@ -103,7 +103,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> ElasticPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean that specifies if the Geo Backup Policy is enabled.
+        /// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
         /// </summary>
         [Output("geoBackupEnabled")]
         public Output<bool?> GeoBackupEnabled { get; private set; } = null!;
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? ElasticPoolId { get; set; }
 
         /// <summary>
-        /// A boolean that specifies if the Geo Backup Policy is enabled.
+        /// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
         /// </summary>
         [Input("geoBackupEnabled")]
         public Input<bool>? GeoBackupEnabled { get; set; }
@@ -499,7 +499,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? ElasticPoolId { get; set; }
 
         /// <summary>
-        /// A boolean that specifies if the Geo Backup Policy is enabled.
+        /// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
         /// </summary>
         [Input("geoBackupEnabled")]
         public Input<bool>? GeoBackupEnabled { get; set; }

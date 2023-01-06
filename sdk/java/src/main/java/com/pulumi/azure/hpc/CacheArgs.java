@@ -25,14 +25,14 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     public static final CacheArgs Empty = new CacheArgs();
 
     /**
-     * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+     * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
      * 
      */
     @Import(name="automaticallyRotateKeyToLatestEnabled")
     private @Nullable Output<Boolean> automaticallyRotateKeyToLatestEnabled;
 
     /**
-     * @return Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+     * @return Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
      * 
      */
     public Optional<Output<Boolean>> automaticallyRotateKeyToLatestEnabled() {
@@ -175,14 +175,14 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+     * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
      * 
      */
     @Import(name="mtu")
     private @Nullable Output<Integer> mtu;
 
     /**
-     * @return The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+     * @return The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
      * 
      */
     public Optional<Output<Integer>> mtu() {
@@ -320,7 +320,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param automaticallyRotateKeyToLatestEnabled Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+         * @param automaticallyRotateKeyToLatestEnabled Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param automaticallyRotateKeyToLatestEnabled Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. Defaults to `false`.
+         * @param automaticallyRotateKeyToLatestEnabled Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mtu The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+         * @param mtu The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mtu The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+         * @param mtu The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
          * 
          * @return builder
          * 

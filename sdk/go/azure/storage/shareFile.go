@@ -89,7 +89,7 @@ type ShareFile struct {
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
 	Source pulumi.StringPtrOutput `pulumi:"source"`
@@ -143,7 +143,7 @@ type shareFileState struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
 	Path *string `pulumi:"path"`
 	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
 	Source *string `pulumi:"source"`
@@ -166,7 +166,7 @@ type ShareFileState struct {
 	Metadata pulumi.StringMapInput
 	// The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
 	Path pulumi.StringPtrInput
 	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
 	Source pulumi.StringPtrInput
@@ -191,7 +191,7 @@ type shareFileArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
 	Path *string `pulumi:"path"`
 	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
 	Source *string `pulumi:"source"`
@@ -213,7 +213,7 @@ type ShareFileArgs struct {
 	Metadata pulumi.StringMapInput
 	// The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
 	Path pulumi.StringPtrInput
 	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
 	Source pulumi.StringPtrInput
@@ -343,7 +343,7 @@ func (o ShareFileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ShareFile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
 func (o ShareFileOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShareFile) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }

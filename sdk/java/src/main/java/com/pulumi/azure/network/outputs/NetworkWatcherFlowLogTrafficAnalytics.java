@@ -19,7 +19,7 @@ public final class NetworkWatcherFlowLogTrafficAnalytics {
      */
     private Boolean enabled;
     /**
-     * @return How frequently service should do flow analytics in minutes.
+     * @return How frequently service should do flow analytics in minutes. Defaults to `60`.
      * 
      */
     private @Nullable Integer intervalInMinutes;
@@ -48,7 +48,7 @@ public final class NetworkWatcherFlowLogTrafficAnalytics {
         return this.enabled;
     }
     /**
-     * @return How frequently service should do flow analytics in minutes.
+     * @return How frequently service should do flow analytics in minutes. Defaults to `60`.
      * 
      */
     public Optional<Integer> intervalInMinutes() {

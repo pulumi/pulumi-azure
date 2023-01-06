@@ -126,7 +126,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
     }
 
     /**
-     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
      */
     public readonly autoKeyRotationEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -215,7 +215,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
  */
 export interface DiskEncryptionSetState {
     /**
-     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
      */
     autoKeyRotationEnabled?: pulumi.Input<boolean>;
     /**
@@ -257,7 +257,7 @@ export interface DiskEncryptionSetState {
  */
 export interface DiskEncryptionSetArgs {
     /**
-     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+     * Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
      */
     autoKeyRotationEnabled?: pulumi.Input<boolean>;
     /**

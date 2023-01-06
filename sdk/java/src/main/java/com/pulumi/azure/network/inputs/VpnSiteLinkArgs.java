@@ -108,14 +108,14 @@ public final class VpnSiteLinkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The speed of the VPN device at the branch location in unit of mbps.
+     * The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
      * 
      */
     @Import(name="speedInMbps")
     private @Nullable Output<Integer> speedInMbps;
 
     /**
-     * @return The speed of the VPN device at the branch location in unit of mbps.
+     * @return The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> speedInMbps() {
@@ -279,7 +279,7 @@ public final class VpnSiteLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param speedInMbps The speed of the VPN device at the branch location in unit of mbps.
+         * @param speedInMbps The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class VpnSiteLinkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param speedInMbps The speed of the VPN device at the branch location in unit of mbps.
+         * @param speedInMbps The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
          * 
          * @return builder
          * 

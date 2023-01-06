@@ -134,7 +134,7 @@ type WindowsVirtualMachine struct {
 	AdminPassword pulumi.StringOutput `pulumi:"adminPassword"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
-	// Should Extension Operations be allowed on this Virtual Machine?
+	// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
 	AllowExtensionOperations pulumi.BoolPtrOutput `pulumi:"allowExtensionOperations"`
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrOutput `pulumi:"availabilitySetId"`
@@ -152,7 +152,7 @@ type WindowsVirtualMachine struct {
 	DedicatedHostId pulumi.StringPtrOutput `pulumi:"dedicatedHostId"`
 	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
-	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
 	EnableAutomaticUpdates pulumi.BoolPtrOutput `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrOutput `pulumi:"encryptionAtHostEnabled"`
@@ -298,7 +298,7 @@ type windowsVirtualMachineState struct {
 	AdminPassword *string `pulumi:"adminPassword"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername *string `pulumi:"adminUsername"`
-	// Should Extension Operations be allowed on this Virtual Machine?
+	// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
 	AllowExtensionOperations *bool `pulumi:"allowExtensionOperations"`
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
@@ -316,7 +316,7 @@ type windowsVirtualMachineState struct {
 	DedicatedHostId *string `pulumi:"dedicatedHostId"`
 	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
@@ -405,7 +405,7 @@ type WindowsVirtualMachineState struct {
 	AdminPassword pulumi.StringPtrInput
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringPtrInput
-	// Should Extension Operations be allowed on this Virtual Machine?
+	// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
 	AllowExtensionOperations pulumi.BoolPtrInput
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrInput
@@ -423,7 +423,7 @@ type WindowsVirtualMachineState struct {
 	DedicatedHostId pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
 	EnableAutomaticUpdates pulumi.BoolPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
@@ -516,7 +516,7 @@ type windowsVirtualMachineArgs struct {
 	AdminPassword string `pulumi:"adminPassword"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
-	// Should Extension Operations be allowed on this Virtual Machine?
+	// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
 	AllowExtensionOperations *bool `pulumi:"allowExtensionOperations"`
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
@@ -534,7 +534,7 @@ type windowsVirtualMachineArgs struct {
 	DedicatedHostId *string `pulumi:"dedicatedHostId"`
 	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
@@ -614,7 +614,7 @@ type WindowsVirtualMachineArgs struct {
 	AdminPassword pulumi.StringInput
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput
-	// Should Extension Operations be allowed on this Virtual Machine?
+	// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
 	AllowExtensionOperations pulumi.BoolPtrInput
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrInput
@@ -632,7 +632,7 @@ type WindowsVirtualMachineArgs struct {
 	DedicatedHostId pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
 	EnableAutomaticUpdates pulumi.BoolPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
@@ -813,7 +813,7 @@ func (o WindowsVirtualMachineOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringOutput { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// Should Extension Operations be allowed on this Virtual Machine?
+// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
 func (o WindowsVirtualMachineOutput) AllowExtensionOperations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.BoolPtrOutput { return v.AllowExtensionOperations }).(pulumi.BoolPtrOutput)
 }
@@ -858,7 +858,7 @@ func (o WindowsVirtualMachineOutput) EdgeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
 }
 
-// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
 func (o WindowsVirtualMachineOutput) EnableAutomaticUpdates() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.BoolPtrOutput { return v.EnableAutomaticUpdates }).(pulumi.BoolPtrOutput)
 }

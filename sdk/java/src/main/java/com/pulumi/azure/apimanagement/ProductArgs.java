@@ -123,14 +123,14 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is a Subscription required to access API&#39;s included in this Product?
+     * Is a Subscription required to access API&#39;s included in this Product? Defaults to `true`.
      * 
      */
     @Import(name="subscriptionRequired")
     private @Nullable Output<Boolean> subscriptionRequired;
 
     /**
-     * @return Is a Subscription required to access API&#39;s included in this Product?
+     * @return Is a Subscription required to access API&#39;s included in this Product? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> subscriptionRequired() {
@@ -348,7 +348,7 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subscriptionRequired Is a Subscription required to access API&#39;s included in this Product?
+         * @param subscriptionRequired Is a Subscription required to access API&#39;s included in this Product? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subscriptionRequired Is a Subscription required to access API&#39;s included in this Product?
+         * @param subscriptionRequired Is a Subscription required to access API&#39;s included in this Product? Defaults to `true`.
          * 
          * @return builder
          * 

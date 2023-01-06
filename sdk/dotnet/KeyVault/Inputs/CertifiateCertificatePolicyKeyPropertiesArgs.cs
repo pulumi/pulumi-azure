@@ -31,7 +31,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public Input<int>? KeySize { get; set; }
 
         /// <summary>
-        /// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
+        /// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyType", required: true)]
         public Input<string> KeyType { get; set; } = null!;

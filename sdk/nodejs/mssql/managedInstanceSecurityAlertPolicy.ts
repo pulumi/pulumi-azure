@@ -239,7 +239,7 @@ export class ManagedInstanceSecurityAlertPolicy extends pulumi.CustomResource {
      */
     public readonly emailAddresses!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+     * Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -327,7 +327,7 @@ export interface ManagedInstanceSecurityAlertPolicyState {
      */
     emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+     * Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -369,7 +369,7 @@ export interface ManagedInstanceSecurityAlertPolicyArgs {
      */
     emailAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`. Defaults to `false`.
+     * Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
      */
     enabled?: pulumi.Input<boolean>;
     /**

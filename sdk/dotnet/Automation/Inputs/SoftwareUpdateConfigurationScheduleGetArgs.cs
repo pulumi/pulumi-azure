@@ -61,7 +61,7 @@ namespace Pulumi.Azure.Automation.Inputs
         public Input<string>? Frequency { get; set; }
 
         /// <summary>
-        /// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+        /// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }

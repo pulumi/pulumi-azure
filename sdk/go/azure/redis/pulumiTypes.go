@@ -317,7 +317,7 @@ type CacheRedisConfiguration struct {
 	MaxfragmentationmemoryReserved *int `pulumi:"maxfragmentationmemoryReserved"`
 	// The max-memory delta for this Redis instance. Defaults are shown below.
 	MaxmemoryDelta *int `pulumi:"maxmemoryDelta"`
-	// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
+	// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
 	MaxmemoryPolicy *string `pulumi:"maxmemoryPolicy"`
 	// Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
 	MaxmemoryReserved *int `pulumi:"maxmemoryReserved"`
@@ -359,7 +359,7 @@ type CacheRedisConfigurationArgs struct {
 	MaxfragmentationmemoryReserved pulumi.IntPtrInput `pulumi:"maxfragmentationmemoryReserved"`
 	// The max-memory delta for this Redis instance. Defaults are shown below.
 	MaxmemoryDelta pulumi.IntPtrInput `pulumi:"maxmemoryDelta"`
-	// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
+	// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
 	MaxmemoryPolicy pulumi.StringPtrInput `pulumi:"maxmemoryPolicy"`
 	// Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
 	MaxmemoryReserved pulumi.IntPtrInput `pulumi:"maxmemoryReserved"`
@@ -487,7 +487,7 @@ func (o CacheRedisConfigurationOutput) MaxmemoryDelta() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.MaxmemoryDelta }).(pulumi.IntPtrOutput)
 }
 
-// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
+// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
 func (o CacheRedisConfigurationOutput) MaxmemoryPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.MaxmemoryPolicy }).(pulumi.StringPtrOutput)
 }
@@ -616,7 +616,7 @@ func (o CacheRedisConfigurationPtrOutput) MaxmemoryDelta() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
+// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
 func (o CacheRedisConfigurationPtrOutput) MaxmemoryPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
 		if v == nil {
@@ -687,9 +687,9 @@ func (o CacheRedisConfigurationPtrOutput) RdbStorageConnectionString() pulumi.St
 }
 
 type EnterpriseDatabaseModule struct {
-	// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
+	// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
 	Args *string `pulumi:"args"`
-	// The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+	// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
 	Name    string  `pulumi:"name"`
 	Version *string `pulumi:"version"`
 }
@@ -706,9 +706,9 @@ type EnterpriseDatabaseModuleInput interface {
 }
 
 type EnterpriseDatabaseModuleArgs struct {
-	// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
+	// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
 	Args pulumi.StringPtrInput `pulumi:"args"`
-	// The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+	// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
 	Name    pulumi.StringInput    `pulumi:"name"`
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
@@ -764,12 +764,12 @@ func (o EnterpriseDatabaseModuleOutput) ToEnterpriseDatabaseModuleOutputWithCont
 	return o
 }
 
-// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created.
+// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
 func (o EnterpriseDatabaseModuleOutput) Args() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnterpriseDatabaseModule) *string { return v.Args }).(pulumi.StringPtrOutput)
 }
 
-// The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
+// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
 func (o EnterpriseDatabaseModuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EnterpriseDatabaseModule) string { return v.Name }).(pulumi.StringOutput)
 }

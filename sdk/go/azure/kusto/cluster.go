@@ -70,13 +70,13 @@ type Cluster struct {
 	AllowedFqdns pulumi.StringArrayOutput `pulumi:"allowedFqdns"`
 	// The list of ips in the format of CIDR allowed to connect to the cluster.
 	AllowedIpRanges pulumi.StringArrayOutput `pulumi:"allowedIpRanges"`
-	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
 	AutoStopEnabled pulumi.BoolPtrOutput `pulumi:"autoStopEnabled"`
 	// The Kusto Cluster URI to be used for data ingestion.
 	DataIngestionUri pulumi.StringOutput `pulumi:"dataIngestionUri"`
 	// Specifies if the cluster's disks are encrypted.
 	DiskEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"diskEncryptionEnabled"`
-	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"doubleEncryptionEnabled"`
 	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
@@ -155,13 +155,13 @@ type clusterState struct {
 	AllowedFqdns []string `pulumi:"allowedFqdns"`
 	// The list of ips in the format of CIDR allowed to connect to the cluster.
 	AllowedIpRanges []string `pulumi:"allowedIpRanges"`
-	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
 	AutoStopEnabled *bool `pulumi:"autoStopEnabled"`
 	// The Kusto Cluster URI to be used for data ingestion.
 	DataIngestionUri *string `pulumi:"dataIngestionUri"`
 	// Specifies if the cluster's disks are encrypted.
 	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
-	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
 	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
 	Engine *string `pulumi:"engine"`
@@ -206,13 +206,13 @@ type ClusterState struct {
 	AllowedFqdns pulumi.StringArrayInput
 	// The list of ips in the format of CIDR allowed to connect to the cluster.
 	AllowedIpRanges pulumi.StringArrayInput
-	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
 	AutoStopEnabled pulumi.BoolPtrInput
 	// The Kusto Cluster URI to be used for data ingestion.
 	DataIngestionUri pulumi.StringPtrInput
 	// Specifies if the cluster's disks are encrypted.
 	DiskEncryptionEnabled pulumi.BoolPtrInput
-	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
 	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
 	Engine pulumi.StringPtrInput
@@ -261,11 +261,11 @@ type clusterArgs struct {
 	AllowedFqdns []string `pulumi:"allowedFqdns"`
 	// The list of ips in the format of CIDR allowed to connect to the cluster.
 	AllowedIpRanges []string `pulumi:"allowedIpRanges"`
-	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
 	AutoStopEnabled *bool `pulumi:"autoStopEnabled"`
 	// Specifies if the cluster's disks are encrypted.
 	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
-	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
 	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
 	Engine *string `pulumi:"engine"`
@@ -309,11 +309,11 @@ type ClusterArgs struct {
 	AllowedFqdns pulumi.StringArrayInput
 	// The list of ips in the format of CIDR allowed to connect to the cluster.
 	AllowedIpRanges pulumi.StringArrayInput
-	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+	// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
 	AutoStopEnabled pulumi.BoolPtrInput
 	// Specifies if the cluster's disks are encrypted.
 	DiskEncryptionEnabled pulumi.BoolPtrInput
-	// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
 	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
 	Engine pulumi.StringPtrInput
@@ -448,7 +448,7 @@ func (o ClusterOutput) AllowedIpRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.AllowedIpRanges }).(pulumi.StringArrayOutput)
 }
 
-// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
 func (o ClusterOutput) AutoStopEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.AutoStopEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -463,7 +463,7 @@ func (o ClusterOutput) DiskEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DiskEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
+// Is the cluster's double encryption enabled?  Changing this forces a new resource to be created.
 func (o ClusterOutput) DoubleEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DoubleEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }

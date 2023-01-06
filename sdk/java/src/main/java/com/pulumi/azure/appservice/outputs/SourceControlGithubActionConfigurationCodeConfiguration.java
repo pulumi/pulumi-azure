@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class SourceControlGithubActionConfigurationCodeConfiguration {
     /**
-     * @return The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+     * @return The value to use for the Runtime Stack in the workflow file content for code base apps. Possible values are `dotnetcore`, `spring`, `tomcat`, `node` and `python`. Changing this forces a new resource to be created.
      * 
      */
     private String runtimeStack;
@@ -22,7 +22,7 @@ public final class SourceControlGithubActionConfigurationCodeConfiguration {
 
     private SourceControlGithubActionConfigurationCodeConfiguration() {}
     /**
-     * @return The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
+     * @return The value to use for the Runtime Stack in the workflow file content for code base apps. Possible values are `dotnetcore`, `spring`, `tomcat`, `node` and `python`. Changing this forces a new resource to be created.
      * 
      */
     public String runtimeStack() {

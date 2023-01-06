@@ -28,6 +28,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** It&#39;s possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it&#39;s not possible to use both methods to manage Access Policies within a KeyVault, since there&#39;ll be conflicts.
  * 
+ * &gt; **Note:** It&#39;s possible to define Key Vault Certificate Contacts both within the `azure.keyvault.KeyVault` resource via the `contact` block and by using the `azure.keyvault.CertificateContacts` resource. However it&#39;s not possible to use both methods to manage Certificate Contacts within a KeyVault, since there&#39;ll be conflicts.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -93,14 +95,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:keyvault/keyVault:KeyVault")
 public class KeyVault extends com.pulumi.resources.CustomResource {
     /**
-     * A list of up to 16 objects describing access policies, as described below.
+     * A list of up to 1024 objects describing access policies, as described below.
      * 
      */
     @Export(name="accessPolicies", type=List.class, parameters={KeyVaultAccessPolicy.class})
     private Output<List<KeyVaultAccessPolicy>> accessPolicies;
 
     /**
-     * @return A list of up to 16 objects describing access policies, as described below.
+     * @return A list of up to 1024 objects describing access policies, as described below.
      * 
      */
     public Output<List<KeyVaultAccessPolicy>> accessPolicies() {
@@ -121,56 +123,56 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.contacts);
     }
     /**
-     * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+     * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
      * 
      */
     @Export(name="enableRbacAuthorization", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableRbacAuthorization;
 
     /**
-     * @return Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+     * @return Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
      * 
      */
     public Output<Optional<Boolean>> enableRbacAuthorization() {
         return Codegen.optional(this.enableRbacAuthorization);
     }
     /**
-     * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+     * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
      * 
      */
     @Export(name="enabledForDeployment", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabledForDeployment;
 
     /**
-     * @return Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+     * @return Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
      * 
      */
     public Output<Optional<Boolean>> enabledForDeployment() {
         return Codegen.optional(this.enabledForDeployment);
     }
     /**
-     * Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+     * Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
      * 
      */
     @Export(name="enabledForDiskEncryption", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabledForDiskEncryption;
 
     /**
-     * @return Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+     * @return Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
      * 
      */
     public Output<Optional<Boolean>> enabledForDiskEncryption() {
         return Codegen.optional(this.enabledForDiskEncryption);
     }
     /**
-     * Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+     * Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
      * 
      */
     @Export(name="enabledForTemplateDeployment", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabledForTemplateDeployment;
 
     /**
-     * @return Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+     * @return Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
      * 
      */
     public Output<Optional<Boolean>> enabledForTemplateDeployment() {
@@ -233,14 +235,14 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
-     * Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+     * Is Purge Protection enabled for this Key Vault?
      * 
      */
     @Export(name="purgeProtectionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> purgeProtectionEnabled;
 
     /**
-     * @return Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+     * @return Is Purge Protection enabled for this Key Vault?
      * 
      */
     public Output<Optional<Boolean>> purgeProtectionEnabled() {

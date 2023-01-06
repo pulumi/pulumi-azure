@@ -201,13 +201,13 @@ namespace Pulumi.Azure.MSSql
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         /// </summary>
         [Output("logMonitoringEnabled")]
         public Output<bool?> LogMonitoringEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days to retain logs for in the storage account.
+        /// The number of days to retain logs for in the storage account. Defaults to `0`.
         /// </summary>
         [Output("retentionInDays")]
         public Output<int?> RetentionInDays { get; private set; } = null!;
@@ -300,13 +300,13 @@ namespace Pulumi.Azure.MSSql
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }
 
         /// <summary>
-        /// The number of days to retain logs for in the storage account.
+        /// The number of days to retain logs for in the storage account. Defaults to `0`.
         /// </summary>
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }
@@ -376,13 +376,13 @@ namespace Pulumi.Azure.MSSql
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor.
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }
 
         /// <summary>
-        /// The number of days to retain logs for in the storage account.
+        /// The number of days to retain logs for in the storage account. Defaults to `0`.
         /// </summary>
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }

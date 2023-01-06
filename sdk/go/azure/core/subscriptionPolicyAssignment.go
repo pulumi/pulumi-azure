@@ -85,7 +85,7 @@ type SubscriptionPolicyAssignment struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Display Name for this Policy Assignment.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Specifies if this Policy should be enforced or not?
+	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce pulumi.BoolPtrOutput `pulumi:"enforce"`
 	// An `identity` block as defined below.
 	Identity SubscriptionPolicyAssignmentIdentityPtrOutput `pulumi:"identity"`
@@ -146,7 +146,7 @@ type subscriptionPolicyAssignmentState struct {
 	Description *string `pulumi:"description"`
 	// The Display Name for this Policy Assignment.
 	DisplayName *string `pulumi:"displayName"`
-	// Specifies if this Policy should be enforced or not?
+	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce *bool `pulumi:"enforce"`
 	// An `identity` block as defined below.
 	Identity *SubscriptionPolicyAssignmentIdentity `pulumi:"identity"`
@@ -173,7 +173,7 @@ type SubscriptionPolicyAssignmentState struct {
 	Description pulumi.StringPtrInput
 	// The Display Name for this Policy Assignment.
 	DisplayName pulumi.StringPtrInput
-	// Specifies if this Policy should be enforced or not?
+	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity SubscriptionPolicyAssignmentIdentityPtrInput
@@ -204,7 +204,7 @@ type subscriptionPolicyAssignmentArgs struct {
 	Description *string `pulumi:"description"`
 	// The Display Name for this Policy Assignment.
 	DisplayName *string `pulumi:"displayName"`
-	// Specifies if this Policy should be enforced or not?
+	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce *bool `pulumi:"enforce"`
 	// An `identity` block as defined below.
 	Identity *SubscriptionPolicyAssignmentIdentity `pulumi:"identity"`
@@ -232,7 +232,7 @@ type SubscriptionPolicyAssignmentArgs struct {
 	Description pulumi.StringPtrInput
 	// The Display Name for this Policy Assignment.
 	DisplayName pulumi.StringPtrInput
-	// Specifies if this Policy should be enforced or not?
+	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity SubscriptionPolicyAssignmentIdentityPtrInput
@@ -351,7 +351,7 @@ func (o SubscriptionPolicyAssignmentOutput) DisplayName() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *SubscriptionPolicyAssignment) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies if this Policy should be enforced or not?
+// Specifies if this Policy should be enforced or not? Defaults to `true`.
 func (o SubscriptionPolicyAssignmentOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyAssignment) pulumi.BoolPtrOutput { return v.Enforce }).(pulumi.BoolPtrOutput)
 }

@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Lb
         public Output<bool?> EnableFloatingIp { get; private set; } = null!;
 
         /// <summary>
-        /// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        /// Is TCP Reset enabled for this Load Balancer Rule?
         /// </summary>
         [Output("enableTcpReset")]
         public Output<bool?> EnableTcpReset { get; private set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Lb
         public Input<bool>? EnableFloatingIp { get; set; }
 
         /// <summary>
-        /// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        /// Is TCP Reset enabled for this Load Balancer Rule?
         /// </summary>
         [Input("enableTcpReset")]
         public Input<bool>? EnableTcpReset { get; set; }
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.Lb
         public Input<bool>? EnableFloatingIp { get; set; }
 
         /// <summary>
-        /// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        /// Is TCP Reset enabled for this Load Balancer Rule?
         /// </summary>
         [Input("enableTcpReset")]
         public Input<bool>? EnableTcpReset { get; set; }

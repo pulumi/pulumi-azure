@@ -78,7 +78,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly customerManagedKey!: pulumi.Output<outputs.cognitive.AccountCustomerManagedKey | undefined>;
     /**
-     * Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+     * Whether to enable the dynamic throttling for this Cognitive Service Account.
      */
     public readonly dynamicThrottlingEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -271,7 +271,7 @@ export interface AccountState {
      */
     customerManagedKey?: pulumi.Input<inputs.cognitive.AccountCustomerManagedKey>;
     /**
-     * Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+     * Whether to enable the dynamic throttling for this Cognitive Service Account.
      */
     dynamicThrottlingEnabled?: pulumi.Input<boolean>;
     /**
@@ -381,7 +381,7 @@ export interface AccountArgs {
      */
     customerManagedKey?: pulumi.Input<inputs.cognitive.AccountCustomerManagedKey>;
     /**
-     * Whether to enable the dynamic throttling for this Cognitive Service Account. Defaults to `false`.
+     * Whether to enable the dynamic throttling for this Cognitive Service Account.
      */
     dynamicThrottlingEnabled?: pulumi.Input<boolean>;
     /**

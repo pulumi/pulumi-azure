@@ -128,7 +128,7 @@ export class CassandraCluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Is the automatic repair enabled on the Cassandra Cluster?
+     * Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
      */
     public readonly repairEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -249,7 +249,7 @@ export interface CassandraClusterState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Is the automatic repair enabled on the Cassandra Cluster?
+     * Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
      */
     repairEnabled?: pulumi.Input<boolean>;
     /**
@@ -311,7 +311,7 @@ export interface CassandraClusterArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Is the automatic repair enabled on the Cassandra Cluster?
+     * Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
      */
     repairEnabled?: pulumi.Input<boolean>;
     /**

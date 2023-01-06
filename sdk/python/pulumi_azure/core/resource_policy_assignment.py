@@ -34,7 +34,7 @@ class ResourcePolicyAssignmentArgs:
         :param pulumi.Input[str] resource_id: The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
-        :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not?
+        :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
         :param pulumi.Input['ResourcePolicyAssignmentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
@@ -118,7 +118,7 @@ class ResourcePolicyAssignmentArgs:
     @pulumi.getter
     def enforce(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if this Policy should be enforced or not?
+        Specifies if this Policy should be enforced or not? Defaults to `true`.
         """
         return pulumi.get(self, "enforce")
 
@@ -230,7 +230,7 @@ class _ResourcePolicyAssignmentState:
         Input properties used for looking up and filtering ResourcePolicyAssignment resources.
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
-        :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not?
+        :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
         :param pulumi.Input['ResourcePolicyAssignmentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
@@ -294,7 +294,7 @@ class _ResourcePolicyAssignmentState:
     @pulumi.getter
     def enforce(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if this Policy should be enforced or not?
+        Specifies if this Policy should be enforced or not? Defaults to `true`.
         """
         return pulumi.get(self, "enforce")
 
@@ -474,7 +474,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
-        :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not?
+        :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['ResourcePolicyAssignmentIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
@@ -615,7 +615,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
-        :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not?
+        :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['ResourcePolicyAssignmentIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
@@ -664,7 +664,7 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
     @pulumi.getter
     def enforce(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies if this Policy should be enforced or not?
+        Specifies if this Policy should be enforced or not? Defaults to `true`.
         """
         return pulumi.get(self, "enforce")
 

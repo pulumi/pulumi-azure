@@ -23,7 +23,7 @@ namespace Pulumi.Azure.Dns.Outputs
         public readonly int? ExpireTime;
         public readonly string? Fqdn;
         /// <summary>
-        /// The domain name of the authoritative name server for the SOA record. Defaults to `ns1-03.azure-dns.com.`.
+        /// The domain name of the authoritative name server for the SOA record.
         /// </summary>
         public readonly string HostName;
         /// <summary>

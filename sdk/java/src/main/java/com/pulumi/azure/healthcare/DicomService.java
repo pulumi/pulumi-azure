@@ -140,14 +140,14 @@ public class DicomService extends com.pulumi.resources.CustomResource {
         return this.privateEndpoints;
     }
     /**
-     * Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+     * Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
      * 
      */
     @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled.
+     * @return Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {

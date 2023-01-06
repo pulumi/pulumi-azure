@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> EncryptionAtHostEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+        /// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("evictionPolicy")]
         public Output<string?> EvictionPolicy { get; private set; } = null!;
@@ -345,7 +345,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? EncryptionAtHostEnabled { get; set; }
 
         /// <summary>
-        /// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+        /// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
@@ -585,7 +585,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? EncryptionAtHostEnabled { get; set; }
 
         /// <summary>
-        /// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+        /// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }

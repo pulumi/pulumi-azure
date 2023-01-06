@@ -24,7 +24,7 @@ class HybridConnectionArgs:
         :param pulumi.Input[str] relay_namespace_name: The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] requires_client_authorization: Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] requires_client_authorization: Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[str] user_metadata: The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
         pulumi.set(__self__, "relay_namespace_name", relay_namespace_name)
@@ -76,7 +76,7 @@ class HybridConnectionArgs:
     @pulumi.getter(name="requiresClientAuthorization")
     def requires_client_authorization(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+        Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
         """
         return pulumi.get(self, "requires_client_authorization")
 
@@ -109,7 +109,7 @@ class _HybridConnectionState:
         Input properties used for looking up and filtering HybridConnection resources.
         :param pulumi.Input[str] name: Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] relay_namespace_name: The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] requires_client_authorization: Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] requires_client_authorization: Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_metadata: The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
@@ -152,7 +152,7 @@ class _HybridConnectionState:
     @pulumi.getter(name="requiresClientAuthorization")
     def requires_client_authorization(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+        Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
         """
         return pulumi.get(self, "requires_client_authorization")
 
@@ -232,7 +232,7 @@ class HybridConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] relay_namespace_name: The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] requires_client_authorization: Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] requires_client_authorization: Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_metadata: The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
@@ -336,7 +336,7 @@ class HybridConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] relay_namespace_name: The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] requires_client_authorization: Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] requires_client_authorization: Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_metadata: The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
@@ -371,7 +371,7 @@ class HybridConnection(pulumi.CustomResource):
     @pulumi.getter(name="requiresClientAuthorization")
     def requires_client_authorization(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+        Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
         """
         return pulumi.get(self, "requires_client_authorization")
 

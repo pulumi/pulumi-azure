@@ -382,14 +382,14 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
         return this.customDomainVerificationId;
     }
     /**
-     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+     * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
      * 
      */
     @Export(name="dailyMemoryTimeQuota", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> dailyMemoryTimeQuota;
 
     /**
-     * @return The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+     * @return The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
      * 
      */
     public Output<Optional<Integer>> dailyMemoryTimeQuota() {
@@ -424,14 +424,14 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableBuiltinLogging);
     }
     /**
-     * Is the Function App enabled?
+     * Is the Function App enabled? Defaults to `true`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Is the Function App enabled?
+     * @return Is the Function App enabled? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -522,14 +522,14 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+     * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
      * 
      */
     @Export(name="osType", type=String.class, parameters={})
     private Output</* @Nullable */ String> osType;
 
     /**
-     * @return A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created.
+     * @return A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
      * 
      */
     public Output<Optional<String>> osType() {

@@ -686,7 +686,7 @@ class ImageOsDisk(dict):
         :param str caching: Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
         :param str managed_disk_id: Specifies the ID of the managed disk resource that you want to use to create the image.
         :param str os_state: Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
-        :param str os_type: Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
+        :param str os_type: Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
         :param int size_gb: Specifies the size of the image to be created. The target size can't be smaller than the source size.
         """
         if blob_uri is not None:
@@ -738,7 +738,7 @@ class ImageOsDisk(dict):
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[str]:
         """
-        Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
+        Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
         """
         return pulumi.get(self, "os_type")
 
@@ -1335,7 +1335,7 @@ class LinuxVirtualMachineScaleSetAutomaticInstanceRepair(dict):
                  grace_period: Optional[str] = None):
         """
         :param bool enabled: Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
-        :param str grace_period: Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+        :param str grace_period: Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if grace_period is not None:
@@ -1353,7 +1353,7 @@ class LinuxVirtualMachineScaleSetAutomaticInstanceRepair(dict):
     @pulumi.getter(name="gracePeriod")
     def grace_period(self) -> Optional[str]:
         """
-        Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+        Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
         """
         return pulumi.get(self, "grace_period")
 
@@ -1635,7 +1635,7 @@ class LinuxVirtualMachineScaleSetExtension(dict):
         :param str type: Specifies the Type of the Extension.
         :param str type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param bool auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
-        :param bool automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        :param bool automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         :param str force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param str protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
         :param Sequence[str] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
@@ -1704,7 +1704,7 @@ class LinuxVirtualMachineScaleSetExtension(dict):
     @pulumi.getter(name="automaticUpgradeEnabled")
     def automatic_upgrade_enabled(self) -> Optional[bool]:
         """
-        Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         """
         return pulumi.get(self, "automatic_upgrade_enabled")
 
@@ -2560,8 +2560,8 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
         :param int max_unhealthy_instance_percent: The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
         :param int max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
         :param str pause_time_between_batches: The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
-        :param bool cross_zone_upgrades_enabled: Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
-        :param bool prioritize_unhealthy_instances_enabled: Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+        :param bool cross_zone_upgrades_enabled: Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+        :param bool prioritize_unhealthy_instances_enabled: Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
         """
         pulumi.set(__self__, "max_batch_instance_percent", max_batch_instance_percent)
         pulumi.set(__self__, "max_unhealthy_instance_percent", max_unhealthy_instance_percent)
@@ -2608,7 +2608,7 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
     @pulumi.getter(name="crossZoneUpgradesEnabled")
     def cross_zone_upgrades_enabled(self) -> Optional[bool]:
         """
-        Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+        Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
         """
         return pulumi.get(self, "cross_zone_upgrades_enabled")
 
@@ -2616,7 +2616,7 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
     @pulumi.getter(name="prioritizeUnhealthyInstancesEnabled")
     def prioritize_unhealthy_instances_enabled(self) -> Optional[bool]:
         """
-        Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+        Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
         """
         return pulumi.get(self, "prioritize_unhealthy_instances_enabled")
 
@@ -2821,8 +2821,8 @@ class LinuxVirtualMachineScaleSetTerminateNotification(dict):
                  enabled: bool,
                  timeout: Optional[str] = None):
         """
-        :param bool enabled: Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
-        :param str timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        :param bool enabled: Should the terminate notification be enabled on this Virtual Machine Scale Set?
+        :param str timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if timeout is not None:
@@ -2832,7 +2832,7 @@ class LinuxVirtualMachineScaleSetTerminateNotification(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+        Should the terminate notification be enabled on this Virtual Machine Scale Set?
         """
         return pulumi.get(self, "enabled")
 
@@ -2840,7 +2840,7 @@ class LinuxVirtualMachineScaleSetTerminateNotification(dict):
     @pulumi.getter
     def timeout(self) -> Optional[str]:
         """
-        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
         """
         return pulumi.get(self, "timeout")
 
@@ -2851,8 +2851,8 @@ class LinuxVirtualMachineScaleSetTerminationNotification(dict):
                  enabled: bool,
                  timeout: Optional[str] = None):
         """
-        :param bool enabled: Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
-        :param str timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        :param bool enabled: Should the termination notification be enabled on this Virtual Machine Scale Set?
+        :param str timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if timeout is not None:
@@ -2862,7 +2862,7 @@ class LinuxVirtualMachineScaleSetTerminationNotification(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+        Should the termination notification be enabled on this Virtual Machine Scale Set?
         """
         return pulumi.get(self, "enabled")
 
@@ -2870,7 +2870,7 @@ class LinuxVirtualMachineScaleSetTerminationNotification(dict):
     @pulumi.getter
     def timeout(self) -> Optional[str]:
         """
-        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
         """
         return pulumi.get(self, "timeout")
 
@@ -2996,8 +2996,8 @@ class LinuxVirtualMachineTerminationNotification(dict):
                  enabled: bool,
                  timeout: Optional[str] = None):
         """
-        :param bool enabled: Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
-        :param str timeout: Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        :param bool enabled: Should the termination notification be enabled on this Virtual Machine?
+        :param str timeout: Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if timeout is not None:
@@ -3007,7 +3007,7 @@ class LinuxVirtualMachineTerminationNotification(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+        Should the termination notification be enabled on this Virtual Machine?
         """
         return pulumi.get(self, "enabled")
 
@@ -3015,7 +3015,7 @@ class LinuxVirtualMachineTerminationNotification(dict):
     @pulumi.getter
     def timeout(self) -> Optional[str]:
         """
-        Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
         """
         return pulumi.get(self, "timeout")
 
@@ -3339,7 +3339,7 @@ class OrchestratedVirtualMachineScaleSetDataDisk(dict):
         :param int disk_size_gb: The size of the Data Disk which should be created.
         :param int lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
         :param str storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
-        :param str create_option: The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+        :param str create_option: The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "caching", caching)
@@ -3393,7 +3393,7 @@ class OrchestratedVirtualMachineScaleSetDataDisk(dict):
     @pulumi.getter(name="createOption")
     def create_option(self) -> Optional[str]:
         """
-        The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to Empty. (FromImage should only be used if the source image includes data disks).
+        The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
         """
         return pulumi.get(self, "create_option")
 
@@ -3469,9 +3469,9 @@ class OrchestratedVirtualMachineScaleSetExtension(dict):
         :param str publisher: Specifies the Publisher of the Extension.
         :param str type: Specifies the Type of the Extension.
         :param str type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
-        :param bool auto_upgrade_minor_version_enabled: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to true.
+        :param bool auto_upgrade_minor_version_enabled: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
         :param Sequence[str] extensions_to_provision_after_vm_creations: An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
-        :param bool failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        :param bool failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`.
         :param str force_extension_execution_on_change: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param str protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
         :param 'OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs' protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
@@ -3531,7 +3531,7 @@ class OrchestratedVirtualMachineScaleSetExtension(dict):
     @pulumi.getter(name="autoUpgradeMinorVersionEnabled")
     def auto_upgrade_minor_version_enabled(self) -> Optional[bool]:
         """
-        Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to true.
+        Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
         """
         return pulumi.get(self, "auto_upgrade_minor_version_enabled")
 
@@ -3547,7 +3547,7 @@ class OrchestratedVirtualMachineScaleSetExtension(dict):
     @pulumi.getter(name="failureSuppressionEnabled")
     def failure_suppression_enabled(self) -> Optional[bool]:
         """
-        Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        Should failures from the extension be suppressed? Possible values are `true` or `false`.
         """
         return pulumi.get(self, "failure_suppression_enabled")
 
@@ -3957,7 +3957,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
         :param int idle_timeout_in_minutes: The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
         :param Sequence['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: One or more `ip_tag` blocks as defined above.
         :param str public_ip_prefix_id: The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
-        :param str sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+        :param str sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         :param str version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
@@ -4018,7 +4018,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[str]:
         """
-        Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+        Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -4892,7 +4892,7 @@ class OrchestratedVirtualMachineScaleSetTerminationNotification(dict):
                  enabled: bool,
                  timeout: Optional[str] = None):
         """
-        :param bool enabled: Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false` Defaults to `false`.
+        :param bool enabled: Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
         :param str timeout: Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in `ISO 8601` format. Defaults to `PT5M`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -4903,7 +4903,7 @@ class OrchestratedVirtualMachineScaleSetTerminationNotification(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false` Defaults to `false`.
+        Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`
         """
         return pulumi.get(self, "enabled")
 
@@ -5093,7 +5093,7 @@ class ScaleSetBootDiagnostics(dict):
                  enabled: Optional[bool] = None):
         """
         :param str storage_uri: Blob endpoint for the storage account to hold the virtual machine's diagnostic files. This must be the root of a storage account, and not a storage container.
-        :param bool enabled: Whether to enable boot diagnostics for the virtual machine.
+        :param bool enabled: Whether to enable boot diagnostics for the virtual machine. Defaults to `true`.
         """
         pulumi.set(__self__, "storage_uri", storage_uri)
         if enabled is not None:
@@ -5111,7 +5111,7 @@ class ScaleSetBootDiagnostics(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Whether to enable boot diagnostics for the virtual machine.
+        Whether to enable boot diagnostics for the virtual machine. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -5334,7 +5334,7 @@ class ScaleSetNetworkProfile(dict):
         :param Sequence['ScaleSetNetworkProfileIpConfigurationArgs'] ip_configurations: An ip_configuration block as documented below.
         :param str name: Specifies the name of the network interface configuration. Changing this forces a new resource to be created.
         :param bool primary: Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
-        :param bool accelerated_networking: Specifies whether to enable accelerated networking or not. Defaults to `false`.
+        :param bool accelerated_networking: Specifies whether to enable accelerated networking or not.
         :param 'ScaleSetNetworkProfileDnsSettingsArgs' dns_settings: A dns_settings block as documented below.
         :param bool ip_forwarding: Whether IP forwarding is enabled on this NIC. Defaults to `false`.
         :param str network_security_group_id: Specifies the identifier for the network security group.
@@ -5379,7 +5379,7 @@ class ScaleSetNetworkProfile(dict):
     @pulumi.getter(name="acceleratedNetworking")
     def accelerated_networking(self) -> Optional[bool]:
         """
-        Specifies whether to enable accelerated networking or not. Defaults to `false`.
+        Specifies whether to enable accelerated networking or not.
         """
         return pulumi.get(self, "accelerated_networking")
 
@@ -8643,7 +8643,7 @@ class WindowsVirtualMachineScaleSetAutomaticInstanceRepair(dict):
                  grace_period: Optional[str] = None):
         """
         :param bool enabled: Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
-        :param str grace_period: Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+        :param str grace_period: Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if grace_period is not None:
@@ -8661,7 +8661,7 @@ class WindowsVirtualMachineScaleSetAutomaticInstanceRepair(dict):
     @pulumi.getter(name="gracePeriod")
     def grace_period(self) -> Optional[str]:
         """
-        Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format.
+        Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
         """
         return pulumi.get(self, "grace_period")
 
@@ -8943,7 +8943,7 @@ class WindowsVirtualMachineScaleSetExtension(dict):
         :param str type: Specifies the Type of the Extension.
         :param str type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param bool auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
-        :param bool automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        :param bool automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         :param str force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param str protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
         :param Sequence[str] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
@@ -9012,7 +9012,7 @@ class WindowsVirtualMachineScaleSetExtension(dict):
     @pulumi.getter(name="automaticUpgradeEnabled")
     def automatic_upgrade_enabled(self) -> Optional[bool]:
         """
-        Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         """
         return pulumi.get(self, "automatic_upgrade_enabled")
 
@@ -9868,8 +9868,8 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
         :param int max_unhealthy_instance_percent: The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
         :param int max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
         :param str pause_time_between_batches: The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
-        :param bool cross_zone_upgrades_enabled: Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
-        :param bool prioritize_unhealthy_instances_enabled: Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+        :param bool cross_zone_upgrades_enabled: Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+        :param bool prioritize_unhealthy_instances_enabled: Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
         """
         pulumi.set(__self__, "max_batch_instance_percent", max_batch_instance_percent)
         pulumi.set(__self__, "max_unhealthy_instance_percent", max_unhealthy_instance_percent)
@@ -9916,7 +9916,7 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
     @pulumi.getter(name="crossZoneUpgradesEnabled")
     def cross_zone_upgrades_enabled(self) -> Optional[bool]:
         """
-        Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+        Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
         """
         return pulumi.get(self, "cross_zone_upgrades_enabled")
 
@@ -9924,7 +9924,7 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
     @pulumi.getter(name="prioritizeUnhealthyInstancesEnabled")
     def prioritize_unhealthy_instances_enabled(self) -> Optional[bool]:
         """
-        Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+        Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
         """
         return pulumi.get(self, "prioritize_unhealthy_instances_enabled")
 
@@ -10140,8 +10140,8 @@ class WindowsVirtualMachineScaleSetTerminateNotification(dict):
                  enabled: bool,
                  timeout: Optional[str] = None):
         """
-        :param bool enabled: Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
-        :param str timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        :param bool enabled: Should the terminate notification be enabled on this Virtual Machine Scale Set?
+        :param str timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if timeout is not None:
@@ -10151,7 +10151,7 @@ class WindowsVirtualMachineScaleSetTerminateNotification(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+        Should the terminate notification be enabled on this Virtual Machine Scale Set?
         """
         return pulumi.get(self, "enabled")
 
@@ -10159,7 +10159,7 @@ class WindowsVirtualMachineScaleSetTerminateNotification(dict):
     @pulumi.getter
     def timeout(self) -> Optional[str]:
         """
-        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
         """
         return pulumi.get(self, "timeout")
 
@@ -10170,8 +10170,8 @@ class WindowsVirtualMachineScaleSetTerminationNotification(dict):
                  enabled: bool,
                  timeout: Optional[str] = None):
         """
-        :param bool enabled: Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
-        :param str timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        :param bool enabled: Should the termination notification be enabled on this Virtual Machine Scale Set?
+        :param str timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if timeout is not None:
@@ -10181,7 +10181,7 @@ class WindowsVirtualMachineScaleSetTerminationNotification(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Should the termination notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
+        Should the termination notification be enabled on this Virtual Machine Scale Set?
         """
         return pulumi.get(self, "enabled")
 
@@ -10189,7 +10189,7 @@ class WindowsVirtualMachineScaleSetTerminationNotification(dict):
     @pulumi.getter
     def timeout(self) -> Optional[str]:
         """
-        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
         """
         return pulumi.get(self, "timeout")
 
@@ -10373,8 +10373,8 @@ class WindowsVirtualMachineTerminationNotification(dict):
                  enabled: bool,
                  timeout: Optional[str] = None):
         """
-        :param bool enabled: Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
-        :param str timeout: Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        :param bool enabled: Should the termination notification be enabled on this Virtual Machine?
+        :param str timeout: Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if timeout is not None:
@@ -10384,7 +10384,7 @@ class WindowsVirtualMachineTerminationNotification(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
+        Should the termination notification be enabled on this Virtual Machine?
         """
         return pulumi.get(self, "enabled")
 
@@ -10392,7 +10392,7 @@ class WindowsVirtualMachineTerminationNotification(dict):
     @pulumi.getter
     def timeout(self) -> Optional[str]:
         """
-        Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
+        Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
         """
         return pulumi.get(self, "timeout")
 

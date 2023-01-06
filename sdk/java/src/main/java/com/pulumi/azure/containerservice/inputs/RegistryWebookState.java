@@ -108,14 +108,14 @@ public final class RegistryWebookState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for &#39;foo:bar&#39; only. `foo` is equivalent to `foo:latest`. Empty means all events.
+     * Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for &#39;foo:bar&#39; only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `&#34;&#34;`.
      * 
      */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
     /**
-     * @return Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for &#39;foo:bar&#39; only. `foo` is equivalent to `foo:latest`. Empty means all events.
+     * @return Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for &#39;foo:bar&#39; only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<Output<String>> scope() {
@@ -337,7 +337,7 @@ public final class RegistryWebookState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scope Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for &#39;foo:bar&#39; only. `foo` is equivalent to `foo:latest`. Empty means all events.
+         * @param scope Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for &#39;foo:bar&#39; only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class RegistryWebookState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scope Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for &#39;foo:bar&#39; only. `foo` is equivalent to `foo:latest`. Empty means all events.
+         * @param scope Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for &#39;foo:bar&#39; only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `&#34;&#34;`.
          * 
          * @return builder
          * 

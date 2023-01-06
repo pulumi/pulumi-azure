@@ -17,14 +17,14 @@ public final class VirtualNetworkRuleArgs extends com.pulumi.resources.ResourceA
     public static final VirtualNetworkRuleArgs Empty = new VirtualNetworkRuleArgs();
 
     /**
-     * Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+     * Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
      * 
      */
     @Import(name="ignoreMissingVnetServiceEndpoint")
     private @Nullable Output<Boolean> ignoreMissingVnetServiceEndpoint;
 
     /**
-     * @return Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+     * @return Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
      * 
      */
     public Optional<Output<Boolean>> ignoreMissingVnetServiceEndpoint() {
@@ -120,7 +120,7 @@ public final class VirtualNetworkRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param ignoreMissingVnetServiceEndpoint Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+         * @param ignoreMissingVnetServiceEndpoint Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class VirtualNetworkRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param ignoreMissingVnetServiceEndpoint Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+         * @param ignoreMissingVnetServiceEndpoint Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
          * 
          * @return builder
          * 

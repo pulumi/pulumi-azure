@@ -17,7 +17,7 @@ public final class TriggerTumblingWindowRetry {
      */
     private Integer count;
     /**
-     * @return The Interval in seconds between each retry if the pipeline run failed.
+     * @return The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
      * 
      */
     private @Nullable Integer interval;
@@ -31,7 +31,7 @@ public final class TriggerTumblingWindowRetry {
         return this.count;
     }
     /**
-     * @return The Interval in seconds between each retry if the pipeline run failed.
+     * @return The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
      * 
      */
     public Optional<Integer> interval() {

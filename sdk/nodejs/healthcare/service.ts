@@ -116,7 +116,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Whether public network access is enabled or disabled for this service instance.
+     * Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface ServiceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether public network access is enabled or disabled for this service instance.
+     * Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -255,7 +255,7 @@ export interface ServiceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether public network access is enabled or disabled for this service instance.
+     * Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**

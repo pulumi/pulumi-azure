@@ -16,7 +16,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
         private InputList<string>? _days;
 
         /// <summary>
-        /// The days of the week to perform autoscale.
+        /// The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         /// </summary>
         public InputList<string> Days
         {

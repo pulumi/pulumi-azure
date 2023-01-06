@@ -29,7 +29,7 @@ public final class AppServiceBackupSchedule {
      */
     private @Nullable Boolean keepAtLeastOneBackup;
     /**
-     * @return Specifies the number of days after which Backups should be deleted.
+     * @return Specifies the number of days after which Backups should be deleted. Defaults to `30`.
      * 
      */
     private @Nullable Integer retentionPeriodInDays;
@@ -62,7 +62,7 @@ public final class AppServiceBackupSchedule {
         return Optional.ofNullable(this.keepAtLeastOneBackup);
     }
     /**
-     * @return Specifies the number of days after which Backups should be deleted.
+     * @return Specifies the number of days after which Backups should be deleted. Defaults to `30`.
      * 
      */
     public Optional<Integer> retentionPeriodInDays() {

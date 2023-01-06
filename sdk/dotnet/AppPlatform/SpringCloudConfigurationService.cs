@@ -76,7 +76,7 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudConfigurationService : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+        /// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudConfigurationServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+        /// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudConfigurationServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name which should be used for this Spring Cloud Configuration Service. Changing this forces a new Spring Cloud Configuration Service to be created.
+        /// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -152,7 +152,7 @@ import (
 type DiskEncryptionSet struct {
 	pulumi.CustomResourceState
 
-	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
 	AutoKeyRotationEnabled pulumi.BoolPtrOutput `pulumi:"autoKeyRotationEnabled"`
 	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
 	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
@@ -210,7 +210,7 @@ func GetDiskEncryptionSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DiskEncryptionSet resources.
 type diskEncryptionSetState struct {
-	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
 	AutoKeyRotationEnabled *bool `pulumi:"autoKeyRotationEnabled"`
 	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
 	EncryptionType *string `pulumi:"encryptionType"`
@@ -231,7 +231,7 @@ type diskEncryptionSetState struct {
 }
 
 type DiskEncryptionSetState struct {
-	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
 	AutoKeyRotationEnabled pulumi.BoolPtrInput
 	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
 	EncryptionType pulumi.StringPtrInput
@@ -256,7 +256,7 @@ func (DiskEncryptionSetState) ElementType() reflect.Type {
 }
 
 type diskEncryptionSetArgs struct {
-	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
 	AutoKeyRotationEnabled *bool `pulumi:"autoKeyRotationEnabled"`
 	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
 	EncryptionType *string `pulumi:"encryptionType"`
@@ -278,7 +278,7 @@ type diskEncryptionSetArgs struct {
 
 // The set of arguments for constructing a DiskEncryptionSet resource.
 type DiskEncryptionSetArgs struct {
-	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
 	AutoKeyRotationEnabled pulumi.BoolPtrInput
 	// The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
 	EncryptionType pulumi.StringPtrInput
@@ -385,7 +385,7 @@ func (o DiskEncryptionSetOutput) ToDiskEncryptionSetOutputWithContext(ctx contex
 	return o
 }
 
-// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
+// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version.
 func (o DiskEncryptionSetOutput) AutoKeyRotationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.BoolPtrOutput { return v.AutoKeyRotationEnabled }).(pulumi.BoolPtrOutput)
 }

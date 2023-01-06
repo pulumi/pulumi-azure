@@ -294,7 +294,7 @@ class ServerThreatDetectionPolicy(dict):
                  storage_account_access_key: Optional[str] = None,
                  storage_endpoint: Optional[str] = None):
         """
-        :param Sequence[str] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+        :param Sequence[str] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
         :param bool email_account_admins: Should the account administrators be emailed when this alert is triggered?
         :param Sequence[str] email_addresses: A list of email addresses which alerts should be sent to.
         :param bool enabled: Is the policy enabled?
@@ -321,7 +321,7 @@ class ServerThreatDetectionPolicy(dict):
     @pulumi.getter(name="disabledAlerts")
     def disabled_alerts(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+        Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
         """
         return pulumi.get(self, "disabled_alerts")
 

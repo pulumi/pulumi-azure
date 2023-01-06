@@ -17,14 +17,14 @@ public final class EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs extend
     public static final EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs Empty = new EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs();
 
     /**
-     * Are missing virtual network service endpoints ignored? Defaults to `false`.
+     * Are missing virtual network service endpoints ignored?
      * 
      */
     @Import(name="ignoreMissingVirtualNetworkServiceEndpoint")
     private @Nullable Output<Boolean> ignoreMissingVirtualNetworkServiceEndpoint;
 
     /**
-     * @return Are missing virtual network service endpoints ignored? Defaults to `false`.
+     * @return Are missing virtual network service endpoints ignored?
      * 
      */
     public Optional<Output<Boolean>> ignoreMissingVirtualNetworkServiceEndpoint() {
@@ -72,7 +72,7 @@ public final class EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs extend
         }
 
         /**
-         * @param ignoreMissingVirtualNetworkServiceEndpoint Are missing virtual network service endpoints ignored? Defaults to `false`.
+         * @param ignoreMissingVirtualNetworkServiceEndpoint Are missing virtual network service endpoints ignored?
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs extend
         }
 
         /**
-         * @param ignoreMissingVirtualNetworkServiceEndpoint Are missing virtual network service endpoints ignored? Defaults to `false`.
+         * @param ignoreMissingVirtualNetworkServiceEndpoint Are missing virtual network service endpoints ignored?
          * 
          * @return builder
          * 

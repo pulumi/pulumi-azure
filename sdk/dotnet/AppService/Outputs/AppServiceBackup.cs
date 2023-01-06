@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class AppServiceBackup
     {
         /// <summary>
-        /// Is this Backup enabled?
+        /// Is this Backup enabled? Defaults to `true`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

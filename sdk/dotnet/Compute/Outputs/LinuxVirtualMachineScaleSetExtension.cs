@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersion;
         /// <summary>
-        /// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        /// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         /// </summary>
         public readonly bool? AutomaticUpgradeEnabled;
         /// <summary>

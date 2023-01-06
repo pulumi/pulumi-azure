@@ -87,7 +87,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
      */
     public readonly backup!: pulumi.Output<outputs.appservice.WindowsFunctionAppBackup | undefined>;
     /**
-     * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+     * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      */
     public readonly builtinLoggingEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -123,7 +123,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultHostname!: pulumi.Output<string>;
     /**
-     * Is the Function App enabled?
+     * Is the Function App enabled? Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -340,7 +340,7 @@ export interface WindowsFunctionAppState {
      */
     backup?: pulumi.Input<inputs.appservice.WindowsFunctionAppBackup>;
     /**
-     * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+     * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      */
     builtinLoggingEnabled?: pulumi.Input<boolean>;
     /**
@@ -376,7 +376,7 @@ export interface WindowsFunctionAppState {
      */
     defaultHostname?: pulumi.Input<string>;
     /**
-     * Is the Function App enabled?
+     * Is the Function App enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -490,7 +490,7 @@ export interface WindowsFunctionAppArgs {
      */
     backup?: pulumi.Input<inputs.appservice.WindowsFunctionAppBackup>;
     /**
-     * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
+     * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      */
     builtinLoggingEnabled?: pulumi.Input<boolean>;
     /**
@@ -518,7 +518,7 @@ export interface WindowsFunctionAppArgs {
      */
     dailyMemoryTimeQuota?: pulumi.Input<number>;
     /**
-     * Is the Function App enabled?
+     * Is the Function App enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**

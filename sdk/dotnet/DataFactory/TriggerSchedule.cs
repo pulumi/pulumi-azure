@@ -96,7 +96,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Frequency { get; private set; } = null!;
 
         /// <summary>
-        /// The interval for how often the trigger occurs. This defaults to 1.
+        /// The interval for how often the trigger occurs. This defaults to `1`.
         /// </summary>
         [Output("interval")]
         public Output<int?> Interval { get; private set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Frequency { get; set; }
 
         /// <summary>
-        /// The interval for how often the trigger occurs. This defaults to 1.
+        /// The interval for how often the trigger occurs. This defaults to `1`.
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
@@ -342,7 +342,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Frequency { get; set; }
 
         /// <summary>
-        /// The interval for how often the trigger occurs. This defaults to 1.
+        /// The interval for how often the trigger occurs. This defaults to `1`.
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }

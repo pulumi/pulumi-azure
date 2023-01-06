@@ -169,14 +169,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.elasticPoolId);
     }
     /**
-     * A boolean that specifies if the Geo Backup Policy is enabled.
+     * A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
      * 
      */
     @Export(name="geoBackupEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> geoBackupEnabled;
 
     /**
-     * @return A boolean that specifies if the Geo Backup Policy is enabled.
+     * @return A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> geoBackupEnabled() {

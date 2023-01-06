@@ -12,50 +12,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ManagementPolicyRuleActionsSnapshot {
     /**
-     * @return The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
+     * @return The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999. Defaults to `-1`.
      * 
      */
     private @Nullable Integer changeTierToArchiveAfterDaysSinceCreation;
     /**
-     * @return The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
+     * @return The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999. Defaults to `-1`.
      * 
      */
     private @Nullable Integer changeTierToCoolAfterDaysSinceCreation;
     /**
-     * @return The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
+     * @return The age in days after creation to delete the blob snapshot. Must be between 0 and 99999. Defaults to `-1`.
      * 
      */
     private @Nullable Integer deleteAfterDaysSinceCreationGreaterThan;
     /**
-     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
      * 
      */
     private @Nullable Integer tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
 
     private ManagementPolicyRuleActionsSnapshot() {}
     /**
-     * @return The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
+     * @return The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999. Defaults to `-1`.
      * 
      */
     public Optional<Integer> changeTierToArchiveAfterDaysSinceCreation() {
         return Optional.ofNullable(this.changeTierToArchiveAfterDaysSinceCreation);
     }
     /**
-     * @return The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
+     * @return The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999. Defaults to `-1`.
      * 
      */
     public Optional<Integer> changeTierToCoolAfterDaysSinceCreation() {
         return Optional.ofNullable(this.changeTierToCoolAfterDaysSinceCreation);
     }
     /**
-     * @return The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
+     * @return The age in days after creation to delete the blob snapshot. Must be between 0 and 99999. Defaults to `-1`.
      * 
      */
     public Optional<Integer> deleteAfterDaysSinceCreationGreaterThan() {
         return Optional.ofNullable(this.deleteAfterDaysSinceCreationGreaterThan);
     }
     /**
-     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999.
+     * @return The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
      * 
      */
     public Optional<Integer> tierToArchiveAfterDaysSinceLastTierChangeGreaterThan() {

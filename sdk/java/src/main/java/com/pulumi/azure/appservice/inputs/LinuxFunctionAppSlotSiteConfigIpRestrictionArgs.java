@@ -78,14 +78,14 @@ public final class LinuxFunctionAppSlotSiteConfigIpRestrictionArgs extends com.p
     }
 
     /**
-     * The priority value of this `ip_restriction`.
+     * The priority value of this `ip_restriction`. Defaults to `65000`.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return The priority value of this `ip_restriction`.
+     * @return The priority value of this `ip_restriction`. Defaults to `65000`.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -237,7 +237,7 @@ public final class LinuxFunctionAppSlotSiteConfigIpRestrictionArgs extends com.p
         }
 
         /**
-         * @param priority The priority value of this `ip_restriction`.
+         * @param priority The priority value of this `ip_restriction`. Defaults to `65000`.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class LinuxFunctionAppSlotSiteConfigIpRestrictionArgs extends com.p
         }
 
         /**
-         * @param priority The priority value of this `ip_restriction`.
+         * @param priority The priority value of this `ip_restriction`. Defaults to `65000`.
          * 
          * @return builder
          * 

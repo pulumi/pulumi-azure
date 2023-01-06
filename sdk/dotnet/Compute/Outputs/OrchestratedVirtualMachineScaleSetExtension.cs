@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class OrchestratedVirtualMachineScaleSetExtension
     {
         /// <summary>
-        /// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to true.
+        /// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersionEnabled;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ExtensionsToProvisionAfterVmCreations;
         /// <summary>
-        /// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        /// Should failures from the extension be suppressed? Possible values are `true` or `false`.
         /// </summary>
         public readonly bool? FailureSuppressionEnabled;
         /// <summary>

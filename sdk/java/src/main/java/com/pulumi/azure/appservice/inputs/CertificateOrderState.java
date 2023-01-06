@@ -36,14 +36,14 @@ public final class CertificateOrderState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+     * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
      * 
      */
     @Import(name="autoRenew")
     private @Nullable Output<Boolean> autoRenew;
 
     /**
-     * @return true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+     * @return true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> autoRenew() {
@@ -156,14 +156,14 @@ public final class CertificateOrderState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Certificate key size.  Defaults to 2048.
+     * Certificate key size.  Defaults to `2048`.
      * 
      */
     @Import(name="keySize")
     private @Nullable Output<Integer> keySize;
 
     /**
-     * @return Certificate key size.  Defaults to 2048.
+     * @return Certificate key size.  Defaults to `2048`.
      * 
      */
     public Optional<Output<Integer>> keySize() {
@@ -379,7 +379,7 @@ public final class CertificateOrderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param autoRenew true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+         * @param autoRenew true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class CertificateOrderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param autoRenew true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+         * @param autoRenew true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class CertificateOrderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keySize Certificate key size.  Defaults to 2048.
+         * @param keySize Certificate key size.  Defaults to `2048`.
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class CertificateOrderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keySize Certificate key size.  Defaults to 2048.
+         * @param keySize Certificate key size.  Defaults to `2048`.
          * 
          * @return builder
          * 

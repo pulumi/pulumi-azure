@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetExtension {
     /**
-     * @return Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to true.
+     * @return Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to `true`.
      * 
      */
     private @Nullable Boolean autoUpgradeMinorVersionEnabled;
@@ -25,7 +25,7 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
      */
     private @Nullable List<String> extensionsToProvisionAfterVmCreations;
     /**
-     * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * @return Should failures from the extension be suppressed? Possible values are `true` or `false`.
      * 
      */
     private @Nullable Boolean failureSuppressionEnabled;
@@ -68,7 +68,7 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
 
     private OrchestratedVirtualMachineScaleSetExtension() {}
     /**
-     * @return Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to true.
+     * @return Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to `true`.
      * 
      */
     public Optional<Boolean> autoUpgradeMinorVersionEnabled() {
@@ -82,7 +82,7 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
         return this.extensionsToProvisionAfterVmCreations == null ? List.of() : this.extensionsToProvisionAfterVmCreations;
     }
     /**
-     * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * @return Should failures from the extension be suppressed? Possible values are `true` or `false`.
      * 
      */
     public Optional<Boolean> failureSuppressionEnabled() {

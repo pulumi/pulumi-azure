@@ -61,7 +61,7 @@ class ApiArgs:
         :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
         :param pulumi.Input[str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         :param pulumi.Input['ApiSubscriptionKeyParameterNamesArgs'] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
-        :param pulumi.Input[bool] subscription_required: Should this API require a subscription key?
+        :param pulumi.Input[bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
         :param pulumi.Input[str] terms_of_service_url: Absolute URL of the Terms of Service for the API.
         :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.
         :param pulumi.Input[str] version_description: The description of the API Version of the API Management API.
@@ -348,7 +348,7 @@ class ApiArgs:
     @pulumi.getter(name="subscriptionRequired")
     def subscription_required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should this API require a subscription key?
+        Should this API require a subscription key? Defaults to `true`.
         """
         return pulumi.get(self, "subscription_required")
 
@@ -457,7 +457,7 @@ class _ApiState:
         :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
         :param pulumi.Input[str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         :param pulumi.Input['ApiSubscriptionKeyParameterNamesArgs'] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
-        :param pulumi.Input[bool] subscription_required: Should this API require a subscription key?
+        :param pulumi.Input[bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
         :param pulumi.Input[str] terms_of_service_url: Absolute URL of the Terms of Service for the API.
         :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.
         :param pulumi.Input[str] version_description: The description of the API Version of the API Management API.
@@ -775,7 +775,7 @@ class _ApiState:
     @pulumi.getter(name="subscriptionRequired")
     def subscription_required(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should this API require a subscription key?
+        Should this API require a subscription key? Defaults to `true`.
         """
         return pulumi.get(self, "subscription_required")
 
@@ -920,7 +920,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
         :param pulumi.Input[str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         :param pulumi.Input[pulumi.InputType['ApiSubscriptionKeyParameterNamesArgs']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
-        :param pulumi.Input[bool] subscription_required: Should this API require a subscription key?
+        :param pulumi.Input[bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
         :param pulumi.Input[str] terms_of_service_url: Absolute URL of the Terms of Service for the API.
         :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.
         :param pulumi.Input[str] version_description: The description of the API Version of the API Management API.
@@ -1116,7 +1116,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
         :param pulumi.Input[str] source_api_id: The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         :param pulumi.Input[pulumi.InputType['ApiSubscriptionKeyParameterNamesArgs']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
-        :param pulumi.Input[bool] subscription_required: Should this API require a subscription key?
+        :param pulumi.Input[bool] subscription_required: Should this API require a subscription key? Defaults to `true`.
         :param pulumi.Input[str] terms_of_service_url: Absolute URL of the Terms of Service for the API.
         :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.
         :param pulumi.Input[str] version_description: The description of the API Version of the API Management API.
@@ -1326,7 +1326,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="subscriptionRequired")
     def subscription_required(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should this API require a subscription key?
+        Should this API require a subscription key? Defaults to `true`.
         """
         return pulumi.get(self, "subscription_required")
 

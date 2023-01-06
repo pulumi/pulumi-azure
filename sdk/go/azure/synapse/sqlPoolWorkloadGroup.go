@@ -102,11 +102,11 @@ import (
 type SqlPoolWorkloadGroup struct {
 	pulumi.CustomResourceState
 
-	// The workload group importance level.
+	// The workload group importance level. Defaults to `normal`.
 	Importance pulumi.StringPtrOutput `pulumi:"importance"`
 	// The workload group cap percentage resource.
 	MaxResourcePercent pulumi.IntOutput `pulumi:"maxResourcePercent"`
-	// The workload group request maximum grant percentage.
+	// The workload group request maximum grant percentage. Defaults to `3`.
 	MaxResourcePercentPerRequest pulumi.Float64PtrOutput `pulumi:"maxResourcePercentPerRequest"`
 	// The workload group minimum percentage resource.
 	MinResourcePercent pulumi.IntOutput `pulumi:"minResourcePercent"`
@@ -158,11 +158,11 @@ func GetSqlPoolWorkloadGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlPoolWorkloadGroup resources.
 type sqlPoolWorkloadGroupState struct {
-	// The workload group importance level.
+	// The workload group importance level. Defaults to `normal`.
 	Importance *string `pulumi:"importance"`
 	// The workload group cap percentage resource.
 	MaxResourcePercent *int `pulumi:"maxResourcePercent"`
-	// The workload group request maximum grant percentage.
+	// The workload group request maximum grant percentage. Defaults to `3`.
 	MaxResourcePercentPerRequest *float64 `pulumi:"maxResourcePercentPerRequest"`
 	// The workload group minimum percentage resource.
 	MinResourcePercent *int `pulumi:"minResourcePercent"`
@@ -177,11 +177,11 @@ type sqlPoolWorkloadGroupState struct {
 }
 
 type SqlPoolWorkloadGroupState struct {
-	// The workload group importance level.
+	// The workload group importance level. Defaults to `normal`.
 	Importance pulumi.StringPtrInput
 	// The workload group cap percentage resource.
 	MaxResourcePercent pulumi.IntPtrInput
-	// The workload group request maximum grant percentage.
+	// The workload group request maximum grant percentage. Defaults to `3`.
 	MaxResourcePercentPerRequest pulumi.Float64PtrInput
 	// The workload group minimum percentage resource.
 	MinResourcePercent pulumi.IntPtrInput
@@ -200,11 +200,11 @@ func (SqlPoolWorkloadGroupState) ElementType() reflect.Type {
 }
 
 type sqlPoolWorkloadGroupArgs struct {
-	// The workload group importance level.
+	// The workload group importance level. Defaults to `normal`.
 	Importance *string `pulumi:"importance"`
 	// The workload group cap percentage resource.
 	MaxResourcePercent int `pulumi:"maxResourcePercent"`
-	// The workload group request maximum grant percentage.
+	// The workload group request maximum grant percentage. Defaults to `3`.
 	MaxResourcePercentPerRequest *float64 `pulumi:"maxResourcePercentPerRequest"`
 	// The workload group minimum percentage resource.
 	MinResourcePercent int `pulumi:"minResourcePercent"`
@@ -220,11 +220,11 @@ type sqlPoolWorkloadGroupArgs struct {
 
 // The set of arguments for constructing a SqlPoolWorkloadGroup resource.
 type SqlPoolWorkloadGroupArgs struct {
-	// The workload group importance level.
+	// The workload group importance level. Defaults to `normal`.
 	Importance pulumi.StringPtrInput
 	// The workload group cap percentage resource.
 	MaxResourcePercent pulumi.IntInput
-	// The workload group request maximum grant percentage.
+	// The workload group request maximum grant percentage. Defaults to `3`.
 	MaxResourcePercentPerRequest pulumi.Float64PtrInput
 	// The workload group minimum percentage resource.
 	MinResourcePercent pulumi.IntInput
@@ -325,7 +325,7 @@ func (o SqlPoolWorkloadGroupOutput) ToSqlPoolWorkloadGroupOutputWithContext(ctx 
 	return o
 }
 
-// The workload group importance level.
+// The workload group importance level. Defaults to `normal`.
 func (o SqlPoolWorkloadGroupOutput) Importance() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlPoolWorkloadGroup) pulumi.StringPtrOutput { return v.Importance }).(pulumi.StringPtrOutput)
 }
@@ -335,7 +335,7 @@ func (o SqlPoolWorkloadGroupOutput) MaxResourcePercent() pulumi.IntOutput {
 	return o.ApplyT(func(v *SqlPoolWorkloadGroup) pulumi.IntOutput { return v.MaxResourcePercent }).(pulumi.IntOutput)
 }
 
-// The workload group request maximum grant percentage.
+// The workload group request maximum grant percentage. Defaults to `3`.
 func (o SqlPoolWorkloadGroupOutput) MaxResourcePercentPerRequest() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SqlPoolWorkloadGroup) pulumi.Float64PtrOutput { return v.MaxResourcePercentPerRequest }).(pulumi.Float64PtrOutput)
 }

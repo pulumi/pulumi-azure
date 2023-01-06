@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class FrontdoorRuleConditionsRequestSchemeConditionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+        /// The requests protocol to match. Possible values include `HTTP` or `HTTPS`.
         /// </summary>
         [Input("matchValues")]
         public Input<string>? MatchValues { get; set; }

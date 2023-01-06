@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Healthcare
         public Output<string> DestinationFhirServiceId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`. Defaults to `Create`.
+        /// Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
         /// </summary>
         [Output("destinationIdentityResolutionType")]
         public Output<string> DestinationIdentityResolutionType { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<string> DestinationFhirServiceId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`. Defaults to `Create`.
+        /// Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
         /// </summary>
         [Input("destinationIdentityResolutionType", required: true)]
         public Input<string> DestinationIdentityResolutionType { get; set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? DestinationFhirServiceId { get; set; }
 
         /// <summary>
-        /// Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`. Defaults to `Create`.
+        /// Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
         /// </summary>
         [Input("destinationIdentityResolutionType")]
         public Input<string>? DestinationIdentityResolutionType { get; set; }

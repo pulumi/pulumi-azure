@@ -97,7 +97,7 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly parallelism!: pulumi.Output<number | undefined>;
     /**
-     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
+     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
      */
     public readonly size!: pulumi.Output<number | undefined>;
     /**
@@ -223,7 +223,7 @@ export interface BlobState {
      */
     parallelism?: pulumi.Input<number>;
     /**
-     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
+     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
      */
     size?: pulumi.Input<number>;
     /**
@@ -290,7 +290,7 @@ export interface BlobArgs {
      */
     parallelism?: pulumi.Input<number>;
     /**
-     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0. Changing this forces a new resource to be created.
+     * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
      */
     size?: pulumi.Input<number>;
     /**
