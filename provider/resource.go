@@ -1823,9 +1823,10 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_network_watcher":          {Tok: azureResource(azureNetwork, "NetworkWatcher")},
-			"azurerm_network_watcher_flow_log": {Tok: azureResource(azureNetwork, "NetworkWatcherFlowLog")},
-			"azurerm_network_manager":          {Tok: azureResource(azureNetwork, "NetworkManager")},
+			"azurerm_network_watcher":               {Tok: azureResource(azureNetwork, "NetworkWatcher")},
+			"azurerm_network_watcher_flow_log":      {Tok: azureResource(azureNetwork, "NetworkWatcherFlowLog")},
+			"azurerm_network_manager":               {Tok: azureResource(azureNetwork, "NetworkManager")},
+			"azurerm_network_manager_network_group": {Tok: azureResource(azureNetwork, "NetworkManagerNetworkGroup")},
 			"azurerm_public_ip": {
 				Tok: azureResource(azureNetwork, "PublicIp"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2974,6 +2975,10 @@ func Provider() tfbridge.ProviderInfo {
 			// Web PubSub
 			"azurerm_web_pubsub":                       {Tok: azureDataSource(azureWebPubSub, "getService")},
 			"azurerm_web_pubsub_private_link_resource": {Tok: azureDataSource(azureWebPubSub, "getPrivateLinkResource")},
+
+			"azurerm_marketplace_agreement": {Tok: azureDataSource(azureMarketPlace, "getAgreement")},
+
+			"azurerm_virtual_hub_route_table": {Tok: azureDataSource(azureNetwork, "getVirtualHubRouteTable")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			TypeScriptVersion: "4.7.4",
