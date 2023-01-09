@@ -7,7 +7,7 @@ require (
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
 )
 
-replace github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230104180040-4445b537850c
+replace github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230109211715-fc3bdf9e0cc4
 
 require (
 	github.com/Azure/azure-sdk-for-go v66.0.0+incompatible // indirect
@@ -33,7 +33,7 @@ require (
 	github.com/google/uuid v1.1.2 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-azure-helpers v0.47.0 // indirect
-	github.com/hashicorp/go-azure-sdk v0.20221207.1121859 // indirect
+	github.com/hashicorp/go-azure-sdk v0.20230105.1121404 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320 // indirect
@@ -67,7 +67,7 @@ require (
 	github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 // indirect
 	github.com/rickb777/plural v1.2.0 // indirect
 	github.com/tombuildsstuff/giovanni v0.20.0 // indirect
-	github.com/tombuildsstuff/kermit v0.20221125.1100802 // indirect
+	github.com/tombuildsstuff/kermit v0.20221207.1110610 // indirect
 	github.com/vmihailenco/msgpack v4.0.4+incompatible // indirect
 	github.com/vmihailenco/msgpack/v4 v4.3.12 // indirect
 	github.com/vmihailenco/tagparser v0.1.1 // indirect

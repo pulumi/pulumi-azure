@@ -938,8 +938,8 @@ github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brv
 github.com/hashicorp/go-azure-helpers v0.12.0/go.mod h1:Zc3v4DNeX6PDdy7NljlYpnrdac1++qNW0I4U+ofGwpg=
 github.com/hashicorp/go-azure-helpers v0.47.0 h1:E90ZN2hqMtzI+tfGWCnNtyLZYG4csoKSs+hWZZ8ywSM=
 github.com/hashicorp/go-azure-helpers v0.47.0/go.mod h1:WiJNl0fD6PoM/MYuGTZ8yuzIaXQR3m2H2g6+EJ8nSwc=
-github.com/hashicorp/go-azure-sdk v0.20221207.1121859 h1:FVhKaMCtpeNfa+aoiuFt62rywpvY5pBEKtxgN35OnAo=
-github.com/hashicorp/go-azure-sdk v0.20221207.1121859/go.mod h1:BEjoURzcFwd+K3MqkbOt9jArIIrsqpBQ2Gz6DdemFIs=
+github.com/hashicorp/go-azure-sdk v0.20230105.1121404 h1:Tvzo98JY2y+cQxvjS+9S0MqyKZedQOhR1grM4PYSwzY=
+github.com/hashicorp/go-azure-sdk v0.20230105.1121404/go.mod h1:BEjoURzcFwd+K3MqkbOt9jArIIrsqpBQ2Gz6DdemFIs=
 github.com/hashicorp/go-checkpoint v0.5.0 h1:MFYpPZCnQqQTE18jFwSII6eUQrD/oxMFp3mlgcqk5mU=
 github.com/hashicorp/go-checkpoint v0.5.0/go.mod h1:7nfLNL10NsxqO4iWuW6tWW0HjZuDrwkBuEQsVcpCOgg=
 github.com/hashicorp/go-cleanhttp v0.5.0/go.mod h1:JpRdi6/HCYpAwUzNwuwqhbovhLtngrth3wmdIIUrZ80=
@@ -1546,8 +1546,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9 h1:JMw+t5I+6E8Lna7JF+ghAoOLOl23UIbshJyRNP+K1HU=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9/go.mod h1:mYPs/uchNcBq7AclQv9QUtSf9iNcfp1Ag21jqTlDf2M=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230104180040-4445b537850c h1:L5lfEav6dnvKEybCkqpaz12ybm2uznS8l1FwYwBNBiY=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230104180040-4445b537850c/go.mod h1:yA8ydDe3hw0hkUZYlQE0XzK7YPkI8FO65d1VXsLvTkk=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230109211715-fc3bdf9e0cc4 h1:1DODhD4cCxlCHfL6JuZZuJ1CB7XEvBd9L7zvPsdqMpM=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230109211715-fc3bdf9e0cc4/go.mod h1:NSuDYXvhbTQ0Z//dTex3BAJe82xqDQrupI2jKg7JEsI=
 github.com/rakyll/embedmd v0.0.0-20171029212350-c8060a0752a2/go.mod h1:7jOTMgqac46PZcF54q6l2hkLEG8op93fZu61KmxWDV4=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
@@ -1685,8 +1685,8 @@ github.com/tmc/grpc-websocket-proxy v0.0.0-20190109142713-0ad062ec5ee5/go.mod h1
 github.com/tmc/grpc-websocket-proxy v0.0.0-20201229170055-e5319fda7802/go.mod h1:ncp9v5uamzpCO7NfCPTXjqaC+bZgJeR0sMTm6dMHP7U=
 github.com/tombuildsstuff/giovanni v0.20.0 h1:IM/I/iNWMXnPYwcSq8uxV7TKDlv7Nejq0bRK9i6O/C0=
 github.com/tombuildsstuff/giovanni v0.20.0/go.mod h1:66KVLYma2whJhEdxPSPL3GQHkulhK+C5CluKfHGfPF4=
-github.com/tombuildsstuff/kermit v0.20221125.1100802 h1:oWMrM2i4/7sJY2pacKxEJFuG6oK8ggk0nC5nRgEnC7I=
-github.com/tombuildsstuff/kermit v0.20221125.1100802/go.mod h1:rLa19LUGz+w1EbdCcj+X4tK/goaTp1hQtdCHK7sbFz4=
+github.com/tombuildsstuff/kermit v0.20221207.1110610 h1:WzvCKNwvnbCGTEu+YtTDgrOZ6r6Lb6G6CEEziFIPUms=
+github.com/tombuildsstuff/kermit v0.20221207.1110610/go.mod h1:rLa19LUGz+w1EbdCcj+X4tK/goaTp1hQtdCHK7sbFz4=
 github.com/tv42/httpunix v0.0.0-20150427012821-b75d8614f926/go.mod h1:9ESjWnEqriFuLhtthL60Sar/7RFoluCcXsuvEwTV5KM=
 github.com/tv42/httpunix v0.0.0-20191220191345-2ba4b9c3382c/go.mod h1:hzIxponao9Kjc7aWznkXaL4U4TWaDSs8zcsY4Ka08nM=
 github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 h1:X9dsIWPuuEJlPX//UmRKophhOKCGXc46RVIGuttks68=
