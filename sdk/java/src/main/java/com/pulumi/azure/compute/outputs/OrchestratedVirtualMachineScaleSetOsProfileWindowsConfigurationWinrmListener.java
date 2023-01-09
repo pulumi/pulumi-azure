@@ -16,6 +16,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
      * 
      */
     private @Nullable String certificateUrl;
+    /**
+     * @return Specifies the protocol of listener. Possible values are `Http` or `Https`
+     * 
+     */
     private String protocol;
 
     private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener() {}
@@ -26,6 +30,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     public Optional<String> certificateUrl() {
         return Optional.ofNullable(this.certificateUrl);
     }
+    /**
+     * @return Specifies the protocol of listener. Possible values are `Http` or `Https`
+     * 
+     */
     public String protocol() {
         return this.protocol;
     }

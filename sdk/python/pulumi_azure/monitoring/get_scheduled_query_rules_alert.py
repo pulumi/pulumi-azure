@@ -79,7 +79,7 @@ class GetScheduledQueryRulesAlertResult:
     @pulumi.getter
     def actions(self) -> Sequence['outputs.GetScheduledQueryRulesAlertActionResult']:
         """
-        An `action` block as defined below.
+        supports the following:
         """
         return pulumi.get(self, "actions")
 
@@ -155,6 +155,9 @@ class GetScheduledQueryRulesAlertResult:
     @property
     @pulumi.getter(name="queryType")
     def query_type(self) -> str:
+        """
+        The type of query results.
+        """
         return pulumi.get(self, "query_type")
 
     @property

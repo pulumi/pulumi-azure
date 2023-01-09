@@ -85,7 +85,8 @@ type LinkedServiceAzureFileStorage struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the file share.
 	FileShare pulumi.StringPtrOutput `pulumi:"fileShare"`
-	Host      pulumi.StringPtrOutput `pulumi:"host"`
+	// The Host name of the server.
+	Host pulumi.StringPtrOutput `pulumi:"host"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
@@ -95,8 +96,10 @@ type LinkedServiceAzureFileStorage struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	Password   pulumi.StringPtrOutput `pulumi:"password"`
-	UserId     pulumi.StringPtrOutput `pulumi:"userId"`
+	// The password to log in the server.
+	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// The user ID to log in the server.
+	UserId pulumi.StringPtrOutput `pulumi:"userId"`
 }
 
 // NewLinkedServiceAzureFileStorage registers a new resource with the given unique name, arguments, and options.
@@ -157,7 +160,8 @@ type linkedServiceAzureFileStorageState struct {
 	Description *string `pulumi:"description"`
 	// The name of the file share.
 	FileShare *string `pulumi:"fileShare"`
-	Host      *string `pulumi:"host"`
+	// The Host name of the server.
+	Host *string `pulumi:"host"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
@@ -167,8 +171,10 @@ type linkedServiceAzureFileStorageState struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
-	Password   *string           `pulumi:"password"`
-	UserId     *string           `pulumi:"userId"`
+	// The password to log in the server.
+	Password *string `pulumi:"password"`
+	// The user ID to log in the server.
+	UserId *string `pulumi:"userId"`
 }
 
 type LinkedServiceAzureFileStorageState struct {
@@ -184,7 +190,8 @@ type LinkedServiceAzureFileStorageState struct {
 	Description pulumi.StringPtrInput
 	// The name of the file share.
 	FileShare pulumi.StringPtrInput
-	Host      pulumi.StringPtrInput
+	// The Host name of the server.
+	Host pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
@@ -194,8 +201,10 @@ type LinkedServiceAzureFileStorageState struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
-	Password   pulumi.StringPtrInput
-	UserId     pulumi.StringPtrInput
+	// The password to log in the server.
+	Password pulumi.StringPtrInput
+	// The user ID to log in the server.
+	UserId pulumi.StringPtrInput
 }
 
 func (LinkedServiceAzureFileStorageState) ElementType() reflect.Type {
@@ -215,7 +224,8 @@ type linkedServiceAzureFileStorageArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the file share.
 	FileShare *string `pulumi:"fileShare"`
-	Host      *string `pulumi:"host"`
+	// The Host name of the server.
+	Host *string `pulumi:"host"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
@@ -225,8 +235,10 @@ type linkedServiceAzureFileStorageArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
-	Password   *string           `pulumi:"password"`
-	UserId     *string           `pulumi:"userId"`
+	// The password to log in the server.
+	Password *string `pulumi:"password"`
+	// The user ID to log in the server.
+	UserId *string `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a LinkedServiceAzureFileStorage resource.
@@ -243,7 +255,8 @@ type LinkedServiceAzureFileStorageArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the file share.
 	FileShare pulumi.StringPtrInput
-	Host      pulumi.StringPtrInput
+	// The Host name of the server.
+	Host pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
@@ -253,8 +266,10 @@ type LinkedServiceAzureFileStorageArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
-	Password   pulumi.StringPtrInput
-	UserId     pulumi.StringPtrInput
+	// The password to log in the server.
+	Password pulumi.StringPtrInput
+	// The user ID to log in the server.
+	UserId pulumi.StringPtrInput
 }
 
 func (LinkedServiceAzureFileStorageArgs) ElementType() reflect.Type {
@@ -374,6 +389,7 @@ func (o LinkedServiceAzureFileStorageOutput) FileShare() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *LinkedServiceAzureFileStorage) pulumi.StringPtrOutput { return v.FileShare }).(pulumi.StringPtrOutput)
 }
 
+// The Host name of the server.
 func (o LinkedServiceAzureFileStorageOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureFileStorage) pulumi.StringPtrOutput { return v.Host }).(pulumi.StringPtrOutput)
 }
@@ -401,10 +417,12 @@ func (o LinkedServiceAzureFileStorageOutput) Parameters() pulumi.StringMapOutput
 	return o.ApplyT(func(v *LinkedServiceAzureFileStorage) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
+// The password to log in the server.
 func (o LinkedServiceAzureFileStorageOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureFileStorage) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The user ID to log in the server.
 func (o LinkedServiceAzureFileStorageOutput) UserId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureFileStorage) pulumi.StringPtrOutput { return v.UserId }).(pulumi.StringPtrOutput)
 }

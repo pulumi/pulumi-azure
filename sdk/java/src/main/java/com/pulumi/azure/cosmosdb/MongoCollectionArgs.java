@@ -19,9 +19,17 @@ public final class MongoCollectionArgs extends com.pulumi.resources.ResourceArgs
 
     public static final MongoCollectionArgs Empty = new MongoCollectionArgs();
 
+    /**
+     * The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="accountName", required=true)
     private Output<String> accountName;
 
+    /**
+     * @return The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> accountName() {
         return this.accountName;
     }
@@ -178,11 +186,23 @@ public final class MongoCollectionArgs extends com.pulumi.resources.ResourceArgs
             $ = new MongoCollectionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountName The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountName(Output<String> accountName) {
             $.accountName = accountName;
             return this;
         }
 
+        /**
+         * @param accountName The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountName(String accountName) {
             return accountName(Output.of(accountName));
         }

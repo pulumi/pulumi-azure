@@ -109,14 +109,14 @@ public class MonitorSsoConfiguration extends com.pulumi.resources.CustomResource
         return this.loginUrl;
     }
     /**
-     * The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+     * The name of the SingleSignOn configuration. Defaults to `default`.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+     * @return The name of the SingleSignOn configuration. Defaults to `default`.
      * 
      */
     public Output<String> name() {

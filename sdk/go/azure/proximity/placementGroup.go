@@ -62,6 +62,8 @@ import (
 type PlacementGroup struct {
 	pulumi.CustomResourceState
 
+	// Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+	AllowedVmSizes pulumi.StringArrayOutput `pulumi:"allowedVmSizes"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
@@ -70,6 +72,8 @@ type PlacementGroup struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
 // NewPlacementGroup registers a new resource with the given unique name, arguments, and options.
@@ -104,6 +108,8 @@ func GetPlacementGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PlacementGroup resources.
 type placementGroupState struct {
+	// Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+	AllowedVmSizes []string `pulumi:"allowedVmSizes"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
@@ -112,9 +118,13 @@ type placementGroupState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+	Zone *string `pulumi:"zone"`
 }
 
 type PlacementGroupState struct {
+	// Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+	AllowedVmSizes pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
@@ -123,6 +133,8 @@ type PlacementGroupState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+	Zone pulumi.StringPtrInput
 }
 
 func (PlacementGroupState) ElementType() reflect.Type {
@@ -130,6 +142,8 @@ func (PlacementGroupState) ElementType() reflect.Type {
 }
 
 type placementGroupArgs struct {
+	// Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+	AllowedVmSizes []string `pulumi:"allowedVmSizes"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
@@ -138,10 +152,14 @@ type placementGroupArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+	Zone *string `pulumi:"zone"`
 }
 
 // The set of arguments for constructing a PlacementGroup resource.
 type PlacementGroupArgs struct {
+	// Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+	AllowedVmSizes pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
@@ -150,6 +168,8 @@ type PlacementGroupArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+	Zone pulumi.StringPtrInput
 }
 
 func (PlacementGroupArgs) ElementType() reflect.Type {
@@ -239,6 +259,11 @@ func (o PlacementGroupOutput) ToPlacementGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+func (o PlacementGroupOutput) AllowedVmSizes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PlacementGroup) pulumi.StringArrayOutput { return v.AllowedVmSizes }).(pulumi.StringArrayOutput)
+}
+
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (o PlacementGroupOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
@@ -257,6 +282,11 @@ func (o PlacementGroupOutput) ResourceGroupName() pulumi.StringOutput {
 // A mapping of tags to assign to the resource.
 func (o PlacementGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+func (o PlacementGroupOutput) Zone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlacementGroup) pulumi.StringPtrOutput { return v.Zone }).(pulumi.StringPtrOutput)
 }
 
 type PlacementGroupArrayOutput struct{ *pulumi.OutputState }

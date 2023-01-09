@@ -34,11 +34,11 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetSecretArgs {
     /**
-     * The ID of the TODO.
+     * Specifies the ID of the Key Vault instance to fetch secret names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
      */
     keyVaultId: string;
     /**
-     * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+     * Specifies the name of the Key Vault Secret.
      */
     name: string;
 }
@@ -107,11 +107,11 @@ export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetSecretOutputArgs {
     /**
-     * The ID of the TODO.
+     * Specifies the ID of the Key Vault instance to fetch secret names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
      */
     keyVaultId: pulumi.Input<string>;
     /**
-     * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+     * Specifies the name of the Key Vault Secret.
      */
     name: pulumi.Input<string>;
 }

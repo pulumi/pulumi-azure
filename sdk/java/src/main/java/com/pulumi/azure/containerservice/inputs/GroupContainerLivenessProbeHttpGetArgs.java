@@ -48,14 +48,14 @@ public final class GroupContainerLivenessProbeHttpGetArgs extends com.pulumi.res
     }
 
     /**
-     * The port number the container will expose. Changing this forces a new resource to be created.
+     * Number of the port to access on the container. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port number the container will expose. Changing this forces a new resource to be created.
+     * @return Number of the port to access on the container. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -147,7 +147,7 @@ public final class GroupContainerLivenessProbeHttpGetArgs extends com.pulumi.res
         }
 
         /**
-         * @param port The port number the container will expose. Changing this forces a new resource to be created.
+         * @param port Number of the port to access on the container. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class GroupContainerLivenessProbeHttpGetArgs extends com.pulumi.res
         }
 
         /**
-         * @param port The port number the container will expose. Changing this forces a new resource to be created.
+         * @param port Number of the port to access on the container. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

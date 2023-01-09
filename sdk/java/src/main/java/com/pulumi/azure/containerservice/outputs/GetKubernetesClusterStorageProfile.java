@@ -10,25 +10,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetKubernetesClusterStorageProfile {
+    /**
+     * @return Is the Blob CSI driver enabled?
+     * 
+     */
     private Boolean blobDriverEnabled;
+    /**
+     * @return Is the Disk CSI driver enabled?
+     * 
+     */
     private Boolean diskDriverEnabled;
+    /**
+     * @return The configured Disk CSI Driver version.
+     * 
+     */
     private String diskDriverVersion;
+    /**
+     * @return Is the File CSI driver enabled?
+     * 
+     */
     private Boolean fileDriverEnabled;
+    /**
+     * @return Is the Snapshot Controller enabled?
+     * 
+     */
     private Boolean snapshotControllerEnabled;
 
     private GetKubernetesClusterStorageProfile() {}
+    /**
+     * @return Is the Blob CSI driver enabled?
+     * 
+     */
     public Boolean blobDriverEnabled() {
         return this.blobDriverEnabled;
     }
+    /**
+     * @return Is the Disk CSI driver enabled?
+     * 
+     */
     public Boolean diskDriverEnabled() {
         return this.diskDriverEnabled;
     }
+    /**
+     * @return The configured Disk CSI Driver version.
+     * 
+     */
     public String diskDriverVersion() {
         return this.diskDriverVersion;
     }
+    /**
+     * @return Is the File CSI driver enabled?
+     * 
+     */
     public Boolean fileDriverEnabled() {
         return this.fileDriverEnabled;
     }
+    /**
+     * @return Is the Snapshot Controller enabled?
+     * 
+     */
     public Boolean snapshotControllerEnabled() {
         return this.snapshotControllerEnabled;
     }

@@ -62,16 +62,14 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Resource ID for a Virtual Desktop Host Pool to associate with the
-     * Virtual Desktop Application Group.
+     * Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
      * 
      */
     @Import(name="hostPoolId")
     private @Nullable Output<String> hostPoolId;
 
     /**
-     * @return Resource ID for a Virtual Desktop Host Pool to associate with the
-     * Virtual Desktop Application Group.
+     * @return Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> hostPoolId() {
@@ -249,8 +247,7 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param hostPoolId Resource ID for a Virtual Desktop Host Pool to associate with the
-         * Virtual Desktop Application Group.
+         * @param hostPoolId Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -261,8 +258,7 @@ public final class ApplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param hostPoolId Resource ID for a Virtual Desktop Host Pool to associate with the
-         * Virtual Desktop Application Group.
+         * @param hostPoolId Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
          * 
          * @return builder
          * 

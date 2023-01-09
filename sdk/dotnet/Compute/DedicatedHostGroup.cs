@@ -83,6 +83,9 @@ namespace Pulumi.Azure.Compute
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
+        /// </summary>
         [Output("zone")]
         public Output<string?> Zone { get; private set; } = null!;
 
@@ -174,6 +177,9 @@ namespace Pulumi.Azure.Compute
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
+        /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
 
@@ -227,6 +233,9 @@ namespace Pulumi.Azure.Compute
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
+        /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
 

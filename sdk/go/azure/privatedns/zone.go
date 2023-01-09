@@ -72,7 +72,7 @@ type Zone struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// An `soaRecord` block as defined below. Changing this forces a new resource to be created.
 	SoaRecord ZoneSoaRecordOutput `pulumi:"soaRecord"`
-	// A mapping of tags to assign to the Record Set.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -122,7 +122,7 @@ type zoneState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// An `soaRecord` block as defined below. Changing this forces a new resource to be created.
 	SoaRecord *ZoneSoaRecord `pulumi:"soaRecord"`
-	// A mapping of tags to assign to the Record Set.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -141,7 +141,7 @@ type ZoneState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// An `soaRecord` block as defined below. Changing this forces a new resource to be created.
 	SoaRecord ZoneSoaRecordPtrInput
-	// A mapping of tags to assign to the Record Set.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
 
@@ -156,7 +156,7 @@ type zoneArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// An `soaRecord` block as defined below. Changing this forces a new resource to be created.
 	SoaRecord *ZoneSoaRecord `pulumi:"soaRecord"`
-	// A mapping of tags to assign to the Record Set.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -168,7 +168,7 @@ type ZoneArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// An `soaRecord` block as defined below. Changing this forces a new resource to be created.
 	SoaRecord ZoneSoaRecordPtrInput
-	// A mapping of tags to assign to the Record Set.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
 
@@ -294,7 +294,7 @@ func (o ZoneOutput) SoaRecord() ZoneSoaRecordOutput {
 	return o.ApplyT(func(v *Zone) ZoneSoaRecordOutput { return v.SoaRecord }).(ZoneSoaRecordOutput)
 }
 
-// A mapping of tags to assign to the Record Set.
+// A mapping of tags to assign to the resource.
 func (o ZoneOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Zone) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

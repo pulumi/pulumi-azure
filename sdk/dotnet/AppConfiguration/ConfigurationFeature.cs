@@ -118,7 +118,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<ImmutableArray<Outputs.ConfigurationFeatureTargetingFilter>> TargetingFilters { get; private set; } = null!;
 
         /// <summary>
-        /// A `targeting_filter` block `timewindow_filter` as defined below.
+        /// A `timewindow_filter` block as defined below.
         /// </summary>
         [Output("timewindowFilters")]
         public Output<ImmutableArray<Outputs.ConfigurationFeatureTimewindowFilter>> TimewindowFilters { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.AppConfiguration
         private InputList<Inputs.ConfigurationFeatureTimewindowFilterArgs>? _timewindowFilters;
 
         /// <summary>
-        /// A `targeting_filter` block `timewindow_filter` as defined below.
+        /// A `timewindow_filter` block as defined below.
         /// </summary>
         public InputList<Inputs.ConfigurationFeatureTimewindowFilterArgs> TimewindowFilters
         {
@@ -331,7 +331,7 @@ namespace Pulumi.Azure.AppConfiguration
         private InputList<Inputs.ConfigurationFeatureTimewindowFilterGetArgs>? _timewindowFilters;
 
         /// <summary>
-        /// A `targeting_filter` block `timewindow_filter` as defined below.
+        /// A `timewindow_filter` block as defined below.
         /// </summary>
         public InputList<Inputs.ConfigurationFeatureTimewindowFilterGetArgs> TimewindowFilters
         {

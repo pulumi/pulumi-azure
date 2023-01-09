@@ -44,10 +44,14 @@ func GetClientConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClie
 
 // A collection of values returned by getClientConfig.
 type GetClientConfigResult struct {
+	// is set to the Azure Client ID (Application Object ID).
 	ClientId string `pulumi:"clientId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id             string `pulumi:"id"`
-	ObjectId       string `pulumi:"objectId"`
+	Id string `pulumi:"id"`
+	// is set to the Azure Object ID.
+	ObjectId string `pulumi:"objectId"`
+	// is set to the Azure Subscription ID.
 	SubscriptionId string `pulumi:"subscriptionId"`
-	TenantId       string `pulumi:"tenantId"`
+	// is set to the Azure Tenant ID.
+	TenantId string `pulumi:"tenantId"`
 }

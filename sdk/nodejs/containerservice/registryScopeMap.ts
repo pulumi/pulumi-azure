@@ -80,6 +80,9 @@ export class RegistryScopeMap extends pulumi.CustomResource {
      * The name of the Container Registry. Changing this forces a new resource to be created.
      */
     public readonly containerRegistryName!: pulumi.Output<string>;
+    /**
+     * The description of the Container Registry.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the scope map. Changing this forces a new resource to be created.
@@ -142,6 +145,9 @@ export interface RegistryScopeMapState {
      * The name of the Container Registry. Changing this forces a new resource to be created.
      */
     containerRegistryName?: pulumi.Input<string>;
+    /**
+     * The description of the Container Registry.
+     */
     description?: pulumi.Input<string>;
     /**
      * Specifies the name of the scope map. Changing this forces a new resource to be created.
@@ -165,6 +171,9 @@ export interface RegistryScopeMapArgs {
      * The name of the Container Registry. Changing this forces a new resource to be created.
      */
     containerRegistryName: pulumi.Input<string>;
+    /**
+     * The description of the Container Registry.
+     */
     description?: pulumi.Input<string>;
     /**
      * Specifies the name of the scope map. Changing this forces a new resource to be created.

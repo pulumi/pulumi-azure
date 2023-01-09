@@ -58,6 +58,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
+        :param pulumi.Input[bool] encryption_at_host_enabled: Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
@@ -81,6 +82,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+        :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         """
         pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
@@ -235,6 +237,9 @@ class OrchestratedVirtualMachineScaleSetArgs:
     @property
     @pulumi.getter(name="encryptionAtHostEnabled")
     def encryption_at_host_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+        """
         return pulumi.get(self, "encryption_at_host_enabled")
 
     @encryption_at_host_enabled.setter
@@ -520,6 +525,9 @@ class OrchestratedVirtualMachineScaleSetArgs:
     @property
     @pulumi.getter(name="zoneBalance")
     def zone_balance(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "zone_balance")
 
     @zone_balance.setter
@@ -583,6 +591,7 @@ class _OrchestratedVirtualMachineScaleSetState:
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
+        :param pulumi.Input[bool] encryption_at_host_enabled: Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
@@ -609,6 +618,7 @@ class _OrchestratedVirtualMachineScaleSetState:
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] unique_id: The Unique ID for the Orchestrated Virtual Machine Scale Set.
         :param pulumi.Input[str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+        :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         """
         if additional_capabilities is not None:
@@ -743,6 +753,9 @@ class _OrchestratedVirtualMachineScaleSetState:
     @property
     @pulumi.getter(name="encryptionAtHostEnabled")
     def encryption_at_host_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+        """
         return pulumi.get(self, "encryption_at_host_enabled")
 
     @encryption_at_host_enabled.setter
@@ -1064,6 +1077,9 @@ class _OrchestratedVirtualMachineScaleSetState:
     @property
     @pulumi.getter(name="zoneBalance")
     def zone_balance(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "zone_balance")
 
     @zone_balance.setter
@@ -1160,6 +1176,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
+        :param pulumi.Input[bool] encryption_at_host_enabled: Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
@@ -1185,6 +1202,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+        :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         """
         ...
@@ -1377,6 +1395,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
+        :param pulumi.Input[bool] encryption_at_host_enabled: Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
@@ -1403,6 +1422,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] unique_id: The Unique ID for the Orchestrated Virtual Machine Scale Set.
         :param pulumi.Input[str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+        :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1488,6 +1508,9 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptionAtHostEnabled")
     def encryption_at_host_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+        """
         return pulumi.get(self, "encryption_at_host_enabled")
 
     @property
@@ -1701,6 +1724,9 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="zoneBalance")
     def zone_balance(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "zone_balance")
 
     @property

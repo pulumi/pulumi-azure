@@ -148,7 +148,8 @@ type HadoopCluster struct {
 	// A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier          pulumi.StringOutput    `pulumi:"tier"`
+	Tier pulumi.StringOutput `pulumi:"tier"`
+	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 	TlsMinVersion pulumi.StringPtrOutput `pulumi:"tlsMinVersion"`
 }
 
@@ -237,7 +238,8 @@ type hadoopClusterState struct {
 	// A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier          *string `pulumi:"tier"`
+	Tier *string `pulumi:"tier"`
+	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 	TlsMinVersion *string `pulumi:"tlsMinVersion"`
 }
 
@@ -280,7 +282,8 @@ type HadoopClusterState struct {
 	// A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
 	Tags pulumi.StringMapInput
 	// Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier          pulumi.StringPtrInput
+	Tier pulumi.StringPtrInput
+	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 	TlsMinVersion pulumi.StringPtrInput
 }
 
@@ -323,7 +326,8 @@ type hadoopClusterArgs struct {
 	// A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier          string  `pulumi:"tier"`
+	Tier string `pulumi:"tier"`
+	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 	TlsMinVersion *string `pulumi:"tlsMinVersion"`
 }
 
@@ -363,7 +367,8 @@ type HadoopClusterArgs struct {
 	// A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
 	Tags pulumi.StringMapInput
 	// Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier          pulumi.StringInput
+	Tier pulumi.StringInput
+	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 	TlsMinVersion pulumi.StringPtrInput
 }
 
@@ -553,6 +558,7 @@ func (o HadoopClusterOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v *HadoopCluster) pulumi.StringOutput { return v.Tier }).(pulumi.StringOutput)
 }
 
+// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 func (o HadoopClusterOutput) TlsMinVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopCluster) pulumi.StringPtrOutput { return v.TlsMinVersion }).(pulumi.StringPtrOutput)
 }

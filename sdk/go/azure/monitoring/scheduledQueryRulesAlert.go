@@ -45,7 +45,8 @@ type ScheduledQueryRulesAlert struct {
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Log search query.
-	Query     pulumi.StringOutput    `pulumi:"query"`
+	Query pulumi.StringOutput `pulumi:"query"`
+	// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
 	QueryType pulumi.StringPtrOutput `pulumi:"queryType"`
 	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -57,7 +58,7 @@ type ScheduledQueryRulesAlert struct {
 	Throttling pulumi.IntPtrOutput `pulumi:"throttling"`
 	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
 	TimeWindow pulumi.IntOutput `pulumi:"timeWindow"`
-	// The condition that results in the alert rule being run.
+	// A `trigger` block as defined below.
 	Trigger ScheduledQueryRulesAlertTriggerOutput `pulumi:"trigger"`
 }
 
@@ -131,7 +132,8 @@ type scheduledQueryRulesAlertState struct {
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Log search query.
-	Query     *string `pulumi:"query"`
+	Query *string `pulumi:"query"`
+	// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
 	QueryType *string `pulumi:"queryType"`
 	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -143,7 +145,7 @@ type scheduledQueryRulesAlertState struct {
 	Throttling *int `pulumi:"throttling"`
 	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
 	TimeWindow *int `pulumi:"timeWindow"`
-	// The condition that results in the alert rule being run.
+	// A `trigger` block as defined below.
 	Trigger *ScheduledQueryRulesAlertTrigger `pulumi:"trigger"`
 }
 
@@ -168,7 +170,8 @@ type ScheduledQueryRulesAlertState struct {
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Log search query.
-	Query     pulumi.StringPtrInput
+	Query pulumi.StringPtrInput
+	// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
 	QueryType pulumi.StringPtrInput
 	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -180,7 +183,7 @@ type ScheduledQueryRulesAlertState struct {
 	Throttling pulumi.IntPtrInput
 	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
 	TimeWindow pulumi.IntPtrInput
-	// The condition that results in the alert rule being run.
+	// A `trigger` block as defined below.
 	Trigger ScheduledQueryRulesAlertTriggerPtrInput
 }
 
@@ -209,7 +212,8 @@ type scheduledQueryRulesAlertArgs struct {
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Log search query.
-	Query     string  `pulumi:"query"`
+	Query string `pulumi:"query"`
+	// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
 	QueryType *string `pulumi:"queryType"`
 	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -221,7 +225,7 @@ type scheduledQueryRulesAlertArgs struct {
 	Throttling *int `pulumi:"throttling"`
 	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
 	TimeWindow int `pulumi:"timeWindow"`
-	// The condition that results in the alert rule being run.
+	// A `trigger` block as defined below.
 	Trigger ScheduledQueryRulesAlertTrigger `pulumi:"trigger"`
 }
 
@@ -247,7 +251,8 @@ type ScheduledQueryRulesAlertArgs struct {
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Log search query.
-	Query     pulumi.StringInput
+	Query pulumi.StringInput
+	// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
 	QueryType pulumi.StringPtrInput
 	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -259,7 +264,7 @@ type ScheduledQueryRulesAlertArgs struct {
 	Throttling pulumi.IntPtrInput
 	// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
 	TimeWindow pulumi.IntInput
-	// The condition that results in the alert rule being run.
+	// A `trigger` block as defined below.
 	Trigger ScheduledQueryRulesAlertTriggerInput
 }
 
@@ -401,6 +406,7 @@ func (o ScheduledQueryRulesAlertOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
 }
 
+// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
 func (o ScheduledQueryRulesAlertOutput) QueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.StringPtrOutput { return v.QueryType }).(pulumi.StringPtrOutput)
 }
@@ -430,7 +436,7 @@ func (o ScheduledQueryRulesAlertOutput) TimeWindow() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.IntOutput { return v.TimeWindow }).(pulumi.IntOutput)
 }
 
-// The condition that results in the alert rule being run.
+// A `trigger` block as defined below.
 func (o ScheduledQueryRulesAlertOutput) Trigger() ScheduledQueryRulesAlertTriggerOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) ScheduledQueryRulesAlertTriggerOutput { return v.Trigger }).(ScheduledQueryRulesAlertTriggerOutput)
 }

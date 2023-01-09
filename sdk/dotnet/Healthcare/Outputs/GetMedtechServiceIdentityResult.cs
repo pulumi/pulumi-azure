@@ -21,6 +21,9 @@ namespace Pulumi.Azure.Healthcare.Outputs
         /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
         /// </summary>
         public readonly string TenantId;
+        /// <summary>
+        /// The type of identity used for the Healthcare Med Tech Service. Possible values are `SystemAssigned`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

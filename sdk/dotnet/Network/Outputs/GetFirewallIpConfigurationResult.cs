@@ -21,6 +21,9 @@ namespace Pulumi.Azure.Network.Outputs
         /// The private IP address associated with the Azure Firewall.
         /// </summary>
         public readonly string PrivateIpAddress;
+        /// <summary>
+        /// The ID of the Public IP address of the Azure Firewall.
+        /// </summary>
         public readonly string PublicIpAddressId;
         /// <summary>
         /// The ID of the Subnet where the Azure Firewall is deployed.

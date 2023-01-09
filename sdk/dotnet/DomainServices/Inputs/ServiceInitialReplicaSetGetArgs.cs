@@ -31,7 +31,7 @@ namespace Pulumi.Azure.DomainServices.Inputs
         public Input<string>? ExternalAccessIpAddress { get; set; }
 
         /// <summary>
-        /// The ID of the Domain Service.
+        /// A unique ID for the replica set.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

@@ -112,9 +112,17 @@ public class RegistryScopeMap extends com.pulumi.resources.CustomResource {
     public Output<String> containerRegistryName() {
         return this.containerRegistryName;
     }
+    /**
+     * The description of the Container Registry.
+     * 
+     */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The description of the Container Registry.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }

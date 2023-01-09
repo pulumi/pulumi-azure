@@ -138,9 +138,17 @@ public class Enrichment extends com.pulumi.resources.CustomResource {
     public Output<List<String>> endpointNames() {
         return this.endpointNames;
     }
+    /**
+     * The IoTHub name of the enrichment. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="iothubName", type=String.class, parameters={})
     private Output<String> iothubName;
 
+    /**
+     * @return The IoTHub name of the enrichment. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> iothubName() {
         return this.iothubName;
     }
@@ -158,9 +166,17 @@ public class Enrichment extends com.pulumi.resources.CustomResource {
     public Output<String> key() {
         return this.key;
     }
+    /**
+     * The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
+    /**
+     * @return The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }

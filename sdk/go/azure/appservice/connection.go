@@ -124,7 +124,7 @@ type Connection struct {
 	Authentication ConnectionAuthenticationOutput `pulumi:"authentication"`
 	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType pulumi.StringPtrOutput `pulumi:"clientType"`
-	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
@@ -176,7 +176,7 @@ type connectionState struct {
 	Authentication *ConnectionAuthentication `pulumi:"authentication"`
 	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType *string `pulumi:"clientType"`
-	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+	// The name of the service connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
 	TargetResourceId *string `pulumi:"targetResourceId"`
@@ -191,7 +191,7 @@ type ConnectionState struct {
 	Authentication ConnectionAuthenticationPtrInput
 	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType pulumi.StringPtrInput
-	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
 	TargetResourceId pulumi.StringPtrInput
@@ -210,7 +210,7 @@ type connectionArgs struct {
 	Authentication ConnectionAuthentication `pulumi:"authentication"`
 	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType *string `pulumi:"clientType"`
-	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+	// The name of the service connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
 	TargetResourceId string `pulumi:"targetResourceId"`
@@ -226,7 +226,7 @@ type ConnectionArgs struct {
 	Authentication ConnectionAuthenticationInput
 	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType pulumi.StringPtrInput
-	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
 	TargetResourceId pulumi.StringInput
@@ -336,7 +336,7 @@ func (o ConnectionOutput) ClientType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.ClientType }).(pulumi.StringPtrOutput)
 }
 
-// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+// The name of the service connection. Changing this forces a new resource to be created.
 func (o ConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

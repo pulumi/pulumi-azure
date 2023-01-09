@@ -110,14 +110,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A mapping of tags to assign to the Record Set.
+     * A mapping of tags to assign to the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the Record Set.
+     * @return A mapping of tags to assign to the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -291,7 +291,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags to assign to the Record Set.
+         * @param tags A mapping of tags to assign to the resource.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags to assign to the Record Set.
+         * @param tags A mapping of tags to assign to the resource.
          * 
          * @return builder
          * 

@@ -105,6 +105,9 @@ export class ScheduledQueryRulesLog extends pulumi.CustomResource {
         return obj['__pulumiType'] === ScheduledQueryRulesLog.__pulumiType;
     }
 
+    /**
+     * A list of IDs of Resources referred into query.
+     */
     public readonly authorizedResourceIds!: pulumi.Output<string[] | undefined>;
     /**
      * A `criteria` block as defined below.
@@ -191,6 +194,9 @@ export class ScheduledQueryRulesLog extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ScheduledQueryRulesLog resources.
  */
 export interface ScheduledQueryRulesLogState {
+    /**
+     * A list of IDs of Resources referred into query.
+     */
     authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `criteria` block as defined below.
@@ -230,6 +236,9 @@ export interface ScheduledQueryRulesLogState {
  * The set of arguments for constructing a ScheduledQueryRulesLog resource.
  */
 export interface ScheduledQueryRulesLogArgs {
+    /**
+     * A list of IDs of Resources referred into query.
+     */
     authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `criteria` block as defined below.

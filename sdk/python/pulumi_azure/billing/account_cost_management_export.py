@@ -29,6 +29,7 @@ class AccountCostManagementExportArgs:
         :param pulumi.Input[str] billing_account_id: The id of the billing account on which to create an export. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountCostManagementExportExportDataOptionsArgs'] export_data_options: A `export_data_options` block as defined below.
         :param pulumi.Input['AccountCostManagementExportExportDataStorageLocationArgs'] export_data_storage_location: A `export_data_storage_location` block as defined below.
+        :param pulumi.Input[str] recurrence_period_end_date: The date the export will stop capturing information.
         :param pulumi.Input[str] recurrence_period_start_date: The date the export will start capturing information.
         :param pulumi.Input[str] recurrence_type: How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
         :param pulumi.Input[bool] active: Is the cost management export active? Default is `true`.
@@ -84,6 +85,9 @@ class AccountCostManagementExportArgs:
     @property
     @pulumi.getter(name="recurrencePeriodEndDate")
     def recurrence_period_end_date(self) -> pulumi.Input[str]:
+        """
+        The date the export will stop capturing information.
+        """
         return pulumi.get(self, "recurrence_period_end_date")
 
     @recurrence_period_end_date.setter
@@ -157,6 +161,7 @@ class _AccountCostManagementExportState:
         :param pulumi.Input['AccountCostManagementExportExportDataOptionsArgs'] export_data_options: A `export_data_options` block as defined below.
         :param pulumi.Input['AccountCostManagementExportExportDataStorageLocationArgs'] export_data_storage_location: A `export_data_storage_location` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recurrence_period_end_date: The date the export will stop capturing information.
         :param pulumi.Input[str] recurrence_period_start_date: The date the export will start capturing information.
         :param pulumi.Input[str] recurrence_type: How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
         """
@@ -240,6 +245,9 @@ class _AccountCostManagementExportState:
     @property
     @pulumi.getter(name="recurrencePeriodEndDate")
     def recurrence_period_end_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date the export will stop capturing information.
+        """
         return pulumi.get(self, "recurrence_period_end_date")
 
     @recurrence_period_end_date.setter
@@ -331,6 +339,7 @@ class AccountCostManagementExport(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataOptionsArgs']] export_data_options: A `export_data_options` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataStorageLocationArgs']] export_data_storage_location: A `export_data_storage_location` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recurrence_period_end_date: The date the export will stop capturing information.
         :param pulumi.Input[str] recurrence_period_start_date: The date the export will start capturing information.
         :param pulumi.Input[str] recurrence_type: How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
         """
@@ -461,6 +470,7 @@ class AccountCostManagementExport(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataOptionsArgs']] export_data_options: A `export_data_options` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataStorageLocationArgs']] export_data_storage_location: A `export_data_storage_location` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recurrence_period_end_date: The date the export will stop capturing information.
         :param pulumi.Input[str] recurrence_period_start_date: The date the export will start capturing information.
         :param pulumi.Input[str] recurrence_type: How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
         """
@@ -521,6 +531,9 @@ class AccountCostManagementExport(pulumi.CustomResource):
     @property
     @pulumi.getter(name="recurrencePeriodEndDate")
     def recurrence_period_end_date(self) -> pulumi.Output[str]:
+        """
+        The date the export will stop capturing information.
+        """
         return pulumi.get(self, "recurrence_period_end_date")
 
     @property

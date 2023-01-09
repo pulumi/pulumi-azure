@@ -2423,7 +2423,8 @@ type GetMedtechServiceIdentity struct {
 	PrincipalId string `pulumi:"principalId"`
 	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
 	TenantId string `pulumi:"tenantId"`
-	Type     string `pulumi:"type"`
+	// The type of identity used for the Healthcare Med Tech Service. Possible values are `SystemAssigned`.
+	Type string `pulumi:"type"`
 }
 
 // GetMedtechServiceIdentityInput is an input type that accepts GetMedtechServiceIdentityArgs and GetMedtechServiceIdentityOutput values.
@@ -2442,7 +2443,8 @@ type GetMedtechServiceIdentityArgs struct {
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	// The type of identity used for the Healthcare Med Tech Service. Possible values are `SystemAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetMedtechServiceIdentityArgs) ElementType() reflect.Type {
@@ -2506,6 +2508,7 @@ func (o GetMedtechServiceIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMedtechServiceIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
+// The type of identity used for the Healthcare Med Tech Service. Possible values are `SystemAssigned`.
 func (o GetMedtechServiceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMedtechServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }

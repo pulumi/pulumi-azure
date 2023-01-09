@@ -12,6 +12,9 @@ namespace Pulumi.Azure.DataFactory.Inputs
 
     public sealed class DataFlowSinkFlowletArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the reference data flow parameters from dataset.
+        /// </summary>
         [Input("datasetParameters")]
         public Input<string>? DatasetParameters { get; set; }
 

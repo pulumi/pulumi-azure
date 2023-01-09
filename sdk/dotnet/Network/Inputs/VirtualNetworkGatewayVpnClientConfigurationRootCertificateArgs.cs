@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+        /// A user-defined name of the root certificate. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -23,7 +23,6 @@ namespace Pulumi.Azure.Network.Inputs
         /// authority. The certificate must be provided in Base-64 encoded X.509 format
         /// (PEM). In particular, this argument *must not* include the
         /// `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
-        /// revoked.
         /// </summary>
         [Input("publicCertData", required: true)]
         public Input<string> PublicCertData { get; set; } = null!;

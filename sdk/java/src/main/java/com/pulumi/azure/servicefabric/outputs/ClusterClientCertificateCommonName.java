@@ -22,6 +22,10 @@ public final class ClusterClientCertificateCommonName {
      * 
      */
     private Boolean isAdmin;
+    /**
+     * @return The Issuer Thumbprint of the Certificate.
+     * 
+     */
     private @Nullable String issuerThumbprint;
 
     private ClusterClientCertificateCommonName() {}
@@ -39,6 +43,10 @@ public final class ClusterClientCertificateCommonName {
     public Boolean isAdmin() {
         return this.isAdmin;
     }
+    /**
+     * @return The Issuer Thumbprint of the Certificate.
+     * 
+     */
     public Optional<String> issuerThumbprint() {
         return Optional.ofNullable(this.issuerThumbprint);
     }

@@ -63,9 +63,17 @@ public final class GlobalVMShutdownScheduleState extends com.pulumi.resources.Re
         return Optional.ofNullable(this.location);
     }
 
+    /**
+     * The notification setting of a schedule. A `notification_settings` as defined below.
+     * 
+     */
     @Import(name="notificationSettings")
     private @Nullable Output<GlobalVMShutdownScheduleNotificationSettingsArgs> notificationSettings;
 
+    /**
+     * @return The notification setting of a schedule. A `notification_settings` as defined below.
+     * 
+     */
     public Optional<Output<GlobalVMShutdownScheduleNotificationSettingsArgs>> notificationSettings() {
         return Optional.ofNullable(this.notificationSettings);
     }
@@ -208,11 +216,23 @@ public final class GlobalVMShutdownScheduleState extends com.pulumi.resources.Re
             return location(Output.of(location));
         }
 
+        /**
+         * @param notificationSettings The notification setting of a schedule. A `notification_settings` as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notificationSettings(@Nullable Output<GlobalVMShutdownScheduleNotificationSettingsArgs> notificationSettings) {
             $.notificationSettings = notificationSettings;
             return this;
         }
 
+        /**
+         * @param notificationSettings The notification setting of a schedule. A `notification_settings` as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notificationSettings(GlobalVMShutdownScheduleNotificationSettingsArgs notificationSettings) {
             return notificationSettings(Output.of(notificationSettings));
         }

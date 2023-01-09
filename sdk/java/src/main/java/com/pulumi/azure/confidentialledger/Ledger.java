@@ -79,15 +79,31 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:confidentialledger/ledger:Ledger")
 public class Ledger extends com.pulumi.resources.CustomResource {
+    /**
+     * A list of `azuread_based_service_principal` blocks as defined below.
+     * 
+     */
     @Export(name="azureadBasedServicePrincipals", type=List.class, parameters={LedgerAzureadBasedServicePrincipal.class})
     private Output<List<LedgerAzureadBasedServicePrincipal>> azureadBasedServicePrincipals;
 
+    /**
+     * @return A list of `azuread_based_service_principal` blocks as defined below.
+     * 
+     */
     public Output<List<LedgerAzureadBasedServicePrincipal>> azureadBasedServicePrincipals() {
         return this.azureadBasedServicePrincipals;
     }
+    /**
+     * A list of `certificate_based_security_principal` blocks as defined below.
+     * 
+     */
     @Export(name="certificateBasedSecurityPrincipals", type=List.class, parameters={LedgerCertificateBasedSecurityPrincipal.class})
     private Output</* @Nullable */ List<LedgerCertificateBasedSecurityPrincipal>> certificateBasedSecurityPrincipals;
 
+    /**
+     * @return A list of `certificate_based_security_principal` blocks as defined below.
+     * 
+     */
     public Output<Optional<List<LedgerCertificateBasedSecurityPrincipal>>> certificateBasedSecurityPrincipals() {
         return Codegen.optional(this.certificateBasedSecurityPrincipals);
     }

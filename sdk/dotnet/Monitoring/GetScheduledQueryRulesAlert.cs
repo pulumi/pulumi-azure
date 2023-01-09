@@ -122,7 +122,7 @@ namespace Pulumi.Azure.Monitoring
     public sealed class GetScheduledQueryRulesAlertResult
     {
         /// <summary>
-        /// An `action` block as defined below.
+        /// supports the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetScheduledQueryRulesAlertActionResult> Actions;
         /// <summary>
@@ -158,6 +158,9 @@ namespace Pulumi.Azure.Monitoring
         /// Log search query.
         /// </summary>
         public readonly string Query;
+        /// <summary>
+        /// The type of query results.
+        /// </summary>
         public readonly string QueryType;
         public readonly string ResourceGroupName;
         /// <summary>

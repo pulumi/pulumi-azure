@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Backup.Outputs
     public sealed class PolicyVMRetentionWeekly
     {
         /// <summary>
-        /// The number of yearly backups to keep. Must be between `1` and `9999`
+        /// The number of weekly backups to keep. Must be between `1` and `9999`
         /// </summary>
         public readonly int Count;
         /// <summary>
-        /// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        /// The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         /// </summary>
         public readonly ImmutableArray<string> Weekdays;
 

@@ -13,6 +13,9 @@ namespace Pulumi.Azure.NetApp.Outputs
     [OutputType]
     public sealed class SnapshotPolicyMonthlySchedule
     {
+        /// <summary>
+        /// List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
+        /// </summary>
         public readonly ImmutableArray<int> DaysOfMonths;
         /// <summary>
         /// Hour of the day that the snapshots will be created, valid range is from 0 to 23.

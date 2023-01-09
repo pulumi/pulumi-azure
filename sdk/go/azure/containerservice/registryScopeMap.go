@@ -81,8 +81,9 @@ type RegistryScopeMap struct {
 	// A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
 	Actions pulumi.StringArrayOutput `pulumi:"actions"`
 	// The name of the Container Registry. Changing this forces a new resource to be created.
-	ContainerRegistryName pulumi.StringOutput    `pulumi:"containerRegistryName"`
-	Description           pulumi.StringPtrOutput `pulumi:"description"`
+	ContainerRegistryName pulumi.StringOutput `pulumi:"containerRegistryName"`
+	// The description of the Container Registry.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies the name of the scope map. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
@@ -131,7 +132,8 @@ type registryScopeMapState struct {
 	Actions []string `pulumi:"actions"`
 	// The name of the Container Registry. Changing this forces a new resource to be created.
 	ContainerRegistryName *string `pulumi:"containerRegistryName"`
-	Description           *string `pulumi:"description"`
+	// The description of the Container Registry.
+	Description *string `pulumi:"description"`
 	// Specifies the name of the scope map. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
@@ -143,7 +145,8 @@ type RegistryScopeMapState struct {
 	Actions pulumi.StringArrayInput
 	// The name of the Container Registry. Changing this forces a new resource to be created.
 	ContainerRegistryName pulumi.StringPtrInput
-	Description           pulumi.StringPtrInput
+	// The description of the Container Registry.
+	Description pulumi.StringPtrInput
 	// Specifies the name of the scope map. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
@@ -158,8 +161,9 @@ type registryScopeMapArgs struct {
 	// A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
 	Actions []string `pulumi:"actions"`
 	// The name of the Container Registry. Changing this forces a new resource to be created.
-	ContainerRegistryName string  `pulumi:"containerRegistryName"`
-	Description           *string `pulumi:"description"`
+	ContainerRegistryName string `pulumi:"containerRegistryName"`
+	// The description of the Container Registry.
+	Description *string `pulumi:"description"`
 	// Specifies the name of the scope map. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
@@ -172,7 +176,8 @@ type RegistryScopeMapArgs struct {
 	Actions pulumi.StringArrayInput
 	// The name of the Container Registry. Changing this forces a new resource to be created.
 	ContainerRegistryName pulumi.StringInput
-	Description           pulumi.StringPtrInput
+	// The description of the Container Registry.
+	Description pulumi.StringPtrInput
 	// Specifies the name of the scope map. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
@@ -276,6 +281,7 @@ func (o RegistryScopeMapOutput) ContainerRegistryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryScopeMap) pulumi.StringOutput { return v.ContainerRegistryName }).(pulumi.StringOutput)
 }
 
+// The description of the Container Registry.
 func (o RegistryScopeMapOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryScopeMap) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

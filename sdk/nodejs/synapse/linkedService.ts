@@ -40,6 +40,10 @@ import * as utilities from "../utilities";
  *     startIpAddress: "0.0.0.0",
  *     endIpAddress: "255.255.255.255",
  * });
+ * const exampleIntegrationRuntimeAzure = new azure.synapse.IntegrationRuntimeAzure("exampleIntegrationRuntimeAzure", {
+ *     synapseWorkspaceId: exampleWorkspace.id,
+ *     location: exampleResourceGroup.location,
+ * });
  * const exampleLinkedService = new azure.synapse.LinkedService("exampleLinkedService", {
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     type: "AzureBlobStorage",
@@ -47,6 +51,9 @@ import * as utilities from "../utilities";
  *   "connectionString": "${exampleAccount.primaryConnectionString}"
  * }
  * `,
+ *     integrationRuntime: {
+ *         name: exampleIntegrationRuntimeAzure.name,
+ *     },
  * }, {
  *     dependsOn: [exampleFirewallRule],
  * });

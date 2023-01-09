@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string> Image { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        /// Specifies the name of the Container. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

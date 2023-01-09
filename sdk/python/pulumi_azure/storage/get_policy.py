@@ -45,7 +45,7 @@ class GetPolicyResult:
     @pulumi.getter
     def rules(self) -> Sequence['outputs.GetPolicyRuleResult']:
         """
-        A `rule` block as documented below.
+        supports the following:
         """
         return pulumi.get(self, "rules")
 

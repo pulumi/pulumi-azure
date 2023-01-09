@@ -49,6 +49,9 @@ export interface GetScheduledQueryRulesLogArgs {
  * A collection of values returned by getScheduledQueryRulesLog.
  */
 export interface GetScheduledQueryRulesLogResult {
+    /**
+     * A list of IDs of Resources referred into query.
+     */
     readonly authorizedResourceIds: string[];
     /**
      * A `criteria` block as defined below.

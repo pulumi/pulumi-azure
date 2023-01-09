@@ -189,6 +189,9 @@ class GetCacheResult:
     @property
     @pulumi.getter(name="privateStaticIpAddress")
     def private_static_ip_address(self) -> str:
+        """
+        The Static IP Address assigned to the Redis Cache when hosted inside the Virtual Network.
+        """
         return pulumi.get(self, "private_static_ip_address")
 
     @property

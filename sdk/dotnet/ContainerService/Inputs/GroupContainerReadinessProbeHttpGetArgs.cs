@@ -31,7 +31,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The port number the container will expose. Changing this forces a new resource to be created.
+        /// Number of the port to access on the container. Changing this forces a new resource to be created.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

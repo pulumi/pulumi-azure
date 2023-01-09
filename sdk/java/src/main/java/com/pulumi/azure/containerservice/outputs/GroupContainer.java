@@ -71,7 +71,7 @@ public final class GroupContainer {
      */
     private @Nullable Double memoryLimit;
     /**
-     * @return Specifies the name of the Container Group. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Container. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -168,7 +168,7 @@ public final class GroupContainer {
         return Optional.ofNullable(this.memoryLimit);
     }
     /**
-     * @return Specifies the name of the Container Group. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Container. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

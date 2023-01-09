@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Backup.Outputs
     public sealed class PolicyFileShareRetentionDaily
     {
         /// <summary>
-        /// The number of yearly backups to keep. Must be between `1` and `10`
+        /// The number of daily backups to keep. Must be between `1` and `200` (inclusive)
         /// </summary>
         public readonly int Count;
 

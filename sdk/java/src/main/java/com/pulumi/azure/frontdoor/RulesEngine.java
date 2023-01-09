@@ -144,9 +144,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:frontdoor/rulesEngine:RulesEngine")
 public class RulesEngine extends com.pulumi.resources.CustomResource {
+    /**
+     * Whether this Rules engine configuration is enabled? Defaults to `true`.
+     * 
+     */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
+    /**
+     * @return Whether this Rules engine configuration is enabled? Defaults to `true`.
+     * 
+     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }

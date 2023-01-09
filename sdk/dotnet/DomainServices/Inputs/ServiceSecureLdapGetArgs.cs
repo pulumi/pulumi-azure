@@ -12,9 +12,15 @@ namespace Pulumi.Azure.DomainServices.Inputs
 
     public sealed class ServiceSecureLdapGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The expiry time of the certificate.
+        /// </summary>
         [Input("certificateExpiry")]
         public Input<string>? CertificateExpiry { get; set; }
 
+        /// <summary>
+        /// The thumbprint of the certificate.
+        /// </summary>
         [Input("certificateThumbprint")]
         public Input<string>? CertificateThumbprint { get; set; }
 
@@ -62,6 +68,9 @@ namespace Pulumi.Azure.DomainServices.Inputs
             }
         }
 
+        /// <summary>
+        /// The public certificate.
+        /// </summary>
         [Input("publicCertificate")]
         public Input<string>? PublicCertificate { get; set; }
 

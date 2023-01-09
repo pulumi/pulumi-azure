@@ -1962,7 +1962,7 @@ class ManagementPolicyRuleArgs:
         :param pulumi.Input['ManagementPolicyRuleActionsArgs'] actions: An `actions` block as documented below.
         :param pulumi.Input[bool] enabled: Boolean to specify whether the rule is enabled.
         :param pulumi.Input[str] name: The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
-        :param pulumi.Input['ManagementPolicyRuleFiltersArgs'] filters: A `filter` block as documented below.
+        :param pulumi.Input['ManagementPolicyRuleFiltersArgs'] filters: A `filters` block as documented below.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "enabled", enabled)
@@ -2010,7 +2010,7 @@ class ManagementPolicyRuleArgs:
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input['ManagementPolicyRuleFiltersArgs']]:
         """
-        A `filter` block as documented below.
+        A `filters` block as documented below.
         """
         return pulumi.get(self, "filters")
 

@@ -49,11 +49,17 @@ export class Enrichment extends pulumi.CustomResource {
      * The list of endpoints which will be enriched.
      */
     public readonly endpointNames!: pulumi.Output<string[]>;
+    /**
+     * The IoTHub name of the enrichment. Changing this forces a new resource to be created.
+     */
     public readonly iothubName!: pulumi.Output<string>;
     /**
      * The key of the enrichment. Changing this forces a new resource to be created.
      */
     public readonly key!: pulumi.Output<string>;
+    /**
+     * The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created.
+     */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
@@ -114,11 +120,17 @@ export interface EnrichmentState {
      * The list of endpoints which will be enriched.
      */
     endpointNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The IoTHub name of the enrichment. Changing this forces a new resource to be created.
+     */
     iothubName?: pulumi.Input<string>;
     /**
      * The key of the enrichment. Changing this forces a new resource to be created.
      */
     key?: pulumi.Input<string>;
+    /**
+     * The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created.
+     */
     resourceGroupName?: pulumi.Input<string>;
     /**
      * The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
@@ -134,11 +146,17 @@ export interface EnrichmentArgs {
      * The list of endpoints which will be enriched.
      */
     endpointNames: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The IoTHub name of the enrichment. Changing this forces a new resource to be created.
+     */
     iothubName: pulumi.Input<string>;
     /**
      * The key of the enrichment. Changing this forces a new resource to be created.
      */
     key: pulumi.Input<string>;
+    /**
+     * The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created.
+     */
     resourceGroupName: pulumi.Input<string>;
     /**
      * The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)

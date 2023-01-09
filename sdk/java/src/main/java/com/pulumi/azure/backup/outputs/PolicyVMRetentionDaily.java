@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class PolicyVMRetentionDaily {
     /**
-     * @return The number of yearly backups to keep. Must be between `1` and `9999`
+     * @return The number of daily backups to keep. Must be between `7` and `9999`.
      * 
      */
     private Integer count;
 
     private PolicyVMRetentionDaily() {}
     /**
-     * @return The number of yearly backups to keep. Must be between `1` and `9999`
+     * @return The number of daily backups to keep. Must be between `7` and `9999`.
      * 
      */
     public Integer count() {

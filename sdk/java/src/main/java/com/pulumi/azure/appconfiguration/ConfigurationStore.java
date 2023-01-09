@@ -204,9 +204,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:appconfiguration/configurationStore:ConfigurationStore")
 public class ConfigurationStore extends com.pulumi.resources.CustomResource {
+    /**
+     * An `encryption` block as defined below.
+     * 
+     */
     @Export(name="encryption", type=ConfigurationStoreEncryption.class, parameters={})
     private Output</* @Nullable */ ConfigurationStoreEncryption> encryption;
 
+    /**
+     * @return An `encryption` block as defined below.
+     * 
+     */
     public Output<Optional<ConfigurationStoreEncryption>> encryption() {
         return Codegen.optional(this.encryption);
     }

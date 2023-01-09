@@ -65,7 +65,13 @@ export class Ledger extends pulumi.CustomResource {
         return obj['__pulumiType'] === Ledger.__pulumiType;
     }
 
+    /**
+     * A list of `azureadBasedServicePrincipal` blocks as defined below.
+     */
     public readonly azureadBasedServicePrincipals!: pulumi.Output<outputs.confidentialledger.LedgerAzureadBasedServicePrincipal[]>;
+    /**
+     * A list of `certificateBasedSecurityPrincipal` blocks as defined below.
+     */
     public readonly certificateBasedSecurityPrincipals!: pulumi.Output<outputs.confidentialledger.LedgerCertificateBasedSecurityPrincipal[] | undefined>;
     /**
      * The Identity Service Endpoint for this Confidential Ledger.
@@ -148,7 +154,13 @@ export class Ledger extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Ledger resources.
  */
 export interface LedgerState {
+    /**
+     * A list of `azureadBasedServicePrincipal` blocks as defined below.
+     */
     azureadBasedServicePrincipals?: pulumi.Input<pulumi.Input<inputs.confidentialledger.LedgerAzureadBasedServicePrincipal>[]>;
+    /**
+     * A list of `certificateBasedSecurityPrincipal` blocks as defined below.
+     */
     certificateBasedSecurityPrincipals?: pulumi.Input<pulumi.Input<inputs.confidentialledger.LedgerCertificateBasedSecurityPrincipal>[]>;
     /**
      * The Identity Service Endpoint for this Confidential Ledger.
@@ -184,7 +196,13 @@ export interface LedgerState {
  * The set of arguments for constructing a Ledger resource.
  */
 export interface LedgerArgs {
+    /**
+     * A list of `azureadBasedServicePrincipal` blocks as defined below.
+     */
     azureadBasedServicePrincipals: pulumi.Input<pulumi.Input<inputs.confidentialledger.LedgerAzureadBasedServicePrincipal>[]>;
+    /**
+     * A list of `certificateBasedSecurityPrincipal` blocks as defined below.
+     */
     certificateBasedSecurityPrincipals?: pulumi.Input<pulumi.Input<inputs.confidentialledger.LedgerCertificateBasedSecurityPrincipal>[]>;
     /**
      * Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created.

@@ -36,6 +36,7 @@ class SnapshotPolicyArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input['SnapshotPolicyMonthlyScheduleArgs'] monthly_schedule: Sets a monthly snapshot schedule. See details in below `monthly_schedule` block.
         :param pulumi.Input[str] name: The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['SnapshotPolicyWeeklyScheduleArgs'] weekly_schedule: Sets a weekly snapshot schedule. See details in below `weekly_schedule` block.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -155,6 +156,9 @@ class SnapshotPolicyArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -197,6 +201,7 @@ class _SnapshotPolicyState:
         :param pulumi.Input['SnapshotPolicyMonthlyScheduleArgs'] monthly_schedule: Sets a monthly snapshot schedule. See details in below `monthly_schedule` block.
         :param pulumi.Input[str] name: The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['SnapshotPolicyWeeklyScheduleArgs'] weekly_schedule: Sets a weekly snapshot schedule. See details in below `weekly_schedule` block.
         """
         if account_name is not None:
@@ -319,6 +324,9 @@ class _SnapshotPolicyState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -421,6 +429,7 @@ class SnapshotPolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SnapshotPolicyMonthlyScheduleArgs']] monthly_schedule: Sets a monthly snapshot schedule. See details in below `monthly_schedule` block.
         :param pulumi.Input[str] name: The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['SnapshotPolicyWeeklyScheduleArgs']] weekly_schedule: Sets a weekly snapshot schedule. See details in below `weekly_schedule` block.
         """
         ...
@@ -571,6 +580,7 @@ class SnapshotPolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SnapshotPolicyMonthlyScheduleArgs']] monthly_schedule: Sets a monthly snapshot schedule. See details in below `monthly_schedule` block.
         :param pulumi.Input[str] name: The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['SnapshotPolicyWeeklyScheduleArgs']] weekly_schedule: Sets a weekly snapshot schedule. See details in below `weekly_schedule` block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -656,6 +666,9 @@ class SnapshotPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property

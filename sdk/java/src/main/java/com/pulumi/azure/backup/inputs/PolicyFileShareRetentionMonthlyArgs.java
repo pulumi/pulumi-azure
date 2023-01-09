@@ -16,14 +16,14 @@ public final class PolicyFileShareRetentionMonthlyArgs extends com.pulumi.resour
     public static final PolicyFileShareRetentionMonthlyArgs Empty = new PolicyFileShareRetentionMonthlyArgs();
 
     /**
-     * The number of yearly backups to keep. Must be between `1` and `10`
+     * The number of monthly backups to keep. Must be between `1` and `120`
      * 
      */
     @Import(name="count", required=true)
     private Output<Integer> count;
 
     /**
-     * @return The number of yearly backups to keep. Must be between `1` and `10`
+     * @return The number of monthly backups to keep. Must be between `1` and `120`
      * 
      */
     public Output<Integer> count() {
@@ -87,7 +87,7 @@ public final class PolicyFileShareRetentionMonthlyArgs extends com.pulumi.resour
         }
 
         /**
-         * @param count The number of yearly backups to keep. Must be between `1` and `10`
+         * @param count The number of monthly backups to keep. Must be between `1` and `120`
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class PolicyFileShareRetentionMonthlyArgs extends com.pulumi.resour
         }
 
         /**
-         * @param count The number of yearly backups to keep. Must be between `1` and `10`
+         * @param count The number of monthly backups to keep. Must be between `1` and `120`
          * 
          * @return builder
          * 

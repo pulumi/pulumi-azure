@@ -72,7 +72,7 @@ type LookupAccountResult struct {
 	AllowNestedItemsToBePublic bool `pulumi:"allowNestedItemsToBePublic"`
 	// A `azureFilesAuthentication` block as documented below.
 	AzureFilesAuthentications []GetAccountAzureFilesAuthentication `pulumi:"azureFilesAuthentications"`
-	// A `customDomain` block as documented below.
+	// supports the following:
 	CustomDomains []GetAccountCustomDomain `pulumi:"customDomains"`
 	// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
 	// for more information.
@@ -239,7 +239,7 @@ func (o LookupAccountResultOutput) AzureFilesAuthentications() GetAccountAzureFi
 	return o.ApplyT(func(v LookupAccountResult) []GetAccountAzureFilesAuthentication { return v.AzureFilesAuthentications }).(GetAccountAzureFilesAuthenticationArrayOutput)
 }
 
-// A `customDomain` block as documented below.
+// supports the following:
 func (o LookupAccountResultOutput) CustomDomains() GetAccountCustomDomainArrayOutput {
 	return o.ApplyT(func(v LookupAccountResult) []GetAccountCustomDomain { return v.CustomDomains }).(GetAccountCustomDomainArrayOutput)
 }

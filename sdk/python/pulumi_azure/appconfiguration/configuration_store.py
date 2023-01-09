@@ -30,6 +30,7 @@ class ConfigurationStoreArgs:
         """
         The set of arguments for constructing a ConfigurationStore resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input['ConfigurationStoreEncryptionArgs'] encryption: An `encryption` block as defined below.
         :param pulumi.Input['ConfigurationStoreIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -77,6 +78,9 @@ class ConfigurationStoreArgs:
     @property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['ConfigurationStoreEncryptionArgs']]:
+        """
+        An `encryption` block as defined below.
+        """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
@@ -213,6 +217,7 @@ class _ConfigurationStoreState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ConfigurationStore resources.
+        :param pulumi.Input['ConfigurationStoreEncryptionArgs'] encryption: An `encryption` block as defined below.
         :param pulumi.Input[str] endpoint: The URL of the App Configuration.
         :param pulumi.Input['ConfigurationStoreIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`.
@@ -265,6 +270,9 @@ class _ConfigurationStoreState:
     @property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['ConfigurationStoreEncryptionArgs']]:
+        """
+        An `encryption` block as defined below.
+        """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
@@ -580,6 +588,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ConfigurationStoreEncryptionArgs']] encryption: An `encryption` block as defined below.
         :param pulumi.Input[pulumi.InputType['ConfigurationStoreIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -792,6 +801,7 @@ class ConfigurationStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ConfigurationStoreEncryptionArgs']] encryption: An `encryption` block as defined below.
         :param pulumi.Input[str] endpoint: The URL of the App Configuration.
         :param pulumi.Input[pulumi.InputType['ConfigurationStoreIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`.
@@ -833,6 +843,9 @@ class ConfigurationStore(pulumi.CustomResource):
     @property
     @pulumi.getter
     def encryption(self) -> pulumi.Output[Optional['outputs.ConfigurationStoreEncryption']]:
+        """
+        An `encryption` block as defined below.
+        """
         return pulumi.get(self, "encryption")
 
     @property

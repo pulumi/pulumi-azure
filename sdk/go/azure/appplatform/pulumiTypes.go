@@ -5436,7 +5436,8 @@ type SpringCloudServiceRequiredNetworkTrafficRule struct {
 	// The direction of required traffic. Possible values are `Inbound`, `Outbound`.
 	Direction *string `pulumi:"direction"`
 	// The FQDN list of required traffic.
-	Fqdns       []string `pulumi:"fqdns"`
+	Fqdns []string `pulumi:"fqdns"`
+	// The IP list of required traffic.
 	IpAddresses []string `pulumi:"ipAddresses"`
 	// The port of required traffic.
 	Port *int `pulumi:"port"`
@@ -5459,7 +5460,8 @@ type SpringCloudServiceRequiredNetworkTrafficRuleArgs struct {
 	// The direction of required traffic. Possible values are `Inbound`, `Outbound`.
 	Direction pulumi.StringPtrInput `pulumi:"direction"`
 	// The FQDN list of required traffic.
-	Fqdns       pulumi.StringArrayInput `pulumi:"fqdns"`
+	Fqdns pulumi.StringArrayInput `pulumi:"fqdns"`
+	// The IP list of required traffic.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 	// The port of required traffic.
 	Port pulumi.IntPtrInput `pulumi:"port"`
@@ -5528,6 +5530,7 @@ func (o SpringCloudServiceRequiredNetworkTrafficRuleOutput) Fqdns() pulumi.Strin
 	return o.ApplyT(func(v SpringCloudServiceRequiredNetworkTrafficRule) []string { return v.Fqdns }).(pulumi.StringArrayOutput)
 }
 
+// The IP list of required traffic.
 func (o SpringCloudServiceRequiredNetworkTrafficRuleOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpringCloudServiceRequiredNetworkTrafficRule) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }

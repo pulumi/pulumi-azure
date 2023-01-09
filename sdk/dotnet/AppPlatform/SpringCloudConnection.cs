@@ -121,7 +121,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string?> ClientType { get; private set; } = null!;
 
         /// <summary>
-        /// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        /// The name of the service connection. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? ClientType { get; set; }
 
         /// <summary>
-        /// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        /// The name of the service connection. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? ClientType { get; set; }
 
         /// <summary>
-        /// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        /// The name of the service connection. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

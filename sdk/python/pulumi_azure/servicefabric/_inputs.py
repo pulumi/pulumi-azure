@@ -226,6 +226,7 @@ class ClusterClientCertificateCommonNameArgs:
         """
         :param pulumi.Input[str] common_name: The common or subject name of the certificate.
         :param pulumi.Input[bool] is_admin: Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+        :param pulumi.Input[str] issuer_thumbprint: The Issuer Thumbprint of the Certificate.
         """
         pulumi.set(__self__, "common_name", common_name)
         pulumi.set(__self__, "is_admin", is_admin)
@@ -259,6 +260,9 @@ class ClusterClientCertificateCommonNameArgs:
     @property
     @pulumi.getter(name="issuerThumbprint")
     def issuer_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Issuer Thumbprint of the Certificate.
+        """
         return pulumi.get(self, "issuer_thumbprint")
 
     @issuer_thumbprint.setter
@@ -849,6 +853,7 @@ class ClusterUpgradePolicyArgs:
                  upgrade_timeout: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['ClusterUpgradePolicyDeltaHealthPolicyArgs'] delta_health_policy: A `delta_health_policy` block as defined below
+        :param pulumi.Input[bool] force_restart_enabled: Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
         :param pulumi.Input[str] health_check_retry_timeout: Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
         :param pulumi.Input[str] health_check_stable_duration: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to `00:01:00`.
         :param pulumi.Input[str] health_check_wait_duration: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to `00:00:30`.
@@ -891,6 +896,9 @@ class ClusterUpgradePolicyArgs:
     @property
     @pulumi.getter(name="forceRestartEnabled")
     def force_restart_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
+        """
         return pulumi.get(self, "force_restart_enabled")
 
     @force_restart_enabled.setter

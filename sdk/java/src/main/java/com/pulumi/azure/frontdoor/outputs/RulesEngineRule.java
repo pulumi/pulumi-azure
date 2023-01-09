@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RulesEngineRule {
     /**
-     * @return A `rule_action` block as defined below.
+     * @return An `action` block as defined below.
      * 
      */
     private @Nullable RulesEngineRuleAction action;
@@ -38,7 +38,7 @@ public final class RulesEngineRule {
 
     private RulesEngineRule() {}
     /**
-     * @return A `rule_action` block as defined below.
+     * @return An `action` block as defined below.
      * 
      */
     public Optional<RulesEngineRuleAction> action() {

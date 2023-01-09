@@ -35,6 +35,7 @@ class FrontdoorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]] frontend_endpoints: A `frontend_endpoint` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]] routing_rules: A `routing_rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]] backend_pool_settings: A `backend_pool_settings` block as defined below.
         :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
         :param pulumi.Input[bool] load_balancer_enabled: Should the Front Door Load Balancer be Enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
@@ -132,6 +133,9 @@ class FrontdoorArgs:
     @property
     @pulumi.getter(name="backendPoolSettings")
     def backend_pool_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]]:
+        """
+        A `backend_pool_settings` block as defined below.
+        """
         return pulumi.get(self, "backend_pool_settings")
 
     @backend_pool_settings.setter
@@ -215,6 +219,7 @@ class _FrontdoorState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backend_pool_health_probes_map: A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backend_pool_load_balancing_settings_map: A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]] backend_pool_load_balancings: A `backend_pool_load_balancing` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]] backend_pool_settings: A `backend_pool_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]] backend_pools: A `backend_pool` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backend_pools_map: A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
         :param pulumi.Input[str] cname: The host that each frontendEndpoint must CNAME to.
@@ -319,6 +324,9 @@ class _FrontdoorState:
     @property
     @pulumi.getter(name="backendPoolSettings")
     def backend_pool_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]]:
+        """
+        A `backend_pool_settings` block as defined below.
+        """
         return pulumi.get(self, "backend_pool_settings")
 
     @backend_pool_settings.setter
@@ -566,6 +574,7 @@ class Frontdoor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolHealthProbeArgs']]]] backend_pool_health_probes: A `backend_pool_health_probe` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolLoadBalancingArgs']]]] backend_pool_load_balancings: A `backend_pool_load_balancing` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolSettingArgs']]]] backend_pool_settings: A `backend_pool_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolArgs']]]] backend_pools: A `backend_pool` block as defined below.
         :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFrontendEndpointArgs']]]] frontend_endpoints: A `frontend_endpoint` block as defined below.
@@ -741,6 +750,7 @@ class Frontdoor(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backend_pool_health_probes_map: A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backend_pool_load_balancing_settings_map: A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolLoadBalancingArgs']]]] backend_pool_load_balancings: A `backend_pool_load_balancing` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolSettingArgs']]]] backend_pool_settings: A `backend_pool_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolArgs']]]] backend_pools: A `backend_pool` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backend_pools_map: A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
         :param pulumi.Input[str] cname: The host that each frontendEndpoint must CNAME to.
@@ -815,6 +825,9 @@ class Frontdoor(pulumi.CustomResource):
     @property
     @pulumi.getter(name="backendPoolSettings")
     def backend_pool_settings(self) -> pulumi.Output[Optional[Sequence['outputs.FrontdoorBackendPoolSetting']]]:
+        """
+        A `backend_pool_settings` block as defined below.
+        """
         return pulumi.get(self, "backend_pool_settings")
 
     @property

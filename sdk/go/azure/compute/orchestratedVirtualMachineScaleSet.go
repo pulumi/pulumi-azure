@@ -78,8 +78,9 @@ type OrchestratedVirtualMachineScaleSet struct {
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrOutput `pulumi:"capacityReservationGroupId"`
 	// One or more `dataDisk` blocks as defined below.
-	DataDisks               OrchestratedVirtualMachineScaleSetDataDiskArrayOutput `pulumi:"dataDisks"`
-	EncryptionAtHostEnabled pulumi.BoolPtrOutput                                  `pulumi:"encryptionAtHostEnabled"`
+	DataDisks OrchestratedVirtualMachineScaleSetDataDiskArrayOutput `pulumi:"dataDisks"`
+	// Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled pulumi.BoolPtrOutput `pulumi:"encryptionAtHostEnabled"`
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
@@ -132,7 +133,8 @@ type OrchestratedVirtualMachineScaleSet struct {
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 pulumi.StringPtrOutput `pulumi:"userDataBase64"`
-	ZoneBalance    pulumi.BoolPtrOutput   `pulumi:"zoneBalance"`
+	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+	ZoneBalance pulumi.BoolPtrOutput `pulumi:"zoneBalance"`
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
@@ -188,8 +190,9 @@ type orchestratedVirtualMachineScaleSetState struct {
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// One or more `dataDisk` blocks as defined below.
-	DataDisks               []OrchestratedVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
-	EncryptionAtHostEnabled *bool                                        `pulumi:"encryptionAtHostEnabled"`
+	DataDisks []OrchestratedVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
+	// Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
@@ -242,7 +245,8 @@ type orchestratedVirtualMachineScaleSetState struct {
 	UniqueId *string `pulumi:"uniqueId"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
-	ZoneBalance    *bool   `pulumi:"zoneBalance"`
+	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+	ZoneBalance *bool `pulumi:"zoneBalance"`
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 	Zones []string `pulumi:"zones"`
 }
@@ -257,7 +261,8 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput
 	// One or more `dataDisk` blocks as defined below.
-	DataDisks               OrchestratedVirtualMachineScaleSetDataDiskArrayInput
+	DataDisks OrchestratedVirtualMachineScaleSetDataDiskArrayInput
+	// Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
@@ -311,7 +316,8 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	UniqueId pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 pulumi.StringPtrInput
-	ZoneBalance    pulumi.BoolPtrInput
+	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+	ZoneBalance pulumi.BoolPtrInput
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 	Zones pulumi.StringArrayInput
 }
@@ -330,8 +336,9 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// One or more `dataDisk` blocks as defined below.
-	DataDisks               []OrchestratedVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
-	EncryptionAtHostEnabled *bool                                        `pulumi:"encryptionAtHostEnabled"`
+	DataDisks []OrchestratedVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
+	// Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
@@ -382,7 +389,8 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	TerminationNotification *OrchestratedVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
-	ZoneBalance    *bool   `pulumi:"zoneBalance"`
+	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+	ZoneBalance *bool `pulumi:"zoneBalance"`
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 	Zones []string `pulumi:"zones"`
 }
@@ -398,7 +406,8 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput
 	// One or more `dataDisk` blocks as defined below.
-	DataDisks               OrchestratedVirtualMachineScaleSetDataDiskArrayInput
+	DataDisks OrchestratedVirtualMachineScaleSetDataDiskArrayInput
+	// Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
@@ -450,7 +459,8 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	TerminationNotification OrchestratedVirtualMachineScaleSetTerminationNotificationPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 pulumi.StringPtrInput
-	ZoneBalance    pulumi.BoolPtrInput
+	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+	ZoneBalance pulumi.BoolPtrInput
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 	Zones pulumi.StringArrayInput
 }
@@ -577,6 +587,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) DataDisks() OrchestratedVirtua
 	}).(OrchestratedVirtualMachineScaleSetDataDiskArrayOutput)
 }
 
+// Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
 func (o OrchestratedVirtualMachineScaleSetOutput) EncryptionAtHostEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.EncryptionAtHostEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -727,6 +738,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) UserDataBase64() pulumi.String
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.UserDataBase64 }).(pulumi.StringPtrOutput)
 }
 
+// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOutput) ZoneBalance() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.ZoneBalance }).(pulumi.BoolPtrOutput)
 }

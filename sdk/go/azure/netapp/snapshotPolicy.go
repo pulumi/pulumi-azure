@@ -112,8 +112,9 @@ type SnapshotPolicy struct {
 	// The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
-	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.
 	WeeklySchedule SnapshotPolicyWeeklyScheduleOutput `pulumi:"weeklySchedule"`
 }
@@ -171,8 +172,9 @@ type snapshotPolicyState struct {
 	// The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
-	ResourceGroupName *string           `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.
 	WeeklySchedule *SnapshotPolicyWeeklySchedule `pulumi:"weeklySchedule"`
 }
@@ -194,7 +196,8 @@ type SnapshotPolicyState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.
 	WeeklySchedule SnapshotPolicyWeeklySchedulePtrInput
 }
@@ -219,8 +222,9 @@ type snapshotPolicyArgs struct {
 	// The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.
 	WeeklySchedule *SnapshotPolicyWeeklySchedule `pulumi:"weeklySchedule"`
 }
@@ -243,7 +247,8 @@ type SnapshotPolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Tags              pulumi.StringMapInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.
 	WeeklySchedule SnapshotPolicyWeeklySchedulePtrInput
 }
@@ -375,6 +380,7 @@ func (o SnapshotPolicyOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// A mapping of tags to assign to the resource.
 func (o SnapshotPolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

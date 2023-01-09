@@ -47,14 +47,14 @@ public final class SpringCloudConnectionState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+     * The name of the service connection. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+     * @return The name of the service connection. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -178,7 +178,7 @@ public final class SpringCloudConnectionState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+         * @param name The name of the service connection. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class SpringCloudConnectionState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+         * @param name The name of the service connection. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

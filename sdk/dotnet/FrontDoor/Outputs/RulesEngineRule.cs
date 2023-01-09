@@ -14,7 +14,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
     public sealed class RulesEngineRule
     {
         /// <summary>
-        /// A `rule_action` block as defined below.
+        /// An `action` block as defined below.
         /// </summary>
         public readonly Outputs.RulesEngineRuleAction? Action;
         /// <summary>

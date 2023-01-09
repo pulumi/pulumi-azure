@@ -94,14 +94,14 @@ public final class LinkedServiceAzureDatabricksNewClusterConfigArgs extends com.
     }
 
     /**
-     * The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+     * Specifies the maximum number of worker nodes. It should be between 1 and 25000.
      * 
      */
     @Import(name="maxNumberOfWorkers")
     private @Nullable Output<Integer> maxNumberOfWorkers;
 
     /**
-     * @return The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+     * @return Specifies the maximum number of worker nodes. It should be between 1 and 25000.
      * 
      */
     public Optional<Output<Integer>> maxNumberOfWorkers() {
@@ -109,14 +109,14 @@ public final class LinkedServiceAzureDatabricksNewClusterConfigArgs extends com.
     }
 
     /**
-     * The minimum number of worker nodes. Defaults to `1`.
+     * Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
      * 
      */
     @Import(name="minNumberOfWorkers")
     private @Nullable Output<Integer> minNumberOfWorkers;
 
     /**
-     * @return The minimum number of worker nodes. Defaults to `1`.
+     * @return Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
      * 
      */
     public Optional<Output<Integer>> minNumberOfWorkers() {
@@ -317,7 +317,7 @@ public final class LinkedServiceAzureDatabricksNewClusterConfigArgs extends com.
         }
 
         /**
-         * @param maxNumberOfWorkers The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+         * @param maxNumberOfWorkers Specifies the maximum number of worker nodes. It should be between 1 and 25000.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class LinkedServiceAzureDatabricksNewClusterConfigArgs extends com.
         }
 
         /**
-         * @param maxNumberOfWorkers The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+         * @param maxNumberOfWorkers Specifies the maximum number of worker nodes. It should be between 1 and 25000.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class LinkedServiceAzureDatabricksNewClusterConfigArgs extends com.
         }
 
         /**
-         * @param minNumberOfWorkers The minimum number of worker nodes. Defaults to `1`.
+         * @param minNumberOfWorkers Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class LinkedServiceAzureDatabricksNewClusterConfigArgs extends com.
         }
 
         /**
-         * @param minNumberOfWorkers The minimum number of worker nodes. Defaults to `1`.
+         * @param minNumberOfWorkers Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
          * 
          * @return builder
          * 

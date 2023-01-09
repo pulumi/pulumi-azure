@@ -47,14 +47,14 @@ public final class ServiceInitialReplicaSetArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The ID of the Domain Service.
+     * A unique ID for the replica set.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ID of the Domain Service.
+     * @return A unique ID for the replica set.
      * 
      */
     public Optional<Output<String>> id() {
@@ -188,7 +188,7 @@ public final class ServiceInitialReplicaSetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param id The ID of the Domain Service.
+         * @param id A unique ID for the replica set.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class ServiceInitialReplicaSetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param id The ID of the Domain Service.
+         * @param id A unique ID for the replica set.
          * 
          * @return builder
          * 

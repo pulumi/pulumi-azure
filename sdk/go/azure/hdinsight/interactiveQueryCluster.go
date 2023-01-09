@@ -150,7 +150,8 @@ type InteractiveQueryCluster struct {
 	// A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier          pulumi.StringOutput    `pulumi:"tier"`
+	Tier pulumi.StringOutput `pulumi:"tier"`
+	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 	TlsMinVersion pulumi.StringPtrOutput `pulumi:"tlsMinVersion"`
 }
 
@@ -241,7 +242,8 @@ type interactiveQueryClusterState struct {
 	// A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier          *string `pulumi:"tier"`
+	Tier *string `pulumi:"tier"`
+	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 	TlsMinVersion *string `pulumi:"tlsMinVersion"`
 }
 
@@ -286,7 +288,8 @@ type InteractiveQueryClusterState struct {
 	// A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
 	Tags pulumi.StringMapInput
 	// Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier          pulumi.StringPtrInput
+	Tier pulumi.StringPtrInput
+	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 	TlsMinVersion pulumi.StringPtrInput
 }
 
@@ -331,7 +334,8 @@ type interactiveQueryClusterArgs struct {
 	// A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier          string  `pulumi:"tier"`
+	Tier string `pulumi:"tier"`
+	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 	TlsMinVersion *string `pulumi:"tlsMinVersion"`
 }
 
@@ -373,7 +377,8 @@ type InteractiveQueryClusterArgs struct {
 	// A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
 	Tags pulumi.StringMapInput
 	// Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier          pulumi.StringInput
+	Tier pulumi.StringInput
+	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 	TlsMinVersion pulumi.StringPtrInput
 }
 
@@ -580,6 +585,7 @@ func (o InteractiveQueryClusterOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v *InteractiveQueryCluster) pulumi.StringOutput { return v.Tier }).(pulumi.StringOutput)
 }
 
+// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterOutput) TlsMinVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryCluster) pulumi.StringPtrOutput { return v.TlsMinVersion }).(pulumi.StringPtrOutput)
 }

@@ -26,7 +26,8 @@ type Volume struct {
 	pulumi.CustomResourceState
 
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName                 pulumi.StringOutput  `pulumi:"accountName"`
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+	// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
 	AzureVmwareDataStoreEnabled pulumi.BoolPtrOutput `pulumi:"azureVmwareDataStoreEnabled"`
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringOutput `pulumi:"createFromSnapshotResourceId"`
@@ -121,8 +122,9 @@ func GetVolume(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Volume resources.
 type volumeState struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName                 *string `pulumi:"accountName"`
-	AzureVmwareDataStoreEnabled *bool   `pulumi:"azureVmwareDataStoreEnabled"`
+	AccountName *string `pulumi:"accountName"`
+	// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+	AzureVmwareDataStoreEnabled *bool `pulumi:"azureVmwareDataStoreEnabled"`
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId *string `pulumi:"createFromSnapshotResourceId"`
 	// A `dataProtectionReplication` block as defined below.
@@ -167,7 +169,8 @@ type volumeState struct {
 
 type VolumeState struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName                 pulumi.StringPtrInput
+	AccountName pulumi.StringPtrInput
+	// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
 	AzureVmwareDataStoreEnabled pulumi.BoolPtrInput
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrInput
@@ -217,8 +220,9 @@ func (VolumeState) ElementType() reflect.Type {
 
 type volumeArgs struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName                 string `pulumi:"accountName"`
-	AzureVmwareDataStoreEnabled *bool  `pulumi:"azureVmwareDataStoreEnabled"`
+	AccountName string `pulumi:"accountName"`
+	// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+	AzureVmwareDataStoreEnabled *bool `pulumi:"azureVmwareDataStoreEnabled"`
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId *string `pulumi:"createFromSnapshotResourceId"`
 	// A `dataProtectionReplication` block as defined below.
@@ -262,7 +266,8 @@ type volumeArgs struct {
 // The set of arguments for constructing a Volume resource.
 type VolumeArgs struct {
 	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-	AccountName                 pulumi.StringInput
+	AccountName pulumi.StringInput
+	// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
 	AzureVmwareDataStoreEnabled pulumi.BoolPtrInput
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
 	CreateFromSnapshotResourceId pulumi.StringPtrInput
@@ -396,6 +401,7 @@ func (o VolumeOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
 }
 
+// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
 func (o VolumeOutput) AzureVmwareDataStoreEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.AzureVmwareDataStoreEnabled }).(pulumi.BoolPtrOutput)
 }

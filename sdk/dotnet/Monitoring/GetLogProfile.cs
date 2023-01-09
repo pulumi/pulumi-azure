@@ -120,6 +120,9 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly ImmutableArray<string> Locations;
         public readonly string Name;
+        /// <summary>
+        /// a `retention_policy` block as documented below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetLogProfileRetentionPolicyResult> RetentionPolicies;
         /// <summary>
         /// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to.

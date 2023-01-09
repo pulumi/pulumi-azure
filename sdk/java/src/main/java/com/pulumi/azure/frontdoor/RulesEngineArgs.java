@@ -18,9 +18,17 @@ public final class RulesEngineArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RulesEngineArgs Empty = new RulesEngineArgs();
 
+    /**
+     * Whether this Rules engine configuration is enabled? Defaults to `true`.
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return Whether this Rules engine configuration is enabled? Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -113,11 +121,23 @@ public final class RulesEngineArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RulesEngineArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param enabled Whether this Rules engine configuration is enabled? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled Whether this Rules engine configuration is enabled? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

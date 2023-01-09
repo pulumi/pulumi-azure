@@ -321,9 +321,17 @@ public final class HBaseClusterState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tier);
     }
 
+    /**
+     * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="tlsMinVersion")
     private @Nullable Output<String> tlsMinVersion;
 
+    /**
+     * @return The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> tlsMinVersion() {
         return Optional.ofNullable(this.tlsMinVersion);
     }
@@ -794,11 +802,23 @@ public final class HBaseClusterState extends com.pulumi.resources.ResourceArgs {
             return tier(Output.of(tier));
         }
 
+        /**
+         * @param tlsMinVersion The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tlsMinVersion(@Nullable Output<String> tlsMinVersion) {
             $.tlsMinVersion = tlsMinVersion;
             return this;
         }
 
+        /**
+         * @param tlsMinVersion The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tlsMinVersion(String tlsMinVersion) {
             return tlsMinVersion(Output.of(tlsMinVersion));
         }

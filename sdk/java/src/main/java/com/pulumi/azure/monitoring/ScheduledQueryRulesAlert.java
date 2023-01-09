@@ -176,9 +176,17 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
     public Output<String> query() {
         return this.query;
     }
+    /**
+     * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+     * 
+     */
     @Export(name="queryType", type=String.class, parameters={})
     private Output</* @Nullable */ String> queryType;
 
+    /**
+     * @return The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+     * 
+     */
     public Output<Optional<String>> queryType() {
         return Codegen.optional(this.queryType);
     }
@@ -253,14 +261,14 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
         return this.timeWindow;
     }
     /**
-     * The condition that results in the alert rule being run.
+     * A `trigger` block as defined below.
      * 
      */
     @Export(name="trigger", type=ScheduledQueryRulesAlertTrigger.class, parameters={})
     private Output<ScheduledQueryRulesAlertTrigger> trigger;
 
     /**
-     * @return The condition that results in the alert rule being run.
+     * @return A `trigger` block as defined below.
      * 
      */
     public Output<ScheduledQueryRulesAlertTrigger> trigger() {

@@ -219,6 +219,9 @@ namespace Pulumi.Azure.HDInsight
         [Output("tier")]
         public Output<string> Tier { get; private set; } = null!;
 
+        /// <summary>
+        /// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("tlsMinVersion")]
         public Output<string?> TlsMinVersion { get; private set; } = null!;
 
@@ -390,6 +393,9 @@ namespace Pulumi.Azure.HDInsight
         [Input("tier", required: true)]
         public Input<string> Tier { get; set; } = null!;
 
+        /// <summary>
+        /// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("tlsMinVersion")]
         public Input<string>? TlsMinVersion { get; set; }
 
@@ -535,6 +541,9 @@ namespace Pulumi.Azure.HDInsight
         [Input("tier")]
         public Input<string>? Tier { get; set; }
 
+        /// <summary>
+        /// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("tlsMinVersion")]
         public Input<string>? TlsMinVersion { get; set; }
 

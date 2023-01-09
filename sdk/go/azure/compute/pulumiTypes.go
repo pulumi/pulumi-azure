@@ -3528,9 +3528,11 @@ type LinuxVirtualMachineScaleSetDataDisk struct {
 	// The name of the Data Disk.
 	Name *string `pulumi:"name"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
-	StorageAccountType        string `pulumi:"storageAccountType"`
-	UltraSsdDiskIopsReadWrite *int   `pulumi:"ultraSsdDiskIopsReadWrite"`
-	UltraSsdDiskMbpsReadWrite *int   `pulumi:"ultraSsdDiskMbpsReadWrite"`
+	StorageAccountType string `pulumi:"storageAccountType"`
+	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+	UltraSsdDiskIopsReadWrite *int `pulumi:"ultraSsdDiskIopsReadWrite"`
+	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+	UltraSsdDiskMbpsReadWrite *int `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
@@ -3560,8 +3562,10 @@ type LinuxVirtualMachineScaleSetDataDiskArgs struct {
 	// The name of the Data Disk.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
-	StorageAccountType        pulumi.StringInput `pulumi:"storageAccountType"`
+	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
 	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskIopsReadWrite"`
+	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
 	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
@@ -3653,10 +3657,12 @@ func (o LinuxVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi.S
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
+// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskIopsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskIopsReadWrite }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskMbpsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
@@ -8285,17 +8291,20 @@ type OrchestratedVirtualMachineScaleSetDataDisk struct {
 	Caching string `pulumi:"caching"`
 	// The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
 	CreateOption *string `pulumi:"createOption"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+	// The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 	Lun int `pulumi:"lun"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
-	StorageAccountType        string `pulumi:"storageAccountType"`
-	UltraSsdDiskIopsReadWrite *int   `pulumi:"ultraSsdDiskIopsReadWrite"`
-	UltraSsdDiskMbpsReadWrite *int   `pulumi:"ultraSsdDiskMbpsReadWrite"`
-	WriteAcceleratorEnabled   *bool  `pulumi:"writeAcceleratorEnabled"`
+	StorageAccountType string `pulumi:"storageAccountType"`
+	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+	UltraSsdDiskIopsReadWrite *int `pulumi:"ultraSsdDiskIopsReadWrite"`
+	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+	UltraSsdDiskMbpsReadWrite *int `pulumi:"ultraSsdDiskMbpsReadWrite"`
+	// Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
+	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
 
 // OrchestratedVirtualMachineScaleSetDataDiskInput is an input type that accepts OrchestratedVirtualMachineScaleSetDataDiskArgs and OrchestratedVirtualMachineScaleSetDataDiskOutput values.
@@ -8314,17 +8323,20 @@ type OrchestratedVirtualMachineScaleSetDataDiskArgs struct {
 	Caching pulumi.StringInput `pulumi:"caching"`
 	// The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
 	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+	// The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 	Lun pulumi.IntInput `pulumi:"lun"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
-	StorageAccountType        pulumi.StringInput  `pulumi:"storageAccountType"`
-	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput  `pulumi:"ultraSsdDiskIopsReadWrite"`
-	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput  `pulumi:"ultraSsdDiskMbpsReadWrite"`
-	WriteAcceleratorEnabled   pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
+	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskIopsReadWrite"`
+	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskMbpsReadWrite"`
+	// Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
+	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
 }
 
 func (OrchestratedVirtualMachineScaleSetDataDiskArgs) ElementType() reflect.Type {
@@ -8388,7 +8400,7 @@ func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) CreateOption() pulumi.
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *string { return v.CreateOption }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+// The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -8408,14 +8420,17 @@ func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) StorageAccountType() p
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
+// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskIopsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskIopsReadWrite }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskMbpsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
 
+// Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -8456,8 +8471,9 @@ type OrchestratedVirtualMachineScaleSetExtension struct {
 	// A `protectedSettingsFromKeyVault` block as defined below.
 	ProtectedSettingsFromKeyVault *OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault `pulumi:"protectedSettingsFromKeyVault"`
 	// Specifies the Publisher of the Extension.
-	Publisher string  `pulumi:"publisher"`
-	Settings  *string `pulumi:"settings"`
+	Publisher string `pulumi:"publisher"`
+	// A JSON String which specifies Settings for the Extension.
+	Settings *string `pulumi:"settings"`
 	// Specifies the Type of the Extension.
 	Type string `pulumi:"type"`
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
@@ -8491,8 +8507,9 @@ type OrchestratedVirtualMachineScaleSetExtensionArgs struct {
 	// A `protectedSettingsFromKeyVault` block as defined below.
 	ProtectedSettingsFromKeyVault OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput `pulumi:"protectedSettingsFromKeyVault"`
 	// Specifies the Publisher of the Extension.
-	Publisher pulumi.StringInput    `pulumi:"publisher"`
-	Settings  pulumi.StringPtrInput `pulumi:"settings"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// A JSON String which specifies Settings for the Extension.
+	Settings pulumi.StringPtrInput `pulumi:"settings"`
 	// Specifies the Type of the Extension.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
@@ -8594,6 +8611,7 @@ func (o OrchestratedVirtualMachineScaleSetExtensionOutput) Publisher() pulumi.St
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
+// A JSON String which specifies Settings for the Extension.
 func (o OrchestratedVirtualMachineScaleSetExtensionOutput) Settings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) *string { return v.Settings }).(pulumi.StringPtrOutput)
 }
@@ -9550,8 +9568,9 @@ type OrchestratedVirtualMachineScaleSetOsDisk struct {
 	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-	StorageAccountType      string `pulumi:"storageAccountType"`
-	WriteAcceleratorEnabled *bool  `pulumi:"writeAcceleratorEnabled"`
+	StorageAccountType string `pulumi:"storageAccountType"`
+	// Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
+	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
 
 // OrchestratedVirtualMachineScaleSetOsDiskInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsDiskArgs and OrchestratedVirtualMachineScaleSetOsDiskOutput values.
@@ -9575,7 +9594,8 @@ type OrchestratedVirtualMachineScaleSetOsDiskArgs struct {
 	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-	StorageAccountType      pulumi.StringInput  `pulumi:"storageAccountType"`
+	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	// Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
 }
 
@@ -9683,6 +9703,7 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) StorageAccountType() pul
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
+// Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
 func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDisk) *bool { return v.WriteAcceleratorEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -9761,6 +9782,7 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) StorageAccountType() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
 func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsDisk) *bool {
 		if v == nil {
@@ -11287,7 +11309,8 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCer
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener struct {
 	// The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
 	CertificateUrl *string `pulumi:"certificateUrl"`
-	Protocol       string  `pulumi:"protocol"`
+	// Specifies the protocol of listener. Possible values are `Http` or `Https`
+	Protocol string `pulumi:"protocol"`
 }
 
 // OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput values.
@@ -11304,7 +11327,8 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListene
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs struct {
 	// The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
-	Protocol       pulumi.StringInput    `pulumi:"protocol"`
+	// Specifies the protocol of listener. Possible values are `Http` or `Https`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
 func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs) ElementType() reflect.Type {
@@ -11365,6 +11389,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmList
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the protocol of listener. Possible values are `Http` or `Https`
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener) string {
 		return v.Protocol
@@ -21644,9 +21669,11 @@ type WindowsVirtualMachineScaleSetDataDisk struct {
 	// The name of the Data Disk.
 	Name *string `pulumi:"name"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
-	StorageAccountType        string `pulumi:"storageAccountType"`
-	UltraSsdDiskIopsReadWrite *int   `pulumi:"ultraSsdDiskIopsReadWrite"`
-	UltraSsdDiskMbpsReadWrite *int   `pulumi:"ultraSsdDiskMbpsReadWrite"`
+	StorageAccountType string `pulumi:"storageAccountType"`
+	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+	UltraSsdDiskIopsReadWrite *int `pulumi:"ultraSsdDiskIopsReadWrite"`
+	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+	UltraSsdDiskMbpsReadWrite *int `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
@@ -21676,8 +21703,10 @@ type WindowsVirtualMachineScaleSetDataDiskArgs struct {
 	// The name of the Data Disk.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
-	StorageAccountType        pulumi.StringInput `pulumi:"storageAccountType"`
+	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
 	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskIopsReadWrite"`
+	// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
 	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
@@ -21769,10 +21798,12 @@ func (o WindowsVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
+// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskIopsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskIopsReadWrite }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskMbpsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
@@ -25604,7 +25635,8 @@ func (o WindowsVirtualMachineTerminationNotificationPtrOutput) Timeout() pulumi.
 type WindowsVirtualMachineWinrmListener struct {
 	// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
 	CertificateUrl *string `pulumi:"certificateUrl"`
-	Protocol       string  `pulumi:"protocol"`
+	// Specifies the protocol of listener. Possible values are `Http` or `Https`
+	Protocol string `pulumi:"protocol"`
 }
 
 // WindowsVirtualMachineWinrmListenerInput is an input type that accepts WindowsVirtualMachineWinrmListenerArgs and WindowsVirtualMachineWinrmListenerOutput values.
@@ -25621,7 +25653,8 @@ type WindowsVirtualMachineWinrmListenerInput interface {
 type WindowsVirtualMachineWinrmListenerArgs struct {
 	// The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
-	Protocol       pulumi.StringInput    `pulumi:"protocol"`
+	// Specifies the protocol of listener. Possible values are `Http` or `Https`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
 func (WindowsVirtualMachineWinrmListenerArgs) ElementType() reflect.Type {
@@ -25680,6 +25713,7 @@ func (o WindowsVirtualMachineWinrmListenerOutput) CertificateUrl() pulumi.String
 	return o.ApplyT(func(v WindowsVirtualMachineWinrmListener) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the protocol of listener. Possible values are `Http` or `Https`
 func (o WindowsVirtualMachineWinrmListenerOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineWinrmListener) string { return v.Protocol }).(pulumi.StringOutput)
 }

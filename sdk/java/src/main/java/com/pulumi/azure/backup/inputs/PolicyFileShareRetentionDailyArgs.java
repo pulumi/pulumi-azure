@@ -14,14 +14,14 @@ public final class PolicyFileShareRetentionDailyArgs extends com.pulumi.resource
     public static final PolicyFileShareRetentionDailyArgs Empty = new PolicyFileShareRetentionDailyArgs();
 
     /**
-     * The number of yearly backups to keep. Must be between `1` and `10`
+     * The number of daily backups to keep. Must be between `1` and `200` (inclusive)
      * 
      */
     @Import(name="count", required=true)
     private Output<Integer> count;
 
     /**
-     * @return The number of yearly backups to keep. Must be between `1` and `10`
+     * @return The number of daily backups to keep. Must be between `1` and `200` (inclusive)
      * 
      */
     public Output<Integer> count() {
@@ -53,7 +53,7 @@ public final class PolicyFileShareRetentionDailyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param count The number of yearly backups to keep. Must be between `1` and `10`
+         * @param count The number of daily backups to keep. Must be between `1` and `200` (inclusive)
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class PolicyFileShareRetentionDailyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param count The number of yearly backups to keep. Must be between `1` and `10`
+         * @param count The number of daily backups to keep. Must be between `1` and `200` (inclusive)
          * 
          * @return builder
          * 

@@ -25,6 +25,10 @@ public final class GetSqlDatabaseResult {
     private String id;
     private String name;
     private String resourceGroupName;
+    /**
+     * @return The throughput of SQL database (RU/s).
+     * 
+     */
     private Integer throughput;
 
     private GetSqlDatabaseResult() {}
@@ -51,6 +55,10 @@ public final class GetSqlDatabaseResult {
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * @return The throughput of SQL database (RU/s).
+     * 
+     */
     public Integer throughput() {
         return this.throughput;
     }

@@ -205,6 +205,11 @@ export const getVirtualHub: typeof import("./getVirtualHub").getVirtualHub = nul
 export const getVirtualHubOutput: typeof import("./getVirtualHub").getVirtualHubOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualHub","getVirtualHubOutput"], () => require("./getVirtualHub"));
 
+export { GetVirtualHubRouteTableArgs, GetVirtualHubRouteTableResult, GetVirtualHubRouteTableOutputArgs } from "./getVirtualHubRouteTable";
+export const getVirtualHubRouteTable: typeof import("./getVirtualHubRouteTable").getVirtualHubRouteTable = null as any;
+export const getVirtualHubRouteTableOutput: typeof import("./getVirtualHubRouteTable").getVirtualHubRouteTableOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualHubRouteTable","getVirtualHubRouteTableOutput"], () => require("./getVirtualHubRouteTable"));
+
 export { GetVirtualNetworkArgs, GetVirtualNetworkResult, GetVirtualNetworkOutputArgs } from "./getVirtualNetwork";
 export const getVirtualNetwork: typeof import("./getVirtualNetwork").getVirtualNetwork = null as any;
 export const getVirtualNetworkOutput: typeof import("./getVirtualNetwork").getVirtualNetworkOutput = null as any;
@@ -289,6 +294,11 @@ export { NetworkManagerArgs, NetworkManagerState } from "./networkManager";
 export type NetworkManager = import("./networkManager").NetworkManager;
 export const NetworkManager: typeof import("./networkManager").NetworkManager = null as any;
 utilities.lazyLoad(exports, ["NetworkManager"], () => require("./networkManager"));
+
+export { NetworkManagerNetworkGroupArgs, NetworkManagerNetworkGroupState } from "./networkManagerNetworkGroup";
+export type NetworkManagerNetworkGroup = import("./networkManagerNetworkGroup").NetworkManagerNetworkGroup;
+export const NetworkManagerNetworkGroup: typeof import("./networkManagerNetworkGroup").NetworkManagerNetworkGroup = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerNetworkGroup"], () => require("./networkManagerNetworkGroup"));
 
 export { NetworkPacketCaptureArgs, NetworkPacketCaptureState } from "./networkPacketCapture";
 export type NetworkPacketCapture = import("./networkPacketCapture").NetworkPacketCapture;
@@ -570,6 +580,8 @@ const _module = {
                 return new NetworkInterfaceSecurityGroupAssociation(name, <any>undefined, { urn })
             case "azure:network/networkManager:NetworkManager":
                 return new NetworkManager(name, <any>undefined, { urn })
+            case "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup":
+                return new NetworkManagerNetworkGroup(name, <any>undefined, { urn })
             case "azure:network/networkPacketCapture:NetworkPacketCapture":
                 return new NetworkPacketCapture(name, <any>undefined, { urn })
             case "azure:network/networkSecurityGroup:NetworkSecurityGroup":
@@ -691,6 +703,7 @@ pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceBackendA
 pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceNatRuleAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceSecurityGroupAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManager", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerNetworkGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkPacketCapture", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkSecurityGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkSecurityRule", _module)

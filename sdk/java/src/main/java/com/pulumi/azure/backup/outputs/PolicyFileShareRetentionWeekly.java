@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class PolicyFileShareRetentionWeekly {
     /**
-     * @return The number of yearly backups to keep. Must be between `1` and `10`
+     * @return The number of daily backups to keep. Must be between `1` and `200` (inclusive)
      * 
      */
     private Integer count;
     /**
-     * @return The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+     * @return The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
      * 
      */
     private List<String> weekdays;
 
     private PolicyFileShareRetentionWeekly() {}
     /**
-     * @return The number of yearly backups to keep. Must be between `1` and `10`
+     * @return The number of daily backups to keep. Must be between `1` and `200` (inclusive)
      * 
      */
     public Integer count() {
         return this.count;
     }
     /**
-     * @return The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+     * @return The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
      * 
      */
     public List<String> weekdays() {

@@ -86,6 +86,9 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      * One or more `dataDisk` blocks as defined below.
      */
     public readonly dataDisks!: pulumi.Output<outputs.compute.OrchestratedVirtualMachineScaleSetDataDisk[] | undefined>;
+    /**
+     * Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+     */
     public readonly encryptionAtHostEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -191,6 +194,9 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
      */
     public readonly userDataBase64!: pulumi.Output<string | undefined>;
+    /**
+     * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+     */
     public readonly zoneBalance!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
@@ -318,6 +324,9 @@ export interface OrchestratedVirtualMachineScaleSetState {
      * One or more `dataDisk` blocks as defined below.
      */
     dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetDataDisk>[]>;
+    /**
+     * Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+     */
     encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -423,6 +432,9 @@ export interface OrchestratedVirtualMachineScaleSetState {
      * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
      */
     userDataBase64?: pulumi.Input<string>;
+    /**
+     * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+     */
     zoneBalance?: pulumi.Input<boolean>;
     /**
      * Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
@@ -454,6 +466,9 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      * One or more `dataDisk` blocks as defined below.
      */
     dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetDataDisk>[]>;
+    /**
+     * Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+     */
     encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -555,6 +570,9 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
      */
     userDataBase64?: pulumi.Input<string>;
+    /**
+     * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+     */
     zoneBalance?: pulumi.Input<boolean>;
     /**
      * Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.

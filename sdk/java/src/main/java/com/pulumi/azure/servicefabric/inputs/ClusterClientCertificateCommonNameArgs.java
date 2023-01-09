@@ -46,9 +46,17 @@ public final class ClusterClientCertificateCommonNameArgs extends com.pulumi.res
         return this.isAdmin;
     }
 
+    /**
+     * The Issuer Thumbprint of the Certificate.
+     * 
+     */
     @Import(name="issuerThumbprint")
     private @Nullable Output<String> issuerThumbprint;
 
+    /**
+     * @return The Issuer Thumbprint of the Certificate.
+     * 
+     */
     public Optional<Output<String>> issuerThumbprint() {
         return Optional.ofNullable(this.issuerThumbprint);
     }
@@ -121,11 +129,23 @@ public final class ClusterClientCertificateCommonNameArgs extends com.pulumi.res
             return isAdmin(Output.of(isAdmin));
         }
 
+        /**
+         * @param issuerThumbprint The Issuer Thumbprint of the Certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder issuerThumbprint(@Nullable Output<String> issuerThumbprint) {
             $.issuerThumbprint = issuerThumbprint;
             return this;
         }
 
+        /**
+         * @param issuerThumbprint The Issuer Thumbprint of the Certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder issuerThumbprint(String issuerThumbprint) {
             return issuerThumbprint(Output.of(issuerThumbprint));
         }

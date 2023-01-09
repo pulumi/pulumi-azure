@@ -17,14 +17,14 @@ public final class GroupContainerGpuLimitArgs extends com.pulumi.resources.Resou
     public static final GroupContainerGpuLimitArgs Empty = new GroupContainerGpuLimitArgs();
 
     /**
-     * The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+     * The upper limit of the number of GPUs which should be assigned to this container.
      * 
      */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
     /**
-     * @return The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+     * @return The upper limit of the number of GPUs which should be assigned to this container.
      * 
      */
     public Optional<Output<Integer>> count() {
@@ -32,14 +32,14 @@ public final class GroupContainerGpuLimitArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+     * The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+     * @return The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -72,7 +72,7 @@ public final class GroupContainerGpuLimitArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param count The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+         * @param count The upper limit of the number of GPUs which should be assigned to this container.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GroupContainerGpuLimitArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param count The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+         * @param count The upper limit of the number of GPUs which should be assigned to this container.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GroupContainerGpuLimitArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param sku The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+         * @param sku The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GroupContainerGpuLimitArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param sku The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+         * @param sku The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
          * 
          * @return builder
          * 

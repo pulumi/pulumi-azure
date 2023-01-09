@@ -80,7 +80,7 @@ export class MonitorTagRule extends pulumi.CustomResource {
      */
     public readonly metrics!: pulumi.Output<outputs.datadog.MonitorTagRuleMetric[] | undefined>;
     /**
-     * Name of the Tag.
+     * The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -133,7 +133,7 @@ export interface MonitorTagRuleState {
      */
     metrics?: pulumi.Input<pulumi.Input<inputs.datadog.MonitorTagRuleMetric>[]>;
     /**
-     * Name of the Tag.
+     * The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
      */
     name?: pulumi.Input<string>;
 }
@@ -155,7 +155,7 @@ export interface MonitorTagRuleArgs {
      */
     metrics?: pulumi.Input<pulumi.Input<inputs.datadog.MonitorTagRuleMetric>[]>;
     /**
-     * Name of the Tag.
+     * The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
      */
     name?: pulumi.Input<string>;
 }

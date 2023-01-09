@@ -30,7 +30,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.FlowletDataFlowTransformationLinkedService? LinkedService;
         /// <summary>
-        /// Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+        /// The name for the Data Flow transformation.
         /// </summary>
         public readonly string Name;
 

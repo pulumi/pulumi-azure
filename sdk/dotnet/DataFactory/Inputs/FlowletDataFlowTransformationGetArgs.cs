@@ -37,7 +37,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<Inputs.FlowletDataFlowTransformationLinkedServiceGetArgs>? LinkedService { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+        /// The name for the Data Flow transformation.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

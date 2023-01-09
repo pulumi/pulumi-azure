@@ -80,13 +80,13 @@ namespace Pulumi.Azure.KeyVault
     public sealed class GetSecretArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the TODO.
+        /// Specifies the ID of the Key Vault instance to fetch secret names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
         /// </summary>
         [Input("keyVaultId", required: true)]
         public string KeyVaultId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+        /// Specifies the name of the Key Vault Secret.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -100,13 +100,13 @@ namespace Pulumi.Azure.KeyVault
     public sealed class GetSecretInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the TODO.
+        /// Specifies the ID of the Key Vault instance to fetch secret names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
         /// </summary>
         [Input("keyVaultId", required: true)]
         public Input<string> KeyVaultId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+        /// Specifies the name of the Key Vault Secret.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

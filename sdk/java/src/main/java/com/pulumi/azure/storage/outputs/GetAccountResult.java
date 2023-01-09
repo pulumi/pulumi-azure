@@ -48,7 +48,7 @@ public final class GetAccountResult {
      */
     private List<GetAccountAzureFilesAuthentication> azureFilesAuthentications;
     /**
-     * @return A `custom_domain` block as documented below.
+     * @return supports the following:
      * 
      */
     private List<GetAccountCustomDomain> customDomains;
@@ -320,7 +320,7 @@ public final class GetAccountResult {
         return this.azureFilesAuthentications;
     }
     /**
-     * @return A `custom_domain` block as documented below.
+     * @return supports the following:
      * 
      */
     public List<GetAccountCustomDomain> customDomains() {

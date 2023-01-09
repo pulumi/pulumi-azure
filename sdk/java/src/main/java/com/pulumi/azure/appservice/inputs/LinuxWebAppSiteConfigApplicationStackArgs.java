@@ -106,14 +106,14 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     }
 
     /**
-     * The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
+     * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
      * 
      */
     @Import(name="nodeVersion")
     private @Nullable Output<String> nodeVersion;
 
     /**
-     * @return The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
+     * @return The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
      * 
      */
     public Optional<Output<String>> nodeVersion() {
@@ -325,7 +325,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @param nodeVersion The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
+         * @param nodeVersion The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         }
 
         /**
-         * @param nodeVersion The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
+         * @param nodeVersion The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
          * 
          * @return builder
          * 

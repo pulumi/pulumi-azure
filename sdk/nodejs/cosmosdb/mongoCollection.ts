@@ -73,6 +73,9 @@ export class MongoCollection extends pulumi.CustomResource {
         return obj['__pulumiType'] === MongoCollection.__pulumiType;
     }
 
+    /**
+     * The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+     */
     public readonly accountName!: pulumi.Output<string>;
     /**
      * The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
@@ -165,6 +168,9 @@ export class MongoCollection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MongoCollection resources.
  */
 export interface MongoCollectionState {
+    /**
+     * The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+     */
     accountName?: pulumi.Input<string>;
     /**
      * The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
@@ -206,6 +212,9 @@ export interface MongoCollectionState {
  * The set of arguments for constructing a MongoCollection resource.
  */
 export interface MongoCollectionArgs {
+    /**
+     * The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+     */
     accountName: pulumi.Input<string>;
     /**
      * The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.

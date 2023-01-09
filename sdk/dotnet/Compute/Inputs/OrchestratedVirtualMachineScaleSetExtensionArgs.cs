@@ -76,6 +76,9 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 
+        /// <summary>
+        /// A JSON String which specifies Settings for the Extension.
+        /// </summary>
         [Input("settings")]
         public Input<string>? Settings { get; set; }
 

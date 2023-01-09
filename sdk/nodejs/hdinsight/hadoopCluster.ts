@@ -177,6 +177,9 @@ export class HadoopCluster extends pulumi.CustomResource {
      * Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
     public readonly tier!: pulumi.Output<string>;
+    /**
+     * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
+     */
     public readonly tlsMinVersion!: pulumi.Output<string | undefined>;
 
     /**
@@ -341,6 +344,9 @@ export interface HadoopClusterState {
      * Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
     tier?: pulumi.Input<string>;
+    /**
+     * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
+     */
     tlsMinVersion?: pulumi.Input<string>;
 }
 
@@ -417,5 +423,8 @@ export interface HadoopClusterArgs {
      * Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
     tier: pulumi.Input<string>;
+    /**
+     * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
+     */
     tlsMinVersion?: pulumi.Input<string>;
 }

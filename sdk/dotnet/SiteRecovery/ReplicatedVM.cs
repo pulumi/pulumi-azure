@@ -282,6 +282,9 @@ namespace Pulumi.Azure.SiteRecovery
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.ReplicatedVMNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
+        /// <summary>
+        /// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("recoveryReplicationPolicyId")]
         public Output<string> RecoveryReplicationPolicyId { get; private set; } = null!;
 
@@ -298,7 +301,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+        /// Name of fabric that should contain this replication. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceRecoveryFabricName")]
         public Output<string> SourceRecoveryFabricName { get; private set; } = null!;
@@ -427,6 +430,9 @@ namespace Pulumi.Azure.SiteRecovery
             set => _networkInterfaces = value;
         }
 
+        /// <summary>
+        /// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("recoveryReplicationPolicyId", required: true)]
         public Input<string> RecoveryReplicationPolicyId { get; set; } = null!;
 
@@ -443,7 +449,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+        /// Name of fabric that should contain this replication. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceRecoveryFabricName", required: true)]
         public Input<string> SourceRecoveryFabricName { get; set; } = null!;
@@ -534,6 +540,9 @@ namespace Pulumi.Azure.SiteRecovery
             set => _networkInterfaces = value;
         }
 
+        /// <summary>
+        /// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("recoveryReplicationPolicyId")]
         public Input<string>? RecoveryReplicationPolicyId { get; set; }
 
@@ -550,7 +559,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+        /// Name of fabric that should contain this replication. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceRecoveryFabricName")]
         public Input<string>? SourceRecoveryFabricName { get; set; }

@@ -14,9 +14,12 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterMonitorMetrics
     {
         /// <summary>
-        /// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+        /// Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
         /// </summary>
         public readonly string? AnnotationsAllowed;
+        /// <summary>
+        /// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+        /// </summary>
         public readonly string? LabelsAllowed;
 
         [OutputConstructor]

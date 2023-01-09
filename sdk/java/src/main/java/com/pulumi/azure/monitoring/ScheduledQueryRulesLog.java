@@ -125,9 +125,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog")
 public class ScheduledQueryRulesLog extends com.pulumi.resources.CustomResource {
+    /**
+     * A list of IDs of Resources referred into query.
+     * 
+     */
     @Export(name="authorizedResourceIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> authorizedResourceIds;
 
+    /**
+     * @return A list of IDs of Resources referred into query.
+     * 
+     */
     public Output<Optional<List<String>>> authorizedResourceIds() {
         return Codegen.optional(this.authorizedResourceIds);
     }

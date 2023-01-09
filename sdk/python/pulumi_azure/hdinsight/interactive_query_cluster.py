@@ -56,6 +56,7 @@ class InteractiveQueryClusterArgs:
         :param pulumi.Input['InteractiveQueryClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
+        :param pulumi.Input[str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "cluster_version", cluster_version)
         pulumi.set(__self__, "component_version", component_version)
@@ -320,6 +321,9 @@ class InteractiveQueryClusterArgs:
     @property
     @pulumi.getter(name="tlsMinVersion")
     def tls_min_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "tls_min_version")
 
     @tls_min_version.setter
@@ -374,6 +378,7 @@ class _InteractiveQueryClusterState:
         :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
         """
         if cluster_version is not None:
             pulumi.set(__self__, "cluster_version", cluster_version)
@@ -672,6 +677,9 @@ class _InteractiveQueryClusterState:
     @property
     @pulumi.getter(name="tlsMinVersion")
     def tls_min_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "tls_min_version")
 
     @tls_min_version.setter
@@ -788,6 +796,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -995,6 +1004,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1192,5 +1202,8 @@ class InteractiveQueryCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tlsMinVersion")
     def tls_min_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "tls_min_version")
 

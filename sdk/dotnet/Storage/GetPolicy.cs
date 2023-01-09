@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `rule` block as documented below.
+        /// supports the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicyRuleResult> Rules;
         public readonly string StorageAccountId;

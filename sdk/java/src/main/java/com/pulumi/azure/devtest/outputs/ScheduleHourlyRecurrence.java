@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ScheduleHourlyRecurrence {
+    /**
+     * @return Minutes of the hour the schedule will run.
+     * 
+     */
     private Integer minute;
 
     private ScheduleHourlyRecurrence() {}
+    /**
+     * @return Minutes of the hour the schedule will run.
+     * 
+     */
     public Integer minute() {
         return this.minute;
     }

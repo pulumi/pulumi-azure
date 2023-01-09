@@ -187,7 +187,7 @@ class GroupContainerArgs:
         :param pulumi.Input[float] cpu: The required number of CPU cores of the containers. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image: The container image name. Changing this forces a new resource to be created.
         :param pulumi.Input[float] memory: The required memory of the containers in GB. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Container. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: A list of commands which should be run on the container. Changing this forces a new resource to be created.
         :param pulumi.Input[float] cpu_limit: The upper limit of the number of CPU cores of the containers.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
@@ -267,7 +267,7 @@ class GroupContainerArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        Specifies the name of the Container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -453,8 +453,8 @@ class GroupContainerGpuLimitArgs:
                  count: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] count: The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] count: The upper limit of the number of GPUs which should be assigned to this container.
+        :param pulumi.Input[str] sku: The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -465,7 +465,7 @@ class GroupContainerGpuLimitArgs:
     @pulumi.getter
     def count(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+        The upper limit of the number of GPUs which should be assigned to this container.
         """
         return pulumi.get(self, "count")
 
@@ -477,7 +477,7 @@ class GroupContainerGpuLimitArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+        The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
         """
         return pulumi.get(self, "sku")
 
@@ -615,7 +615,7 @@ class GroupContainerLivenessProbeHttpGetArgs:
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] http_headers: A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path: Path to access on the HTTP server. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] port: The port number the container will expose. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] port: Number of the port to access on the container. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scheme: Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
         """
         if http_headers is not None:
@@ -655,7 +655,7 @@ class GroupContainerLivenessProbeHttpGetArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        The port number the container will expose. Changing this forces a new resource to be created.
+        Number of the port to access on the container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "port")
 
@@ -844,7 +844,7 @@ class GroupContainerReadinessProbeHttpGetArgs:
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] http_headers: A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path: Path to access on the HTTP server. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] port: The port number the container will expose. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] port: Number of the port to access on the container. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scheme: Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
         """
         if http_headers is not None:
@@ -884,7 +884,7 @@ class GroupContainerReadinessProbeHttpGetArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        The port number the container will expose. Changing this forces a new resource to be created.
+        Number of the port to access on the container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "port")
 
@@ -919,7 +919,7 @@ class GroupContainerVolumeArgs:
                  storage_account_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] mount_path: The path on which this volume is to be mounted. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the volume mount. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] empty_dir: Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupContainerVolumeGitRepoArgs'] git_repo: A `git_repo` block as defined below.
         :param pulumi.Input[bool] read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
@@ -961,7 +961,7 @@ class GroupContainerVolumeArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        The name of the volume mount. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1443,7 +1443,7 @@ class GroupInitContainerArgs:
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerVolumeArgs']]]] = None):
         """
         :param pulumi.Input[str] image: The container image name. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Container. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: A list of commands which should be run on the container. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secure_environment_variables: A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
@@ -1476,7 +1476,7 @@ class GroupInitContainerArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        Specifies the name of the Container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1547,7 +1547,7 @@ class GroupInitContainerVolumeArgs:
                  storage_account_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] mount_path: The path on which this volume is to be mounted. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the volume mount. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] empty_dir: Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupInitContainerVolumeGitRepoArgs'] git_repo: A `git_repo` block as defined below.
         :param pulumi.Input[bool] read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
@@ -1589,7 +1589,7 @@ class GroupInitContainerVolumeArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        The name of the volume mount. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -2203,6 +2203,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[bool] enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+        :param pulumi.Input[str] host_group_id: Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below.
@@ -2213,13 +2214,15 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[int] node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of the taints added to new nodes during node pool create and scale.
         :param pulumi.Input[bool] only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param pulumi.Input[int] os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_sku: Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Node Pool.
         :param pulumi.Input[str] type: The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
@@ -2396,6 +2399,9 @@ class KubernetesClusterDefaultNodePoolArgs:
     @property
     @pulumi.getter(name="hostGroupId")
     def host_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "host_group_id")
 
     @host_group_id.setter
@@ -2525,6 +2531,9 @@ class KubernetesClusterDefaultNodePoolArgs:
     @property
     @pulumi.getter(name="nodeTaints")
     def node_taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the taints added to new nodes during node pool create and scale.
+        """
         return pulumi.get(self, "node_taints")
 
     @node_taints.setter
@@ -2606,6 +2615,9 @@ class KubernetesClusterDefaultNodePoolArgs:
     @property
     @pulumi.getter(name="proximityPlacementGroupId")
     def proximity_placement_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "proximity_placement_group_id")
 
     @proximity_placement_group_id.setter
@@ -2616,7 +2628,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="scaleDownMode")
     def scale_down_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+        Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         """
         return pulumi.get(self, "scale_down_mode")
 
@@ -4310,7 +4322,8 @@ class KubernetesClusterMonitorMetricsArgs:
                  annotations_allowed: Optional[pulumi.Input[str]] = None,
                  labels_allowed: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] annotations_allowed: Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+        :param pulumi.Input[str] annotations_allowed: Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
+        :param pulumi.Input[str] labels_allowed: Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
         """
         if annotations_allowed is not None:
             pulumi.set(__self__, "annotations_allowed", annotations_allowed)
@@ -4321,7 +4334,7 @@ class KubernetesClusterMonitorMetricsArgs:
     @pulumi.getter(name="annotationsAllowed")
     def annotations_allowed(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+        Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
         """
         return pulumi.get(self, "annotations_allowed")
 
@@ -4332,6 +4345,9 @@ class KubernetesClusterMonitorMetricsArgs:
     @property
     @pulumi.getter(name="labelsAllowed")
     def labels_allowed(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+        """
         return pulumi.get(self, "labels_allowed")
 
     @labels_allowed.setter

@@ -65,7 +65,7 @@ class PolicyFileShareRetentionDaily(dict):
     def __init__(__self__, *,
                  count: int):
         """
-        :param int count: The number of yearly backups to keep. Must be between `1` and `10`
+        :param int count: The number of daily backups to keep. Must be between `1` and `200` (inclusive)
         """
         pulumi.set(__self__, "count", count)
 
@@ -73,7 +73,7 @@ class PolicyFileShareRetentionDaily(dict):
     @pulumi.getter
     def count(self) -> int:
         """
-        The number of yearly backups to keep. Must be between `1` and `10`
+        The number of daily backups to keep. Must be between `1` and `200` (inclusive)
         """
         return pulumi.get(self, "count")
 
@@ -85,7 +85,7 @@ class PolicyFileShareRetentionMonthly(dict):
                  weekdays: Sequence[str],
                  weeks: Sequence[str]):
         """
-        :param int count: The number of yearly backups to keep. Must be between `1` and `10`
+        :param int count: The number of monthly backups to keep. Must be between `1` and `120`
         :param Sequence[str] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param Sequence[str] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
@@ -97,7 +97,7 @@ class PolicyFileShareRetentionMonthly(dict):
     @pulumi.getter
     def count(self) -> int:
         """
-        The number of yearly backups to keep. Must be between `1` and `10`
+        The number of monthly backups to keep. Must be between `1` and `120`
         """
         return pulumi.get(self, "count")
 
@@ -124,8 +124,8 @@ class PolicyFileShareRetentionWeekly(dict):
                  count: int,
                  weekdays: Sequence[str]):
         """
-        :param int count: The number of yearly backups to keep. Must be between `1` and `10`
-        :param Sequence[str] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        :param int count: The number of daily backups to keep. Must be between `1` and `200` (inclusive)
+        :param Sequence[str] weekdays: The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "weekdays", weekdays)
@@ -134,7 +134,7 @@ class PolicyFileShareRetentionWeekly(dict):
     @pulumi.getter
     def count(self) -> int:
         """
-        The number of yearly backups to keep. Must be between `1` and `10`
+        The number of daily backups to keep. Must be between `1` and `200` (inclusive)
         """
         return pulumi.get(self, "count")
 
@@ -142,7 +142,7 @@ class PolicyFileShareRetentionWeekly(dict):
     @pulumi.getter
     def weekdays(self) -> Sequence[str]:
         """
-        The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
         return pulumi.get(self, "weekdays")
 
@@ -230,7 +230,7 @@ class PolicyVMBackup(dict):
         :param str time: The time of day to perform the backup in 24hour format.
         :param int hour_duration: Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
         :param int hour_interval: Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
-        :param Sequence[str] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        :param Sequence[str] weekdays: The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
         """
         pulumi.set(__self__, "frequency", frequency)
         pulumi.set(__self__, "time", time)
@@ -277,7 +277,7 @@ class PolicyVMBackup(dict):
     @pulumi.getter
     def weekdays(self) -> Optional[Sequence[str]]:
         """
-        The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
         """
         return pulumi.get(self, "weekdays")
 
@@ -287,7 +287,7 @@ class PolicyVMRetentionDaily(dict):
     def __init__(__self__, *,
                  count: int):
         """
-        :param int count: The number of yearly backups to keep. Must be between `1` and `9999`
+        :param int count: The number of daily backups to keep. Must be between `7` and `9999`.
         """
         pulumi.set(__self__, "count", count)
 
@@ -295,7 +295,7 @@ class PolicyVMRetentionDaily(dict):
     @pulumi.getter
     def count(self) -> int:
         """
-        The number of yearly backups to keep. Must be between `1` and `9999`
+        The number of daily backups to keep. Must be between `7` and `9999`.
         """
         return pulumi.get(self, "count")
 
@@ -307,7 +307,7 @@ class PolicyVMRetentionMonthly(dict):
                  weekdays: Sequence[str],
                  weeks: Sequence[str]):
         """
-        :param int count: The number of yearly backups to keep. Must be between `1` and `9999`
+        :param int count: The number of monthly backups to keep. Must be between `1` and `9999`
         :param Sequence[str] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param Sequence[str] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
@@ -319,7 +319,7 @@ class PolicyVMRetentionMonthly(dict):
     @pulumi.getter
     def count(self) -> int:
         """
-        The number of yearly backups to keep. Must be between `1` and `9999`
+        The number of monthly backups to keep. Must be between `1` and `9999`
         """
         return pulumi.get(self, "count")
 
@@ -346,8 +346,8 @@ class PolicyVMRetentionWeekly(dict):
                  count: int,
                  weekdays: Sequence[str]):
         """
-        :param int count: The number of yearly backups to keep. Must be between `1` and `9999`
-        :param Sequence[str] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        :param int count: The number of weekly backups to keep. Must be between `1` and `9999`
+        :param Sequence[str] weekdays: The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "weekdays", weekdays)
@@ -356,7 +356,7 @@ class PolicyVMRetentionWeekly(dict):
     @pulumi.getter
     def count(self) -> int:
         """
-        The number of yearly backups to keep. Must be between `1` and `9999`
+        The number of weekly backups to keep. Must be between `1` and `9999`
         """
         return pulumi.get(self, "count")
 
@@ -364,7 +364,7 @@ class PolicyVMRetentionWeekly(dict):
     @pulumi.getter
     def weekdays(self) -> Sequence[str]:
         """
-        The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
         return pulumi.get(self, "weekdays")
 

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? Path;
         /// <summary>
-        /// The port number the container will expose. Changing this forces a new resource to be created.
+        /// Number of the port to access on the container. Changing this forces a new resource to be created.
         /// </summary>
         public readonly int? Port;
         /// <summary>

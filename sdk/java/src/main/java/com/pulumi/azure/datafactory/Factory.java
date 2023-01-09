@@ -198,9 +198,17 @@ public class Factory extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> publicNetworkEnabled() {
         return Codegen.optional(this.publicNetworkEnabled);
     }
+    /**
+     * Specifies the ID of the purview account resource associated with the Data Factory.
+     * 
+     */
     @Export(name="purviewId", type=String.class, parameters={})
     private Output</* @Nullable */ String> purviewId;
 
+    /**
+     * @return Specifies the ID of the purview account resource associated with the Data Factory.
+     * 
+     */
     public Output<Optional<String>> purviewId() {
         return Codegen.optional(this.purviewId);
     }

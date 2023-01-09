@@ -91,23 +91,31 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The thumbprint of the certificate. At this time the only supported value is &#39;SHA1&#39;. Changing this forces a new resource to be created.
+     * The thumbprint of the certificate. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="thumbprint", required=true)
     private Output<String> thumbprint;
 
     /**
-     * @return The thumbprint of the certificate. At this time the only supported value is &#39;SHA1&#39;. Changing this forces a new resource to be created.
+     * @return The thumbprint of the certificate. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> thumbprint() {
         return this.thumbprint;
     }
 
+    /**
+     * The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="thumbprintAlgorithm", required=true)
     private Output<String> thumbprintAlgorithm;
 
+    /**
+     * @return The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> thumbprintAlgorithm() {
         return this.thumbprintAlgorithm;
     }
@@ -248,7 +256,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param thumbprint The thumbprint of the certificate. At this time the only supported value is &#39;SHA1&#39;. Changing this forces a new resource to be created.
+         * @param thumbprint The thumbprint of the certificate. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -259,7 +267,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param thumbprint The thumbprint of the certificate. At this time the only supported value is &#39;SHA1&#39;. Changing this forces a new resource to be created.
+         * @param thumbprint The thumbprint of the certificate. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -268,11 +276,23 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
             return thumbprint(Output.of(thumbprint));
         }
 
+        /**
+         * @param thumbprintAlgorithm The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder thumbprintAlgorithm(Output<String> thumbprintAlgorithm) {
             $.thumbprintAlgorithm = thumbprintAlgorithm;
             return this;
         }
 
+        /**
+         * @param thumbprintAlgorithm The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder thumbprintAlgorithm(String thumbprintAlgorithm) {
             return thumbprintAlgorithm(Output.of(thumbprintAlgorithm));
         }

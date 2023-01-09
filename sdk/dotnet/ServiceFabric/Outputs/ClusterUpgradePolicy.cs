@@ -17,6 +17,9 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
         /// A `delta_health_policy` block as defined below
         /// </summary>
         public readonly Outputs.ClusterUpgradePolicyDeltaHealthPolicy? DeltaHealthPolicy;
+        /// <summary>
+        /// Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
+        /// </summary>
         public readonly bool? ForceRestartEnabled;
         /// <summary>
         /// Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.

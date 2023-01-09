@@ -95,6 +95,9 @@ export class AccountCostManagementExport extends pulumi.CustomResource {
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The date the export will stop capturing information.
+     */
     public readonly recurrencePeriodEndDate!: pulumi.Output<string>;
     /**
      * The date the export will start capturing information.
@@ -184,6 +187,9 @@ export interface AccountCostManagementExportState {
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The date the export will stop capturing information.
+     */
     recurrencePeriodEndDate?: pulumi.Input<string>;
     /**
      * The date the export will start capturing information.
@@ -219,6 +225,9 @@ export interface AccountCostManagementExportArgs {
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The date the export will stop capturing information.
+     */
     recurrencePeriodEndDate: pulumi.Input<string>;
     /**
      * The date the export will start capturing information.

@@ -14,6 +14,10 @@ namespace Pulumi.Azure.NetApp.Inputs
     {
         [Input("daysOfMonths", required: true)]
         private InputList<int>? _daysOfMonths;
+
+        /// <summary>
+        /// List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
+        /// </summary>
         public InputList<int> DaysOfMonths
         {
             get => _daysOfMonths ?? (_daysOfMonths = new InputList<int>());

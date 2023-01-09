@@ -25,6 +25,7 @@ class RulesEngineArgs:
         The set of arguments for constructing a RulesEngine resource.
         :param pulumi.Input[str] frontdoor_name: The name of the Front Door instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enabled: Whether this Rules engine configuration is enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name of the Rules engine configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]] rules: A `rule` block as defined below.
         """
@@ -64,6 +65,9 @@ class RulesEngineArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether this Rules engine configuration is enabled? Defaults to `true`.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -106,6 +110,7 @@ class _RulesEngineState:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering RulesEngine resources.
+        :param pulumi.Input[bool] enabled: Whether this Rules engine configuration is enabled? Defaults to `true`.
         :param pulumi.Input[str] frontdoor_name: The name of the Front Door instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Rules engine configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
@@ -127,6 +132,9 @@ class _RulesEngineState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether this Rules engine configuration is enabled? Defaults to `true`.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -296,6 +304,7 @@ class RulesEngine(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enabled: Whether this Rules engine configuration is enabled? Defaults to `true`.
         :param pulumi.Input[str] frontdoor_name: The name of the Front Door instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Rules engine configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
@@ -461,6 +470,7 @@ class RulesEngine(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enabled: Whether this Rules engine configuration is enabled? Defaults to `true`.
         :param pulumi.Input[str] frontdoor_name: The name of the Front Door instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Rules engine configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
@@ -481,6 +491,9 @@ class RulesEngine(pulumi.CustomResource):
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether this Rules engine configuration is enabled? Defaults to `true`.
+        """
         return pulumi.get(self, "enabled")
 
     @property

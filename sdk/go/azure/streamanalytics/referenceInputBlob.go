@@ -106,8 +106,8 @@ type ReferenceInputBlob struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
 	Serialization ReferenceInputBlobSerializationOutput `pulumi:"serialization"`
-	// The Access Key which should be used to connect to this Storage Account.
-	StorageAccountKey pulumi.StringOutput `pulumi:"storageAccountKey"`
+	// The Access Key which should be used to connect to this Storage Account. Required if `authenticationMode` is `ConnectionString`.
+	StorageAccountKey pulumi.StringPtrOutput `pulumi:"storageAccountKey"`
 	// The name of the Storage Account that has the blob container with reference data.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 	// The name of the Container within the Storage Account.
@@ -137,9 +137,6 @@ func NewReferenceInputBlob(ctx *pulumi.Context,
 	if args.Serialization == nil {
 		return nil, errors.New("invalid value for required argument 'Serialization'")
 	}
-	if args.StorageAccountKey == nil {
-		return nil, errors.New("invalid value for required argument 'StorageAccountKey'")
-	}
 	if args.StorageAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
 	}
@@ -153,7 +150,7 @@ func NewReferenceInputBlob(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TimeFormat'")
 	}
 	if args.StorageAccountKey != nil {
-		args.StorageAccountKey = pulumi.ToSecret(args.StorageAccountKey).(pulumi.StringInput)
+		args.StorageAccountKey = pulumi.ToSecret(args.StorageAccountKey).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"storageAccountKey",
@@ -193,7 +190,7 @@ type referenceInputBlobState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
 	Serialization *ReferenceInputBlobSerialization `pulumi:"serialization"`
-	// The Access Key which should be used to connect to this Storage Account.
+	// The Access Key which should be used to connect to this Storage Account. Required if `authenticationMode` is `ConnectionString`.
 	StorageAccountKey *string `pulumi:"storageAccountKey"`
 	// The name of the Storage Account that has the blob container with reference data.
 	StorageAccountName *string `pulumi:"storageAccountName"`
@@ -218,7 +215,7 @@ type ReferenceInputBlobState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `serialization` block as defined below.
 	Serialization ReferenceInputBlobSerializationPtrInput
-	// The Access Key which should be used to connect to this Storage Account.
+	// The Access Key which should be used to connect to this Storage Account. Required if `authenticationMode` is `ConnectionString`.
 	StorageAccountKey pulumi.StringPtrInput
 	// The name of the Storage Account that has the blob container with reference data.
 	StorageAccountName pulumi.StringPtrInput
@@ -247,8 +244,8 @@ type referenceInputBlobArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
 	Serialization ReferenceInputBlobSerialization `pulumi:"serialization"`
-	// The Access Key which should be used to connect to this Storage Account.
-	StorageAccountKey string `pulumi:"storageAccountKey"`
+	// The Access Key which should be used to connect to this Storage Account. Required if `authenticationMode` is `ConnectionString`.
+	StorageAccountKey *string `pulumi:"storageAccountKey"`
 	// The name of the Storage Account that has the blob container with reference data.
 	StorageAccountName string `pulumi:"storageAccountName"`
 	// The name of the Container within the Storage Account.
@@ -273,8 +270,8 @@ type ReferenceInputBlobArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `serialization` block as defined below.
 	Serialization ReferenceInputBlobSerializationInput
-	// The Access Key which should be used to connect to this Storage Account.
-	StorageAccountKey pulumi.StringInput
+	// The Access Key which should be used to connect to this Storage Account. Required if `authenticationMode` is `ConnectionString`.
+	StorageAccountKey pulumi.StringPtrInput
 	// The name of the Storage Account that has the blob container with reference data.
 	StorageAccountName pulumi.StringInput
 	// The name of the Container within the Storage Account.
@@ -402,9 +399,9 @@ func (o ReferenceInputBlobOutput) Serialization() ReferenceInputBlobSerializatio
 	return o.ApplyT(func(v *ReferenceInputBlob) ReferenceInputBlobSerializationOutput { return v.Serialization }).(ReferenceInputBlobSerializationOutput)
 }
 
-// The Access Key which should be used to connect to this Storage Account.
-func (o ReferenceInputBlobOutput) StorageAccountKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReferenceInputBlob) pulumi.StringOutput { return v.StorageAccountKey }).(pulumi.StringOutput)
+// The Access Key which should be used to connect to this Storage Account. Required if `authenticationMode` is `ConnectionString`.
+func (o ReferenceInputBlobOutput) StorageAccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceInputBlob) pulumi.StringPtrOutput { return v.StorageAccountKey }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Storage Account that has the blob container with reference data.

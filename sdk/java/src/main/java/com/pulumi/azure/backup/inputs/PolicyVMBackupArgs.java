@@ -78,14 +78,14 @@ public final class PolicyVMBackupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+     * The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
      * 
      */
     @Import(name="weekdays")
     private @Nullable Output<List<String>> weekdays;
 
     /**
-     * @return The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+     * @return The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
      * 
      */
     public Optional<Output<List<String>>> weekdays() {
@@ -205,7 +205,7 @@ public final class PolicyVMBackupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param weekdays The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         * @param weekdays The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class PolicyVMBackupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param weekdays The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         * @param weekdays The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class PolicyVMBackupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param weekdays The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         * @param weekdays The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
          * 
          * @return builder
          * 

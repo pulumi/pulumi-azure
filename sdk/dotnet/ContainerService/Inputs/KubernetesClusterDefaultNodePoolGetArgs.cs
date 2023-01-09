@@ -48,6 +48,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }
 
+        /// <summary>
+        /// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("hostGroupId")]
         public Input<string>? HostGroupId { get; set; }
 
@@ -125,6 +128,10 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         [Input("nodeTaints")]
         private InputList<string>? _nodeTaints;
+
+        /// <summary>
+        /// A list of the taints added to new nodes during node pool create and scale.
+        /// </summary>
         public InputList<string> NodeTaints
         {
             get => _nodeTaints ?? (_nodeTaints = new InputList<string>());
@@ -167,11 +174,14 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("podSubnetId")]
         public Input<string>? PodSubnetId { get; set; }
 
+        /// <summary>
+        /// The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("proximityPlacementGroupId")]
         public Input<string>? ProximityPlacementGroupId { get; set; }
 
         /// <summary>
-        /// Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+        /// Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         /// </summary>
         [Input("scaleDownMode")]
         public Input<string>? ScaleDownMode { get; set; }

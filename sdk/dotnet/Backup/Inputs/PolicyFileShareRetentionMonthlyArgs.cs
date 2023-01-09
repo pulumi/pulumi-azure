@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Backup.Inputs
     public sealed class PolicyFileShareRetentionMonthlyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of yearly backups to keep. Must be between `1` and `10`
+        /// The number of monthly backups to keep. Must be between `1` and `120`
         /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;

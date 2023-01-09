@@ -37,6 +37,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? FipsEnabled;
+        /// <summary>
+        /// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? HostGroupId;
         /// <summary>
         /// A `kubelet_config` block as defined below.
@@ -82,6 +85,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? NodePublicIpPrefixId;
+        /// <summary>
+        /// A list of the taints added to new nodes during node pool create and scale.
+        /// </summary>
         public readonly ImmutableArray<string> NodeTaints;
         /// <summary>
         /// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
@@ -107,9 +113,12 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? PodSubnetId;
+        /// <summary>
+        /// The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string? ProximityPlacementGroupId;
         /// <summary>
-        /// Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+        /// Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         /// </summary>
         public readonly string? ScaleDownMode;
         /// <summary>

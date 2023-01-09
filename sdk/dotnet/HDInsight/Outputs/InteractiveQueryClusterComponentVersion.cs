@@ -13,6 +13,9 @@ namespace Pulumi.Azure.HDInsight.Outputs
     [OutputType]
     public sealed class InteractiveQueryClusterComponentVersion
     {
+        /// <summary>
+        /// The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string InteractiveHive;
 
         [OutputConstructor]

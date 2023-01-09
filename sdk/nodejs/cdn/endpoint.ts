@@ -103,7 +103,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
+     * Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -252,7 +252,7 @@ export interface EndpointState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
+     * Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -330,7 +330,7 @@ export interface EndpointArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
+     * Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

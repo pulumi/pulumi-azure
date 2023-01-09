@@ -31,9 +31,17 @@ public final class EnrichmentState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.endpointNames);
     }
 
+    /**
+     * The IoTHub name of the enrichment. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="iothubName")
     private @Nullable Output<String> iothubName;
 
+    /**
+     * @return The IoTHub name of the enrichment. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> iothubName() {
         return Optional.ofNullable(this.iothubName);
     }
@@ -53,9 +61,17 @@ public final class EnrichmentState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.key);
     }
 
+    /**
+     * The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
+    /**
+     * @return The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }
@@ -134,11 +150,23 @@ public final class EnrichmentState extends com.pulumi.resources.ResourceArgs {
             return endpointNames(List.of(endpointNames));
         }
 
+        /**
+         * @param iothubName The IoTHub name of the enrichment. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder iothubName(@Nullable Output<String> iothubName) {
             $.iothubName = iothubName;
             return this;
         }
 
+        /**
+         * @param iothubName The IoTHub name of the enrichment. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder iothubName(String iothubName) {
             return iothubName(Output.of(iothubName));
         }
@@ -164,11 +192,23 @@ public final class EnrichmentState extends com.pulumi.resources.ResourceArgs {
             return key(Output.of(key));
         }
 
+        /**
+         * @param resourceGroupName The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;
         }
 
+        /**
+         * @param resourceGroupName The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
         }

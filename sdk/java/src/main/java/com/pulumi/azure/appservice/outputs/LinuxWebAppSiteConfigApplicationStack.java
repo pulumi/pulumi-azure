@@ -42,7 +42,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
      */
     private @Nullable String javaVersion;
     /**
-     * @return The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
+     * @return The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
      * 
      */
     private @Nullable String nodeVersion;
@@ -106,7 +106,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.javaVersion);
     }
     /**
-     * @return The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
+     * @return The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
      * 
      */
     public Optional<String> nodeVersion() {

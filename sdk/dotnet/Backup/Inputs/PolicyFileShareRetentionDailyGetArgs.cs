@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Backup.Inputs
     public sealed class PolicyFileShareRetentionDailyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of yearly backups to keep. Must be between `1` and `10`
+        /// The number of daily backups to keep. Must be between `1` and `200` (inclusive)
         /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;

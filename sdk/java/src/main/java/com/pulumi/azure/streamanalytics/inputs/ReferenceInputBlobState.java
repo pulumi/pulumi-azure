@@ -107,14 +107,14 @@ public final class ReferenceInputBlobState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Access Key which should be used to connect to this Storage Account.
+     * The Access Key which should be used to connect to this Storage Account. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
     @Import(name="storageAccountKey")
     private @Nullable Output<String> storageAccountKey;
 
     /**
-     * @return The Access Key which should be used to connect to this Storage Account.
+     * @return The Access Key which should be used to connect to this Storage Account. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
     public Optional<Output<String>> storageAccountKey() {
@@ -342,7 +342,7 @@ public final class ReferenceInputBlobState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param storageAccountKey The Access Key which should be used to connect to this Storage Account.
+         * @param storageAccountKey The Access Key which should be used to connect to this Storage Account. Required if `authentication_mode` is `ConnectionString`.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class ReferenceInputBlobState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param storageAccountKey The Access Key which should be used to connect to this Storage Account.
+         * @param storageAccountKey The Access Key which should be used to connect to this Storage Account. Required if `authentication_mode` is `ConnectionString`.
          * 
          * @return builder
          * 

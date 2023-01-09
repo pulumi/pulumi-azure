@@ -72,7 +72,7 @@ class PolicyFileShareRetentionDailyArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int]):
         """
-        :param pulumi.Input[int] count: The number of yearly backups to keep. Must be between `1` and `10`
+        :param pulumi.Input[int] count: The number of daily backups to keep. Must be between `1` and `200` (inclusive)
         """
         pulumi.set(__self__, "count", count)
 
@@ -80,7 +80,7 @@ class PolicyFileShareRetentionDailyArgs:
     @pulumi.getter
     def count(self) -> pulumi.Input[int]:
         """
-        The number of yearly backups to keep. Must be between `1` and `10`
+        The number of daily backups to keep. Must be between `1` and `200` (inclusive)
         """
         return pulumi.get(self, "count")
 
@@ -96,7 +96,7 @@ class PolicyFileShareRetentionMonthlyArgs:
                  weekdays: pulumi.Input[Sequence[pulumi.Input[str]]],
                  weeks: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[int] count: The number of yearly backups to keep. Must be between `1` and `10`
+        :param pulumi.Input[int] count: The number of monthly backups to keep. Must be between `1` and `120`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
@@ -108,7 +108,7 @@ class PolicyFileShareRetentionMonthlyArgs:
     @pulumi.getter
     def count(self) -> pulumi.Input[int]:
         """
-        The number of yearly backups to keep. Must be between `1` and `10`
+        The number of monthly backups to keep. Must be between `1` and `120`
         """
         return pulumi.get(self, "count")
 
@@ -147,8 +147,8 @@ class PolicyFileShareRetentionWeeklyArgs:
                  count: pulumi.Input[int],
                  weekdays: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[int] count: The number of yearly backups to keep. Must be between `1` and `10`
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        :param pulumi.Input[int] count: The number of daily backups to keep. Must be between `1` and `200` (inclusive)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "weekdays", weekdays)
@@ -157,7 +157,7 @@ class PolicyFileShareRetentionWeeklyArgs:
     @pulumi.getter
     def count(self) -> pulumi.Input[int]:
         """
-        The number of yearly backups to keep. Must be between `1` and `10`
+        The number of daily backups to keep. Must be between `1` and `200` (inclusive)
         """
         return pulumi.get(self, "count")
 
@@ -169,7 +169,7 @@ class PolicyFileShareRetentionWeeklyArgs:
     @pulumi.getter
     def weekdays(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
         return pulumi.get(self, "weekdays")
 
@@ -258,7 +258,7 @@ class PolicyVMBackupArgs:
         :param pulumi.Input[str] time: The time of day to perform the backup in 24hour format.
         :param pulumi.Input[int] hour_duration: Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
         :param pulumi.Input[int] hour_interval: Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
         """
         pulumi.set(__self__, "frequency", frequency)
         pulumi.set(__self__, "time", time)
@@ -321,7 +321,7 @@ class PolicyVMBackupArgs:
     @pulumi.getter
     def weekdays(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
         """
         return pulumi.get(self, "weekdays")
 
@@ -335,7 +335,7 @@ class PolicyVMRetentionDailyArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int]):
         """
-        :param pulumi.Input[int] count: The number of yearly backups to keep. Must be between `1` and `9999`
+        :param pulumi.Input[int] count: The number of daily backups to keep. Must be between `7` and `9999`.
         """
         pulumi.set(__self__, "count", count)
 
@@ -343,7 +343,7 @@ class PolicyVMRetentionDailyArgs:
     @pulumi.getter
     def count(self) -> pulumi.Input[int]:
         """
-        The number of yearly backups to keep. Must be between `1` and `9999`
+        The number of daily backups to keep. Must be between `7` and `9999`.
         """
         return pulumi.get(self, "count")
 
@@ -359,7 +359,7 @@ class PolicyVMRetentionMonthlyArgs:
                  weekdays: pulumi.Input[Sequence[pulumi.Input[str]]],
                  weeks: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[int] count: The number of yearly backups to keep. Must be between `1` and `9999`
+        :param pulumi.Input[int] count: The number of monthly backups to keep. Must be between `1` and `9999`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks: The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
@@ -371,7 +371,7 @@ class PolicyVMRetentionMonthlyArgs:
     @pulumi.getter
     def count(self) -> pulumi.Input[int]:
         """
-        The number of yearly backups to keep. Must be between `1` and `9999`
+        The number of monthly backups to keep. Must be between `1` and `9999`
         """
         return pulumi.get(self, "count")
 
@@ -410,8 +410,8 @@ class PolicyVMRetentionWeeklyArgs:
                  count: pulumi.Input[int],
                  weekdays: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[int] count: The number of yearly backups to keep. Must be between `1` and `9999`
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        :param pulumi.Input[int] count: The number of weekly backups to keep. Must be between `1` and `9999`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] weekdays: The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "weekdays", weekdays)
@@ -420,7 +420,7 @@ class PolicyVMRetentionWeeklyArgs:
     @pulumi.getter
     def count(self) -> pulumi.Input[int]:
         """
-        The number of yearly backups to keep. Must be between `1` and `9999`
+        The number of weekly backups to keep. Must be between `1` and `9999`
         """
         return pulumi.get(self, "count")
 
@@ -432,7 +432,7 @@ class PolicyVMRetentionWeeklyArgs:
     @pulumi.getter
     def weekdays(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
         return pulumi.get(self, "weekdays")
 

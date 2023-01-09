@@ -137,6 +137,9 @@ class KubernetesClusterArgs:
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_pod_security_policy is not None:
+            warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""", DeprecationWarning)
+            pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
+        if enable_pod_security_policy is not None:
             pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
         if http_application_routing_enabled is not None:
             pulumi.set(__self__, "http_application_routing_enabled", http_application_routing_enabled)
@@ -924,6 +927,9 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "dns_prefix_private_cluster", dns_prefix_private_cluster)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
+        if enable_pod_security_policy is not None:
+            warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""", DeprecationWarning)
+            pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
         if enable_pod_security_policy is not None:
             pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
         if fqdn is not None:
@@ -1972,6 +1978,9 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["dns_prefix"] = dns_prefix
             __props__.__dict__["dns_prefix_private_cluster"] = dns_prefix_private_cluster
             __props__.__dict__["edge_zone"] = edge_zone
+            if enable_pod_security_policy is not None and not opts.urn:
+                warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""", DeprecationWarning)
+                pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
             __props__.__dict__["enable_pod_security_policy"] = enable_pod_security_policy
             __props__.__dict__["http_application_routing_enabled"] = http_application_routing_enabled
             __props__.__dict__["http_proxy_config"] = http_proxy_config

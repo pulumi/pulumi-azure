@@ -152,6 +152,7 @@ import (
 type RulesEngine struct {
 	pulumi.CustomResourceState
 
+	// Whether this Rules engine configuration is enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The name of the Front Door instance. Changing this forces a new resource to be created.
 	FrontdoorName pulumi.StringOutput `pulumi:"frontdoorName"`
@@ -199,6 +200,7 @@ func GetRulesEngine(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RulesEngine resources.
 type rulesEngineState struct {
+	// Whether this Rules engine configuration is enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the Front Door instance. Changing this forces a new resource to be created.
 	FrontdoorName *string `pulumi:"frontdoorName"`
@@ -212,6 +214,7 @@ type rulesEngineState struct {
 }
 
 type RulesEngineState struct {
+	// Whether this Rules engine configuration is enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The name of the Front Door instance. Changing this forces a new resource to be created.
 	FrontdoorName pulumi.StringPtrInput
@@ -229,6 +232,7 @@ func (RulesEngineState) ElementType() reflect.Type {
 }
 
 type rulesEngineArgs struct {
+	// Whether this Rules engine configuration is enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the Front Door instance. Changing this forces a new resource to be created.
 	FrontdoorName string `pulumi:"frontdoorName"`
@@ -242,6 +246,7 @@ type rulesEngineArgs struct {
 
 // The set of arguments for constructing a RulesEngine resource.
 type RulesEngineArgs struct {
+	// Whether this Rules engine configuration is enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The name of the Front Door instance. Changing this forces a new resource to be created.
 	FrontdoorName pulumi.StringInput
@@ -340,6 +345,7 @@ func (o RulesEngineOutput) ToRulesEngineOutputWithContext(ctx context.Context) R
 	return o
 }
 
+// Whether this Rules engine configuration is enabled? Defaults to `true`.
 func (o RulesEngineOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RulesEngine) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

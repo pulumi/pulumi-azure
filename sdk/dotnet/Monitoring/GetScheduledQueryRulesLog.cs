@@ -121,6 +121,9 @@ namespace Pulumi.Azure.Monitoring
     [OutputType]
     public sealed class GetScheduledQueryRulesLogResult
     {
+        /// <summary>
+        /// A list of IDs of Resources referred into query.
+        /// </summary>
         public readonly ImmutableArray<string> AuthorizedResourceIds;
         /// <summary>
         /// A `criteria` block as defined below.

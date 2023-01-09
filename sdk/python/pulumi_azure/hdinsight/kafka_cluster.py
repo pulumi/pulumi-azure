@@ -64,6 +64,9 @@ class KafkaClusterArgs:
         pulumi.set(__self__, "component_version", component_version)
         pulumi.set(__self__, "gateway", gateway)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if roles is not None:
+            warnings.warn("""`kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""", DeprecationWarning)
+            pulumi.log.warn("""roles is deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""")
         pulumi.set(__self__, "roles", roles)
         pulumi.set(__self__, "tier", tier)
         if compute_isolation is not None:
@@ -432,6 +435,9 @@ class _KafkaClusterState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if rest_proxy is not None:
             pulumi.set(__self__, "rest_proxy", rest_proxy)
+        if roles is not None:
+            warnings.warn("""`kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""", DeprecationWarning)
+            pulumi.log.warn("""roles is deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""")
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
         if security_profile is not None:
@@ -988,6 +994,9 @@ class KafkaCluster(pulumi.CustomResource):
             __props__.__dict__["rest_proxy"] = rest_proxy
             if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
+            if roles is not None and not opts.urn:
+                warnings.warn("""`kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""", DeprecationWarning)
+                pulumi.log.warn("""roles is deprecated: `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user""")
             __props__.__dict__["roles"] = roles
             __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["storage_account_gen2"] = storage_account_gen2

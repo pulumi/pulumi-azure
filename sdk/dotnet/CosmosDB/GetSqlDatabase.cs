@@ -138,6 +138,9 @@ namespace Pulumi.Azure.CosmosDB
         public readonly string Id;
         public readonly string Name;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// The throughput of SQL database (RU/s).
+        /// </summary>
         public readonly int Throughput;
 
         [OutputConstructor]

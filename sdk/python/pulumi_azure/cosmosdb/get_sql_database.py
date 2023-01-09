@@ -76,6 +76,9 @@ class GetSqlDatabaseResult:
     @property
     @pulumi.getter
     def throughput(self) -> int:
+        """
+        The throughput of SQL database (RU/s).
+        """
         return pulumi.get(self, "throughput")
 
 

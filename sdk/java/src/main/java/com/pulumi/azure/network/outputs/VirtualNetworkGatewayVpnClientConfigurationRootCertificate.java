@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
     /**
-     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+     * @return A user-defined name of the root certificate. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -19,14 +19,13 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
      * authority. The certificate must be provided in Base-64 encoded X.509 format
      * (PEM). In particular, this argument *must not* include the
      * `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
-     * revoked.
      * 
      */
     private String publicCertData;
 
     private VirtualNetworkGatewayVpnClientConfigurationRootCertificate() {}
     /**
-     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+     * @return A user-defined name of the root certificate. Changing this forces a new resource to be created.
      * 
      */
     public String name() {
@@ -37,7 +36,6 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
      * authority. The certificate must be provided in Base-64 encoded X.509 format
      * (PEM). In particular, this argument *must not* include the
      * `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
-     * revoked.
      * 
      */
     public String publicCertData() {

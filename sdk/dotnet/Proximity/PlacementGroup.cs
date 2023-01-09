@@ -51,6 +51,12 @@ namespace Pulumi.Azure.Proximity
     public partial class PlacementGroup : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+        /// </summary>
+        [Output("allowedVmSizes")]
+        public Output<ImmutableArray<string>> AllowedVmSizes { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -73,6 +79,12 @@ namespace Pulumi.Azure.Proximity
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("zone")]
+        public Output<string?> Zone { get; private set; } = null!;
 
 
         /// <summary>
@@ -120,6 +132,18 @@ namespace Pulumi.Azure.Proximity
 
     public sealed class PlacementGroupArgs : global::Pulumi.ResourceArgs
     {
+        [Input("allowedVmSizes")]
+        private InputList<string>? _allowedVmSizes;
+
+        /// <summary>
+        /// Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+        /// </summary>
+        public InputList<string> AllowedVmSizes
+        {
+            get => _allowedVmSizes ?? (_allowedVmSizes = new InputList<string>());
+            set => _allowedVmSizes = value;
+        }
+
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -150,6 +174,12 @@ namespace Pulumi.Azure.Proximity
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("zone")]
+        public Input<string>? Zone { get; set; }
+
         public PlacementGroupArgs()
         {
         }
@@ -158,6 +188,18 @@ namespace Pulumi.Azure.Proximity
 
     public sealed class PlacementGroupState : global::Pulumi.ResourceArgs
     {
+        [Input("allowedVmSizes")]
+        private InputList<string>? _allowedVmSizes;
+
+        /// <summary>
+        /// Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+        /// </summary>
+        public InputList<string> AllowedVmSizes
+        {
+            get => _allowedVmSizes ?? (_allowedVmSizes = new InputList<string>());
+            set => _allowedVmSizes = value;
+        }
+
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -187,6 +229,12 @@ namespace Pulumi.Azure.Proximity
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("zone")]
+        public Input<string>? Zone { get; set; }
 
         public PlacementGroupState()
         {

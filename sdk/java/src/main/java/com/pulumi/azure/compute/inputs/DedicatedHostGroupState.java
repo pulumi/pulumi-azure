@@ -108,9 +108,17 @@ public final class DedicatedHostGroupState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
+     * 
+     */
     @Import(name="zone")
     private @Nullable Output<String> zone;
 
+    /**
+     * @return Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
+     * 
+     */
     public Optional<Output<String>> zone() {
         return Optional.ofNullable(this.zone);
     }
@@ -271,11 +279,23 @@ public final class DedicatedHostGroupState extends com.pulumi.resources.Resource
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param zone Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zone(@Nullable Output<String> zone) {
             $.zone = zone;
             return this;
         }
 
+        /**
+         * @param zone Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zone(String zone) {
             return zone(Output.of(zone));
         }

@@ -37,6 +37,8 @@ class LinkedServiceWebArgs:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        :param pulumi.Input[str] password: The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+        :param pulumi.Input[str] username: The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "data_factory_id", data_factory_id)
@@ -170,6 +172,9 @@ class LinkedServiceWebArgs:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -179,6 +184,9 @@ class LinkedServiceWebArgs:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -211,7 +219,9 @@ class _LinkedServiceWebState:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        :param pulumi.Input[str] password: The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
         :param pulumi.Input[str] url: The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
+        :param pulumi.Input[str] username: The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
         """
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
@@ -336,6 +346,9 @@ class _LinkedServiceWebState:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -357,6 +370,9 @@ class _LinkedServiceWebState:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -419,7 +435,9 @@ class LinkedServiceWeb(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        :param pulumi.Input[str] password: The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
         :param pulumi.Input[str] url: The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
+        :param pulumi.Input[str] username: The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
         """
         ...
     @overload
@@ -545,7 +563,9 @@ class LinkedServiceWeb(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        :param pulumi.Input[str] password: The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
         :param pulumi.Input[str] url: The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
+        :param pulumi.Input[str] username: The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -632,6 +652,9 @@ class LinkedServiceWeb(pulumi.CustomResource):
     @property
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[str]]:
+        """
+        The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+        """
         return pulumi.get(self, "password")
 
     @property
@@ -645,5 +668,8 @@ class LinkedServiceWeb(pulumi.CustomResource):
     @property
     @pulumi.getter
     def username(self) -> pulumi.Output[Optional[str]]:
+        """
+        The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
+        """
         return pulumi.get(self, "username")
 

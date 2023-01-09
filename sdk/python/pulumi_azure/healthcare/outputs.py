@@ -886,6 +886,7 @@ class GetMedtechServiceIdentityResult(dict):
         """
         :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
         :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
+        :param str type: The type of identity used for the Healthcare Med Tech Service. Possible values are `SystemAssigned`.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -910,6 +911,9 @@ class GetMedtechServiceIdentityResult(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The type of identity used for the Healthcare Med Tech Service. Possible values are `SystemAssigned`.
+        """
         return pulumi.get(self, "type")
 
 

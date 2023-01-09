@@ -24,7 +24,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
      */
     private @Nullable String createOption;
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String diskEncryptionSetId;
@@ -43,8 +43,20 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
      * 
      */
     private String storageAccountType;
+    /**
+     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+     * 
+     */
     private @Nullable Integer ultraSsdDiskIopsReadWrite;
+    /**
+     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+     * 
+     */
     private @Nullable Integer ultraSsdDiskMbpsReadWrite;
+    /**
+     * @return Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean writeAcceleratorEnabled;
 
     private OrchestratedVirtualMachineScaleSetDataDisk() {}
@@ -63,7 +75,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
         return Optional.ofNullable(this.createOption);
     }
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> diskEncryptionSetId() {
@@ -90,12 +102,24 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
     public String storageAccountType() {
         return this.storageAccountType;
     }
+    /**
+     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+     * 
+     */
     public Optional<Integer> ultraSsdDiskIopsReadWrite() {
         return Optional.ofNullable(this.ultraSsdDiskIopsReadWrite);
     }
+    /**
+     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+     * 
+     */
     public Optional<Integer> ultraSsdDiskMbpsReadWrite() {
         return Optional.ofNullable(this.ultraSsdDiskMbpsReadWrite);
     }
+    /**
+     * @return Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> writeAcceleratorEnabled() {
         return Optional.ofNullable(this.writeAcceleratorEnabled);
     }

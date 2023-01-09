@@ -77,6 +77,9 @@ class GetLogProfileResult:
     @property
     @pulumi.getter(name="retentionPolicies")
     def retention_policies(self) -> Sequence['outputs.GetLogProfileRetentionPolicyResult']:
+        """
+        a `retention_policy` block as documented below.
+        """
         return pulumi.get(self, "retention_policies")
 
     @property

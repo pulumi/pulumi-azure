@@ -162,7 +162,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+     * The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -316,7 +316,7 @@ export interface VirtualNetworkGatewayState {
      */
     location?: pulumi.Input<string>;
     /**
-     * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+     * The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -404,7 +404,7 @@ export interface VirtualNetworkGatewayArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+     * The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

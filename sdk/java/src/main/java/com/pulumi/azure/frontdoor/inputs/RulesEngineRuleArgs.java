@@ -20,14 +20,14 @@ public final class RulesEngineRuleArgs extends com.pulumi.resources.ResourceArgs
     public static final RulesEngineRuleArgs Empty = new RulesEngineRuleArgs();
 
     /**
-     * A `rule_action` block as defined below.
+     * An `action` block as defined below.
      * 
      */
     @Import(name="action")
     private @Nullable Output<RulesEngineRuleActionArgs> action;
 
     /**
-     * @return A `rule_action` block as defined below.
+     * @return An `action` block as defined below.
      * 
      */
     public Optional<Output<RulesEngineRuleActionArgs>> action() {
@@ -107,7 +107,7 @@ public final class RulesEngineRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param action A `rule_action` block as defined below.
+         * @param action An `action` block as defined below.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class RulesEngineRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param action A `rule_action` block as defined below.
+         * @param action An `action` block as defined below.
          * 
          * @return builder
          * 

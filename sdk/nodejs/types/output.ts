@@ -3007,6 +3007,9 @@ export namespace appplatform {
          * The FQDN list of required traffic.
          */
         fqdns: string[];
+        /**
+         * The IP list of required traffic.
+         */
         ipAddresses: string[];
         /**
          * The port of required traffic.
@@ -9269,7 +9272,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `javaVersion`.
+         * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `javaVersion`.
          */
         nodeVersion?: string;
         /**
@@ -9979,7 +9982,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `javaVersion`.
+         * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `javaVersion`.
          */
         nodeVersion?: string;
         /**
@@ -10676,7 +10679,7 @@ export namespace appservice {
          */
         headers: outputs.appservice.SlotSiteConfigIpRestrictionHeaders;
         /**
-         * The IP Address used for this IP Restriction in CIDR notation.
+         * The IP Address used for this IP Restriction.
          */
         ipAddress?: string;
         /**
@@ -12559,7 +12562,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of node to use when `currentStack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+         * The version of node to use when `currentStack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
          */
         nodeVersion?: string;
         /**
@@ -13326,7 +13329,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of node to use when `currentStack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+         * The version of node to use when `currentStack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
          */
         nodeVersion?: string;
         /**
@@ -13980,7 +13983,7 @@ export namespace automation {
         /**
          * The end time of the schedule.
          */
-        expiryTime?: string;
+        expiryTime: string;
         expiryTimeOffsetMinutes: number;
         /**
          * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
@@ -14202,14 +14205,14 @@ export namespace backup {
 
     export interface PolicyFileShareRetentionDaily {
         /**
-         * The number of yearly backups to keep. Must be between `1` and `10`
+         * The number of daily backups to keep. Must be between `1` and `200` (inclusive)
          */
         count: number;
     }
 
     export interface PolicyFileShareRetentionMonthly {
         /**
-         * The number of yearly backups to keep. Must be between `1` and `10`
+         * The number of monthly backups to keep. Must be between `1` and `120`
          */
         count: number;
         /**
@@ -14224,11 +14227,11 @@ export namespace backup {
 
     export interface PolicyFileShareRetentionWeekly {
         /**
-         * The number of yearly backups to keep. Must be between `1` and `10`
+         * The number of daily backups to keep. Must be between `1` and `200` (inclusive)
          */
         count: number;
         /**
-         * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         * The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
          */
         weekdays: string[];
     }
@@ -14270,21 +14273,21 @@ export namespace backup {
          */
         time: string;
         /**
-         * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         * The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
          */
         weekdays?: string[];
     }
 
     export interface PolicyVMRetentionDaily {
         /**
-         * The number of yearly backups to keep. Must be between `1` and `9999`
+         * The number of daily backups to keep. Must be between `7` and `9999`.
          */
         count: number;
     }
 
     export interface PolicyVMRetentionMonthly {
         /**
-         * The number of yearly backups to keep. Must be between `1` and `9999`
+         * The number of monthly backups to keep. Must be between `1` and `9999`
          */
         count: number;
         /**
@@ -14299,11 +14302,11 @@ export namespace backup {
 
     export interface PolicyVMRetentionWeekly {
         /**
-         * The number of yearly backups to keep. Must be between `1` and `9999`
+         * The number of weekly backups to keep. Must be between `1` and `9999`
          */
         count: number;
         /**
-         * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         * The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
          */
         weekdays: string[];
     }
@@ -18142,7 +18145,13 @@ export namespace compute {
          * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
          */
         storageAccountType: string;
+        /**
+         * Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+         */
         ultraSsdDiskIopsReadWrite: number;
+        /**
+         * Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+         */
         ultraSsdDiskMbpsReadWrite: number;
         /**
          * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
@@ -18640,7 +18649,7 @@ export namespace compute {
          */
         createOption?: string;
         /**
-         * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+         * The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
          */
         diskEncryptionSetId?: string;
         /**
@@ -18655,8 +18664,17 @@ export namespace compute {
          * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
          */
         storageAccountType: string;
+        /**
+         * Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+         */
         ultraSsdDiskIopsReadWrite: number;
+        /**
+         * Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+         */
         ultraSsdDiskMbpsReadWrite: number;
+        /**
+         * Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
+         */
         writeAcceleratorEnabled?: boolean;
     }
 
@@ -18693,6 +18711,9 @@ export namespace compute {
          * Specifies the Publisher of the Extension.
          */
         publisher: string;
+        /**
+         * A JSON String which specifies Settings for the Extension.
+         */
         settings?: string;
         /**
          * Specifies the Type of the Extension.
@@ -18855,6 +18876,9 @@ export namespace compute {
          * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          */
         storageAccountType: string;
+        /**
+         * Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
+         */
         writeAcceleratorEnabled?: boolean;
     }
 
@@ -19026,6 +19050,9 @@ export namespace compute {
          * The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
          */
         certificateUrl?: string;
+        /**
+         * Specifies the protocol of listener. Possible values are `Http` or `Https`
+         */
         protocol: string;
     }
 
@@ -20112,7 +20139,13 @@ export namespace compute {
          * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
          */
         storageAccountType: string;
+        /**
+         * Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+         */
         ultraSsdDiskIopsReadWrite: number;
+        /**
+         * Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+         */
         ultraSsdDiskMbpsReadWrite: number;
         /**
          * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
@@ -20562,6 +20595,9 @@ export namespace compute {
          * The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
          */
         certificateUrl?: string;
+        /**
+         * Specifies the protocol of listener. Possible values are `Http` or `Https`
+         */
         protocol: string;
     }
 
@@ -21715,10 +21751,25 @@ export namespace containerservice {
     }
 
     export interface GetKubernetesClusterStorageProfile {
+        /**
+         * Is the Blob CSI driver enabled?
+         */
         blobDriverEnabled: boolean;
+        /**
+         * Is the Disk CSI driver enabled?
+         */
         diskDriverEnabled: boolean;
+        /**
+         * The configured Disk CSI Driver version.
+         */
         diskDriverVersion: string;
+        /**
+         * Is the File CSI driver enabled?
+         */
         fileDriverEnabled: boolean;
+        /**
+         * Is the Snapshot Controller enabled?
+         */
         snapshotControllerEnabled: boolean;
     }
 
@@ -21771,7 +21822,7 @@ export namespace containerservice {
          */
         memoryLimit?: number;
         /**
-         * Specifies the name of the Container Group. Changing this forces a new resource to be created.
+         * Specifies the name of the Container. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -21805,11 +21856,11 @@ export namespace containerservice {
 
     export interface GroupContainerGpuLimit {
         /**
-         * The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+         * The upper limit of the number of GPUs which should be assigned to this container.
          */
         count?: number;
         /**
-         * The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+         * The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
          */
         sku?: string;
     }
@@ -21855,7 +21906,7 @@ export namespace containerservice {
          */
         path?: string;
         /**
-         * The port number the container will expose. Changing this forces a new resource to be created.
+         * Number of the port to access on the container. Changing this forces a new resource to be created.
          */
         port?: number;
         /**
@@ -21916,7 +21967,7 @@ export namespace containerservice {
          */
         path?: string;
         /**
-         * The port number the container will expose. Changing this forces a new resource to be created.
+         * Number of the port to access on the container. Changing this forces a new resource to be created.
          */
         port?: number;
         /**
@@ -21939,7 +21990,7 @@ export namespace containerservice {
          */
         mountPath: string;
         /**
-         * Specifies the name of the Container Group. Changing this forces a new resource to be created.
+         * The name of the volume mount. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -22083,7 +22134,7 @@ export namespace containerservice {
          */
         image: string;
         /**
-         * Specifies the name of the Container Group. Changing this forces a new resource to be created.
+         * Specifies the name of the Container. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -22110,7 +22161,7 @@ export namespace containerservice {
          */
         mountPath: string;
         /**
-         * Specifies the name of the Container Group. Changing this forces a new resource to be created.
+         * The name of the volume mount. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -22284,6 +22335,9 @@ export namespace containerservice {
          * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
          */
         fipsEnabled?: boolean;
+        /**
+         * Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+         */
         hostGroupId?: string;
         /**
          * A `kubeletConfig` block as defined below.
@@ -22329,6 +22383,9 @@ export namespace containerservice {
          * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
          */
         nodePublicIpPrefixId?: string;
+        /**
+         * A list of the taints added to new nodes during node pool create and scale.
+         */
         nodeTaints?: string[];
         /**
          * Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
@@ -22354,9 +22411,12 @@ export namespace containerservice {
          * The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
          */
         podSubnetId?: string;
+        /**
+         * The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
+         */
         proximityPlacementGroupId?: string;
         /**
-         * Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+         * Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
          */
         scaleDownMode?: string;
         /**
@@ -22820,9 +22880,12 @@ export namespace containerservice {
 
     export interface KubernetesClusterMonitorMetrics {
         /**
-         * Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+         * Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
          */
         annotationsAllowed?: string;
+        /**
+         * Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+         */
         labelsAllowed?: string;
     }
 
@@ -23758,9 +23821,12 @@ export namespace core {
     }
 
     export interface ResourceDeploymentScriptAzureCliIdentity {
+        /**
+         * Specifies the list of user-assigned managed identity IDs associated with the resource.
+         */
         identityIds: string[];
         /**
-         * Type of the managed identity.
+         * Type of the managed identity. The only possible value is `UserAssigned`.
          */
         type: string;
     }
@@ -23799,9 +23865,12 @@ export namespace core {
     }
 
     export interface ResourceDeploymentScriptPowerShellIdentity {
+        /**
+         * Specifies the list of user-assigned managed identity IDs associated with the resource.
+         */
         identityIds: string[];
         /**
-         * Type of the managed identity.
+         * Type of the managed identity. The only possible value is `UserAssigned`.
          */
         type: string;
     }
@@ -25008,6 +25077,9 @@ export namespace datafactory {
     }
 
     export interface DataFlowSinkFlowlet {
+        /**
+         * Specifies the reference data flow parameters from dataset.
+         */
         datasetParameters?: string;
         /**
          * The name for the Data Factory Flowlet.
@@ -25095,6 +25167,9 @@ export namespace datafactory {
     }
 
     export interface DataFlowSourceFlowlet {
+        /**
+         * Specifies the reference data flow parameters from dataset.
+         */
         datasetParameters?: string;
         /**
          * The name for the Data Factory Flowlet.
@@ -25174,6 +25249,9 @@ export namespace datafactory {
     }
 
     export interface DataFlowTransformationFlowlet {
+        /**
+         * Specifies the reference data flow parameters from dataset.
+         */
         datasetParameters?: string;
         /**
          * The name for the Data Factory Flowlet.
@@ -25723,6 +25801,9 @@ export namespace datafactory {
     }
 
     export interface FlowletDataFlowSinkFlowlet {
+        /**
+         * Specifies the reference data flow parameters from dataset.
+         */
         datasetParameters?: string;
         /**
          * The name for the Data Factory Flowlet.
@@ -25810,6 +25891,9 @@ export namespace datafactory {
     }
 
     export interface FlowletDataFlowSourceFlowlet {
+        /**
+         * Specifies the reference data flow parameters from dataset.
+         */
         datasetParameters?: string;
         /**
          * The name for the Data Factory Flowlet.
@@ -25872,7 +25956,7 @@ export namespace datafactory {
          */
         linkedService?: outputs.datafactory.FlowletDataFlowTransformationLinkedService;
         /**
-         * Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+         * The name for the Data Flow transformation.
          */
         name: string;
     }
@@ -25889,6 +25973,9 @@ export namespace datafactory {
     }
 
     export interface FlowletDataFlowTransformationFlowlet {
+        /**
+         * Specifies the reference data flow parameters from dataset.
+         */
         datasetParameters?: string;
         /**
          * The name for the Data Factory Flowlet.
@@ -26294,11 +26381,11 @@ export namespace datafactory {
          */
         logDestination?: string;
         /**
-         * The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+         * Specifies the maximum number of worker nodes. It should be between 1 and 25000.
          */
         maxNumberOfWorkers?: number;
         /**
-         * The minimum number of worker nodes. Defaults to `1`.
+         * Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
          */
         minNumberOfWorkers?: number;
         /**
@@ -26941,6 +27028,9 @@ export namespace devtest {
     }
 
     export interface ScheduleHourlyRecurrence {
+        /**
+         * Minutes of the hour the schedule will run.
+         */
         minute: number;
     }
 
@@ -27278,7 +27368,7 @@ export namespace domainservices {
          */
         externalAccessIpAddress: string;
         /**
-         * The ID of the Domain Service.
+         * A unique ID for the replica set.
          */
         id: string;
         /**
@@ -27311,7 +27401,13 @@ export namespace domainservices {
     }
 
     export interface ServiceSecureLdap {
+        /**
+         * The expiry time of the certificate.
+         */
         certificateExpiry: string;
+        /**
+         * The thumbprint of the certificate.
+         */
         certificateThumbprint: string;
         /**
          * Whether to enable secure LDAP for the managed domain. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
@@ -27329,6 +27425,9 @@ export namespace domainservices {
          * The password to use for decrypting the PKCS#12 bundle (PFX file).
          */
         pfxCertificatePassword: string;
+        /**
+         * The public certificate.
+         */
         publicCertificate: string;
     }
 
@@ -29734,7 +29833,7 @@ export namespace frontdoor {
 
     export interface RulesEngineRule {
         /**
-         * A `ruleAction` block as defined below.
+         * An `action` block as defined below.
          */
         action?: outputs.frontdoor.RulesEngineRuleAction;
         /**
@@ -29845,6 +29944,9 @@ export namespace hdinsight {
     }
 
     export interface HBaseClusterComputeIsolation {
+        /**
+         * This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+         */
         computeIsolationEnabled?: boolean;
         /**
          * The name of the host SKU.
@@ -30258,6 +30360,9 @@ export namespace hdinsight {
     }
 
     export interface HadoopClusterComputeIsolation {
+        /**
+         * This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+         */
         computeIsolationEnabled?: boolean;
         /**
          * The name of the host SKU.
@@ -30522,7 +30627,7 @@ export namespace hdinsight {
 
     export interface HadoopClusterRolesHeadNodeScriptAction {
         /**
-         * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+         * The name of the script action.
          */
         name: string;
         /**
@@ -30624,7 +30729,7 @@ export namespace hdinsight {
 
     export interface HadoopClusterRolesWorkerNodeScriptAction {
         /**
-         * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+         * The name of the script action.
          */
         name: string;
         /**
@@ -30670,7 +30775,7 @@ export namespace hdinsight {
 
     export interface HadoopClusterRolesZookeeperNodeScriptAction {
         /**
-         * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+         * The name of the script action.
          */
         name: string;
         /**
@@ -30753,10 +30858,16 @@ export namespace hdinsight {
     }
 
     export interface InteractiveQueryClusterComponentVersion {
+        /**
+         * The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+         */
         interactiveHive: string;
     }
 
     export interface InteractiveQueryClusterComputeIsolation {
+        /**
+         * This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+         */
         computeIsolationEnabled?: boolean;
         /**
          * The name of the host SKU.
@@ -31185,6 +31296,9 @@ export namespace hdinsight {
     }
 
     export interface KafkaClusterComputeIsolation {
+        /**
+         * This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+         */
         computeIsolationEnabled?: boolean;
         /**
          * The name of the host SKU.
@@ -31590,6 +31704,9 @@ export namespace hdinsight {
     }
 
     export interface SparkClusterComputeIsolation {
+        /**
+         * This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+         */
         computeIsolationEnabled?: boolean;
         /**
          * The name of the host SKU.
@@ -32183,6 +32300,9 @@ export namespace healthcare {
          * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
          */
         tenantId: string;
+        /**
+         * The type of identity used for the Healthcare Med Tech Service. Possible values are `SystemAssigned`.
+         */
         type: string;
     }
 
@@ -34969,6 +35089,9 @@ export namespace maintenance {
          * Effective expiration date of the maintenance window.
          */
         expirationDateTime: string;
+        /**
+         * The rate at which a maintenance window is expected to recur.
+         */
         recurEvery: string;
         /**
          * Effective start date of the maintenance window.
@@ -39079,6 +39202,9 @@ export namespace netapp {
     }
 
     export interface SnapshotPolicyMonthlySchedule {
+        /**
+         * List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
+         */
         daysOfMonths: number[];
         /**
          * Hour of the day that the snapshots will be created, valid range is from 0 to 23.
@@ -40913,6 +41039,9 @@ export namespace network {
          * The private IP address associated with the Azure Firewall.
          */
         privateIpAddress: string;
+        /**
+         * The ID of the Public IP address of the Azure Firewall.
+         */
         publicIpAddressId: string;
         /**
          * The ID of the Subnet where the Azure Firewall is deployed.
@@ -40929,6 +41058,9 @@ export namespace network {
          * The private IP address associated with the Azure Firewall.
          */
         privateIpAddress: string;
+        /**
+         * The ID of the Public IP address of the Azure Firewall.
+         */
         publicIpAddressId: string;
         /**
          * The ID of the Subnet where the Azure Firewall is deployed.
@@ -41259,6 +41391,29 @@ export namespace network {
          * The value of custom header. Applicable for HTTP and HTTPS protocol.
          */
         value: string;
+    }
+
+    export interface GetVirtualHubRouteTableRoute {
+        /**
+         * A list of destination addresses for this route.
+         */
+        destinations: string[];
+        /**
+         * The type of destinations.
+         */
+        destinationsType: string;
+        /**
+         * The name of the Virtual Hub Route Table.
+         */
+        name: string;
+        /**
+         * The next hop's resource ID.
+         */
+        nextHop: string;
+        /**
+         * The type of next hop.
+         */
+        nextHopType: string;
     }
 
     export interface GetVirtualNetworkGatewayBgpSetting {
@@ -42503,7 +42658,7 @@ export namespace network {
 
     export interface VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
         /**
-         * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+         * The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
          */
         name: string;
         thumbprint: string;
@@ -42511,7 +42666,7 @@ export namespace network {
 
     export interface VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
         /**
-         * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+         * A user-defined name of the root certificate. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -42519,7 +42674,6 @@ export namespace network {
          * authority. The certificate must be provided in Base-64 encoded X.509 format
          * (PEM). In particular, this argument *must not* include the
          * `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
-         * revoked.
          */
         publicCertData: string;
     }
@@ -42534,7 +42688,7 @@ export namespace network {
          */
         id: string;
         /**
-         * The name of the virtual network. Changing this forces a new resource to be created.
+         * The name of the subnet. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -43891,6 +44045,9 @@ export namespace privatelink {
 
 export namespace purview {
     export interface AccountIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
+         */
         identityIds?: string[];
         /**
          * The Principal ID associated with this Managed Service Identity.
@@ -44454,7 +44611,13 @@ export namespace sentinel {
          * The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
          */
         entityMatchingMethod?: string;
+        /**
+         * A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+         */
         groupByAlertDetails?: string[];
+        /**
+         * A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+         */
         groupByCustomDetails?: string[];
         /**
          * A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
@@ -44823,6 +44986,9 @@ export namespace servicefabric {
          * Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
          */
         isAdmin: boolean;
+        /**
+         * The Issuer Thumbprint of the Certificate.
+         */
         issuerThumbprint?: string;
     }
 
@@ -44990,6 +45156,9 @@ export namespace servicefabric {
          * A `deltaHealthPolicy` block as defined below
          */
         deltaHealthPolicy?: outputs.servicefabric.ClusterUpgradePolicyDeltaHealthPolicy;
+        /**
+         * Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
+         */
         forceRestartEnabled?: boolean;
         /**
          * Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
@@ -46467,7 +46636,7 @@ export namespace storage {
          */
         enabled: boolean;
         /**
-         * A `filter` block as documented below.
+         * A `filters` block as documented below.
          */
         filters?: outputs.storage.ManagementPolicyRuleFilters;
         /**

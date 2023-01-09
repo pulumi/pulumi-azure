@@ -123,14 +123,14 @@ public class MonitorTagRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.metrics);
     }
     /**
-     * Name of the Tag.
+     * The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Name of the Tag.
+     * @return The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
      * 
      */
     public Output<String> name() {

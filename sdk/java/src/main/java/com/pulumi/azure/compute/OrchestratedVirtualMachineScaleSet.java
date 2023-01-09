@@ -160,9 +160,17 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     public Output<Optional<List<OrchestratedVirtualMachineScaleSetDataDisk>>> dataDisks() {
         return Codegen.optional(this.dataDisks);
     }
+    /**
+     * Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+     * 
+     */
     @Export(name="encryptionAtHostEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> encryptionAtHostEnabled;
 
+    /**
+     * @return Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+     * 
+     */
     public Output<Optional<Boolean>> encryptionAtHostEnabled() {
         return Codegen.optional(this.encryptionAtHostEnabled);
     }
@@ -530,9 +538,17 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     public Output<Optional<String>> userDataBase64() {
         return Codegen.optional(this.userDataBase64);
     }
+    /**
+     * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="zoneBalance", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> zoneBalance;
 
+    /**
+     * @return Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<Optional<Boolean>> zoneBalance() {
         return Codegen.optional(this.zoneBalance);
     }

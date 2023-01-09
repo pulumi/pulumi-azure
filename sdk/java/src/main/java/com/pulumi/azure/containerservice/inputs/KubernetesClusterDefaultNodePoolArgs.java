@@ -112,9 +112,17 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         return Optional.ofNullable(this.fipsEnabled);
     }
 
+    /**
+     * Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="hostGroupId")
     private @Nullable Output<String> hostGroupId;
 
+    /**
+     * @return Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> hostGroupId() {
         return Optional.ofNullable(this.hostGroupId);
     }
@@ -284,9 +292,17 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         return Optional.ofNullable(this.nodePublicIpPrefixId);
     }
 
+    /**
+     * A list of the taints added to new nodes during node pool create and scale.
+     * 
+     */
     @Import(name="nodeTaints")
     private @Nullable Output<List<String>> nodeTaints;
 
+    /**
+     * @return A list of the taints added to new nodes during node pool create and scale.
+     * 
+     */
     public Optional<Output<List<String>>> nodeTaints() {
         return Optional.ofNullable(this.nodeTaints);
     }
@@ -381,22 +397,30 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         return Optional.ofNullable(this.podSubnetId);
     }
 
+    /**
+     * The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="proximityPlacementGroupId")
     private @Nullable Output<String> proximityPlacementGroupId;
 
+    /**
+     * @return The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> proximityPlacementGroupId() {
         return Optional.ofNullable(this.proximityPlacementGroupId);
     }
 
     /**
-     * Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to &#39;ScaleDownModeDelete&#39;. Possible values include &#39;ScaleDownModeDelete&#39; and &#39;ScaleDownModeDeallocate&#39;. Changing this forces a new resource to be created.
+     * Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
      * 
      */
     @Import(name="scaleDownMode")
     private @Nullable Output<String> scaleDownMode;
 
     /**
-     * @return Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to &#39;ScaleDownModeDelete&#39;. Possible values include &#39;ScaleDownModeDelete&#39; and &#39;ScaleDownModeDeallocate&#39;. Changing this forces a new resource to be created.
+     * @return Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
      * 
      */
     public Optional<Output<String>> scaleDownMode() {
@@ -707,11 +731,23 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
             return fipsEnabled(Output.of(fipsEnabled));
         }
 
+        /**
+         * @param hostGroupId Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostGroupId(@Nullable Output<String> hostGroupId) {
             $.hostGroupId = hostGroupId;
             return this;
         }
 
+        /**
+         * @param hostGroupId Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostGroupId(String hostGroupId) {
             return hostGroupId(Output.of(hostGroupId));
         }
@@ -947,15 +983,33 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
             return nodePublicIpPrefixId(Output.of(nodePublicIpPrefixId));
         }
 
+        /**
+         * @param nodeTaints A list of the taints added to new nodes during node pool create and scale.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nodeTaints(@Nullable Output<List<String>> nodeTaints) {
             $.nodeTaints = nodeTaints;
             return this;
         }
 
+        /**
+         * @param nodeTaints A list of the taints added to new nodes during node pool create and scale.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nodeTaints(List<String> nodeTaints) {
             return nodeTaints(Output.of(nodeTaints));
         }
 
+        /**
+         * @param nodeTaints A list of the taints added to new nodes during node pool create and scale.
+         * 
+         * @return builder
+         * 
+         */
         public Builder nodeTaints(String... nodeTaints) {
             return nodeTaints(List.of(nodeTaints));
         }
@@ -1086,17 +1140,29 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
             return podSubnetId(Output.of(podSubnetId));
         }
 
+        /**
+         * @param proximityPlacementGroupId The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder proximityPlacementGroupId(@Nullable Output<String> proximityPlacementGroupId) {
             $.proximityPlacementGroupId = proximityPlacementGroupId;
             return this;
         }
 
+        /**
+         * @param proximityPlacementGroupId The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder proximityPlacementGroupId(String proximityPlacementGroupId) {
             return proximityPlacementGroupId(Output.of(proximityPlacementGroupId));
         }
 
         /**
-         * @param scaleDownMode Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to &#39;ScaleDownModeDelete&#39;. Possible values include &#39;ScaleDownModeDelete&#39; and &#39;ScaleDownModeDeallocate&#39;. Changing this forces a new resource to be created.
+         * @param scaleDownMode Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
          * 
          * @return builder
          * 
@@ -1107,7 +1173,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param scaleDownMode Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to &#39;ScaleDownModeDelete&#39;. Possible values include &#39;ScaleDownModeDelete&#39; and &#39;ScaleDownModeDeallocate&#39;. Changing this forces a new resource to be created.
+         * @param scaleDownMode Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
          * 
          * @return builder
          * 

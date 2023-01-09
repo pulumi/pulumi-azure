@@ -217,6 +217,9 @@ export class ReplicatedVM extends pulumi.CustomResource {
      * One or more `networkInterface` block as defined below.
      */
     public readonly networkInterfaces!: pulumi.Output<outputs.siterecovery.ReplicatedVMNetworkInterface[]>;
+    /**
+     * Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+     */
     public readonly recoveryReplicationPolicyId!: pulumi.Output<string>;
     /**
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
@@ -227,7 +230,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+     * Name of fabric that should contain this replication. Changing this forces a new resource to be created.
      */
     public readonly sourceRecoveryFabricName!: pulumi.Output<string>;
     /**
@@ -357,6 +360,9 @@ export interface ReplicatedVMState {
      * One or more `networkInterface` block as defined below.
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[]>;
+    /**
+     * Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+     */
     recoveryReplicationPolicyId?: pulumi.Input<string>;
     /**
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
@@ -367,7 +373,7 @@ export interface ReplicatedVMState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+     * Name of fabric that should contain this replication. Changing this forces a new resource to be created.
      */
     sourceRecoveryFabricName?: pulumi.Input<string>;
     /**
@@ -420,6 +426,9 @@ export interface ReplicatedVMArgs {
      * One or more `networkInterface` block as defined below.
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[]>;
+    /**
+     * Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+     */
     recoveryReplicationPolicyId: pulumi.Input<string>;
     /**
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
@@ -430,7 +439,7 @@ export interface ReplicatedVMArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+     * Name of fabric that should contain this replication. Changing this forces a new resource to be created.
      */
     sourceRecoveryFabricName: pulumi.Input<string>;
     /**

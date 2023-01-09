@@ -17,6 +17,9 @@ namespace Pulumi.Azure.Compute.Outputs
         /// The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
         /// </summary>
         public readonly string? CertificateUrl;
+        /// <summary>
+        /// Specifies the protocol of listener. Possible values are `Http` or `Https`
+        /// </summary>
         public readonly string Protocol;
 
         [OutputConstructor]

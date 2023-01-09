@@ -166,9 +166,17 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
     public Output<Optional<String>> fileShare() {
         return Codegen.optional(this.fileShare);
     }
+    /**
+     * The Host name of the server.
+     * 
+     */
     @Export(name="host", type=String.class, parameters={})
     private Output</* @Nullable */ String> host;
 
+    /**
+     * @return The Host name of the server.
+     * 
+     */
     public Output<Optional<String>> host() {
         return Codegen.optional(this.host);
     }
@@ -230,15 +238,31 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
     public Output<Optional<Map<String,String>>> parameters() {
         return Codegen.optional(this.parameters);
     }
+    /**
+     * The password to log in the server.
+     * 
+     */
     @Export(name="password", type=String.class, parameters={})
     private Output</* @Nullable */ String> password;
 
+    /**
+     * @return The password to log in the server.
+     * 
+     */
     public Output<Optional<String>> password() {
         return Codegen.optional(this.password);
     }
+    /**
+     * The user ID to log in the server.
+     * 
+     */
     @Export(name="userId", type=String.class, parameters={})
     private Output</* @Nullable */ String> userId;
 
+    /**
+     * @return The user ID to log in the server.
+     * 
+     */
     public Output<Optional<String>> userId() {
         return Codegen.optional(this.userId);
     }

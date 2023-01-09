@@ -64,14 +64,14 @@ public final class MonitorTagRuleState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Name of the Tag.
+     * The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the Tag.
+     * @return The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -189,7 +189,7 @@ public final class MonitorTagRuleState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Name of the Tag.
+         * @param name The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class MonitorTagRuleState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Name of the Tag.
+         * @param name The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
          * 
          * @return builder
          * 

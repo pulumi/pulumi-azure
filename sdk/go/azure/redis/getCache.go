@@ -82,7 +82,8 @@ type LookupCacheResult struct {
 	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
 	// The primary connection string of the Redis Instance.
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
-	PrivateStaticIpAddress  string `pulumi:"privateStaticIpAddress"`
+	// The Static IP Address assigned to the Redis Cache when hosted inside the Virtual Network.
+	PrivateStaticIpAddress string `pulumi:"privateStaticIpAddress"`
 	// A `redisConfiguration` block as defined below.
 	RedisConfigurations []GetCacheRedisConfiguration `pulumi:"redisConfigurations"`
 	ResourceGroupName   string                       `pulumi:"resourceGroupName"`
@@ -200,6 +201,7 @@ func (o LookupCacheResultOutput) PrimaryConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCacheResult) string { return v.PrimaryConnectionString }).(pulumi.StringOutput)
 }
 
+// The Static IP Address assigned to the Redis Cache when hosted inside the Virtual Network.
 func (o LookupCacheResultOutput) PrivateStaticIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCacheResult) string { return v.PrivateStaticIpAddress }).(pulumi.StringOutput)
 }

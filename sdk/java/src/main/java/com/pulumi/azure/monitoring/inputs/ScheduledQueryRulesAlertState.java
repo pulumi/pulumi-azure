@@ -173,9 +173,17 @@ public final class ScheduledQueryRulesAlertState extends com.pulumi.resources.Re
         return Optional.ofNullable(this.query);
     }
 
+    /**
+     * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+     * 
+     */
     @Import(name="queryType")
     private @Nullable Output<String> queryType;
 
+    /**
+     * @return The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+     * 
+     */
     public Optional<Output<String>> queryType() {
         return Optional.ofNullable(this.queryType);
     }
@@ -256,14 +264,14 @@ public final class ScheduledQueryRulesAlertState extends com.pulumi.resources.Re
     }
 
     /**
-     * The condition that results in the alert rule being run.
+     * A `trigger` block as defined below.
      * 
      */
     @Import(name="trigger")
     private @Nullable Output<ScheduledQueryRulesAlertTriggerArgs> trigger;
 
     /**
-     * @return The condition that results in the alert rule being run.
+     * @return A `trigger` block as defined below.
      * 
      */
     public Optional<Output<ScheduledQueryRulesAlertTriggerArgs>> trigger() {
@@ -532,11 +540,23 @@ public final class ScheduledQueryRulesAlertState extends com.pulumi.resources.Re
             return query(Output.of(query));
         }
 
+        /**
+         * @param queryType The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryType(@Nullable Output<String> queryType) {
             $.queryType = queryType;
             return this;
         }
 
+        /**
+         * @param queryType The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryType(String queryType) {
             return queryType(Output.of(queryType));
         }
@@ -647,7 +667,7 @@ public final class ScheduledQueryRulesAlertState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param trigger The condition that results in the alert rule being run.
+         * @param trigger A `trigger` block as defined below.
          * 
          * @return builder
          * 
@@ -658,7 +678,7 @@ public final class ScheduledQueryRulesAlertState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param trigger The condition that results in the alert rule being run.
+         * @param trigger A `trigger` block as defined below.
          * 
          * @return builder
          * 

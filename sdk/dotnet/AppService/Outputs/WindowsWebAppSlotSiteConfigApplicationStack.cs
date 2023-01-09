@@ -46,7 +46,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>
-        /// The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+        /// The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
         /// </summary>
         public readonly string? NodeVersion;
         /// <summary>

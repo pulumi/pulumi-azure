@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class PolicyVMRetentionMonthly {
     /**
-     * @return The number of yearly backups to keep. Must be between `1` and `9999`
+     * @return The number of monthly backups to keep. Must be between `1` and `9999`
      * 
      */
     private Integer count;
@@ -29,7 +29,7 @@ public final class PolicyVMRetentionMonthly {
 
     private PolicyVMRetentionMonthly() {}
     /**
-     * @return The number of yearly backups to keep. Must be between `1` and `9999`
+     * @return The number of monthly backups to keep. Must be between `1` and `9999`
      * 
      */
     public Integer count() {

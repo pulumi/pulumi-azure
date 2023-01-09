@@ -94,6 +94,9 @@ namespace Pulumi.Azure.DataFactory
         [Output("fileShare")]
         public Output<string?> FileShare { get; private set; } = null!;
 
+        /// <summary>
+        /// The Host name of the server.
+        /// </summary>
         [Output("host")]
         public Output<string?> Host { get; private set; } = null!;
 
@@ -122,9 +125,15 @@ namespace Pulumi.Azure.DataFactory
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
+        /// <summary>
+        /// The password to log in the server.
+        /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
+        /// <summary>
+        /// The user ID to log in the server.
+        /// </summary>
         [Output("userId")]
         public Output<string?> UserId { get; private set; } = null!;
 
@@ -237,6 +246,9 @@ namespace Pulumi.Azure.DataFactory
         [Input("fileShare")]
         public Input<string>? FileShare { get; set; }
 
+        /// <summary>
+        /// The Host name of the server.
+        /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
 
@@ -273,6 +285,10 @@ namespace Pulumi.Azure.DataFactory
 
         [Input("password")]
         private Input<string>? _password;
+
+        /// <summary>
+        /// The password to log in the server.
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -283,6 +299,9 @@ namespace Pulumi.Azure.DataFactory
             }
         }
 
+        /// <summary>
+        /// The user ID to log in the server.
+        /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
 
@@ -352,6 +371,9 @@ namespace Pulumi.Azure.DataFactory
         [Input("fileShare")]
         public Input<string>? FileShare { get; set; }
 
+        /// <summary>
+        /// The Host name of the server.
+        /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
 
@@ -388,6 +410,10 @@ namespace Pulumi.Azure.DataFactory
 
         [Input("password")]
         private Input<string>? _password;
+
+        /// <summary>
+        /// The password to log in the server.
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -398,6 +424,9 @@ namespace Pulumi.Azure.DataFactory
             }
         }
 
+        /// <summary>
+        /// The user ID to log in the server.
+        /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
 

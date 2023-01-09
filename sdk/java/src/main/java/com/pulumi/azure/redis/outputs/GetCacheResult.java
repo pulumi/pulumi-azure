@@ -71,6 +71,10 @@ public final class GetCacheResult {
      * 
      */
     private String primaryConnectionString;
+    /**
+     * @return The Static IP Address assigned to the Redis Cache when hosted inside the Virtual Network.
+     * 
+     */
     private String privateStaticIpAddress;
     /**
      * @return A `redis_configuration` block as defined below.
@@ -188,6 +192,10 @@ public final class GetCacheResult {
     public String primaryConnectionString() {
         return this.primaryConnectionString;
     }
+    /**
+     * @return The Static IP Address assigned to the Redis Cache when hosted inside the Virtual Network.
+     * 
+     */
     public String privateStaticIpAddress() {
         return this.privateStaticIpAddress;
     }

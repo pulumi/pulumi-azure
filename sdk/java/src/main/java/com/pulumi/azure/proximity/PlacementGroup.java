@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -68,6 +69,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:proximity/placementGroup:PlacementGroup")
 public class PlacementGroup extends com.pulumi.resources.CustomResource {
     /**
+     * Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+     * 
+     */
+    @Export(name="allowedVmSizes", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> allowedVmSizes;
+
+    /**
+     * @return Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+     * 
+     */
+    public Output<Optional<List<String>>> allowedVmSizes() {
+        return Codegen.optional(this.allowedVmSizes);
+    }
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
@@ -122,6 +137,20 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
+    }
+    /**
+     * Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="zone", type=String.class, parameters={})
+    private Output</* @Nullable */ String> zone;
+
+    /**
+     * @return Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> zone() {
+        return Codegen.optional(this.zone);
     }
 
     /**

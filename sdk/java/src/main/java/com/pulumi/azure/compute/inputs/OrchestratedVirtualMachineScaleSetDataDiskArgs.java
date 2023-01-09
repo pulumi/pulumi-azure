@@ -48,14 +48,14 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
     }
 
     /**
-     * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+     * The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="diskEncryptionSetId")
     private @Nullable Output<String> diskEncryptionSetId;
 
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> diskEncryptionSetId() {
@@ -107,23 +107,47 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         return this.storageAccountType;
     }
 
+    /**
+     * Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+     * 
+     */
     @Import(name="ultraSsdDiskIopsReadWrite")
     private @Nullable Output<Integer> ultraSsdDiskIopsReadWrite;
 
+    /**
+     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+     * 
+     */
     public Optional<Output<Integer>> ultraSsdDiskIopsReadWrite() {
         return Optional.ofNullable(this.ultraSsdDiskIopsReadWrite);
     }
 
+    /**
+     * Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+     * 
+     */
     @Import(name="ultraSsdDiskMbpsReadWrite")
     private @Nullable Output<Integer> ultraSsdDiskMbpsReadWrite;
 
+    /**
+     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+     * 
+     */
     public Optional<Output<Integer>> ultraSsdDiskMbpsReadWrite() {
         return Optional.ofNullable(this.ultraSsdDiskMbpsReadWrite);
     }
 
+    /**
+     * Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
+     * 
+     */
     @Import(name="writeAcceleratorEnabled")
     private @Nullable Output<Boolean> writeAcceleratorEnabled;
 
+    /**
+     * @return Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> writeAcceleratorEnabled() {
         return Optional.ofNullable(this.writeAcceleratorEnabled);
     }
@@ -203,7 +227,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -214,7 +238,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -286,29 +310,65 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
             return storageAccountType(Output.of(storageAccountType));
         }
 
+        /**
+         * @param ultraSsdDiskIopsReadWrite Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ultraSsdDiskIopsReadWrite(@Nullable Output<Integer> ultraSsdDiskIopsReadWrite) {
             $.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
             return this;
         }
 
+        /**
+         * @param ultraSsdDiskIopsReadWrite Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ultraSsdDiskIopsReadWrite(Integer ultraSsdDiskIopsReadWrite) {
             return ultraSsdDiskIopsReadWrite(Output.of(ultraSsdDiskIopsReadWrite));
         }
 
+        /**
+         * @param ultraSsdDiskMbpsReadWrite Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ultraSsdDiskMbpsReadWrite(@Nullable Output<Integer> ultraSsdDiskMbpsReadWrite) {
             $.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
             return this;
         }
 
+        /**
+         * @param ultraSsdDiskMbpsReadWrite Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ultraSsdDiskMbpsReadWrite(Integer ultraSsdDiskMbpsReadWrite) {
             return ultraSsdDiskMbpsReadWrite(Output.of(ultraSsdDiskMbpsReadWrite));
         }
 
+        /**
+         * @param writeAcceleratorEnabled Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder writeAcceleratorEnabled(@Nullable Output<Boolean> writeAcceleratorEnabled) {
             $.writeAcceleratorEnabled = writeAcceleratorEnabled;
             return this;
         }
 
+        /**
+         * @param writeAcceleratorEnabled Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder writeAcceleratorEnabled(Boolean writeAcceleratorEnabled) {
             return writeAcceleratorEnabled(Output.of(writeAcceleratorEnabled));
         }

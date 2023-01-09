@@ -12,6 +12,9 @@ namespace Pulumi.Azure.DevTest.Inputs
 
     public sealed class ScheduleHourlyRecurrenceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Minutes of the hour the schedule will run.
+        /// </summary>
         [Input("minute", required: true)]
         public Input<int> Minute { get; set; } = null!;
 

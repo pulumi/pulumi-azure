@@ -25,7 +25,7 @@ public final class ManagementPolicyRule {
      */
     private Boolean enabled;
     /**
-     * @return A `filter` block as documented below.
+     * @return A `filters` block as documented below.
      * 
      */
     private @Nullable ManagementPolicyRuleFilters filters;
@@ -51,7 +51,7 @@ public final class ManagementPolicyRule {
         return this.enabled;
     }
     /**
-     * @return A `filter` block as documented below.
+     * @return A `filters` block as documented below.
      * 
      */
     public Optional<ManagementPolicyRuleFilters> filters() {

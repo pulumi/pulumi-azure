@@ -186,18 +186,18 @@ public class ReferenceInputBlob extends com.pulumi.resources.CustomResource {
         return this.serialization;
     }
     /**
-     * The Access Key which should be used to connect to this Storage Account.
+     * The Access Key which should be used to connect to this Storage Account. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
     @Export(name="storageAccountKey", type=String.class, parameters={})
-    private Output<String> storageAccountKey;
+    private Output</* @Nullable */ String> storageAccountKey;
 
     /**
-     * @return The Access Key which should be used to connect to this Storage Account.
+     * @return The Access Key which should be used to connect to this Storage Account. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
-    public Output<String> storageAccountKey() {
-        return this.storageAccountKey;
+    public Output<Optional<String>> storageAccountKey() {
+        return Codegen.optional(this.storageAccountKey);
     }
     /**
      * The name of the Storage Account that has the blob container with reference data.

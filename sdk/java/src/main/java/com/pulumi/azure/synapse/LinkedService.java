@@ -38,8 +38,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs;
  * import com.pulumi.azure.synapse.FirewallRule;
  * import com.pulumi.azure.synapse.FirewallRuleArgs;
+ * import com.pulumi.azure.synapse.IntegrationRuntimeAzure;
+ * import com.pulumi.azure.synapse.IntegrationRuntimeAzureArgs;
  * import com.pulumi.azure.synapse.LinkedService;
  * import com.pulumi.azure.synapse.LinkedServiceArgs;
+ * import com.pulumi.azure.synapse.inputs.LinkedServiceIntegrationRuntimeArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -88,6 +91,11 @@ import javax.annotation.Nullable;
  *             .endIpAddress(&#34;255.255.255.255&#34;)
  *             .build());
  * 
+ *         var exampleIntegrationRuntimeAzure = new IntegrationRuntimeAzure(&#34;exampleIntegrationRuntimeAzure&#34;, IntegrationRuntimeAzureArgs.builder()        
+ *             .synapseWorkspaceId(exampleWorkspace.id())
+ *             .location(exampleResourceGroup.location())
+ *             .build());
+ * 
  *         var exampleLinkedService = new LinkedService(&#34;exampleLinkedService&#34;, LinkedServiceArgs.builder()        
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .type(&#34;AzureBlobStorage&#34;)
@@ -96,6 +104,9 @@ import javax.annotation.Nullable;
  *   &#34;connectionString&#34;: &#34;%s&#34;
  * }
  * &#34;, primaryConnectionString)))
+ *             .integrationRuntime(LinkedServiceIntegrationRuntimeArgs.builder()
+ *                 .name(exampleIntegrationRuntimeAzure.name())
+ *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleFirewallRule)
  *                 .build());

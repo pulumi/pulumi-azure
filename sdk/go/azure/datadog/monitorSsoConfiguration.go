@@ -66,7 +66,7 @@ type MonitorSsoConfiguration struct {
 	EnterpriseApplicationId pulumi.StringOutput `pulumi:"enterpriseApplicationId"`
 	// The SingleSignOn URL to login to Datadog org.
 	LoginUrl pulumi.StringOutput `pulumi:"loginUrl"`
-	// The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+	// The name of the SingleSignOn configuration. Defaults to `default`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The state of SingleSignOn configuration.
 	SingleSignOnEnabled pulumi.StringOutput `pulumi:"singleSignOnEnabled"`
@@ -116,7 +116,7 @@ type monitorSsoConfigurationState struct {
 	EnterpriseApplicationId *string `pulumi:"enterpriseApplicationId"`
 	// The SingleSignOn URL to login to Datadog org.
 	LoginUrl *string `pulumi:"loginUrl"`
-	// The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+	// The name of the SingleSignOn configuration. Defaults to `default`.
 	Name *string `pulumi:"name"`
 	// The state of SingleSignOn configuration.
 	SingleSignOnEnabled *string `pulumi:"singleSignOnEnabled"`
@@ -129,7 +129,7 @@ type MonitorSsoConfigurationState struct {
 	EnterpriseApplicationId pulumi.StringPtrInput
 	// The SingleSignOn URL to login to Datadog org.
 	LoginUrl pulumi.StringPtrInput
-	// The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+	// The name of the SingleSignOn configuration. Defaults to `default`.
 	Name pulumi.StringPtrInput
 	// The state of SingleSignOn configuration.
 	SingleSignOnEnabled pulumi.StringPtrInput
@@ -144,7 +144,7 @@ type monitorSsoConfigurationArgs struct {
 	DatadogMonitorId string `pulumi:"datadogMonitorId"`
 	// The application Id to perform SSO operation.
 	EnterpriseApplicationId string `pulumi:"enterpriseApplicationId"`
-	// The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+	// The name of the SingleSignOn configuration. Defaults to `default`.
 	Name *string `pulumi:"name"`
 	// The state of SingleSignOn configuration.
 	SingleSignOnEnabled string `pulumi:"singleSignOnEnabled"`
@@ -156,7 +156,7 @@ type MonitorSsoConfigurationArgs struct {
 	DatadogMonitorId pulumi.StringInput
 	// The application Id to perform SSO operation.
 	EnterpriseApplicationId pulumi.StringInput
-	// The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+	// The name of the SingleSignOn configuration. Defaults to `default`.
 	Name pulumi.StringPtrInput
 	// The state of SingleSignOn configuration.
 	SingleSignOnEnabled pulumi.StringInput
@@ -264,7 +264,7 @@ func (o MonitorSsoConfigurationOutput) LoginUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitorSsoConfiguration) pulumi.StringOutput { return v.LoginUrl }).(pulumi.StringOutput)
 }
 
-// The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+// The name of the SingleSignOn configuration. Defaults to `default`.
 func (o MonitorSsoConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitorSsoConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

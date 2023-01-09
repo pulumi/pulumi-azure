@@ -79,7 +79,7 @@ export interface GetAccountResult {
      */
     readonly azureFilesAuthentications: outputs.storage.GetAccountAzureFilesAuthentication[];
     /**
-     * A `customDomain` block as documented below.
+     * supports the following:
      */
     readonly customDomains: outputs.storage.GetAccountCustomDomain[];
     /**

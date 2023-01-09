@@ -139,16 +139,14 @@ public class ApplicationGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.friendlyName);
     }
     /**
-     * Resource ID for a Virtual Desktop Host Pool to associate with the
-     * Virtual Desktop Application Group.
+     * Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
      * 
      */
     @Export(name="hostPoolId", type=String.class, parameters={})
     private Output<String> hostPoolId;
 
     /**
-     * @return Resource ID for a Virtual Desktop Host Pool to associate with the
-     * Virtual Desktop Application Group.
+     * @return Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
      * 
      */
     public Output<String> hostPoolId() {

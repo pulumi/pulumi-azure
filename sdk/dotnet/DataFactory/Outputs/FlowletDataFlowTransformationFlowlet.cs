@@ -13,6 +13,9 @@ namespace Pulumi.Azure.DataFactory.Outputs
     [OutputType]
     public sealed class FlowletDataFlowTransformationFlowlet
     {
+        /// <summary>
+        /// Specifies the reference data flow parameters from dataset.
+        /// </summary>
         public readonly string? DatasetParameters;
         /// <summary>
         /// The name for the Data Factory Flowlet.

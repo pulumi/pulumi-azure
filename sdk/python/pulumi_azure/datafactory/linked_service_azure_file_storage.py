@@ -37,11 +37,14 @@ class LinkedServiceAzureFileStorageArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] file_share: The name of the file share.
+        :param pulumi.Input[str] host: The Host name of the server.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input['LinkedServiceAzureFileStorageKeyVaultPasswordArgs'] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        :param pulumi.Input[str] password: The password to log in the server.
+        :param pulumi.Input[str] user_id: The user ID to log in the server.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "data_factory_id", data_factory_id)
@@ -143,6 +146,9 @@ class LinkedServiceAzureFileStorageArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Host name of the server.
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -201,6 +207,9 @@ class LinkedServiceAzureFileStorageArgs:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password to log in the server.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -210,6 +219,9 @@ class LinkedServiceAzureFileStorageArgs:
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user ID to log in the server.
+        """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
@@ -241,11 +253,14 @@ class _LinkedServiceAzureFileStorageState:
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] file_share: The name of the file share.
+        :param pulumi.Input[str] host: The Host name of the server.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input['LinkedServiceAzureFileStorageKeyVaultPasswordArgs'] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        :param pulumi.Input[str] password: The password to log in the server.
+        :param pulumi.Input[str] user_id: The user ID to log in the server.
         """
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
@@ -349,6 +364,9 @@ class _LinkedServiceAzureFileStorageState:
     @property
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Host name of the server.
+        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -407,6 +425,9 @@ class _LinkedServiceAzureFileStorageState:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password to log in the server.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -416,6 +437,9 @@ class _LinkedServiceAzureFileStorageState:
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user ID to log in the server.
+        """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
@@ -478,11 +502,14 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] file_share: The name of the file share.
+        :param pulumi.Input[str] host: The Host name of the server.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[pulumi.InputType['LinkedServiceAzureFileStorageKeyVaultPasswordArgs']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        :param pulumi.Input[str] password: The password to log in the server.
+        :param pulumi.Input[str] user_id: The user ID to log in the server.
         """
         ...
     @overload
@@ -610,11 +637,14 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] file_share: The name of the file share.
+        :param pulumi.Input[str] host: The Host name of the server.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[pulumi.InputType['LinkedServiceAzureFileStorageKeyVaultPasswordArgs']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        :param pulumi.Input[str] password: The password to log in the server.
+        :param pulumi.Input[str] user_id: The user ID to log in the server.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -686,6 +716,9 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
     @property
     @pulumi.getter
     def host(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Host name of the server.
+        """
         return pulumi.get(self, "host")
 
     @property
@@ -724,10 +757,16 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
     @property
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[str]]:
+        """
+        The password to log in the server.
+        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The user ID to log in the server.
+        """
         return pulumi.get(self, "user_id")
 

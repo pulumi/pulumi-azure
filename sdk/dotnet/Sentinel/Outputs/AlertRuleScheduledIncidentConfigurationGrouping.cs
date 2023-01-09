@@ -21,7 +21,13 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
         /// </summary>
         public readonly string? EntityMatchingMethod;
+        /// <summary>
+        /// A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+        /// </summary>
         public readonly ImmutableArray<string> GroupByAlertDetails;
+        /// <summary>
+        /// A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+        /// </summary>
         public readonly ImmutableArray<string> GroupByCustomDetails;
         /// <summary>
         /// A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.

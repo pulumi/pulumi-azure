@@ -33,6 +33,9 @@ namespace Pulumi.Azure.Compute.Outputs
         /// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string StorageAccountType;
+        /// <summary>
+        /// Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
+        /// </summary>
         public readonly bool? WriteAcceleratorEnabled;
 
         [OutputConstructor]

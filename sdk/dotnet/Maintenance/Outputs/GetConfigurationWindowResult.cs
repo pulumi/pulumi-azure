@@ -21,6 +21,9 @@ namespace Pulumi.Azure.Maintenance.Outputs
         /// Effective expiration date of the maintenance window.
         /// </summary>
         public readonly string ExpirationDateTime;
+        /// <summary>
+        /// The rate at which a maintenance window is expected to recur.
+        /// </summary>
         public readonly string RecurEvery;
         /// <summary>
         /// Effective start date of the maintenance window.

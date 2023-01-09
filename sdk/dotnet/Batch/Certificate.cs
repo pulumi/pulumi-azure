@@ -120,11 +120,14 @@ namespace Pulumi.Azure.Batch
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
+        /// The thumbprint of the certificate. Changing this forces a new resource to be created.
         /// </summary>
         [Output("thumbprint")]
         public Output<string> Thumbprint { get; private set; } = null!;
 
+        /// <summary>
+        /// The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("thumbprintAlgorithm")]
         public Output<string> ThumbprintAlgorithm { get; private set; } = null!;
 
@@ -230,11 +233,14 @@ namespace Pulumi.Azure.Batch
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
+        /// The thumbprint of the certificate. Changing this forces a new resource to be created.
         /// </summary>
         [Input("thumbprint", required: true)]
         public Input<string> Thumbprint { get; set; } = null!;
 
+        /// <summary>
+        /// The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("thumbprintAlgorithm", required: true)]
         public Input<string> ThumbprintAlgorithm { get; set; } = null!;
 
@@ -309,11 +315,14 @@ namespace Pulumi.Azure.Batch
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
+        /// The thumbprint of the certificate. Changing this forces a new resource to be created.
         /// </summary>
         [Input("thumbprint")]
         public Input<string>? Thumbprint { get; set; }
 
+        /// <summary>
+        /// The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("thumbprintAlgorithm")]
         public Input<string>? ThumbprintAlgorithm { get; set; }
 

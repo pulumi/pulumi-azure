@@ -15,7 +15,7 @@ type ServiceInitialReplicaSet struct {
 	DomainControllerIpAddresses []string `pulumi:"domainControllerIpAddresses"`
 	// The publicly routable IP address for the domain controllers in the initial replica set.
 	ExternalAccessIpAddress *string `pulumi:"externalAccessIpAddress"`
-	// The ID of the Domain Service.
+	// A unique ID for the replica set.
 	Id *string `pulumi:"id"`
 	// The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -41,7 +41,7 @@ type ServiceInitialReplicaSetArgs struct {
 	DomainControllerIpAddresses pulumi.StringArrayInput `pulumi:"domainControllerIpAddresses"`
 	// The publicly routable IP address for the domain controllers in the initial replica set.
 	ExternalAccessIpAddress pulumi.StringPtrInput `pulumi:"externalAccessIpAddress"`
-	// The ID of the Domain Service.
+	// A unique ID for the replica set.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput `pulumi:"location"`
@@ -138,7 +138,7 @@ func (o ServiceInitialReplicaSetOutput) ExternalAccessIpAddress() pulumi.StringP
 	return o.ApplyT(func(v ServiceInitialReplicaSet) *string { return v.ExternalAccessIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Domain Service.
+// A unique ID for the replica set.
 func (o ServiceInitialReplicaSetOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceInitialReplicaSet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -202,7 +202,7 @@ func (o ServiceInitialReplicaSetPtrOutput) ExternalAccessIpAddress() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Domain Service.
+// A unique ID for the replica set.
 func (o ServiceInitialReplicaSetPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceInitialReplicaSet) *string {
 		if v == nil {
@@ -418,7 +418,9 @@ func (o ServiceNotificationsPtrOutput) NotifyGlobalAdmins() pulumi.BoolPtrOutput
 }
 
 type ServiceSecureLdap struct {
-	CertificateExpiry     *string `pulumi:"certificateExpiry"`
+	// The expiry time of the certificate.
+	CertificateExpiry *string `pulumi:"certificateExpiry"`
+	// The thumbprint of the certificate.
 	CertificateThumbprint *string `pulumi:"certificateThumbprint"`
 	// Whether to enable secure LDAP for the managed domain. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
 	Enabled bool `pulumi:"enabled"`
@@ -427,8 +429,9 @@ type ServiceSecureLdap struct {
 	// The certificate/private key to use for LDAPS, as a base64-encoded TripleDES-SHA1 encrypted PKCS#12 bundle (PFX file).
 	PfxCertificate string `pulumi:"pfxCertificate"`
 	// The password to use for decrypting the PKCS#12 bundle (PFX file).
-	PfxCertificatePassword string  `pulumi:"pfxCertificatePassword"`
-	PublicCertificate      *string `pulumi:"publicCertificate"`
+	PfxCertificatePassword string `pulumi:"pfxCertificatePassword"`
+	// The public certificate.
+	PublicCertificate *string `pulumi:"publicCertificate"`
 }
 
 // ServiceSecureLdapInput is an input type that accepts ServiceSecureLdapArgs and ServiceSecureLdapOutput values.
@@ -443,7 +446,9 @@ type ServiceSecureLdapInput interface {
 }
 
 type ServiceSecureLdapArgs struct {
-	CertificateExpiry     pulumi.StringPtrInput `pulumi:"certificateExpiry"`
+	// The expiry time of the certificate.
+	CertificateExpiry pulumi.StringPtrInput `pulumi:"certificateExpiry"`
+	// The thumbprint of the certificate.
 	CertificateThumbprint pulumi.StringPtrInput `pulumi:"certificateThumbprint"`
 	// Whether to enable secure LDAP for the managed domain. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -452,8 +457,9 @@ type ServiceSecureLdapArgs struct {
 	// The certificate/private key to use for LDAPS, as a base64-encoded TripleDES-SHA1 encrypted PKCS#12 bundle (PFX file).
 	PfxCertificate pulumi.StringInput `pulumi:"pfxCertificate"`
 	// The password to use for decrypting the PKCS#12 bundle (PFX file).
-	PfxCertificatePassword pulumi.StringInput    `pulumi:"pfxCertificatePassword"`
-	PublicCertificate      pulumi.StringPtrInput `pulumi:"publicCertificate"`
+	PfxCertificatePassword pulumi.StringInput `pulumi:"pfxCertificatePassword"`
+	// The public certificate.
+	PublicCertificate pulumi.StringPtrInput `pulumi:"publicCertificate"`
 }
 
 func (ServiceSecureLdapArgs) ElementType() reflect.Type {
@@ -533,10 +539,12 @@ func (o ServiceSecureLdapOutput) ToServiceSecureLdapPtrOutputWithContext(ctx con
 	}).(ServiceSecureLdapPtrOutput)
 }
 
+// The expiry time of the certificate.
 func (o ServiceSecureLdapOutput) CertificateExpiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSecureLdap) *string { return v.CertificateExpiry }).(pulumi.StringPtrOutput)
 }
 
+// The thumbprint of the certificate.
 func (o ServiceSecureLdapOutput) CertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSecureLdap) *string { return v.CertificateThumbprint }).(pulumi.StringPtrOutput)
 }
@@ -561,6 +569,7 @@ func (o ServiceSecureLdapOutput) PfxCertificatePassword() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSecureLdap) string { return v.PfxCertificatePassword }).(pulumi.StringOutput)
 }
 
+// The public certificate.
 func (o ServiceSecureLdapOutput) PublicCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSecureLdap) *string { return v.PublicCertificate }).(pulumi.StringPtrOutput)
 }
@@ -589,6 +598,7 @@ func (o ServiceSecureLdapPtrOutput) Elem() ServiceSecureLdapOutput {
 	}).(ServiceSecureLdapOutput)
 }
 
+// The expiry time of the certificate.
 func (o ServiceSecureLdapPtrOutput) CertificateExpiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSecureLdap) *string {
 		if v == nil {
@@ -598,6 +608,7 @@ func (o ServiceSecureLdapPtrOutput) CertificateExpiry() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The thumbprint of the certificate.
 func (o ServiceSecureLdapPtrOutput) CertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSecureLdap) *string {
 		if v == nil {
@@ -647,6 +658,7 @@ func (o ServiceSecureLdapPtrOutput) PfxCertificatePassword() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The public certificate.
 func (o ServiceSecureLdapPtrOutput) PublicCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSecureLdap) *string {
 		if v == nil {

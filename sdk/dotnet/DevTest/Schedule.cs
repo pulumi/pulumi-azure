@@ -69,9 +69,15 @@ namespace Pulumi.Azure.DevTest
     [AzureResourceType("azure:devtest/schedule:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
+        /// </summary>
         [Output("dailyRecurrence")]
         public Output<Outputs.ScheduleDailyRecurrence?> DailyRecurrence { get; private set; } = null!;
 
+        /// <summary>
+        /// The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
+        /// </summary>
         [Output("hourlyRecurrence")]
         public Output<Outputs.ScheduleHourlyRecurrence?> HourlyRecurrence { get; private set; } = null!;
 
@@ -93,6 +99,9 @@ namespace Pulumi.Azure.DevTest
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The notification setting of a schedule. A `notification_settings` as defined below.
+        /// </summary>
         [Output("notificationSettings")]
         public Output<Outputs.ScheduleNotificationSettings> NotificationSettings { get; private set; } = null!;
 
@@ -126,6 +135,9 @@ namespace Pulumi.Azure.DevTest
         [Output("timeZoneId")]
         public Output<string> TimeZoneId { get; private set; } = null!;
 
+        /// <summary>
+        /// The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
+        /// </summary>
         [Output("weeklyRecurrence")]
         public Output<Outputs.ScheduleWeeklyRecurrence?> WeeklyRecurrence { get; private set; } = null!;
 
@@ -175,9 +187,15 @@ namespace Pulumi.Azure.DevTest
 
     public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
+        /// </summary>
         [Input("dailyRecurrence")]
         public Input<Inputs.ScheduleDailyRecurrenceArgs>? DailyRecurrence { get; set; }
 
+        /// <summary>
+        /// The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
+        /// </summary>
         [Input("hourlyRecurrence")]
         public Input<Inputs.ScheduleHourlyRecurrenceArgs>? HourlyRecurrence { get; set; }
 
@@ -199,6 +217,9 @@ namespace Pulumi.Azure.DevTest
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The notification setting of a schedule. A `notification_settings` as defined below.
+        /// </summary>
         [Input("notificationSettings", required: true)]
         public Input<Inputs.ScheduleNotificationSettingsArgs> NotificationSettings { get; set; } = null!;
 
@@ -238,6 +259,9 @@ namespace Pulumi.Azure.DevTest
         [Input("timeZoneId", required: true)]
         public Input<string> TimeZoneId { get; set; } = null!;
 
+        /// <summary>
+        /// The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
+        /// </summary>
         [Input("weeklyRecurrence")]
         public Input<Inputs.ScheduleWeeklyRecurrenceArgs>? WeeklyRecurrence { get; set; }
 
@@ -249,9 +273,15 @@ namespace Pulumi.Azure.DevTest
 
     public sealed class ScheduleState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
+        /// </summary>
         [Input("dailyRecurrence")]
         public Input<Inputs.ScheduleDailyRecurrenceGetArgs>? DailyRecurrence { get; set; }
 
+        /// <summary>
+        /// The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
+        /// </summary>
         [Input("hourlyRecurrence")]
         public Input<Inputs.ScheduleHourlyRecurrenceGetArgs>? HourlyRecurrence { get; set; }
 
@@ -273,6 +303,9 @@ namespace Pulumi.Azure.DevTest
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The notification setting of a schedule. A `notification_settings` as defined below.
+        /// </summary>
         [Input("notificationSettings")]
         public Input<Inputs.ScheduleNotificationSettingsGetArgs>? NotificationSettings { get; set; }
 
@@ -312,6 +345,9 @@ namespace Pulumi.Azure.DevTest
         [Input("timeZoneId")]
         public Input<string>? TimeZoneId { get; set; }
 
+        /// <summary>
+        /// The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
+        /// </summary>
         [Input("weeklyRecurrence")]
         public Input<Inputs.ScheduleWeeklyRecurrenceGetArgs>? WeeklyRecurrence { get; set; }
 

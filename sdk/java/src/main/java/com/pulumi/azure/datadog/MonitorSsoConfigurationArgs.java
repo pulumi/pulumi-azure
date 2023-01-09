@@ -46,14 +46,14 @@ public final class MonitorSsoConfigurationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+     * The name of the SingleSignOn configuration. Defaults to `default`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+     * @return The name of the SingleSignOn configuration. Defaults to `default`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -145,7 +145,7 @@ public final class MonitorSsoConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+         * @param name The name of the SingleSignOn configuration. Defaults to `default`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class MonitorSsoConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+         * @param name The name of the SingleSignOn configuration. Defaults to `default`.
          * 
          * @return builder
          * 

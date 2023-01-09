@@ -284,14 +284,14 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+     * The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+     * @return The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

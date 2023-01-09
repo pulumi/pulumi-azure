@@ -406,9 +406,17 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
     public Output<String> tier() {
         return this.tier;
     }
+    /**
+     * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="tlsMinVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> tlsMinVersion;
 
+    /**
+     * @return The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<Optional<String>> tlsMinVersion() {
         return Codegen.optional(this.tlsMinVersion);
     }

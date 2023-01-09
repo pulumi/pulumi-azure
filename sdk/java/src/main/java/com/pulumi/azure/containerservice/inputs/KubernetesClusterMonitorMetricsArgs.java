@@ -16,23 +16,31 @@ public final class KubernetesClusterMonitorMetricsArgs extends com.pulumi.resour
     public static final KubernetesClusterMonitorMetricsArgs Empty = new KubernetesClusterMonitorMetricsArgs();
 
     /**
-     * Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
+     * Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource&#39;s labels metric.
      * 
      */
     @Import(name="annotationsAllowed")
     private @Nullable Output<String> annotationsAllowed;
 
     /**
-     * @return Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
+     * @return Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource&#39;s labels metric.
      * 
      */
     public Optional<Output<String>> annotationsAllowed() {
         return Optional.ofNullable(this.annotationsAllowed);
     }
 
+    /**
+     * Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
+     * 
+     */
     @Import(name="labelsAllowed")
     private @Nullable Output<String> labelsAllowed;
 
+    /**
+     * @return Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
+     * 
+     */
     public Optional<Output<String>> labelsAllowed() {
         return Optional.ofNullable(this.labelsAllowed);
     }
@@ -63,7 +71,7 @@ public final class KubernetesClusterMonitorMetricsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param annotationsAllowed Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
+         * @param annotationsAllowed Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource&#39;s labels metric.
          * 
          * @return builder
          * 
@@ -74,7 +82,7 @@ public final class KubernetesClusterMonitorMetricsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param annotationsAllowed Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
+         * @param annotationsAllowed Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource&#39;s labels metric.
          * 
          * @return builder
          * 
@@ -83,11 +91,23 @@ public final class KubernetesClusterMonitorMetricsArgs extends com.pulumi.resour
             return annotationsAllowed(Output.of(annotationsAllowed));
         }
 
+        /**
+         * @param labelsAllowed Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labelsAllowed(@Nullable Output<String> labelsAllowed) {
             $.labelsAllowed = labelsAllowed;
             return this;
         }
 
+        /**
+         * @param labelsAllowed Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labelsAllowed(String labelsAllowed) {
             return labelsAllowed(Output.of(labelsAllowed));
         }

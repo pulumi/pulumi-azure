@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Backup.Inputs
     public sealed class PolicyVMRetentionWeeklyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of yearly backups to keep. Must be between `1` and `9999`
+        /// The number of weekly backups to keep. Must be between `1` and `9999`
         /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Backup.Inputs
         private InputList<string>? _weekdays;
 
         /// <summary>
-        /// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        /// The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         /// </summary>
         public InputList<string> Weekdays
         {

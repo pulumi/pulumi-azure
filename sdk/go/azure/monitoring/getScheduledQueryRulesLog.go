@@ -58,6 +58,7 @@ type LookupScheduledQueryRulesLogArgs struct {
 
 // A collection of values returned by getScheduledQueryRulesLog.
 type LookupScheduledQueryRulesLogResult struct {
+	// A list of IDs of Resources referred into query.
 	AuthorizedResourceIds []string `pulumi:"authorizedResourceIds"`
 	// A `criteria` block as defined below.
 	Criterias []GetScheduledQueryRulesLogCriteria `pulumi:"criterias"`
@@ -117,6 +118,7 @@ func (o LookupScheduledQueryRulesLogResultOutput) ToLookupScheduledQueryRulesLog
 	return o
 }
 
+// A list of IDs of Resources referred into query.
 func (o LookupScheduledQueryRulesLogResultOutput) AuthorizedResourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupScheduledQueryRulesLogResult) []string { return v.AuthorizedResourceIds }).(pulumi.StringArrayOutput)
 }

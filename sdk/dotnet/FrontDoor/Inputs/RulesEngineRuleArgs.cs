@@ -13,7 +13,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
     public sealed class RulesEngineRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `rule_action` block as defined below.
+        /// An `action` block as defined below.
         /// </summary>
         [Input("action")]
         public Input<Inputs.RulesEngineRuleActionArgs>? Action { get; set; }

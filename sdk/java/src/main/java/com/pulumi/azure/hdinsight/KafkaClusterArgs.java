@@ -236,14 +236,22 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `roles` block as defined below.
      * 
+     * @deprecated
+     * `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
+     * 
      */
+    @Deprecated /* `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user */
     @Import(name="roles", required=true)
     private Output<KafkaClusterRolesArgs> roles;
 
     /**
      * @return A `roles` block as defined below.
      * 
+     * @deprecated
+     * `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
+     * 
      */
+    @Deprecated /* `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user */
     public Output<KafkaClusterRolesArgs> roles() {
         return this.roles;
     }
@@ -673,7 +681,11 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
+         * 
          */
+        @Deprecated /* `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user */
         public Builder roles(Output<KafkaClusterRolesArgs> roles) {
             $.roles = roles;
             return this;
@@ -684,7 +696,11 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
+         * 
          */
+        @Deprecated /* `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user */
         public Builder roles(KafkaClusterRolesArgs roles) {
             return roles(Output.of(roles));
         }

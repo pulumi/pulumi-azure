@@ -20,16 +20,32 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ScheduleArgs Empty = new ScheduleArgs();
 
+    /**
+     * The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
+     * 
+     */
     @Import(name="dailyRecurrence")
     private @Nullable Output<ScheduleDailyRecurrenceArgs> dailyRecurrence;
 
+    /**
+     * @return The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
+     * 
+     */
     public Optional<Output<ScheduleDailyRecurrenceArgs>> dailyRecurrence() {
         return Optional.ofNullable(this.dailyRecurrence);
     }
 
+    /**
+     * The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
+     * 
+     */
     @Import(name="hourlyRecurrence")
     private @Nullable Output<ScheduleHourlyRecurrenceArgs> hourlyRecurrence;
 
+    /**
+     * @return The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
+     * 
+     */
     public Optional<Output<ScheduleHourlyRecurrenceArgs>> hourlyRecurrence() {
         return Optional.ofNullable(this.hourlyRecurrence);
     }
@@ -79,9 +95,17 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The notification setting of a schedule. A `notification_settings` as defined below.
+     * 
+     */
     @Import(name="notificationSettings", required=true)
     private Output<ScheduleNotificationSettingsArgs> notificationSettings;
 
+    /**
+     * @return The notification setting of a schedule. A `notification_settings` as defined below.
+     * 
+     */
     public Output<ScheduleNotificationSettingsArgs> notificationSettings() {
         return this.notificationSettings;
     }
@@ -161,9 +185,17 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         return this.timeZoneId;
     }
 
+    /**
+     * The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
+     * 
+     */
     @Import(name="weeklyRecurrence")
     private @Nullable Output<ScheduleWeeklyRecurrenceArgs> weeklyRecurrence;
 
+    /**
+     * @return The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
+     * 
+     */
     public Optional<Output<ScheduleWeeklyRecurrenceArgs>> weeklyRecurrence() {
         return Optional.ofNullable(this.weeklyRecurrence);
     }
@@ -203,20 +235,44 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ScheduleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dailyRecurrence The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dailyRecurrence(@Nullable Output<ScheduleDailyRecurrenceArgs> dailyRecurrence) {
             $.dailyRecurrence = dailyRecurrence;
             return this;
         }
 
+        /**
+         * @param dailyRecurrence The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dailyRecurrence(ScheduleDailyRecurrenceArgs dailyRecurrence) {
             return dailyRecurrence(Output.of(dailyRecurrence));
         }
 
+        /**
+         * @param hourlyRecurrence The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hourlyRecurrence(@Nullable Output<ScheduleHourlyRecurrenceArgs> hourlyRecurrence) {
             $.hourlyRecurrence = hourlyRecurrence;
             return this;
         }
 
+        /**
+         * @param hourlyRecurrence The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hourlyRecurrence(ScheduleHourlyRecurrenceArgs hourlyRecurrence) {
             return hourlyRecurrence(Output.of(hourlyRecurrence));
         }
@@ -284,11 +340,23 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param notificationSettings The notification setting of a schedule. A `notification_settings` as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notificationSettings(Output<ScheduleNotificationSettingsArgs> notificationSettings) {
             $.notificationSettings = notificationSettings;
             return this;
         }
 
+        /**
+         * @param notificationSettings The notification setting of a schedule. A `notification_settings` as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notificationSettings(ScheduleNotificationSettingsArgs notificationSettings) {
             return notificationSettings(Output.of(notificationSettings));
         }
@@ -398,11 +466,23 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
             return timeZoneId(Output.of(timeZoneId));
         }
 
+        /**
+         * @param weeklyRecurrence The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder weeklyRecurrence(@Nullable Output<ScheduleWeeklyRecurrenceArgs> weeklyRecurrence) {
             $.weeklyRecurrence = weeklyRecurrence;
             return this;
         }
 
+        /**
+         * @param weeklyRecurrence The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder weeklyRecurrence(ScheduleWeeklyRecurrenceArgs weeklyRecurrence) {
             return weeklyRecurrence(Output.of(weeklyRecurrence));
         }

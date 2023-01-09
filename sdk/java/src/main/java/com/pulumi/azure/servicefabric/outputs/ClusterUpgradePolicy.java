@@ -19,6 +19,10 @@ public final class ClusterUpgradePolicy {
      * 
      */
     private @Nullable ClusterUpgradePolicyDeltaHealthPolicy deltaHealthPolicy;
+    /**
+     * @return Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
+     * 
+     */
     private @Nullable Boolean forceRestartEnabled;
     /**
      * @return Specifies the duration, in &#34;hh:mm:ss&#34; string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
@@ -64,6 +68,10 @@ public final class ClusterUpgradePolicy {
     public Optional<ClusterUpgradePolicyDeltaHealthPolicy> deltaHealthPolicy() {
         return Optional.ofNullable(this.deltaHealthPolicy);
     }
+    /**
+     * @return Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
+     * 
+     */
     public Optional<Boolean> forceRestartEnabled() {
         return Optional.ofNullable(this.forceRestartEnabled);
     }

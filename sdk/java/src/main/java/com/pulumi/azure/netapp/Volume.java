@@ -50,9 +50,17 @@ public class Volume extends com.pulumi.resources.CustomResource {
     public Output<String> accountName() {
         return this.accountName;
     }
+    /**
+     * Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="azureVmwareDataStoreEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> azureVmwareDataStoreEnabled;
 
+    /**
+     * @return Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<Optional<Boolean>> azureVmwareDataStoreEnabled() {
         return Codegen.optional(this.azureVmwareDataStoreEnabled);
     }

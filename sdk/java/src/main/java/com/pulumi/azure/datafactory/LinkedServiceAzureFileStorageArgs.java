@@ -108,9 +108,17 @@ public final class LinkedServiceAzureFileStorageArgs extends com.pulumi.resource
         return Optional.ofNullable(this.fileShare);
     }
 
+    /**
+     * The Host name of the server.
+     * 
+     */
     @Import(name="host")
     private @Nullable Output<String> host;
 
+    /**
+     * @return The Host name of the server.
+     * 
+     */
     public Optional<Output<String>> host() {
         return Optional.ofNullable(this.host);
     }
@@ -177,16 +185,32 @@ public final class LinkedServiceAzureFileStorageArgs extends com.pulumi.resource
         return Optional.ofNullable(this.parameters);
     }
 
+    /**
+     * The password to log in the server.
+     * 
+     */
     @Import(name="password")
     private @Nullable Output<String> password;
 
+    /**
+     * @return The password to log in the server.
+     * 
+     */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
     }
 
+    /**
+     * The user ID to log in the server.
+     * 
+     */
     @Import(name="userId")
     private @Nullable Output<String> userId;
 
+    /**
+     * @return The user ID to log in the server.
+     * 
+     */
     public Optional<Output<String>> userId() {
         return Optional.ofNullable(this.userId);
     }
@@ -363,11 +387,23 @@ public final class LinkedServiceAzureFileStorageArgs extends com.pulumi.resource
             return fileShare(Output.of(fileShare));
         }
 
+        /**
+         * @param host The Host name of the server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder host(@Nullable Output<String> host) {
             $.host = host;
             return this;
         }
 
+        /**
+         * @param host The Host name of the server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder host(String host) {
             return host(Output.of(host));
         }
@@ -458,20 +494,44 @@ public final class LinkedServiceAzureFileStorageArgs extends com.pulumi.resource
             return parameters(Output.of(parameters));
         }
 
+        /**
+         * @param password The password to log in the server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
 
+        /**
+         * @param password The password to log in the server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
+        /**
+         * @param userId The user ID to log in the server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userId(@Nullable Output<String> userId) {
             $.userId = userId;
             return this;
         }
 
+        /**
+         * @param userId The user ID to log in the server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userId(String userId) {
             return userId(Output.of(userId));
         }

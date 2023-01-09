@@ -2876,7 +2876,7 @@ func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) RedirectType() pulum
 }
 
 type RulesEngineRule struct {
-	// A `ruleAction` block as defined below.
+	// An `action` block as defined below.
 	Action *RulesEngineRuleAction `pulumi:"action"`
 	// One or more `matchCondition` block as defined below.
 	MatchConditions []RulesEngineRuleMatchCondition `pulumi:"matchConditions"`
@@ -2898,7 +2898,7 @@ type RulesEngineRuleInput interface {
 }
 
 type RulesEngineRuleArgs struct {
-	// A `ruleAction` block as defined below.
+	// An `action` block as defined below.
 	Action RulesEngineRuleActionPtrInput `pulumi:"action"`
 	// One or more `matchCondition` block as defined below.
 	MatchConditions RulesEngineRuleMatchConditionArrayInput `pulumi:"matchConditions"`
@@ -2959,7 +2959,7 @@ func (o RulesEngineRuleOutput) ToRulesEngineRuleOutputWithContext(ctx context.Co
 	return o
 }
 
-// A `ruleAction` block as defined below.
+// An `action` block as defined below.
 func (o RulesEngineRuleOutput) Action() RulesEngineRuleActionPtrOutput {
 	return o.ApplyT(func(v RulesEngineRule) *RulesEngineRuleAction { return v.Action }).(RulesEngineRuleActionPtrOutput)
 }

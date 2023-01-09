@@ -157,9 +157,17 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.publicNetworkEnabled);
     }
 
+    /**
+     * Specifies the ID of the purview account resource associated with the Data Factory.
+     * 
+     */
     @Import(name="purviewId")
     private @Nullable Output<String> purviewId;
 
+    /**
+     * @return Specifies the ID of the purview account resource associated with the Data Factory.
+     * 
+     */
     public Optional<Output<String>> purviewId() {
         return Optional.ofNullable(this.purviewId);
     }
@@ -444,11 +452,23 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
             return publicNetworkEnabled(Output.of(publicNetworkEnabled));
         }
 
+        /**
+         * @param purviewId Specifies the ID of the purview account resource associated with the Data Factory.
+         * 
+         * @return builder
+         * 
+         */
         public Builder purviewId(@Nullable Output<String> purviewId) {
             $.purviewId = purviewId;
             return this;
         }
 
+        /**
+         * @param purviewId Specifies the ID of the purview account resource associated with the Data Factory.
+         * 
+         * @return builder
+         * 
+         */
         public Builder purviewId(String purviewId) {
             return purviewId(Output.of(purviewId));
         }

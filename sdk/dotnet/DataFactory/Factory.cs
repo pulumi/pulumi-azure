@@ -100,6 +100,9 @@ namespace Pulumi.Azure.DataFactory
         [Output("publicNetworkEnabled")]
         public Output<bool?> PublicNetworkEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the ID of the purview account resource associated with the Data Factory.
+        /// </summary>
         [Output("purviewId")]
         public Output<string?> PurviewId { get; private set; } = null!;
 
@@ -227,6 +230,9 @@ namespace Pulumi.Azure.DataFactory
         [Input("publicNetworkEnabled")]
         public Input<bool>? PublicNetworkEnabled { get; set; }
 
+        /// <summary>
+        /// Specifies the ID of the purview account resource associated with the Data Factory.
+        /// </summary>
         [Input("purviewId")]
         public Input<string>? PurviewId { get; set; }
 
@@ -322,6 +328,9 @@ namespace Pulumi.Azure.DataFactory
         [Input("publicNetworkEnabled")]
         public Input<bool>? PublicNetworkEnabled { get; set; }
 
+        /// <summary>
+        /// Specifies the ID of the purview account resource associated with the Data Factory.
+        /// </summary>
         [Input("purviewId")]
         public Input<string>? PurviewId { get; set; }
 

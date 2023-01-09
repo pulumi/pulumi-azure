@@ -114,10 +114,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<Outputs.ReferenceInputBlobSerialization> Serialization { get; private set; } = null!;
 
         /// <summary>
-        /// The Access Key which should be used to connect to this Storage Account.
+        /// The Access Key which should be used to connect to this Storage Account. Required if `authentication_mode` is `ConnectionString`.
         /// </summary>
         [Output("storageAccountKey")]
-        public Output<string> StorageAccountKey { get; private set; } = null!;
+        public Output<string?> StorageAccountKey { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Storage Account that has the blob container with reference data.
@@ -229,11 +229,11 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("serialization", required: true)]
         public Input<Inputs.ReferenceInputBlobSerializationArgs> Serialization { get; set; } = null!;
 
-        [Input("storageAccountKey", required: true)]
+        [Input("storageAccountKey")]
         private Input<string>? _storageAccountKey;
 
         /// <summary>
-        /// The Access Key which should be used to connect to this Storage Account.
+        /// The Access Key which should be used to connect to this Storage Account. Required if `authentication_mode` is `ConnectionString`.
         /// </summary>
         public Input<string>? StorageAccountKey
         {
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.StreamAnalytics
         private Input<string>? _storageAccountKey;
 
         /// <summary>
-        /// The Access Key which should be used to connect to this Storage Account.
+        /// The Access Key which should be used to connect to this Storage Account. Required if `authentication_mode` is `ConnectionString`.
         /// </summary>
         public Input<string>? StorageAccountKey
         {

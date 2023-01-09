@@ -152,6 +152,11 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Id;
         public readonly int IngressBytesTransferred;
+        /// <summary>
+        /// (Optional) A `ipsec_policy` block which is documented below.
+        /// Only a single policy can be defined for a connection. For details on
+        /// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetGatewayConnectionIpsecPolicyResult> IpsecPolicies;
         /// <summary>
         /// Use private local Azure IP for the connection.
@@ -188,6 +193,11 @@ namespace Pulumi.Azure.Network
         /// A mapping of tags to assign to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// One or more `traffic_selector_policy` blocks which are documented below.
+        /// A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
+        /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetGatewayConnectionTrafficSelectorPolicyResult> TrafficSelectorPolicies;
         /// <summary>
         /// The type of connection. Valid options are `IPsec`

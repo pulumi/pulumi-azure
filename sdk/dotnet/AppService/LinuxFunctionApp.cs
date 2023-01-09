@@ -47,7 +47,7 @@ namespace Pulumi.Azure.AppService
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         StorageAccountName = exampleAccount.Name,
-    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryConnectionString,
     ///         ServicePlanId = exampleServicePlan.Id,
     ///         SiteConfig = null,
     ///     });

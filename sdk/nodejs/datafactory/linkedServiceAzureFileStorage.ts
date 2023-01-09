@@ -90,6 +90,9 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
      * The name of the file share.
      */
     public readonly fileShare!: pulumi.Output<string | undefined>;
+    /**
+     * The Host name of the server.
+     */
     public readonly host!: pulumi.Output<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
@@ -108,7 +111,13 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The password to log in the server.
+     */
     public readonly password!: pulumi.Output<string | undefined>;
+    /**
+     * The user ID to log in the server.
+     */
     public readonly userId!: pulumi.Output<string | undefined>;
 
     /**
@@ -194,6 +203,9 @@ export interface LinkedServiceAzureFileStorageState {
      * The name of the file share.
      */
     fileShare?: pulumi.Input<string>;
+    /**
+     * The Host name of the server.
+     */
     host?: pulumi.Input<string>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
@@ -212,7 +224,13 @@ export interface LinkedServiceAzureFileStorageState {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The password to log in the server.
+     */
     password?: pulumi.Input<string>;
+    /**
+     * The user ID to log in the server.
+     */
     userId?: pulumi.Input<string>;
 }
 
@@ -244,6 +262,9 @@ export interface LinkedServiceAzureFileStorageArgs {
      * The name of the file share.
      */
     fileShare?: pulumi.Input<string>;
+    /**
+     * The Host name of the server.
+     */
     host?: pulumi.Input<string>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
@@ -262,6 +283,12 @@ export interface LinkedServiceAzureFileStorageArgs {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The password to log in the server.
+     */
     password?: pulumi.Input<string>;
+    /**
+     * The user ID to log in the server.
+     */
     userId?: pulumi.Input<string>;
 }

@@ -108,7 +108,7 @@ export class SpringCloudConnection extends pulumi.CustomResource {
      */
     public readonly clientType!: pulumi.Output<string | undefined>;
     /**
-     * Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+     * The name of the service connection. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -179,7 +179,7 @@ export interface SpringCloudConnectionState {
      */
     clientType?: pulumi.Input<string>;
     /**
-     * Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+     * The name of the service connection. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -209,7 +209,7 @@ export interface SpringCloudConnectionArgs {
      */
     clientType?: pulumi.Input<string>;
     /**
-     * Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+     * The name of the service connection. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

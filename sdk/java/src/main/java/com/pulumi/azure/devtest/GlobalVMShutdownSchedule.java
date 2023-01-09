@@ -177,9 +177,17 @@ public class GlobalVMShutdownSchedule extends com.pulumi.resources.CustomResourc
     public Output<String> location() {
         return this.location;
     }
+    /**
+     * The notification setting of a schedule. A `notification_settings` as defined below.
+     * 
+     */
     @Export(name="notificationSettings", type=GlobalVMShutdownScheduleNotificationSettings.class, parameters={})
     private Output<GlobalVMShutdownScheduleNotificationSettings> notificationSettings;
 
+    /**
+     * @return The notification setting of a schedule. A `notification_settings` as defined below.
+     * 
+     */
     public Output<GlobalVMShutdownScheduleNotificationSettings> notificationSettings() {
         return this.notificationSettings;
     }

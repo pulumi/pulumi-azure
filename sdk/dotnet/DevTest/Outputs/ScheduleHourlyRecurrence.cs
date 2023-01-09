@@ -13,6 +13,9 @@ namespace Pulumi.Azure.DevTest.Outputs
     [OutputType]
     public sealed class ScheduleHourlyRecurrence
     {
+        /// <summary>
+        /// Minutes of the hour the schedule will run.
+        /// </summary>
         public readonly int Minute;
 
         [OutputConstructor]

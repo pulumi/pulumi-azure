@@ -656,6 +656,8 @@ class AlertRuleScheduledIncidentConfigurationGroupingArgs:
         """
         :param pulumi.Input[bool] enabled: Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
         :param pulumi.Input[str] entity_matching_method: The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_by_alert_details: A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_by_custom_details: A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_by_entities: A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
         :param pulumi.Input[str] lookback_duration: Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
         :param pulumi.Input[bool] reopen_closed_incidents: Whether to re-open closed matching incidents? Defaults to `false`.
@@ -702,6 +704,9 @@ class AlertRuleScheduledIncidentConfigurationGroupingArgs:
     @property
     @pulumi.getter(name="groupByAlertDetails")
     def group_by_alert_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+        """
         return pulumi.get(self, "group_by_alert_details")
 
     @group_by_alert_details.setter
@@ -711,6 +716,9 @@ class AlertRuleScheduledIncidentConfigurationGroupingArgs:
     @property
     @pulumi.getter(name="groupByCustomDetails")
     def group_by_custom_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+        """
         return pulumi.get(self, "group_by_custom_details")
 
     @group_by_custom_details.setter

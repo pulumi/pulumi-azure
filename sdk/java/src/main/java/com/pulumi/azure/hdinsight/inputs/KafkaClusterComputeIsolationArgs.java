@@ -16,9 +16,17 @@ public final class KafkaClusterComputeIsolationArgs extends com.pulumi.resources
 
     public static final KafkaClusterComputeIsolationArgs Empty = new KafkaClusterComputeIsolationArgs();
 
+    /**
+     * This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+     * 
+     */
     @Import(name="computeIsolationEnabled")
     private @Nullable Output<Boolean> computeIsolationEnabled;
 
+    /**
+     * @return This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+     * 
+     */
     public Optional<Output<Boolean>> computeIsolationEnabled() {
         return Optional.ofNullable(this.computeIsolationEnabled);
     }
@@ -63,11 +71,23 @@ public final class KafkaClusterComputeIsolationArgs extends com.pulumi.resources
             $ = new KafkaClusterComputeIsolationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param computeIsolationEnabled This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder computeIsolationEnabled(@Nullable Output<Boolean> computeIsolationEnabled) {
             $.computeIsolationEnabled = computeIsolationEnabled;
             return this;
         }
 
+        /**
+         * @param computeIsolationEnabled This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder computeIsolationEnabled(Boolean computeIsolationEnabled) {
             return computeIsolationEnabled(Output.of(computeIsolationEnabled));
         }

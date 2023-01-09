@@ -164,14 +164,14 @@ public final class ConfigurationFeatureArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `targeting_filter` block `timewindow_filter` as defined below.
+     * A `timewindow_filter` block as defined below.
      * 
      */
     @Import(name="timewindowFilters")
     private @Nullable Output<List<ConfigurationFeatureTimewindowFilterArgs>> timewindowFilters;
 
     /**
-     * @return A `targeting_filter` block `timewindow_filter` as defined below.
+     * @return A `timewindow_filter` block as defined below.
      * 
      */
     public Optional<Output<List<ConfigurationFeatureTimewindowFilterArgs>>> timewindowFilters() {
@@ -421,7 +421,7 @@ public final class ConfigurationFeatureArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param timewindowFilters A `targeting_filter` block `timewindow_filter` as defined below.
+         * @param timewindowFilters A `timewindow_filter` block as defined below.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class ConfigurationFeatureArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param timewindowFilters A `targeting_filter` block `timewindow_filter` as defined below.
+         * @param timewindowFilters A `timewindow_filter` block as defined below.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class ConfigurationFeatureArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param timewindowFilters A `targeting_filter` block `timewindow_filter` as defined below.
+         * @param timewindowFilters A `timewindow_filter` block as defined below.
          * 
          * @return builder
          * 

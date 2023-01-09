@@ -114,7 +114,8 @@ type Frontdoor struct {
 	BackendPoolLoadBalancingSettingsMap pulumi.StringMapOutput `pulumi:"backendPoolLoadBalancingSettingsMap"`
 	// A `backendPoolLoadBalancing` block as defined below.
 	BackendPoolLoadBalancings FrontdoorBackendPoolLoadBalancingArrayOutput `pulumi:"backendPoolLoadBalancings"`
-	BackendPoolSettings       FrontdoorBackendPoolSettingArrayOutput       `pulumi:"backendPoolSettings"`
+	// A `backendPoolSettings` block as defined below.
+	BackendPoolSettings FrontdoorBackendPoolSettingArrayOutput `pulumi:"backendPoolSettings"`
 	// A `backendPool` block as defined below.
 	BackendPools FrontdoorBackendPoolArrayOutput `pulumi:"backendPools"`
 	// A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
@@ -199,7 +200,8 @@ type frontdoorState struct {
 	BackendPoolLoadBalancingSettingsMap map[string]string `pulumi:"backendPoolLoadBalancingSettingsMap"`
 	// A `backendPoolLoadBalancing` block as defined below.
 	BackendPoolLoadBalancings []FrontdoorBackendPoolLoadBalancing `pulumi:"backendPoolLoadBalancings"`
-	BackendPoolSettings       []FrontdoorBackendPoolSetting       `pulumi:"backendPoolSettings"`
+	// A `backendPoolSettings` block as defined below.
+	BackendPoolSettings []FrontdoorBackendPoolSetting `pulumi:"backendPoolSettings"`
 	// A `backendPool` block as defined below.
 	BackendPools []FrontdoorBackendPool `pulumi:"backendPools"`
 	// A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
@@ -238,7 +240,8 @@ type FrontdoorState struct {
 	BackendPoolLoadBalancingSettingsMap pulumi.StringMapInput
 	// A `backendPoolLoadBalancing` block as defined below.
 	BackendPoolLoadBalancings FrontdoorBackendPoolLoadBalancingArrayInput
-	BackendPoolSettings       FrontdoorBackendPoolSettingArrayInput
+	// A `backendPoolSettings` block as defined below.
+	BackendPoolSettings FrontdoorBackendPoolSettingArrayInput
 	// A `backendPool` block as defined below.
 	BackendPools FrontdoorBackendPoolArrayInput
 	// A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
@@ -277,7 +280,8 @@ type frontdoorArgs struct {
 	BackendPoolHealthProbes []FrontdoorBackendPoolHealthProbe `pulumi:"backendPoolHealthProbes"`
 	// A `backendPoolLoadBalancing` block as defined below.
 	BackendPoolLoadBalancings []FrontdoorBackendPoolLoadBalancing `pulumi:"backendPoolLoadBalancings"`
-	BackendPoolSettings       []FrontdoorBackendPoolSetting       `pulumi:"backendPoolSettings"`
+	// A `backendPoolSettings` block as defined below.
+	BackendPoolSettings []FrontdoorBackendPoolSetting `pulumi:"backendPoolSettings"`
 	// A `backendPool` block as defined below.
 	BackendPools []FrontdoorBackendPool `pulumi:"backendPools"`
 	// A friendly name for the Front Door service.
@@ -302,7 +306,8 @@ type FrontdoorArgs struct {
 	BackendPoolHealthProbes FrontdoorBackendPoolHealthProbeArrayInput
 	// A `backendPoolLoadBalancing` block as defined below.
 	BackendPoolLoadBalancings FrontdoorBackendPoolLoadBalancingArrayInput
-	BackendPoolSettings       FrontdoorBackendPoolSettingArrayInput
+	// A `backendPoolSettings` block as defined below.
+	BackendPoolSettings FrontdoorBackendPoolSettingArrayInput
 	// A `backendPool` block as defined below.
 	BackendPools FrontdoorBackendPoolArrayInput
 	// A friendly name for the Front Door service.
@@ -428,6 +433,7 @@ func (o FrontdoorOutput) BackendPoolLoadBalancings() FrontdoorBackendPoolLoadBal
 	return o.ApplyT(func(v *Frontdoor) FrontdoorBackendPoolLoadBalancingArrayOutput { return v.BackendPoolLoadBalancings }).(FrontdoorBackendPoolLoadBalancingArrayOutput)
 }
 
+// A `backendPoolSettings` block as defined below.
 func (o FrontdoorOutput) BackendPoolSettings() FrontdoorBackendPoolSettingArrayOutput {
 	return o.ApplyT(func(v *Frontdoor) FrontdoorBackendPoolSettingArrayOutput { return v.BackendPoolSettings }).(FrontdoorBackendPoolSettingArrayOutput)
 }

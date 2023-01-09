@@ -20484,7 +20484,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) VpnClientProtocols
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate struct {
-	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+	// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
 	Name       string `pulumi:"name"`
 	Thumbprint string `pulumi:"thumbprint"`
 }
@@ -20501,7 +20501,7 @@ type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateInput interfac
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs struct {
-	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+	// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
 	Name       pulumi.StringInput `pulumi:"name"`
 	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
 }
@@ -20557,7 +20557,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateOutput) ToV
 	return o
 }
 
-// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -20587,13 +20587,12 @@ func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationRootCertificate struct {
-	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+	// A user-defined name of the root certificate. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The public certificate of the root certificate
 	// authority. The certificate must be provided in Base-64 encoded X.509 format
 	// (PEM). In particular, this argument *must not* include the
 	// `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
-	// revoked.
 	PublicCertData string `pulumi:"publicCertData"`
 }
 
@@ -20609,13 +20608,12 @@ type VirtualNetworkGatewayVpnClientConfigurationRootCertificateInput interface {
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs struct {
-	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+	// A user-defined name of the root certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The public certificate of the root certificate
 	// authority. The certificate must be provided in Base-64 encoded X.509 format
 	// (PEM). In particular, this argument *must not* include the
 	// `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
-	// revoked.
 	PublicCertData pulumi.StringInput `pulumi:"publicCertData"`
 }
 
@@ -20670,7 +20668,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificateOutput) ToVirt
 	return o
 }
 
-// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+// A user-defined name of the root certificate. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationRootCertificate) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -20679,7 +20677,6 @@ func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificateOutput) Name()
 // authority. The certificate must be provided in Base-64 encoded X.509 format
 // (PEM). In particular, this argument *must not* include the
 // `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
-// revoked.
 func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificateOutput) PublicCertData() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationRootCertificate) string { return v.PublicCertData }).(pulumi.StringOutput)
 }
@@ -20709,7 +20706,7 @@ type VirtualNetworkSubnet struct {
 	AddressPrefix string `pulumi:"addressPrefix"`
 	// The ID of DDoS Protection Plan.
 	Id *string `pulumi:"id"`
-	// The name of the virtual network. Changing this forces a new resource to be created.
+	// The name of the subnet. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
 	SecurityGroup *string `pulumi:"securityGroup"`
@@ -20731,7 +20728,7 @@ type VirtualNetworkSubnetArgs struct {
 	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
 	// The ID of DDoS Protection Plan.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the virtual network. Changing this forces a new resource to be created.
+	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
 	SecurityGroup pulumi.StringPtrInput `pulumi:"securityGroup"`
@@ -20798,7 +20795,7 @@ func (o VirtualNetworkSubnetOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the virtual network. Changing this forces a new resource to be created.
+// The name of the subnet. Changing this forces a new resource to be created.
 func (o VirtualNetworkSubnetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -24992,7 +24989,8 @@ type GetFirewallIpConfiguration struct {
 	// The name of the Azure Firewall.
 	Name string `pulumi:"name"`
 	// The private IP address associated with the Azure Firewall.
-	PrivateIpAddress  string `pulumi:"privateIpAddress"`
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// The ID of the Public IP address of the Azure Firewall.
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet where the Azure Firewall is deployed.
 	SubnetId string `pulumi:"subnetId"`
@@ -25013,7 +25011,8 @@ type GetFirewallIpConfigurationArgs struct {
 	// The name of the Azure Firewall.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The private IP address associated with the Azure Firewall.
-	PrivateIpAddress  pulumi.StringInput `pulumi:"privateIpAddress"`
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// The ID of the Public IP address of the Azure Firewall.
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet where the Azure Firewall is deployed.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -25080,6 +25079,7 @@ func (o GetFirewallIpConfigurationOutput) PrivateIpAddress() pulumi.StringOutput
 	return o.ApplyT(func(v GetFirewallIpConfiguration) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
 
+// The ID of the Public IP address of the Azure Firewall.
 func (o GetFirewallIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
 }
@@ -25113,7 +25113,8 @@ type GetFirewallManagementIpConfiguration struct {
 	// The name of the Azure Firewall.
 	Name string `pulumi:"name"`
 	// The private IP address associated with the Azure Firewall.
-	PrivateIpAddress  string `pulumi:"privateIpAddress"`
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// The ID of the Public IP address of the Azure Firewall.
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet where the Azure Firewall is deployed.
 	SubnetId string `pulumi:"subnetId"`
@@ -25134,7 +25135,8 @@ type GetFirewallManagementIpConfigurationArgs struct {
 	// The name of the Azure Firewall.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The private IP address associated with the Azure Firewall.
-	PrivateIpAddress  pulumi.StringInput `pulumi:"privateIpAddress"`
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// The ID of the Public IP address of the Azure Firewall.
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet where the Azure Firewall is deployed.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -25201,6 +25203,7 @@ func (o GetFirewallManagementIpConfigurationOutput) PrivateIpAddress() pulumi.St
 	return o.ApplyT(func(v GetFirewallManagementIpConfiguration) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
 
+// The ID of the Public IP address of the Azure Firewall.
 func (o GetFirewallManagementIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallManagementIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
 }
@@ -27144,6 +27147,139 @@ func (o GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput) Index(i pu
 	}).(GetTrafficManagerProfileMonitorConfigCustomHeaderOutput)
 }
 
+type GetVirtualHubRouteTableRouteType struct {
+	// A list of destination addresses for this route.
+	Destinations []string `pulumi:"destinations"`
+	// The type of destinations.
+	DestinationsType string `pulumi:"destinationsType"`
+	// The name of the Virtual Hub Route Table.
+	Name string `pulumi:"name"`
+	// The next hop's resource ID.
+	NextHop string `pulumi:"nextHop"`
+	// The type of next hop.
+	NextHopType string `pulumi:"nextHopType"`
+}
+
+// GetVirtualHubRouteTableRouteTypeInput is an input type that accepts GetVirtualHubRouteTableRouteTypeArgs and GetVirtualHubRouteTableRouteTypeOutput values.
+// You can construct a concrete instance of `GetVirtualHubRouteTableRouteTypeInput` via:
+//
+//	GetVirtualHubRouteTableRouteTypeArgs{...}
+type GetVirtualHubRouteTableRouteTypeInput interface {
+	pulumi.Input
+
+	ToGetVirtualHubRouteTableRouteTypeOutput() GetVirtualHubRouteTableRouteTypeOutput
+	ToGetVirtualHubRouteTableRouteTypeOutputWithContext(context.Context) GetVirtualHubRouteTableRouteTypeOutput
+}
+
+type GetVirtualHubRouteTableRouteTypeArgs struct {
+	// A list of destination addresses for this route.
+	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
+	// The type of destinations.
+	DestinationsType pulumi.StringInput `pulumi:"destinationsType"`
+	// The name of the Virtual Hub Route Table.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The next hop's resource ID.
+	NextHop pulumi.StringInput `pulumi:"nextHop"`
+	// The type of next hop.
+	NextHopType pulumi.StringInput `pulumi:"nextHopType"`
+}
+
+func (GetVirtualHubRouteTableRouteTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualHubRouteTableRouteType)(nil)).Elem()
+}
+
+func (i GetVirtualHubRouteTableRouteTypeArgs) ToGetVirtualHubRouteTableRouteTypeOutput() GetVirtualHubRouteTableRouteTypeOutput {
+	return i.ToGetVirtualHubRouteTableRouteTypeOutputWithContext(context.Background())
+}
+
+func (i GetVirtualHubRouteTableRouteTypeArgs) ToGetVirtualHubRouteTableRouteTypeOutputWithContext(ctx context.Context) GetVirtualHubRouteTableRouteTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualHubRouteTableRouteTypeOutput)
+}
+
+// GetVirtualHubRouteTableRouteTypeArrayInput is an input type that accepts GetVirtualHubRouteTableRouteTypeArray and GetVirtualHubRouteTableRouteTypeArrayOutput values.
+// You can construct a concrete instance of `GetVirtualHubRouteTableRouteTypeArrayInput` via:
+//
+//	GetVirtualHubRouteTableRouteTypeArray{ GetVirtualHubRouteTableRouteTypeArgs{...} }
+type GetVirtualHubRouteTableRouteTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualHubRouteTableRouteTypeArrayOutput() GetVirtualHubRouteTableRouteTypeArrayOutput
+	ToGetVirtualHubRouteTableRouteTypeArrayOutputWithContext(context.Context) GetVirtualHubRouteTableRouteTypeArrayOutput
+}
+
+type GetVirtualHubRouteTableRouteTypeArray []GetVirtualHubRouteTableRouteTypeInput
+
+func (GetVirtualHubRouteTableRouteTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualHubRouteTableRouteType)(nil)).Elem()
+}
+
+func (i GetVirtualHubRouteTableRouteTypeArray) ToGetVirtualHubRouteTableRouteTypeArrayOutput() GetVirtualHubRouteTableRouteTypeArrayOutput {
+	return i.ToGetVirtualHubRouteTableRouteTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualHubRouteTableRouteTypeArray) ToGetVirtualHubRouteTableRouteTypeArrayOutputWithContext(ctx context.Context) GetVirtualHubRouteTableRouteTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualHubRouteTableRouteTypeArrayOutput)
+}
+
+type GetVirtualHubRouteTableRouteTypeOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualHubRouteTableRouteTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualHubRouteTableRouteType)(nil)).Elem()
+}
+
+func (o GetVirtualHubRouteTableRouteTypeOutput) ToGetVirtualHubRouteTableRouteTypeOutput() GetVirtualHubRouteTableRouteTypeOutput {
+	return o
+}
+
+func (o GetVirtualHubRouteTableRouteTypeOutput) ToGetVirtualHubRouteTableRouteTypeOutputWithContext(ctx context.Context) GetVirtualHubRouteTableRouteTypeOutput {
+	return o
+}
+
+// A list of destination addresses for this route.
+func (o GetVirtualHubRouteTableRouteTypeOutput) Destinations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualHubRouteTableRouteType) []string { return v.Destinations }).(pulumi.StringArrayOutput)
+}
+
+// The type of destinations.
+func (o GetVirtualHubRouteTableRouteTypeOutput) DestinationsType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualHubRouteTableRouteType) string { return v.DestinationsType }).(pulumi.StringOutput)
+}
+
+// The name of the Virtual Hub Route Table.
+func (o GetVirtualHubRouteTableRouteTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualHubRouteTableRouteType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The next hop's resource ID.
+func (o GetVirtualHubRouteTableRouteTypeOutput) NextHop() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualHubRouteTableRouteType) string { return v.NextHop }).(pulumi.StringOutput)
+}
+
+// The type of next hop.
+func (o GetVirtualHubRouteTableRouteTypeOutput) NextHopType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualHubRouteTableRouteType) string { return v.NextHopType }).(pulumi.StringOutput)
+}
+
+type GetVirtualHubRouteTableRouteTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualHubRouteTableRouteTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualHubRouteTableRouteType)(nil)).Elem()
+}
+
+func (o GetVirtualHubRouteTableRouteTypeArrayOutput) ToGetVirtualHubRouteTableRouteTypeArrayOutput() GetVirtualHubRouteTableRouteTypeArrayOutput {
+	return o
+}
+
+func (o GetVirtualHubRouteTableRouteTypeArrayOutput) ToGetVirtualHubRouteTableRouteTypeArrayOutputWithContext(ctx context.Context) GetVirtualHubRouteTableRouteTypeArrayOutput {
+	return o
+}
+
+func (o GetVirtualHubRouteTableRouteTypeArrayOutput) Index(i pulumi.IntInput) GetVirtualHubRouteTableRouteTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualHubRouteTableRouteType {
+		return vs[0].([]GetVirtualHubRouteTableRouteType)[vs[1].(int)]
+	}).(GetVirtualHubRouteTableRouteTypeOutput)
+}
+
 type GetVirtualNetworkGatewayBgpSetting struct {
 	// The Autonomous System Number (ASN) to use as part of the BGP.
 	Asn int `pulumi:"asn"`
@@ -28700,6 +28836,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficManagerProfileMonitorConfigArrayInput)(nil)).Elem(), GetTrafficManagerProfileMonitorConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficManagerProfileMonitorConfigCustomHeaderInput)(nil)).Elem(), GetTrafficManagerProfileMonitorConfigCustomHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficManagerProfileMonitorConfigCustomHeaderArrayInput)(nil)).Elem(), GetTrafficManagerProfileMonitorConfigCustomHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualHubRouteTableRouteTypeInput)(nil)).Elem(), GetVirtualHubRouteTableRouteTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualHubRouteTableRouteTypeArrayInput)(nil)).Elem(), GetVirtualHubRouteTableRouteTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualNetworkGatewayBgpSettingInput)(nil)).Elem(), GetVirtualNetworkGatewayBgpSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualNetworkGatewayBgpSettingArrayInput)(nil)).Elem(), GetVirtualNetworkGatewayBgpSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualNetworkGatewayCustomRouteInput)(nil)).Elem(), GetVirtualNetworkGatewayCustomRouteArgs{})
@@ -29074,6 +29212,8 @@ func init() {
 	pulumi.RegisterOutputType(GetTrafficManagerProfileMonitorConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetTrafficManagerProfileMonitorConfigCustomHeaderOutput{})
 	pulumi.RegisterOutputType(GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualHubRouteTableRouteTypeOutput{})
+	pulumi.RegisterOutputType(GetVirtualHubRouteTableRouteTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkGatewayBgpSettingOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkGatewayBgpSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkGatewayCustomRouteOutput{})

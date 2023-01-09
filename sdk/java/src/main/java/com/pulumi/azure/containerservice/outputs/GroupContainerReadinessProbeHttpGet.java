@@ -24,7 +24,7 @@ public final class GroupContainerReadinessProbeHttpGet {
      */
     private @Nullable String path;
     /**
-     * @return The port number the container will expose. Changing this forces a new resource to be created.
+     * @return Number of the port to access on the container. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Integer port;
@@ -50,7 +50,7 @@ public final class GroupContainerReadinessProbeHttpGet {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return The port number the container will expose. Changing this forces a new resource to be created.
+     * @return Number of the port to access on the container. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Integer> port() {

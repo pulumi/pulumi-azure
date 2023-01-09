@@ -54,6 +54,10 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
      * 
      */
     private String publisher;
+    /**
+     * @return A JSON String which specifies Settings for the Extension.
+     * 
+     */
     private @Nullable String settings;
     /**
      * @return Specifies the Type of the Extension.
@@ -123,6 +127,10 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
     public String publisher() {
         return this.publisher;
     }
+    /**
+     * @return A JSON String which specifies Settings for the Extension.
+     * 
+     */
     public Optional<String> settings() {
         return Optional.ofNullable(this.settings);
     }

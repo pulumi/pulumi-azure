@@ -95,6 +95,9 @@ export interface GetCacheResult {
      * The primary connection string of the Redis Instance.
      */
     readonly primaryConnectionString: string;
+    /**
+     * The Static IP Address assigned to the Redis Cache when hosted inside the Virtual Network.
+     */
     readonly privateStaticIpAddress: string;
     /**
      * A `redisConfiguration` block as defined below.

@@ -1620,8 +1620,10 @@ type AlertRuleScheduledIncidentConfigurationGrouping struct {
 	// Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
-	EntityMatchingMethod *string  `pulumi:"entityMatchingMethod"`
-	GroupByAlertDetails  []string `pulumi:"groupByAlertDetails"`
+	EntityMatchingMethod *string `pulumi:"entityMatchingMethod"`
+	// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+	GroupByAlertDetails []string `pulumi:"groupByAlertDetails"`
+	// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
 	GroupByCustomDetails []string `pulumi:"groupByCustomDetails"`
 	// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
 	GroupByEntities []string `pulumi:"groupByEntities"`
@@ -1646,8 +1648,10 @@ type AlertRuleScheduledIncidentConfigurationGroupingArgs struct {
 	// Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
-	EntityMatchingMethod pulumi.StringPtrInput   `pulumi:"entityMatchingMethod"`
-	GroupByAlertDetails  pulumi.StringArrayInput `pulumi:"groupByAlertDetails"`
+	EntityMatchingMethod pulumi.StringPtrInput `pulumi:"entityMatchingMethod"`
+	// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+	GroupByAlertDetails pulumi.StringArrayInput `pulumi:"groupByAlertDetails"`
+	// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
 	GroupByCustomDetails pulumi.StringArrayInput `pulumi:"groupByCustomDetails"`
 	// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
 	GroupByEntities pulumi.StringArrayInput `pulumi:"groupByEntities"`
@@ -1744,10 +1748,12 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) EntityMatchingMet
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) *string { return v.EntityMatchingMethod }).(pulumi.StringPtrOutput)
 }
 
+// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
 func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) GroupByAlertDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) []string { return v.GroupByAlertDetails }).(pulumi.StringArrayOutput)
 }
 
+// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
 func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) GroupByCustomDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) []string { return v.GroupByCustomDetails }).(pulumi.StringArrayOutput)
 }
@@ -1811,6 +1817,7 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) EntityMatching
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
 func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) GroupByAlertDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfigurationGrouping) []string {
 		if v == nil {
@@ -1820,6 +1827,7 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) GroupByAlertDe
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
 func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) GroupByCustomDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfigurationGrouping) []string {
 		if v == nil {

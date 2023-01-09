@@ -30,7 +30,7 @@ public final class GroupContainerVolume {
      */
     private String mountPath;
     /**
-     * @return Specifies the name of the Container Group. Changing this forces a new resource to be created.
+     * @return The name of the volume mount. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -83,7 +83,7 @@ public final class GroupContainerVolume {
         return this.mountPath;
     }
     /**
-     * @return Specifies the name of the Container Group. Changing this forces a new resource to be created.
+     * @return The name of the volume mount. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

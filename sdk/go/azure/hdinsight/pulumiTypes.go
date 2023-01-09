@@ -148,6 +148,7 @@ func (o HBaseClusterComponentVersionPtrOutput) Hbase() pulumi.StringPtrOutput {
 }
 
 type HBaseClusterComputeIsolation struct {
+	// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 	ComputeIsolationEnabled *bool `pulumi:"computeIsolationEnabled"`
 	// The name of the host SKU.
 	HostSku *string `pulumi:"hostSku"`
@@ -165,6 +166,7 @@ type HBaseClusterComputeIsolationInput interface {
 }
 
 type HBaseClusterComputeIsolationArgs struct {
+	// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 	ComputeIsolationEnabled pulumi.BoolPtrInput `pulumi:"computeIsolationEnabled"`
 	// The name of the host SKU.
 	HostSku pulumi.StringPtrInput `pulumi:"hostSku"`
@@ -247,6 +249,7 @@ func (o HBaseClusterComputeIsolationOutput) ToHBaseClusterComputeIsolationPtrOut
 	}).(HBaseClusterComputeIsolationPtrOutput)
 }
 
+// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 func (o HBaseClusterComputeIsolationOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HBaseClusterComputeIsolation) *bool { return v.ComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -280,6 +283,7 @@ func (o HBaseClusterComputeIsolationPtrOutput) Elem() HBaseClusterComputeIsolati
 	}).(HBaseClusterComputeIsolationOutput)
 }
 
+// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 func (o HBaseClusterComputeIsolationPtrOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterComputeIsolation) *bool {
 		if v == nil {
@@ -4236,6 +4240,7 @@ func (o HadoopClusterComponentVersionPtrOutput) Hadoop() pulumi.StringPtrOutput 
 }
 
 type HadoopClusterComputeIsolation struct {
+	// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 	ComputeIsolationEnabled *bool `pulumi:"computeIsolationEnabled"`
 	// The name of the host SKU.
 	HostSku *string `pulumi:"hostSku"`
@@ -4253,6 +4258,7 @@ type HadoopClusterComputeIsolationInput interface {
 }
 
 type HadoopClusterComputeIsolationArgs struct {
+	// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 	ComputeIsolationEnabled pulumi.BoolPtrInput `pulumi:"computeIsolationEnabled"`
 	// The name of the host SKU.
 	HostSku pulumi.StringPtrInput `pulumi:"hostSku"`
@@ -4335,6 +4341,7 @@ func (o HadoopClusterComputeIsolationOutput) ToHadoopClusterComputeIsolationPtrO
 	}).(HadoopClusterComputeIsolationPtrOutput)
 }
 
+// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 func (o HadoopClusterComputeIsolationOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HadoopClusterComputeIsolation) *bool { return v.ComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -4368,6 +4375,7 @@ func (o HadoopClusterComputeIsolationPtrOutput) Elem() HadoopClusterComputeIsola
 	}).(HadoopClusterComputeIsolationOutput)
 }
 
+// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 func (o HadoopClusterComputeIsolationPtrOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterComputeIsolation) *bool {
 		if v == nil {
@@ -6910,7 +6918,7 @@ func (o HadoopClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 }
 
 type HadoopClusterRolesHeadNodeScriptAction struct {
-	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+	// The name of the script action.
 	Name string `pulumi:"name"`
 	// The parameters for the script provided.
 	Parameters *string `pulumi:"parameters"`
@@ -6930,7 +6938,7 @@ type HadoopClusterRolesHeadNodeScriptActionInput interface {
 }
 
 type HadoopClusterRolesHeadNodeScriptActionArgs struct {
-	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+	// The name of the script action.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The parameters for the script provided.
 	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
@@ -6989,7 +6997,7 @@ func (o HadoopClusterRolesHeadNodeScriptActionOutput) ToHadoopClusterRolesHeadNo
 	return o
 }
 
-// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+// The name of the script action.
 func (o HadoopClusterRolesHeadNodeScriptActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterRolesHeadNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7905,7 +7913,7 @@ func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) Inde
 }
 
 type HadoopClusterRolesWorkerNodeScriptAction struct {
-	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+	// The name of the script action.
 	Name string `pulumi:"name"`
 	// The parameters for the script provided.
 	Parameters *string `pulumi:"parameters"`
@@ -7925,7 +7933,7 @@ type HadoopClusterRolesWorkerNodeScriptActionInput interface {
 }
 
 type HadoopClusterRolesWorkerNodeScriptActionArgs struct {
-	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+	// The name of the script action.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The parameters for the script provided.
 	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
@@ -7984,7 +7992,7 @@ func (o HadoopClusterRolesWorkerNodeScriptActionOutput) ToHadoopClusterRolesWork
 	return o
 }
 
-// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+// The name of the script action.
 func (o HadoopClusterRolesWorkerNodeScriptActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8273,7 +8281,7 @@ func (o HadoopClusterRolesZookeeperNodePtrOutput) VmSize() pulumi.StringPtrOutpu
 }
 
 type HadoopClusterRolesZookeeperNodeScriptAction struct {
-	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+	// The name of the script action.
 	Name string `pulumi:"name"`
 	// The parameters for the script provided.
 	Parameters *string `pulumi:"parameters"`
@@ -8293,7 +8301,7 @@ type HadoopClusterRolesZookeeperNodeScriptActionInput interface {
 }
 
 type HadoopClusterRolesZookeeperNodeScriptActionArgs struct {
-	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+	// The name of the script action.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The parameters for the script provided.
 	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
@@ -8352,7 +8360,7 @@ func (o HadoopClusterRolesZookeeperNodeScriptActionOutput) ToHadoopClusterRolesZ
 	return o
 }
 
-// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+// The name of the script action.
 func (o HadoopClusterRolesZookeeperNodeScriptActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterRolesZookeeperNodeScriptAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8957,6 +8965,7 @@ func (o HadoopClusterStorageAccountGen2PtrOutput) StorageResourceId() pulumi.Str
 }
 
 type InteractiveQueryClusterComponentVersion struct {
+	// The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
 	InteractiveHive string `pulumi:"interactiveHive"`
 }
 
@@ -8972,6 +8981,7 @@ type InteractiveQueryClusterComponentVersionInput interface {
 }
 
 type InteractiveQueryClusterComponentVersionArgs struct {
+	// The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
 	InteractiveHive pulumi.StringInput `pulumi:"interactiveHive"`
 }
 
@@ -9052,6 +9062,7 @@ func (o InteractiveQueryClusterComponentVersionOutput) ToInteractiveQueryCluster
 	}).(InteractiveQueryClusterComponentVersionPtrOutput)
 }
 
+// The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterComponentVersionOutput) InteractiveHive() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterComponentVersion) string { return v.InteractiveHive }).(pulumi.StringOutput)
 }
@@ -9080,6 +9091,7 @@ func (o InteractiveQueryClusterComponentVersionPtrOutput) Elem() InteractiveQuer
 	}).(InteractiveQueryClusterComponentVersionOutput)
 }
 
+// The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterComponentVersionPtrOutput) InteractiveHive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterComponentVersion) *string {
 		if v == nil {
@@ -9090,6 +9102,7 @@ func (o InteractiveQueryClusterComponentVersionPtrOutput) InteractiveHive() pulu
 }
 
 type InteractiveQueryClusterComputeIsolation struct {
+	// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 	ComputeIsolationEnabled *bool `pulumi:"computeIsolationEnabled"`
 	// The name of the host SKU.
 	HostSku *string `pulumi:"hostSku"`
@@ -9107,6 +9120,7 @@ type InteractiveQueryClusterComputeIsolationInput interface {
 }
 
 type InteractiveQueryClusterComputeIsolationArgs struct {
+	// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 	ComputeIsolationEnabled pulumi.BoolPtrInput `pulumi:"computeIsolationEnabled"`
 	// The name of the host SKU.
 	HostSku pulumi.StringPtrInput `pulumi:"hostSku"`
@@ -9189,6 +9203,7 @@ func (o InteractiveQueryClusterComputeIsolationOutput) ToInteractiveQueryCluster
 	}).(InteractiveQueryClusterComputeIsolationPtrOutput)
 }
 
+// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 func (o InteractiveQueryClusterComputeIsolationOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterComputeIsolation) *bool { return v.ComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -9222,6 +9237,7 @@ func (o InteractiveQueryClusterComputeIsolationPtrOutput) Elem() InteractiveQuer
 	}).(InteractiveQueryClusterComputeIsolationOutput)
 }
 
+// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 func (o InteractiveQueryClusterComputeIsolationPtrOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterComputeIsolation) *bool {
 		if v == nil {
@@ -13363,6 +13379,7 @@ func (o KafkaClusterComponentVersionPtrOutput) Kafka() pulumi.StringPtrOutput {
 }
 
 type KafkaClusterComputeIsolation struct {
+	// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 	ComputeIsolationEnabled *bool `pulumi:"computeIsolationEnabled"`
 	// The name of the host SKU.
 	HostSku *string `pulumi:"hostSku"`
@@ -13380,6 +13397,7 @@ type KafkaClusterComputeIsolationInput interface {
 }
 
 type KafkaClusterComputeIsolationArgs struct {
+	// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 	ComputeIsolationEnabled pulumi.BoolPtrInput `pulumi:"computeIsolationEnabled"`
 	// The name of the host SKU.
 	HostSku pulumi.StringPtrInput `pulumi:"hostSku"`
@@ -13462,6 +13480,7 @@ func (o KafkaClusterComputeIsolationOutput) ToKafkaClusterComputeIsolationPtrOut
 	}).(KafkaClusterComputeIsolationPtrOutput)
 }
 
+// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 func (o KafkaClusterComputeIsolationOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KafkaClusterComputeIsolation) *bool { return v.ComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -13495,6 +13514,7 @@ func (o KafkaClusterComputeIsolationPtrOutput) Elem() KafkaClusterComputeIsolati
 	}).(KafkaClusterComputeIsolationOutput)
 }
 
+// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 func (o KafkaClusterComputeIsolationPtrOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterComputeIsolation) *bool {
 		if v == nil {
@@ -17542,6 +17562,7 @@ func (o SparkClusterComponentVersionPtrOutput) Spark() pulumi.StringPtrOutput {
 }
 
 type SparkClusterComputeIsolation struct {
+	// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 	ComputeIsolationEnabled *bool `pulumi:"computeIsolationEnabled"`
 	// The name of the host SKU.
 	HostSku *string `pulumi:"hostSku"`
@@ -17559,6 +17580,7 @@ type SparkClusterComputeIsolationInput interface {
 }
 
 type SparkClusterComputeIsolationArgs struct {
+	// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 	ComputeIsolationEnabled pulumi.BoolPtrInput `pulumi:"computeIsolationEnabled"`
 	// The name of the host SKU.
 	HostSku pulumi.StringPtrInput `pulumi:"hostSku"`
@@ -17641,6 +17663,7 @@ func (o SparkClusterComputeIsolationOutput) ToSparkClusterComputeIsolationPtrOut
 	}).(SparkClusterComputeIsolationPtrOutput)
 }
 
+// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 func (o SparkClusterComputeIsolationOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SparkClusterComputeIsolation) *bool { return v.ComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -17674,6 +17697,7 @@ func (o SparkClusterComputeIsolationPtrOutput) Elem() SparkClusterComputeIsolati
 	}).(SparkClusterComputeIsolationOutput)
 }
 
+// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 func (o SparkClusterComputeIsolationPtrOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SparkClusterComputeIsolation) *bool {
 		if v == nil {
