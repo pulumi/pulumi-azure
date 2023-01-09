@@ -8,8 +8,8 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.24.1
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
 	github.com/hashicorp/terraform-provider-azurerm/shim v0.0.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.36.0
-	github.com/pulumi/pulumi/sdk/v3 v3.50.1
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.37.0
+	github.com/pulumi/pulumi/sdk/v3 v3.51.0
 )
 
 replace (
@@ -186,7 +186,7 @@ require (
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.7.1 // indirect
 	github.com/pulumi/pulumi-yaml v1.0.4 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.50.1 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.51.0 // indirect
 	github.com/pulumi/schema-tools v0.1.0 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e // indirect
 	github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 // indirect
