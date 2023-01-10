@@ -14,14 +14,14 @@ public final class PolicyVMRetentionDailyArgs extends com.pulumi.resources.Resou
     public static final PolicyVMRetentionDailyArgs Empty = new PolicyVMRetentionDailyArgs();
 
     /**
-     * The number of yearly backups to keep. Must be between `1` and `9999`
+     * The number of daily backups to keep. Must be between `7` and `9999`.
      * 
      */
     @Import(name="count", required=true)
     private Output<Integer> count;
 
     /**
-     * @return The number of yearly backups to keep. Must be between `1` and `9999`
+     * @return The number of daily backups to keep. Must be between `7` and `9999`.
      * 
      */
     public Output<Integer> count() {
@@ -53,7 +53,7 @@ public final class PolicyVMRetentionDailyArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param count The number of yearly backups to keep. Must be between `1` and `9999`
+         * @param count The number of daily backups to keep. Must be between `7` and `9999`.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class PolicyVMRetentionDailyArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param count The number of yearly backups to keep. Must be between `1` and `9999`
+         * @param count The number of daily backups to keep. Must be between `7` and `9999`.
          * 
          * @return builder
          * 

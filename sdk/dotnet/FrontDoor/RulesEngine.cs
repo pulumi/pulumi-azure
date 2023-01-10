@@ -166,6 +166,9 @@ namespace Pulumi.Azure.FrontDoor
     [AzureResourceType("azure:frontdoor/rulesEngine:RulesEngine")]
     public partial class RulesEngine : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Whether this Rules engine configuration is enabled? Defaults to `true`.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
@@ -242,6 +245,9 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class RulesEngineArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether this Rules engine configuration is enabled? Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -283,6 +289,9 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class RulesEngineState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether this Rules engine configuration is enabled? Defaults to `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

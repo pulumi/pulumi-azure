@@ -107,18 +107,18 @@ public final class ReferenceInputBlobArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Access Key which should be used to connect to this Storage Account.
+     * The Access Key which should be used to connect to this Storage Account. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
-    @Import(name="storageAccountKey", required=true)
-    private Output<String> storageAccountKey;
+    @Import(name="storageAccountKey")
+    private @Nullable Output<String> storageAccountKey;
 
     /**
-     * @return The Access Key which should be used to connect to this Storage Account.
+     * @return The Access Key which should be used to connect to this Storage Account. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
-    public Output<String> storageAccountKey() {
-        return this.storageAccountKey;
+    public Optional<Output<String>> storageAccountKey() {
+        return Optional.ofNullable(this.storageAccountKey);
     }
 
     /**
@@ -342,18 +342,18 @@ public final class ReferenceInputBlobArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageAccountKey The Access Key which should be used to connect to this Storage Account.
+         * @param storageAccountKey The Access Key which should be used to connect to this Storage Account. Required if `authentication_mode` is `ConnectionString`.
          * 
          * @return builder
          * 
          */
-        public Builder storageAccountKey(Output<String> storageAccountKey) {
+        public Builder storageAccountKey(@Nullable Output<String> storageAccountKey) {
             $.storageAccountKey = storageAccountKey;
             return this;
         }
 
         /**
-         * @param storageAccountKey The Access Key which should be used to connect to this Storage Account.
+         * @param storageAccountKey The Access Key which should be used to connect to this Storage Account. Required if `authentication_mode` is `ConnectionString`.
          * 
          * @return builder
          * 
@@ -451,7 +451,6 @@ public final class ReferenceInputBlobArgs extends com.pulumi.resources.ResourceA
             $.pathPattern = Objects.requireNonNull($.pathPattern, "expected parameter 'pathPattern' to be non-null");
             $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
             $.serialization = Objects.requireNonNull($.serialization, "expected parameter 'serialization' to be non-null");
-            $.storageAccountKey = Objects.requireNonNull($.storageAccountKey, "expected parameter 'storageAccountKey' to be non-null");
             $.storageAccountName = Objects.requireNonNull($.storageAccountName, "expected parameter 'storageAccountName' to be non-null");
             $.storageContainerName = Objects.requireNonNull($.storageContainerName, "expected parameter 'storageContainerName' to be non-null");
             $.streamAnalyticsJobName = Objects.requireNonNull($.streamAnalyticsJobName, "expected parameter 'streamAnalyticsJobName' to be non-null");

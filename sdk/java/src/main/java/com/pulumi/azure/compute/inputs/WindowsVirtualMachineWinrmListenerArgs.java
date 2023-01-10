@@ -30,9 +30,17 @@ public final class WindowsVirtualMachineWinrmListenerArgs extends com.pulumi.res
         return Optional.ofNullable(this.certificateUrl);
     }
 
+    /**
+     * Specifies the protocol of listener. Possible values are `Http` or `Https`
+     * 
+     */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
+    /**
+     * @return Specifies the protocol of listener. Possible values are `Http` or `Https`
+     * 
+     */
     public Output<String> protocol() {
         return this.protocol;
     }
@@ -83,11 +91,23 @@ public final class WindowsVirtualMachineWinrmListenerArgs extends com.pulumi.res
             return certificateUrl(Output.of(certificateUrl));
         }
 
+        /**
+         * @param protocol Specifies the protocol of listener. Possible values are `Http` or `Https`
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
+        /**
+         * @param protocol Specifies the protocol of listener. Possible values are `Http` or `Https`
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }

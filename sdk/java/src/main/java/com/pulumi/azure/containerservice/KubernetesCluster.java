@@ -261,6 +261,12 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> edgeZone() {
         return Codegen.optional(this.edgeZone);
     }
+    /**
+     * @deprecated
+     * The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+     * 
+     */
+    @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy. */
     @Export(name="enablePodSecurityPolicy", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enablePodSecurityPolicy;
 

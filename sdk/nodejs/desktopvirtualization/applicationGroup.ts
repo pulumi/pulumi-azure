@@ -94,8 +94,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
      */
     public readonly friendlyName!: pulumi.Output<string | undefined>;
     /**
-     * Resource ID for a Virtual Desktop Host Pool to associate with the
-     * Virtual Desktop Application Group.
+     * Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
      */
     public readonly hostPoolId!: pulumi.Output<string>;
     /**
@@ -184,8 +183,7 @@ export interface ApplicationGroupState {
      */
     friendlyName?: pulumi.Input<string>;
     /**
-     * Resource ID for a Virtual Desktop Host Pool to associate with the
-     * Virtual Desktop Application Group.
+     * Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
      */
     hostPoolId?: pulumi.Input<string>;
     /**
@@ -227,8 +225,7 @@ export interface ApplicationGroupArgs {
      */
     friendlyName?: pulumi.Input<string>;
     /**
-     * Resource ID for a Virtual Desktop Host Pool to associate with the
-     * Virtual Desktop Application Group.
+     * Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
      */
     hostPoolId: pulumi.Input<string>;
     /**

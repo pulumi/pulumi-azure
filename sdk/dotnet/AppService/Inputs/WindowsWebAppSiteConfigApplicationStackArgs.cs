@@ -61,7 +61,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? JavaVersion { get; set; }
 
         /// <summary>
-        /// The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+        /// The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
         /// </summary>
         [Input("nodeVersion")]
         public Input<string>? NodeVersion { get; set; }

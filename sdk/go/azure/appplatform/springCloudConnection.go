@@ -127,7 +127,7 @@ type SpringCloudConnection struct {
 	Authentication SpringCloudConnectionAuthenticationOutput `pulumi:"authentication"`
 	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType pulumi.StringPtrOutput `pulumi:"clientType"`
-	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId pulumi.StringOutput `pulumi:"springCloudId"`
@@ -179,7 +179,7 @@ type springCloudConnectionState struct {
 	Authentication *SpringCloudConnectionAuthentication `pulumi:"authentication"`
 	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType *string `pulumi:"clientType"`
-	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+	// The name of the service connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId *string `pulumi:"springCloudId"`
@@ -194,7 +194,7 @@ type SpringCloudConnectionState struct {
 	Authentication SpringCloudConnectionAuthenticationPtrInput
 	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType pulumi.StringPtrInput
-	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId pulumi.StringPtrInput
@@ -213,7 +213,7 @@ type springCloudConnectionArgs struct {
 	Authentication SpringCloudConnectionAuthentication `pulumi:"authentication"`
 	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType *string `pulumi:"clientType"`
-	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+	// The name of the service connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId string `pulumi:"springCloudId"`
@@ -229,7 +229,7 @@ type SpringCloudConnectionArgs struct {
 	Authentication SpringCloudConnectionAuthenticationInput
 	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
 	ClientType pulumi.StringPtrInput
-	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the data source spring cloud. Changing this forces a new resource to be created.
 	SpringCloudId pulumi.StringInput
@@ -336,7 +336,7 @@ func (o SpringCloudConnectionOutput) ClientType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudConnection) pulumi.StringPtrOutput { return v.ClientType }).(pulumi.StringPtrOutput)
 }
 
-// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+// The name of the service connection. Changing this forces a new resource to be created.
 func (o SpringCloudConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

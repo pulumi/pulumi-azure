@@ -308,9 +308,17 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
     public Output<List<ReplicatedVMNetworkInterface>> networkInterfaces() {
         return this.networkInterfaces;
     }
+    /**
+     * Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="recoveryReplicationPolicyId", type=String.class, parameters={})
     private Output<String> recoveryReplicationPolicyId;
 
+    /**
+     * @return Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> recoveryReplicationPolicyId() {
         return this.recoveryReplicationPolicyId;
     }
@@ -343,14 +351,14 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+     * Name of fabric that should contain this replication. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourceRecoveryFabricName", type=String.class, parameters={})
     private Output<String> sourceRecoveryFabricName;
 
     /**
-     * @return Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+     * @return Name of fabric that should contain this replication. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sourceRecoveryFabricName() {

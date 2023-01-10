@@ -153,14 +153,14 @@ public class Zone extends com.pulumi.resources.CustomResource {
         return this.soaRecord;
     }
     /**
-     * A mapping of tags to assign to the Record Set.
+     * A mapping of tags to assign to the resource.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the Record Set.
+     * @return A mapping of tags to assign to the resource.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

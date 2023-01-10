@@ -96,8 +96,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string?> FriendlyName { get; private set; } = null!;
 
         /// <summary>
-        /// Resource ID for a Virtual Desktop Host Pool to associate with the
-        /// Virtual Desktop Application Group.
+        /// Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
         /// </summary>
         [Output("hostPoolId")]
         public Output<string> HostPoolId { get; private set; } = null!;
@@ -197,8 +196,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
-        /// Resource ID for a Virtual Desktop Host Pool to associate with the
-        /// Virtual Desktop Application Group.
+        /// Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
         /// </summary>
         [Input("hostPoolId", required: true)]
         public Input<string> HostPoolId { get; set; } = null!;
@@ -266,8 +264,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
-        /// Resource ID for a Virtual Desktop Host Pool to associate with the
-        /// Virtual Desktop Application Group.
+        /// Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
         /// </summary>
         [Input("hostPoolId")]
         public Input<string>? HostPoolId { get; set; }

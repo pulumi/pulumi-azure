@@ -250,6 +250,7 @@ class SnapshotPolicyMonthlySchedule(dict):
                  minute: int,
                  snapshots_to_keep: int):
         """
+        :param Sequence[int] days_of_months: List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
         :param int hour: Hour of the day that the snapshots will be created, valid range is from 0 to 23.
         :param int minute: Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
         :param int snapshots_to_keep: How many hourly snapshots to keep, valid range is from 0 to 255.
@@ -262,6 +263,9 @@ class SnapshotPolicyMonthlySchedule(dict):
     @property
     @pulumi.getter(name="daysOfMonths")
     def days_of_months(self) -> Sequence[int]:
+        """
+        List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
+        """
         return pulumi.get(self, "days_of_months")
 
     @property

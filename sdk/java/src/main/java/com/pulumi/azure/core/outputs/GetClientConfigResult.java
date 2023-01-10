@@ -9,17 +9,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClientConfigResult {
+    /**
+     * @return is set to the Azure Client ID (Application Object ID).
+     * 
+     */
     private String clientId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return is set to the Azure Object ID.
+     * 
+     */
     private String objectId;
+    /**
+     * @return is set to the Azure Subscription ID.
+     * 
+     */
     private String subscriptionId;
+    /**
+     * @return is set to the Azure Tenant ID.
+     * 
+     */
     private String tenantId;
 
     private GetClientConfigResult() {}
+    /**
+     * @return is set to the Azure Client ID (Application Object ID).
+     * 
+     */
     public String clientId() {
         return this.clientId;
     }
@@ -30,12 +50,24 @@ public final class GetClientConfigResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return is set to the Azure Object ID.
+     * 
+     */
     public String objectId() {
         return this.objectId;
     }
+    /**
+     * @return is set to the Azure Subscription ID.
+     * 
+     */
     public String subscriptionId() {
         return this.subscriptionId;
     }
+    /**
+     * @return is set to the Azure Tenant ID.
+     * 
+     */
     public String tenantId() {
         return this.tenantId;
     }

@@ -50,6 +50,8 @@ import com.pulumi.azure.network.inputs.GetTrafficManagerProfileArgs;
 import com.pulumi.azure.network.inputs.GetTrafficManagerProfilePlainArgs;
 import com.pulumi.azure.network.inputs.GetVirtualHubArgs;
 import com.pulumi.azure.network.inputs.GetVirtualHubPlainArgs;
+import com.pulumi.azure.network.inputs.GetVirtualHubRouteTableArgs;
+import com.pulumi.azure.network.inputs.GetVirtualHubRouteTablePlainArgs;
 import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
 import com.pulumi.azure.network.inputs.GetVirtualNetworkGatewayArgs;
 import com.pulumi.azure.network.inputs.GetVirtualNetworkGatewayPlainArgs;
@@ -81,6 +83,7 @@ import com.pulumi.azure.network.outputs.GetSubnetResult;
 import com.pulumi.azure.network.outputs.GetTrafficManagerProfileResult;
 import com.pulumi.azure.network.outputs.GetTrafficManagerResult;
 import com.pulumi.azure.network.outputs.GetVirtualHubResult;
+import com.pulumi.azure.network.outputs.GetVirtualHubRouteTableResult;
 import com.pulumi.azure.network.outputs.GetVirtualNetworkGatewayResult;
 import com.pulumi.azure.network.outputs.GetVirtualNetworkResult;
 import com.pulumi.azure.network.outputs.GetVirtualWanResult;
@@ -3915,6 +3918,162 @@ public final class NetworkFunctions {
      */
     public static CompletableFuture<GetVirtualHubResult> getVirtualHubPlain(GetVirtualHubPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:network/getVirtualHub:getVirtualHub", TypeShape.of(GetVirtualHubResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Uses this data source to access information about an existing Virtual Hub Route Table.
+     * 
+     * ## Virtual Hub Route Table Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualHubRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualHubRouteTable(GetVirtualHubRouteTableArgs.builder()
+     *             .name(&#34;example-hub-route-table&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;virtualHubRouteTableId&#34;, example.applyValue(getVirtualHubRouteTableResult -&gt; getVirtualHubRouteTableResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVirtualHubRouteTableResult> getVirtualHubRouteTable(GetVirtualHubRouteTableArgs args) {
+        return getVirtualHubRouteTable(args, InvokeOptions.Empty);
+    }
+    /**
+     * Uses this data source to access information about an existing Virtual Hub Route Table.
+     * 
+     * ## Virtual Hub Route Table Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualHubRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualHubRouteTable(GetVirtualHubRouteTableArgs.builder()
+     *             .name(&#34;example-hub-route-table&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;virtualHubRouteTableId&#34;, example.applyValue(getVirtualHubRouteTableResult -&gt; getVirtualHubRouteTableResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVirtualHubRouteTableResult> getVirtualHubRouteTablePlain(GetVirtualHubRouteTablePlainArgs args) {
+        return getVirtualHubRouteTablePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Uses this data source to access information about an existing Virtual Hub Route Table.
+     * 
+     * ## Virtual Hub Route Table Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualHubRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualHubRouteTable(GetVirtualHubRouteTableArgs.builder()
+     *             .name(&#34;example-hub-route-table&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;virtualHubRouteTableId&#34;, example.applyValue(getVirtualHubRouteTableResult -&gt; getVirtualHubRouteTableResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVirtualHubRouteTableResult> getVirtualHubRouteTable(GetVirtualHubRouteTableArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", TypeShape.of(GetVirtualHubRouteTableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Uses this data source to access information about an existing Virtual Hub Route Table.
+     * 
+     * ## Virtual Hub Route Table Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetVirtualHubRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getVirtualHubRouteTable(GetVirtualHubRouteTableArgs.builder()
+     *             .name(&#34;example-hub-route-table&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;virtualHubRouteTableId&#34;, example.applyValue(getVirtualHubRouteTableResult -&gt; getVirtualHubRouteTableResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVirtualHubRouteTableResult> getVirtualHubRouteTablePlain(GetVirtualHubRouteTablePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", TypeShape.of(GetVirtualHubRouteTableResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Virtual Network.

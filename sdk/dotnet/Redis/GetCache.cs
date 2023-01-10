@@ -168,6 +168,9 @@ namespace Pulumi.Azure.Redis
         /// The primary connection string of the Redis Instance.
         /// </summary>
         public readonly string PrimaryConnectionString;
+        /// <summary>
+        /// The Static IP Address assigned to the Redis Cache when hosted inside the Virtual Network.
+        /// </summary>
         public readonly string PrivateStaticIpAddress;
         /// <summary>
         /// A `redis_configuration` block as defined below.

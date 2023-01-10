@@ -80,6 +80,11 @@ export interface GetGatewayConnectionResult {
      */
     readonly id: string;
     readonly ingressBytesTransferred: number;
+    /**
+     * (Optional) A `ipsecPolicy` block which is documented below.
+     * Only a single policy can be defined for a connection. For details on
+     * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+     */
     readonly ipsecPolicies: outputs.network.GetGatewayConnectionIpsecPolicy[];
     /**
      * Use private local Azure IP for the connection.
@@ -116,6 +121,11 @@ export interface GetGatewayConnectionResult {
      * A mapping of tags to assign to the resource.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * One or more `trafficSelectorPolicy` blocks which are documented below.
+     * A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
+     * For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+     */
     readonly trafficSelectorPolicies: outputs.network.GetGatewayConnectionTrafficSelectorPolicy[];
     /**
      * The type of connection. Valid options are `IPsec`

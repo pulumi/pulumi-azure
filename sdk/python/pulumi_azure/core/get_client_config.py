@@ -40,6 +40,9 @@ class GetClientConfigResult:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
+        """
+        is set to the Azure Client ID (Application Object ID).
+        """
         return pulumi.get(self, "client_id")
 
     @property
@@ -53,16 +56,25 @@ class GetClientConfigResult:
     @property
     @pulumi.getter(name="objectId")
     def object_id(self) -> str:
+        """
+        is set to the Azure Object ID.
+        """
         return pulumi.get(self, "object_id")
 
     @property
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> str:
+        """
+        is set to the Azure Subscription ID.
+        """
         return pulumi.get(self, "subscription_id")
 
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
+        """
+        is set to the Azure Tenant ID.
+        """
         return pulumi.get(self, "tenant_id")
 
 

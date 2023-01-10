@@ -574,6 +574,7 @@ func (o SnapshotPolicyHourlySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOu
 }
 
 type SnapshotPolicyMonthlySchedule struct {
+	// List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
 	DaysOfMonths []int `pulumi:"daysOfMonths"`
 	// Hour of the day that the snapshots will be created, valid range is from 0 to 23.
 	Hour int `pulumi:"hour"`
@@ -595,6 +596,7 @@ type SnapshotPolicyMonthlyScheduleInput interface {
 }
 
 type SnapshotPolicyMonthlyScheduleArgs struct {
+	// List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
 	DaysOfMonths pulumi.IntArrayInput `pulumi:"daysOfMonths"`
 	// Hour of the day that the snapshots will be created, valid range is from 0 to 23.
 	Hour pulumi.IntInput `pulumi:"hour"`
@@ -681,6 +683,7 @@ func (o SnapshotPolicyMonthlyScheduleOutput) ToSnapshotPolicyMonthlySchedulePtrO
 	}).(SnapshotPolicyMonthlySchedulePtrOutput)
 }
 
+// List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
 func (o SnapshotPolicyMonthlyScheduleOutput) DaysOfMonths() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v SnapshotPolicyMonthlySchedule) []int { return v.DaysOfMonths }).(pulumi.IntArrayOutput)
 }
@@ -724,6 +727,7 @@ func (o SnapshotPolicyMonthlySchedulePtrOutput) Elem() SnapshotPolicyMonthlySche
 	}).(SnapshotPolicyMonthlyScheduleOutput)
 }
 
+// List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
 func (o SnapshotPolicyMonthlySchedulePtrOutput) DaysOfMonths() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SnapshotPolicyMonthlySchedule) []int {
 		if v == nil {

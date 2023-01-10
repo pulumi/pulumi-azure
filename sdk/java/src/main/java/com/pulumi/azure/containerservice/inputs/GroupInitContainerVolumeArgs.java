@@ -64,14 +64,14 @@ public final class GroupInitContainerVolumeArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies the name of the Container Group. Changing this forces a new resource to be created.
+     * The name of the volume mount. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Container Group. Changing this forces a new resource to be created.
+     * @return The name of the volume mount. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -249,7 +249,7 @@ public final class GroupInitContainerVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Specifies the name of the Container Group. Changing this forces a new resource to be created.
+         * @param name The name of the volume mount. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class GroupInitContainerVolumeArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Specifies the name of the Container Group. Changing this forces a new resource to be created.
+         * @param name The name of the volume mount. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

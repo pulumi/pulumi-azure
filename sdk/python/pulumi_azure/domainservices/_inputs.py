@@ -29,7 +29,7 @@ class ServiceInitialReplicaSetArgs:
         :param pulumi.Input[str] subnet_id: The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_controller_ip_addresses: A list of subnet IP addresses for the domain controllers in the initial replica set, typically two.
         :param pulumi.Input[str] external_access_ip_address: The publicly routable IP address for the domain controllers in the initial replica set.
-        :param pulumi.Input[str] id: The ID of the Domain Service.
+        :param pulumi.Input[str] id: A unique ID for the replica set.
         :param pulumi.Input[str] location: The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_status: The current service status for the initial replica set.
         """
@@ -85,7 +85,7 @@ class ServiceInitialReplicaSetArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Domain Service.
+        A unique ID for the replica set.
         """
         return pulumi.get(self, "id")
 
@@ -187,7 +187,10 @@ class ServiceSecureLdapArgs:
         :param pulumi.Input[bool] enabled: Whether to enable secure LDAP for the managed domain. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
         :param pulumi.Input[str] pfx_certificate: The certificate/private key to use for LDAPS, as a base64-encoded TripleDES-SHA1 encrypted PKCS#12 bundle (PFX file).
         :param pulumi.Input[str] pfx_certificate_password: The password to use for decrypting the PKCS#12 bundle (PFX file).
+        :param pulumi.Input[str] certificate_expiry: The expiry time of the certificate.
+        :param pulumi.Input[str] certificate_thumbprint: The thumbprint of the certificate.
         :param pulumi.Input[bool] external_access_enabled: Whether to enable external access to LDAPS over the Internet. Defaults to `false`.
+        :param pulumi.Input[str] public_certificate: The public certificate.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "pfx_certificate", pfx_certificate)
@@ -240,6 +243,9 @@ class ServiceSecureLdapArgs:
     @property
     @pulumi.getter(name="certificateExpiry")
     def certificate_expiry(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expiry time of the certificate.
+        """
         return pulumi.get(self, "certificate_expiry")
 
     @certificate_expiry.setter
@@ -249,6 +255,9 @@ class ServiceSecureLdapArgs:
     @property
     @pulumi.getter(name="certificateThumbprint")
     def certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the certificate.
+        """
         return pulumi.get(self, "certificate_thumbprint")
 
     @certificate_thumbprint.setter
@@ -270,6 +279,9 @@ class ServiceSecureLdapArgs:
     @property
     @pulumi.getter(name="publicCertificate")
     def public_certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public certificate.
+        """
         return pulumi.get(self, "public_certificate")
 
     @public_certificate.setter

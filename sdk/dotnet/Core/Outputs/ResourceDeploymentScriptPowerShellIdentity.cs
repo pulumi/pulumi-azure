@@ -13,9 +13,12 @@ namespace Pulumi.Azure.Core.Outputs
     [OutputType]
     public sealed class ResourceDeploymentScriptPowerShellIdentity
     {
+        /// <summary>
+        /// Specifies the list of user-assigned managed identity IDs associated with the resource.
+        /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// Type of the managed identity.
+        /// Type of the managed identity. The only possible value is `UserAssigned`.
         /// </summary>
         public readonly string Type;
 

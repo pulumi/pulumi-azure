@@ -5042,7 +5042,7 @@ type ManagementPolicyRule struct {
 	Actions ManagementPolicyRuleActions `pulumi:"actions"`
 	// Boolean to specify whether the rule is enabled.
 	Enabled bool `pulumi:"enabled"`
-	// A `filter` block as documented below.
+	// A `filters` block as documented below.
 	Filters *ManagementPolicyRuleFilters `pulumi:"filters"`
 	// The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
 	Name string `pulumi:"name"`
@@ -5064,7 +5064,7 @@ type ManagementPolicyRuleArgs struct {
 	Actions ManagementPolicyRuleActionsInput `pulumi:"actions"`
 	// Boolean to specify whether the rule is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A `filter` block as documented below.
+	// A `filters` block as documented below.
 	Filters ManagementPolicyRuleFiltersPtrInput `pulumi:"filters"`
 	// The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -5131,7 +5131,7 @@ func (o ManagementPolicyRuleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ManagementPolicyRule) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// A `filter` block as documented below.
+// A `filters` block as documented below.
 func (o ManagementPolicyRuleOutput) Filters() ManagementPolicyRuleFiltersPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRule) *ManagementPolicyRuleFilters { return v.Filters }).(ManagementPolicyRuleFiltersPtrOutput)
 }

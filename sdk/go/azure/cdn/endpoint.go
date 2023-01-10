@@ -90,7 +90,7 @@ type Endpoint struct {
 	IsHttpsAllowed pulumi.BoolPtrOutput `pulumi:"isHttpsAllowed"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
+	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType pulumi.StringPtrOutput `pulumi:"optimizationType"`
@@ -168,7 +168,7 @@ type endpointState struct {
 	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
+	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType *string `pulumi:"optimizationType"`
@@ -209,7 +209,7 @@ type EndpointState struct {
 	IsHttpsAllowed pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
+	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType pulumi.StringPtrInput
@@ -252,7 +252,7 @@ type endpointArgs struct {
 	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
+	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType *string `pulumi:"optimizationType"`
@@ -292,7 +292,7 @@ type EndpointArgs struct {
 	IsHttpsAllowed pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
+	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType pulumi.StringPtrInput
@@ -446,7 +446,7 @@ func (o EndpointOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
+// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
 func (o EndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

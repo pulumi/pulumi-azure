@@ -155,7 +155,7 @@ type GroupContainer struct {
 	Memory float64 `pulumi:"memory"`
 	// The the upper limit of the memory of the containers in GB.
 	MemoryLimit *float64 `pulumi:"memoryLimit"`
-	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	// Specifies the name of the Container. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
 	Ports []GroupContainerPort `pulumi:"ports"`
@@ -199,7 +199,7 @@ type GroupContainerArgs struct {
 	Memory pulumi.Float64Input `pulumi:"memory"`
 	// The the upper limit of the memory of the containers in GB.
 	MemoryLimit pulumi.Float64PtrInput `pulumi:"memoryLimit"`
-	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	// Specifies the name of the Container. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
 	Ports GroupContainerPortArrayInput `pulumi:"ports"`
@@ -312,7 +312,7 @@ func (o GroupContainerOutput) MemoryLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v GroupContainer) *float64 { return v.MemoryLimit }).(pulumi.Float64PtrOutput)
 }
 
-// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+// Specifies the name of the Container. Changing this forces a new resource to be created.
 func (o GroupContainerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupContainer) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -514,9 +514,9 @@ func (o GroupContainerGpuPtrOutput) Sku() pulumi.StringPtrOutput {
 }
 
 type GroupContainerGpuLimit struct {
-	// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+	// The upper limit of the number of GPUs which should be assigned to this container.
 	Count *int `pulumi:"count"`
-	// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+	// The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
 	Sku *string `pulumi:"sku"`
 }
 
@@ -532,9 +532,9 @@ type GroupContainerGpuLimitInput interface {
 }
 
 type GroupContainerGpuLimitArgs struct {
-	// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+	// The upper limit of the number of GPUs which should be assigned to this container.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+	// The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
 	Sku pulumi.StringPtrInput `pulumi:"sku"`
 }
 
@@ -615,12 +615,12 @@ func (o GroupContainerGpuLimitOutput) ToGroupContainerGpuLimitPtrOutputWithConte
 	}).(GroupContainerGpuLimitPtrOutput)
 }
 
-// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+// The upper limit of the number of GPUs which should be assigned to this container.
 func (o GroupContainerGpuLimitOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerGpuLimit) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+// The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
 func (o GroupContainerGpuLimitOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupContainerGpuLimit) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
@@ -649,7 +649,7 @@ func (o GroupContainerGpuLimitPtrOutput) Elem() GroupContainerGpuLimitOutput {
 	}).(GroupContainerGpuLimitOutput)
 }
 
-// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+// The upper limit of the number of GPUs which should be assigned to this container.
 func (o GroupContainerGpuLimitPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupContainerGpuLimit) *int {
 		if v == nil {
@@ -659,7 +659,7 @@ func (o GroupContainerGpuLimitPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+// The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
 func (o GroupContainerGpuLimitPtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupContainerGpuLimit) *string {
 		if v == nil {
@@ -925,7 +925,7 @@ type GroupContainerLivenessProbeHttpGet struct {
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
 	// Path to access on the HTTP server. Changing this forces a new resource to be created.
 	Path *string `pulumi:"path"`
-	// The port number the container will expose. Changing this forces a new resource to be created.
+	// Number of the port to access on the container. Changing this forces a new resource to be created.
 	Port *int `pulumi:"port"`
 	// Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
 	Scheme *string `pulumi:"scheme"`
@@ -947,7 +947,7 @@ type GroupContainerLivenessProbeHttpGetArgs struct {
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
 	// Path to access on the HTTP server. Changing this forces a new resource to be created.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The port number the container will expose. Changing this forces a new resource to be created.
+	// Number of the port to access on the container. Changing this forces a new resource to be created.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
 	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
@@ -1014,7 +1014,7 @@ func (o GroupContainerLivenessProbeHttpGetOutput) Path() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v GroupContainerLivenessProbeHttpGet) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The port number the container will expose. Changing this forces a new resource to be created.
+// Number of the port to access on the container. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbeHttpGetOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerLivenessProbeHttpGet) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -1406,7 +1406,7 @@ type GroupContainerReadinessProbeHttpGet struct {
 	HttpHeaders map[string]string `pulumi:"httpHeaders"`
 	// Path to access on the HTTP server. Changing this forces a new resource to be created.
 	Path *string `pulumi:"path"`
-	// The port number the container will expose. Changing this forces a new resource to be created.
+	// Number of the port to access on the container. Changing this forces a new resource to be created.
 	Port *int `pulumi:"port"`
 	// Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
 	Scheme *string `pulumi:"scheme"`
@@ -1428,7 +1428,7 @@ type GroupContainerReadinessProbeHttpGetArgs struct {
 	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
 	// Path to access on the HTTP server. Changing this forces a new resource to be created.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The port number the container will expose. Changing this forces a new resource to be created.
+	// Number of the port to access on the container. Changing this forces a new resource to be created.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
 	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
@@ -1495,7 +1495,7 @@ func (o GroupContainerReadinessProbeHttpGetOutput) Path() pulumi.StringPtrOutput
 	return o.ApplyT(func(v GroupContainerReadinessProbeHttpGet) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The port number the container will expose. Changing this forces a new resource to be created.
+// Number of the port to access on the container. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbeHttpGetOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerReadinessProbeHttpGet) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -1532,7 +1532,7 @@ type GroupContainerVolume struct {
 	GitRepo *GroupContainerVolumeGitRepo `pulumi:"gitRepo"`
 	// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
 	MountPath string `pulumi:"mountPath"`
-	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	// The name of the volume mount. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
 	ReadOnly *bool `pulumi:"readOnly"`
@@ -1564,7 +1564,7 @@ type GroupContainerVolumeArgs struct {
 	GitRepo GroupContainerVolumeGitRepoPtrInput `pulumi:"gitRepo"`
 	// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
 	MountPath pulumi.StringInput `pulumi:"mountPath"`
-	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	// The name of the volume mount. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
 	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
@@ -1644,7 +1644,7 @@ func (o GroupContainerVolumeOutput) MountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupContainerVolume) string { return v.MountPath }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+// The name of the volume mount. Changing this forces a new resource to be created.
 func (o GroupContainerVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupContainerVolume) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2806,7 +2806,7 @@ type GroupInitContainer struct {
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// The container image name. Changing this forces a new resource to be created.
 	Image string `pulumi:"image"`
-	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	// Specifies the name of the Container. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	SecureEnvironmentVariables map[string]string `pulumi:"secureEnvironmentVariables"`
@@ -2832,7 +2832,7 @@ type GroupInitContainerArgs struct {
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
 	// The container image name. Changing this forces a new resource to be created.
 	Image pulumi.StringInput `pulumi:"image"`
-	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	// Specifies the name of the Container. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
 	SecureEnvironmentVariables pulumi.StringMapInput `pulumi:"secureEnvironmentVariables"`
@@ -2906,7 +2906,7 @@ func (o GroupInitContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupInitContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+// Specifies the name of the Container. Changing this forces a new resource to be created.
 func (o GroupInitContainerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupInitContainer) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2948,7 +2948,7 @@ type GroupInitContainerVolume struct {
 	GitRepo *GroupInitContainerVolumeGitRepo `pulumi:"gitRepo"`
 	// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
 	MountPath string `pulumi:"mountPath"`
-	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	// The name of the volume mount. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
 	ReadOnly *bool `pulumi:"readOnly"`
@@ -2980,7 +2980,7 @@ type GroupInitContainerVolumeArgs struct {
 	GitRepo GroupInitContainerVolumeGitRepoPtrInput `pulumi:"gitRepo"`
 	// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
 	MountPath pulumi.StringInput `pulumi:"mountPath"`
-	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	// The name of the volume mount. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
 	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
@@ -3060,7 +3060,7 @@ func (o GroupInitContainerVolumeOutput) MountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupInitContainerVolume) string { return v.MountPath }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+// The name of the volume mount. Changing this forces a new resource to be created.
 func (o GroupInitContainerVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupInitContainerVolume) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4128,7 +4128,8 @@ type KubernetesClusterDefaultNodePool struct {
 	// Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
-	FipsEnabled *bool   `pulumi:"fipsEnabled"`
+	FipsEnabled *bool `pulumi:"fipsEnabled"`
+	// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	HostGroupId *string `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig *KubernetesClusterDefaultNodePoolKubeletConfig `pulumi:"kubeletConfig"`
@@ -4151,8 +4152,9 @@ type KubernetesClusterDefaultNodePool struct {
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
-	NodePublicIpPrefixId *string  `pulumi:"nodePublicIpPrefixId"`
-	NodeTaints           []string `pulumi:"nodeTaints"`
+	NodePublicIpPrefixId *string `pulumi:"nodePublicIpPrefixId"`
+	// A list of the taints added to new nodes during node pool create and scale.
+	NodeTaints []string `pulumi:"nodeTaints"`
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
 	OnlyCriticalAddonsEnabled *bool `pulumi:"onlyCriticalAddonsEnabled"`
 	// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
@@ -4164,9 +4166,10 @@ type KubernetesClusterDefaultNodePool struct {
 	// Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
 	OsSku *string `pulumi:"osSku"`
 	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
-	PodSubnetId               *string `pulumi:"podSubnetId"`
+	PodSubnetId *string `pulumi:"podSubnetId"`
+	// The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
-	// Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+	// Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode *string `pulumi:"scaleDownMode"`
 	// A mapping of tags to assign to the Node Pool.
 	Tags map[string]string `pulumi:"tags"`
@@ -4209,7 +4212,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
-	FipsEnabled pulumi.BoolPtrInput   `pulumi:"fipsEnabled"`
+	FipsEnabled pulumi.BoolPtrInput `pulumi:"fipsEnabled"`
+	// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrInput `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below.
 	KubeletConfig KubernetesClusterDefaultNodePoolKubeletConfigPtrInput `pulumi:"kubeletConfig"`
@@ -4232,8 +4236,9 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
 	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
-	NodePublicIpPrefixId pulumi.StringPtrInput   `pulumi:"nodePublicIpPrefixId"`
-	NodeTaints           pulumi.StringArrayInput `pulumi:"nodeTaints"`
+	NodePublicIpPrefixId pulumi.StringPtrInput `pulumi:"nodePublicIpPrefixId"`
+	// A list of the taints added to new nodes during node pool create and scale.
+	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
 	OnlyCriticalAddonsEnabled pulumi.BoolPtrInput `pulumi:"onlyCriticalAddonsEnabled"`
 	// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetesVersion`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
@@ -4245,9 +4250,10 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
 	OsSku pulumi.StringPtrInput `pulumi:"osSku"`
 	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
-	PodSubnetId               pulumi.StringPtrInput `pulumi:"podSubnetId"`
+	PodSubnetId pulumi.StringPtrInput `pulumi:"podSubnetId"`
+	// The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
-	// Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+	// Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode pulumi.StringPtrInput `pulumi:"scaleDownMode"`
 	// A mapping of tags to assign to the Node Pool.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -4374,6 +4380,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) FipsEnabled() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) HostGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.HostGroupId }).(pulumi.StringPtrOutput)
 }
@@ -4437,6 +4444,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) NodePublicIpPrefixId() pulumi.St
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.NodePublicIpPrefixId }).(pulumi.StringPtrOutput)
 }
 
+// A list of the taints added to new nodes during node pool create and scale.
 func (o KubernetesClusterDefaultNodePoolOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
@@ -4471,11 +4479,12 @@ func (o KubernetesClusterDefaultNodePoolOutput) PodSubnetId() pulumi.StringPtrOu
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.PodSubnetId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) ProximityPlacementGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.ProximityPlacementGroupId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+// Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 func (o KubernetesClusterDefaultNodePoolOutput) ScaleDownMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.ScaleDownMode }).(pulumi.StringPtrOutput)
 }
@@ -4606,6 +4615,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) FipsEnabled() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) HostGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -4725,6 +4735,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) NodePublicIpPrefixId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of the taints added to new nodes during node pool create and scale.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) []string {
 		if v == nil {
@@ -4794,6 +4805,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) PodSubnetId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) ProximityPlacementGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -4803,7 +4815,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) ProximityPlacementGroupId() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+// Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) ScaleDownMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -8530,9 +8542,10 @@ func (o KubernetesClusterMicrosoftDefenderPtrOutput) LogAnalyticsWorkspaceId() p
 }
 
 type KubernetesClusterMonitorMetrics struct {
-	// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+	// Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
 	AnnotationsAllowed *string `pulumi:"annotationsAllowed"`
-	LabelsAllowed      *string `pulumi:"labelsAllowed"`
+	// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+	LabelsAllowed *string `pulumi:"labelsAllowed"`
 }
 
 // KubernetesClusterMonitorMetricsInput is an input type that accepts KubernetesClusterMonitorMetricsArgs and KubernetesClusterMonitorMetricsOutput values.
@@ -8547,9 +8560,10 @@ type KubernetesClusterMonitorMetricsInput interface {
 }
 
 type KubernetesClusterMonitorMetricsArgs struct {
-	// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+	// Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
 	AnnotationsAllowed pulumi.StringPtrInput `pulumi:"annotationsAllowed"`
-	LabelsAllowed      pulumi.StringPtrInput `pulumi:"labelsAllowed"`
+	// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+	LabelsAllowed pulumi.StringPtrInput `pulumi:"labelsAllowed"`
 }
 
 func (KubernetesClusterMonitorMetricsArgs) ElementType() reflect.Type {
@@ -8629,11 +8643,12 @@ func (o KubernetesClusterMonitorMetricsOutput) ToKubernetesClusterMonitorMetrics
 	}).(KubernetesClusterMonitorMetricsPtrOutput)
 }
 
-// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+// Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
 func (o KubernetesClusterMonitorMetricsOutput) AnnotationsAllowed() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterMonitorMetrics) *string { return v.AnnotationsAllowed }).(pulumi.StringPtrOutput)
 }
 
+// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
 func (o KubernetesClusterMonitorMetricsOutput) LabelsAllowed() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterMonitorMetrics) *string { return v.LabelsAllowed }).(pulumi.StringPtrOutput)
 }
@@ -8662,7 +8677,7 @@ func (o KubernetesClusterMonitorMetricsPtrOutput) Elem() KubernetesClusterMonito
 	}).(KubernetesClusterMonitorMetricsOutput)
 }
 
-// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+// Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
 func (o KubernetesClusterMonitorMetricsPtrOutput) AnnotationsAllowed() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterMonitorMetrics) *string {
 		if v == nil {
@@ -8672,6 +8687,7 @@ func (o KubernetesClusterMonitorMetricsPtrOutput) AnnotationsAllowed() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
 func (o KubernetesClusterMonitorMetricsPtrOutput) LabelsAllowed() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterMonitorMetrics) *string {
 		if v == nil {
@@ -18866,11 +18882,16 @@ func (o GetKubernetesClusterServicePrincipalArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetKubernetesClusterStorageProfile struct {
-	BlobDriverEnabled         bool   `pulumi:"blobDriverEnabled"`
-	DiskDriverEnabled         bool   `pulumi:"diskDriverEnabled"`
-	DiskDriverVersion         string `pulumi:"diskDriverVersion"`
-	FileDriverEnabled         bool   `pulumi:"fileDriverEnabled"`
-	SnapshotControllerEnabled bool   `pulumi:"snapshotControllerEnabled"`
+	// Is the Blob CSI driver enabled?
+	BlobDriverEnabled bool `pulumi:"blobDriverEnabled"`
+	// Is the Disk CSI driver enabled?
+	DiskDriverEnabled bool `pulumi:"diskDriverEnabled"`
+	// The configured Disk CSI Driver version.
+	DiskDriverVersion string `pulumi:"diskDriverVersion"`
+	// Is the File CSI driver enabled?
+	FileDriverEnabled bool `pulumi:"fileDriverEnabled"`
+	// Is the Snapshot Controller enabled?
+	SnapshotControllerEnabled bool `pulumi:"snapshotControllerEnabled"`
 }
 
 // GetKubernetesClusterStorageProfileInput is an input type that accepts GetKubernetesClusterStorageProfileArgs and GetKubernetesClusterStorageProfileOutput values.
@@ -18885,11 +18906,16 @@ type GetKubernetesClusterStorageProfileInput interface {
 }
 
 type GetKubernetesClusterStorageProfileArgs struct {
-	BlobDriverEnabled         pulumi.BoolInput   `pulumi:"blobDriverEnabled"`
-	DiskDriverEnabled         pulumi.BoolInput   `pulumi:"diskDriverEnabled"`
-	DiskDriverVersion         pulumi.StringInput `pulumi:"diskDriverVersion"`
-	FileDriverEnabled         pulumi.BoolInput   `pulumi:"fileDriverEnabled"`
-	SnapshotControllerEnabled pulumi.BoolInput   `pulumi:"snapshotControllerEnabled"`
+	// Is the Blob CSI driver enabled?
+	BlobDriverEnabled pulumi.BoolInput `pulumi:"blobDriverEnabled"`
+	// Is the Disk CSI driver enabled?
+	DiskDriverEnabled pulumi.BoolInput `pulumi:"diskDriverEnabled"`
+	// The configured Disk CSI Driver version.
+	DiskDriverVersion pulumi.StringInput `pulumi:"diskDriverVersion"`
+	// Is the File CSI driver enabled?
+	FileDriverEnabled pulumi.BoolInput `pulumi:"fileDriverEnabled"`
+	// Is the Snapshot Controller enabled?
+	SnapshotControllerEnabled pulumi.BoolInput `pulumi:"snapshotControllerEnabled"`
 }
 
 func (GetKubernetesClusterStorageProfileArgs) ElementType() reflect.Type {
@@ -18943,22 +18969,27 @@ func (o GetKubernetesClusterStorageProfileOutput) ToGetKubernetesClusterStorageP
 	return o
 }
 
+// Is the Blob CSI driver enabled?
 func (o GetKubernetesClusterStorageProfileOutput) BlobDriverEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetKubernetesClusterStorageProfile) bool { return v.BlobDriverEnabled }).(pulumi.BoolOutput)
 }
 
+// Is the Disk CSI driver enabled?
 func (o GetKubernetesClusterStorageProfileOutput) DiskDriverEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetKubernetesClusterStorageProfile) bool { return v.DiskDriverEnabled }).(pulumi.BoolOutput)
 }
 
+// The configured Disk CSI Driver version.
 func (o GetKubernetesClusterStorageProfileOutput) DiskDriverVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterStorageProfile) string { return v.DiskDriverVersion }).(pulumi.StringOutput)
 }
 
+// Is the File CSI driver enabled?
 func (o GetKubernetesClusterStorageProfileOutput) FileDriverEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetKubernetesClusterStorageProfile) bool { return v.FileDriverEnabled }).(pulumi.BoolOutput)
 }
 
+// Is the Snapshot Controller enabled?
 func (o GetKubernetesClusterStorageProfileOutput) SnapshotControllerEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetKubernetesClusterStorageProfile) bool { return v.SnapshotControllerEnabled }).(pulumi.BoolOutput)
 }

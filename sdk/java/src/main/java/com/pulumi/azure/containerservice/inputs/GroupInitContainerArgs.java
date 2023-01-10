@@ -64,14 +64,14 @@ public final class GroupInitContainerArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the name of the Container Group. Changing this forces a new resource to be created.
+     * Specifies the name of the Container. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Container Group. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Container. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -211,7 +211,7 @@ public final class GroupInitContainerArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name Specifies the name of the Container Group. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Container. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class GroupInitContainerArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name Specifies the name of the Container Group. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Container. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -1713,7 +1713,7 @@ class RulesEngineRule(dict):
         """
         :param str name: The name of the rule. Changing this forces a new resource to be created.
         :param int priority: Priority of the rule, must be unique per rules engine definition.
-        :param 'RulesEngineRuleActionArgs' action: A `rule_action` block as defined below.
+        :param 'RulesEngineRuleActionArgs' action: An `action` block as defined below.
         :param Sequence['RulesEngineRuleMatchConditionArgs'] match_conditions: One or more `match_condition` block as defined below.
         """
         pulumi.set(__self__, "name", name)
@@ -1743,7 +1743,7 @@ class RulesEngineRule(dict):
     @pulumi.getter
     def action(self) -> Optional['outputs.RulesEngineRuleAction']:
         """
-        A `rule_action` block as defined below.
+        An `action` block as defined below.
         """
         return pulumi.get(self, "action")
 

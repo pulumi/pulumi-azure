@@ -165,9 +165,17 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The date the export will stop capturing information.
+     * 
+     */
     @Export(name="recurrencePeriodEndDate", type=String.class, parameters={})
     private Output<String> recurrencePeriodEndDate;
 
+    /**
+     * @return The date the export will stop capturing information.
+     * 
+     */
     public Output<String> recurrencePeriodEndDate() {
         return this.recurrencePeriodEndDate;
     }

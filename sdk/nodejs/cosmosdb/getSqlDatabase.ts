@@ -65,6 +65,9 @@ export interface GetSqlDatabaseResult {
     readonly id: string;
     readonly name: string;
     readonly resourceGroupName: string;
+    /**
+     * The throughput of SQL database (RU/s).
+     */
     readonly throughput: number;
 }
 /**

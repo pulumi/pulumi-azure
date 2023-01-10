@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Backup.Outputs
         /// </summary>
         public readonly string Time;
         /// <summary>
-        /// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+        /// The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
         /// </summary>
         public readonly ImmutableArray<string> Weekdays;
 

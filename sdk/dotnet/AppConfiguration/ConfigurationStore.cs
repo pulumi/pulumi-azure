@@ -180,6 +180,9 @@ namespace Pulumi.Azure.AppConfiguration
     [AzureResourceType("azure:appconfiguration/configurationStore:ConfigurationStore")]
     public partial class ConfigurationStore : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
         [Output("encryption")]
         public Output<Outputs.ConfigurationStoreEncryption?> Encryption { get; private set; } = null!;
 
@@ -319,6 +322,9 @@ namespace Pulumi.Azure.AppConfiguration
 
     public sealed class ConfigurationStoreArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
         [Input("encryption")]
         public Input<Inputs.ConfigurationStoreEncryptionArgs>? Encryption { get; set; }
 
@@ -396,6 +402,9 @@ namespace Pulumi.Azure.AppConfiguration
 
     public sealed class ConfigurationStoreState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
         [Input("encryption")]
         public Input<Inputs.ConfigurationStoreEncryptionGetArgs>? Encryption { get; set; }
 

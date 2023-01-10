@@ -52,7 +52,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String javaVersion;
     /**
-     * @return The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+     * @return The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
      * 
      */
     private @Nullable String nodeVersion;
@@ -125,7 +125,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.javaVersion);
     }
     /**
-     * @return The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+     * @return The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
      * 
      */
     public Optional<String> nodeVersion() {

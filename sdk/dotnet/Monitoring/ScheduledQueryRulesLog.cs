@@ -123,6 +123,9 @@ namespace Pulumi.Azure.Monitoring
     [AzureResourceType("azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog")]
     public partial class ScheduledQueryRulesLog : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A list of IDs of Resources referred into query.
+        /// </summary>
         [Output("authorizedResourceIds")]
         public Output<ImmutableArray<string>> AuthorizedResourceIds { get; private set; } = null!;
 
@@ -222,6 +225,10 @@ namespace Pulumi.Azure.Monitoring
     {
         [Input("authorizedResourceIds")]
         private InputList<string>? _authorizedResourceIds;
+
+        /// <summary>
+        /// A list of IDs of Resources referred into query.
+        /// </summary>
         public InputList<string> AuthorizedResourceIds
         {
             get => _authorizedResourceIds ?? (_authorizedResourceIds = new InputList<string>());
@@ -292,6 +299,10 @@ namespace Pulumi.Azure.Monitoring
     {
         [Input("authorizedResourceIds")]
         private InputList<string>? _authorizedResourceIds;
+
+        /// <summary>
+        /// A list of IDs of Resources referred into query.
+        /// </summary>
         public InputList<string> AuthorizedResourceIds
         {
             get => _authorizedResourceIds ?? (_authorizedResourceIds = new InputList<string>());

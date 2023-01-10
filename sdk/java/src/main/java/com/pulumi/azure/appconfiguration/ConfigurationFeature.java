@@ -219,14 +219,14 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.targetingFilters);
     }
     /**
-     * A `targeting_filter` block `timewindow_filter` as defined below.
+     * A `timewindow_filter` block as defined below.
      * 
      */
     @Export(name="timewindowFilters", type=List.class, parameters={ConfigurationFeatureTimewindowFilter.class})
     private Output</* @Nullable */ List<ConfigurationFeatureTimewindowFilter>> timewindowFilters;
 
     /**
-     * @return A `targeting_filter` block `timewindow_filter` as defined below.
+     * @return A `timewindow_filter` block as defined below.
      * 
      */
     public Output<Optional<List<ConfigurationFeatureTimewindowFilter>>> timewindowFilters() {

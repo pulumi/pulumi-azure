@@ -85,9 +85,17 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.backendPoolLoadBalancings);
     }
 
+    /**
+     * A `backend_pool_settings` block as defined below.
+     * 
+     */
     @Import(name="backendPoolSettings")
     private @Nullable Output<List<FrontdoorBackendPoolSettingArgs>> backendPoolSettings;
 
+    /**
+     * @return A `backend_pool_settings` block as defined below.
+     * 
+     */
     public Optional<Output<List<FrontdoorBackendPoolSettingArgs>>> backendPoolSettings() {
         return Optional.ofNullable(this.backendPoolSettings);
     }
@@ -440,15 +448,33 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
             return backendPoolLoadBalancings(List.of(backendPoolLoadBalancings));
         }
 
+        /**
+         * @param backendPoolSettings A `backend_pool_settings` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder backendPoolSettings(@Nullable Output<List<FrontdoorBackendPoolSettingArgs>> backendPoolSettings) {
             $.backendPoolSettings = backendPoolSettings;
             return this;
         }
 
+        /**
+         * @param backendPoolSettings A `backend_pool_settings` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder backendPoolSettings(List<FrontdoorBackendPoolSettingArgs> backendPoolSettings) {
             return backendPoolSettings(Output.of(backendPoolSettings));
         }
 
+        /**
+         * @param backendPoolSettings A `backend_pool_settings` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder backendPoolSettings(FrontdoorBackendPoolSettingArgs... backendPoolSettings) {
             return backendPoolSettings(List.of(backendPoolSettings));
         }

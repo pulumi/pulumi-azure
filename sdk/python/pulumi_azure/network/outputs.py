@@ -190,6 +190,7 @@ __all__ = [
     'GetTrafficManagerProfileDnsConfigResult',
     'GetTrafficManagerProfileMonitorConfigResult',
     'GetTrafficManagerProfileMonitorConfigCustomHeaderResult',
+    'GetVirtualHubRouteTableRouteResult',
     'GetVirtualNetworkGatewayBgpSettingResult',
     'GetVirtualNetworkGatewayCustomRouteResult',
     'GetVirtualNetworkGatewayIpConfigurationResult',
@@ -10026,7 +10027,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate(dict):
                  name: str,
                  thumbprint: str):
         """
-        :param str name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+        :param str name: The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "thumbprint", thumbprint)
@@ -10035,7 +10036,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+        The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -10068,12 +10069,11 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificate(dict):
                  name: str,
                  public_cert_data: str):
         """
-        :param str name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+        :param str name: A user-defined name of the root certificate. Changing this forces a new resource to be created.
         :param str public_cert_data: The public certificate of the root certificate
                authority. The certificate must be provided in Base-64 encoded X.509 format
                (PEM). In particular, this argument *must not* include the
                `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
-               revoked.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "public_cert_data", public_cert_data)
@@ -10082,7 +10082,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificate(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+        A user-defined name of the root certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -10094,7 +10094,6 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificate(dict):
         authority. The certificate must be provided in Base-64 encoded X.509 format
         (PEM). In particular, this argument *must not* include the
         `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
-        revoked.
         """
         return pulumi.get(self, "public_cert_data")
 
@@ -10127,7 +10126,7 @@ class VirtualNetworkSubnet(dict):
                  security_group: Optional[str] = None):
         """
         :param str address_prefix: The address prefix to use for the subnet.
-        :param str name: The name of the virtual network. Changing this forces a new resource to be created.
+        :param str name: The name of the subnet. Changing this forces a new resource to be created.
         :param str id: The ID of DDoS Protection Plan.
         :param str security_group: The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
         """
@@ -10150,7 +10149,7 @@ class VirtualNetworkSubnet(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the virtual network. Changing this forces a new resource to be created.
+        The name of the subnet. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -12041,6 +12040,7 @@ class GetFirewallIpConfigurationResult(dict):
         """
         :param str name: The name of the Azure Firewall.
         :param str private_ip_address: The private IP address associated with the Azure Firewall.
+        :param str public_ip_address_id: The ID of the Public IP address of the Azure Firewall.
         :param str subnet_id: The ID of the Subnet where the Azure Firewall is deployed.
         """
         pulumi.set(__self__, "name", name)
@@ -12067,6 +12067,9 @@ class GetFirewallIpConfigurationResult(dict):
     @property
     @pulumi.getter(name="publicIpAddressId")
     def public_ip_address_id(self) -> str:
+        """
+        The ID of the Public IP address of the Azure Firewall.
+        """
         return pulumi.get(self, "public_ip_address_id")
 
     @property
@@ -12088,6 +12091,7 @@ class GetFirewallManagementIpConfigurationResult(dict):
         """
         :param str name: The name of the Azure Firewall.
         :param str private_ip_address: The private IP address associated with the Azure Firewall.
+        :param str public_ip_address_id: The ID of the Public IP address of the Azure Firewall.
         :param str subnet_id: The ID of the Subnet where the Azure Firewall is deployed.
         """
         pulumi.set(__self__, "name", name)
@@ -12114,6 +12118,9 @@ class GetFirewallManagementIpConfigurationResult(dict):
     @property
     @pulumi.getter(name="publicIpAddressId")
     def public_ip_address_id(self) -> str:
+        """
+        The ID of the Public IP address of the Azure Firewall.
+        """
         return pulumi.get(self, "public_ip_address_id")
 
     @property
@@ -13028,6 +13035,68 @@ class GetTrafficManagerProfileMonitorConfigCustomHeaderResult(dict):
         The value of custom header. Applicable for HTTP and HTTPS protocol.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetVirtualHubRouteTableRouteResult(dict):
+    def __init__(__self__, *,
+                 destinations: Sequence[str],
+                 destinations_type: str,
+                 name: str,
+                 next_hop: str,
+                 next_hop_type: str):
+        """
+        :param Sequence[str] destinations: A list of destination addresses for this route.
+        :param str destinations_type: The type of destinations.
+        :param str name: The name of the Virtual Hub Route Table.
+        :param str next_hop: The next hop's resource ID.
+        :param str next_hop_type: The type of next hop.
+        """
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "destinations_type", destinations_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "next_hop", next_hop)
+        pulumi.set(__self__, "next_hop_type", next_hop_type)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Sequence[str]:
+        """
+        A list of destination addresses for this route.
+        """
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter(name="destinationsType")
+    def destinations_type(self) -> str:
+        """
+        The type of destinations.
+        """
+        return pulumi.get(self, "destinations_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Virtual Hub Route Table.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nextHop")
+    def next_hop(self) -> str:
+        """
+        The next hop's resource ID.
+        """
+        return pulumi.get(self, "next_hop")
+
+    @property
+    @pulumi.getter(name="nextHopType")
+    def next_hop_type(self) -> str:
+        """
+        The type of next hop.
+        """
+        return pulumi.get(self, "next_hop_type")
 
 
 @pulumi.output_type

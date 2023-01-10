@@ -78,6 +78,7 @@ import (
 type MongoCollection struct {
 	pulumi.CustomResourceState
 
+	// The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl pulumi.IntPtrOutput                       `pulumi:"analyticalStorageTtl"`
@@ -137,6 +138,7 @@ func GetMongoCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MongoCollection resources.
 type mongoCollectionState struct {
+	// The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	AccountName *string `pulumi:"accountName"`
 	// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl *int                              `pulumi:"analyticalStorageTtl"`
@@ -159,6 +161,7 @@ type mongoCollectionState struct {
 }
 
 type MongoCollectionState struct {
+	// The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	AccountName pulumi.StringPtrInput
 	// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl pulumi.IntPtrInput
@@ -185,6 +188,7 @@ func (MongoCollectionState) ElementType() reflect.Type {
 }
 
 type mongoCollectionArgs struct {
+	// The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`
 	// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl *int                              `pulumi:"analyticalStorageTtl"`
@@ -206,6 +210,7 @@ type mongoCollectionArgs struct {
 
 // The set of arguments for constructing a MongoCollection resource.
 type MongoCollectionArgs struct {
+	// The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	AccountName pulumi.StringInput
 	// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl pulumi.IntPtrInput
@@ -312,6 +317,7 @@ func (o MongoCollectionOutput) ToMongoCollectionOutputWithContext(ctx context.Co
 	return o
 }
 
+// The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 func (o MongoCollectionOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MongoCollection) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
 }

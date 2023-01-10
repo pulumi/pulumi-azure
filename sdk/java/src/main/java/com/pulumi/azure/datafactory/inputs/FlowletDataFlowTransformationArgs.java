@@ -79,14 +79,14 @@ public final class FlowletDataFlowTransformationArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+     * The name for the Data Flow transformation.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+     * @return The name for the Data Flow transformation.
      * 
      */
     public Output<String> name() {
@@ -206,7 +206,7 @@ public final class FlowletDataFlowTransformationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+         * @param name The name for the Data Flow transformation.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class FlowletDataFlowTransformationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+         * @param name The name for the Data Flow transformation.
          * 
          * @return builder
          * 

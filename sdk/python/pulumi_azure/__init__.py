@@ -5766,6 +5766,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "network/networkManagerNetworkGroup",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup": "NetworkManagerNetworkGroup"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "network/networkPacketCapture",
   "fqn": "pulumi_azure.network",
   "classes": {

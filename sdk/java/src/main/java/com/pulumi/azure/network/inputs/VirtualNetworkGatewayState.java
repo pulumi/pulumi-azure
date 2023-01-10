@@ -172,14 +172,14 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+     * The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+     * @return The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -556,7 +556,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+         * @param name The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+         * @param name The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

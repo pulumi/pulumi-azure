@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.SlotSiteConfigIpRestrictionHeaders? Headers;
         /// <summary>
-        /// The IP Address used for this IP Restriction in CIDR notation.
+        /// The IP Address used for this IP Restriction.
         /// </summary>
         public readonly string? IpAddress;
         /// <summary>

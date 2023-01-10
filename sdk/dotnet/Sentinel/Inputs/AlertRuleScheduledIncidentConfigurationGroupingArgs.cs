@@ -26,6 +26,10 @@ namespace Pulumi.Azure.Sentinel.Inputs
 
         [Input("groupByAlertDetails")]
         private InputList<string>? _groupByAlertDetails;
+
+        /// <summary>
+        /// A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+        /// </summary>
         public InputList<string> GroupByAlertDetails
         {
             get => _groupByAlertDetails ?? (_groupByAlertDetails = new InputList<string>());
@@ -34,6 +38,10 @@ namespace Pulumi.Azure.Sentinel.Inputs
 
         [Input("groupByCustomDetails")]
         private InputList<string>? _groupByCustomDetails;
+
+        /// <summary>
+        /// A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+        /// </summary>
         public InputList<string> GroupByCustomDetails
         {
             get => _groupByCustomDetails ?? (_groupByCustomDetails = new InputList<string>());

@@ -10,19 +10,27 @@ import java.util.Objects;
 
 @CustomType
 public final class ResourceDeploymentScriptAzureCliIdentity {
+    /**
+     * @return Specifies the list of user-assigned managed identity IDs associated with the resource.
+     * 
+     */
     private List<String> identityIds;
     /**
-     * @return Type of the managed identity.
+     * @return Type of the managed identity. The only possible value is `UserAssigned`.
      * 
      */
     private String type;
 
     private ResourceDeploymentScriptAzureCliIdentity() {}
+    /**
+     * @return Specifies the list of user-assigned managed identity IDs associated with the resource.
+     * 
+     */
     public List<String> identityIds() {
         return this.identityIds;
     }
     /**
-     * @return Type of the managed identity.
+     * @return Type of the managed identity. The only possible value is `UserAssigned`.
      * 
      */
     public String type() {

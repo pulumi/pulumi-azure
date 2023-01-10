@@ -133,6 +133,9 @@ namespace Pulumi.Azure.FrontDoor
         [Output("backendPoolLoadBalancings")]
         public Output<ImmutableArray<Outputs.FrontdoorBackendPoolLoadBalancing>> BackendPoolLoadBalancings { get; private set; } = null!;
 
+        /// <summary>
+        /// A `backend_pool_settings` block as defined below.
+        /// </summary>
         [Output("backendPoolSettings")]
         public Output<ImmutableArray<Outputs.FrontdoorBackendPoolSetting>> BackendPoolSettings { get; private set; } = null!;
 
@@ -289,6 +292,10 @@ namespace Pulumi.Azure.FrontDoor
 
         [Input("backendPoolSettings")]
         private InputList<Inputs.FrontdoorBackendPoolSettingArgs>? _backendPoolSettings;
+
+        /// <summary>
+        /// A `backend_pool_settings` block as defined below.
+        /// </summary>
         public InputList<Inputs.FrontdoorBackendPoolSettingArgs> BackendPoolSettings
         {
             get => _backendPoolSettings ?? (_backendPoolSettings = new InputList<Inputs.FrontdoorBackendPoolSettingArgs>());
@@ -425,6 +432,10 @@ namespace Pulumi.Azure.FrontDoor
 
         [Input("backendPoolSettings")]
         private InputList<Inputs.FrontdoorBackendPoolSettingGetArgs>? _backendPoolSettings;
+
+        /// <summary>
+        /// A `backend_pool_settings` block as defined below.
+        /// </summary>
         public InputList<Inputs.FrontdoorBackendPoolSettingGetArgs> BackendPoolSettings
         {
             get => _backendPoolSettings ?? (_backendPoolSettings = new InputList<Inputs.FrontdoorBackendPoolSettingGetArgs>());

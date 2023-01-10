@@ -309,6 +309,7 @@ class DataFlowSinkFlowlet(dict):
                  parameters: Optional[Mapping[str, str]] = None):
         """
         :param str name: The name for the Data Factory Flowlet.
+        :param str dataset_parameters: Specifies the reference data flow parameters from dataset.
         :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Flowlet.
         """
         pulumi.set(__self__, "name", name)
@@ -328,6 +329,9 @@ class DataFlowSinkFlowlet(dict):
     @property
     @pulumi.getter(name="datasetParameters")
     def dataset_parameters(self) -> Optional[str]:
+        """
+        Specifies the reference data flow parameters from dataset.
+        """
         return pulumi.get(self, "dataset_parameters")
 
     @property
@@ -595,6 +599,7 @@ class DataFlowSourceFlowlet(dict):
                  parameters: Optional[Mapping[str, str]] = None):
         """
         :param str name: The name for the Data Factory Flowlet.
+        :param str dataset_parameters: Specifies the reference data flow parameters from dataset.
         :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Flowlet.
         """
         pulumi.set(__self__, "name", name)
@@ -614,6 +619,9 @@ class DataFlowSourceFlowlet(dict):
     @property
     @pulumi.getter(name="datasetParameters")
     def dataset_parameters(self) -> Optional[str]:
+        """
+        Specifies the reference data flow parameters from dataset.
+        """
         return pulumi.get(self, "dataset_parameters")
 
     @property
@@ -853,6 +861,7 @@ class DataFlowTransformationFlowlet(dict):
                  parameters: Optional[Mapping[str, str]] = None):
         """
         :param str name: The name for the Data Factory Flowlet.
+        :param str dataset_parameters: Specifies the reference data flow parameters from dataset.
         :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Flowlet.
         """
         pulumi.set(__self__, "name", name)
@@ -872,6 +881,9 @@ class DataFlowTransformationFlowlet(dict):
     @property
     @pulumi.getter(name="datasetParameters")
     def dataset_parameters(self) -> Optional[str]:
+        """
+        Specifies the reference data flow parameters from dataset.
+        """
         return pulumi.get(self, "dataset_parameters")
 
     @property
@@ -2711,6 +2723,7 @@ class FlowletDataFlowSinkFlowlet(dict):
                  parameters: Optional[Mapping[str, str]] = None):
         """
         :param str name: The name for the Data Factory Flowlet.
+        :param str dataset_parameters: Specifies the reference data flow parameters from dataset.
         :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Flowlet.
         """
         pulumi.set(__self__, "name", name)
@@ -2730,6 +2743,9 @@ class FlowletDataFlowSinkFlowlet(dict):
     @property
     @pulumi.getter(name="datasetParameters")
     def dataset_parameters(self) -> Optional[str]:
+        """
+        Specifies the reference data flow parameters from dataset.
+        """
         return pulumi.get(self, "dataset_parameters")
 
     @property
@@ -2997,6 +3013,7 @@ class FlowletDataFlowSourceFlowlet(dict):
                  parameters: Optional[Mapping[str, str]] = None):
         """
         :param str name: The name for the Data Factory Flowlet.
+        :param str dataset_parameters: Specifies the reference data flow parameters from dataset.
         :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Flowlet.
         """
         pulumi.set(__self__, "name", name)
@@ -3016,6 +3033,9 @@ class FlowletDataFlowSourceFlowlet(dict):
     @property
     @pulumi.getter(name="datasetParameters")
     def dataset_parameters(self) -> Optional[str]:
+        """
+        Specifies the reference data flow parameters from dataset.
+        """
         return pulumi.get(self, "dataset_parameters")
 
     @property
@@ -3143,7 +3163,7 @@ class FlowletDataFlowTransformation(dict):
                  flowlet: Optional['outputs.FlowletDataFlowTransformationFlowlet'] = None,
                  linked_service: Optional['outputs.FlowletDataFlowTransformationLinkedService'] = None):
         """
-        :param str name: Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+        :param str name: The name for the Data Flow transformation.
         :param 'FlowletDataFlowTransformationDatasetArgs' dataset: A `dataset` block as defined below.
         :param str description: The description for the Data Flow transformation.
         :param 'FlowletDataFlowTransformationFlowletArgs' flowlet: A `flowlet` block as defined below.
@@ -3163,7 +3183,7 @@ class FlowletDataFlowTransformation(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+        The name for the Data Flow transformation.
         """
         return pulumi.get(self, "name")
 
@@ -3255,6 +3275,7 @@ class FlowletDataFlowTransformationFlowlet(dict):
                  parameters: Optional[Mapping[str, str]] = None):
         """
         :param str name: The name for the Data Factory Flowlet.
+        :param str dataset_parameters: Specifies the reference data flow parameters from dataset.
         :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Flowlet.
         """
         pulumi.set(__self__, "name", name)
@@ -3274,6 +3295,9 @@ class FlowletDataFlowTransformationFlowlet(dict):
     @property
     @pulumi.getter(name="datasetParameters")
     def dataset_parameters(self) -> Optional[str]:
+        """
+        Specifies the reference data flow parameters from dataset.
+        """
         return pulumi.get(self, "dataset_parameters")
 
     @property
@@ -4555,8 +4579,8 @@ class LinkedServiceAzureDatabricksNewClusterConfig(dict):
         :param str driver_node_type: Driver node type for the cluster.
         :param Sequence[str] init_scripts: User defined initialization scripts for the cluster.
         :param str log_destination: Location to deliver Spark driver, worker, and event logs.
-        :param int max_number_of_workers: The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
-        :param int min_number_of_workers: The minimum number of worker nodes. Defaults to `1`.
+        :param int max_number_of_workers: Specifies the maximum number of worker nodes. It should be between 1 and 25000.
+        :param int min_number_of_workers: Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
         :param Mapping[str, str] spark_config: User-specified Spark configuration variables key-value pairs.
         :param Mapping[str, str] spark_environment_variables: User-specified Spark environment variables key-value pairs.
         """
@@ -4631,7 +4655,7 @@ class LinkedServiceAzureDatabricksNewClusterConfig(dict):
     @pulumi.getter(name="maxNumberOfWorkers")
     def max_number_of_workers(self) -> Optional[int]:
         """
-        The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+        Specifies the maximum number of worker nodes. It should be between 1 and 25000.
         """
         return pulumi.get(self, "max_number_of_workers")
 
@@ -4639,7 +4663,7 @@ class LinkedServiceAzureDatabricksNewClusterConfig(dict):
     @pulumi.getter(name="minNumberOfWorkers")
     def min_number_of_workers(self) -> Optional[int]:
         """
-        The minimum number of worker nodes. Defaults to `1`.
+        Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
         """
         return pulumi.get(self, "min_number_of_workers")
 

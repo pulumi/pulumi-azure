@@ -32,6 +32,10 @@ namespace Pulumi.Azure.AppPlatform.Inputs
 
         [Input("ipAddresses")]
         private InputList<string>? _ipAddresses;
+
+        /// <summary>
+        /// The IP list of required traffic.
+        /// </summary>
         public InputList<string> IpAddresses
         {
             get => _ipAddresses ?? (_ipAddresses = new InputList<string>());

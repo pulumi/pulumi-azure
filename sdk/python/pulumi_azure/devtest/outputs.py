@@ -230,11 +230,17 @@ class ScheduleDailyRecurrence(dict):
 class ScheduleHourlyRecurrence(dict):
     def __init__(__self__, *,
                  minute: int):
+        """
+        :param int minute: Minutes of the hour the schedule will run.
+        """
         pulumi.set(__self__, "minute", minute)
 
     @property
     @pulumi.getter
     def minute(self) -> int:
+        """
+        Minutes of the hour the schedule will run.
+        """
         return pulumi.get(self, "minute")
 
 

@@ -49,14 +49,14 @@ public final class ManagementPolicyRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `filter` block as documented below.
+     * A `filters` block as documented below.
      * 
      */
     @Import(name="filters")
     private @Nullable Output<ManagementPolicyRuleFiltersArgs> filters;
 
     /**
-     * @return A `filter` block as documented below.
+     * @return A `filters` block as documented below.
      * 
      */
     public Optional<Output<ManagementPolicyRuleFiltersArgs>> filters() {
@@ -148,7 +148,7 @@ public final class ManagementPolicyRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param filters A `filter` block as documented below.
+         * @param filters A `filters` block as documented below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class ManagementPolicyRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param filters A `filter` block as documented below.
+         * @param filters A `filters` block as documented below.
          * 
          * @return builder
          * 

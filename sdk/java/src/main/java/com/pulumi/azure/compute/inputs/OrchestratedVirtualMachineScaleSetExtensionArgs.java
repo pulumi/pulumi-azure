@@ -138,9 +138,17 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
         return this.publisher;
     }
 
+    /**
+     * A JSON String which specifies Settings for the Extension.
+     * 
+     */
     @Import(name="settings")
     private @Nullable Output<String> settings;
 
+    /**
+     * @return A JSON String which specifies Settings for the Extension.
+     * 
+     */
     public Optional<Output<String>> settings() {
         return Optional.ofNullable(this.settings);
     }
@@ -387,11 +395,23 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
             return publisher(Output.of(publisher));
         }
 
+        /**
+         * @param settings A JSON String which specifies Settings for the Extension.
+         * 
+         * @return builder
+         * 
+         */
         public Builder settings(@Nullable Output<String> settings) {
             $.settings = settings;
             return this;
         }
 
+        /**
+         * @param settings A JSON String which specifies Settings for the Extension.
+         * 
+         * @return builder
+         * 
+         */
         public Builder settings(String settings) {
             return settings(Output.of(settings));
         }

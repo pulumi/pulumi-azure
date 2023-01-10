@@ -12,6 +12,9 @@ namespace Pulumi.Azure.HDInsight.Inputs
 
     public sealed class InteractiveQueryClusterComponentVersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("interactiveHive", required: true)]
         public Input<string> InteractiveHive { get; set; } = null!;
 

@@ -47,9 +47,17 @@ public final class SpringCloudServiceRequiredNetworkTrafficRuleArgs extends com.
         return Optional.ofNullable(this.fqdns);
     }
 
+    /**
+     * The IP list of required traffic.
+     * 
+     */
     @Import(name="ipAddresses")
     private @Nullable Output<List<String>> ipAddresses;
 
+    /**
+     * @return The IP list of required traffic.
+     * 
+     */
     public Optional<Output<List<String>>> ipAddresses() {
         return Optional.ofNullable(this.ipAddresses);
     }
@@ -164,15 +172,33 @@ public final class SpringCloudServiceRequiredNetworkTrafficRuleArgs extends com.
             return fqdns(List.of(fqdns));
         }
 
+        /**
+         * @param ipAddresses The IP list of required traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddresses(@Nullable Output<List<String>> ipAddresses) {
             $.ipAddresses = ipAddresses;
             return this;
         }
 
+        /**
+         * @param ipAddresses The IP list of required traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddresses(List<String> ipAddresses) {
             return ipAddresses(Output.of(ipAddresses));
         }
 
+        /**
+         * @param ipAddresses The IP list of required traffic.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
         }

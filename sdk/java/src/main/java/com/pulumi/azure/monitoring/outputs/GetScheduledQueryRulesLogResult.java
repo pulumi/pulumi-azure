@@ -13,6 +13,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetScheduledQueryRulesLogResult {
+    /**
+     * @return A list of IDs of Resources referred into query.
+     * 
+     */
     private List<String> authorizedResourceIds;
     /**
      * @return A `criteria` block as defined below.
@@ -53,6 +57,10 @@ public final class GetScheduledQueryRulesLogResult {
     private Map<String,String> tags;
 
     private GetScheduledQueryRulesLogResult() {}
+    /**
+     * @return A list of IDs of Resources referred into query.
+     * 
+     */
     public List<String> authorizedResourceIds() {
         return this.authorizedResourceIds;
     }

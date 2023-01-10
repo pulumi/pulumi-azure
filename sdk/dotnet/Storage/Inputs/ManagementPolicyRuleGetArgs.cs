@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// A `filter` block as documented below.
+        /// A `filters` block as documented below.
         /// </summary>
         [Input("filters")]
         public Input<Inputs.ManagementPolicyRuleFiltersGetArgs>? Filters { get; set; }

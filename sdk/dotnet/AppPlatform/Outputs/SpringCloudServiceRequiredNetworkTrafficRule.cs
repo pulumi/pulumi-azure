@@ -21,6 +21,9 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// The FQDN list of required traffic.
         /// </summary>
         public readonly ImmutableArray<string> Fqdns;
+        /// <summary>
+        /// The IP list of required traffic.
+        /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
         /// <summary>
         /// The port of required traffic.

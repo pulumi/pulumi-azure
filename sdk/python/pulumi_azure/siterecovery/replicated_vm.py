@@ -33,9 +33,10 @@ class ReplicatedVMArgs:
                  target_zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ReplicatedVM resource.
+        :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source_recovery_fabric_name: Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_recovery_fabric_name: Name of fabric that should contain this replication. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_recovery_protection_container_name: Name of the protection container to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_vm_id: Id of the VM to replicate Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_recovery_fabric_id: Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
@@ -73,6 +74,9 @@ class ReplicatedVMArgs:
     @property
     @pulumi.getter(name="recoveryReplicationPolicyId")
     def recovery_replication_policy_id(self) -> pulumi.Input[str]:
+        """
+        Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "recovery_replication_policy_id")
 
     @recovery_replication_policy_id.setter
@@ -107,7 +111,7 @@ class ReplicatedVMArgs:
     @pulumi.getter(name="sourceRecoveryFabricName")
     def source_recovery_fabric_name(self) -> pulumi.Input[str]:
         """
-        Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+        Name of fabric that should contain this replication. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_recovery_fabric_name")
 
@@ -271,9 +275,10 @@ class _ReplicatedVMState:
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]] managed_disks: One or more `managed_disk` block as defined below.
         :param pulumi.Input[str] name: The name of the replication for the replicated VM. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` block as defined below.
+        :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source_recovery_fabric_name: Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_recovery_fabric_name: Name of fabric that should contain this replication. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_recovery_protection_container_name: Name of the protection container to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_vm_id: Id of the VM to replicate Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_availability_set_id: Id of availability set that the new VM should belong to when a failover is done.
@@ -353,6 +358,9 @@ class _ReplicatedVMState:
     @property
     @pulumi.getter(name="recoveryReplicationPolicyId")
     def recovery_replication_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "recovery_replication_policy_id")
 
     @recovery_replication_policy_id.setter
@@ -387,7 +395,7 @@ class _ReplicatedVMState:
     @pulumi.getter(name="sourceRecoveryFabricName")
     def source_recovery_fabric_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+        Name of fabric that should contain this replication. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_recovery_fabric_name")
 
@@ -670,9 +678,10 @@ class ReplicatedVM(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]] managed_disks: One or more `managed_disk` block as defined below.
         :param pulumi.Input[str] name: The name of the replication for the replicated VM. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` block as defined below.
+        :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source_recovery_fabric_name: Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_recovery_fabric_name: Name of fabric that should contain this replication. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_recovery_protection_container_name: Name of the protection container to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_vm_id: Id of the VM to replicate Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_availability_set_id: Id of availability set that the new VM should belong to when a failover is done.
@@ -947,9 +956,10 @@ class ReplicatedVM(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]] managed_disks: One or more `managed_disk` block as defined below.
         :param pulumi.Input[str] name: The name of the replication for the replicated VM. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` block as defined below.
+        :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source_recovery_fabric_name: Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_recovery_fabric_name: Name of fabric that should contain this replication. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_recovery_protection_container_name: Name of the protection container to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_vm_id: Id of the VM to replicate Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_availability_set_id: Id of availability set that the new VM should belong to when a failover is done.
@@ -1007,6 +1017,9 @@ class ReplicatedVM(pulumi.CustomResource):
     @property
     @pulumi.getter(name="recoveryReplicationPolicyId")
     def recovery_replication_policy_id(self) -> pulumi.Output[str]:
+        """
+        Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "recovery_replication_policy_id")
 
     @property
@@ -1029,7 +1042,7 @@ class ReplicatedVM(pulumi.CustomResource):
     @pulumi.getter(name="sourceRecoveryFabricName")
     def source_recovery_fabric_name(self) -> pulumi.Output[str]:
         """
-        Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+        Name of fabric that should contain this replication. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_recovery_fabric_name")
 

@@ -196,6 +196,7 @@ import (
 type ConfigurationStore struct {
 	pulumi.CustomResourceState
 
+	// An `encryption` block as defined below.
 	Encryption ConfigurationStoreEncryptionPtrOutput `pulumi:"encryption"`
 	// The URL of the App Configuration.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
@@ -261,6 +262,7 @@ func GetConfigurationStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationStore resources.
 type configurationStoreState struct {
+	// An `encryption` block as defined below.
 	Encryption *ConfigurationStoreEncryption `pulumi:"encryption"`
 	// The URL of the App Configuration.
 	Endpoint *string `pulumi:"endpoint"`
@@ -295,6 +297,7 @@ type configurationStoreState struct {
 }
 
 type ConfigurationStoreState struct {
+	// An `encryption` block as defined below.
 	Encryption ConfigurationStoreEncryptionPtrInput
 	// The URL of the App Configuration.
 	Endpoint pulumi.StringPtrInput
@@ -333,6 +336,7 @@ func (ConfigurationStoreState) ElementType() reflect.Type {
 }
 
 type configurationStoreArgs struct {
+	// An `encryption` block as defined below.
 	Encryption *ConfigurationStoreEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *ConfigurationStoreIdentity `pulumi:"identity"`
@@ -358,6 +362,7 @@ type configurationStoreArgs struct {
 
 // The set of arguments for constructing a ConfigurationStore resource.
 type ConfigurationStoreArgs struct {
+	// An `encryption` block as defined below.
 	Encryption ConfigurationStoreEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity ConfigurationStoreIdentityPtrInput
@@ -468,6 +473,7 @@ func (o ConfigurationStoreOutput) ToConfigurationStoreOutputWithContext(ctx cont
 	return o
 }
 
+// An `encryption` block as defined below.
 func (o ConfigurationStoreOutput) Encryption() ConfigurationStoreEncryptionPtrOutput {
 	return o.ApplyT(func(v *ConfigurationStore) ConfigurationStoreEncryptionPtrOutput { return v.Encryption }).(ConfigurationStoreEncryptionPtrOutput)
 }

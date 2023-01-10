@@ -13,9 +13,17 @@ public final class ScheduleHourlyRecurrenceArgs extends com.pulumi.resources.Res
 
     public static final ScheduleHourlyRecurrenceArgs Empty = new ScheduleHourlyRecurrenceArgs();
 
+    /**
+     * Minutes of the hour the schedule will run.
+     * 
+     */
     @Import(name="minute", required=true)
     private Output<Integer> minute;
 
+    /**
+     * @return Minutes of the hour the schedule will run.
+     * 
+     */
     public Output<Integer> minute() {
         return this.minute;
     }
@@ -44,11 +52,23 @@ public final class ScheduleHourlyRecurrenceArgs extends com.pulumi.resources.Res
             $ = new ScheduleHourlyRecurrenceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param minute Minutes of the hour the schedule will run.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minute(Output<Integer> minute) {
             $.minute = minute;
             return this;
         }
 
+        /**
+         * @param minute Minutes of the hour the schedule will run.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minute(Integer minute) {
             return minute(Output.of(minute));
         }

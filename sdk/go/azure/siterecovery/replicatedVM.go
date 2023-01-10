@@ -287,13 +287,14 @@ type ReplicatedVM struct {
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `networkInterface` block as defined below.
-	NetworkInterfaces           ReplicatedVMNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
-	RecoveryReplicationPolicyId pulumi.StringOutput                     `pulumi:"recoveryReplicationPolicyId"`
+	NetworkInterfaces ReplicatedVMNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
+	// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+	RecoveryReplicationPolicyId pulumi.StringOutput `pulumi:"recoveryReplicationPolicyId"`
 	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+	// Name of fabric that should contain this replication. Changing this forces a new resource to be created.
 	SourceRecoveryFabricName pulumi.StringOutput `pulumi:"sourceRecoveryFabricName"`
 	// Name of the protection container to use. Changing this forces a new resource to be created.
 	SourceRecoveryProtectionContainerName pulumi.StringOutput `pulumi:"sourceRecoveryProtectionContainerName"`
@@ -374,13 +375,14 @@ type replicatedVMState struct {
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// One or more `networkInterface` block as defined below.
-	NetworkInterfaces           []ReplicatedVMNetworkInterface `pulumi:"networkInterfaces"`
-	RecoveryReplicationPolicyId *string                        `pulumi:"recoveryReplicationPolicyId"`
+	NetworkInterfaces []ReplicatedVMNetworkInterface `pulumi:"networkInterfaces"`
+	// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+	RecoveryReplicationPolicyId *string `pulumi:"recoveryReplicationPolicyId"`
 	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName *string `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+	// Name of fabric that should contain this replication. Changing this forces a new resource to be created.
 	SourceRecoveryFabricName *string `pulumi:"sourceRecoveryFabricName"`
 	// Name of the protection container to use. Changing this forces a new resource to be created.
 	SourceRecoveryProtectionContainerName *string `pulumi:"sourceRecoveryProtectionContainerName"`
@@ -406,13 +408,14 @@ type ReplicatedVMState struct {
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// One or more `networkInterface` block as defined below.
-	NetworkInterfaces           ReplicatedVMNetworkInterfaceArrayInput
+	NetworkInterfaces ReplicatedVMNetworkInterfaceArrayInput
+	// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId pulumi.StringPtrInput
 	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringPtrInput
 	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+	// Name of fabric that should contain this replication. Changing this forces a new resource to be created.
 	SourceRecoveryFabricName pulumi.StringPtrInput
 	// Name of the protection container to use. Changing this forces a new resource to be created.
 	SourceRecoveryProtectionContainerName pulumi.StringPtrInput
@@ -442,13 +445,14 @@ type replicatedVMArgs struct {
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// One or more `networkInterface` block as defined below.
-	NetworkInterfaces           []ReplicatedVMNetworkInterface `pulumi:"networkInterfaces"`
-	RecoveryReplicationPolicyId string                         `pulumi:"recoveryReplicationPolicyId"`
+	NetworkInterfaces []ReplicatedVMNetworkInterface `pulumi:"networkInterfaces"`
+	// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+	RecoveryReplicationPolicyId string `pulumi:"recoveryReplicationPolicyId"`
 	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+	// Name of fabric that should contain this replication. Changing this forces a new resource to be created.
 	SourceRecoveryFabricName string `pulumi:"sourceRecoveryFabricName"`
 	// Name of the protection container to use. Changing this forces a new resource to be created.
 	SourceRecoveryProtectionContainerName string `pulumi:"sourceRecoveryProtectionContainerName"`
@@ -475,13 +479,14 @@ type ReplicatedVMArgs struct {
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// One or more `networkInterface` block as defined below.
-	NetworkInterfaces           ReplicatedVMNetworkInterfaceArrayInput
+	NetworkInterfaces ReplicatedVMNetworkInterfaceArrayInput
+	// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId pulumi.StringInput
 	// The name of the vault that should be updated. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringInput
 	// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+	// Name of fabric that should contain this replication. Changing this forces a new resource to be created.
 	SourceRecoveryFabricName pulumi.StringInput
 	// Name of the protection container to use. Changing this forces a new resource to be created.
 	SourceRecoveryProtectionContainerName pulumi.StringInput
@@ -603,6 +608,7 @@ func (o ReplicatedVMOutput) NetworkInterfaces() ReplicatedVMNetworkInterfaceArra
 	return o.ApplyT(func(v *ReplicatedVM) ReplicatedVMNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(ReplicatedVMNetworkInterfaceArrayOutput)
 }
 
+// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
 func (o ReplicatedVMOutput) RecoveryReplicationPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringOutput { return v.RecoveryReplicationPolicyId }).(pulumi.StringOutput)
 }
@@ -617,7 +623,7 @@ func (o ReplicatedVMOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+// Name of fabric that should contain this replication. Changing this forces a new resource to be created.
 func (o ReplicatedVMOutput) SourceRecoveryFabricName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringOutput { return v.SourceRecoveryFabricName }).(pulumi.StringOutput)
 }

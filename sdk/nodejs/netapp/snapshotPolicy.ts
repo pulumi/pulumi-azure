@@ -125,6 +125,9 @@ export class SnapshotPolicy extends pulumi.CustomResource {
      * The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.
@@ -217,6 +220,9 @@ export interface SnapshotPolicyState {
      * The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.
@@ -260,6 +266,9 @@ export interface SnapshotPolicyArgs {
      * The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.

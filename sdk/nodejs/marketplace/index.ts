@@ -10,6 +10,11 @@ export type Agreement = import("./agreement").Agreement;
 export const Agreement: typeof import("./agreement").Agreement = null as any;
 utilities.lazyLoad(exports, ["Agreement"], () => require("./agreement"));
 
+export { GetAgreementArgs, GetAgreementResult, GetAgreementOutputArgs } from "./getAgreement";
+export const getAgreement: typeof import("./getAgreement").getAgreement = null as any;
+export const getAgreementOutput: typeof import("./getAgreement").getAgreementOutput = null as any;
+utilities.lazyLoad(exports, ["getAgreement","getAgreementOutput"], () => require("./getAgreement"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -160,14 +160,14 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientType);
     }
     /**
-     * Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+     * The name of the service connection. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+     * @return The name of the service connection. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

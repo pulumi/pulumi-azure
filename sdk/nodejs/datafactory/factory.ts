@@ -94,6 +94,9 @@ export class Factory extends pulumi.CustomResource {
      * Is the Data Factory visible to the public network? Defaults to `true`.
      */
     public readonly publicNetworkEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies the ID of the purview account resource associated with the Data Factory.
+     */
     public readonly purviewId!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
@@ -198,6 +201,9 @@ export interface FactoryState {
      * Is the Data Factory visible to the public network? Defaults to `true`.
      */
     publicNetworkEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the ID of the purview account resource associated with the Data Factory.
+     */
     purviewId?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
@@ -253,6 +259,9 @@ export interface FactoryArgs {
      * Is the Data Factory visible to the public network? Defaults to `true`.
      */
     publicNetworkEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the ID of the purview account resource associated with the Data Factory.
+     */
     purviewId?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.

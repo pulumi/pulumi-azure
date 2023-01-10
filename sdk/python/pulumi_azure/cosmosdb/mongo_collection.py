@@ -28,6 +28,7 @@ class MongoCollectionArgs:
                  throughput: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a MongoCollection resource.
+        :param pulumi.Input[str] account_name: The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
@@ -57,6 +58,9 @@ class MongoCollectionArgs:
     @property
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
@@ -182,6 +186,7 @@ class _MongoCollectionState:
                  throughput: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering MongoCollection resources.
+        :param pulumi.Input[str] account_name: The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
@@ -217,6 +222,9 @@ class _MongoCollectionState:
     @property
     @pulumi.getter(name="accountName")
     def account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
@@ -391,6 +399,7 @@ class MongoCollection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_name: The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
@@ -519,6 +528,7 @@ class MongoCollection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_name: The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
@@ -548,6 +558,9 @@ class MongoCollection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "account_name")
 
     @property

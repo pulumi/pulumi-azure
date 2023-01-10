@@ -46,9 +46,17 @@ public final class RegistryScopeMapState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.containerRegistryName);
     }
 
+    /**
+     * The description of the Container Registry.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return The description of the Container Registry.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -163,11 +171,23 @@ public final class RegistryScopeMapState extends com.pulumi.resources.ResourceAr
             return containerRegistryName(Output.of(containerRegistryName));
         }
 
+        /**
+         * @param description The description of the Container Registry.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description The description of the Container Registry.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }

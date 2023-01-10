@@ -158,7 +158,7 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountAzureFilesAuthenticationResult> AzureFilesAuthentications;
         /// <summary>
-        /// A `custom_domain` block as documented below.
+        /// supports the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountCustomDomainResult> CustomDomains;
         /// <summary>

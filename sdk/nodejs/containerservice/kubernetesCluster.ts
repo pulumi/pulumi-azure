@@ -118,6 +118,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
     public readonly edgeZone!: pulumi.Output<string | undefined>;
+    /**
+     * @deprecated The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+     */
     public readonly enablePodSecurityPolicy!: pulumi.Output<boolean | undefined>;
     /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
@@ -491,6 +494,9 @@ export interface KubernetesClusterState {
      * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
     edgeZone?: pulumi.Input<string>;
+    /**
+     * @deprecated The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+     */
     enablePodSecurityPolicy?: pulumi.Input<boolean>;
     /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
@@ -722,6 +728,9 @@ export interface KubernetesClusterArgs {
      * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
     edgeZone?: pulumi.Input<string>;
+    /**
+     * @deprecated The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+     */
     enablePodSecurityPolicy?: pulumi.Input<boolean>;
     /**
      * Should HTTP Application Routing be enabled?

@@ -20,9 +20,17 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
 
     public static final ConfigurationStoreArgs Empty = new ConfigurationStoreArgs();
 
+    /**
+     * An `encryption` block as defined below.
+     * 
+     */
     @Import(name="encryption")
     private @Nullable Output<ConfigurationStoreEncryptionArgs> encryption;
 
+    /**
+     * @return An `encryption` block as defined below.
+     * 
+     */
     public Optional<Output<ConfigurationStoreEncryptionArgs>> encryption() {
         return Optional.ofNullable(this.encryption);
     }
@@ -211,11 +219,23 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
             $ = new ConfigurationStoreArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param encryption An `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryption(@Nullable Output<ConfigurationStoreEncryptionArgs> encryption) {
             $.encryption = encryption;
             return this;
         }
 
+        /**
+         * @param encryption An `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryption(ConfigurationStoreEncryptionArgs encryption) {
             return encryption(Output.of(encryption));
         }

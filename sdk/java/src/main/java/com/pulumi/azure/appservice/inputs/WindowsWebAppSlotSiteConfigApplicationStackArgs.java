@@ -136,14 +136,14 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     }
 
     /**
-     * The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+     * The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
      * 
      */
     @Import(name="nodeVersion")
     private @Nullable Output<String> nodeVersion;
 
     /**
-     * @return The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+     * @return The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
      * 
      */
     public Optional<Output<String>> nodeVersion() {
@@ -383,7 +383,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         }
 
         /**
-         * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+         * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         }
 
         /**
-         * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+         * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
          * 
          * @return builder
          * 

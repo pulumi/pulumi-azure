@@ -259,7 +259,8 @@ class ResourceDeploymentScriptAzureCliIdentity(dict):
                  identity_ids: Sequence[str],
                  type: str):
         """
-        :param str type: Type of the managed identity.
+        :param Sequence[str] identity_ids: Specifies the list of user-assigned managed identity IDs associated with the resource.
+        :param str type: Type of the managed identity. The only possible value is `UserAssigned`.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
@@ -267,13 +268,16 @@ class ResourceDeploymentScriptAzureCliIdentity(dict):
     @property
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Sequence[str]:
+        """
+        Specifies the list of user-assigned managed identity IDs associated with the resource.
+        """
         return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the managed identity.
+        Type of the managed identity. The only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -425,7 +429,8 @@ class ResourceDeploymentScriptPowerShellIdentity(dict):
                  identity_ids: Sequence[str],
                  type: str):
         """
-        :param str type: Type of the managed identity.
+        :param Sequence[str] identity_ids: Specifies the list of user-assigned managed identity IDs associated with the resource.
+        :param str type: Type of the managed identity. The only possible value is `UserAssigned`.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
@@ -433,13 +438,16 @@ class ResourceDeploymentScriptPowerShellIdentity(dict):
     @property
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Sequence[str]:
+        """
+        Specifies the list of user-assigned managed identity IDs associated with the resource.
+        """
         return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the managed identity.
+        Type of the managed identity. The only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
 

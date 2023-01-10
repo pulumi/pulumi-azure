@@ -114,6 +114,7 @@ class GetConfigurationWindowResult(dict):
         """
         :param str duration: The duration of the maintenance window.
         :param str expiration_date_time: Effective expiration date of the maintenance window.
+        :param str recur_every: The rate at which a maintenance window is expected to recur.
         :param str start_date_time: Effective start date of the maintenance window.
         :param str time_zone: The time zone for the maintenance window.
         """
@@ -142,6 +143,9 @@ class GetConfigurationWindowResult(dict):
     @property
     @pulumi.getter(name="recurEvery")
     def recur_every(self) -> str:
+        """
+        The rate at which a maintenance window is expected to recur.
+        """
         return pulumi.get(self, "recur_every")
 
     @property

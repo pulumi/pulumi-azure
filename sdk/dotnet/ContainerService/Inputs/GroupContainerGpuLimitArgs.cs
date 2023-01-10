@@ -13,13 +13,13 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class GroupContainerGpuLimitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+        /// The upper limit of the number of GPUs which should be assigned to this container.
         /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }
 
         /// <summary>
-        /// The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+        /// The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

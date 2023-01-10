@@ -19,6 +19,10 @@ public final class GetMedtechServiceIdentity {
      * 
      */
     private String tenantId;
+    /**
+     * @return The type of identity used for the Healthcare Med Tech Service. Possible values are `SystemAssigned`.
+     * 
+     */
     private String type;
 
     private GetMedtechServiceIdentity() {}
@@ -36,6 +40,10 @@ public final class GetMedtechServiceIdentity {
     public String tenantId() {
         return this.tenantId;
     }
+    /**
+     * @return The type of identity used for the Healthcare Med Tech Service. Possible values are `SystemAssigned`.
+     * 
+     */
     public String type() {
         return this.type;
     }

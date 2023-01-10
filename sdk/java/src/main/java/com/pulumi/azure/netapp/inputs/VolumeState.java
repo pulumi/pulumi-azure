@@ -38,9 +38,17 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.accountName);
     }
 
+    /**
+     * Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="azureVmwareDataStoreEnabled")
     private @Nullable Output<Boolean> azureVmwareDataStoreEnabled;
 
+    /**
+     * @return Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<Boolean>> azureVmwareDataStoreEnabled() {
         return Optional.ofNullable(this.azureVmwareDataStoreEnabled);
     }
@@ -411,11 +419,23 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
             return accountName(Output.of(accountName));
         }
 
+        /**
+         * @param azureVmwareDataStoreEnabled Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder azureVmwareDataStoreEnabled(@Nullable Output<Boolean> azureVmwareDataStoreEnabled) {
             $.azureVmwareDataStoreEnabled = azureVmwareDataStoreEnabled;
             return this;
         }
 
+        /**
+         * @param azureVmwareDataStoreEnabled Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder azureVmwareDataStoreEnabled(Boolean azureVmwareDataStoreEnabled) {
             return azureVmwareDataStoreEnabled(Output.of(azureVmwareDataStoreEnabled));
         }

@@ -94,7 +94,8 @@ type AccountCostManagementExport struct {
 	// A `exportDataStorageLocation` block as defined below.
 	ExportDataStorageLocation AccountCostManagementExportExportDataStorageLocationOutput `pulumi:"exportDataStorageLocation"`
 	// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
-	Name                    pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The date the export will stop capturing information.
 	RecurrencePeriodEndDate pulumi.StringOutput `pulumi:"recurrencePeriodEndDate"`
 	// The date the export will start capturing information.
 	RecurrencePeriodStartDate pulumi.StringOutput `pulumi:"recurrencePeriodStartDate"`
@@ -158,7 +159,8 @@ type accountCostManagementExportState struct {
 	// A `exportDataStorageLocation` block as defined below.
 	ExportDataStorageLocation *AccountCostManagementExportExportDataStorageLocation `pulumi:"exportDataStorageLocation"`
 	// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
-	Name                    *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The date the export will stop capturing information.
 	RecurrencePeriodEndDate *string `pulumi:"recurrencePeriodEndDate"`
 	// The date the export will start capturing information.
 	RecurrencePeriodStartDate *string `pulumi:"recurrencePeriodStartDate"`
@@ -176,7 +178,8 @@ type AccountCostManagementExportState struct {
 	// A `exportDataStorageLocation` block as defined below.
 	ExportDataStorageLocation AccountCostManagementExportExportDataStorageLocationPtrInput
 	// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
-	Name                    pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The date the export will stop capturing information.
 	RecurrencePeriodEndDate pulumi.StringPtrInput
 	// The date the export will start capturing information.
 	RecurrencePeriodStartDate pulumi.StringPtrInput
@@ -198,8 +201,9 @@ type accountCostManagementExportArgs struct {
 	// A `exportDataStorageLocation` block as defined below.
 	ExportDataStorageLocation AccountCostManagementExportExportDataStorageLocation `pulumi:"exportDataStorageLocation"`
 	// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
-	Name                    *string `pulumi:"name"`
-	RecurrencePeriodEndDate string  `pulumi:"recurrencePeriodEndDate"`
+	Name *string `pulumi:"name"`
+	// The date the export will stop capturing information.
+	RecurrencePeriodEndDate string `pulumi:"recurrencePeriodEndDate"`
 	// The date the export will start capturing information.
 	RecurrencePeriodStartDate string `pulumi:"recurrencePeriodStartDate"`
 	// How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
@@ -217,7 +221,8 @@ type AccountCostManagementExportArgs struct {
 	// A `exportDataStorageLocation` block as defined below.
 	ExportDataStorageLocation AccountCostManagementExportExportDataStorageLocationInput
 	// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
-	Name                    pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The date the export will stop capturing information.
 	RecurrencePeriodEndDate pulumi.StringInput
 	// The date the export will start capturing information.
 	RecurrencePeriodStartDate pulumi.StringInput
@@ -341,6 +346,7 @@ func (o AccountCostManagementExportOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountCostManagementExport) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The date the export will stop capturing information.
 func (o AccountCostManagementExportOutput) RecurrencePeriodEndDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountCostManagementExport) pulumi.StringOutput { return v.RecurrencePeriodEndDate }).(pulumi.StringOutput)
 }

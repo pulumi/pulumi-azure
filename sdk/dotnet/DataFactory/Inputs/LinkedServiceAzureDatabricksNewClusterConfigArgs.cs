@@ -55,13 +55,13 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string>? LogDestination { get; set; }
 
         /// <summary>
-        /// The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+        /// Specifies the maximum number of worker nodes. It should be between 1 and 25000.
         /// </summary>
         [Input("maxNumberOfWorkers")]
         public Input<int>? MaxNumberOfWorkers { get; set; }
 
         /// <summary>
-        /// The minimum number of worker nodes. Defaults to `1`.
+        /// Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
         /// </summary>
         [Input("minNumberOfWorkers")]
         public Input<int>? MinNumberOfWorkers { get; set; }

@@ -651,6 +651,7 @@ func (o ScheduleDailyRecurrencePtrOutput) Time() pulumi.StringPtrOutput {
 }
 
 type ScheduleHourlyRecurrence struct {
+	// Minutes of the hour the schedule will run.
 	Minute int `pulumi:"minute"`
 }
 
@@ -666,6 +667,7 @@ type ScheduleHourlyRecurrenceInput interface {
 }
 
 type ScheduleHourlyRecurrenceArgs struct {
+	// Minutes of the hour the schedule will run.
 	Minute pulumi.IntInput `pulumi:"minute"`
 }
 
@@ -746,6 +748,7 @@ func (o ScheduleHourlyRecurrenceOutput) ToScheduleHourlyRecurrencePtrOutputWithC
 	}).(ScheduleHourlyRecurrencePtrOutput)
 }
 
+// Minutes of the hour the schedule will run.
 func (o ScheduleHourlyRecurrenceOutput) Minute() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleHourlyRecurrence) int { return v.Minute }).(pulumi.IntOutput)
 }
@@ -774,6 +777,7 @@ func (o ScheduleHourlyRecurrencePtrOutput) Elem() ScheduleHourlyRecurrenceOutput
 	}).(ScheduleHourlyRecurrenceOutput)
 }
 
+// Minutes of the hour the schedule will run.
 func (o ScheduleHourlyRecurrencePtrOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduleHourlyRecurrence) *int {
 		if v == nil {

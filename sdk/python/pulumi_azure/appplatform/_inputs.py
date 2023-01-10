@@ -2219,6 +2219,7 @@ class SpringCloudServiceRequiredNetworkTrafficRuleArgs:
         """
         :param pulumi.Input[str] direction: The direction of required traffic. Possible values are `Inbound`, `Outbound`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: The FQDN list of required traffic.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP list of required traffic.
         :param pulumi.Input[int] port: The port of required traffic.
         :param pulumi.Input[str] protocol: The protocol of required traffic.
         """
@@ -2260,6 +2261,9 @@ class SpringCloudServiceRequiredNetworkTrafficRuleArgs:
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IP list of required traffic.
+        """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter

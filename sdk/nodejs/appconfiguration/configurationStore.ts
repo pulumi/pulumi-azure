@@ -152,6 +152,9 @@ export class ConfigurationStore extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationStore.__pulumiType;
     }
 
+    /**
+     * An `encryption` block as defined below.
+     */
     public readonly encryption!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreEncryption | undefined>;
     /**
      * The URL of the App Configuration.
@@ -274,6 +277,9 @@ export class ConfigurationStore extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ConfigurationStore resources.
  */
 export interface ConfigurationStoreState {
+    /**
+     * An `encryption` block as defined below.
+     */
     encryption?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreEncryption>;
     /**
      * The URL of the App Configuration.
@@ -341,6 +347,9 @@ export interface ConfigurationStoreState {
  * The set of arguments for constructing a ConfigurationStore resource.
  */
 export interface ConfigurationStoreArgs {
+    /**
+     * An `encryption` block as defined below.
+     */
     encryption?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreEncryption>;
     /**
      * An `identity` block as defined below.

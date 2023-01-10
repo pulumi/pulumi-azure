@@ -87,6 +87,9 @@ namespace Pulumi.Azure.Compute
         [Output("dataDisks")]
         public Output<ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetDataDisk>> DataDisks { get; private set; } = null!;
 
+        /// <summary>
+        /// Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+        /// </summary>
         [Output("encryptionAtHostEnabled")]
         public Output<bool?> EncryptionAtHostEnabled { get; private set; } = null!;
 
@@ -246,6 +249,9 @@ namespace Pulumi.Azure.Compute
         [Output("userDataBase64")]
         public Output<string?> UserDataBase64 { get; private set; } = null!;
 
+        /// <summary>
+        /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("zoneBalance")]
         public Output<bool?> ZoneBalance { get; private set; } = null!;
 
@@ -341,6 +347,9 @@ namespace Pulumi.Azure.Compute
             set => _dataDisks = value;
         }
 
+        /// <summary>
+        /// Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+        /// </summary>
         [Input("encryptionAtHostEnabled")]
         public Input<bool>? EncryptionAtHostEnabled { get; set; }
 
@@ -522,6 +531,9 @@ namespace Pulumi.Azure.Compute
             }
         }
 
+        /// <summary>
+        /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }
 
@@ -581,6 +593,9 @@ namespace Pulumi.Azure.Compute
             set => _dataDisks = value;
         }
 
+        /// <summary>
+        /// Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+        /// </summary>
         [Input("encryptionAtHostEnabled")]
         public Input<bool>? EncryptionAtHostEnabled { get; set; }
 
@@ -768,6 +783,9 @@ namespace Pulumi.Azure.Compute
             }
         }
 
+        /// <summary>
+        /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }
 

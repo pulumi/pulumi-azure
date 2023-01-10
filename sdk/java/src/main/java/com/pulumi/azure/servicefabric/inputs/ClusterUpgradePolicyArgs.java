@@ -33,9 +33,17 @@ public final class ClusterUpgradePolicyArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.deltaHealthPolicy);
     }
 
+    /**
+     * Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
+     * 
+     */
     @Import(name="forceRestartEnabled")
     private @Nullable Output<Boolean> forceRestartEnabled;
 
+    /**
+     * @return Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
+     * 
+     */
     public Optional<Output<Boolean>> forceRestartEnabled() {
         return Optional.ofNullable(this.forceRestartEnabled);
     }
@@ -198,11 +206,23 @@ public final class ClusterUpgradePolicyArgs extends com.pulumi.resources.Resourc
             return deltaHealthPolicy(Output.of(deltaHealthPolicy));
         }
 
+        /**
+         * @param forceRestartEnabled Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceRestartEnabled(@Nullable Output<Boolean> forceRestartEnabled) {
             $.forceRestartEnabled = forceRestartEnabled;
             return this;
         }
 
+        /**
+         * @param forceRestartEnabled Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceRestartEnabled(Boolean forceRestartEnabled) {
             return forceRestartEnabled(Output.of(forceRestartEnabled));
         }

@@ -24,6 +24,7 @@ class RegistryScopeMapArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
         :param pulumi.Input[str] container_registry_name: The name of the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] description: The description of the Container Registry.
         :param pulumi.Input[str] name: Specifies the name of the scope map. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "actions", actions)
@@ -73,6 +74,9 @@ class RegistryScopeMapArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Container Registry.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -104,6 +108,7 @@ class _RegistryScopeMapState:
         Input properties used for looking up and filtering RegistryScopeMap resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
         :param pulumi.Input[str] container_registry_name: The name of the Container Registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] description: The description of the Container Registry.
         :param pulumi.Input[str] name: Specifies the name of the scope map. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
         """
@@ -145,6 +150,9 @@ class _RegistryScopeMapState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Container Registry.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -229,6 +237,7 @@ class RegistryScopeMap(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
         :param pulumi.Input[str] container_registry_name: The name of the Container Registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] description: The description of the Container Registry.
         :param pulumi.Input[str] name: Specifies the name of the scope map. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
         """
@@ -340,6 +349,7 @@ class RegistryScopeMap(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
         :param pulumi.Input[str] container_registry_name: The name of the Container Registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] description: The description of the Container Registry.
         :param pulumi.Input[str] name: Specifies the name of the scope map. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
         """
@@ -373,6 +383,9 @@ class RegistryScopeMap(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the Container Registry.
+        """
         return pulumi.get(self, "description")
 
     @property

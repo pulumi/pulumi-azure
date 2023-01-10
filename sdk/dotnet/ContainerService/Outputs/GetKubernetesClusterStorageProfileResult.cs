@@ -13,10 +13,25 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class GetKubernetesClusterStorageProfileResult
     {
+        /// <summary>
+        /// Is the Blob CSI driver enabled?
+        /// </summary>
         public readonly bool BlobDriverEnabled;
+        /// <summary>
+        /// Is the Disk CSI driver enabled?
+        /// </summary>
         public readonly bool DiskDriverEnabled;
+        /// <summary>
+        /// The configured Disk CSI Driver version.
+        /// </summary>
         public readonly string DiskDriverVersion;
+        /// <summary>
+        /// Is the File CSI driver enabled?
+        /// </summary>
         public readonly bool FileDriverEnabled;
+        /// <summary>
+        /// Is the Snapshot Controller enabled?
+        /// </summary>
         public readonly bool SnapshotControllerEnabled;
 
         [OutputConstructor]

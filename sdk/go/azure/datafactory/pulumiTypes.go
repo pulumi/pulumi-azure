@@ -474,6 +474,7 @@ func (o DataFlowSinkDatasetPtrOutput) Parameters() pulumi.StringMapOutput {
 }
 
 type DataFlowSinkFlowlet struct {
+	// Specifies the reference data flow parameters from dataset.
 	DatasetParameters *string `pulumi:"datasetParameters"`
 	// The name for the Data Factory Flowlet.
 	Name string `pulumi:"name"`
@@ -493,6 +494,7 @@ type DataFlowSinkFlowletInput interface {
 }
 
 type DataFlowSinkFlowletArgs struct {
+	// Specifies the reference data flow parameters from dataset.
 	DatasetParameters pulumi.StringPtrInput `pulumi:"datasetParameters"`
 	// The name for the Data Factory Flowlet.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -577,6 +579,7 @@ func (o DataFlowSinkFlowletOutput) ToDataFlowSinkFlowletPtrOutputWithContext(ctx
 	}).(DataFlowSinkFlowletPtrOutput)
 }
 
+// Specifies the reference data flow parameters from dataset.
 func (o DataFlowSinkFlowletOutput) DatasetParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataFlowSinkFlowlet) *string { return v.DatasetParameters }).(pulumi.StringPtrOutput)
 }
@@ -615,6 +618,7 @@ func (o DataFlowSinkFlowletPtrOutput) Elem() DataFlowSinkFlowletOutput {
 	}).(DataFlowSinkFlowletOutput)
 }
 
+// Specifies the reference data flow parameters from dataset.
 func (o DataFlowSinkFlowletPtrOutput) DatasetParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataFlowSinkFlowlet) *string {
 		if v == nil {
@@ -1420,6 +1424,7 @@ func (o DataFlowSourceDatasetPtrOutput) Parameters() pulumi.StringMapOutput {
 }
 
 type DataFlowSourceFlowlet struct {
+	// Specifies the reference data flow parameters from dataset.
 	DatasetParameters *string `pulumi:"datasetParameters"`
 	// The name for the Data Factory Flowlet.
 	Name string `pulumi:"name"`
@@ -1439,6 +1444,7 @@ type DataFlowSourceFlowletInput interface {
 }
 
 type DataFlowSourceFlowletArgs struct {
+	// Specifies the reference data flow parameters from dataset.
 	DatasetParameters pulumi.StringPtrInput `pulumi:"datasetParameters"`
 	// The name for the Data Factory Flowlet.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1523,6 +1529,7 @@ func (o DataFlowSourceFlowletOutput) ToDataFlowSourceFlowletPtrOutputWithContext
 	}).(DataFlowSourceFlowletPtrOutput)
 }
 
+// Specifies the reference data flow parameters from dataset.
 func (o DataFlowSourceFlowletOutput) DatasetParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataFlowSourceFlowlet) *string { return v.DatasetParameters }).(pulumi.StringPtrOutput)
 }
@@ -1561,6 +1568,7 @@ func (o DataFlowSourceFlowletPtrOutput) Elem() DataFlowSourceFlowletOutput {
 	}).(DataFlowSourceFlowletOutput)
 }
 
+// Specifies the reference data flow parameters from dataset.
 func (o DataFlowSourceFlowletPtrOutput) DatasetParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataFlowSourceFlowlet) *string {
 		if v == nil {
@@ -2348,6 +2356,7 @@ func (o DataFlowTransformationDatasetPtrOutput) Parameters() pulumi.StringMapOut
 }
 
 type DataFlowTransformationFlowlet struct {
+	// Specifies the reference data flow parameters from dataset.
 	DatasetParameters *string `pulumi:"datasetParameters"`
 	// The name for the Data Factory Flowlet.
 	Name string `pulumi:"name"`
@@ -2367,6 +2376,7 @@ type DataFlowTransformationFlowletInput interface {
 }
 
 type DataFlowTransformationFlowletArgs struct {
+	// Specifies the reference data flow parameters from dataset.
 	DatasetParameters pulumi.StringPtrInput `pulumi:"datasetParameters"`
 	// The name for the Data Factory Flowlet.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2451,6 +2461,7 @@ func (o DataFlowTransformationFlowletOutput) ToDataFlowTransformationFlowletPtrO
 	}).(DataFlowTransformationFlowletPtrOutput)
 }
 
+// Specifies the reference data flow parameters from dataset.
 func (o DataFlowTransformationFlowletOutput) DatasetParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataFlowTransformationFlowlet) *string { return v.DatasetParameters }).(pulumi.StringPtrOutput)
 }
@@ -2489,6 +2500,7 @@ func (o DataFlowTransformationFlowletPtrOutput) Elem() DataFlowTransformationFlo
 	}).(DataFlowTransformationFlowletOutput)
 }
 
+// Specifies the reference data flow parameters from dataset.
 func (o DataFlowTransformationFlowletPtrOutput) DatasetParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataFlowTransformationFlowlet) *string {
 		if v == nil {
@@ -7204,6 +7216,7 @@ func (o FlowletDataFlowSinkDatasetPtrOutput) Parameters() pulumi.StringMapOutput
 }
 
 type FlowletDataFlowSinkFlowlet struct {
+	// Specifies the reference data flow parameters from dataset.
 	DatasetParameters *string `pulumi:"datasetParameters"`
 	// The name for the Data Factory Flowlet.
 	Name string `pulumi:"name"`
@@ -7223,6 +7236,7 @@ type FlowletDataFlowSinkFlowletInput interface {
 }
 
 type FlowletDataFlowSinkFlowletArgs struct {
+	// Specifies the reference data flow parameters from dataset.
 	DatasetParameters pulumi.StringPtrInput `pulumi:"datasetParameters"`
 	// The name for the Data Factory Flowlet.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -7307,6 +7321,7 @@ func (o FlowletDataFlowSinkFlowletOutput) ToFlowletDataFlowSinkFlowletPtrOutputW
 	}).(FlowletDataFlowSinkFlowletPtrOutput)
 }
 
+// Specifies the reference data flow parameters from dataset.
 func (o FlowletDataFlowSinkFlowletOutput) DatasetParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowletDataFlowSinkFlowlet) *string { return v.DatasetParameters }).(pulumi.StringPtrOutput)
 }
@@ -7345,6 +7360,7 @@ func (o FlowletDataFlowSinkFlowletPtrOutput) Elem() FlowletDataFlowSinkFlowletOu
 	}).(FlowletDataFlowSinkFlowletOutput)
 }
 
+// Specifies the reference data flow parameters from dataset.
 func (o FlowletDataFlowSinkFlowletPtrOutput) DatasetParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowletDataFlowSinkFlowlet) *string {
 		if v == nil {
@@ -8152,6 +8168,7 @@ func (o FlowletDataFlowSourceDatasetPtrOutput) Parameters() pulumi.StringMapOutp
 }
 
 type FlowletDataFlowSourceFlowlet struct {
+	// Specifies the reference data flow parameters from dataset.
 	DatasetParameters *string `pulumi:"datasetParameters"`
 	// The name for the Data Factory Flowlet.
 	Name string `pulumi:"name"`
@@ -8171,6 +8188,7 @@ type FlowletDataFlowSourceFlowletInput interface {
 }
 
 type FlowletDataFlowSourceFlowletArgs struct {
+	// Specifies the reference data flow parameters from dataset.
 	DatasetParameters pulumi.StringPtrInput `pulumi:"datasetParameters"`
 	// The name for the Data Factory Flowlet.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -8255,6 +8273,7 @@ func (o FlowletDataFlowSourceFlowletOutput) ToFlowletDataFlowSourceFlowletPtrOut
 	}).(FlowletDataFlowSourceFlowletPtrOutput)
 }
 
+// Specifies the reference data flow parameters from dataset.
 func (o FlowletDataFlowSourceFlowletOutput) DatasetParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowletDataFlowSourceFlowlet) *string { return v.DatasetParameters }).(pulumi.StringPtrOutput)
 }
@@ -8293,6 +8312,7 @@ func (o FlowletDataFlowSourceFlowletPtrOutput) Elem() FlowletDataFlowSourceFlowl
 	}).(FlowletDataFlowSourceFlowletOutput)
 }
 
+// Specifies the reference data flow parameters from dataset.
 func (o FlowletDataFlowSourceFlowletPtrOutput) DatasetParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowletDataFlowSourceFlowlet) *string {
 		if v == nil {
@@ -8799,7 +8819,7 @@ type FlowletDataFlowTransformation struct {
 	Flowlet *FlowletDataFlowTransformationFlowlet `pulumi:"flowlet"`
 	// A `linkedService` block as defined below.
 	LinkedService *FlowletDataFlowTransformationLinkedService `pulumi:"linkedService"`
-	// Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+	// The name for the Data Flow transformation.
 	Name string `pulumi:"name"`
 }
 
@@ -8823,7 +8843,7 @@ type FlowletDataFlowTransformationArgs struct {
 	Flowlet FlowletDataFlowTransformationFlowletPtrInput `pulumi:"flowlet"`
 	// A `linkedService` block as defined below.
 	LinkedService FlowletDataFlowTransformationLinkedServicePtrInput `pulumi:"linkedService"`
-	// Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+	// The name for the Data Flow transformation.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -8900,7 +8920,7 @@ func (o FlowletDataFlowTransformationOutput) LinkedService() FlowletDataFlowTran
 	}).(FlowletDataFlowTransformationLinkedServicePtrOutput)
 }
 
-// Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+// The name for the Data Flow transformation.
 func (o FlowletDataFlowTransformationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowletDataFlowTransformation) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -9082,6 +9102,7 @@ func (o FlowletDataFlowTransformationDatasetPtrOutput) Parameters() pulumi.Strin
 }
 
 type FlowletDataFlowTransformationFlowlet struct {
+	// Specifies the reference data flow parameters from dataset.
 	DatasetParameters *string `pulumi:"datasetParameters"`
 	// The name for the Data Factory Flowlet.
 	Name string `pulumi:"name"`
@@ -9101,6 +9122,7 @@ type FlowletDataFlowTransformationFlowletInput interface {
 }
 
 type FlowletDataFlowTransformationFlowletArgs struct {
+	// Specifies the reference data flow parameters from dataset.
 	DatasetParameters pulumi.StringPtrInput `pulumi:"datasetParameters"`
 	// The name for the Data Factory Flowlet.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -9185,6 +9207,7 @@ func (o FlowletDataFlowTransformationFlowletOutput) ToFlowletDataFlowTransformat
 	}).(FlowletDataFlowTransformationFlowletPtrOutput)
 }
 
+// Specifies the reference data flow parameters from dataset.
 func (o FlowletDataFlowTransformationFlowletOutput) DatasetParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowletDataFlowTransformationFlowlet) *string { return v.DatasetParameters }).(pulumi.StringPtrOutput)
 }
@@ -9223,6 +9246,7 @@ func (o FlowletDataFlowTransformationFlowletPtrOutput) Elem() FlowletDataFlowTra
 	}).(FlowletDataFlowTransformationFlowletOutput)
 }
 
+// Specifies the reference data flow parameters from dataset.
 func (o FlowletDataFlowTransformationFlowletPtrOutput) DatasetParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowletDataFlowTransformationFlowlet) *string {
 		if v == nil {
@@ -12683,9 +12707,9 @@ type LinkedServiceAzureDatabricksNewClusterConfig struct {
 	InitScripts []string `pulumi:"initScripts"`
 	// Location to deliver Spark driver, worker, and event logs.
 	LogDestination *string `pulumi:"logDestination"`
-	// The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+	// Specifies the maximum number of worker nodes. It should be between 1 and 25000.
 	MaxNumberOfWorkers *int `pulumi:"maxNumberOfWorkers"`
-	// The minimum number of worker nodes. Defaults to `1`.
+	// Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
 	MinNumberOfWorkers *int `pulumi:"minNumberOfWorkers"`
 	// Node type for the new cluster.
 	NodeType string `pulumi:"nodeType"`
@@ -12717,9 +12741,9 @@ type LinkedServiceAzureDatabricksNewClusterConfigArgs struct {
 	InitScripts pulumi.StringArrayInput `pulumi:"initScripts"`
 	// Location to deliver Spark driver, worker, and event logs.
 	LogDestination pulumi.StringPtrInput `pulumi:"logDestination"`
-	// The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+	// Specifies the maximum number of worker nodes. It should be between 1 and 25000.
 	MaxNumberOfWorkers pulumi.IntPtrInput `pulumi:"maxNumberOfWorkers"`
-	// The minimum number of worker nodes. Defaults to `1`.
+	// Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
 	MinNumberOfWorkers pulumi.IntPtrInput `pulumi:"minNumberOfWorkers"`
 	// Node type for the new cluster.
 	NodeType pulumi.StringInput `pulumi:"nodeType"`
@@ -12831,12 +12855,12 @@ func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) LogDestination() pul
 	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) *string { return v.LogDestination }).(pulumi.StringPtrOutput)
 }
 
-// The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+// Specifies the maximum number of worker nodes. It should be between 1 and 25000.
 func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) MaxNumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) *int { return v.MaxNumberOfWorkers }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of worker nodes. Defaults to `1`.
+// Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
 func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) MinNumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) *int { return v.MinNumberOfWorkers }).(pulumi.IntPtrOutput)
 }
@@ -12932,7 +12956,7 @@ func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) LogDestination() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+// Specifies the maximum number of worker nodes. It should be between 1 and 25000.
 func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) MaxNumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricksNewClusterConfig) *int {
 		if v == nil {
@@ -12942,7 +12966,7 @@ func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) MaxNumberOfWorker
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of worker nodes. Defaults to `1`.
+// Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to 1.
 func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) MinNumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricksNewClusterConfig) *int {
 		if v == nil {

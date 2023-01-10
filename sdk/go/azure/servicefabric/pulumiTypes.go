@@ -626,7 +626,8 @@ type ClusterClientCertificateCommonName struct {
 	// The common or subject name of the certificate.
 	CommonName string `pulumi:"commonName"`
 	// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
-	IsAdmin          bool    `pulumi:"isAdmin"`
+	IsAdmin bool `pulumi:"isAdmin"`
+	// The Issuer Thumbprint of the Certificate.
 	IssuerThumbprint *string `pulumi:"issuerThumbprint"`
 }
 
@@ -645,7 +646,8 @@ type ClusterClientCertificateCommonNameArgs struct {
 	// The common or subject name of the certificate.
 	CommonName pulumi.StringInput `pulumi:"commonName"`
 	// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
-	IsAdmin          pulumi.BoolInput      `pulumi:"isAdmin"`
+	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
+	// The Issuer Thumbprint of the Certificate.
 	IssuerThumbprint pulumi.StringPtrInput `pulumi:"issuerThumbprint"`
 }
 
@@ -710,6 +712,7 @@ func (o ClusterClientCertificateCommonNameOutput) IsAdmin() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterClientCertificateCommonName) bool { return v.IsAdmin }).(pulumi.BoolOutput)
 }
 
+// The Issuer Thumbprint of the Certificate.
 func (o ClusterClientCertificateCommonNameOutput) IssuerThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClientCertificateCommonName) *string { return v.IssuerThumbprint }).(pulumi.StringPtrOutput)
 }
@@ -2119,8 +2122,9 @@ func (o ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput) Index(i 
 
 type ClusterUpgradePolicy struct {
 	// A `deltaHealthPolicy` block as defined below
-	DeltaHealthPolicy   *ClusterUpgradePolicyDeltaHealthPolicy `pulumi:"deltaHealthPolicy"`
-	ForceRestartEnabled *bool                                  `pulumi:"forceRestartEnabled"`
+	DeltaHealthPolicy *ClusterUpgradePolicyDeltaHealthPolicy `pulumi:"deltaHealthPolicy"`
+	// Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
+	ForceRestartEnabled *bool `pulumi:"forceRestartEnabled"`
 	// Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
 	HealthCheckRetryTimeout *string `pulumi:"healthCheckRetryTimeout"`
 	// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to `00:01:00`.
@@ -2150,8 +2154,9 @@ type ClusterUpgradePolicyInput interface {
 
 type ClusterUpgradePolicyArgs struct {
 	// A `deltaHealthPolicy` block as defined below
-	DeltaHealthPolicy   ClusterUpgradePolicyDeltaHealthPolicyPtrInput `pulumi:"deltaHealthPolicy"`
-	ForceRestartEnabled pulumi.BoolPtrInput                           `pulumi:"forceRestartEnabled"`
+	DeltaHealthPolicy ClusterUpgradePolicyDeltaHealthPolicyPtrInput `pulumi:"deltaHealthPolicy"`
+	// Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
+	ForceRestartEnabled pulumi.BoolPtrInput `pulumi:"forceRestartEnabled"`
 	// Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
 	HealthCheckRetryTimeout pulumi.StringPtrInput `pulumi:"healthCheckRetryTimeout"`
 	// Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to `00:01:00`.
@@ -2250,6 +2255,7 @@ func (o ClusterUpgradePolicyOutput) DeltaHealthPolicy() ClusterUpgradePolicyDelt
 	return o.ApplyT(func(v ClusterUpgradePolicy) *ClusterUpgradePolicyDeltaHealthPolicy { return v.DeltaHealthPolicy }).(ClusterUpgradePolicyDeltaHealthPolicyPtrOutput)
 }
 
+// Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
 func (o ClusterUpgradePolicyOutput) ForceRestartEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradePolicy) *bool { return v.ForceRestartEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -2323,6 +2329,7 @@ func (o ClusterUpgradePolicyPtrOutput) DeltaHealthPolicy() ClusterUpgradePolicyD
 	}).(ClusterUpgradePolicyDeltaHealthPolicyPtrOutput)
 }
 
+// Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
 func (o ClusterUpgradePolicyPtrOutput) ForceRestartEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterUpgradePolicy) *bool {
 		if v == nil {

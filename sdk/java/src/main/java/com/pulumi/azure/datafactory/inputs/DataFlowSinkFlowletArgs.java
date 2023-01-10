@@ -16,9 +16,17 @@ public final class DataFlowSinkFlowletArgs extends com.pulumi.resources.Resource
 
     public static final DataFlowSinkFlowletArgs Empty = new DataFlowSinkFlowletArgs();
 
+    /**
+     * Specifies the reference data flow parameters from dataset.
+     * 
+     */
     @Import(name="datasetParameters")
     private @Nullable Output<String> datasetParameters;
 
+    /**
+     * @return Specifies the reference data flow parameters from dataset.
+     * 
+     */
     public Optional<Output<String>> datasetParameters() {
         return Optional.ofNullable(this.datasetParameters);
     }
@@ -79,11 +87,23 @@ public final class DataFlowSinkFlowletArgs extends com.pulumi.resources.Resource
             $ = new DataFlowSinkFlowletArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param datasetParameters Specifies the reference data flow parameters from dataset.
+         * 
+         * @return builder
+         * 
+         */
         public Builder datasetParameters(@Nullable Output<String> datasetParameters) {
             $.datasetParameters = datasetParameters;
             return this;
         }
 
+        /**
+         * @param datasetParameters Specifies the reference data flow parameters from dataset.
+         * 
+         * @return builder
+         * 
+         */
         public Builder datasetParameters(String datasetParameters) {
             return datasetParameters(Output.of(datasetParameters));
         }

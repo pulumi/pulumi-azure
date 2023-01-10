@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// A `filter` block as documented below.
+        /// A `filters` block as documented below.
         /// </summary>
         public readonly Outputs.ManagementPolicyRuleFilters? Filters;
         /// <summary>

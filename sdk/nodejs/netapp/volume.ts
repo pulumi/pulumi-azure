@@ -49,6 +49,9 @@ export class Volume extends pulumi.CustomResource {
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
     public readonly accountName!: pulumi.Output<string>;
+    /**
+     * Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+     */
     public readonly azureVmwareDataStoreEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
@@ -225,6 +228,9 @@ export interface VolumeState {
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
     accountName?: pulumi.Input<string>;
+    /**
+     * Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+     */
     azureVmwareDataStoreEnabled?: pulumi.Input<boolean>;
     /**
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
@@ -316,6 +322,9 @@ export interface VolumeArgs {
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
     accountName: pulumi.Input<string>;
+    /**
+     * Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+     */
     azureVmwareDataStoreEnabled?: pulumi.Input<boolean>;
     /**
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.

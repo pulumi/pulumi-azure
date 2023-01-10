@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GroupContainerGpuLimit {
     /**
-     * @return The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+     * @return The upper limit of the number of GPUs which should be assigned to this container.
      * 
      */
     private @Nullable Integer count;
     /**
-     * @return The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+     * @return The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
      * 
      */
     private @Nullable String sku;
 
     private GroupContainerGpuLimit() {}
     /**
-     * @return The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+     * @return The upper limit of the number of GPUs which should be assigned to this container.
      * 
      */
     public Optional<Integer> count() {
         return Optional.ofNullable(this.count);
     }
     /**
-     * @return The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+     * @return The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
      * 
      */
     public Optional<String> sku() {

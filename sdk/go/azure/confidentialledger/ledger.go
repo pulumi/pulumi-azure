@@ -71,7 +71,9 @@ import (
 type Ledger struct {
 	pulumi.CustomResourceState
 
-	AzureadBasedServicePrincipals      LedgerAzureadBasedServicePrincipalArrayOutput      `pulumi:"azureadBasedServicePrincipals"`
+	// A list of `azureadBasedServicePrincipal` blocks as defined below.
+	AzureadBasedServicePrincipals LedgerAzureadBasedServicePrincipalArrayOutput `pulumi:"azureadBasedServicePrincipals"`
+	// A list of `certificateBasedSecurityPrincipal` blocks as defined below.
 	CertificateBasedSecurityPrincipals LedgerCertificateBasedSecurityPrincipalArrayOutput `pulumi:"certificateBasedSecurityPrincipals"`
 	// The Identity Service Endpoint for this Confidential Ledger.
 	IdentityServiceEndpoint pulumi.StringOutput `pulumi:"identityServiceEndpoint"`
@@ -127,7 +129,9 @@ func GetLedger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Ledger resources.
 type ledgerState struct {
-	AzureadBasedServicePrincipals      []LedgerAzureadBasedServicePrincipal      `pulumi:"azureadBasedServicePrincipals"`
+	// A list of `azureadBasedServicePrincipal` blocks as defined below.
+	AzureadBasedServicePrincipals []LedgerAzureadBasedServicePrincipal `pulumi:"azureadBasedServicePrincipals"`
+	// A list of `certificateBasedSecurityPrincipal` blocks as defined below.
 	CertificateBasedSecurityPrincipals []LedgerCertificateBasedSecurityPrincipal `pulumi:"certificateBasedSecurityPrincipals"`
 	// The Identity Service Endpoint for this Confidential Ledger.
 	IdentityServiceEndpoint *string `pulumi:"identityServiceEndpoint"`
@@ -146,7 +150,9 @@ type ledgerState struct {
 }
 
 type LedgerState struct {
-	AzureadBasedServicePrincipals      LedgerAzureadBasedServicePrincipalArrayInput
+	// A list of `azureadBasedServicePrincipal` blocks as defined below.
+	AzureadBasedServicePrincipals LedgerAzureadBasedServicePrincipalArrayInput
+	// A list of `certificateBasedSecurityPrincipal` blocks as defined below.
 	CertificateBasedSecurityPrincipals LedgerCertificateBasedSecurityPrincipalArrayInput
 	// The Identity Service Endpoint for this Confidential Ledger.
 	IdentityServiceEndpoint pulumi.StringPtrInput
@@ -169,7 +175,9 @@ func (LedgerState) ElementType() reflect.Type {
 }
 
 type ledgerArgs struct {
-	AzureadBasedServicePrincipals      []LedgerAzureadBasedServicePrincipal      `pulumi:"azureadBasedServicePrincipals"`
+	// A list of `azureadBasedServicePrincipal` blocks as defined below.
+	AzureadBasedServicePrincipals []LedgerAzureadBasedServicePrincipal `pulumi:"azureadBasedServicePrincipals"`
+	// A list of `certificateBasedSecurityPrincipal` blocks as defined below.
 	CertificateBasedSecurityPrincipals []LedgerCertificateBasedSecurityPrincipal `pulumi:"certificateBasedSecurityPrincipals"`
 	// Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created.
 	LedgerType string `pulumi:"ledgerType"`
@@ -185,7 +193,9 @@ type ledgerArgs struct {
 
 // The set of arguments for constructing a Ledger resource.
 type LedgerArgs struct {
-	AzureadBasedServicePrincipals      LedgerAzureadBasedServicePrincipalArrayInput
+	// A list of `azureadBasedServicePrincipal` blocks as defined below.
+	AzureadBasedServicePrincipals LedgerAzureadBasedServicePrincipalArrayInput
+	// A list of `certificateBasedSecurityPrincipal` blocks as defined below.
 	CertificateBasedSecurityPrincipals LedgerCertificateBasedSecurityPrincipalArrayInput
 	// Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created.
 	LedgerType pulumi.StringInput
@@ -286,10 +296,12 @@ func (o LedgerOutput) ToLedgerOutputWithContext(ctx context.Context) LedgerOutpu
 	return o
 }
 
+// A list of `azureadBasedServicePrincipal` blocks as defined below.
 func (o LedgerOutput) AzureadBasedServicePrincipals() LedgerAzureadBasedServicePrincipalArrayOutput {
 	return o.ApplyT(func(v *Ledger) LedgerAzureadBasedServicePrincipalArrayOutput { return v.AzureadBasedServicePrincipals }).(LedgerAzureadBasedServicePrincipalArrayOutput)
 }
 
+// A list of `certificateBasedSecurityPrincipal` blocks as defined below.
 func (o LedgerOutput) CertificateBasedSecurityPrincipals() LedgerCertificateBasedSecurityPrincipalArrayOutput {
 	return o.ApplyT(func(v *Ledger) LedgerCertificateBasedSecurityPrincipalArrayOutput {
 		return v.CertificateBasedSecurityPrincipals

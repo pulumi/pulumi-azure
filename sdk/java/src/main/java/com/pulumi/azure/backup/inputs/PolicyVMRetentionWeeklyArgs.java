@@ -16,14 +16,14 @@ public final class PolicyVMRetentionWeeklyArgs extends com.pulumi.resources.Reso
     public static final PolicyVMRetentionWeeklyArgs Empty = new PolicyVMRetentionWeeklyArgs();
 
     /**
-     * The number of yearly backups to keep. Must be between `1` and `9999`
+     * The number of weekly backups to keep. Must be between `1` and `9999`
      * 
      */
     @Import(name="count", required=true)
     private Output<Integer> count;
 
     /**
-     * @return The number of yearly backups to keep. Must be between `1` and `9999`
+     * @return The number of weekly backups to keep. Must be between `1` and `9999`
      * 
      */
     public Output<Integer> count() {
@@ -31,14 +31,14 @@ public final class PolicyVMRetentionWeeklyArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+     * The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
      * 
      */
     @Import(name="weekdays", required=true)
     private Output<List<String>> weekdays;
 
     /**
-     * @return The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+     * @return The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
      * 
      */
     public Output<List<String>> weekdays() {
@@ -71,7 +71,7 @@ public final class PolicyVMRetentionWeeklyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param count The number of yearly backups to keep. Must be between `1` and `9999`
+         * @param count The number of weekly backups to keep. Must be between `1` and `9999`
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class PolicyVMRetentionWeeklyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param count The number of yearly backups to keep. Must be between `1` and `9999`
+         * @param count The number of weekly backups to keep. Must be between `1` and `9999`
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class PolicyVMRetentionWeeklyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param weekdays The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         * @param weekdays The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PolicyVMRetentionWeeklyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param weekdays The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         * @param weekdays The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class PolicyVMRetentionWeeklyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param weekdays The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         * @param weekdays The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
          * 
          * @return builder
          * 

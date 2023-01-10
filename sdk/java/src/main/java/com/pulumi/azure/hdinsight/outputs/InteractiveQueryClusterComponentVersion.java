@@ -9,9 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class InteractiveQueryClusterComponentVersion {
+    /**
+     * @return The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+     * 
+     */
     private String interactiveHive;
 
     private InteractiveQueryClusterComponentVersion() {}
+    /**
+     * @return The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+     * 
+     */
     public String interactiveHive() {
         return this.interactiveHive;
     }

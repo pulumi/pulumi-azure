@@ -60,6 +60,10 @@ export class PlacementGroup extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+     */
+    public readonly allowedVmSizes!: pulumi.Output<string[] | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -75,6 +79,10 @@ export class PlacementGroup extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+     */
+    public readonly zone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PlacementGroup resource with the given unique name, arguments, and options.
@@ -89,19 +97,23 @@ export class PlacementGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PlacementGroupState | undefined;
+            resourceInputs["allowedVmSizes"] = state ? state.allowedVmSizes : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["zone"] = state ? state.zone : undefined;
         } else {
             const args = argsOrState as PlacementGroupArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["allowedVmSizes"] = args ? args.allowedVmSizes : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zone"] = args ? args.zone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PlacementGroup.__pulumiType, name, resourceInputs, opts);
@@ -112,6 +124,10 @@ export class PlacementGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PlacementGroup resources.
  */
 export interface PlacementGroupState {
+    /**
+     * Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+     */
+    allowedVmSizes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -128,12 +144,20 @@ export interface PlacementGroupState {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+     */
+    zone?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a PlacementGroup resource.
  */
 export interface PlacementGroupArgs {
+    /**
+     * Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+     */
+    allowedVmSizes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -150,4 +174,8 @@ export interface PlacementGroupArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+     */
+    zone?: pulumi.Input<string>;
 }

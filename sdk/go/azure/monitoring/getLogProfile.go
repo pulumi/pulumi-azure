@@ -60,8 +60,9 @@ type LookupLogProfileResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of regions for which Activity Log events are stored or streamed.
-	Locations         []string                       `pulumi:"locations"`
-	Name              string                         `pulumi:"name"`
+	Locations []string `pulumi:"locations"`
+	Name      string   `pulumi:"name"`
+	// a `retentionPolicy` block as documented below.
 	RetentionPolicies []GetLogProfileRetentionPolicy `pulumi:"retentionPolicies"`
 	// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to.
 	ServicebusRuleId string `pulumi:"servicebusRuleId"`
@@ -126,6 +127,7 @@ func (o LookupLogProfileResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLogProfileResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// a `retentionPolicy` block as documented below.
 func (o LookupLogProfileResultOutput) RetentionPolicies() GetLogProfileRetentionPolicyArrayOutput {
 	return o.ApplyT(func(v LookupLogProfileResult) []GetLogProfileRetentionPolicy { return v.RetentionPolicies }).(GetLogProfileRetentionPolicyArrayOutput)
 }

@@ -107,9 +107,9 @@ export class ReferenceInputBlob extends pulumi.CustomResource {
      */
     public readonly serialization!: pulumi.Output<outputs.streamanalytics.ReferenceInputBlobSerialization>;
     /**
-     * The Access Key which should be used to connect to this Storage Account.
+     * The Access Key which should be used to connect to this Storage Account. Required if `authenticationMode` is `ConnectionString`.
      */
-    public readonly storageAccountKey!: pulumi.Output<string>;
+    public readonly storageAccountKey!: pulumi.Output<string | undefined>;
     /**
      * The name of the Storage Account that has the blob container with reference data.
      */
@@ -164,9 +164,6 @@ export class ReferenceInputBlob extends pulumi.CustomResource {
             }
             if ((!args || args.serialization === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serialization'");
-            }
-            if ((!args || args.storageAccountKey === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageAccountKey'");
             }
             if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
@@ -228,7 +225,7 @@ export interface ReferenceInputBlobState {
      */
     serialization?: pulumi.Input<inputs.streamanalytics.ReferenceInputBlobSerialization>;
     /**
-     * The Access Key which should be used to connect to this Storage Account.
+     * The Access Key which should be used to connect to this Storage Account. Required if `authenticationMode` is `ConnectionString`.
      */
     storageAccountKey?: pulumi.Input<string>;
     /**
@@ -278,9 +275,9 @@ export interface ReferenceInputBlobArgs {
      */
     serialization: pulumi.Input<inputs.streamanalytics.ReferenceInputBlobSerialization>;
     /**
-     * The Access Key which should be used to connect to this Storage Account.
+     * The Access Key which should be used to connect to this Storage Account. Required if `authenticationMode` is `ConnectionString`.
      */
-    storageAccountKey: pulumi.Input<string>;
+    storageAccountKey?: pulumi.Input<string>;
     /**
      * The name of the Storage Account that has the blob container with reference data.
      */

@@ -121,6 +121,9 @@ export class GlobalVMShutdownSchedule extends pulumi.CustomResource {
      * The location where the schedule is created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The notification setting of a schedule. A `notificationSettings` as defined below.
+     */
     public readonly notificationSettings!: pulumi.Output<outputs.devtest.GlobalVMShutdownScheduleNotificationSettings>;
     /**
      * A mapping of tags to assign to the resource.
@@ -198,6 +201,9 @@ export interface GlobalVMShutdownScheduleState {
      * The location where the schedule is created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The notification setting of a schedule. A `notificationSettings` as defined below.
+     */
     notificationSettings?: pulumi.Input<inputs.devtest.GlobalVMShutdownScheduleNotificationSettings>;
     /**
      * A mapping of tags to assign to the resource.
@@ -229,6 +235,9 @@ export interface GlobalVMShutdownScheduleArgs {
      * The location where the schedule is created. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The notification setting of a schedule. A `notificationSettings` as defined below.
+     */
     notificationSettings: pulumi.Input<inputs.devtest.GlobalVMShutdownScheduleNotificationSettings>;
     /**
      * A mapping of tags to assign to the resource.

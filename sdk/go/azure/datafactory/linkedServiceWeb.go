@@ -84,9 +84,11 @@ type LinkedServiceWeb struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	Password   pulumi.StringPtrOutput `pulumi:"password"`
+	// The password for Basic authentication. Required if `authenticationType` sets to `Basic`.
+	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
-	Url      pulumi.StringOutput    `pulumi:"url"`
+	Url pulumi.StringOutput `pulumi:"url"`
+	// The username for Basic authentication. Required if `authenticationType` sets to `Basic`.
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 }
 
@@ -152,9 +154,11 @@ type linkedServiceWebState struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
-	Password   *string           `pulumi:"password"`
+	// The password for Basic authentication. Required if `authenticationType` sets to `Basic`.
+	Password *string `pulumi:"password"`
 	// The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
-	Url      *string `pulumi:"url"`
+	Url *string `pulumi:"url"`
+	// The username for Basic authentication. Required if `authenticationType` sets to `Basic`.
 	Username *string `pulumi:"username"`
 }
 
@@ -176,9 +180,11 @@ type LinkedServiceWebState struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
-	Password   pulumi.StringPtrInput
+	// The password for Basic authentication. Required if `authenticationType` sets to `Basic`.
+	Password pulumi.StringPtrInput
 	// The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
-	Url      pulumi.StringPtrInput
+	Url pulumi.StringPtrInput
+	// The username for Basic authentication. Required if `authenticationType` sets to `Basic`.
 	Username pulumi.StringPtrInput
 }
 
@@ -204,9 +210,11 @@ type linkedServiceWebArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
-	Password   *string           `pulumi:"password"`
+	// The password for Basic authentication. Required if `authenticationType` sets to `Basic`.
+	Password *string `pulumi:"password"`
 	// The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
-	Url      string  `pulumi:"url"`
+	Url string `pulumi:"url"`
+	// The username for Basic authentication. Required if `authenticationType` sets to `Basic`.
 	Username *string `pulumi:"username"`
 }
 
@@ -229,9 +237,11 @@ type LinkedServiceWebArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
-	Password   pulumi.StringPtrInput
+	// The password for Basic authentication. Required if `authenticationType` sets to `Basic`.
+	Password pulumi.StringPtrInput
 	// The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
-	Url      pulumi.StringInput
+	Url pulumi.StringInput
+	// The username for Basic authentication. Required if `authenticationType` sets to `Basic`.
 	Username pulumi.StringPtrInput
 }
 
@@ -363,6 +373,7 @@ func (o LinkedServiceWebOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinkedServiceWeb) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
+// The password for Basic authentication. Required if `authenticationType` sets to `Basic`.
 func (o LinkedServiceWebOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceWeb) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -372,6 +383,7 @@ func (o LinkedServiceWebOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServiceWeb) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }
 
+// The username for Basic authentication. Required if `authenticationType` sets to `Basic`.
 func (o LinkedServiceWebOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceWeb) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }

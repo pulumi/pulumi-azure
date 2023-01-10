@@ -12,20 +12,28 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterMonitorMetrics {
     /**
-     * @return Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
+     * @return Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource&#39;s labels metric.
      * 
      */
     private @Nullable String annotationsAllowed;
+    /**
+     * @return Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
+     * 
+     */
     private @Nullable String labelsAllowed;
 
     private KubernetesClusterMonitorMetrics() {}
     /**
-     * @return Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
+     * @return Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource&#39;s labels metric.
      * 
      */
     public Optional<String> annotationsAllowed() {
         return Optional.ofNullable(this.annotationsAllowed);
     }
+    /**
+     * @return Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
+     * 
+     */
     public Optional<String> labelsAllowed() {
         return Optional.ofNullable(this.labelsAllowed);
     }

@@ -78,9 +78,17 @@ public final class SubscriptionCostManagementExportState extends com.pulumi.reso
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The date the export will stop capturing information.
+     * 
+     */
     @Import(name="recurrencePeriodEndDate")
     private @Nullable Output<String> recurrencePeriodEndDate;
 
+    /**
+     * @return The date the export will stop capturing information.
+     * 
+     */
     public Optional<Output<String>> recurrencePeriodEndDate() {
         return Optional.ofNullable(this.recurrencePeriodEndDate);
     }
@@ -245,11 +253,23 @@ public final class SubscriptionCostManagementExportState extends com.pulumi.reso
             return name(Output.of(name));
         }
 
+        /**
+         * @param recurrencePeriodEndDate The date the export will stop capturing information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recurrencePeriodEndDate(@Nullable Output<String> recurrencePeriodEndDate) {
             $.recurrencePeriodEndDate = recurrencePeriodEndDate;
             return this;
         }
 
+        /**
+         * @param recurrencePeriodEndDate The date the export will stop capturing information.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recurrencePeriodEndDate(String recurrencePeriodEndDate) {
             return recurrencePeriodEndDate(Output.of(recurrencePeriodEndDate));
         }

@@ -224,7 +224,7 @@ class GroupContainer(dict):
         :param float cpu: The required number of CPU cores of the containers. Changing this forces a new resource to be created.
         :param str image: The container image name. Changing this forces a new resource to be created.
         :param float memory: The required memory of the containers in GB. Changing this forces a new resource to be created.
-        :param str name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        :param str name: Specifies the name of the Container. Changing this forces a new resource to be created.
         :param Sequence[str] commands: A list of commands which should be run on the container. Changing this forces a new resource to be created.
         :param float cpu_limit: The upper limit of the number of CPU cores of the containers.
         :param Mapping[str, str] environment_variables: A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
@@ -292,7 +292,7 @@ class GroupContainer(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        Specifies the name of the Container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -422,8 +422,8 @@ class GroupContainerGpuLimit(dict):
                  count: Optional[int] = None,
                  sku: Optional[str] = None):
         """
-        :param int count: The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
-        :param str sku: The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+        :param int count: The upper limit of the number of GPUs which should be assigned to this container.
+        :param str sku: The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -434,7 +434,7 @@ class GroupContainerGpuLimit(dict):
     @pulumi.getter
     def count(self) -> Optional[int]:
         """
-        The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+        The upper limit of the number of GPUs which should be assigned to this container.
         """
         return pulumi.get(self, "count")
 
@@ -442,7 +442,7 @@ class GroupContainerGpuLimit(dict):
     @pulumi.getter
     def sku(self) -> Optional[str]:
         """
-        The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
+        The allowed SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`.
         """
         return pulumi.get(self, "sku")
 
@@ -592,7 +592,7 @@ class GroupContainerLivenessProbeHttpGet(dict):
         """
         :param Mapping[str, str] http_headers: A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
         :param str path: Path to access on the HTTP server. Changing this forces a new resource to be created.
-        :param int port: The port number the container will expose. Changing this forces a new resource to be created.
+        :param int port: Number of the port to access on the container. Changing this forces a new resource to be created.
         :param str scheme: Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
         """
         if http_headers is not None:
@@ -624,7 +624,7 @@ class GroupContainerLivenessProbeHttpGet(dict):
     @pulumi.getter
     def port(self) -> Optional[int]:
         """
-        The port number the container will expose. Changing this forces a new resource to be created.
+        Number of the port to access on the container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "port")
 
@@ -813,7 +813,7 @@ class GroupContainerReadinessProbeHttpGet(dict):
         """
         :param Mapping[str, str] http_headers: A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
         :param str path: Path to access on the HTTP server. Changing this forces a new resource to be created.
-        :param int port: The port number the container will expose. Changing this forces a new resource to be created.
+        :param int port: Number of the port to access on the container. Changing this forces a new resource to be created.
         :param str scheme: Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
         """
         if http_headers is not None:
@@ -845,7 +845,7 @@ class GroupContainerReadinessProbeHttpGet(dict):
     @pulumi.getter
     def port(self) -> Optional[int]:
         """
-        The port number the container will expose. Changing this forces a new resource to be created.
+        Number of the port to access on the container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "port")
 
@@ -901,7 +901,7 @@ class GroupContainerVolume(dict):
                  storage_account_name: Optional[str] = None):
         """
         :param str mount_path: The path on which this volume is to be mounted. Changing this forces a new resource to be created.
-        :param str name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        :param str name: The name of the volume mount. Changing this forces a new resource to be created.
         :param bool empty_dir: Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
         :param 'GroupContainerVolumeGitRepoArgs' git_repo: A `git_repo` block as defined below.
         :param bool read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
@@ -939,7 +939,7 @@ class GroupContainerVolume(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        The name of the volume mount. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1417,7 +1417,7 @@ class GroupInitContainer(dict):
                  volumes: Optional[Sequence['outputs.GroupInitContainerVolume']] = None):
         """
         :param str image: The container image name. Changing this forces a new resource to be created.
-        :param str name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        :param str name: Specifies the name of the Container. Changing this forces a new resource to be created.
         :param Sequence[str] commands: A list of commands which should be run on the container. Changing this forces a new resource to be created.
         :param Mapping[str, str] environment_variables: A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
         :param Mapping[str, str] secure_environment_variables: A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
@@ -1446,7 +1446,7 @@ class GroupInitContainer(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        Specifies the name of the Container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1526,7 +1526,7 @@ class GroupInitContainerVolume(dict):
                  storage_account_name: Optional[str] = None):
         """
         :param str mount_path: The path on which this volume is to be mounted. Changing this forces a new resource to be created.
-        :param str name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        :param str name: The name of the volume mount. Changing this forces a new resource to be created.
         :param bool empty_dir: Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
         :param 'GroupInitContainerVolumeGitRepoArgs' git_repo: A `git_repo` block as defined below.
         :param bool read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
@@ -1564,7 +1564,7 @@ class GroupInitContainerVolume(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        The name of the volume mount. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -2202,6 +2202,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param bool enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled?  Changing this forces a new resource to be created.
         :param bool enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address?  Changing this forces a new resource to be created.
         :param bool fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+        :param str host_group_id: Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param 'KubernetesClusterDefaultNodePoolKubeletConfigArgs' kubelet_config: A `kubelet_config` block as defined below.
         :param str kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param 'KubernetesClusterDefaultNodePoolLinuxOsConfigArgs' linux_os_config: A `linux_os_config` block as defined below.
@@ -2212,13 +2213,15 @@ class KubernetesClusterDefaultNodePool(dict):
         :param int node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
         :param Mapping[str, str] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
         :param str node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        :param Sequence[str] node_taints: A list of the taints added to new nodes during node pool create and scale.
         :param bool only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
         :param str orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         :param int os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         :param str os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
         :param str os_sku: Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
         :param str pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
-        :param str scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+        :param str proximity_placement_group_id: The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
+        :param str scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         :param Mapping[str, str] tags: A mapping of tags to assign to the Node Pool.
         :param str type: The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
         :param bool ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
@@ -2363,6 +2366,9 @@ class KubernetesClusterDefaultNodePool(dict):
     @property
     @pulumi.getter(name="hostGroupId")
     def host_group_id(self) -> Optional[str]:
+        """
+        Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "host_group_id")
 
     @property
@@ -2448,6 +2454,9 @@ class KubernetesClusterDefaultNodePool(dict):
     @property
     @pulumi.getter(name="nodeTaints")
     def node_taints(self) -> Optional[Sequence[str]]:
+        """
+        A list of the taints added to new nodes during node pool create and scale.
+        """
         return pulumi.get(self, "node_taints")
 
     @property
@@ -2501,13 +2510,16 @@ class KubernetesClusterDefaultNodePool(dict):
     @property
     @pulumi.getter(name="proximityPlacementGroupId")
     def proximity_placement_group_id(self) -> Optional[str]:
+        """
+        The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "proximity_placement_group_id")
 
     @property
     @pulumi.getter(name="scaleDownMode")
     def scale_down_mode(self) -> Optional[str]:
         """
-        Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+        Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         """
         return pulumi.get(self, "scale_down_mode")
 
@@ -4235,7 +4247,8 @@ class KubernetesClusterMonitorMetrics(dict):
                  annotations_allowed: Optional[str] = None,
                  labels_allowed: Optional[str] = None):
         """
-        :param str annotations_allowed: Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+        :param str annotations_allowed: Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
+        :param str labels_allowed: Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
         """
         if annotations_allowed is not None:
             pulumi.set(__self__, "annotations_allowed", annotations_allowed)
@@ -4246,13 +4259,16 @@ class KubernetesClusterMonitorMetrics(dict):
     @pulumi.getter(name="annotationsAllowed")
     def annotations_allowed(self) -> Optional[str]:
         """
-        Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+        Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
         """
         return pulumi.get(self, "annotations_allowed")
 
     @property
     @pulumi.getter(name="labelsAllowed")
     def labels_allowed(self) -> Optional[str]:
+        """
+        Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+        """
         return pulumi.get(self, "labels_allowed")
 
 
@@ -8380,6 +8396,13 @@ class GetKubernetesClusterStorageProfileResult(dict):
                  disk_driver_version: str,
                  file_driver_enabled: bool,
                  snapshot_controller_enabled: bool):
+        """
+        :param bool blob_driver_enabled: Is the Blob CSI driver enabled?
+        :param bool disk_driver_enabled: Is the Disk CSI driver enabled?
+        :param str disk_driver_version: The configured Disk CSI Driver version.
+        :param bool file_driver_enabled: Is the File CSI driver enabled?
+        :param bool snapshot_controller_enabled: Is the Snapshot Controller enabled?
+        """
         pulumi.set(__self__, "blob_driver_enabled", blob_driver_enabled)
         pulumi.set(__self__, "disk_driver_enabled", disk_driver_enabled)
         pulumi.set(__self__, "disk_driver_version", disk_driver_version)
@@ -8389,26 +8412,41 @@ class GetKubernetesClusterStorageProfileResult(dict):
     @property
     @pulumi.getter(name="blobDriverEnabled")
     def blob_driver_enabled(self) -> bool:
+        """
+        Is the Blob CSI driver enabled?
+        """
         return pulumi.get(self, "blob_driver_enabled")
 
     @property
     @pulumi.getter(name="diskDriverEnabled")
     def disk_driver_enabled(self) -> bool:
+        """
+        Is the Disk CSI driver enabled?
+        """
         return pulumi.get(self, "disk_driver_enabled")
 
     @property
     @pulumi.getter(name="diskDriverVersion")
     def disk_driver_version(self) -> str:
+        """
+        The configured Disk CSI Driver version.
+        """
         return pulumi.get(self, "disk_driver_version")
 
     @property
     @pulumi.getter(name="fileDriverEnabled")
     def file_driver_enabled(self) -> bool:
+        """
+        Is the File CSI driver enabled?
+        """
         return pulumi.get(self, "file_driver_enabled")
 
     @property
     @pulumi.getter(name="snapshotControllerEnabled")
     def snapshot_controller_enabled(self) -> bool:
+        """
+        Is the Snapshot Controller enabled?
+        """
         return pulumi.get(self, "snapshot_controller_enabled")
 
 

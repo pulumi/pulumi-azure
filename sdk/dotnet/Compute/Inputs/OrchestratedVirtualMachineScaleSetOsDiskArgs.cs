@@ -42,6 +42,9 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
+        /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }
 

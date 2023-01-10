@@ -19,16 +19,32 @@ public final class LedgerState extends com.pulumi.resources.ResourceArgs {
 
     public static final LedgerState Empty = new LedgerState();
 
+    /**
+     * A list of `azuread_based_service_principal` blocks as defined below.
+     * 
+     */
     @Import(name="azureadBasedServicePrincipals")
     private @Nullable Output<List<LedgerAzureadBasedServicePrincipalArgs>> azureadBasedServicePrincipals;
 
+    /**
+     * @return A list of `azuread_based_service_principal` blocks as defined below.
+     * 
+     */
     public Optional<Output<List<LedgerAzureadBasedServicePrincipalArgs>>> azureadBasedServicePrincipals() {
         return Optional.ofNullable(this.azureadBasedServicePrincipals);
     }
 
+    /**
+     * A list of `certificate_based_security_principal` blocks as defined below.
+     * 
+     */
     @Import(name="certificateBasedSecurityPrincipals")
     private @Nullable Output<List<LedgerCertificateBasedSecurityPrincipalArgs>> certificateBasedSecurityPrincipals;
 
+    /**
+     * @return A list of `certificate_based_security_principal` blocks as defined below.
+     * 
+     */
     public Optional<Output<List<LedgerCertificateBasedSecurityPrincipalArgs>>> certificateBasedSecurityPrincipals() {
         return Optional.ofNullable(this.certificateBasedSecurityPrincipals);
     }
@@ -170,28 +186,64 @@ public final class LedgerState extends com.pulumi.resources.ResourceArgs {
             $ = new LedgerState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param azureadBasedServicePrincipals A list of `azuread_based_service_principal` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder azureadBasedServicePrincipals(@Nullable Output<List<LedgerAzureadBasedServicePrincipalArgs>> azureadBasedServicePrincipals) {
             $.azureadBasedServicePrincipals = azureadBasedServicePrincipals;
             return this;
         }
 
+        /**
+         * @param azureadBasedServicePrincipals A list of `azuread_based_service_principal` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder azureadBasedServicePrincipals(List<LedgerAzureadBasedServicePrincipalArgs> azureadBasedServicePrincipals) {
             return azureadBasedServicePrincipals(Output.of(azureadBasedServicePrincipals));
         }
 
+        /**
+         * @param azureadBasedServicePrincipals A list of `azuread_based_service_principal` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder azureadBasedServicePrincipals(LedgerAzureadBasedServicePrincipalArgs... azureadBasedServicePrincipals) {
             return azureadBasedServicePrincipals(List.of(azureadBasedServicePrincipals));
         }
 
+        /**
+         * @param certificateBasedSecurityPrincipals A list of `certificate_based_security_principal` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateBasedSecurityPrincipals(@Nullable Output<List<LedgerCertificateBasedSecurityPrincipalArgs>> certificateBasedSecurityPrincipals) {
             $.certificateBasedSecurityPrincipals = certificateBasedSecurityPrincipals;
             return this;
         }
 
+        /**
+         * @param certificateBasedSecurityPrincipals A list of `certificate_based_security_principal` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateBasedSecurityPrincipals(List<LedgerCertificateBasedSecurityPrincipalArgs> certificateBasedSecurityPrincipals) {
             return certificateBasedSecurityPrincipals(Output.of(certificateBasedSecurityPrincipals));
         }
 
+        /**
+         * @param certificateBasedSecurityPrincipals A list of `certificate_based_security_principal` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateBasedSecurityPrincipals(LedgerCertificateBasedSecurityPrincipalArgs... certificateBasedSecurityPrincipals) {
             return certificateBasedSecurityPrincipals(List.of(certificateBasedSecurityPrincipals));
         }

@@ -80,7 +80,7 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly soaRecord!: pulumi.Output<outputs.dns.ZoneSoaRecord>;
     /**
-     * A mapping of tags to assign to the Record Set.
+     * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -151,7 +151,7 @@ export interface ZoneState {
      */
     soaRecord?: pulumi.Input<inputs.dns.ZoneSoaRecord>;
     /**
-     * A mapping of tags to assign to the Record Set.
+     * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -173,7 +173,7 @@ export interface ZoneArgs {
      */
     soaRecord?: pulumi.Input<inputs.dns.ZoneSoaRecord>;
     /**
-     * A mapping of tags to assign to the Record Set.
+     * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

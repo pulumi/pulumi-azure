@@ -20,9 +20,17 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
 
     public static final MongoCollectionState Empty = new MongoCollectionState();
 
+    /**
+     * The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="accountName")
     private @Nullable Output<String> accountName;
 
+    /**
+     * @return The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> accountName() {
         return Optional.ofNullable(this.accountName);
     }
@@ -195,11 +203,23 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
             $ = new MongoCollectionState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accountName The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountName(@Nullable Output<String> accountName) {
             $.accountName = accountName;
             return this;
         }
 
+        /**
+         * @param accountName The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountName(String accountName) {
             return accountName(Output.of(accountName));
         }

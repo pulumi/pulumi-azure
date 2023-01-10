@@ -19,9 +19,17 @@ public final class ScheduledQueryRulesLogArgs extends com.pulumi.resources.Resou
 
     public static final ScheduledQueryRulesLogArgs Empty = new ScheduledQueryRulesLogArgs();
 
+    /**
+     * A list of IDs of Resources referred into query.
+     * 
+     */
     @Import(name="authorizedResourceIds")
     private @Nullable Output<List<String>> authorizedResourceIds;
 
+    /**
+     * @return A list of IDs of Resources referred into query.
+     * 
+     */
     public Optional<Output<List<String>>> authorizedResourceIds() {
         return Optional.ofNullable(this.authorizedResourceIds);
     }
@@ -178,15 +186,33 @@ public final class ScheduledQueryRulesLogArgs extends com.pulumi.resources.Resou
             $ = new ScheduledQueryRulesLogArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param authorizedResourceIds A list of IDs of Resources referred into query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizedResourceIds(@Nullable Output<List<String>> authorizedResourceIds) {
             $.authorizedResourceIds = authorizedResourceIds;
             return this;
         }
 
+        /**
+         * @param authorizedResourceIds A list of IDs of Resources referred into query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizedResourceIds(List<String> authorizedResourceIds) {
             return authorizedResourceIds(Output.of(authorizedResourceIds));
         }
 
+        /**
+         * @param authorizedResourceIds A list of IDs of Resources referred into query.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizedResourceIds(String... authorizedResourceIds) {
             return authorizedResourceIds(List.of(authorizedResourceIds));
         }

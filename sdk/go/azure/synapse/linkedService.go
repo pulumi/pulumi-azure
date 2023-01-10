@@ -75,12 +75,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			exampleIntegrationRuntimeAzure, err := synapse.NewIntegrationRuntimeAzure(ctx, "exampleIntegrationRuntimeAzure", &synapse.IntegrationRuntimeAzureArgs{
+//				SynapseWorkspaceId: exampleWorkspace.ID(),
+//				Location:           exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = synapse.NewLinkedService(ctx, "exampleLinkedService", &synapse.LinkedServiceArgs{
 //				SynapseWorkspaceId: exampleWorkspace.ID(),
 //				Type:               pulumi.String("AzureBlobStorage"),
 //				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
 //					return fmt.Sprintf("{\n  \"connectionString\": \"%v\"\n}\n", primaryConnectionString), nil
 //				}).(pulumi.StringOutput),
+//				IntegrationRuntime: &synapse.LinkedServiceIntegrationRuntimeArgs{
+//					Name: exampleIntegrationRuntimeAzure.Name,
+//				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleFirewallRule,
 //			}))

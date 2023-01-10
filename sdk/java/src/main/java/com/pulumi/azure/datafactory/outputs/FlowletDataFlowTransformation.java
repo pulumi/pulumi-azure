@@ -35,7 +35,7 @@ public final class FlowletDataFlowTransformation {
      */
     private @Nullable FlowletDataFlowTransformationLinkedService linkedService;
     /**
-     * @return Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+     * @return The name for the Data Flow transformation.
      * 
      */
     private String name;
@@ -70,7 +70,7 @@ public final class FlowletDataFlowTransformation {
         return Optional.ofNullable(this.linkedService);
     }
     /**
-     * @return Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+     * @return The name for the Data Flow transformation.
      * 
      */
     public String name() {

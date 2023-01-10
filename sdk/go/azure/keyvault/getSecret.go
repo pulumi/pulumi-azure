@@ -50,9 +50,9 @@ func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getSecret.
 type LookupSecretArgs struct {
-	// The ID of the TODO.
+	// Specifies the ID of the Key Vault instance to fetch secret names from, available on the `keyvault.KeyVault` Data Source / Resource.
 	KeyVaultId string `pulumi:"keyVaultId"`
-	// Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
+	// Specifies the name of the Key Vault Secret.
 	Name string `pulumi:"name"`
 }
 
@@ -93,9 +93,9 @@ func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts .
 
 // A collection of arguments for invoking getSecret.
 type LookupSecretOutputArgs struct {
-	// The ID of the TODO.
+	// Specifies the ID of the Key Vault instance to fetch secret names from, available on the `keyvault.KeyVault` Data Source / Resource.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
-	// Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
+	// Specifies the name of the Key Vault Secret.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 

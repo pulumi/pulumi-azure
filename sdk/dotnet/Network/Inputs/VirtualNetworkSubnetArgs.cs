@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the virtual network. Changing this forces a new resource to be created.
+        /// The name of the subnet. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

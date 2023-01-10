@@ -13,11 +13,14 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterMonitorMetricsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+        /// Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
         /// </summary>
         [Input("annotationsAllowed")]
         public Input<string>? AnnotationsAllowed { get; set; }
 
+        /// <summary>
+        /// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+        /// </summary>
         [Input("labelsAllowed")]
         public Input<string>? LabelsAllowed { get; set; }
 

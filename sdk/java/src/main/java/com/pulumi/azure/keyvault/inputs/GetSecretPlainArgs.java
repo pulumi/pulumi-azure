@@ -13,14 +13,14 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSecretPlainArgs Empty = new GetSecretPlainArgs();
 
     /**
-     * The ID of the TODO.
+     * Specifies the ID of the Key Vault instance to fetch secret names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
      * 
      */
     @Import(name="keyVaultId", required=true)
     private String keyVaultId;
 
     /**
-     * @return The ID of the TODO.
+     * @return Specifies the ID of the Key Vault instance to fetch secret names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
      * 
      */
     public String keyVaultId() {
@@ -28,14 +28,14 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+     * Specifies the name of the Key Vault Secret.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+     * @return Specifies the name of the Key Vault Secret.
      * 
      */
     public String name() {
@@ -68,7 +68,7 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param keyVaultId The ID of the TODO.
+         * @param keyVaultId Specifies the ID of the Key Vault instance to fetch secret names from, available on the `azure.keyvault.KeyVault` Data Source / Resource.
          * 
          * @return builder
          * 
@@ -79,7 +79,7 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+         * @param name Specifies the name of the Key Vault Secret.
          * 
          * @return builder
          * 

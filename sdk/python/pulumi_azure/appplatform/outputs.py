@@ -2192,6 +2192,7 @@ class SpringCloudServiceRequiredNetworkTrafficRule(dict):
         """
         :param str direction: The direction of required traffic. Possible values are `Inbound`, `Outbound`.
         :param Sequence[str] fqdns: The FQDN list of required traffic.
+        :param Sequence[str] ip_addresses: The IP list of required traffic.
         :param int port: The port of required traffic.
         :param str protocol: The protocol of required traffic.
         """
@@ -2225,6 +2226,9 @@ class SpringCloudServiceRequiredNetworkTrafficRule(dict):
     @property
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        The IP list of required traffic.
+        """
         return pulumi.get(self, "ip_addresses")
 
     @property

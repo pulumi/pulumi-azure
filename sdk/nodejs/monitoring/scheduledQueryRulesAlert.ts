@@ -86,6 +86,9 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
      * Log search query.
      */
     public readonly query!: pulumi.Output<string>;
+    /**
+     * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+     */
     public readonly queryType!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
@@ -108,7 +111,7 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
      */
     public readonly timeWindow!: pulumi.Output<number>;
     /**
-     * The condition that results in the alert rule being run.
+     * A `trigger` block as defined below.
      */
     public readonly trigger!: pulumi.Output<outputs.monitoring.ScheduledQueryRulesAlertTrigger>;
 
@@ -233,6 +236,9 @@ export interface ScheduledQueryRulesAlertState {
      * Log search query.
      */
     query?: pulumi.Input<string>;
+    /**
+     * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+     */
     queryType?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
@@ -255,7 +261,7 @@ export interface ScheduledQueryRulesAlertState {
      */
     timeWindow?: pulumi.Input<number>;
     /**
-     * The condition that results in the alert rule being run.
+     * A `trigger` block as defined below.
      */
     trigger?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertTrigger>;
 }
@@ -305,6 +311,9 @@ export interface ScheduledQueryRulesAlertArgs {
      * Log search query.
      */
     query: pulumi.Input<string>;
+    /**
+     * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+     */
     queryType?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
@@ -327,7 +336,7 @@ export interface ScheduledQueryRulesAlertArgs {
      */
     timeWindow: pulumi.Input<number>;
     /**
-     * The condition that results in the alert rule being run.
+     * A `trigger` block as defined below.
      */
     trigger: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertTrigger>;
 }

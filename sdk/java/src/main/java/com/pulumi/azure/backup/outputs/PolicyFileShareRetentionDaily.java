@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class PolicyFileShareRetentionDaily {
     /**
-     * @return The number of yearly backups to keep. Must be between `1` and `10`
+     * @return The number of daily backups to keep. Must be between `1` and `200` (inclusive)
      * 
      */
     private Integer count;
 
     private PolicyFileShareRetentionDaily() {}
     /**
-     * @return The number of yearly backups to keep. Must be between `1` and `10`
+     * @return The number of daily backups to keep. Must be between `1` and `200` (inclusive)
      * 
      */
     public Integer count() {

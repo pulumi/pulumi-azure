@@ -28,12 +28,24 @@ export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientC
  * A collection of values returned by getClientConfig.
  */
 export interface GetClientConfigResult {
+    /**
+     * is set to the Azure Client ID (Application Object ID).
+     */
     readonly clientId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * is set to the Azure Object ID.
+     */
     readonly objectId: string;
+    /**
+     * is set to the Azure Subscription ID.
+     */
     readonly subscriptionId: string;
+    /**
+     * is set to the Azure Tenant ID.
+     */
     readonly tenantId: string;
 }

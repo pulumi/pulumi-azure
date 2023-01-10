@@ -28,7 +28,7 @@ class ConnectionArgs:
         :param pulumi.Input['ConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
-        :param pulumi.Input[str] name: Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
         """
         pulumi.set(__self__, "app_service_id", app_service_id)
@@ -93,7 +93,7 @@ class ConnectionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        The name of the service connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -128,7 +128,7 @@ class _ConnectionState:
         :param pulumi.Input[str] app_service_id: The ID of the data source web app. Changing this forces a new resource to be created.
         :param pulumi.Input['ConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
-        :param pulumi.Input[str] name: Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
         """
@@ -185,7 +185,7 @@ class _ConnectionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        The name of the service connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -294,7 +294,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_id: The ID of the data source web app. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
-        :param pulumi.Input[str] name: Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
         """
@@ -431,7 +431,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_id: The ID of the data source web app. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
-        :param pulumi.Input[str] name: Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
         """
@@ -475,7 +475,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        The name of the service connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

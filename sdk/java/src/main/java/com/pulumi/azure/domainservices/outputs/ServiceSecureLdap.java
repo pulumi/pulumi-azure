@@ -12,7 +12,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceSecureLdap {
+    /**
+     * @return The expiry time of the certificate.
+     * 
+     */
     private @Nullable String certificateExpiry;
+    /**
+     * @return The thumbprint of the certificate.
+     * 
+     */
     private @Nullable String certificateThumbprint;
     /**
      * @return Whether to enable secure LDAP for the managed domain. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
@@ -34,12 +42,24 @@ public final class ServiceSecureLdap {
      * 
      */
     private String pfxCertificatePassword;
+    /**
+     * @return The public certificate.
+     * 
+     */
     private @Nullable String publicCertificate;
 
     private ServiceSecureLdap() {}
+    /**
+     * @return The expiry time of the certificate.
+     * 
+     */
     public Optional<String> certificateExpiry() {
         return Optional.ofNullable(this.certificateExpiry);
     }
+    /**
+     * @return The thumbprint of the certificate.
+     * 
+     */
     public Optional<String> certificateThumbprint() {
         return Optional.ofNullable(this.certificateThumbprint);
     }
@@ -71,6 +91,10 @@ public final class ServiceSecureLdap {
     public String pfxCertificatePassword() {
         return this.pfxCertificatePassword;
     }
+    /**
+     * @return The public certificate.
+     * 
+     */
     public Optional<String> publicCertificate() {
         return Optional.ofNullable(this.publicCertificate);
     }

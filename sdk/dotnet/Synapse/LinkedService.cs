@@ -61,6 +61,12 @@ namespace Pulumi.Azure.Synapse
     ///         EndIpAddress = "255.255.255.255",
     ///     });
     /// 
+    ///     var exampleIntegrationRuntimeAzure = new Azure.Synapse.IntegrationRuntimeAzure("exampleIntegrationRuntimeAzure", new()
+    ///     {
+    ///         SynapseWorkspaceId = exampleWorkspace.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
     ///     var exampleLinkedService = new Azure.Synapse.LinkedService("exampleLinkedService", new()
     ///     {
     ///         SynapseWorkspaceId = exampleWorkspace.Id,
@@ -69,6 +75,10 @@ namespace Pulumi.Azure.Synapse
     ///   ""connectionString"": ""{primaryConnectionString}""
     /// }}
     /// "),
+    ///         IntegrationRuntime = new Azure.Synapse.Inputs.LinkedServiceIntegrationRuntimeArgs
+    ///         {
+    ///             Name = exampleIntegrationRuntimeAzure.Name,
+    ///         },
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn = new[]

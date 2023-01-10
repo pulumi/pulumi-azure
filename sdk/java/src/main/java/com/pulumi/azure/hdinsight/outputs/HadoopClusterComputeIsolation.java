@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class HadoopClusterComputeIsolation {
+    /**
+     * @return This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+     * 
+     */
     private @Nullable Boolean computeIsolationEnabled;
     /**
      * @return The name of the host SKU.
@@ -20,6 +24,10 @@ public final class HadoopClusterComputeIsolation {
     private @Nullable String hostSku;
 
     private HadoopClusterComputeIsolation() {}
+    /**
+     * @return This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+     * 
+     */
     public Optional<Boolean> computeIsolationEnabled() {
         return Optional.ofNullable(this.computeIsolationEnabled);
     }

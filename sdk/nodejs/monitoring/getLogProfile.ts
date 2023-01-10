@@ -56,6 +56,9 @@ export interface GetLogProfileResult {
      */
     readonly locations: string[];
     readonly name: string;
+    /**
+     * a `retentionPolicy` block as documented below.
+     */
     readonly retentionPolicies: outputs.monitoring.GetLogProfileRetentionPolicy[];
     /**
      * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to.

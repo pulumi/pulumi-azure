@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string MountPath;
         /// <summary>
-        /// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        /// The name of the volume mount. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>

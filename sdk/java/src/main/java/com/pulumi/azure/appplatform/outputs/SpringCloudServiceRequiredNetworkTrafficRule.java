@@ -23,6 +23,10 @@ public final class SpringCloudServiceRequiredNetworkTrafficRule {
      * 
      */
     private @Nullable List<String> fqdns;
+    /**
+     * @return The IP list of required traffic.
+     * 
+     */
     private @Nullable List<String> ipAddresses;
     /**
      * @return The port of required traffic.
@@ -50,6 +54,10 @@ public final class SpringCloudServiceRequiredNetworkTrafficRule {
     public List<String> fqdns() {
         return this.fqdns == null ? List.of() : this.fqdns;
     }
+    /**
+     * @return The IP list of required traffic.
+     * 
+     */
     public List<String> ipAddresses() {
         return this.ipAddresses == null ? List.of() : this.ipAddresses;
     }

@@ -25,7 +25,7 @@ class MonitorTagRuleArgs:
         :param pulumi.Input[str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]] logs: A `log` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]] metrics: A `metric` block as defined below.
-        :param pulumi.Input[str] name: Name of the Tag.
+        :param pulumi.Input[str] name: The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
         """
         pulumi.set(__self__, "datadog_monitor_id", datadog_monitor_id)
         if logs is not None:
@@ -75,7 +75,7 @@ class MonitorTagRuleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Tag.
+        The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
         """
         return pulumi.get(self, "name")
 
@@ -96,7 +96,7 @@ class _MonitorTagRuleState:
         :param pulumi.Input[str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]] logs: A `log` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]] metrics: A `metric` block as defined below.
-        :param pulumi.Input[str] name: Name of the Tag.
+        :param pulumi.Input[str] name: The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
         """
         if datadog_monitor_id is not None:
             pulumi.set(__self__, "datadog_monitor_id", datadog_monitor_id)
@@ -147,7 +147,7 @@ class _MonitorTagRuleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Tag.
+        The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
         """
         return pulumi.get(self, "name")
 
@@ -203,7 +203,7 @@ class MonitorTagRule(pulumi.CustomResource):
         :param pulumi.Input[str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagRuleLogArgs']]]] logs: A `log` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagRuleMetricArgs']]]] metrics: A `metric` block as defined below.
-        :param pulumi.Input[str] name: Name of the Tag.
+        :param pulumi.Input[str] name: The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
         """
         ...
     @overload
@@ -301,7 +301,7 @@ class MonitorTagRule(pulumi.CustomResource):
         :param pulumi.Input[str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagRuleLogArgs']]]] logs: A `log` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagRuleMetricArgs']]]] metrics: A `metric` block as defined below.
-        :param pulumi.Input[str] name: Name of the Tag.
+        :param pulumi.Input[str] name: The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -341,7 +341,7 @@ class MonitorTagRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the Tag.
+        The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
         """
         return pulumi.get(self, "name")
 

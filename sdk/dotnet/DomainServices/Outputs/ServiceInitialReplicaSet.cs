@@ -22,7 +22,7 @@ namespace Pulumi.Azure.DomainServices.Outputs
         /// </summary>
         public readonly string? ExternalAccessIpAddress;
         /// <summary>
-        /// The ID of the Domain Service.
+        /// A unique ID for the replica set.
         /// </summary>
         public readonly string? Id;
         /// <summary>

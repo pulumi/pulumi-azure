@@ -48,6 +48,10 @@ public final class KubernetesClusterDefaultNodePool {
      * 
      */
     private @Nullable Boolean fipsEnabled;
+    /**
+     * @return Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+     * 
+     */
     private @Nullable String hostGroupId;
     /**
      * @return A `kubelet_config` block as defined below.
@@ -104,6 +108,10 @@ public final class KubernetesClusterDefaultNodePool {
      * 
      */
     private @Nullable String nodePublicIpPrefixId;
+    /**
+     * @return A list of the taints added to new nodes during node pool create and scale.
+     * 
+     */
     private @Nullable List<String> nodeTaints;
     /**
      * @return Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
@@ -135,9 +143,13 @@ public final class KubernetesClusterDefaultNodePool {
      * 
      */
     private @Nullable String podSubnetId;
+    /**
+     * @return The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
+     * 
+     */
     private @Nullable String proximityPlacementGroupId;
     /**
-     * @return Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to &#39;ScaleDownModeDelete&#39;. Possible values include &#39;ScaleDownModeDelete&#39; and &#39;ScaleDownModeDeallocate&#39;. Changing this forces a new resource to be created.
+     * @return Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
      * 
      */
     private @Nullable String scaleDownMode;
@@ -225,6 +237,10 @@ public final class KubernetesClusterDefaultNodePool {
     public Optional<Boolean> fipsEnabled() {
         return Optional.ofNullable(this.fipsEnabled);
     }
+    /**
+     * @return Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<String> hostGroupId() {
         return Optional.ofNullable(this.hostGroupId);
     }
@@ -305,6 +321,10 @@ public final class KubernetesClusterDefaultNodePool {
     public Optional<String> nodePublicIpPrefixId() {
         return Optional.ofNullable(this.nodePublicIpPrefixId);
     }
+    /**
+     * @return A list of the taints added to new nodes during node pool create and scale.
+     * 
+     */
     public List<String> nodeTaints() {
         return this.nodeTaints == null ? List.of() : this.nodeTaints;
     }
@@ -350,11 +370,15 @@ public final class KubernetesClusterDefaultNodePool {
     public Optional<String> podSubnetId() {
         return Optional.ofNullable(this.podSubnetId);
     }
+    /**
+     * @return The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<String> proximityPlacementGroupId() {
         return Optional.ofNullable(this.proximityPlacementGroupId);
     }
     /**
-     * @return Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to &#39;ScaleDownModeDelete&#39;. Possible values include &#39;ScaleDownModeDelete&#39; and &#39;ScaleDownModeDeallocate&#39;. Changing this forces a new resource to be created.
+     * @return Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
      * 
      */
     public Optional<String> scaleDownMode() {

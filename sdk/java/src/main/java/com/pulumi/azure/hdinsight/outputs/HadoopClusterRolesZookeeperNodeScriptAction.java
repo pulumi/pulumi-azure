@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class HadoopClusterRolesZookeeperNodeScriptAction {
     /**
-     * @return Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+     * @return The name of the script action.
      * 
      */
     private String name;
@@ -29,7 +29,7 @@ public final class HadoopClusterRolesZookeeperNodeScriptAction {
 
     private HadoopClusterRolesZookeeperNodeScriptAction() {}
     /**
-     * @return Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+     * @return The name of the script action.
      * 
      */
     public String name() {

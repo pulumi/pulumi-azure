@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Backup.Outputs
     public sealed class PolicyVMRetentionMonthly
     {
         /// <summary>
-        /// The number of yearly backups to keep. Must be between `1` and `9999`
+        /// The number of monthly backups to keep. Must be between `1` and `9999`
         /// </summary>
         public readonly int Count;
         /// <summary>

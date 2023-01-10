@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? CreateOption { get; set; }
 
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+        /// The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -48,12 +48,21 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+        /// </summary>
         [Input("ultraSsdDiskIopsReadWrite")]
         public Input<int>? UltraSsdDiskIopsReadWrite { get; set; }
 
+        /// <summary>
+        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+        /// </summary>
         [Input("ultraSsdDiskMbpsReadWrite")]
         public Input<int>? UltraSsdDiskMbpsReadWrite { get; set; }
 
+        /// <summary>
+        /// Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
+        /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }
 

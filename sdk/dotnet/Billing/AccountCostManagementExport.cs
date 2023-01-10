@@ -101,6 +101,9 @@ namespace Pulumi.Azure.Billing
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The date the export will stop capturing information.
+        /// </summary>
         [Output("recurrencePeriodEndDate")]
         public Output<string> RecurrencePeriodEndDate { get; private set; } = null!;
 
@@ -192,6 +195,9 @@ namespace Pulumi.Azure.Billing
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The date the export will stop capturing information.
+        /// </summary>
         [Input("recurrencePeriodEndDate", required: true)]
         public Input<string> RecurrencePeriodEndDate { get; set; } = null!;
 
@@ -245,6 +251,9 @@ namespace Pulumi.Azure.Billing
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The date the export will stop capturing information.
+        /// </summary>
         [Input("recurrencePeriodEndDate")]
         public Input<string>? RecurrencePeriodEndDate { get; set; }
 

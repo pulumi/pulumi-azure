@@ -23,7 +23,7 @@ public final class ServiceInitialReplicaSet {
      */
     private @Nullable String externalAccessIpAddress;
     /**
-     * @return The ID of the Domain Service.
+     * @return A unique ID for the replica set.
      * 
      */
     private @Nullable String id;
@@ -59,7 +59,7 @@ public final class ServiceInitialReplicaSet {
         return Optional.ofNullable(this.externalAccessIpAddress);
     }
     /**
-     * @return The ID of the Domain Service.
+     * @return A unique ID for the replica set.
      * 
      */
     public Optional<String> id() {

@@ -392,6 +392,9 @@ class LinkedService(pulumi.CustomResource):
             synapse_workspace_id=example_workspace.id,
             start_ip_address="0.0.0.0",
             end_ip_address="255.255.255.255")
+        example_integration_runtime_azure = azure.synapse.IntegrationRuntimeAzure("exampleIntegrationRuntimeAzure",
+            synapse_workspace_id=example_workspace.id,
+            location=example_resource_group.location)
         example_linked_service = azure.synapse.LinkedService("exampleLinkedService",
             synapse_workspace_id=example_workspace.id,
             type="AzureBlobStorage",
@@ -399,6 +402,9 @@ class LinkedService(pulumi.CustomResource):
           "connectionString": "{primary_connection_string}"
         }}
         \"\"\"),
+            integration_runtime=azure.synapse.LinkedServiceIntegrationRuntimeArgs(
+                name=example_integration_runtime_azure.name,
+            ),
             opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
         ```
 
@@ -467,6 +473,9 @@ class LinkedService(pulumi.CustomResource):
             synapse_workspace_id=example_workspace.id,
             start_ip_address="0.0.0.0",
             end_ip_address="255.255.255.255")
+        example_integration_runtime_azure = azure.synapse.IntegrationRuntimeAzure("exampleIntegrationRuntimeAzure",
+            synapse_workspace_id=example_workspace.id,
+            location=example_resource_group.location)
         example_linked_service = azure.synapse.LinkedService("exampleLinkedService",
             synapse_workspace_id=example_workspace.id,
             type="AzureBlobStorage",
@@ -474,6 +483,9 @@ class LinkedService(pulumi.CustomResource):
           "connectionString": "{primary_connection_string}"
         }}
         \"\"\"),
+            integration_runtime=azure.synapse.LinkedServiceIntegrationRuntimeArgs(
+                name=example_integration_runtime_azure.name,
+            ),
             opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
         ```
 

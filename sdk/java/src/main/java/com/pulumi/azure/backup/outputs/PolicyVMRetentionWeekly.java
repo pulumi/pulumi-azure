@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class PolicyVMRetentionWeekly {
     /**
-     * @return The number of yearly backups to keep. Must be between `1` and `9999`
+     * @return The number of weekly backups to keep. Must be between `1` and `9999`
      * 
      */
     private Integer count;
     /**
-     * @return The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+     * @return The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
      * 
      */
     private List<String> weekdays;
 
     private PolicyVMRetentionWeekly() {}
     /**
-     * @return The number of yearly backups to keep. Must be between `1` and `9999`
+     * @return The number of weekly backups to keep. Must be between `1` and `9999`
      * 
      */
     public Integer count() {
         return this.count;
     }
     /**
-     * @return The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+     * @return The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
      * 
      */
     public List<String> weekdays() {

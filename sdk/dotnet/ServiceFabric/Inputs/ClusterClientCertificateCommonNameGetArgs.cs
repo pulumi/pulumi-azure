@@ -24,6 +24,9 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         [Input("isAdmin", required: true)]
         public Input<bool> IsAdmin { get; set; } = null!;
 
+        /// <summary>
+        /// The Issuer Thumbprint of the Certificate.
+        /// </summary>
         [Input("issuerThumbprint")]
         public Input<string>? IssuerThumbprint { get; set; }
 

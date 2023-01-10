@@ -21,6 +21,9 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
         /// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
         /// </summary>
         public readonly bool IsAdmin;
+        /// <summary>
+        /// The Issuer Thumbprint of the Certificate.
+        /// </summary>
         public readonly string? IssuerThumbprint;
 
         [OutputConstructor]

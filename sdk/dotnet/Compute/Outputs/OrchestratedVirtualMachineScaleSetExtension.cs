@@ -45,6 +45,9 @@ namespace Pulumi.Azure.Compute.Outputs
         /// Specifies the Publisher of the Extension.
         /// </summary>
         public readonly string Publisher;
+        /// <summary>
+        /// A JSON String which specifies Settings for the Extension.
+        /// </summary>
         public readonly string? Settings;
         /// <summary>
         /// Specifies the Type of the Extension.

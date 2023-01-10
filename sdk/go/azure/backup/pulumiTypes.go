@@ -167,7 +167,7 @@ func (o PolicyFileShareBackupPtrOutput) Time() pulumi.StringPtrOutput {
 }
 
 type PolicyFileShareRetentionDaily struct {
-	// The number of yearly backups to keep. Must be between `1` and `10`
+	// The number of daily backups to keep. Must be between `1` and `200` (inclusive)
 	Count int `pulumi:"count"`
 }
 
@@ -183,7 +183,7 @@ type PolicyFileShareRetentionDailyInput interface {
 }
 
 type PolicyFileShareRetentionDailyArgs struct {
-	// The number of yearly backups to keep. Must be between `1` and `10`
+	// The number of daily backups to keep. Must be between `1` and `200` (inclusive)
 	Count pulumi.IntInput `pulumi:"count"`
 }
 
@@ -264,7 +264,7 @@ func (o PolicyFileShareRetentionDailyOutput) ToPolicyFileShareRetentionDailyPtrO
 	}).(PolicyFileShareRetentionDailyPtrOutput)
 }
 
-// The number of yearly backups to keep. Must be between `1` and `10`
+// The number of daily backups to keep. Must be between `1` and `200` (inclusive)
 func (o PolicyFileShareRetentionDailyOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyFileShareRetentionDaily) int { return v.Count }).(pulumi.IntOutput)
 }
@@ -293,7 +293,7 @@ func (o PolicyFileShareRetentionDailyPtrOutput) Elem() PolicyFileShareRetentionD
 	}).(PolicyFileShareRetentionDailyOutput)
 }
 
-// The number of yearly backups to keep. Must be between `1` and `10`
+// The number of daily backups to keep. Must be between `1` and `200` (inclusive)
 func (o PolicyFileShareRetentionDailyPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyFileShareRetentionDaily) *int {
 		if v == nil {
@@ -304,7 +304,7 @@ func (o PolicyFileShareRetentionDailyPtrOutput) Count() pulumi.IntPtrOutput {
 }
 
 type PolicyFileShareRetentionMonthly struct {
-	// The number of yearly backups to keep. Must be between `1` and `10`
+	// The number of monthly backups to keep. Must be between `1` and `120`
 	Count int `pulumi:"count"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays []string `pulumi:"weekdays"`
@@ -324,7 +324,7 @@ type PolicyFileShareRetentionMonthlyInput interface {
 }
 
 type PolicyFileShareRetentionMonthlyArgs struct {
-	// The number of yearly backups to keep. Must be between `1` and `10`
+	// The number of monthly backups to keep. Must be between `1` and `120`
 	Count pulumi.IntInput `pulumi:"count"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
@@ -409,7 +409,7 @@ func (o PolicyFileShareRetentionMonthlyOutput) ToPolicyFileShareRetentionMonthly
 	}).(PolicyFileShareRetentionMonthlyPtrOutput)
 }
 
-// The number of yearly backups to keep. Must be between `1` and `10`
+// The number of monthly backups to keep. Must be between `1` and `120`
 func (o PolicyFileShareRetentionMonthlyOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyFileShareRetentionMonthly) int { return v.Count }).(pulumi.IntOutput)
 }
@@ -448,7 +448,7 @@ func (o PolicyFileShareRetentionMonthlyPtrOutput) Elem() PolicyFileShareRetentio
 	}).(PolicyFileShareRetentionMonthlyOutput)
 }
 
-// The number of yearly backups to keep. Must be between `1` and `10`
+// The number of monthly backups to keep. Must be between `1` and `120`
 func (o PolicyFileShareRetentionMonthlyPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyFileShareRetentionMonthly) *int {
 		if v == nil {
@@ -479,9 +479,9 @@ func (o PolicyFileShareRetentionMonthlyPtrOutput) Weeks() pulumi.StringArrayOutp
 }
 
 type PolicyFileShareRetentionWeekly struct {
-	// The number of yearly backups to keep. Must be between `1` and `10`
+	// The number of daily backups to keep. Must be between `1` and `200` (inclusive)
 	Count int `pulumi:"count"`
-	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+	// The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays []string `pulumi:"weekdays"`
 }
 
@@ -497,9 +497,9 @@ type PolicyFileShareRetentionWeeklyInput interface {
 }
 
 type PolicyFileShareRetentionWeeklyArgs struct {
-	// The number of yearly backups to keep. Must be between `1` and `10`
+	// The number of daily backups to keep. Must be between `1` and `200` (inclusive)
 	Count pulumi.IntInput `pulumi:"count"`
-	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+	// The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
 }
 
@@ -580,12 +580,12 @@ func (o PolicyFileShareRetentionWeeklyOutput) ToPolicyFileShareRetentionWeeklyPt
 	}).(PolicyFileShareRetentionWeeklyPtrOutput)
 }
 
-// The number of yearly backups to keep. Must be between `1` and `10`
+// The number of daily backups to keep. Must be between `1` and `200` (inclusive)
 func (o PolicyFileShareRetentionWeeklyOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyFileShareRetentionWeekly) int { return v.Count }).(pulumi.IntOutput)
 }
 
-// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+// The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 func (o PolicyFileShareRetentionWeeklyOutput) Weekdays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyFileShareRetentionWeekly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
 }
@@ -614,7 +614,7 @@ func (o PolicyFileShareRetentionWeeklyPtrOutput) Elem() PolicyFileShareRetention
 	}).(PolicyFileShareRetentionWeeklyOutput)
 }
 
-// The number of yearly backups to keep. Must be between `1` and `10`
+// The number of daily backups to keep. Must be between `1` and `200` (inclusive)
 func (o PolicyFileShareRetentionWeeklyPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyFileShareRetentionWeekly) *int {
 		if v == nil {
@@ -624,7 +624,7 @@ func (o PolicyFileShareRetentionWeeklyPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+// The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 func (o PolicyFileShareRetentionWeeklyPtrOutput) Weekdays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyFileShareRetentionWeekly) []string {
 		if v == nil {
@@ -837,7 +837,7 @@ type PolicyVMBackup struct {
 	HourInterval *int `pulumi:"hourInterval"`
 	// The time of day to perform the backup in 24hour format.
 	Time string `pulumi:"time"`
-	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+	// The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
 	Weekdays []string `pulumi:"weekdays"`
 }
 
@@ -861,7 +861,7 @@ type PolicyVMBackupArgs struct {
 	HourInterval pulumi.IntPtrInput `pulumi:"hourInterval"`
 	// The time of day to perform the backup in 24hour format.
 	Time pulumi.StringInput `pulumi:"time"`
-	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+	// The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
 	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
 }
 
@@ -962,7 +962,7 @@ func (o PolicyVMBackupOutput) Time() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyVMBackup) string { return v.Time }).(pulumi.StringOutput)
 }
 
-// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+// The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
 func (o PolicyVMBackupOutput) Weekdays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyVMBackup) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
 }
@@ -1031,7 +1031,7 @@ func (o PolicyVMBackupPtrOutput) Time() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+// The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
 func (o PolicyVMBackupPtrOutput) Weekdays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyVMBackup) []string {
 		if v == nil {
@@ -1042,7 +1042,7 @@ func (o PolicyVMBackupPtrOutput) Weekdays() pulumi.StringArrayOutput {
 }
 
 type PolicyVMRetentionDaily struct {
-	// The number of yearly backups to keep. Must be between `1` and `9999`
+	// The number of daily backups to keep. Must be between `7` and `9999`.
 	Count int `pulumi:"count"`
 }
 
@@ -1058,7 +1058,7 @@ type PolicyVMRetentionDailyInput interface {
 }
 
 type PolicyVMRetentionDailyArgs struct {
-	// The number of yearly backups to keep. Must be between `1` and `9999`
+	// The number of daily backups to keep. Must be between `7` and `9999`.
 	Count pulumi.IntInput `pulumi:"count"`
 }
 
@@ -1139,7 +1139,7 @@ func (o PolicyVMRetentionDailyOutput) ToPolicyVMRetentionDailyPtrOutputWithConte
 	}).(PolicyVMRetentionDailyPtrOutput)
 }
 
-// The number of yearly backups to keep. Must be between `1` and `9999`
+// The number of daily backups to keep. Must be between `7` and `9999`.
 func (o PolicyVMRetentionDailyOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyVMRetentionDaily) int { return v.Count }).(pulumi.IntOutput)
 }
@@ -1168,7 +1168,7 @@ func (o PolicyVMRetentionDailyPtrOutput) Elem() PolicyVMRetentionDailyOutput {
 	}).(PolicyVMRetentionDailyOutput)
 }
 
-// The number of yearly backups to keep. Must be between `1` and `9999`
+// The number of daily backups to keep. Must be between `7` and `9999`.
 func (o PolicyVMRetentionDailyPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyVMRetentionDaily) *int {
 		if v == nil {
@@ -1179,7 +1179,7 @@ func (o PolicyVMRetentionDailyPtrOutput) Count() pulumi.IntPtrOutput {
 }
 
 type PolicyVMRetentionMonthly struct {
-	// The number of yearly backups to keep. Must be between `1` and `9999`
+	// The number of monthly backups to keep. Must be between `1` and `9999`
 	Count int `pulumi:"count"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays []string `pulumi:"weekdays"`
@@ -1199,7 +1199,7 @@ type PolicyVMRetentionMonthlyInput interface {
 }
 
 type PolicyVMRetentionMonthlyArgs struct {
-	// The number of yearly backups to keep. Must be between `1` and `9999`
+	// The number of monthly backups to keep. Must be between `1` and `9999`
 	Count pulumi.IntInput `pulumi:"count"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
@@ -1284,7 +1284,7 @@ func (o PolicyVMRetentionMonthlyOutput) ToPolicyVMRetentionMonthlyPtrOutputWithC
 	}).(PolicyVMRetentionMonthlyPtrOutput)
 }
 
-// The number of yearly backups to keep. Must be between `1` and `9999`
+// The number of monthly backups to keep. Must be between `1` and `9999`
 func (o PolicyVMRetentionMonthlyOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyVMRetentionMonthly) int { return v.Count }).(pulumi.IntOutput)
 }
@@ -1323,7 +1323,7 @@ func (o PolicyVMRetentionMonthlyPtrOutput) Elem() PolicyVMRetentionMonthlyOutput
 	}).(PolicyVMRetentionMonthlyOutput)
 }
 
-// The number of yearly backups to keep. Must be between `1` and `9999`
+// The number of monthly backups to keep. Must be between `1` and `9999`
 func (o PolicyVMRetentionMonthlyPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyVMRetentionMonthly) *int {
 		if v == nil {
@@ -1354,9 +1354,9 @@ func (o PolicyVMRetentionMonthlyPtrOutput) Weeks() pulumi.StringArrayOutput {
 }
 
 type PolicyVMRetentionWeekly struct {
-	// The number of yearly backups to keep. Must be between `1` and `9999`
+	// The number of weekly backups to keep. Must be between `1` and `9999`
 	Count int `pulumi:"count"`
-	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+	// The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays []string `pulumi:"weekdays"`
 }
 
@@ -1372,9 +1372,9 @@ type PolicyVMRetentionWeeklyInput interface {
 }
 
 type PolicyVMRetentionWeeklyArgs struct {
-	// The number of yearly backups to keep. Must be between `1` and `9999`
+	// The number of weekly backups to keep. Must be between `1` and `9999`
 	Count pulumi.IntInput `pulumi:"count"`
-	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+	// The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
 }
 
@@ -1455,12 +1455,12 @@ func (o PolicyVMRetentionWeeklyOutput) ToPolicyVMRetentionWeeklyPtrOutputWithCon
 	}).(PolicyVMRetentionWeeklyPtrOutput)
 }
 
-// The number of yearly backups to keep. Must be between `1` and `9999`
+// The number of weekly backups to keep. Must be between `1` and `9999`
 func (o PolicyVMRetentionWeeklyOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyVMRetentionWeekly) int { return v.Count }).(pulumi.IntOutput)
 }
 
-// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+// The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 func (o PolicyVMRetentionWeeklyOutput) Weekdays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyVMRetentionWeekly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
 }
@@ -1489,7 +1489,7 @@ func (o PolicyVMRetentionWeeklyPtrOutput) Elem() PolicyVMRetentionWeeklyOutput {
 	}).(PolicyVMRetentionWeeklyOutput)
 }
 
-// The number of yearly backups to keep. Must be between `1` and `9999`
+// The number of weekly backups to keep. Must be between `1` and `9999`
 func (o PolicyVMRetentionWeeklyPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyVMRetentionWeekly) *int {
 		if v == nil {
@@ -1499,7 +1499,7 @@ func (o PolicyVMRetentionWeeklyPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+// The weekday backups to retain. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 func (o PolicyVMRetentionWeeklyPtrOutput) Weekdays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyVMRetentionWeekly) []string {
 		if v == nil {

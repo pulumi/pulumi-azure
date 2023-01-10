@@ -80,6 +80,9 @@ namespace Pulumi.Azure.ContainerService
         [Output("containerRegistryName")]
         public Output<string> ContainerRegistryName { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the Container Registry.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -159,6 +162,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("containerRegistryName", required: true)]
         public Input<string> ContainerRegistryName { get; set; } = null!;
 
+        /// <summary>
+        /// The description of the Container Registry.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -200,6 +206,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("containerRegistryName")]
         public Input<string>? ContainerRegistryName { get; set; }
 
+        /// <summary>
+        /// The description of the Container Registry.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

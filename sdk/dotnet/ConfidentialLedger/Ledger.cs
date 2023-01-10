@@ -58,9 +58,15 @@ namespace Pulumi.Azure.ConfidentialLedger
     [AzureResourceType("azure:confidentialledger/ledger:Ledger")]
     public partial class Ledger : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A list of `azuread_based_service_principal` blocks as defined below.
+        /// </summary>
         [Output("azureadBasedServicePrincipals")]
         public Output<ImmutableArray<Outputs.LedgerAzureadBasedServicePrincipal>> AzureadBasedServicePrincipals { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of `certificate_based_security_principal` blocks as defined below.
+        /// </summary>
         [Output("certificateBasedSecurityPrincipals")]
         public Output<ImmutableArray<Outputs.LedgerCertificateBasedSecurityPrincipal>> CertificateBasedSecurityPrincipals { get; private set; } = null!;
 
@@ -154,6 +160,10 @@ namespace Pulumi.Azure.ConfidentialLedger
     {
         [Input("azureadBasedServicePrincipals", required: true)]
         private InputList<Inputs.LedgerAzureadBasedServicePrincipalArgs>? _azureadBasedServicePrincipals;
+
+        /// <summary>
+        /// A list of `azuread_based_service_principal` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.LedgerAzureadBasedServicePrincipalArgs> AzureadBasedServicePrincipals
         {
             get => _azureadBasedServicePrincipals ?? (_azureadBasedServicePrincipals = new InputList<Inputs.LedgerAzureadBasedServicePrincipalArgs>());
@@ -162,6 +172,10 @@ namespace Pulumi.Azure.ConfidentialLedger
 
         [Input("certificateBasedSecurityPrincipals")]
         private InputList<Inputs.LedgerCertificateBasedSecurityPrincipalArgs>? _certificateBasedSecurityPrincipals;
+
+        /// <summary>
+        /// A list of `certificate_based_security_principal` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.LedgerCertificateBasedSecurityPrincipalArgs> CertificateBasedSecurityPrincipals
         {
             get => _certificateBasedSecurityPrincipals ?? (_certificateBasedSecurityPrincipals = new InputList<Inputs.LedgerCertificateBasedSecurityPrincipalArgs>());
@@ -214,6 +228,10 @@ namespace Pulumi.Azure.ConfidentialLedger
     {
         [Input("azureadBasedServicePrincipals")]
         private InputList<Inputs.LedgerAzureadBasedServicePrincipalGetArgs>? _azureadBasedServicePrincipals;
+
+        /// <summary>
+        /// A list of `azuread_based_service_principal` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.LedgerAzureadBasedServicePrincipalGetArgs> AzureadBasedServicePrincipals
         {
             get => _azureadBasedServicePrincipals ?? (_azureadBasedServicePrincipals = new InputList<Inputs.LedgerAzureadBasedServicePrincipalGetArgs>());
@@ -222,6 +240,10 @@ namespace Pulumi.Azure.ConfidentialLedger
 
         [Input("certificateBasedSecurityPrincipals")]
         private InputList<Inputs.LedgerCertificateBasedSecurityPrincipalGetArgs>? _certificateBasedSecurityPrincipals;
+
+        /// <summary>
+        /// A list of `certificate_based_security_principal` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.LedgerCertificateBasedSecurityPrincipalGetArgs> CertificateBasedSecurityPrincipals
         {
             get => _certificateBasedSecurityPrincipals ?? (_certificateBasedSecurityPrincipals = new InputList<Inputs.LedgerCertificateBasedSecurityPrincipalGetArgs>());

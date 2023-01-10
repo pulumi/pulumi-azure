@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? CreateOption;
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+        /// The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? DiskEncryptionSetId;
         /// <summary>
@@ -37,8 +37,17 @@ namespace Pulumi.Azure.Compute.Outputs
         /// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         /// </summary>
         public readonly string StorageAccountType;
+        /// <summary>
+        /// Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+        /// </summary>
         public readonly int? UltraSsdDiskIopsReadWrite;
+        /// <summary>
+        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+        /// </summary>
         public readonly int? UltraSsdDiskMbpsReadWrite;
+        /// <summary>
+        /// Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
+        /// </summary>
         public readonly bool? WriteAcceleratorEnabled;
 
         [OutputConstructor]

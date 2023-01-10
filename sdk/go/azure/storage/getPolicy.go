@@ -63,7 +63,7 @@ type GetPolicyArgs struct {
 type GetPolicyResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A `rule` block as documented below.
+	// supports the following:
 	Rules            []GetPolicyRule `pulumi:"rules"`
 	StorageAccountId string          `pulumi:"storageAccountId"`
 }
@@ -111,7 +111,7 @@ func (o GetPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A `rule` block as documented below.
+// supports the following:
 func (o GetPolicyResultOutput) Rules() GetPolicyRuleArrayOutput {
 	return o.ApplyT(func(v GetPolicyResult) []GetPolicyRule { return v.Rules }).(GetPolicyRuleArrayOutput)
 }

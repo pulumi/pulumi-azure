@@ -12,6 +12,9 @@ namespace Pulumi.Azure.HDInsight.Inputs
 
     public sealed class HadoopClusterComputeIsolationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+        /// </summary>
         [Input("computeIsolationEnabled")]
         public Input<bool>? ComputeIsolationEnabled { get; set; }
 

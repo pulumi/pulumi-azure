@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AccountIdentity {
+    /**
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
+     * 
+     */
     private @Nullable List<String> identityIds;
     /**
      * @return The Principal ID associated with this Managed Service Identity.
@@ -30,6 +34,10 @@ public final class AccountIdentity {
     private String type;
 
     private AccountIdentity() {}
+    /**
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
+     * 
+     */
     public List<String> identityIds() {
         return this.identityIds == null ? List.of() : this.identityIds;
     }

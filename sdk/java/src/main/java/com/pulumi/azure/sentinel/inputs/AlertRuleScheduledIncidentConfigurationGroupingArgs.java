@@ -47,16 +47,32 @@ public final class AlertRuleScheduledIncidentConfigurationGroupingArgs extends c
         return Optional.ofNullable(this.entityMatchingMethod);
     }
 
+    /**
+     * A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+     * 
+     */
     @Import(name="groupByAlertDetails")
     private @Nullable Output<List<String>> groupByAlertDetails;
 
+    /**
+     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+     * 
+     */
     public Optional<Output<List<String>>> groupByAlertDetails() {
         return Optional.ofNullable(this.groupByAlertDetails);
     }
 
+    /**
+     * A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+     * 
+     */
     @Import(name="groupByCustomDetails")
     private @Nullable Output<List<String>> groupByCustomDetails;
 
+    /**
+     * @return A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+     * 
+     */
     public Optional<Output<List<String>>> groupByCustomDetails() {
         return Optional.ofNullable(this.groupByCustomDetails);
     }
@@ -178,28 +194,64 @@ public final class AlertRuleScheduledIncidentConfigurationGroupingArgs extends c
             return entityMatchingMethod(Output.of(entityMatchingMethod));
         }
 
+        /**
+         * @param groupByAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupByAlertDetails(@Nullable Output<List<String>> groupByAlertDetails) {
             $.groupByAlertDetails = groupByAlertDetails;
             return this;
         }
 
+        /**
+         * @param groupByAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupByAlertDetails(List<String> groupByAlertDetails) {
             return groupByAlertDetails(Output.of(groupByAlertDetails));
         }
 
+        /**
+         * @param groupByAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupByAlertDetails(String... groupByAlertDetails) {
             return groupByAlertDetails(List.of(groupByAlertDetails));
         }
 
+        /**
+         * @param groupByCustomDetails A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupByCustomDetails(@Nullable Output<List<String>> groupByCustomDetails) {
             $.groupByCustomDetails = groupByCustomDetails;
             return this;
         }
 
+        /**
+         * @param groupByCustomDetails A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupByCustomDetails(List<String> groupByCustomDetails) {
             return groupByCustomDetails(Output.of(groupByCustomDetails));
         }
 
+        /**
+         * @param groupByCustomDetails A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupByCustomDetails(String... groupByCustomDetails) {
             return groupByCustomDetails(List.of(groupByCustomDetails));
         }

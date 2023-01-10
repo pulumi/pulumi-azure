@@ -13,6 +13,9 @@ namespace Pulumi.Azure.Purview.Outputs
     [OutputType]
     public sealed class AccountIdentity
     {
+        /// <summary>
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
+        /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The Principal ID associated with this Managed Service Identity.

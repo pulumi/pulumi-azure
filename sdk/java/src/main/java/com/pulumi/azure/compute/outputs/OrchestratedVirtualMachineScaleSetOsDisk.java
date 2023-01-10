@@ -39,6 +39,10 @@ public final class OrchestratedVirtualMachineScaleSetOsDisk {
      * 
      */
     private String storageAccountType;
+    /**
+     * @return Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean writeAcceleratorEnabled;
 
     private OrchestratedVirtualMachineScaleSetOsDisk() {}
@@ -77,6 +81,10 @@ public final class OrchestratedVirtualMachineScaleSetOsDisk {
     public String storageAccountType() {
         return this.storageAccountType;
     }
+    /**
+     * @return Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> writeAcceleratorEnabled() {
         return Optional.ofNullable(this.writeAcceleratorEnabled);
     }

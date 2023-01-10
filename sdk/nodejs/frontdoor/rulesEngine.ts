@@ -128,6 +128,9 @@ export class RulesEngine extends pulumi.CustomResource {
         return obj['__pulumiType'] === RulesEngine.__pulumiType;
     }
 
+    /**
+     * Whether this Rules engine configuration is enabled? Defaults to `true`.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Front Door instance. Changing this forces a new resource to be created.
@@ -190,6 +193,9 @@ export class RulesEngine extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RulesEngine resources.
  */
 export interface RulesEngineState {
+    /**
+     * Whether this Rules engine configuration is enabled? Defaults to `true`.
+     */
     enabled?: pulumi.Input<boolean>;
     /**
      * The name of the Front Door instance. Changing this forces a new resource to be created.
@@ -214,6 +220,9 @@ export interface RulesEngineState {
  * The set of arguments for constructing a RulesEngine resource.
  */
 export interface RulesEngineArgs {
+    /**
+     * Whether this Rules engine configuration is enabled? Defaults to `true`.
+     */
     enabled?: pulumi.Input<boolean>;
     /**
      * The name of the Front Door instance. Changing this forces a new resource to be created.

@@ -87,9 +87,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:cosmosdb/mongoCollection:MongoCollection")
 public class MongoCollection extends com.pulumi.resources.CustomResource {
+    /**
+     * The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="accountName", type=String.class, parameters={})
     private Output<String> accountName;
 
+    /**
+     * @return The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> accountName() {
         return this.accountName;
     }

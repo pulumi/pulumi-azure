@@ -166,6 +166,11 @@ class GetGatewayConnectionResult:
     @property
     @pulumi.getter(name="ipsecPolicies")
     def ipsec_policies(self) -> Sequence['outputs.GetGatewayConnectionIpsecPolicyResult']:
+        """
+        (Optional) A `ipsec_policy` block which is documented below.
+        Only a single policy can be defined for a connection. For details on
+        custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+        """
         return pulumi.get(self, "ipsec_policies")
 
     @property
@@ -246,6 +251,11 @@ class GetGatewayConnectionResult:
     @property
     @pulumi.getter(name="trafficSelectorPolicies")
     def traffic_selector_policies(self) -> Sequence['outputs.GetGatewayConnectionTrafficSelectorPolicyResult']:
+        """
+        One or more `traffic_selector_policy` blocks which are documented below.
+        A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
+        For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+        """
         return pulumi.get(self, "traffic_selector_policies")
 
     @property

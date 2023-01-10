@@ -58,7 +58,7 @@ type LookupScheduledQueryRulesAlertArgs struct {
 
 // A collection of values returned by getScheduledQueryRulesAlert.
 type LookupScheduledQueryRulesAlertResult struct {
-	// An `action` block as defined below.
+	// supports the following:
 	Actions []GetScheduledQueryRulesAlertAction `pulumi:"actions"`
 	// The list of Resource IDs referred into query.
 	AuthorizedResourceIds []string `pulumi:"authorizedResourceIds"`
@@ -76,7 +76,8 @@ type LookupScheduledQueryRulesAlertResult struct {
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`
 	// Log search query.
-	Query             string `pulumi:"query"`
+	Query string `pulumi:"query"`
+	// The type of query results.
 	QueryType         string `pulumi:"queryType"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Severity of the alert.
@@ -130,7 +131,7 @@ func (o LookupScheduledQueryRulesAlertResultOutput) ToLookupScheduledQueryRulesA
 	return o
 }
 
-// An `action` block as defined below.
+// supports the following:
 func (o LookupScheduledQueryRulesAlertResultOutput) Actions() GetScheduledQueryRulesAlertActionArrayOutput {
 	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) []GetScheduledQueryRulesAlertAction { return v.Actions }).(GetScheduledQueryRulesAlertActionArrayOutput)
 }
@@ -179,6 +180,7 @@ func (o LookupScheduledQueryRulesAlertResultOutput) Query() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) string { return v.Query }).(pulumi.StringOutput)
 }
 
+// The type of query results.
 func (o LookupScheduledQueryRulesAlertResultOutput) QueryType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupScheduledQueryRulesAlertResult) string { return v.QueryType }).(pulumi.StringOutput)
 }

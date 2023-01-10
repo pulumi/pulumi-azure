@@ -141,9 +141,17 @@ public final class SnapshotPolicyArgs extends com.pulumi.resources.ResourceArgs 
         return this.resourceGroupName;
     }
 
+    /**
+     * A mapping of tags to assign to the resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -364,11 +372,23 @@ public final class SnapshotPolicyArgs extends com.pulumi.resources.ResourceArgs 
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A mapping of tags to assign to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

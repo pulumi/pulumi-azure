@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+        /// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

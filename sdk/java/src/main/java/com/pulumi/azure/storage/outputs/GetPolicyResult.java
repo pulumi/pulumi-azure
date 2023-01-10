@@ -17,7 +17,7 @@ public final class GetPolicyResult {
      */
     private String id;
     /**
-     * @return A `rule` block as documented below.
+     * @return supports the following:
      * 
      */
     private List<GetPolicyRule> rules;
@@ -32,7 +32,7 @@ public final class GetPolicyResult {
         return this.id;
     }
     /**
-     * @return A `rule` block as documented below.
+     * @return supports the following:
      * 
      */
     public List<GetPolicyRule> rules() {

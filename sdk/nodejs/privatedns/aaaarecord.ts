@@ -82,6 +82,9 @@ export class AAAARecord extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The Time To Live (TTL) of the DNS record in seconds.
+     */
     public readonly ttl!: pulumi.Output<number>;
     /**
      * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -159,6 +162,9 @@ export interface AAAARecordState {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Time To Live (TTL) of the DNS record in seconds.
+     */
     ttl?: pulumi.Input<number>;
     /**
      * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -186,6 +192,9 @@ export interface AAAARecordArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Time To Live (TTL) of the DNS record in seconds.
+     */
     ttl: pulumi.Input<number>;
     /**
      * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.

@@ -67,7 +67,8 @@ type LookupSqlDatabaseResult struct {
 	Id                string `pulumi:"id"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Throughput        int    `pulumi:"throughput"`
+	// The throughput of SQL database (RU/s).
+	Throughput int `pulumi:"throughput"`
 }
 
 func LookupSqlDatabaseOutput(ctx *pulumi.Context, args LookupSqlDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupSqlDatabaseResultOutput {
@@ -134,6 +135,7 @@ func (o LookupSqlDatabaseResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSqlDatabaseResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// The throughput of SQL database (RU/s).
 func (o LookupSqlDatabaseResultOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupSqlDatabaseResult) int { return v.Throughput }).(pulumi.IntOutput)
 }

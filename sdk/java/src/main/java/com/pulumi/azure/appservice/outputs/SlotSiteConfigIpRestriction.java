@@ -24,7 +24,7 @@ public final class SlotSiteConfigIpRestriction {
      */
     private @Nullable SlotSiteConfigIpRestrictionHeaders headers;
     /**
-     * @return The IP Address used for this IP Restriction in CIDR notation.
+     * @return The IP Address used for this IP Restriction.
      * 
      */
     private @Nullable String ipAddress;
@@ -65,7 +65,7 @@ public final class SlotSiteConfigIpRestriction {
         return Optional.ofNullable(this.headers);
     }
     /**
-     * @return The IP Address used for this IP Restriction in CIDR notation.
+     * @return The IP Address used for this IP Restriction.
      * 
      */
     public Optional<String> ipAddress() {

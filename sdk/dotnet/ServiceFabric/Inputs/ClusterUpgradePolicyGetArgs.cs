@@ -18,6 +18,9 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         [Input("deltaHealthPolicy")]
         public Input<Inputs.ClusterUpgradePolicyDeltaHealthPolicyGetArgs>? DeltaHealthPolicy { get; set; }
 
+        /// <summary>
+        /// Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
+        /// </summary>
         [Input("forceRestartEnabled")]
         public Input<bool>? ForceRestartEnabled { get; set; }
 

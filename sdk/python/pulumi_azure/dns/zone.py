@@ -25,7 +25,7 @@ class ZoneArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
         :param pulumi.Input['ZoneSoaRecordArgs'] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Record Set.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if name is not None:
@@ -75,7 +75,7 @@ class ZoneArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the Record Set.
+        A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -102,7 +102,7 @@ class _ZoneState:
         :param pulumi.Input[int] number_of_record_sets: (Optional) The number of records already in the zone.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input['ZoneSoaRecordArgs'] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Record Set.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if max_number_of_record_sets is not None:
             pulumi.set(__self__, "max_number_of_record_sets", max_number_of_record_sets)
@@ -195,7 +195,7 @@ class _ZoneState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the Record Set.
+        A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -240,7 +240,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ZoneSoaRecordArgs']] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Record Set.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
@@ -336,7 +336,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[int] number_of_record_sets: (Optional) The number of records already in the zone.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ZoneSoaRecordArgs']] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Record Set.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -403,7 +403,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags to assign to the Record Set.
+        A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 

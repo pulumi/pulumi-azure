@@ -27,6 +27,10 @@ public final class GetLogProfileResult {
      */
     private List<String> locations;
     private String name;
+    /**
+     * @return a `retention_policy` block as documented below.
+     * 
+     */
     private List<GetLogProfileRetentionPolicy> retentionPolicies;
     /**
      * @return The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to.
@@ -64,6 +68,10 @@ public final class GetLogProfileResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return a `retention_policy` block as documented below.
+     * 
+     */
     public List<GetLogProfileRetentionPolicy> retentionPolicies() {
         return this.retentionPolicies;
     }

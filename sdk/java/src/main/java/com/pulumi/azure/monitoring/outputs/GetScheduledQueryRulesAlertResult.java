@@ -16,7 +16,7 @@ import java.util.Objects;
 @CustomType
 public final class GetScheduledQueryRulesAlertResult {
     /**
-     * @return An `action` block as defined below.
+     * @return supports the following:
      * 
      */
     private List<GetScheduledQueryRulesAlertAction> actions;
@@ -61,6 +61,10 @@ public final class GetScheduledQueryRulesAlertResult {
      * 
      */
     private String query;
+    /**
+     * @return The type of query results.
+     * 
+     */
     private String queryType;
     private String resourceGroupName;
     /**
@@ -87,7 +91,7 @@ public final class GetScheduledQueryRulesAlertResult {
 
     private GetScheduledQueryRulesAlertResult() {}
     /**
-     * @return An `action` block as defined below.
+     * @return supports the following:
      * 
      */
     public List<GetScheduledQueryRulesAlertAction> actions() {
@@ -152,6 +156,10 @@ public final class GetScheduledQueryRulesAlertResult {
     public String query() {
         return this.query;
     }
+    /**
+     * @return The type of query results.
+     * 
+     */
     public String queryType() {
         return this.queryType;
     }

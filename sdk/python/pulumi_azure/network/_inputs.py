@@ -10045,7 +10045,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs:
                  name: pulumi.Input[str],
                  thumbprint: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "thumbprint", thumbprint)
@@ -10054,7 +10054,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+        The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -10078,12 +10078,11 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs:
                  name: pulumi.Input[str],
                  public_cert_data: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: A user-defined name of the root certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_cert_data: The public certificate of the root certificate
                authority. The certificate must be provided in Base-64 encoded X.509 format
                (PEM). In particular, this argument *must not* include the
                `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
-               revoked.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "public_cert_data", public_cert_data)
@@ -10092,7 +10091,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+        A user-defined name of the root certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -10108,7 +10107,6 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs:
         authority. The certificate must be provided in Base-64 encoded X.509 format
         (PEM). In particular, this argument *must not* include the
         `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
-        revoked.
         """
         return pulumi.get(self, "public_cert_data")
 
@@ -10126,7 +10124,7 @@ class VirtualNetworkSubnetArgs:
                  security_group: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] address_prefix: The address prefix to use for the subnet.
-        :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] id: The ID of DDoS Protection Plan.
         :param pulumi.Input[str] security_group: The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
         """
@@ -10153,7 +10151,7 @@ class VirtualNetworkSubnetArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the virtual network. Changing this forces a new resource to be created.
+        The name of the subnet. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

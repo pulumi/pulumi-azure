@@ -23,7 +23,15 @@ public final class AlertRuleScheduledIncidentConfigurationGrouping {
      * 
      */
     private @Nullable String entityMatchingMethod;
+    /**
+     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+     * 
+     */
     private @Nullable List<String> groupByAlertDetails;
+    /**
+     * @return A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+     * 
+     */
     private @Nullable List<String> groupByCustomDetails;
     /**
      * @return A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
@@ -56,9 +64,17 @@ public final class AlertRuleScheduledIncidentConfigurationGrouping {
     public Optional<String> entityMatchingMethod() {
         return Optional.ofNullable(this.entityMatchingMethod);
     }
+    /**
+     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+     * 
+     */
     public List<String> groupByAlertDetails() {
         return this.groupByAlertDetails == null ? List.of() : this.groupByAlertDetails;
     }
+    /**
+     * @return A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+     * 
+     */
     public List<String> groupByCustomDetails() {
         return this.groupByCustomDetails == null ? List.of() : this.groupByCustomDetails;
     }

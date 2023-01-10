@@ -94,11 +94,17 @@ export class LinkedServiceWeb extends pulumi.CustomResource {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The password for Basic authentication. Required if `authenticationType` sets to `Basic`.
+     */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
      * The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
      */
     public readonly url!: pulumi.Output<string>;
+    /**
+     * The username for Basic authentication. Required if `authenticationType` sets to `Basic`.
+     */
     public readonly username!: pulumi.Output<string | undefined>;
 
     /**
@@ -192,11 +198,17 @@ export interface LinkedServiceWebState {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The password for Basic authentication. Required if `authenticationType` sets to `Basic`.
+     */
     password?: pulumi.Input<string>;
     /**
      * The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
      */
     url?: pulumi.Input<string>;
+    /**
+     * The username for Basic authentication. Required if `authenticationType` sets to `Basic`.
+     */
     username?: pulumi.Input<string>;
 }
 
@@ -237,10 +249,16 @@ export interface LinkedServiceWebArgs {
      * A map of parameters to associate with the Data Factory Linked Service.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The password for Basic authentication. Required if `authenticationType` sets to `Basic`.
+     */
     password?: pulumi.Input<string>;
     /**
      * The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
      */
     url: pulumi.Input<string>;
+    /**
+     * The username for Basic authentication. Required if `authenticationType` sets to `Basic`.
+     */
     username?: pulumi.Input<string>;
 }

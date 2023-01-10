@@ -93,9 +93,17 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
         return this.storageAccountType;
     }
 
+    /**
+     * Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
+     * 
+     */
     @Import(name="writeAcceleratorEnabled")
     private @Nullable Output<Boolean> writeAcceleratorEnabled;
 
+    /**
+     * @return Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> writeAcceleratorEnabled() {
         return Optional.ofNullable(this.writeAcceleratorEnabled);
     }
@@ -234,11 +242,23 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
             return storageAccountType(Output.of(storageAccountType));
         }
 
+        /**
+         * @param writeAcceleratorEnabled Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder writeAcceleratorEnabled(@Nullable Output<Boolean> writeAcceleratorEnabled) {
             $.writeAcceleratorEnabled = writeAcceleratorEnabled;
             return this;
         }
 
+        /**
+         * @param writeAcceleratorEnabled Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder writeAcceleratorEnabled(Boolean writeAcceleratorEnabled) {
             return writeAcceleratorEnabled(Output.of(writeAcceleratorEnabled));
         }

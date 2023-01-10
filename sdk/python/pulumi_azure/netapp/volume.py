@@ -46,6 +46,7 @@ class VolumeArgs:
         :param pulumi.Input[int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below.
         :param pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
@@ -183,6 +184,9 @@ class VolumeArgs:
     @property
     @pulumi.getter(name="azureVmwareDataStoreEnabled")
     def azure_vmware_data_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "azure_vmware_data_store_enabled")
 
     @azure_vmware_data_store_enabled.setter
@@ -374,6 +378,7 @@ class _VolumeState:
         """
         Input properties used for looking up and filtering Volume resources.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below.
         :param pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
@@ -455,6 +460,9 @@ class _VolumeState:
     @property
     @pulumi.getter(name="azureVmwareDataStoreEnabled")
     def azure_vmware_data_store_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "azure_vmware_data_store_enabled")
 
     @azure_vmware_data_store_enabled.setter
@@ -743,6 +751,7 @@ class Volume(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']] data_protection_replication: A `data_protection_replication` block as defined below.
         :param pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
@@ -901,6 +910,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']] data_protection_replication: A `data_protection_replication` block as defined below.
         :param pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
@@ -961,6 +971,9 @@ class Volume(pulumi.CustomResource):
     @property
     @pulumi.getter(name="azureVmwareDataStoreEnabled")
     def azure_vmware_data_store_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "azure_vmware_data_store_enabled")
 
     @property

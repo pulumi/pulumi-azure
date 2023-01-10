@@ -19,6 +19,10 @@ public final class GetFirewallIpConfiguration {
      * 
      */
     private String privateIpAddress;
+    /**
+     * @return The ID of the Public IP address of the Azure Firewall.
+     * 
+     */
     private String publicIpAddressId;
     /**
      * @return The ID of the Subnet where the Azure Firewall is deployed.
@@ -41,6 +45,10 @@ public final class GetFirewallIpConfiguration {
     public String privateIpAddress() {
         return this.privateIpAddress;
     }
+    /**
+     * @return The ID of the Public IP address of the Azure Firewall.
+     * 
+     */
     public String publicIpAddressId() {
         return this.publicIpAddressId;
     }

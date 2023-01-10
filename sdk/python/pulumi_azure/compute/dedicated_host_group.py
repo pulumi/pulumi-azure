@@ -29,6 +29,7 @@ class DedicatedHostGroupArgs:
         :param pulumi.Input[str] location: The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
         """
         pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -118,6 +119,9 @@ class DedicatedHostGroupArgs:
     @property
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
+        """
         return pulumi.get(self, "zone")
 
     @zone.setter
@@ -143,6 +147,7 @@ class _DedicatedHostGroupState:
         :param pulumi.Input[int] platform_fault_domain_count: The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group the Dedicated Host Group is located in. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
         """
         if automatic_placement_enabled is not None:
             pulumi.set(__self__, "automatic_placement_enabled", automatic_placement_enabled)
@@ -234,6 +239,9 @@ class _DedicatedHostGroupState:
     @property
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
+        """
         return pulumi.get(self, "zone")
 
     @zone.setter
@@ -286,6 +294,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
         :param pulumi.Input[int] platform_fault_domain_count: The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group the Dedicated Host Group is located in. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
         """
         ...
     @overload
@@ -389,6 +398,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
         :param pulumi.Input[int] platform_fault_domain_count: The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group the Dedicated Host Group is located in. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -454,5 +464,8 @@ class DedicatedHostGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
+        """
         return pulumi.get(self, "zone")
 

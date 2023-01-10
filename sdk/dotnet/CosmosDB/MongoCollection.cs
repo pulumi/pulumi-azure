@@ -68,6 +68,9 @@ namespace Pulumi.Azure.CosmosDB
     [AzureResourceType("azure:cosmosdb/mongoCollection:MongoCollection")]
     public partial class MongoCollection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("accountName")]
         public Output<string> AccountName { get; private set; } = null!;
 
@@ -171,6 +174,9 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class MongoCollectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
@@ -236,6 +242,9 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class MongoCollectionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
 

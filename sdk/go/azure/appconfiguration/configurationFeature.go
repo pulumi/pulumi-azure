@@ -97,7 +97,7 @@ type ConfigurationFeature struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `targetingFilter` block as defined below.
 	TargetingFilters ConfigurationFeatureTargetingFilterArrayOutput `pulumi:"targetingFilters"`
-	// A `targetingFilter` block `timewindowFilter` as defined below.
+	// A `timewindowFilter` block as defined below.
 	TimewindowFilters ConfigurationFeatureTimewindowFilterArrayOutput `pulumi:"timewindowFilters"`
 }
 
@@ -152,7 +152,7 @@ type configurationFeatureState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `targetingFilter` block as defined below.
 	TargetingFilters []ConfigurationFeatureTargetingFilter `pulumi:"targetingFilters"`
-	// A `targetingFilter` block `timewindowFilter` as defined below.
+	// A `timewindowFilter` block as defined below.
 	TimewindowFilters []ConfigurationFeatureTimewindowFilter `pulumi:"timewindowFilters"`
 }
 
@@ -176,7 +176,7 @@ type ConfigurationFeatureState struct {
 	Tags pulumi.StringMapInput
 	// A `targetingFilter` block as defined below.
 	TargetingFilters ConfigurationFeatureTargetingFilterArrayInput
-	// A `targetingFilter` block `timewindowFilter` as defined below.
+	// A `timewindowFilter` block as defined below.
 	TimewindowFilters ConfigurationFeatureTimewindowFilterArrayInput
 }
 
@@ -204,7 +204,7 @@ type configurationFeatureArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `targetingFilter` block as defined below.
 	TargetingFilters []ConfigurationFeatureTargetingFilter `pulumi:"targetingFilters"`
-	// A `targetingFilter` block `timewindowFilter` as defined below.
+	// A `timewindowFilter` block as defined below.
 	TimewindowFilters []ConfigurationFeatureTimewindowFilter `pulumi:"timewindowFilters"`
 }
 
@@ -229,7 +229,7 @@ type ConfigurationFeatureArgs struct {
 	Tags pulumi.StringMapInput
 	// A `targetingFilter` block as defined below.
 	TargetingFilters ConfigurationFeatureTargetingFilterArrayInput
-	// A `targetingFilter` block `timewindowFilter` as defined below.
+	// A `timewindowFilter` block as defined below.
 	TimewindowFilters ConfigurationFeatureTimewindowFilterArrayInput
 }
 
@@ -371,7 +371,7 @@ func (o ConfigurationFeatureOutput) TargetingFilters() ConfigurationFeatureTarge
 	}).(ConfigurationFeatureTargetingFilterArrayOutput)
 }
 
-// A `targetingFilter` block `timewindowFilter` as defined below.
+// A `timewindowFilter` block as defined below.
 func (o ConfigurationFeatureOutput) TimewindowFilters() ConfigurationFeatureTimewindowFilterArrayOutput {
 	return o.ApplyT(func(v *ConfigurationFeature) ConfigurationFeatureTimewindowFilterArrayOutput {
 		return v.TimewindowFilters

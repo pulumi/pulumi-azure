@@ -167,6 +167,7 @@ class HBaseClusterComputeIsolationArgs:
                  compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  host_sku: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[bool] compute_isolation_enabled: This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         :param pulumi.Input[str] host_sku: The name of the host SKU.
         """
         if compute_isolation_enabled is not None:
@@ -177,6 +178,9 @@ class HBaseClusterComputeIsolationArgs:
     @property
     @pulumi.getter(name="computeIsolationEnabled")
     def compute_isolation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+        """
         return pulumi.get(self, "compute_isolation_enabled")
 
     @compute_isolation_enabled.setter
@@ -1654,6 +1658,7 @@ class HadoopClusterComputeIsolationArgs:
                  compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  host_sku: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[bool] compute_isolation_enabled: This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         :param pulumi.Input[str] host_sku: The name of the host SKU.
         """
         if compute_isolation_enabled is not None:
@@ -1664,6 +1669,9 @@ class HadoopClusterComputeIsolationArgs:
     @property
     @pulumi.getter(name="computeIsolationEnabled")
     def compute_isolation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+        """
         return pulumi.get(self, "compute_isolation_enabled")
 
     @compute_isolation_enabled.setter
@@ -2621,7 +2629,7 @@ class HadoopClusterRolesHeadNodeScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the script action.
         :param pulumi.Input[str] uri: The URI to the script.
         :param pulumi.Input[str] parameters: The parameters for the script provided.
         """
@@ -2634,7 +2642,7 @@ class HadoopClusterRolesHeadNodeScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        The name of the script action.
         """
         return pulumi.get(self, "name")
 
@@ -2987,7 +2995,7 @@ class HadoopClusterRolesWorkerNodeScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the script action.
         :param pulumi.Input[str] uri: The URI to the script.
         :param pulumi.Input[str] parameters: The parameters for the script provided.
         """
@@ -3000,7 +3008,7 @@ class HadoopClusterRolesWorkerNodeScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        The name of the script action.
         """
         return pulumi.get(self, "name")
 
@@ -3157,7 +3165,7 @@ class HadoopClusterRolesZookeeperNodeScriptActionArgs:
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the script action.
         :param pulumi.Input[str] uri: The URI to the script.
         :param pulumi.Input[str] parameters: The parameters for the script provided.
         """
@@ -3170,7 +3178,7 @@ class HadoopClusterRolesZookeeperNodeScriptActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        The name of the script action.
         """
         return pulumi.get(self, "name")
 
@@ -3455,11 +3463,17 @@ class HadoopClusterStorageAccountGen2Args:
 class InteractiveQueryClusterComponentVersionArgs:
     def __init__(__self__, *,
                  interactive_hive: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] interactive_hive: The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        """
         pulumi.set(__self__, "interactive_hive", interactive_hive)
 
     @property
     @pulumi.getter(name="interactiveHive")
     def interactive_hive(self) -> pulumi.Input[str]:
+        """
+        The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "interactive_hive")
 
     @interactive_hive.setter
@@ -3473,6 +3487,7 @@ class InteractiveQueryClusterComputeIsolationArgs:
                  compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  host_sku: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[bool] compute_isolation_enabled: This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         :param pulumi.Input[str] host_sku: The name of the host SKU.
         """
         if compute_isolation_enabled is not None:
@@ -3483,6 +3498,9 @@ class InteractiveQueryClusterComputeIsolationArgs:
     @property
     @pulumi.getter(name="computeIsolationEnabled")
     def compute_isolation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+        """
         return pulumi.get(self, "compute_isolation_enabled")
 
     @compute_isolation_enabled.setter
@@ -5013,6 +5031,7 @@ class KafkaClusterComputeIsolationArgs:
                  compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  host_sku: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[bool] compute_isolation_enabled: This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         :param pulumi.Input[str] host_sku: The name of the host SKU.
         """
         if compute_isolation_enabled is not None:
@@ -5023,6 +5042,9 @@ class KafkaClusterComputeIsolationArgs:
     @property
     @pulumi.getter(name="computeIsolationEnabled")
     def compute_isolation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+        """
         return pulumi.get(self, "compute_isolation_enabled")
 
     @compute_isolation_enabled.setter
@@ -6562,6 +6584,7 @@ class SparkClusterComputeIsolationArgs:
                  compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  host_sku: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[bool] compute_isolation_enabled: This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         :param pulumi.Input[str] host_sku: The name of the host SKU.
         """
         if compute_isolation_enabled is not None:
@@ -6572,6 +6595,9 @@ class SparkClusterComputeIsolationArgs:
     @property
     @pulumi.getter(name="computeIsolationEnabled")
     def compute_isolation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+        """
         return pulumi.get(self, "compute_isolation_enabled")
 
     @compute_isolation_enabled.setter

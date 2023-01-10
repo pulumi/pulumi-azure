@@ -44,13 +44,25 @@ namespace Pulumi.Azure.Core
     [OutputType]
     public sealed class GetClientConfigResult
     {
+        /// <summary>
+        /// is set to the Azure Client ID (Application Object ID).
+        /// </summary>
         public readonly string ClientId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// is set to the Azure Object ID.
+        /// </summary>
         public readonly string ObjectId;
+        /// <summary>
+        /// is set to the Azure Subscription ID.
+        /// </summary>
         public readonly string SubscriptionId;
+        /// <summary>
+        /// is set to the Azure Tenant ID.
+        /// </summary>
         public readonly string TenantId;
 
         [OutputConstructor]

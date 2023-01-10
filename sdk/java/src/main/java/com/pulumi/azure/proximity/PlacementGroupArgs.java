@@ -6,6 +6,7 @@ package com.pulumi.azure.proximity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class PlacementGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PlacementGroupArgs Empty = new PlacementGroupArgs();
+
+    /**
+     * Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+     * 
+     */
+    @Import(name="allowedVmSizes")
+    private @Nullable Output<List<String>> allowedVmSizes;
+
+    /**
+     * @return Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+     * 
+     */
+    public Optional<Output<List<String>>> allowedVmSizes() {
+        return Optional.ofNullable(this.allowedVmSizes);
+    }
 
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -76,13 +92,30 @@ public final class PlacementGroupArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="zone")
+    private @Nullable Output<String> zone;
+
+    /**
+     * @return Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> zone() {
+        return Optional.ofNullable(this.zone);
+    }
+
     private PlacementGroupArgs() {}
 
     private PlacementGroupArgs(PlacementGroupArgs $) {
+        this.allowedVmSizes = $.allowedVmSizes;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
+        this.zone = $.zone;
     }
 
     public static Builder builder() {
@@ -101,6 +134,37 @@ public final class PlacementGroupArgs extends com.pulumi.resources.ResourceArgs 
 
         public Builder(PlacementGroupArgs defaults) {
             $ = new PlacementGroupArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param allowedVmSizes Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedVmSizes(@Nullable Output<List<String>> allowedVmSizes) {
+            $.allowedVmSizes = allowedVmSizes;
+            return this;
+        }
+
+        /**
+         * @param allowedVmSizes Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedVmSizes(List<String> allowedVmSizes) {
+            return allowedVmSizes(Output.of(allowedVmSizes));
+        }
+
+        /**
+         * @param allowedVmSizes Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedVmSizes(String... allowedVmSizes) {
+            return allowedVmSizes(List.of(allowedVmSizes));
         }
 
         /**
@@ -185,6 +249,27 @@ public final class PlacementGroupArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param zone Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zone(@Nullable Output<String> zone) {
+            $.zone = zone;
+            return this;
+        }
+
+        /**
+         * @param zone Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zone(String zone) {
+            return zone(Output.of(zone));
         }
 
         public PlacementGroupArgs build() {

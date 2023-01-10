@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class PolicyFileShareRetentionMonthly {
     /**
-     * @return The number of yearly backups to keep. Must be between `1` and `10`
+     * @return The number of monthly backups to keep. Must be between `1` and `120`
      * 
      */
     private Integer count;
@@ -29,7 +29,7 @@ public final class PolicyFileShareRetentionMonthly {
 
     private PolicyFileShareRetentionMonthly() {}
     /**
-     * @return The number of yearly backups to keep. Must be between `1` and `10`
+     * @return The number of monthly backups to keep. Must be between `1` and `120`
      * 
      */
     public Integer count() {

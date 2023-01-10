@@ -99,8 +99,7 @@ type ApplicationGroup struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Option to set a friendly name for the Virtual Desktop Application Group.
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// Resource ID for a Virtual Desktop Host Pool to associate with the
-	// Virtual Desktop Application Group.
+	// Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
 	HostPoolId pulumi.StringOutput `pulumi:"hostPoolId"`
 	// The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -158,8 +157,7 @@ type applicationGroupState struct {
 	Description *string `pulumi:"description"`
 	// Option to set a friendly name for the Virtual Desktop Application Group.
 	FriendlyName *string `pulumi:"friendlyName"`
-	// Resource ID for a Virtual Desktop Host Pool to associate with the
-	// Virtual Desktop Application Group.
+	// Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
 	HostPoolId *string `pulumi:"hostPoolId"`
 	// The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -180,8 +178,7 @@ type ApplicationGroupState struct {
 	Description pulumi.StringPtrInput
 	// Option to set a friendly name for the Virtual Desktop Application Group.
 	FriendlyName pulumi.StringPtrInput
-	// Resource ID for a Virtual Desktop Host Pool to associate with the
-	// Virtual Desktop Application Group.
+	// Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
 	HostPoolId pulumi.StringPtrInput
 	// The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -206,8 +203,7 @@ type applicationGroupArgs struct {
 	Description *string `pulumi:"description"`
 	// Option to set a friendly name for the Virtual Desktop Application Group.
 	FriendlyName *string `pulumi:"friendlyName"`
-	// Resource ID for a Virtual Desktop Host Pool to associate with the
-	// Virtual Desktop Application Group.
+	// Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
 	HostPoolId string `pulumi:"hostPoolId"`
 	// The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -229,8 +225,7 @@ type ApplicationGroupArgs struct {
 	Description pulumi.StringPtrInput
 	// Option to set a friendly name for the Virtual Desktop Application Group.
 	FriendlyName pulumi.StringPtrInput
-	// Resource ID for a Virtual Desktop Host Pool to associate with the
-	// Virtual Desktop Application Group.
+	// Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
 	HostPoolId pulumi.StringInput
 	// The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -346,8 +341,7 @@ func (o ApplicationGroupOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Resource ID for a Virtual Desktop Host Pool to associate with the
-// Virtual Desktop Application Group.
+// Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
 func (o ApplicationGroupOutput) HostPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.HostPoolId }).(pulumi.StringOutput)
 }

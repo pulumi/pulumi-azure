@@ -171,7 +171,7 @@ type VirtualNetworkGateway struct {
 	IpConfigurations VirtualNetworkGatewayIpConfigurationArrayOutput `pulumi:"ipConfigurations"`
 	// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+	// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
 	PrivateIpAddressEnabled pulumi.BoolPtrOutput `pulumi:"privateIpAddressEnabled"`
@@ -264,7 +264,7 @@ type virtualNetworkGatewayState struct {
 	IpConfigurations []VirtualNetworkGatewayIpConfiguration `pulumi:"ipConfigurations"`
 	// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+	// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
 	PrivateIpAddressEnabled *bool `pulumi:"privateIpAddressEnabled"`
@@ -317,7 +317,7 @@ type VirtualNetworkGatewayState struct {
 	IpConfigurations VirtualNetworkGatewayIpConfigurationArrayInput
 	// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+	// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
 	PrivateIpAddressEnabled pulumi.BoolPtrInput
@@ -374,7 +374,7 @@ type virtualNetworkGatewayArgs struct {
 	IpConfigurations []VirtualNetworkGatewayIpConfiguration `pulumi:"ipConfigurations"`
 	// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+	// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
 	PrivateIpAddressEnabled *bool `pulumi:"privateIpAddressEnabled"`
@@ -428,7 +428,7 @@ type VirtualNetworkGatewayArgs struct {
 	IpConfigurations VirtualNetworkGatewayIpConfigurationArrayInput
 	// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+	// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
 	PrivateIpAddressEnabled pulumi.BoolPtrInput
@@ -596,7 +596,7 @@ func (o VirtualNetworkGatewayOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`. Changing this forces a new resource to be created.
+// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

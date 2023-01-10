@@ -45,6 +45,7 @@ from .get_subnet import *
 from .get_traffic_manager import *
 from .get_traffic_manager_profile import *
 from .get_virtual_hub import *
+from .get_virtual_hub_route_table import *
 from .get_virtual_network import *
 from .get_virtual_network_gateway import *
 from .get_virtual_wan import *
@@ -62,6 +63,7 @@ from .network_interface_backend_address_pool_association import *
 from .network_interface_nat_rule_association import *
 from .network_interface_security_group_association import *
 from .network_manager import *
+from .network_manager_network_group import *
 from .network_packet_capture import *
 from .network_security_group import *
 from .network_security_rule import *

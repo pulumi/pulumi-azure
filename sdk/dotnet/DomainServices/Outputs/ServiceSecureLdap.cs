@@ -13,7 +13,13 @@ namespace Pulumi.Azure.DomainServices.Outputs
     [OutputType]
     public sealed class ServiceSecureLdap
     {
+        /// <summary>
+        /// The expiry time of the certificate.
+        /// </summary>
         public readonly string? CertificateExpiry;
+        /// <summary>
+        /// The thumbprint of the certificate.
+        /// </summary>
         public readonly string? CertificateThumbprint;
         /// <summary>
         /// Whether to enable secure LDAP for the managed domain. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
@@ -31,6 +37,9 @@ namespace Pulumi.Azure.DomainServices.Outputs
         /// The password to use for decrypting the PKCS#12 bundle (PFX file).
         /// </summary>
         public readonly string PfxCertificatePassword;
+        /// <summary>
+        /// The public certificate.
+        /// </summary>
         public readonly string? PublicCertificate;
 
         [OutputConstructor]

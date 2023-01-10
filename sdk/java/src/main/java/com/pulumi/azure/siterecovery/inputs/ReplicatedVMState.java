@@ -63,9 +63,17 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.networkInterfaces);
     }
 
+    /**
+     * Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="recoveryReplicationPolicyId")
     private @Nullable Output<String> recoveryReplicationPolicyId;
 
+    /**
+     * @return Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> recoveryReplicationPolicyId() {
         return Optional.ofNullable(this.recoveryReplicationPolicyId);
     }
@@ -101,14 +109,14 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+     * Name of fabric that should contain this replication. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sourceRecoveryFabricName")
     private @Nullable Output<String> sourceRecoveryFabricName;
 
     /**
-     * @return Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+     * @return Name of fabric that should contain this replication. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sourceRecoveryFabricName() {
@@ -356,11 +364,23 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
             return networkInterfaces(List.of(networkInterfaces));
         }
 
+        /**
+         * @param recoveryReplicationPolicyId Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recoveryReplicationPolicyId(@Nullable Output<String> recoveryReplicationPolicyId) {
             $.recoveryReplicationPolicyId = recoveryReplicationPolicyId;
             return this;
         }
 
+        /**
+         * @param recoveryReplicationPolicyId Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recoveryReplicationPolicyId(String recoveryReplicationPolicyId) {
             return recoveryReplicationPolicyId(Output.of(recoveryReplicationPolicyId));
         }
@@ -408,7 +428,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceRecoveryFabricName Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+         * @param sourceRecoveryFabricName Name of fabric that should contain this replication. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -419,7 +439,7 @@ public final class ReplicatedVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceRecoveryFabricName Name of fabric that should contains this replication. Changing this forces a new resource to be created.
+         * @param sourceRecoveryFabricName Name of fabric that should contain this replication. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

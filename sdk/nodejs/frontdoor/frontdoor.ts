@@ -105,6 +105,9 @@ export class Frontdoor extends pulumi.CustomResource {
      * A `backendPoolLoadBalancing` block as defined below.
      */
     public readonly backendPoolLoadBalancings!: pulumi.Output<outputs.frontdoor.FrontdoorBackendPoolLoadBalancing[]>;
+    /**
+     * A `backendPoolSettings` block as defined below.
+     */
     public readonly backendPoolSettings!: pulumi.Output<outputs.frontdoor.FrontdoorBackendPoolSetting[] | undefined>;
     /**
      * A `backendPool` block as defined below.
@@ -257,6 +260,9 @@ export interface FrontdoorState {
      * A `backendPoolLoadBalancing` block as defined below.
      */
     backendPoolLoadBalancings?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolLoadBalancing>[]>;
+    /**
+     * A `backendPoolSettings` block as defined below.
+     */
     backendPoolSettings?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolSetting>[]>;
     /**
      * A `backendPool` block as defined below.
@@ -325,6 +331,9 @@ export interface FrontdoorArgs {
      * A `backendPoolLoadBalancing` block as defined below.
      */
     backendPoolLoadBalancings: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolLoadBalancing>[]>;
+    /**
+     * A `backendPoolSettings` block as defined below.
+     */
     backendPoolSettings?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolSetting>[]>;
     /**
      * A `backendPool` block as defined below.

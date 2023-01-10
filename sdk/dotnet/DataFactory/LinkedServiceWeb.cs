@@ -102,6 +102,9 @@ namespace Pulumi.Azure.DataFactory
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
+        /// <summary>
+        /// The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+        /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
@@ -111,6 +114,9 @@ namespace Pulumi.Azure.DataFactory
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
+        /// <summary>
+        /// The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
+        /// </summary>
         [Output("username")]
         public Output<string?> Username { get; private set; } = null!;
 
@@ -233,6 +239,10 @@ namespace Pulumi.Azure.DataFactory
 
         [Input("password")]
         private Input<string>? _password;
+
+        /// <summary>
+        /// The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -249,6 +259,9 @@ namespace Pulumi.Azure.DataFactory
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
+        /// <summary>
+        /// The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 
@@ -329,6 +342,10 @@ namespace Pulumi.Azure.DataFactory
 
         [Input("password")]
         private Input<string>? _password;
+
+        /// <summary>
+        /// The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -345,6 +362,9 @@ namespace Pulumi.Azure.DataFactory
         [Input("url")]
         public Input<string>? Url { get; set; }
 
+        /// <summary>
+        /// The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

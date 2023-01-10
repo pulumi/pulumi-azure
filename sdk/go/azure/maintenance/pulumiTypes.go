@@ -228,7 +228,8 @@ type GetConfigurationWindow struct {
 	Duration string `pulumi:"duration"`
 	// Effective expiration date of the maintenance window.
 	ExpirationDateTime string `pulumi:"expirationDateTime"`
-	RecurEvery         string `pulumi:"recurEvery"`
+	// The rate at which a maintenance window is expected to recur.
+	RecurEvery string `pulumi:"recurEvery"`
 	// Effective start date of the maintenance window.
 	StartDateTime string `pulumi:"startDateTime"`
 	// The time zone for the maintenance window.
@@ -251,7 +252,8 @@ type GetConfigurationWindowArgs struct {
 	Duration pulumi.StringInput `pulumi:"duration"`
 	// Effective expiration date of the maintenance window.
 	ExpirationDateTime pulumi.StringInput `pulumi:"expirationDateTime"`
-	RecurEvery         pulumi.StringInput `pulumi:"recurEvery"`
+	// The rate at which a maintenance window is expected to recur.
+	RecurEvery pulumi.StringInput `pulumi:"recurEvery"`
 	// Effective start date of the maintenance window.
 	StartDateTime pulumi.StringInput `pulumi:"startDateTime"`
 	// The time zone for the maintenance window.
@@ -319,6 +321,7 @@ func (o GetConfigurationWindowOutput) ExpirationDateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationWindow) string { return v.ExpirationDateTime }).(pulumi.StringOutput)
 }
 
+// The rate at which a maintenance window is expected to recur.
 func (o GetConfigurationWindowOutput) RecurEvery() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationWindow) string { return v.RecurEvery }).(pulumi.StringOutput)
 }

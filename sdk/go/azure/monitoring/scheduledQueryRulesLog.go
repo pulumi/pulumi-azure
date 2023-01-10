@@ -128,6 +128,7 @@ import (
 type ScheduledQueryRulesLog struct {
 	pulumi.CustomResourceState
 
+	// A list of IDs of Resources referred into query.
 	AuthorizedResourceIds pulumi.StringArrayOutput `pulumi:"authorizedResourceIds"`
 	// A `criteria` block as defined below.
 	Criteria ScheduledQueryRulesLogCriteriaOutput `pulumi:"criteria"`
@@ -185,6 +186,7 @@ func GetScheduledQueryRulesLog(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScheduledQueryRulesLog resources.
 type scheduledQueryRulesLogState struct {
+	// A list of IDs of Resources referred into query.
 	AuthorizedResourceIds []string `pulumi:"authorizedResourceIds"`
 	// A `criteria` block as defined below.
 	Criteria *ScheduledQueryRulesLogCriteria `pulumi:"criteria"`
@@ -205,6 +207,7 @@ type scheduledQueryRulesLogState struct {
 }
 
 type ScheduledQueryRulesLogState struct {
+	// A list of IDs of Resources referred into query.
 	AuthorizedResourceIds pulumi.StringArrayInput
 	// A `criteria` block as defined below.
 	Criteria ScheduledQueryRulesLogCriteriaPtrInput
@@ -229,6 +232,7 @@ func (ScheduledQueryRulesLogState) ElementType() reflect.Type {
 }
 
 type scheduledQueryRulesLogArgs struct {
+	// A list of IDs of Resources referred into query.
 	AuthorizedResourceIds []string `pulumi:"authorizedResourceIds"`
 	// A `criteria` block as defined below.
 	Criteria ScheduledQueryRulesLogCriteria `pulumi:"criteria"`
@@ -250,6 +254,7 @@ type scheduledQueryRulesLogArgs struct {
 
 // The set of arguments for constructing a ScheduledQueryRulesLog resource.
 type ScheduledQueryRulesLogArgs struct {
+	// A list of IDs of Resources referred into query.
 	AuthorizedResourceIds pulumi.StringArrayInput
 	// A `criteria` block as defined below.
 	Criteria ScheduledQueryRulesLogCriteriaInput
@@ -356,6 +361,7 @@ func (o ScheduledQueryRulesLogOutput) ToScheduledQueryRulesLogOutputWithContext(
 	return o
 }
 
+// A list of IDs of Resources referred into query.
 func (o ScheduledQueryRulesLogOutput) AuthorizedResourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesLog) pulumi.StringArrayOutput { return v.AuthorizedResourceIds }).(pulumi.StringArrayOutput)
 }

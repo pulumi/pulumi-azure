@@ -232,7 +232,7 @@ class GetAccountResult:
     @pulumi.getter(name="customDomains")
     def custom_domains(self) -> Sequence['outputs.GetAccountCustomDomainResult']:
         """
-        A `custom_domain` block as documented below.
+        supports the following:
         """
         return pulumi.get(self, "custom_domains")
 

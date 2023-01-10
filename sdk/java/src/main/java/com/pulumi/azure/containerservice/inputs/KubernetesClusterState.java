@@ -206,9 +206,21 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.edgeZone);
     }
 
+    /**
+     * @deprecated
+     * The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+     * 
+     */
+    @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy. */
     @Import(name="enablePodSecurityPolicy")
     private @Nullable Output<Boolean> enablePodSecurityPolicy;
 
+    /**
+     * @deprecated
+     * The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+     * 
+     */
+    @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy. */
     public Optional<Output<Boolean>> enablePodSecurityPolicy() {
         return Optional.ofNullable(this.enablePodSecurityPolicy);
     }
@@ -1209,11 +1221,27 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
             return edgeZone(Output.of(edgeZone));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+         * 
+         */
+        @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy. */
         public Builder enablePodSecurityPolicy(@Nullable Output<Boolean> enablePodSecurityPolicy) {
             $.enablePodSecurityPolicy = enablePodSecurityPolicy;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+         * 
+         */
+        @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy. */
         public Builder enablePodSecurityPolicy(Boolean enablePodSecurityPolicy) {
             return enablePodSecurityPolicy(Output.of(enablePodSecurityPolicy));
         }

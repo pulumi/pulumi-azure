@@ -70,7 +70,7 @@ export class MonitorSsoConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly loginUrl!: pulumi.Output<string>;
     /**
-     * The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+     * The name of the SingleSignOn configuration. Defaults to `default`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -135,7 +135,7 @@ export interface MonitorSsoConfigurationState {
      */
     loginUrl?: pulumi.Input<string>;
     /**
-     * The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+     * The name of the SingleSignOn configuration. Defaults to `default`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -157,7 +157,7 @@ export interface MonitorSsoConfigurationArgs {
      */
     enterpriseApplicationId: pulumi.Input<string>;
     /**
-     * The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+     * The name of the SingleSignOn configuration. Defaults to `default`.
      */
     name?: pulumi.Input<string>;
     /**

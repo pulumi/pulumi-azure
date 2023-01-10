@@ -139,9 +139,17 @@ public final class LinkedServiceWebState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.parameters);
     }
 
+    /**
+     * The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+     * 
+     */
     @Import(name="password")
     private @Nullable Output<String> password;
 
+    /**
+     * @return The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+     * 
+     */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
     }
@@ -161,9 +169,17 @@ public final class LinkedServiceWebState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.url);
     }
 
+    /**
+     * The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
+     * 
+     */
     @Import(name="username")
     private @Nullable Output<String> username;
 
+    /**
+     * @return The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
+     * 
+     */
     public Optional<Output<String>> username() {
         return Optional.ofNullable(this.username);
     }
@@ -382,11 +398,23 @@ public final class LinkedServiceWebState extends com.pulumi.resources.ResourceAr
             return parameters(Output.of(parameters));
         }
 
+        /**
+         * @param password The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
 
+        /**
+         * @param password The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
@@ -412,11 +440,23 @@ public final class LinkedServiceWebState extends com.pulumi.resources.ResourceAr
             return url(Output.of(url));
         }
 
+        /**
+         * @param username The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(@Nullable Output<String> username) {
             $.username = username;
             return this;
         }
 
+        /**
+         * @param username The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

@@ -29,6 +29,9 @@ namespace Pulumi.Azure.NetApp
         [Output("accountName")]
         public Output<string> AccountName { get; private set; } = null!;
 
+        /// <summary>
+        /// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("azureVmwareDataStoreEnabled")]
         public Output<bool?> AzureVmwareDataStoreEnabled { get; private set; } = null!;
 
@@ -204,6 +207,9 @@ namespace Pulumi.Azure.NetApp
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        /// <summary>
+        /// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("azureVmwareDataStoreEnabled")]
         public Input<bool>? AzureVmwareDataStoreEnabled { get; set; }
 
@@ -353,6 +359,9 @@ namespace Pulumi.Azure.NetApp
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
 
+        /// <summary>
+        /// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("azureVmwareDataStoreEnabled")]
         public Input<bool>? AzureVmwareDataStoreEnabled { get; set; }
 

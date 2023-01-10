@@ -84,6 +84,9 @@ namespace Pulumi.Azure.Monitoring
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+        /// </summary>
         [Output("queryType")]
         public Output<string?> QueryType { get; private set; } = null!;
 
@@ -118,7 +121,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<int> TimeWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The condition that results in the alert rule being run.
+        /// A `trigger` block as defined below.
         /// </summary>
         [Output("trigger")]
         public Output<Outputs.ScheduledQueryRulesAlertTrigger> Trigger { get; private set; } = null!;
@@ -236,6 +239,9 @@ namespace Pulumi.Azure.Monitoring
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
+        /// <summary>
+        /// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+        /// </summary>
         [Input("queryType")]
         public Input<string>? QueryType { get; set; }
 
@@ -276,7 +282,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<int> TimeWindow { get; set; } = null!;
 
         /// <summary>
-        /// The condition that results in the alert rule being run.
+        /// A `trigger` block as defined below.
         /// </summary>
         [Input("trigger", required: true)]
         public Input<Inputs.ScheduledQueryRulesAlertTriggerArgs> Trigger { get; set; } = null!;
@@ -356,6 +362,9 @@ namespace Pulumi.Azure.Monitoring
         [Input("query")]
         public Input<string>? Query { get; set; }
 
+        /// <summary>
+        /// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`.
+        /// </summary>
         [Input("queryType")]
         public Input<string>? QueryType { get; set; }
 
@@ -396,7 +405,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<int>? TimeWindow { get; set; }
 
         /// <summary>
-        /// The condition that results in the alert rule being run.
+        /// A `trigger` block as defined below.
         /// </summary>
         [Input("trigger")]
         public Input<Inputs.ScheduledQueryRulesAlertTriggerGetArgs>? Trigger { get; set; }

@@ -19,6 +19,10 @@ public final class GetConfigurationWindow {
      * 
      */
     private String expirationDateTime;
+    /**
+     * @return The rate at which a maintenance window is expected to recur.
+     * 
+     */
     private String recurEvery;
     /**
      * @return Effective start date of the maintenance window.
@@ -46,6 +50,10 @@ public final class GetConfigurationWindow {
     public String expirationDateTime() {
         return this.expirationDateTime;
     }
+    /**
+     * @return The rate at which a maintenance window is expected to recur.
+     * 
+     */
     public String recurEvery() {
         return this.recurEvery;
     }

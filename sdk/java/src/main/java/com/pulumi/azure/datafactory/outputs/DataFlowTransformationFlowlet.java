@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataFlowTransformationFlowlet {
+    /**
+     * @return Specifies the reference data flow parameters from dataset.
+     * 
+     */
     private @Nullable String datasetParameters;
     /**
      * @return The name for the Data Factory Flowlet.
@@ -25,6 +29,10 @@ public final class DataFlowTransformationFlowlet {
     private @Nullable Map<String,String> parameters;
 
     private DataFlowTransformationFlowlet() {}
+    /**
+     * @return Specifies the reference data flow parameters from dataset.
+     * 
+     */
     public Optional<String> datasetParameters() {
         return Optional.ofNullable(this.datasetParameters);
     }

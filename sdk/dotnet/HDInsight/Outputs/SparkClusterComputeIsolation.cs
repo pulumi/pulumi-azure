@@ -13,6 +13,9 @@ namespace Pulumi.Azure.HDInsight.Outputs
     [OutputType]
     public sealed class SparkClusterComputeIsolation
     {
+        /// <summary>
+        /// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+        /// </summary>
         public readonly bool? ComputeIsolationEnabled;
         /// <summary>
         /// The name of the host SKU.

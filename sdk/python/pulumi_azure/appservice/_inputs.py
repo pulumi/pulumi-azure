@@ -12159,7 +12159,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         :param pulumi.Input[str] java_server_version: The Version of the `java_server` to use.
         :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
-        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
+        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
         :param pulumi.Input[str] php_version: The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
         :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
         :param pulumi.Input[str] ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
@@ -12261,7 +12261,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
+        The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
         """
         return pulumi.get(self, "node_version")
 
@@ -14851,7 +14851,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         :param pulumi.Input[str] java_server_version: The Version of the `java_server` to use.
         :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
-        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
+        :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
         :param pulumi.Input[str] php_version: The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
         :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
         :param pulumi.Input[str] ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
@@ -14953,7 +14953,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
+        The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
         """
         return pulumi.get(self, "node_version")
 
@@ -17501,7 +17501,7 @@ class SlotSiteConfigIpRestrictionArgs:
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         :param pulumi.Input['SlotSiteConfigIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
-        :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
+        :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
@@ -17550,7 +17550,7 @@ class SlotSiteConfigIpRestrictionArgs:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The IP Address used for this IP Restriction in CIDR notation.
+        The IP Address used for this IP Restriction.
         """
         return pulumi.get(self, "ip_address")
 
@@ -24600,7 +24600,7 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] java_container: The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
         :param pulumi.Input[str] java_container_version: The Version of the `java_container` to use. Required with `java_version` and `java_container`.
         :param pulumi.Input[str] java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
-        :param pulumi.Input[str] node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+        :param pulumi.Input[str] node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
         :param pulumi.Input[str] php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
         :param pulumi.Input[str] python_version: The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
         """
@@ -24727,7 +24727,7 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+        The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
         """
         return pulumi.get(self, "node_version")
 
@@ -27499,7 +27499,7 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] java_container: The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
         :param pulumi.Input[str] java_container_version: The Version of the `java_container` to use. Required with `java_version` and `java_container`.
         :param pulumi.Input[str] java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
-        :param pulumi.Input[str] node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+        :param pulumi.Input[str] node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
         :param pulumi.Input[str] php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
         :param pulumi.Input[str] python_version: The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
         """
@@ -27626,7 +27626,7 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
+        The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
         """
         return pulumi.get(self, "node_version")
 

@@ -13,9 +13,17 @@ public final class InteractiveQueryClusterComponentVersionArgs extends com.pulum
 
     public static final InteractiveQueryClusterComponentVersionArgs Empty = new InteractiveQueryClusterComponentVersionArgs();
 
+    /**
+     * The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="interactiveHive", required=true)
     private Output<String> interactiveHive;
 
+    /**
+     * @return The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> interactiveHive() {
         return this.interactiveHive;
     }
@@ -44,11 +52,23 @@ public final class InteractiveQueryClusterComponentVersionArgs extends com.pulum
             $ = new InteractiveQueryClusterComponentVersionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param interactiveHive The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder interactiveHive(Output<String> interactiveHive) {
             $.interactiveHive = interactiveHive;
             return this;
         }
 
+        /**
+         * @param interactiveHive The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder interactiveHive(String interactiveHive) {
             return interactiveHive(Output.of(interactiveHive));
         }

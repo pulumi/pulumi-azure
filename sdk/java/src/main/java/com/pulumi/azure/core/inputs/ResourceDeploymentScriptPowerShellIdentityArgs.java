@@ -14,22 +14,30 @@ public final class ResourceDeploymentScriptPowerShellIdentityArgs extends com.pu
 
     public static final ResourceDeploymentScriptPowerShellIdentityArgs Empty = new ResourceDeploymentScriptPowerShellIdentityArgs();
 
+    /**
+     * Specifies the list of user-assigned managed identity IDs associated with the resource.
+     * 
+     */
     @Import(name="identityIds", required=true)
     private Output<List<String>> identityIds;
 
+    /**
+     * @return Specifies the list of user-assigned managed identity IDs associated with the resource.
+     * 
+     */
     public Output<List<String>> identityIds() {
         return this.identityIds;
     }
 
     /**
-     * Type of the managed identity.
+     * Type of the managed identity. The only possible value is `UserAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of the managed identity.
+     * @return Type of the managed identity. The only possible value is `UserAssigned`.
      * 
      */
     public Output<String> type() {
@@ -61,21 +69,39 @@ public final class ResourceDeploymentScriptPowerShellIdentityArgs extends com.pu
             $ = new ResourceDeploymentScriptPowerShellIdentityArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param identityIds Specifies the list of user-assigned managed identity IDs associated with the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(Output<List<String>> identityIds) {
             $.identityIds = identityIds;
             return this;
         }
 
+        /**
+         * @param identityIds Specifies the list of user-assigned managed identity IDs associated with the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(List<String> identityIds) {
             return identityIds(Output.of(identityIds));
         }
 
+        /**
+         * @param identityIds Specifies the list of user-assigned managed identity IDs associated with the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
 
         /**
-         * @param type Type of the managed identity.
+         * @param type Type of the managed identity. The only possible value is `UserAssigned`.
          * 
          * @return builder
          * 
@@ -86,7 +112,7 @@ public final class ResourceDeploymentScriptPowerShellIdentityArgs extends com.pu
         }
 
         /**
-         * @param type Type of the managed identity.
+         * @param type Type of the managed identity. The only possible value is `UserAssigned`.
          * 
          * @return builder
          * 

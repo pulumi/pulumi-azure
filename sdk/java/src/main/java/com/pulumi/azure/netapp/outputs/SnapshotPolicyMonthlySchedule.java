@@ -10,6 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class SnapshotPolicyMonthlySchedule {
+    /**
+     * @return List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
+     * 
+     */
     private List<Integer> daysOfMonths;
     /**
      * @return Hour of the day that the snapshots will be created, valid range is from 0 to 23.
@@ -28,6 +32,10 @@ public final class SnapshotPolicyMonthlySchedule {
     private Integer snapshotsToKeep;
 
     private SnapshotPolicyMonthlySchedule() {}
+    /**
+     * @return List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
+     * 
+     */
     public List<Integer> daysOfMonths() {
         return this.daysOfMonths;
     }

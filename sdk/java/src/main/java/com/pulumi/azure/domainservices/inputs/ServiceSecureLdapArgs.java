@@ -16,16 +16,32 @@ public final class ServiceSecureLdapArgs extends com.pulumi.resources.ResourceAr
 
     public static final ServiceSecureLdapArgs Empty = new ServiceSecureLdapArgs();
 
+    /**
+     * The expiry time of the certificate.
+     * 
+     */
     @Import(name="certificateExpiry")
     private @Nullable Output<String> certificateExpiry;
 
+    /**
+     * @return The expiry time of the certificate.
+     * 
+     */
     public Optional<Output<String>> certificateExpiry() {
         return Optional.ofNullable(this.certificateExpiry);
     }
 
+    /**
+     * The thumbprint of the certificate.
+     * 
+     */
     @Import(name="certificateThumbprint")
     private @Nullable Output<String> certificateThumbprint;
 
+    /**
+     * @return The thumbprint of the certificate.
+     * 
+     */
     public Optional<Output<String>> certificateThumbprint() {
         return Optional.ofNullable(this.certificateThumbprint);
     }
@@ -90,9 +106,17 @@ public final class ServiceSecureLdapArgs extends com.pulumi.resources.ResourceAr
         return this.pfxCertificatePassword;
     }
 
+    /**
+     * The public certificate.
+     * 
+     */
     @Import(name="publicCertificate")
     private @Nullable Output<String> publicCertificate;
 
+    /**
+     * @return The public certificate.
+     * 
+     */
     public Optional<Output<String>> publicCertificate() {
         return Optional.ofNullable(this.publicCertificate);
     }
@@ -127,20 +151,44 @@ public final class ServiceSecureLdapArgs extends com.pulumi.resources.ResourceAr
             $ = new ServiceSecureLdapArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param certificateExpiry The expiry time of the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateExpiry(@Nullable Output<String> certificateExpiry) {
             $.certificateExpiry = certificateExpiry;
             return this;
         }
 
+        /**
+         * @param certificateExpiry The expiry time of the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateExpiry(String certificateExpiry) {
             return certificateExpiry(Output.of(certificateExpiry));
         }
 
+        /**
+         * @param certificateThumbprint The thumbprint of the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateThumbprint(@Nullable Output<String> certificateThumbprint) {
             $.certificateThumbprint = certificateThumbprint;
             return this;
         }
 
+        /**
+         * @param certificateThumbprint The thumbprint of the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateThumbprint(String certificateThumbprint) {
             return certificateThumbprint(Output.of(certificateThumbprint));
         }
@@ -229,11 +277,23 @@ public final class ServiceSecureLdapArgs extends com.pulumi.resources.ResourceAr
             return pfxCertificatePassword(Output.of(pfxCertificatePassword));
         }
 
+        /**
+         * @param publicCertificate The public certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicCertificate(@Nullable Output<String> publicCertificate) {
             $.publicCertificate = publicCertificate;
             return this;
         }
 
+        /**
+         * @param publicCertificate The public certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicCertificate(String publicCertificate) {
             return publicCertificate(Output.of(publicCertificate));
         }

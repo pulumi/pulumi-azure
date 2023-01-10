@@ -14,9 +14,17 @@ public final class SnapshotPolicyMonthlyScheduleArgs extends com.pulumi.resource
 
     public static final SnapshotPolicyMonthlyScheduleArgs Empty = new SnapshotPolicyMonthlyScheduleArgs();
 
+    /**
+     * List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
+     * 
+     */
     @Import(name="daysOfMonths", required=true)
     private Output<List<Integer>> daysOfMonths;
 
+    /**
+     * @return List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
+     * 
+     */
     public Output<List<Integer>> daysOfMonths() {
         return this.daysOfMonths;
     }
@@ -93,15 +101,33 @@ public final class SnapshotPolicyMonthlyScheduleArgs extends com.pulumi.resource
             $ = new SnapshotPolicyMonthlyScheduleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param daysOfMonths List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
+         * 
+         * @return builder
+         * 
+         */
         public Builder daysOfMonths(Output<List<Integer>> daysOfMonths) {
             $.daysOfMonths = daysOfMonths;
             return this;
         }
 
+        /**
+         * @param daysOfMonths List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
+         * 
+         * @return builder
+         * 
+         */
         public Builder daysOfMonths(List<Integer> daysOfMonths) {
             return daysOfMonths(Output.of(daysOfMonths));
         }
 
+        /**
+         * @param daysOfMonths List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
+         * 
+         * @return builder
+         * 
+         */
         public Builder daysOfMonths(Integer... daysOfMonths) {
             return daysOfMonths(List.of(daysOfMonths));
         }

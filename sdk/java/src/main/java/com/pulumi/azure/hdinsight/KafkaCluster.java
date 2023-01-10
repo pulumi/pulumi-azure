@@ -356,7 +356,11 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
     /**
      * A `roles` block as defined below.
      * 
+     * @deprecated
+     * `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
+     * 
      */
+    @Deprecated /* `kafka_management_node` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user */
     @Export(name="roles", type=KafkaClusterRoles.class, parameters={})
     private Output<KafkaClusterRoles> roles;
 

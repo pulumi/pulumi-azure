@@ -23,7 +23,7 @@ class MonitorSsoConfigurationArgs:
         :param pulumi.Input[str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
         :param pulumi.Input[str] enterprise_application_id: The application Id to perform SSO operation.
         :param pulumi.Input[str] single_sign_on_enabled: The state of SingleSignOn configuration.
-        :param pulumi.Input[str] name: The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+        :param pulumi.Input[str] name: The name of the SingleSignOn configuration. Defaults to `default`.
         """
         pulumi.set(__self__, "datadog_monitor_id", datadog_monitor_id)
         pulumi.set(__self__, "enterprise_application_id", enterprise_application_id)
@@ -71,7 +71,7 @@ class MonitorSsoConfigurationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+        The name of the SingleSignOn configuration. Defaults to `default`.
         """
         return pulumi.get(self, "name")
 
@@ -93,7 +93,7 @@ class _MonitorSsoConfigurationState:
         :param pulumi.Input[str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
         :param pulumi.Input[str] enterprise_application_id: The application Id to perform SSO operation.
         :param pulumi.Input[str] login_url: The SingleSignOn URL to login to Datadog org.
-        :param pulumi.Input[str] name: The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+        :param pulumi.Input[str] name: The name of the SingleSignOn configuration. Defaults to `default`.
         :param pulumi.Input[str] single_sign_on_enabled: The state of SingleSignOn configuration.
         """
         if datadog_monitor_id is not None:
@@ -147,7 +147,7 @@ class _MonitorSsoConfigurationState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+        The name of the SingleSignOn configuration. Defaults to `default`.
         """
         return pulumi.get(self, "name")
 
@@ -206,7 +206,7 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
         :param pulumi.Input[str] enterprise_application_id: The application Id to perform SSO operation.
-        :param pulumi.Input[str] name: The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+        :param pulumi.Input[str] name: The name of the SingleSignOn configuration. Defaults to `default`.
         :param pulumi.Input[str] single_sign_on_enabled: The state of SingleSignOn configuration.
         """
         ...
@@ -303,7 +303,7 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
         :param pulumi.Input[str] enterprise_application_id: The application Id to perform SSO operation.
         :param pulumi.Input[str] login_url: The SingleSignOn URL to login to Datadog org.
-        :param pulumi.Input[str] name: The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+        :param pulumi.Input[str] name: The name of the SingleSignOn configuration. Defaults to `default`.
         :param pulumi.Input[str] single_sign_on_enabled: The state of SingleSignOn configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -345,7 +345,7 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the SingleSignOn configuration. Defaults to `0xc000543690`.
+        The name of the SingleSignOn configuration. Defaults to `default`.
         """
         return pulumi.get(self, "name")
 

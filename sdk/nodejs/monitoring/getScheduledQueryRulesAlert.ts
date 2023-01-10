@@ -50,7 +50,7 @@ export interface GetScheduledQueryRulesAlertArgs {
  */
 export interface GetScheduledQueryRulesAlertResult {
     /**
-     * An `action` block as defined below.
+     * supports the following:
      */
     readonly actions: outputs.monitoring.GetScheduledQueryRulesAlertAction[];
     /**
@@ -86,6 +86,9 @@ export interface GetScheduledQueryRulesAlertResult {
      * Log search query.
      */
     readonly query: string;
+    /**
+     * The type of query results.
+     */
     readonly queryType: string;
     readonly resourceGroupName: string;
     /**

@@ -51,7 +51,7 @@ export interface GetPolicyResult {
      */
     readonly id: string;
     /**
-     * A `rule` block as documented below.
+     * supports the following:
      */
     readonly rules: outputs.storage.GetPolicyRule[];
     readonly storageAccountId: string;

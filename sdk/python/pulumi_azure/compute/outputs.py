@@ -1492,6 +1492,8 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
         :param str create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
         :param str name: The name of the Data Disk.
+        :param int ultra_ssd_disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+        :param int ultra_ssd_disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
         :param bool write_accelerator_enabled: Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
@@ -1570,11 +1572,17 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
     @property
     @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
     def ultra_ssd_disk_iops_read_write(self) -> Optional[int]:
+        """
+        Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+        """
         return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
 
     @property
     @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
     def ultra_ssd_disk_mbps_read_write(self) -> Optional[int]:
+        """
+        Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+        """
         return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
 
     @property
@@ -3340,7 +3348,10 @@ class OrchestratedVirtualMachineScaleSetDataDisk(dict):
         :param int lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
         :param str storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         :param str create_option: The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
-        :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+        :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
+        :param int ultra_ssd_disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+        :param int ultra_ssd_disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+        :param bool write_accelerator_enabled: Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
@@ -3401,23 +3412,32 @@ class OrchestratedVirtualMachineScaleSetDataDisk(dict):
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[str]:
         """
-        The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
+        The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
     @property
     @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
     def ultra_ssd_disk_iops_read_write(self) -> Optional[int]:
+        """
+        Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+        """
         return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
 
     @property
     @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
     def ultra_ssd_disk_mbps_read_write(self) -> Optional[int]:
+        """
+        Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+        """
         return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
 
     @property
     @pulumi.getter(name="writeAcceleratorEnabled")
     def write_accelerator_enabled(self) -> Optional[bool]:
+        """
+        Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
+        """
         return pulumi.get(self, "write_accelerator_enabled")
 
 
@@ -3475,6 +3495,7 @@ class OrchestratedVirtualMachineScaleSetExtension(dict):
         :param str force_extension_execution_on_change: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param str protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
         :param 'OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs' protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
+        :param str settings: A JSON String which specifies Settings for the Extension.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "publisher", publisher)
@@ -3578,6 +3599,9 @@ class OrchestratedVirtualMachineScaleSetExtension(dict):
     @property
     @pulumi.getter
     def settings(self) -> Optional[str]:
+        """
+        A JSON String which specifies Settings for the Extension.
+        """
         return pulumi.get(self, "settings")
 
 
@@ -4100,6 +4124,7 @@ class OrchestratedVirtualMachineScaleSetOsDisk(dict):
         :param 'OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
         :param int disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+        :param bool write_accelerator_enabled: Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
         pulumi.set(__self__, "storage_account_type", storage_account_type)
@@ -4155,6 +4180,9 @@ class OrchestratedVirtualMachineScaleSetOsDisk(dict):
     @property
     @pulumi.getter(name="writeAcceleratorEnabled")
     def write_accelerator_enabled(self) -> Optional[bool]:
+        """
+        Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
+        """
         return pulumi.get(self, "write_accelerator_enabled")
 
 
@@ -4775,6 +4803,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListen
                  protocol: str,
                  certificate_url: Optional[str] = None):
         """
+        :param str protocol: Specifies the protocol of listener. Possible values are `Http` or `Https`
         :param str certificate_url: The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`.
         """
         pulumi.set(__self__, "protocol", protocol)
@@ -4784,6 +4813,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListen
     @property
     @pulumi.getter
     def protocol(self) -> str:
+        """
+        Specifies the protocol of listener. Possible values are `Http` or `Https`
+        """
         return pulumi.get(self, "protocol")
 
     @property
@@ -8800,6 +8832,8 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
         :param str create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
         :param str name: The name of the Data Disk.
+        :param int ultra_ssd_disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+        :param int ultra_ssd_disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
         :param bool write_accelerator_enabled: Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
@@ -8878,11 +8912,17 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
     @property
     @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
     def ultra_ssd_disk_iops_read_write(self) -> Optional[int]:
+        """
+        Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
+        """
         return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
 
     @property
     @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
     def ultra_ssd_disk_mbps_read_write(self) -> Optional[int]:
+        """
+        Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
+        """
         return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
 
     @property
@@ -10420,6 +10460,7 @@ class WindowsVirtualMachineWinrmListener(dict):
                  protocol: str,
                  certificate_url: Optional[str] = None):
         """
+        :param str protocol: Specifies the protocol of listener. Possible values are `Http` or `Https`
         :param str certificate_url: The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "protocol", protocol)
@@ -10429,6 +10470,9 @@ class WindowsVirtualMachineWinrmListener(dict):
     @property
     @pulumi.getter
     def protocol(self) -> str:
+        """
+        Specifies the protocol of listener. Possible values are `Http` or `Https`
+        """
         return pulumi.get(self, "protocol")
 
     @property

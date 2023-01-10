@@ -153,9 +153,17 @@ public class DedicatedHostGroup extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
+     * 
+     */
     @Export(name="zone", type=String.class, parameters={})
     private Output</* @Nullable */ String> zone;
 
+    /**
+     * @return Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
+     * 
+     */
     public Output<Optional<String>> zone() {
         return Codegen.optional(this.zone);
     }

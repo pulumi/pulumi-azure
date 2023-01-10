@@ -111,8 +111,9 @@ type Certificate struct {
 	PublicData pulumi.StringOutput `pulumi:"publicData"`
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
-	Thumbprint          pulumi.StringOutput `pulumi:"thumbprint"`
+	// The thumbprint of the certificate. Changing this forces a new resource to be created.
+	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
+	// The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created.
 	ThumbprintAlgorithm pulumi.StringOutput `pulumi:"thumbprintAlgorithm"`
 }
 
@@ -188,8 +189,9 @@ type certificateState struct {
 	PublicData *string `pulumi:"publicData"`
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
-	Thumbprint          *string `pulumi:"thumbprint"`
+	// The thumbprint of the certificate. Changing this forces a new resource to be created.
+	Thumbprint *string `pulumi:"thumbprint"`
+	// The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created.
 	ThumbprintAlgorithm *string `pulumi:"thumbprintAlgorithm"`
 }
 
@@ -208,8 +210,9 @@ type CertificateState struct {
 	PublicData pulumi.StringPtrInput
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
-	Thumbprint          pulumi.StringPtrInput
+	// The thumbprint of the certificate. Changing this forces a new resource to be created.
+	Thumbprint pulumi.StringPtrInput
+	// The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created.
 	ThumbprintAlgorithm pulumi.StringPtrInput
 }
 
@@ -228,8 +231,9 @@ type certificateArgs struct {
 	Password *string `pulumi:"password"`
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
-	Thumbprint          string `pulumi:"thumbprint"`
+	// The thumbprint of the certificate. Changing this forces a new resource to be created.
+	Thumbprint string `pulumi:"thumbprint"`
+	// The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created.
 	ThumbprintAlgorithm string `pulumi:"thumbprintAlgorithm"`
 }
 
@@ -245,8 +249,9 @@ type CertificateArgs struct {
 	Password pulumi.StringPtrInput
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
-	Thumbprint          pulumi.StringInput
+	// The thumbprint of the certificate. Changing this forces a new resource to be created.
+	Thumbprint pulumi.StringInput
+	// The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created.
 	ThumbprintAlgorithm pulumi.StringInput
 }
 
@@ -372,11 +377,12 @@ func (o CertificateOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The thumbprint of the certificate. At this time the only supported value is 'SHA1'. Changing this forces a new resource to be created.
+// The thumbprint of the certificate. Changing this forces a new resource to be created.
 func (o CertificateOutput) Thumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Thumbprint }).(pulumi.StringOutput)
 }
 
+// The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created.
 func (o CertificateOutput) ThumbprintAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ThumbprintAlgorithm }).(pulumi.StringOutput)
 }

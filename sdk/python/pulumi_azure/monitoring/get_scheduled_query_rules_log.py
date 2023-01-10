@@ -57,6 +57,9 @@ class GetScheduledQueryRulesLogResult:
     @property
     @pulumi.getter(name="authorizedResourceIds")
     def authorized_resource_ids(self) -> Sequence[str]:
+        """
+        A list of IDs of Resources referred into query.
+        """
         return pulumi.get(self, "authorized_resource_ids")
 
     @property

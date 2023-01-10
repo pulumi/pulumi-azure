@@ -80,14 +80,17 @@ import (
 type Schedule struct {
 	pulumi.CustomResourceState
 
-	DailyRecurrence  ScheduleDailyRecurrencePtrOutput  `pulumi:"dailyRecurrence"`
+	// The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `dailyRecurrence` block as defined below.
+	DailyRecurrence ScheduleDailyRecurrencePtrOutput `pulumi:"dailyRecurrence"`
+	// The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourlyRecurrence` block as defined below.
 	HourlyRecurrence ScheduleHourlyRecurrencePtrOutput `pulumi:"hourlyRecurrence"`
 	// The name of the dev test lab. Changing this forces a new resource to be created.
 	LabName pulumi.StringOutput `pulumi:"labName"`
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
-	Name                 pulumi.StringOutput                `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The notification setting of a schedule. A `notificationSettings` as defined below.
 	NotificationSettings ScheduleNotificationSettingsOutput `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -98,7 +101,8 @@ type Schedule struct {
 	// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
 	TaskType pulumi.StringOutput `pulumi:"taskType"`
 	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId       pulumi.StringOutput               `pulumi:"timeZoneId"`
+	TimeZoneId pulumi.StringOutput `pulumi:"timeZoneId"`
+	// The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weeklyRecurrence` block as defined below.
 	WeeklyRecurrence ScheduleWeeklyRecurrencePtrOutput `pulumi:"weeklyRecurrence"`
 }
 
@@ -146,14 +150,17 @@ func GetSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Schedule resources.
 type scheduleState struct {
-	DailyRecurrence  *ScheduleDailyRecurrence  `pulumi:"dailyRecurrence"`
+	// The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `dailyRecurrence` block as defined below.
+	DailyRecurrence *ScheduleDailyRecurrence `pulumi:"dailyRecurrence"`
+	// The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourlyRecurrence` block as defined below.
 	HourlyRecurrence *ScheduleHourlyRecurrence `pulumi:"hourlyRecurrence"`
 	// The name of the dev test lab. Changing this forces a new resource to be created.
 	LabName *string `pulumi:"labName"`
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
-	Name                 *string                       `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The notification setting of a schedule. A `notificationSettings` as defined below.
 	NotificationSettings *ScheduleNotificationSettings `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -164,19 +171,23 @@ type scheduleState struct {
 	// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
 	TaskType *string `pulumi:"taskType"`
 	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId       *string                   `pulumi:"timeZoneId"`
+	TimeZoneId *string `pulumi:"timeZoneId"`
+	// The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weeklyRecurrence` block as defined below.
 	WeeklyRecurrence *ScheduleWeeklyRecurrence `pulumi:"weeklyRecurrence"`
 }
 
 type ScheduleState struct {
-	DailyRecurrence  ScheduleDailyRecurrencePtrInput
+	// The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `dailyRecurrence` block as defined below.
+	DailyRecurrence ScheduleDailyRecurrencePtrInput
+	// The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourlyRecurrence` block as defined below.
 	HourlyRecurrence ScheduleHourlyRecurrencePtrInput
 	// The name of the dev test lab. Changing this forces a new resource to be created.
 	LabName pulumi.StringPtrInput
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
-	Name                 pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The notification setting of a schedule. A `notificationSettings` as defined below.
 	NotificationSettings ScheduleNotificationSettingsPtrInput
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -187,7 +198,8 @@ type ScheduleState struct {
 	// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
 	TaskType pulumi.StringPtrInput
 	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId       pulumi.StringPtrInput
+	TimeZoneId pulumi.StringPtrInput
+	// The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weeklyRecurrence` block as defined below.
 	WeeklyRecurrence ScheduleWeeklyRecurrencePtrInput
 }
 
@@ -196,14 +208,17 @@ func (ScheduleState) ElementType() reflect.Type {
 }
 
 type scheduleArgs struct {
-	DailyRecurrence  *ScheduleDailyRecurrence  `pulumi:"dailyRecurrence"`
+	// The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `dailyRecurrence` block as defined below.
+	DailyRecurrence *ScheduleDailyRecurrence `pulumi:"dailyRecurrence"`
+	// The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourlyRecurrence` block as defined below.
 	HourlyRecurrence *ScheduleHourlyRecurrence `pulumi:"hourlyRecurrence"`
 	// The name of the dev test lab. Changing this forces a new resource to be created.
 	LabName string `pulumi:"labName"`
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
-	Name                 *string                      `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The notification setting of a schedule. A `notificationSettings` as defined below.
 	NotificationSettings ScheduleNotificationSettings `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -214,20 +229,24 @@ type scheduleArgs struct {
 	// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
 	TaskType string `pulumi:"taskType"`
 	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId       string                    `pulumi:"timeZoneId"`
+	TimeZoneId string `pulumi:"timeZoneId"`
+	// The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weeklyRecurrence` block as defined below.
 	WeeklyRecurrence *ScheduleWeeklyRecurrence `pulumi:"weeklyRecurrence"`
 }
 
 // The set of arguments for constructing a Schedule resource.
 type ScheduleArgs struct {
-	DailyRecurrence  ScheduleDailyRecurrencePtrInput
+	// The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `dailyRecurrence` block as defined below.
+	DailyRecurrence ScheduleDailyRecurrencePtrInput
+	// The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourlyRecurrence` block as defined below.
 	HourlyRecurrence ScheduleHourlyRecurrencePtrInput
 	// The name of the dev test lab. Changing this forces a new resource to be created.
 	LabName pulumi.StringInput
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
-	Name                 pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The notification setting of a schedule. A `notificationSettings` as defined below.
 	NotificationSettings ScheduleNotificationSettingsInput
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -238,7 +257,8 @@ type ScheduleArgs struct {
 	// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
 	TaskType pulumi.StringInput
 	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId       pulumi.StringInput
+	TimeZoneId pulumi.StringInput
+	// The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weeklyRecurrence` block as defined below.
 	WeeklyRecurrence ScheduleWeeklyRecurrencePtrInput
 }
 
@@ -329,10 +349,12 @@ func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) Schedul
 	return o
 }
 
+// The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `dailyRecurrence` block as defined below.
 func (o ScheduleOutput) DailyRecurrence() ScheduleDailyRecurrencePtrOutput {
 	return o.ApplyT(func(v *Schedule) ScheduleDailyRecurrencePtrOutput { return v.DailyRecurrence }).(ScheduleDailyRecurrencePtrOutput)
 }
 
+// The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourlyRecurrence` block as defined below.
 func (o ScheduleOutput) HourlyRecurrence() ScheduleHourlyRecurrencePtrOutput {
 	return o.ApplyT(func(v *Schedule) ScheduleHourlyRecurrencePtrOutput { return v.HourlyRecurrence }).(ScheduleHourlyRecurrencePtrOutput)
 }
@@ -352,6 +374,7 @@ func (o ScheduleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The notification setting of a schedule. A `notificationSettings` as defined below.
 func (o ScheduleOutput) NotificationSettings() ScheduleNotificationSettingsOutput {
 	return o.ApplyT(func(v *Schedule) ScheduleNotificationSettingsOutput { return v.NotificationSettings }).(ScheduleNotificationSettingsOutput)
 }
@@ -381,6 +404,7 @@ func (o ScheduleOutput) TimeZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.TimeZoneId }).(pulumi.StringOutput)
 }
 
+// The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weeklyRecurrence` block as defined below.
 func (o ScheduleOutput) WeeklyRecurrence() ScheduleWeeklyRecurrencePtrOutput {
 	return o.ApplyT(func(v *Schedule) ScheduleWeeklyRecurrencePtrOutput { return v.WeeklyRecurrence }).(ScheduleWeeklyRecurrencePtrOutput)
 }

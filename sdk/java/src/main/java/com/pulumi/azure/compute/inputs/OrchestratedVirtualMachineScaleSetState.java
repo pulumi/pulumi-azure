@@ -107,9 +107,17 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         return Optional.ofNullable(this.dataDisks);
     }
 
+    /**
+     * Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+     * 
+     */
     @Import(name="encryptionAtHostEnabled")
     private @Nullable Output<Boolean> encryptionAtHostEnabled;
 
+    /**
+     * @return Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+     * 
+     */
     public Optional<Output<Boolean>> encryptionAtHostEnabled() {
         return Optional.ofNullable(this.encryptionAtHostEnabled);
     }
@@ -504,9 +512,17 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         return Optional.ofNullable(this.userDataBase64);
     }
 
+    /**
+     * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="zoneBalance")
     private @Nullable Output<Boolean> zoneBalance;
 
+    /**
+     * @return Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<Boolean>> zoneBalance() {
         return Optional.ofNullable(this.zoneBalance);
     }
@@ -698,11 +714,23 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
             return dataDisks(List.of(dataDisks));
         }
 
+        /**
+         * @param encryptionAtHostEnabled Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptionAtHostEnabled(@Nullable Output<Boolean> encryptionAtHostEnabled) {
             $.encryptionAtHostEnabled = encryptionAtHostEnabled;
             return this;
         }
 
+        /**
+         * @param encryptionAtHostEnabled Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptionAtHostEnabled(Boolean encryptionAtHostEnabled) {
             return encryptionAtHostEnabled(Output.of(encryptionAtHostEnabled));
         }
@@ -1273,11 +1301,23 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
             return userDataBase64(Output.of(userDataBase64));
         }
 
+        /**
+         * @param zoneBalance Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zoneBalance(@Nullable Output<Boolean> zoneBalance) {
             $.zoneBalance = zoneBalance;
             return this;
         }
 
+        /**
+         * @param zoneBalance Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder zoneBalance(Boolean zoneBalance) {
             return zoneBalance(Output.of(zoneBalance));
         }
