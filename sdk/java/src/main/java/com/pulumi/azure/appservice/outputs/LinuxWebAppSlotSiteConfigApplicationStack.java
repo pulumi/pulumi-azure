@@ -22,10 +22,15 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String dockerImageTag;
     /**
-     * @return The version of .NET to use. Possible values are `3.1`, `5.0`, `6.0` and `7.0`.
+     * @return The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
      * 
      */
     private @Nullable String dotnetVersion;
+    /**
+     * @return The version of Go to use. Possible values include `1.18`, and `1.19`.
+     * 
+     */
+    private @Nullable String goVersion;
     /**
      * @return The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
      * 
@@ -37,7 +42,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String javaServerVersion;
     /**
-     * @return The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+     * @return The Version of Java to use. Possible values include `8`, `11`, and `17`.
      * 
      */
     private @Nullable String javaVersion;
@@ -78,11 +83,18 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.dockerImageTag);
     }
     /**
-     * @return The version of .NET to use. Possible values are `3.1`, `5.0`, `6.0` and `7.0`.
+     * @return The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
      * 
      */
     public Optional<String> dotnetVersion() {
         return Optional.ofNullable(this.dotnetVersion);
+    }
+    /**
+     * @return The version of Go to use. Possible values include `1.18`, and `1.19`.
+     * 
+     */
+    public Optional<String> goVersion() {
+        return Optional.ofNullable(this.goVersion);
     }
     /**
      * @return The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
@@ -99,7 +111,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.javaServerVersion);
     }
     /**
-     * @return The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+     * @return The Version of Java to use. Possible values include `8`, `11`, and `17`.
      * 
      */
     public Optional<String> javaVersion() {
@@ -146,6 +158,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
         private @Nullable String dockerImage;
         private @Nullable String dockerImageTag;
         private @Nullable String dotnetVersion;
+        private @Nullable String goVersion;
         private @Nullable String javaServer;
         private @Nullable String javaServerVersion;
         private @Nullable String javaVersion;
@@ -159,6 +172,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     	      this.dockerImage = defaults.dockerImage;
     	      this.dockerImageTag = defaults.dockerImageTag;
     	      this.dotnetVersion = defaults.dotnetVersion;
+    	      this.goVersion = defaults.goVersion;
     	      this.javaServer = defaults.javaServer;
     	      this.javaServerVersion = defaults.javaServerVersion;
     	      this.javaVersion = defaults.javaVersion;
@@ -181,6 +195,11 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
         @CustomType.Setter
         public Builder dotnetVersion(@Nullable String dotnetVersion) {
             this.dotnetVersion = dotnetVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder goVersion(@Nullable String goVersion) {
+            this.goVersion = goVersion;
             return this;
         }
         @CustomType.Setter
@@ -223,6 +242,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
             o.dockerImage = dockerImage;
             o.dockerImageTag = dockerImageTag;
             o.dotnetVersion = dotnetVersion;
+            o.goVersion = goVersion;
             o.javaServer = javaServer;
             o.javaServerVersion = javaServerVersion;
             o.javaVersion = javaVersion;

@@ -136,9 +136,9 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly createMode!: pulumi.Output<string>;
     /**
-     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
      */
-    public readonly defaultIdentityType!: pulumi.Output<string | undefined>;
+    public readonly defaultIdentityType!: pulumi.Output<string>;
     /**
      * Enable automatic fail over for this Cosmos DB account.
      */
@@ -422,7 +422,7 @@ export interface AccountState {
      */
     createMode?: pulumi.Input<string>;
     /**
-     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
      */
     defaultIdentityType?: pulumi.Input<string>;
     /**
@@ -584,7 +584,7 @@ export interface AccountArgs {
      */
     createMode?: pulumi.Input<string>;
     /**
-     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
      */
     defaultIdentityType?: pulumi.Input<string>;
     /**

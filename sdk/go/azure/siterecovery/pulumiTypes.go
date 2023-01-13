@@ -636,6 +636,8 @@ func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput) Va
 }
 
 type ReplicatedVMNetworkInterface struct {
+	// If this is the primary network interface used for failover. If there is only one `networkInterface` block, this is automatically set to `true`.
+	IsPrimary *bool `pulumi:"isPrimary"`
 	// Id of the public IP object to use when a failover is done.
 	RecoveryPublicIpAddressId *string `pulumi:"recoveryPublicIpAddressId"`
 	// (Required if the networkInterface block is specified) Id source network interface.
@@ -658,6 +660,8 @@ type ReplicatedVMNetworkInterfaceInput interface {
 }
 
 type ReplicatedVMNetworkInterfaceArgs struct {
+	// If this is the primary network interface used for failover. If there is only one `networkInterface` block, this is automatically set to `true`.
+	IsPrimary pulumi.BoolPtrInput `pulumi:"isPrimary"`
 	// Id of the public IP object to use when a failover is done.
 	RecoveryPublicIpAddressId pulumi.StringPtrInput `pulumi:"recoveryPublicIpAddressId"`
 	// (Required if the networkInterface block is specified) Id source network interface.
@@ -717,6 +721,11 @@ func (o ReplicatedVMNetworkInterfaceOutput) ToReplicatedVMNetworkInterfaceOutput
 
 func (o ReplicatedVMNetworkInterfaceOutput) ToReplicatedVMNetworkInterfaceOutputWithContext(ctx context.Context) ReplicatedVMNetworkInterfaceOutput {
 	return o
+}
+
+// If this is the primary network interface used for failover. If there is only one `networkInterface` block, this is automatically set to `true`.
+func (o ReplicatedVMNetworkInterfaceOutput) IsPrimary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *bool { return v.IsPrimary }).(pulumi.BoolPtrOutput)
 }
 
 // Id of the public IP object to use when a failover is done.

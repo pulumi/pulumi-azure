@@ -40,6 +40,9 @@ __all__ = [
     'BlobInventoryPolicyRuleFilterArgs',
     'DataLakeGen2FilesystemAceArgs',
     'DataLakeGen2PathAceArgs',
+    'LocalUserPermissionScopeArgs',
+    'LocalUserPermissionScopePermissionsArgs',
+    'LocalUserSshAuthorizedKeyArgs',
     'ManagementPolicyRuleArgs',
     'ManagementPolicyRuleActionsArgs',
     'ManagementPolicyRuleActionsBaseBlobArgs',
@@ -215,7 +218,7 @@ class AccountBlobPropertiesArgs:
         :param pulumi.Input[str] default_service_version: The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
         :param pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgs'] delete_retention_policy: A `delete_retention_policy` block as defined below.
         :param pulumi.Input[bool] last_access_time_enabled: Is the last access time based tracking enabled? Default to `false`.
-        :param pulumi.Input['AccountBlobPropertiesRestorePolicyArgs'] restore_policy: A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+        :param pulumi.Input['AccountBlobPropertiesRestorePolicyArgs'] restore_policy: A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
         :param pulumi.Input[bool] versioning_enabled: Is versioning enabled? Default to `false`.
         """
         if change_feed_enabled is not None:
@@ -325,7 +328,7 @@ class AccountBlobPropertiesArgs:
     @pulumi.getter(name="restorePolicy")
     def restore_policy(self) -> Optional[pulumi.Input['AccountBlobPropertiesRestorePolicyArgs']]:
         """
-        A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+        A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
         """
         return pulumi.get(self, "restore_policy")
 
@@ -1949,6 +1952,183 @@ class DataLakeGen2PathAceArgs:
     @scope.setter
     def scope(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "scope", value)
+
+
+@pulumi.input_type
+class LocalUserPermissionScopeArgs:
+    def __init__(__self__, *,
+                 permissions: pulumi.Input['LocalUserPermissionScopePermissionsArgs'],
+                 resource_name: pulumi.Input[str],
+                 service: pulumi.Input[str]):
+        """
+        :param pulumi.Input['LocalUserPermissionScopePermissionsArgs'] permissions: A `permissions` block as defined below.
+        :param pulumi.Input[str] resource_name: The container name (when `service` is set to `blob`) or the file share name (when `service` is set to `file`), used by the Storage Account Local User.
+        :param pulumi.Input[str] service: The storage service used by this Storage Account Local User. Possible values are `blob` and `file`.
+        """
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "resource_name", resource_name)
+        pulumi.set(__self__, "service", service)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> pulumi.Input['LocalUserPermissionScopePermissionsArgs']:
+        """
+        A `permissions` block as defined below.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: pulumi.Input['LocalUserPermissionScopePermissionsArgs']):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[str]:
+        """
+        The container name (when `service` is set to `blob`) or the file share name (when `service` is set to `file`), used by the Storage Account Local User.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[str]:
+        """
+        The storage service used by this Storage Account Local User. Possible values are `blob` and `file`.
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service", value)
+
+
+@pulumi.input_type
+class LocalUserPermissionScopePermissionsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[bool]] = None,
+                 delete: Optional[pulumi.Input[bool]] = None,
+                 list: Optional[pulumi.Input[bool]] = None,
+                 read: Optional[pulumi.Input[bool]] = None,
+                 write: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] create: Specifies if the Local User has the create permission for this scope. Defaults to `false`.
+        :param pulumi.Input[bool] delete: Specifies if the Local User has the delete permission for this scope. Defaults to `false`.
+        :param pulumi.Input[bool] list: Specifies if the Local User has the list permission for this scope. Defaults to `false`.
+        :param pulumi.Input[bool] read: Specifies if the Local User has the read permission for this scope. Defaults to `false`.
+        :param pulumi.Input[bool] write: Specifies if the Local User has the write permission for this scope. Defaults to `false`.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if list is not None:
+            pulumi.set(__self__, "list", list)
+        if read is not None:
+            pulumi.set(__self__, "read", read)
+        if write is not None:
+            pulumi.set(__self__, "write", write)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Local User has the create permission for this scope. Defaults to `false`.
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Local User has the delete permission for this scope. Defaults to `false`.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def list(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Local User has the list permission for this scope. Defaults to `false`.
+        """
+        return pulumi.get(self, "list")
+
+    @list.setter
+    def list(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "list", value)
+
+    @property
+    @pulumi.getter
+    def read(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Local User has the read permission for this scope. Defaults to `false`.
+        """
+        return pulumi.get(self, "read")
+
+    @read.setter
+    def read(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read", value)
+
+    @property
+    @pulumi.getter
+    def write(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the Local User has the write permission for this scope. Defaults to `false`.
+        """
+        return pulumi.get(self, "write")
+
+    @write.setter
+    def write(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "write", value)
+
+
+@pulumi.input_type
+class LocalUserSshAuthorizedKeyArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: The public key value of this SSH authorized key.
+        :param pulumi.Input[str] description: The description of this SSH authorized key.
+        """
+        pulumi.set(__self__, "key", key)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The public key value of this SSH authorized key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of this SSH authorized key.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 @pulumi.input_type

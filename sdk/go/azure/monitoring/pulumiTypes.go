@@ -14068,6 +14068,279 @@ func (o DataCollectionRuleDestinationsLogAnalyticArrayOutput) Index(i pulumi.Int
 	}).(DataCollectionRuleDestinationsLogAnalyticOutput)
 }
 
+type DiagnosticSettingEnabledLog struct {
+	// The name of a Diagnostic Log Category for this Resource.
+	Category *string `pulumi:"category"`
+	// The name of a Diagnostic Log Category Group for this Resource.
+	CategoryGroup *string `pulumi:"categoryGroup"`
+	// A `retentionPolicy` block as defined below.
+	RetentionPolicy *DiagnosticSettingEnabledLogRetentionPolicy `pulumi:"retentionPolicy"`
+}
+
+// DiagnosticSettingEnabledLogInput is an input type that accepts DiagnosticSettingEnabledLogArgs and DiagnosticSettingEnabledLogOutput values.
+// You can construct a concrete instance of `DiagnosticSettingEnabledLogInput` via:
+//
+//	DiagnosticSettingEnabledLogArgs{...}
+type DiagnosticSettingEnabledLogInput interface {
+	pulumi.Input
+
+	ToDiagnosticSettingEnabledLogOutput() DiagnosticSettingEnabledLogOutput
+	ToDiagnosticSettingEnabledLogOutputWithContext(context.Context) DiagnosticSettingEnabledLogOutput
+}
+
+type DiagnosticSettingEnabledLogArgs struct {
+	// The name of a Diagnostic Log Category for this Resource.
+	Category pulumi.StringPtrInput `pulumi:"category"`
+	// The name of a Diagnostic Log Category Group for this Resource.
+	CategoryGroup pulumi.StringPtrInput `pulumi:"categoryGroup"`
+	// A `retentionPolicy` block as defined below.
+	RetentionPolicy DiagnosticSettingEnabledLogRetentionPolicyPtrInput `pulumi:"retentionPolicy"`
+}
+
+func (DiagnosticSettingEnabledLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticSettingEnabledLog)(nil)).Elem()
+}
+
+func (i DiagnosticSettingEnabledLogArgs) ToDiagnosticSettingEnabledLogOutput() DiagnosticSettingEnabledLogOutput {
+	return i.ToDiagnosticSettingEnabledLogOutputWithContext(context.Background())
+}
+
+func (i DiagnosticSettingEnabledLogArgs) ToDiagnosticSettingEnabledLogOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingEnabledLogOutput)
+}
+
+// DiagnosticSettingEnabledLogArrayInput is an input type that accepts DiagnosticSettingEnabledLogArray and DiagnosticSettingEnabledLogArrayOutput values.
+// You can construct a concrete instance of `DiagnosticSettingEnabledLogArrayInput` via:
+//
+//	DiagnosticSettingEnabledLogArray{ DiagnosticSettingEnabledLogArgs{...} }
+type DiagnosticSettingEnabledLogArrayInput interface {
+	pulumi.Input
+
+	ToDiagnosticSettingEnabledLogArrayOutput() DiagnosticSettingEnabledLogArrayOutput
+	ToDiagnosticSettingEnabledLogArrayOutputWithContext(context.Context) DiagnosticSettingEnabledLogArrayOutput
+}
+
+type DiagnosticSettingEnabledLogArray []DiagnosticSettingEnabledLogInput
+
+func (DiagnosticSettingEnabledLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticSettingEnabledLog)(nil)).Elem()
+}
+
+func (i DiagnosticSettingEnabledLogArray) ToDiagnosticSettingEnabledLogArrayOutput() DiagnosticSettingEnabledLogArrayOutput {
+	return i.ToDiagnosticSettingEnabledLogArrayOutputWithContext(context.Background())
+}
+
+func (i DiagnosticSettingEnabledLogArray) ToDiagnosticSettingEnabledLogArrayOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingEnabledLogArrayOutput)
+}
+
+type DiagnosticSettingEnabledLogOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticSettingEnabledLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticSettingEnabledLog)(nil)).Elem()
+}
+
+func (o DiagnosticSettingEnabledLogOutput) ToDiagnosticSettingEnabledLogOutput() DiagnosticSettingEnabledLogOutput {
+	return o
+}
+
+func (o DiagnosticSettingEnabledLogOutput) ToDiagnosticSettingEnabledLogOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogOutput {
+	return o
+}
+
+// The name of a Diagnostic Log Category for this Resource.
+func (o DiagnosticSettingEnabledLogOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiagnosticSettingEnabledLog) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+// The name of a Diagnostic Log Category Group for this Resource.
+func (o DiagnosticSettingEnabledLogOutput) CategoryGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiagnosticSettingEnabledLog) *string { return v.CategoryGroup }).(pulumi.StringPtrOutput)
+}
+
+// A `retentionPolicy` block as defined below.
+func (o DiagnosticSettingEnabledLogOutput) RetentionPolicy() DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
+	return o.ApplyT(func(v DiagnosticSettingEnabledLog) *DiagnosticSettingEnabledLogRetentionPolicy {
+		return v.RetentionPolicy
+	}).(DiagnosticSettingEnabledLogRetentionPolicyPtrOutput)
+}
+
+type DiagnosticSettingEnabledLogArrayOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticSettingEnabledLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticSettingEnabledLog)(nil)).Elem()
+}
+
+func (o DiagnosticSettingEnabledLogArrayOutput) ToDiagnosticSettingEnabledLogArrayOutput() DiagnosticSettingEnabledLogArrayOutput {
+	return o
+}
+
+func (o DiagnosticSettingEnabledLogArrayOutput) ToDiagnosticSettingEnabledLogArrayOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogArrayOutput {
+	return o
+}
+
+func (o DiagnosticSettingEnabledLogArrayOutput) Index(i pulumi.IntInput) DiagnosticSettingEnabledLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticSettingEnabledLog {
+		return vs[0].([]DiagnosticSettingEnabledLog)[vs[1].(int)]
+	}).(DiagnosticSettingEnabledLogOutput)
+}
+
+type DiagnosticSettingEnabledLogRetentionPolicy struct {
+	// The number of days for which this Retention Policy should apply.
+	Days *int `pulumi:"days"`
+	// Is this Retention Policy enabled?
+	Enabled bool `pulumi:"enabled"`
+}
+
+// DiagnosticSettingEnabledLogRetentionPolicyInput is an input type that accepts DiagnosticSettingEnabledLogRetentionPolicyArgs and DiagnosticSettingEnabledLogRetentionPolicyOutput values.
+// You can construct a concrete instance of `DiagnosticSettingEnabledLogRetentionPolicyInput` via:
+//
+//	DiagnosticSettingEnabledLogRetentionPolicyArgs{...}
+type DiagnosticSettingEnabledLogRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToDiagnosticSettingEnabledLogRetentionPolicyOutput() DiagnosticSettingEnabledLogRetentionPolicyOutput
+	ToDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(context.Context) DiagnosticSettingEnabledLogRetentionPolicyOutput
+}
+
+type DiagnosticSettingEnabledLogRetentionPolicyArgs struct {
+	// The number of days for which this Retention Policy should apply.
+	Days pulumi.IntPtrInput `pulumi:"days"`
+	// Is this Retention Policy enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (DiagnosticSettingEnabledLogRetentionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticSettingEnabledLogRetentionPolicy)(nil)).Elem()
+}
+
+func (i DiagnosticSettingEnabledLogRetentionPolicyArgs) ToDiagnosticSettingEnabledLogRetentionPolicyOutput() DiagnosticSettingEnabledLogRetentionPolicyOutput {
+	return i.ToDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(context.Background())
+}
+
+func (i DiagnosticSettingEnabledLogRetentionPolicyArgs) ToDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingEnabledLogRetentionPolicyOutput)
+}
+
+func (i DiagnosticSettingEnabledLogRetentionPolicyArgs) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutput() DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
+	return i.ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i DiagnosticSettingEnabledLogRetentionPolicyArgs) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingEnabledLogRetentionPolicyOutput).ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx)
+}
+
+// DiagnosticSettingEnabledLogRetentionPolicyPtrInput is an input type that accepts DiagnosticSettingEnabledLogRetentionPolicyArgs, DiagnosticSettingEnabledLogRetentionPolicyPtr and DiagnosticSettingEnabledLogRetentionPolicyPtrOutput values.
+// You can construct a concrete instance of `DiagnosticSettingEnabledLogRetentionPolicyPtrInput` via:
+//
+//	        DiagnosticSettingEnabledLogRetentionPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type DiagnosticSettingEnabledLogRetentionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutput() DiagnosticSettingEnabledLogRetentionPolicyPtrOutput
+	ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(context.Context) DiagnosticSettingEnabledLogRetentionPolicyPtrOutput
+}
+
+type diagnosticSettingEnabledLogRetentionPolicyPtrType DiagnosticSettingEnabledLogRetentionPolicyArgs
+
+func DiagnosticSettingEnabledLogRetentionPolicyPtr(v *DiagnosticSettingEnabledLogRetentionPolicyArgs) DiagnosticSettingEnabledLogRetentionPolicyPtrInput {
+	return (*diagnosticSettingEnabledLogRetentionPolicyPtrType)(v)
+}
+
+func (*diagnosticSettingEnabledLogRetentionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticSettingEnabledLogRetentionPolicy)(nil)).Elem()
+}
+
+func (i *diagnosticSettingEnabledLogRetentionPolicyPtrType) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutput() DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
+	return i.ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *diagnosticSettingEnabledLogRetentionPolicyPtrType) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingEnabledLogRetentionPolicyPtrOutput)
+}
+
+type DiagnosticSettingEnabledLogRetentionPolicyOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticSettingEnabledLogRetentionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticSettingEnabledLogRetentionPolicy)(nil)).Elem()
+}
+
+func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) ToDiagnosticSettingEnabledLogRetentionPolicyOutput() DiagnosticSettingEnabledLogRetentionPolicyOutput {
+	return o
+}
+
+func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) ToDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogRetentionPolicyOutput {
+	return o
+}
+
+func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutput() DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
+	return o.ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticSettingEnabledLogRetentionPolicy) *DiagnosticSettingEnabledLogRetentionPolicy {
+		return &v
+	}).(DiagnosticSettingEnabledLogRetentionPolicyPtrOutput)
+}
+
+// The number of days for which this Retention Policy should apply.
+func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DiagnosticSettingEnabledLogRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
+}
+
+// Is this Retention Policy enabled?
+func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DiagnosticSettingEnabledLogRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type DiagnosticSettingEnabledLogRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticSettingEnabledLogRetentionPolicy)(nil)).Elem()
+}
+
+func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutput() DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) Elem() DiagnosticSettingEnabledLogRetentionPolicyOutput {
+	return o.ApplyT(func(v *DiagnosticSettingEnabledLogRetentionPolicy) DiagnosticSettingEnabledLogRetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticSettingEnabledLogRetentionPolicy
+		return ret
+	}).(DiagnosticSettingEnabledLogRetentionPolicyOutput)
+}
+
+// The number of days for which this Retention Policy should apply.
+func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DiagnosticSettingEnabledLogRetentionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntPtrOutput)
+}
+
+// Is this Retention Policy enabled?
+func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DiagnosticSettingEnabledLogRetentionPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type DiagnosticSettingLog struct {
 	// The name of a Diagnostic Log Category for this Resource.
 	Category *string `pulumi:"category"`
@@ -21540,6 +21813,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDestinationsAzureMonitorMetricsPtrInput)(nil)).Elem(), DataCollectionRuleDestinationsAzureMonitorMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDestinationsLogAnalyticInput)(nil)).Elem(), DataCollectionRuleDestinationsLogAnalyticArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCollectionRuleDestinationsLogAnalyticArrayInput)(nil)).Elem(), DataCollectionRuleDestinationsLogAnalyticArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingEnabledLogInput)(nil)).Elem(), DiagnosticSettingEnabledLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingEnabledLogArrayInput)(nil)).Elem(), DiagnosticSettingEnabledLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingEnabledLogRetentionPolicyInput)(nil)).Elem(), DiagnosticSettingEnabledLogRetentionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingEnabledLogRetentionPolicyPtrInput)(nil)).Elem(), DiagnosticSettingEnabledLogRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingLogInput)(nil)).Elem(), DiagnosticSettingLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingLogArrayInput)(nil)).Elem(), DiagnosticSettingLogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiagnosticSettingLogRetentionPolicyInput)(nil)).Elem(), DiagnosticSettingLogRetentionPolicyArgs{})
@@ -21826,6 +22103,10 @@ func init() {
 	pulumi.RegisterOutputType(DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput{})
 	pulumi.RegisterOutputType(DataCollectionRuleDestinationsLogAnalyticOutput{})
 	pulumi.RegisterOutputType(DataCollectionRuleDestinationsLogAnalyticArrayOutput{})
+	pulumi.RegisterOutputType(DiagnosticSettingEnabledLogOutput{})
+	pulumi.RegisterOutputType(DiagnosticSettingEnabledLogArrayOutput{})
+	pulumi.RegisterOutputType(DiagnosticSettingEnabledLogRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(DiagnosticSettingEnabledLogRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingLogOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingLogArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingLogRetentionPolicyOutput{})

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.mediaservices.inputs;
 
+import com.pulumi.azure.mediaservices.inputs.AccountStorageAccountManagedIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -46,11 +47,27 @@ public final class AccountStorageAccountArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.isPrimary);
     }
 
+    /**
+     * A `managed_identity` block as defined below.
+     * 
+     */
+    @Import(name="managedIdentity")
+    private @Nullable Output<AccountStorageAccountManagedIdentityArgs> managedIdentity;
+
+    /**
+     * @return A `managed_identity` block as defined below.
+     * 
+     */
+    public Optional<Output<AccountStorageAccountManagedIdentityArgs>> managedIdentity() {
+        return Optional.ofNullable(this.managedIdentity);
+    }
+
     private AccountStorageAccountArgs() {}
 
     private AccountStorageAccountArgs(AccountStorageAccountArgs $) {
         this.id = $.id;
         this.isPrimary = $.isPrimary;
+        this.managedIdentity = $.managedIdentity;
     }
 
     public static Builder builder() {
@@ -111,6 +128,27 @@ public final class AccountStorageAccountArgs extends com.pulumi.resources.Resour
          */
         public Builder isPrimary(Boolean isPrimary) {
             return isPrimary(Output.of(isPrimary));
+        }
+
+        /**
+         * @param managedIdentity A `managed_identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedIdentity(@Nullable Output<AccountStorageAccountManagedIdentityArgs> managedIdentity) {
+            $.managedIdentity = managedIdentity;
+            return this;
+        }
+
+        /**
+         * @param managedIdentity A `managed_identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedIdentity(AccountStorageAccountManagedIdentityArgs managedIdentity) {
+            return managedIdentity(Output.of(managedIdentity));
         }
 
         public AccountStorageAccountArgs build() {

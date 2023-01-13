@@ -62,7 +62,7 @@ namespace Pulumi.Azure.ContainerService
     /// Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
+    ///  $ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
     /// ```
     /// </summary>
     [AzureResourceType("azure:containerservice/kubernetesCluster:KubernetesCluster")]
@@ -75,8 +75,11 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterAciConnectorLinux?> AciConnectorLinux { get; private set; } = null!;
 
         /// <summary>
-        /// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+        /// An `api_server_access_profile` block as defined below.
         /// </summary>
+        [Output("apiServerAccessProfile")]
+        public Output<Outputs.KubernetesClusterApiServerAccessProfile> ApiServerAccessProfile { get; private set; } = null!;
+
         [Output("apiServerAuthorizedIpRanges")]
         public Output<ImmutableArray<string>> ApiServerAuthorizedIpRanges { get; private set; } = null!;
 
@@ -466,12 +469,15 @@ namespace Pulumi.Azure.ContainerService
         [Input("aciConnectorLinux")]
         public Input<Inputs.KubernetesClusterAciConnectorLinuxArgs>? AciConnectorLinux { get; set; }
 
+        /// <summary>
+        /// An `api_server_access_profile` block as defined below.
+        /// </summary>
+        [Input("apiServerAccessProfile")]
+        public Input<Inputs.KubernetesClusterApiServerAccessProfileArgs>? ApiServerAccessProfile { get; set; }
+
         [Input("apiServerAuthorizedIpRanges")]
         private InputList<string>? _apiServerAuthorizedIpRanges;
-
-        /// <summary>
-        /// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
-        /// </summary>
+        [Obsolete(@"This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider")]
         public InputList<string> ApiServerAuthorizedIpRanges
         {
             get => _apiServerAuthorizedIpRanges ?? (_apiServerAuthorizedIpRanges = new InputList<string>());
@@ -771,12 +777,15 @@ namespace Pulumi.Azure.ContainerService
         [Input("aciConnectorLinux")]
         public Input<Inputs.KubernetesClusterAciConnectorLinuxGetArgs>? AciConnectorLinux { get; set; }
 
+        /// <summary>
+        /// An `api_server_access_profile` block as defined below.
+        /// </summary>
+        [Input("apiServerAccessProfile")]
+        public Input<Inputs.KubernetesClusterApiServerAccessProfileGetArgs>? ApiServerAccessProfile { get; set; }
+
         [Input("apiServerAuthorizedIpRanges")]
         private InputList<string>? _apiServerAuthorizedIpRanges;
-
-        /// <summary>
-        /// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
-        /// </summary>
+        [Obsolete(@"This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider")]
         public InputList<string> ApiServerAuthorizedIpRanges
         {
             get => _apiServerAuthorizedIpRanges ?? (_apiServerAuthorizedIpRanges = new InputList<string>());

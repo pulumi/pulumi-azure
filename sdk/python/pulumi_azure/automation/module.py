@@ -23,7 +23,7 @@ class ModuleArgs:
         """
         The set of arguments for constructing a Module resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
-        :param pulumi.Input['ModuleModuleLinkArgs'] module_link: The published Module link.
+        :param pulumi.Input['ModuleModuleLinkArgs'] module_link: A `module_link` block as defined blow.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
         """
@@ -49,7 +49,7 @@ class ModuleArgs:
     @pulumi.getter(name="moduleLink")
     def module_link(self) -> pulumi.Input['ModuleModuleLinkArgs']:
         """
-        The published Module link.
+        A `module_link` block as defined blow.
         """
         return pulumi.get(self, "module_link")
 
@@ -92,7 +92,7 @@ class _ModuleState:
         """
         Input properties used for looking up and filtering Module resources.
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
-        :param pulumi.Input['ModuleModuleLinkArgs'] module_link: The published Module link.
+        :param pulumi.Input['ModuleModuleLinkArgs'] module_link: A `module_link` block as defined blow.
         :param pulumi.Input[str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
         """
@@ -121,7 +121,7 @@ class _ModuleState:
     @pulumi.getter(name="moduleLink")
     def module_link(self) -> Optional[pulumi.Input['ModuleModuleLinkArgs']]:
         """
-        The published Module link.
+        A `module_link` block as defined blow.
         """
         return pulumi.get(self, "module_link")
 
@@ -197,7 +197,7 @@ class Module(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ModuleModuleLinkArgs']] module_link: The published Module link.
+        :param pulumi.Input[pulumi.InputType['ModuleModuleLinkArgs']] module_link: A `module_link` block as defined blow.
         :param pulumi.Input[str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
         """
@@ -297,7 +297,7 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ModuleModuleLinkArgs']] module_link: The published Module link.
+        :param pulumi.Input[pulumi.InputType['ModuleModuleLinkArgs']] module_link: A `module_link` block as defined blow.
         :param pulumi.Input[str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
         """
@@ -323,7 +323,7 @@ class Module(pulumi.CustomResource):
     @pulumi.getter(name="moduleLink")
     def module_link(self) -> pulumi.Output['outputs.ModuleModuleLink']:
         """
-        The published Module link.
+        A `module_link` block as defined blow.
         """
         return pulumi.get(self, "module_link")
 

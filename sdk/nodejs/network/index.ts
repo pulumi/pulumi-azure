@@ -295,10 +295,20 @@ export type NetworkManager = import("./networkManager").NetworkManager;
 export const NetworkManager: typeof import("./networkManager").NetworkManager = null as any;
 utilities.lazyLoad(exports, ["NetworkManager"], () => require("./networkManager"));
 
+export { NetworkManagerManagementGroupConnectionArgs, NetworkManagerManagementGroupConnectionState } from "./networkManagerManagementGroupConnection";
+export type NetworkManagerManagementGroupConnection = import("./networkManagerManagementGroupConnection").NetworkManagerManagementGroupConnection;
+export const NetworkManagerManagementGroupConnection: typeof import("./networkManagerManagementGroupConnection").NetworkManagerManagementGroupConnection = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerManagementGroupConnection"], () => require("./networkManagerManagementGroupConnection"));
+
 export { NetworkManagerNetworkGroupArgs, NetworkManagerNetworkGroupState } from "./networkManagerNetworkGroup";
 export type NetworkManagerNetworkGroup = import("./networkManagerNetworkGroup").NetworkManagerNetworkGroup;
 export const NetworkManagerNetworkGroup: typeof import("./networkManagerNetworkGroup").NetworkManagerNetworkGroup = null as any;
 utilities.lazyLoad(exports, ["NetworkManagerNetworkGroup"], () => require("./networkManagerNetworkGroup"));
+
+export { NetworkManagerSubscriptionConnectionArgs, NetworkManagerSubscriptionConnectionState } from "./networkManagerSubscriptionConnection";
+export type NetworkManagerSubscriptionConnection = import("./networkManagerSubscriptionConnection").NetworkManagerSubscriptionConnection;
+export const NetworkManagerSubscriptionConnection: typeof import("./networkManagerSubscriptionConnection").NetworkManagerSubscriptionConnection = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerSubscriptionConnection"], () => require("./networkManagerSubscriptionConnection"));
 
 export { NetworkPacketCaptureArgs, NetworkPacketCaptureState } from "./networkPacketCapture";
 export type NetworkPacketCapture = import("./networkPacketCapture").NetworkPacketCapture;
@@ -580,8 +590,12 @@ const _module = {
                 return new NetworkInterfaceSecurityGroupAssociation(name, <any>undefined, { urn })
             case "azure:network/networkManager:NetworkManager":
                 return new NetworkManager(name, <any>undefined, { urn })
+            case "azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection":
+                return new NetworkManagerManagementGroupConnection(name, <any>undefined, { urn })
             case "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup":
                 return new NetworkManagerNetworkGroup(name, <any>undefined, { urn })
+            case "azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection":
+                return new NetworkManagerSubscriptionConnection(name, <any>undefined, { urn })
             case "azure:network/networkPacketCapture:NetworkPacketCapture":
                 return new NetworkPacketCapture(name, <any>undefined, { urn })
             case "azure:network/networkSecurityGroup:NetworkSecurityGroup":
@@ -703,7 +717,9 @@ pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceBackendA
 pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceNatRuleAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkInterfaceSecurityGroupAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManager", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerManagementGroupConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerNetworkGroup", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerSubscriptionConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkPacketCapture", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkSecurityGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkSecurityRule", _module)

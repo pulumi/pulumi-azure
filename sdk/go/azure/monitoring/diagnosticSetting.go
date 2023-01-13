@@ -90,6 +90,8 @@ import (
 type DiagnosticSetting struct {
 	pulumi.CustomResourceState
 
+	// One or more `enabledLog` blocks as defined below.
+	EnabledLogs DiagnosticSettingEnabledLogArrayOutput `pulumi:"enabledLogs"`
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	EventhubAuthorizationRuleId pulumi.StringPtrOutput `pulumi:"eventhubAuthorizationRuleId"`
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
@@ -99,6 +101,8 @@ type DiagnosticSetting struct {
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrOutput `pulumi:"logAnalyticsWorkspaceId"`
 	// One or more `log` blocks as defined below.
+	//
+	// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
 	Logs DiagnosticSettingLogArrayOutput `pulumi:"logs"`
 	// One or more `metric` blocks as defined below.
 	Metrics DiagnosticSettingMetricArrayOutput `pulumi:"metrics"`
@@ -144,6 +148,8 @@ func GetDiagnosticSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DiagnosticSetting resources.
 type diagnosticSettingState struct {
+	// One or more `enabledLog` blocks as defined below.
+	EnabledLogs []DiagnosticSettingEnabledLog `pulumi:"enabledLogs"`
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	EventhubAuthorizationRuleId *string `pulumi:"eventhubAuthorizationRuleId"`
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
@@ -153,6 +159,8 @@ type diagnosticSettingState struct {
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 	// One or more `log` blocks as defined below.
+	//
+	// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
 	Logs []DiagnosticSettingLog `pulumi:"logs"`
 	// One or more `metric` blocks as defined below.
 	Metrics []DiagnosticSettingMetric `pulumi:"metrics"`
@@ -167,6 +175,8 @@ type diagnosticSettingState struct {
 }
 
 type DiagnosticSettingState struct {
+	// One or more `enabledLog` blocks as defined below.
+	EnabledLogs DiagnosticSettingEnabledLogArrayInput
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	EventhubAuthorizationRuleId pulumi.StringPtrInput
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
@@ -176,6 +186,8 @@ type DiagnosticSettingState struct {
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
 	// One or more `log` blocks as defined below.
+	//
+	// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
 	Logs DiagnosticSettingLogArrayInput
 	// One or more `metric` blocks as defined below.
 	Metrics DiagnosticSettingMetricArrayInput
@@ -194,6 +206,8 @@ func (DiagnosticSettingState) ElementType() reflect.Type {
 }
 
 type diagnosticSettingArgs struct {
+	// One or more `enabledLog` blocks as defined below.
+	EnabledLogs []DiagnosticSettingEnabledLog `pulumi:"enabledLogs"`
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	EventhubAuthorizationRuleId *string `pulumi:"eventhubAuthorizationRuleId"`
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
@@ -203,6 +217,8 @@ type diagnosticSettingArgs struct {
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 	// One or more `log` blocks as defined below.
+	//
+	// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
 	Logs []DiagnosticSettingLog `pulumi:"logs"`
 	// One or more `metric` blocks as defined below.
 	Metrics []DiagnosticSettingMetric `pulumi:"metrics"`
@@ -218,6 +234,8 @@ type diagnosticSettingArgs struct {
 
 // The set of arguments for constructing a DiagnosticSetting resource.
 type DiagnosticSettingArgs struct {
+	// One or more `enabledLog` blocks as defined below.
+	EnabledLogs DiagnosticSettingEnabledLogArrayInput
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	EventhubAuthorizationRuleId pulumi.StringPtrInput
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
@@ -227,6 +245,8 @@ type DiagnosticSettingArgs struct {
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
 	// One or more `log` blocks as defined below.
+	//
+	// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
 	Logs DiagnosticSettingLogArrayInput
 	// One or more `metric` blocks as defined below.
 	Metrics DiagnosticSettingMetricArrayInput
@@ -327,6 +347,11 @@ func (o DiagnosticSettingOutput) ToDiagnosticSettingOutputWithContext(ctx contex
 	return o
 }
 
+// One or more `enabledLog` blocks as defined below.
+func (o DiagnosticSettingOutput) EnabledLogs() DiagnosticSettingEnabledLogArrayOutput {
+	return o.ApplyT(func(v *DiagnosticSetting) DiagnosticSettingEnabledLogArrayOutput { return v.EnabledLogs }).(DiagnosticSettingEnabledLogArrayOutput)
+}
+
 // Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 func (o DiagnosticSettingOutput) EventhubAuthorizationRuleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.EventhubAuthorizationRuleId }).(pulumi.StringPtrOutput)
@@ -348,6 +373,8 @@ func (o DiagnosticSettingOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutpu
 }
 
 // One or more `log` blocks as defined below.
+//
+// Deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
 func (o DiagnosticSettingOutput) Logs() DiagnosticSettingLogArrayOutput {
 	return o.ApplyT(func(v *DiagnosticSetting) DiagnosticSettingLogArrayOutput { return v.Logs }).(DiagnosticSettingLogArrayOutput)
 }

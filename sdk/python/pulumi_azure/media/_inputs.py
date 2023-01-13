@@ -10,6 +10,9 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AccountFilterPresentationTimeRangeArgs',
+    'AccountFilterTrackSelectionArgs',
+    'AccountFilterTrackSelectionConditionArgs',
     'AssetFilterPresentationTimeRangeArgs',
     'AssetFilterTrackSelectionArgs',
     'AssetFilterTrackSelectionConditionArgs',
@@ -30,9 +33,12 @@ __all__ = [
     'LiveEventPreviewArgs',
     'LiveEventPreviewEndpointArgs',
     'LiveEventPreviewIpAccessControlAllowArgs',
+    'ServiceAccountEncryptionArgs',
+    'ServiceAccountEncryptionManagedIdentityArgs',
     'ServiceAccountIdentityArgs',
     'ServiceAccountKeyDeliveryAccessControlArgs',
     'ServiceAccountStorageAccountArgs',
+    'ServiceAccountStorageAccountManagedIdentityArgs',
     'StreamingEndpointAccessControlArgs',
     'StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs',
     'StreamingEndpointAccessControlIpAllowArgs',
@@ -53,6 +59,186 @@ __all__ = [
     'TransformOutputFaceDetectorPresetArgs',
     'TransformOutputVideoAnalyzerPresetArgs',
 ]
+
+@pulumi.input_type
+class AccountFilterPresentationTimeRangeArgs:
+    def __init__(__self__, *,
+                 unit_timescale_in_milliseconds: pulumi.Input[int],
+                 end_in_units: Optional[pulumi.Input[int]] = None,
+                 force_end: Optional[pulumi.Input[bool]] = None,
+                 live_backoff_in_units: Optional[pulumi.Input[int]] = None,
+                 presentation_window_in_units: Optional[pulumi.Input[int]] = None,
+                 start_in_units: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] unit_timescale_in_milliseconds: Specified as the number of milliseconds in one unit timescale. For example, if you want to set a `start_in_units` at 30 seconds, you would use a value of 30 when using the `unit_timescale_in_milliseconds` in 1000. Or if you want to set `start_in_units` in 30 milliseconds, you would use a value of 30 when using the `unit_timescale_in_milliseconds` in 1.  Applies timescale to `start_in_units`, `start_timescale` and `presentation_window_in_timescale` and `live_backoff_in_timescale`.
+        :param pulumi.Input[int] end_in_units: The absolute end time boundary. Applies to Video on Demand (VoD).
+               For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unit_timescale_in_milliseconds`, so an `end_in_units` of 180 would be for 3 minutes. Use `start_in_units` and `end_in_units` to trim the fragments that will be in the playlist (manifest). For example, `start_in_units` set to 20 and `end_in_units` set to 60 using `unit_timescale_in_milliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+        :param pulumi.Input[bool] force_end: Indicates whether the `end_in_units` property must be present. If true, `end_in_units` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: `false`, `true`.
+        :param pulumi.Input[int] live_backoff_in_units: The relative to end right edge. Applies to Live Streaming only.
+               This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unit_timescale_in_milliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
+        :param pulumi.Input[int] presentation_window_in_units: The relative to end sliding window. Applies to Live Streaming only. Use `presentation_window_in_units` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unit_timescale_in_milliseconds`. For example, set  `presentation_window_in_units` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+        :param pulumi.Input[int] start_in_units: The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unit_timescale_in_milliseconds`, so a `start_in_units` of 15 would be for 15 seconds. Use `start_in_units` and `end_in_units` to trim the fragments that will be in the playlist (manifest). For example, `start_in_units` set to 20 and `end_in_units` set to 60 using `unit_timescale_in_milliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+        """
+        pulumi.set(__self__, "unit_timescale_in_milliseconds", unit_timescale_in_milliseconds)
+        if end_in_units is not None:
+            pulumi.set(__self__, "end_in_units", end_in_units)
+        if force_end is not None:
+            pulumi.set(__self__, "force_end", force_end)
+        if live_backoff_in_units is not None:
+            pulumi.set(__self__, "live_backoff_in_units", live_backoff_in_units)
+        if presentation_window_in_units is not None:
+            pulumi.set(__self__, "presentation_window_in_units", presentation_window_in_units)
+        if start_in_units is not None:
+            pulumi.set(__self__, "start_in_units", start_in_units)
+
+    @property
+    @pulumi.getter(name="unitTimescaleInMilliseconds")
+    def unit_timescale_in_milliseconds(self) -> pulumi.Input[int]:
+        """
+        Specified as the number of milliseconds in one unit timescale. For example, if you want to set a `start_in_units` at 30 seconds, you would use a value of 30 when using the `unit_timescale_in_milliseconds` in 1000. Or if you want to set `start_in_units` in 30 milliseconds, you would use a value of 30 when using the `unit_timescale_in_milliseconds` in 1.  Applies timescale to `start_in_units`, `start_timescale` and `presentation_window_in_timescale` and `live_backoff_in_timescale`.
+        """
+        return pulumi.get(self, "unit_timescale_in_milliseconds")
+
+    @unit_timescale_in_milliseconds.setter
+    def unit_timescale_in_milliseconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "unit_timescale_in_milliseconds", value)
+
+    @property
+    @pulumi.getter(name="endInUnits")
+    def end_in_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        The absolute end time boundary. Applies to Video on Demand (VoD).
+        For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unit_timescale_in_milliseconds`, so an `end_in_units` of 180 would be for 3 minutes. Use `start_in_units` and `end_in_units` to trim the fragments that will be in the playlist (manifest). For example, `start_in_units` set to 20 and `end_in_units` set to 60 using `unit_timescale_in_milliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+        """
+        return pulumi.get(self, "end_in_units")
+
+    @end_in_units.setter
+    def end_in_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "end_in_units", value)
+
+    @property
+    @pulumi.getter(name="forceEnd")
+    def force_end(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the `end_in_units` property must be present. If true, `end_in_units` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: `false`, `true`.
+        """
+        return pulumi.get(self, "force_end")
+
+    @force_end.setter
+    def force_end(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_end", value)
+
+    @property
+    @pulumi.getter(name="liveBackoffInUnits")
+    def live_backoff_in_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        The relative to end right edge. Applies to Live Streaming only.
+        This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unit_timescale_in_milliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
+        """
+        return pulumi.get(self, "live_backoff_in_units")
+
+    @live_backoff_in_units.setter
+    def live_backoff_in_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "live_backoff_in_units", value)
+
+    @property
+    @pulumi.getter(name="presentationWindowInUnits")
+    def presentation_window_in_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        The relative to end sliding window. Applies to Live Streaming only. Use `presentation_window_in_units` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unit_timescale_in_milliseconds`. For example, set  `presentation_window_in_units` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+        """
+        return pulumi.get(self, "presentation_window_in_units")
+
+    @presentation_window_in_units.setter
+    def presentation_window_in_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "presentation_window_in_units", value)
+
+    @property
+    @pulumi.getter(name="startInUnits")
+    def start_in_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unit_timescale_in_milliseconds`, so a `start_in_units` of 15 would be for 15 seconds. Use `start_in_units` and `end_in_units` to trim the fragments that will be in the playlist (manifest). For example, `start_in_units` set to 20 and `end_in_units` set to 60 using `unit_timescale_in_milliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+        """
+        return pulumi.get(self, "start_in_units")
+
+    @start_in_units.setter
+    def start_in_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "start_in_units", value)
+
+
+@pulumi.input_type
+class AccountFilterTrackSelectionArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArgs']]] conditions: One or more `condition` blocks as defined above.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArgs']]]:
+        """
+        One or more `condition` blocks as defined above.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+@pulumi.input_type
+class AccountFilterTrackSelectionConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[str],
+                 property: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] operation: The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+        :param pulumi.Input[str] property: The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+        :param pulumi.Input[str] value: The track property value to match or not match.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "property", property)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[str]:
+        """
+        The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operation", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The track property value to match or not match.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def property(self) -> pulumi.Input[str]:
+        """
+        The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+        """
+        return pulumi.get(self, "property")
+
+    @property.setter
+    def property(self, value: pulumi.Input[str]):
+        pulumi.set(self, "property", value)
+
 
 @pulumi.input_type
 class AssetFilterPresentationTimeRangeArgs:
@@ -1575,6 +1761,116 @@ class LiveEventPreviewIpAccessControlAllowArgs:
 
 
 @pulumi.input_type
+class ServiceAccountEncryptionArgs:
+    def __init__(__self__, *,
+                 current_key_identifier: Optional[pulumi.Input[str]] = None,
+                 key_vault_key_identifier: Optional[pulumi.Input[str]] = None,
+                 managed_identity: Optional[pulumi.Input['ServiceAccountEncryptionManagedIdentityArgs']] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] current_key_identifier: The current key used to encrypt the Media Services Account, including the key version.
+        :param pulumi.Input[str] key_vault_key_identifier: Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+        :param pulumi.Input['ServiceAccountEncryptionManagedIdentityArgs'] managed_identity: A `managed_identity` block as defined below.
+        :param pulumi.Input[str] type: Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+        """
+        if current_key_identifier is not None:
+            pulumi.set(__self__, "current_key_identifier", current_key_identifier)
+        if key_vault_key_identifier is not None:
+            pulumi.set(__self__, "key_vault_key_identifier", key_vault_key_identifier)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="currentKeyIdentifier")
+    def current_key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current key used to encrypt the Media Services Account, including the key version.
+        """
+        return pulumi.get(self, "current_key_identifier")
+
+    @current_key_identifier.setter
+    def current_key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "current_key_identifier", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyIdentifier")
+    def key_vault_key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+        """
+        return pulumi.get(self, "key_vault_key_identifier")
+
+    @key_vault_key_identifier.setter
+    def key_vault_key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_identifier", value)
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[pulumi.Input['ServiceAccountEncryptionManagedIdentityArgs']]:
+        """
+        A `managed_identity` block as defined below.
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @managed_identity.setter
+    def managed_identity(self, value: Optional[pulumi.Input['ServiceAccountEncryptionManagedIdentityArgs']]):
+        pulumi.set(self, "managed_identity", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ServiceAccountEncryptionManagedIdentityArgs:
+    def __init__(__self__, *,
+                 use_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] use_system_assigned_identity: Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity. This value can only be set when `use_system_assigned_identity` is `false`
+        """
+        if use_system_assigned_identity is not None:
+            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="useSystemAssignedIdentity")
+    def use_system_assigned_identity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+        """
+        return pulumi.get(self, "use_system_assigned_identity")
+
+    @use_system_assigned_identity.setter
+    def use_system_assigned_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_system_assigned_identity", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the User Assigned Identity. This value can only be set when `use_system_assigned_identity` is `false`
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
+
+
+@pulumi.input_type
 class ServiceAccountIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -1687,14 +1983,18 @@ class ServiceAccountKeyDeliveryAccessControlArgs:
 class ServiceAccountStorageAccountArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 is_primary: Optional[pulumi.Input[bool]] = None):
+                 is_primary: Optional[pulumi.Input[bool]] = None,
+                 managed_identity: Optional[pulumi.Input['ServiceAccountStorageAccountManagedIdentityArgs']] = None):
         """
         :param pulumi.Input[str] id: Specifies the ID of the Storage Account that will be associated with the Media Services instance.
         :param pulumi.Input[bool] is_primary: Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+        :param pulumi.Input['ServiceAccountStorageAccountManagedIdentityArgs'] managed_identity: A `managed_identity` block as defined below.
         """
         pulumi.set(__self__, "id", id)
         if is_primary is not None:
             pulumi.set(__self__, "is_primary", is_primary)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
 
     @property
     @pulumi.getter
@@ -1719,6 +2019,57 @@ class ServiceAccountStorageAccountArgs:
     @is_primary.setter
     def is_primary(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_primary", value)
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[pulumi.Input['ServiceAccountStorageAccountManagedIdentityArgs']]:
+        """
+        A `managed_identity` block as defined below.
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @managed_identity.setter
+    def managed_identity(self, value: Optional[pulumi.Input['ServiceAccountStorageAccountManagedIdentityArgs']]):
+        pulumi.set(self, "managed_identity", value)
+
+
+@pulumi.input_type
+class ServiceAccountStorageAccountManagedIdentityArgs:
+    def __init__(__self__, *,
+                 use_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] use_system_assigned_identity: Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity. This value can only be set when `use_system_assigned_identity` is `false`
+        """
+        if use_system_assigned_identity is not None:
+            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="useSystemAssignedIdentity")
+    def use_system_assigned_identity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+        """
+        return pulumi.get(self, "use_system_assigned_identity")
+
+    @use_system_assigned_identity.setter
+    def use_system_assigned_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_system_assigned_identity", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the User Assigned Identity. This value can only be set when `use_system_assigned_identity` is `false`
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
 
 
 @pulumi.input_type

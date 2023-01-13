@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * Stream Analytics JavaScript UDA Functions can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/functions/func1
+ *  $ pulumi import azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/functions/func1
  * ```
  */
 export class FunctionJavascriptUda extends pulumi.CustomResource {

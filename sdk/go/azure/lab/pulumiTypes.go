@@ -10,6 +10,1851 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type LabAutoShutdown struct {
+	// The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+	DisconnectDelay *string `pulumi:"disconnectDelay"`
+	// The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+	IdleDelay *string `pulumi:"idleDelay"`
+	// The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
+	NoConnectDelay *string `pulumi:"noConnectDelay"`
+	// A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+	ShutdownOnIdle *string `pulumi:"shutdownOnIdle"`
+}
+
+// LabAutoShutdownInput is an input type that accepts LabAutoShutdownArgs and LabAutoShutdownOutput values.
+// You can construct a concrete instance of `LabAutoShutdownInput` via:
+//
+//	LabAutoShutdownArgs{...}
+type LabAutoShutdownInput interface {
+	pulumi.Input
+
+	ToLabAutoShutdownOutput() LabAutoShutdownOutput
+	ToLabAutoShutdownOutputWithContext(context.Context) LabAutoShutdownOutput
+}
+
+type LabAutoShutdownArgs struct {
+	// The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+	DisconnectDelay pulumi.StringPtrInput `pulumi:"disconnectDelay"`
+	// The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+	IdleDelay pulumi.StringPtrInput `pulumi:"idleDelay"`
+	// The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
+	NoConnectDelay pulumi.StringPtrInput `pulumi:"noConnectDelay"`
+	// A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+	ShutdownOnIdle pulumi.StringPtrInput `pulumi:"shutdownOnIdle"`
+}
+
+func (LabAutoShutdownArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabAutoShutdown)(nil)).Elem()
+}
+
+func (i LabAutoShutdownArgs) ToLabAutoShutdownOutput() LabAutoShutdownOutput {
+	return i.ToLabAutoShutdownOutputWithContext(context.Background())
+}
+
+func (i LabAutoShutdownArgs) ToLabAutoShutdownOutputWithContext(ctx context.Context) LabAutoShutdownOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabAutoShutdownOutput)
+}
+
+func (i LabAutoShutdownArgs) ToLabAutoShutdownPtrOutput() LabAutoShutdownPtrOutput {
+	return i.ToLabAutoShutdownPtrOutputWithContext(context.Background())
+}
+
+func (i LabAutoShutdownArgs) ToLabAutoShutdownPtrOutputWithContext(ctx context.Context) LabAutoShutdownPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabAutoShutdownOutput).ToLabAutoShutdownPtrOutputWithContext(ctx)
+}
+
+// LabAutoShutdownPtrInput is an input type that accepts LabAutoShutdownArgs, LabAutoShutdownPtr and LabAutoShutdownPtrOutput values.
+// You can construct a concrete instance of `LabAutoShutdownPtrInput` via:
+//
+//	        LabAutoShutdownArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabAutoShutdownPtrInput interface {
+	pulumi.Input
+
+	ToLabAutoShutdownPtrOutput() LabAutoShutdownPtrOutput
+	ToLabAutoShutdownPtrOutputWithContext(context.Context) LabAutoShutdownPtrOutput
+}
+
+type labAutoShutdownPtrType LabAutoShutdownArgs
+
+func LabAutoShutdownPtr(v *LabAutoShutdownArgs) LabAutoShutdownPtrInput {
+	return (*labAutoShutdownPtrType)(v)
+}
+
+func (*labAutoShutdownPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabAutoShutdown)(nil)).Elem()
+}
+
+func (i *labAutoShutdownPtrType) ToLabAutoShutdownPtrOutput() LabAutoShutdownPtrOutput {
+	return i.ToLabAutoShutdownPtrOutputWithContext(context.Background())
+}
+
+func (i *labAutoShutdownPtrType) ToLabAutoShutdownPtrOutputWithContext(ctx context.Context) LabAutoShutdownPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabAutoShutdownPtrOutput)
+}
+
+type LabAutoShutdownOutput struct{ *pulumi.OutputState }
+
+func (LabAutoShutdownOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabAutoShutdown)(nil)).Elem()
+}
+
+func (o LabAutoShutdownOutput) ToLabAutoShutdownOutput() LabAutoShutdownOutput {
+	return o
+}
+
+func (o LabAutoShutdownOutput) ToLabAutoShutdownOutputWithContext(ctx context.Context) LabAutoShutdownOutput {
+	return o
+}
+
+func (o LabAutoShutdownOutput) ToLabAutoShutdownPtrOutput() LabAutoShutdownPtrOutput {
+	return o.ToLabAutoShutdownPtrOutputWithContext(context.Background())
+}
+
+func (o LabAutoShutdownOutput) ToLabAutoShutdownPtrOutputWithContext(ctx context.Context) LabAutoShutdownPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabAutoShutdown) *LabAutoShutdown {
+		return &v
+	}).(LabAutoShutdownPtrOutput)
+}
+
+// The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+func (o LabAutoShutdownOutput) DisconnectDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabAutoShutdown) *string { return v.DisconnectDelay }).(pulumi.StringPtrOutput)
+}
+
+// The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+func (o LabAutoShutdownOutput) IdleDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabAutoShutdown) *string { return v.IdleDelay }).(pulumi.StringPtrOutput)
+}
+
+// The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
+func (o LabAutoShutdownOutput) NoConnectDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabAutoShutdown) *string { return v.NoConnectDelay }).(pulumi.StringPtrOutput)
+}
+
+// A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+func (o LabAutoShutdownOutput) ShutdownOnIdle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabAutoShutdown) *string { return v.ShutdownOnIdle }).(pulumi.StringPtrOutput)
+}
+
+type LabAutoShutdownPtrOutput struct{ *pulumi.OutputState }
+
+func (LabAutoShutdownPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabAutoShutdown)(nil)).Elem()
+}
+
+func (o LabAutoShutdownPtrOutput) ToLabAutoShutdownPtrOutput() LabAutoShutdownPtrOutput {
+	return o
+}
+
+func (o LabAutoShutdownPtrOutput) ToLabAutoShutdownPtrOutputWithContext(ctx context.Context) LabAutoShutdownPtrOutput {
+	return o
+}
+
+func (o LabAutoShutdownPtrOutput) Elem() LabAutoShutdownOutput {
+	return o.ApplyT(func(v *LabAutoShutdown) LabAutoShutdown {
+		if v != nil {
+			return *v
+		}
+		var ret LabAutoShutdown
+		return ret
+	}).(LabAutoShutdownOutput)
+}
+
+// The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+func (o LabAutoShutdownPtrOutput) DisconnectDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabAutoShutdown) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisconnectDelay
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+func (o LabAutoShutdownPtrOutput) IdleDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabAutoShutdown) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdleDelay
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
+func (o LabAutoShutdownPtrOutput) NoConnectDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabAutoShutdown) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NoConnectDelay
+	}).(pulumi.StringPtrOutput)
+}
+
+// A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+func (o LabAutoShutdownPtrOutput) ShutdownOnIdle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabAutoShutdown) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShutdownOnIdle
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabConnectionSetting struct {
+	// The enabled access level for Client Access over RDP. Possible value is `Public`.
+	ClientRdpAccess *string `pulumi:"clientRdpAccess"`
+	// The enabled access level for Client Access over SSH. Possible value is `Public`.
+	ClientSshAccess *string `pulumi:"clientSshAccess"`
+}
+
+// LabConnectionSettingInput is an input type that accepts LabConnectionSettingArgs and LabConnectionSettingOutput values.
+// You can construct a concrete instance of `LabConnectionSettingInput` via:
+//
+//	LabConnectionSettingArgs{...}
+type LabConnectionSettingInput interface {
+	pulumi.Input
+
+	ToLabConnectionSettingOutput() LabConnectionSettingOutput
+	ToLabConnectionSettingOutputWithContext(context.Context) LabConnectionSettingOutput
+}
+
+type LabConnectionSettingArgs struct {
+	// The enabled access level for Client Access over RDP. Possible value is `Public`.
+	ClientRdpAccess pulumi.StringPtrInput `pulumi:"clientRdpAccess"`
+	// The enabled access level for Client Access over SSH. Possible value is `Public`.
+	ClientSshAccess pulumi.StringPtrInput `pulumi:"clientSshAccess"`
+}
+
+func (LabConnectionSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabConnectionSetting)(nil)).Elem()
+}
+
+func (i LabConnectionSettingArgs) ToLabConnectionSettingOutput() LabConnectionSettingOutput {
+	return i.ToLabConnectionSettingOutputWithContext(context.Background())
+}
+
+func (i LabConnectionSettingArgs) ToLabConnectionSettingOutputWithContext(ctx context.Context) LabConnectionSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabConnectionSettingOutput)
+}
+
+func (i LabConnectionSettingArgs) ToLabConnectionSettingPtrOutput() LabConnectionSettingPtrOutput {
+	return i.ToLabConnectionSettingPtrOutputWithContext(context.Background())
+}
+
+func (i LabConnectionSettingArgs) ToLabConnectionSettingPtrOutputWithContext(ctx context.Context) LabConnectionSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabConnectionSettingOutput).ToLabConnectionSettingPtrOutputWithContext(ctx)
+}
+
+// LabConnectionSettingPtrInput is an input type that accepts LabConnectionSettingArgs, LabConnectionSettingPtr and LabConnectionSettingPtrOutput values.
+// You can construct a concrete instance of `LabConnectionSettingPtrInput` via:
+//
+//	        LabConnectionSettingArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabConnectionSettingPtrInput interface {
+	pulumi.Input
+
+	ToLabConnectionSettingPtrOutput() LabConnectionSettingPtrOutput
+	ToLabConnectionSettingPtrOutputWithContext(context.Context) LabConnectionSettingPtrOutput
+}
+
+type labConnectionSettingPtrType LabConnectionSettingArgs
+
+func LabConnectionSettingPtr(v *LabConnectionSettingArgs) LabConnectionSettingPtrInput {
+	return (*labConnectionSettingPtrType)(v)
+}
+
+func (*labConnectionSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabConnectionSetting)(nil)).Elem()
+}
+
+func (i *labConnectionSettingPtrType) ToLabConnectionSettingPtrOutput() LabConnectionSettingPtrOutput {
+	return i.ToLabConnectionSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *labConnectionSettingPtrType) ToLabConnectionSettingPtrOutputWithContext(ctx context.Context) LabConnectionSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabConnectionSettingPtrOutput)
+}
+
+type LabConnectionSettingOutput struct{ *pulumi.OutputState }
+
+func (LabConnectionSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabConnectionSetting)(nil)).Elem()
+}
+
+func (o LabConnectionSettingOutput) ToLabConnectionSettingOutput() LabConnectionSettingOutput {
+	return o
+}
+
+func (o LabConnectionSettingOutput) ToLabConnectionSettingOutputWithContext(ctx context.Context) LabConnectionSettingOutput {
+	return o
+}
+
+func (o LabConnectionSettingOutput) ToLabConnectionSettingPtrOutput() LabConnectionSettingPtrOutput {
+	return o.ToLabConnectionSettingPtrOutputWithContext(context.Background())
+}
+
+func (o LabConnectionSettingOutput) ToLabConnectionSettingPtrOutputWithContext(ctx context.Context) LabConnectionSettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabConnectionSetting) *LabConnectionSetting {
+		return &v
+	}).(LabConnectionSettingPtrOutput)
+}
+
+// The enabled access level for Client Access over RDP. Possible value is `Public`.
+func (o LabConnectionSettingOutput) ClientRdpAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabConnectionSetting) *string { return v.ClientRdpAccess }).(pulumi.StringPtrOutput)
+}
+
+// The enabled access level for Client Access over SSH. Possible value is `Public`.
+func (o LabConnectionSettingOutput) ClientSshAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabConnectionSetting) *string { return v.ClientSshAccess }).(pulumi.StringPtrOutput)
+}
+
+type LabConnectionSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (LabConnectionSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabConnectionSetting)(nil)).Elem()
+}
+
+func (o LabConnectionSettingPtrOutput) ToLabConnectionSettingPtrOutput() LabConnectionSettingPtrOutput {
+	return o
+}
+
+func (o LabConnectionSettingPtrOutput) ToLabConnectionSettingPtrOutputWithContext(ctx context.Context) LabConnectionSettingPtrOutput {
+	return o
+}
+
+func (o LabConnectionSettingPtrOutput) Elem() LabConnectionSettingOutput {
+	return o.ApplyT(func(v *LabConnectionSetting) LabConnectionSetting {
+		if v != nil {
+			return *v
+		}
+		var ret LabConnectionSetting
+		return ret
+	}).(LabConnectionSettingOutput)
+}
+
+// The enabled access level for Client Access over RDP. Possible value is `Public`.
+func (o LabConnectionSettingPtrOutput) ClientRdpAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabConnectionSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientRdpAccess
+	}).(pulumi.StringPtrOutput)
+}
+
+// The enabled access level for Client Access over SSH. Possible value is `Public`.
+func (o LabConnectionSettingPtrOutput) ClientSshAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabConnectionSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSshAccess
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabNetwork struct {
+	// The resource ID of the Load Balancer for the network profile of the Lab Service Lab.
+	LoadBalancerId *string `pulumi:"loadBalancerId"`
+	// The resource ID of the Public IP for the network profile of the Lab Service Lab.
+	PublicIpId *string `pulumi:"publicIpId"`
+	// The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// LabNetworkInput is an input type that accepts LabNetworkArgs and LabNetworkOutput values.
+// You can construct a concrete instance of `LabNetworkInput` via:
+//
+//	LabNetworkArgs{...}
+type LabNetworkInput interface {
+	pulumi.Input
+
+	ToLabNetworkOutput() LabNetworkOutput
+	ToLabNetworkOutputWithContext(context.Context) LabNetworkOutput
+}
+
+type LabNetworkArgs struct {
+	// The resource ID of the Load Balancer for the network profile of the Lab Service Lab.
+	LoadBalancerId pulumi.StringPtrInput `pulumi:"loadBalancerId"`
+	// The resource ID of the Public IP for the network profile of the Lab Service Lab.
+	PublicIpId pulumi.StringPtrInput `pulumi:"publicIpId"`
+	// The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (LabNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabNetwork)(nil)).Elem()
+}
+
+func (i LabNetworkArgs) ToLabNetworkOutput() LabNetworkOutput {
+	return i.ToLabNetworkOutputWithContext(context.Background())
+}
+
+func (i LabNetworkArgs) ToLabNetworkOutputWithContext(ctx context.Context) LabNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabNetworkOutput)
+}
+
+func (i LabNetworkArgs) ToLabNetworkPtrOutput() LabNetworkPtrOutput {
+	return i.ToLabNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i LabNetworkArgs) ToLabNetworkPtrOutputWithContext(ctx context.Context) LabNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabNetworkOutput).ToLabNetworkPtrOutputWithContext(ctx)
+}
+
+// LabNetworkPtrInput is an input type that accepts LabNetworkArgs, LabNetworkPtr and LabNetworkPtrOutput values.
+// You can construct a concrete instance of `LabNetworkPtrInput` via:
+//
+//	        LabNetworkArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabNetworkPtrInput interface {
+	pulumi.Input
+
+	ToLabNetworkPtrOutput() LabNetworkPtrOutput
+	ToLabNetworkPtrOutputWithContext(context.Context) LabNetworkPtrOutput
+}
+
+type labNetworkPtrType LabNetworkArgs
+
+func LabNetworkPtr(v *LabNetworkArgs) LabNetworkPtrInput {
+	return (*labNetworkPtrType)(v)
+}
+
+func (*labNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabNetwork)(nil)).Elem()
+}
+
+func (i *labNetworkPtrType) ToLabNetworkPtrOutput() LabNetworkPtrOutput {
+	return i.ToLabNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *labNetworkPtrType) ToLabNetworkPtrOutputWithContext(ctx context.Context) LabNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabNetworkPtrOutput)
+}
+
+type LabNetworkOutput struct{ *pulumi.OutputState }
+
+func (LabNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabNetwork)(nil)).Elem()
+}
+
+func (o LabNetworkOutput) ToLabNetworkOutput() LabNetworkOutput {
+	return o
+}
+
+func (o LabNetworkOutput) ToLabNetworkOutputWithContext(ctx context.Context) LabNetworkOutput {
+	return o
+}
+
+func (o LabNetworkOutput) ToLabNetworkPtrOutput() LabNetworkPtrOutput {
+	return o.ToLabNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o LabNetworkOutput) ToLabNetworkPtrOutputWithContext(ctx context.Context) LabNetworkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabNetwork) *LabNetwork {
+		return &v
+	}).(LabNetworkPtrOutput)
+}
+
+// The resource ID of the Load Balancer for the network profile of the Lab Service Lab.
+func (o LabNetworkOutput) LoadBalancerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabNetwork) *string { return v.LoadBalancerId }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Public IP for the network profile of the Lab Service Lab.
+func (o LabNetworkOutput) PublicIpId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabNetwork) *string { return v.PublicIpId }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+func (o LabNetworkOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabNetwork) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type LabNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (LabNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabNetwork)(nil)).Elem()
+}
+
+func (o LabNetworkPtrOutput) ToLabNetworkPtrOutput() LabNetworkPtrOutput {
+	return o
+}
+
+func (o LabNetworkPtrOutput) ToLabNetworkPtrOutputWithContext(ctx context.Context) LabNetworkPtrOutput {
+	return o
+}
+
+func (o LabNetworkPtrOutput) Elem() LabNetworkOutput {
+	return o.ApplyT(func(v *LabNetwork) LabNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret LabNetwork
+		return ret
+	}).(LabNetworkOutput)
+}
+
+// The resource ID of the Load Balancer for the network profile of the Lab Service Lab.
+func (o LabNetworkPtrOutput) LoadBalancerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancerId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Public IP for the network profile of the Lab Service Lab.
+func (o LabNetworkPtrOutput) PublicIpId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIpId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Subnet for the network profile of the Lab Service Lab. Changing this forces a new resource to be created.
+func (o LabNetworkPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabRoster struct {
+	// The AAD group ID which this Lab Service Lab roster is populated from.
+	ActiveDirectoryGroupId *string `pulumi:"activeDirectoryGroupId"`
+	// The base URI identifying the lms instance.
+	LmsInstance *string `pulumi:"lmsInstance"`
+	// The unique id of the Azure Lab Service tool in the lms.
+	LtiClientId *string `pulumi:"ltiClientId"`
+	// The unique context identifier for the Lab Service Lab in the lms.
+	LtiContextId *string `pulumi:"ltiContextId"`
+	// The URI of the names and roles service endpoint on the lms for the class attached to this Lab Service Lab.
+	LtiRosterEndpoint *string `pulumi:"ltiRosterEndpoint"`
+}
+
+// LabRosterInput is an input type that accepts LabRosterArgs and LabRosterOutput values.
+// You can construct a concrete instance of `LabRosterInput` via:
+//
+//	LabRosterArgs{...}
+type LabRosterInput interface {
+	pulumi.Input
+
+	ToLabRosterOutput() LabRosterOutput
+	ToLabRosterOutputWithContext(context.Context) LabRosterOutput
+}
+
+type LabRosterArgs struct {
+	// The AAD group ID which this Lab Service Lab roster is populated from.
+	ActiveDirectoryGroupId pulumi.StringPtrInput `pulumi:"activeDirectoryGroupId"`
+	// The base URI identifying the lms instance.
+	LmsInstance pulumi.StringPtrInput `pulumi:"lmsInstance"`
+	// The unique id of the Azure Lab Service tool in the lms.
+	LtiClientId pulumi.StringPtrInput `pulumi:"ltiClientId"`
+	// The unique context identifier for the Lab Service Lab in the lms.
+	LtiContextId pulumi.StringPtrInput `pulumi:"ltiContextId"`
+	// The URI of the names and roles service endpoint on the lms for the class attached to this Lab Service Lab.
+	LtiRosterEndpoint pulumi.StringPtrInput `pulumi:"ltiRosterEndpoint"`
+}
+
+func (LabRosterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabRoster)(nil)).Elem()
+}
+
+func (i LabRosterArgs) ToLabRosterOutput() LabRosterOutput {
+	return i.ToLabRosterOutputWithContext(context.Background())
+}
+
+func (i LabRosterArgs) ToLabRosterOutputWithContext(ctx context.Context) LabRosterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabRosterOutput)
+}
+
+func (i LabRosterArgs) ToLabRosterPtrOutput() LabRosterPtrOutput {
+	return i.ToLabRosterPtrOutputWithContext(context.Background())
+}
+
+func (i LabRosterArgs) ToLabRosterPtrOutputWithContext(ctx context.Context) LabRosterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabRosterOutput).ToLabRosterPtrOutputWithContext(ctx)
+}
+
+// LabRosterPtrInput is an input type that accepts LabRosterArgs, LabRosterPtr and LabRosterPtrOutput values.
+// You can construct a concrete instance of `LabRosterPtrInput` via:
+//
+//	        LabRosterArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabRosterPtrInput interface {
+	pulumi.Input
+
+	ToLabRosterPtrOutput() LabRosterPtrOutput
+	ToLabRosterPtrOutputWithContext(context.Context) LabRosterPtrOutput
+}
+
+type labRosterPtrType LabRosterArgs
+
+func LabRosterPtr(v *LabRosterArgs) LabRosterPtrInput {
+	return (*labRosterPtrType)(v)
+}
+
+func (*labRosterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabRoster)(nil)).Elem()
+}
+
+func (i *labRosterPtrType) ToLabRosterPtrOutput() LabRosterPtrOutput {
+	return i.ToLabRosterPtrOutputWithContext(context.Background())
+}
+
+func (i *labRosterPtrType) ToLabRosterPtrOutputWithContext(ctx context.Context) LabRosterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabRosterPtrOutput)
+}
+
+type LabRosterOutput struct{ *pulumi.OutputState }
+
+func (LabRosterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabRoster)(nil)).Elem()
+}
+
+func (o LabRosterOutput) ToLabRosterOutput() LabRosterOutput {
+	return o
+}
+
+func (o LabRosterOutput) ToLabRosterOutputWithContext(ctx context.Context) LabRosterOutput {
+	return o
+}
+
+func (o LabRosterOutput) ToLabRosterPtrOutput() LabRosterPtrOutput {
+	return o.ToLabRosterPtrOutputWithContext(context.Background())
+}
+
+func (o LabRosterOutput) ToLabRosterPtrOutputWithContext(ctx context.Context) LabRosterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabRoster) *LabRoster {
+		return &v
+	}).(LabRosterPtrOutput)
+}
+
+// The AAD group ID which this Lab Service Lab roster is populated from.
+func (o LabRosterOutput) ActiveDirectoryGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabRoster) *string { return v.ActiveDirectoryGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The base URI identifying the lms instance.
+func (o LabRosterOutput) LmsInstance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabRoster) *string { return v.LmsInstance }).(pulumi.StringPtrOutput)
+}
+
+// The unique id of the Azure Lab Service tool in the lms.
+func (o LabRosterOutput) LtiClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabRoster) *string { return v.LtiClientId }).(pulumi.StringPtrOutput)
+}
+
+// The unique context identifier for the Lab Service Lab in the lms.
+func (o LabRosterOutput) LtiContextId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabRoster) *string { return v.LtiContextId }).(pulumi.StringPtrOutput)
+}
+
+// The URI of the names and roles service endpoint on the lms for the class attached to this Lab Service Lab.
+func (o LabRosterOutput) LtiRosterEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabRoster) *string { return v.LtiRosterEndpoint }).(pulumi.StringPtrOutput)
+}
+
+type LabRosterPtrOutput struct{ *pulumi.OutputState }
+
+func (LabRosterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabRoster)(nil)).Elem()
+}
+
+func (o LabRosterPtrOutput) ToLabRosterPtrOutput() LabRosterPtrOutput {
+	return o
+}
+
+func (o LabRosterPtrOutput) ToLabRosterPtrOutputWithContext(ctx context.Context) LabRosterPtrOutput {
+	return o
+}
+
+func (o LabRosterPtrOutput) Elem() LabRosterOutput {
+	return o.ApplyT(func(v *LabRoster) LabRoster {
+		if v != nil {
+			return *v
+		}
+		var ret LabRoster
+		return ret
+	}).(LabRosterOutput)
+}
+
+// The AAD group ID which this Lab Service Lab roster is populated from.
+func (o LabRosterPtrOutput) ActiveDirectoryGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabRoster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectoryGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The base URI identifying the lms instance.
+func (o LabRosterPtrOutput) LmsInstance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabRoster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LmsInstance
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique id of the Azure Lab Service tool in the lms.
+func (o LabRosterPtrOutput) LtiClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabRoster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LtiClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique context identifier for the Lab Service Lab in the lms.
+func (o LabRosterPtrOutput) LtiContextId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabRoster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LtiContextId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URI of the names and roles service endpoint on the lms for the class attached to this Lab Service Lab.
+func (o LabRosterPtrOutput) LtiRosterEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabRoster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LtiRosterEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabSecurity struct {
+	// Is open access enabled to allow any user or only specified users to register to a Lab Service Lab?
+	OpenAccessEnabled bool `pulumi:"openAccessEnabled"`
+	// The registration code for the Lab Service Lab.
+	RegistrationCode *string `pulumi:"registrationCode"`
+}
+
+// LabSecurityInput is an input type that accepts LabSecurityArgs and LabSecurityOutput values.
+// You can construct a concrete instance of `LabSecurityInput` via:
+//
+//	LabSecurityArgs{...}
+type LabSecurityInput interface {
+	pulumi.Input
+
+	ToLabSecurityOutput() LabSecurityOutput
+	ToLabSecurityOutputWithContext(context.Context) LabSecurityOutput
+}
+
+type LabSecurityArgs struct {
+	// Is open access enabled to allow any user or only specified users to register to a Lab Service Lab?
+	OpenAccessEnabled pulumi.BoolInput `pulumi:"openAccessEnabled"`
+	// The registration code for the Lab Service Lab.
+	RegistrationCode pulumi.StringPtrInput `pulumi:"registrationCode"`
+}
+
+func (LabSecurityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabSecurity)(nil)).Elem()
+}
+
+func (i LabSecurityArgs) ToLabSecurityOutput() LabSecurityOutput {
+	return i.ToLabSecurityOutputWithContext(context.Background())
+}
+
+func (i LabSecurityArgs) ToLabSecurityOutputWithContext(ctx context.Context) LabSecurityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabSecurityOutput)
+}
+
+func (i LabSecurityArgs) ToLabSecurityPtrOutput() LabSecurityPtrOutput {
+	return i.ToLabSecurityPtrOutputWithContext(context.Background())
+}
+
+func (i LabSecurityArgs) ToLabSecurityPtrOutputWithContext(ctx context.Context) LabSecurityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabSecurityOutput).ToLabSecurityPtrOutputWithContext(ctx)
+}
+
+// LabSecurityPtrInput is an input type that accepts LabSecurityArgs, LabSecurityPtr and LabSecurityPtrOutput values.
+// You can construct a concrete instance of `LabSecurityPtrInput` via:
+//
+//	        LabSecurityArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabSecurityPtrInput interface {
+	pulumi.Input
+
+	ToLabSecurityPtrOutput() LabSecurityPtrOutput
+	ToLabSecurityPtrOutputWithContext(context.Context) LabSecurityPtrOutput
+}
+
+type labSecurityPtrType LabSecurityArgs
+
+func LabSecurityPtr(v *LabSecurityArgs) LabSecurityPtrInput {
+	return (*labSecurityPtrType)(v)
+}
+
+func (*labSecurityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabSecurity)(nil)).Elem()
+}
+
+func (i *labSecurityPtrType) ToLabSecurityPtrOutput() LabSecurityPtrOutput {
+	return i.ToLabSecurityPtrOutputWithContext(context.Background())
+}
+
+func (i *labSecurityPtrType) ToLabSecurityPtrOutputWithContext(ctx context.Context) LabSecurityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabSecurityPtrOutput)
+}
+
+type LabSecurityOutput struct{ *pulumi.OutputState }
+
+func (LabSecurityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabSecurity)(nil)).Elem()
+}
+
+func (o LabSecurityOutput) ToLabSecurityOutput() LabSecurityOutput {
+	return o
+}
+
+func (o LabSecurityOutput) ToLabSecurityOutputWithContext(ctx context.Context) LabSecurityOutput {
+	return o
+}
+
+func (o LabSecurityOutput) ToLabSecurityPtrOutput() LabSecurityPtrOutput {
+	return o.ToLabSecurityPtrOutputWithContext(context.Background())
+}
+
+func (o LabSecurityOutput) ToLabSecurityPtrOutputWithContext(ctx context.Context) LabSecurityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabSecurity) *LabSecurity {
+		return &v
+	}).(LabSecurityPtrOutput)
+}
+
+// Is open access enabled to allow any user or only specified users to register to a Lab Service Lab?
+func (o LabSecurityOutput) OpenAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LabSecurity) bool { return v.OpenAccessEnabled }).(pulumi.BoolOutput)
+}
+
+// The registration code for the Lab Service Lab.
+func (o LabSecurityOutput) RegistrationCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabSecurity) *string { return v.RegistrationCode }).(pulumi.StringPtrOutput)
+}
+
+type LabSecurityPtrOutput struct{ *pulumi.OutputState }
+
+func (LabSecurityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabSecurity)(nil)).Elem()
+}
+
+func (o LabSecurityPtrOutput) ToLabSecurityPtrOutput() LabSecurityPtrOutput {
+	return o
+}
+
+func (o LabSecurityPtrOutput) ToLabSecurityPtrOutputWithContext(ctx context.Context) LabSecurityPtrOutput {
+	return o
+}
+
+func (o LabSecurityPtrOutput) Elem() LabSecurityOutput {
+	return o.ApplyT(func(v *LabSecurity) LabSecurity {
+		if v != nil {
+			return *v
+		}
+		var ret LabSecurity
+		return ret
+	}).(LabSecurityOutput)
+}
+
+// Is open access enabled to allow any user or only specified users to register to a Lab Service Lab?
+func (o LabSecurityPtrOutput) OpenAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LabSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.OpenAccessEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The registration code for the Lab Service Lab.
+func (o LabSecurityPtrOutput) RegistrationCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabSecurity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegistrationCode
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabVirtualMachine struct {
+	// Is flagged to pre-install dedicated GPU drivers? Defaults to `false`. Changing this forces a new resource to be created.
+	AdditionalCapabilityGpuDriversInstalled *bool `pulumi:"additionalCapabilityGpuDriversInstalled"`
+	// An `adminUser` block as defined below.
+	AdminUser LabVirtualMachineAdminUser `pulumi:"adminUser"`
+	// The create option to indicate what Lab Service Lab VMs are created from. Possible values are `Image` and `TemplateVM`. Defaults to `Image`. Changing this forces a new resource to be created.
+	CreateOption *string `pulumi:"createOption"`
+	// An `imageReference` block as defined below.
+	ImageReference LabVirtualMachineImageReference `pulumi:"imageReference"`
+	// A `nonAdminUser` block as defined below.
+	NonAdminUser *LabVirtualMachineNonAdminUser `pulumi:"nonAdminUser"`
+	// Is the shared password enabled with the same password for all user VMs? Defaults to `false`. Changing this forces a new resource to be created.
+	SharedPasswordEnabled *bool `pulumi:"sharedPasswordEnabled"`
+	// A `sku` block as defined below.
+	Sku LabVirtualMachineSku `pulumi:"sku"`
+	// The initial quota allocated to each Lab Service Lab user. Defaults to `PT0S`. This value must be formatted as an ISO 8601 string.
+	UsageQuota *string `pulumi:"usageQuota"`
+}
+
+// LabVirtualMachineInput is an input type that accepts LabVirtualMachineArgs and LabVirtualMachineOutput values.
+// You can construct a concrete instance of `LabVirtualMachineInput` via:
+//
+//	LabVirtualMachineArgs{...}
+type LabVirtualMachineInput interface {
+	pulumi.Input
+
+	ToLabVirtualMachineOutput() LabVirtualMachineOutput
+	ToLabVirtualMachineOutputWithContext(context.Context) LabVirtualMachineOutput
+}
+
+type LabVirtualMachineArgs struct {
+	// Is flagged to pre-install dedicated GPU drivers? Defaults to `false`. Changing this forces a new resource to be created.
+	AdditionalCapabilityGpuDriversInstalled pulumi.BoolPtrInput `pulumi:"additionalCapabilityGpuDriversInstalled"`
+	// An `adminUser` block as defined below.
+	AdminUser LabVirtualMachineAdminUserInput `pulumi:"adminUser"`
+	// The create option to indicate what Lab Service Lab VMs are created from. Possible values are `Image` and `TemplateVM`. Defaults to `Image`. Changing this forces a new resource to be created.
+	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
+	// An `imageReference` block as defined below.
+	ImageReference LabVirtualMachineImageReferenceInput `pulumi:"imageReference"`
+	// A `nonAdminUser` block as defined below.
+	NonAdminUser LabVirtualMachineNonAdminUserPtrInput `pulumi:"nonAdminUser"`
+	// Is the shared password enabled with the same password for all user VMs? Defaults to `false`. Changing this forces a new resource to be created.
+	SharedPasswordEnabled pulumi.BoolPtrInput `pulumi:"sharedPasswordEnabled"`
+	// A `sku` block as defined below.
+	Sku LabVirtualMachineSkuInput `pulumi:"sku"`
+	// The initial quota allocated to each Lab Service Lab user. Defaults to `PT0S`. This value must be formatted as an ISO 8601 string.
+	UsageQuota pulumi.StringPtrInput `pulumi:"usageQuota"`
+}
+
+func (LabVirtualMachineArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVirtualMachine)(nil)).Elem()
+}
+
+func (i LabVirtualMachineArgs) ToLabVirtualMachineOutput() LabVirtualMachineOutput {
+	return i.ToLabVirtualMachineOutputWithContext(context.Background())
+}
+
+func (i LabVirtualMachineArgs) ToLabVirtualMachineOutputWithContext(ctx context.Context) LabVirtualMachineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineOutput)
+}
+
+func (i LabVirtualMachineArgs) ToLabVirtualMachinePtrOutput() LabVirtualMachinePtrOutput {
+	return i.ToLabVirtualMachinePtrOutputWithContext(context.Background())
+}
+
+func (i LabVirtualMachineArgs) ToLabVirtualMachinePtrOutputWithContext(ctx context.Context) LabVirtualMachinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineOutput).ToLabVirtualMachinePtrOutputWithContext(ctx)
+}
+
+// LabVirtualMachinePtrInput is an input type that accepts LabVirtualMachineArgs, LabVirtualMachinePtr and LabVirtualMachinePtrOutput values.
+// You can construct a concrete instance of `LabVirtualMachinePtrInput` via:
+//
+//	        LabVirtualMachineArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabVirtualMachinePtrInput interface {
+	pulumi.Input
+
+	ToLabVirtualMachinePtrOutput() LabVirtualMachinePtrOutput
+	ToLabVirtualMachinePtrOutputWithContext(context.Context) LabVirtualMachinePtrOutput
+}
+
+type labVirtualMachinePtrType LabVirtualMachineArgs
+
+func LabVirtualMachinePtr(v *LabVirtualMachineArgs) LabVirtualMachinePtrInput {
+	return (*labVirtualMachinePtrType)(v)
+}
+
+func (*labVirtualMachinePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabVirtualMachine)(nil)).Elem()
+}
+
+func (i *labVirtualMachinePtrType) ToLabVirtualMachinePtrOutput() LabVirtualMachinePtrOutput {
+	return i.ToLabVirtualMachinePtrOutputWithContext(context.Background())
+}
+
+func (i *labVirtualMachinePtrType) ToLabVirtualMachinePtrOutputWithContext(ctx context.Context) LabVirtualMachinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachinePtrOutput)
+}
+
+type LabVirtualMachineOutput struct{ *pulumi.OutputState }
+
+func (LabVirtualMachineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVirtualMachine)(nil)).Elem()
+}
+
+func (o LabVirtualMachineOutput) ToLabVirtualMachineOutput() LabVirtualMachineOutput {
+	return o
+}
+
+func (o LabVirtualMachineOutput) ToLabVirtualMachineOutputWithContext(ctx context.Context) LabVirtualMachineOutput {
+	return o
+}
+
+func (o LabVirtualMachineOutput) ToLabVirtualMachinePtrOutput() LabVirtualMachinePtrOutput {
+	return o.ToLabVirtualMachinePtrOutputWithContext(context.Background())
+}
+
+func (o LabVirtualMachineOutput) ToLabVirtualMachinePtrOutputWithContext(ctx context.Context) LabVirtualMachinePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabVirtualMachine) *LabVirtualMachine {
+		return &v
+	}).(LabVirtualMachinePtrOutput)
+}
+
+// Is flagged to pre-install dedicated GPU drivers? Defaults to `false`. Changing this forces a new resource to be created.
+func (o LabVirtualMachineOutput) AdditionalCapabilityGpuDriversInstalled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachine) *bool { return v.AdditionalCapabilityGpuDriversInstalled }).(pulumi.BoolPtrOutput)
+}
+
+// An `adminUser` block as defined below.
+func (o LabVirtualMachineOutput) AdminUser() LabVirtualMachineAdminUserOutput {
+	return o.ApplyT(func(v LabVirtualMachine) LabVirtualMachineAdminUser { return v.AdminUser }).(LabVirtualMachineAdminUserOutput)
+}
+
+// The create option to indicate what Lab Service Lab VMs are created from. Possible values are `Image` and `TemplateVM`. Defaults to `Image`. Changing this forces a new resource to be created.
+func (o LabVirtualMachineOutput) CreateOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachine) *string { return v.CreateOption }).(pulumi.StringPtrOutput)
+}
+
+// An `imageReference` block as defined below.
+func (o LabVirtualMachineOutput) ImageReference() LabVirtualMachineImageReferenceOutput {
+	return o.ApplyT(func(v LabVirtualMachine) LabVirtualMachineImageReference { return v.ImageReference }).(LabVirtualMachineImageReferenceOutput)
+}
+
+// A `nonAdminUser` block as defined below.
+func (o LabVirtualMachineOutput) NonAdminUser() LabVirtualMachineNonAdminUserPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachine) *LabVirtualMachineNonAdminUser { return v.NonAdminUser }).(LabVirtualMachineNonAdminUserPtrOutput)
+}
+
+// Is the shared password enabled with the same password for all user VMs? Defaults to `false`. Changing this forces a new resource to be created.
+func (o LabVirtualMachineOutput) SharedPasswordEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachine) *bool { return v.SharedPasswordEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A `sku` block as defined below.
+func (o LabVirtualMachineOutput) Sku() LabVirtualMachineSkuOutput {
+	return o.ApplyT(func(v LabVirtualMachine) LabVirtualMachineSku { return v.Sku }).(LabVirtualMachineSkuOutput)
+}
+
+// The initial quota allocated to each Lab Service Lab user. Defaults to `PT0S`. This value must be formatted as an ISO 8601 string.
+func (o LabVirtualMachineOutput) UsageQuota() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachine) *string { return v.UsageQuota }).(pulumi.StringPtrOutput)
+}
+
+type LabVirtualMachinePtrOutput struct{ *pulumi.OutputState }
+
+func (LabVirtualMachinePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabVirtualMachine)(nil)).Elem()
+}
+
+func (o LabVirtualMachinePtrOutput) ToLabVirtualMachinePtrOutput() LabVirtualMachinePtrOutput {
+	return o
+}
+
+func (o LabVirtualMachinePtrOutput) ToLabVirtualMachinePtrOutputWithContext(ctx context.Context) LabVirtualMachinePtrOutput {
+	return o
+}
+
+func (o LabVirtualMachinePtrOutput) Elem() LabVirtualMachineOutput {
+	return o.ApplyT(func(v *LabVirtualMachine) LabVirtualMachine {
+		if v != nil {
+			return *v
+		}
+		var ret LabVirtualMachine
+		return ret
+	}).(LabVirtualMachineOutput)
+}
+
+// Is flagged to pre-install dedicated GPU drivers? Defaults to `false`. Changing this forces a new resource to be created.
+func (o LabVirtualMachinePtrOutput) AdditionalCapabilityGpuDriversInstalled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachine) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalCapabilityGpuDriversInstalled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// An `adminUser` block as defined below.
+func (o LabVirtualMachinePtrOutput) AdminUser() LabVirtualMachineAdminUserPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachine) *LabVirtualMachineAdminUser {
+		if v == nil {
+			return nil
+		}
+		return &v.AdminUser
+	}).(LabVirtualMachineAdminUserPtrOutput)
+}
+
+// The create option to indicate what Lab Service Lab VMs are created from. Possible values are `Image` and `TemplateVM`. Defaults to `Image`. Changing this forces a new resource to be created.
+func (o LabVirtualMachinePtrOutput) CreateOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachine) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreateOption
+	}).(pulumi.StringPtrOutput)
+}
+
+// An `imageReference` block as defined below.
+func (o LabVirtualMachinePtrOutput) ImageReference() LabVirtualMachineImageReferencePtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachine) *LabVirtualMachineImageReference {
+		if v == nil {
+			return nil
+		}
+		return &v.ImageReference
+	}).(LabVirtualMachineImageReferencePtrOutput)
+}
+
+// A `nonAdminUser` block as defined below.
+func (o LabVirtualMachinePtrOutput) NonAdminUser() LabVirtualMachineNonAdminUserPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachine) *LabVirtualMachineNonAdminUser {
+		if v == nil {
+			return nil
+		}
+		return v.NonAdminUser
+	}).(LabVirtualMachineNonAdminUserPtrOutput)
+}
+
+// Is the shared password enabled with the same password for all user VMs? Defaults to `false`. Changing this forces a new resource to be created.
+func (o LabVirtualMachinePtrOutput) SharedPasswordEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachine) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SharedPasswordEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A `sku` block as defined below.
+func (o LabVirtualMachinePtrOutput) Sku() LabVirtualMachineSkuPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachine) *LabVirtualMachineSku {
+		if v == nil {
+			return nil
+		}
+		return &v.Sku
+	}).(LabVirtualMachineSkuPtrOutput)
+}
+
+// The initial quota allocated to each Lab Service Lab user. Defaults to `PT0S`. This value must be formatted as an ISO 8601 string.
+func (o LabVirtualMachinePtrOutput) UsageQuota() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachine) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsageQuota
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabVirtualMachineAdminUser struct {
+	// The password for the Lab user. Changing this forces a new resource to be created.
+	Password string `pulumi:"password"`
+	// The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+	Username string `pulumi:"username"`
+}
+
+// LabVirtualMachineAdminUserInput is an input type that accepts LabVirtualMachineAdminUserArgs and LabVirtualMachineAdminUserOutput values.
+// You can construct a concrete instance of `LabVirtualMachineAdminUserInput` via:
+//
+//	LabVirtualMachineAdminUserArgs{...}
+type LabVirtualMachineAdminUserInput interface {
+	pulumi.Input
+
+	ToLabVirtualMachineAdminUserOutput() LabVirtualMachineAdminUserOutput
+	ToLabVirtualMachineAdminUserOutputWithContext(context.Context) LabVirtualMachineAdminUserOutput
+}
+
+type LabVirtualMachineAdminUserArgs struct {
+	// The password for the Lab user. Changing this forces a new resource to be created.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (LabVirtualMachineAdminUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVirtualMachineAdminUser)(nil)).Elem()
+}
+
+func (i LabVirtualMachineAdminUserArgs) ToLabVirtualMachineAdminUserOutput() LabVirtualMachineAdminUserOutput {
+	return i.ToLabVirtualMachineAdminUserOutputWithContext(context.Background())
+}
+
+func (i LabVirtualMachineAdminUserArgs) ToLabVirtualMachineAdminUserOutputWithContext(ctx context.Context) LabVirtualMachineAdminUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineAdminUserOutput)
+}
+
+func (i LabVirtualMachineAdminUserArgs) ToLabVirtualMachineAdminUserPtrOutput() LabVirtualMachineAdminUserPtrOutput {
+	return i.ToLabVirtualMachineAdminUserPtrOutputWithContext(context.Background())
+}
+
+func (i LabVirtualMachineAdminUserArgs) ToLabVirtualMachineAdminUserPtrOutputWithContext(ctx context.Context) LabVirtualMachineAdminUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineAdminUserOutput).ToLabVirtualMachineAdminUserPtrOutputWithContext(ctx)
+}
+
+// LabVirtualMachineAdminUserPtrInput is an input type that accepts LabVirtualMachineAdminUserArgs, LabVirtualMachineAdminUserPtr and LabVirtualMachineAdminUserPtrOutput values.
+// You can construct a concrete instance of `LabVirtualMachineAdminUserPtrInput` via:
+//
+//	        LabVirtualMachineAdminUserArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabVirtualMachineAdminUserPtrInput interface {
+	pulumi.Input
+
+	ToLabVirtualMachineAdminUserPtrOutput() LabVirtualMachineAdminUserPtrOutput
+	ToLabVirtualMachineAdminUserPtrOutputWithContext(context.Context) LabVirtualMachineAdminUserPtrOutput
+}
+
+type labVirtualMachineAdminUserPtrType LabVirtualMachineAdminUserArgs
+
+func LabVirtualMachineAdminUserPtr(v *LabVirtualMachineAdminUserArgs) LabVirtualMachineAdminUserPtrInput {
+	return (*labVirtualMachineAdminUserPtrType)(v)
+}
+
+func (*labVirtualMachineAdminUserPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabVirtualMachineAdminUser)(nil)).Elem()
+}
+
+func (i *labVirtualMachineAdminUserPtrType) ToLabVirtualMachineAdminUserPtrOutput() LabVirtualMachineAdminUserPtrOutput {
+	return i.ToLabVirtualMachineAdminUserPtrOutputWithContext(context.Background())
+}
+
+func (i *labVirtualMachineAdminUserPtrType) ToLabVirtualMachineAdminUserPtrOutputWithContext(ctx context.Context) LabVirtualMachineAdminUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineAdminUserPtrOutput)
+}
+
+type LabVirtualMachineAdminUserOutput struct{ *pulumi.OutputState }
+
+func (LabVirtualMachineAdminUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVirtualMachineAdminUser)(nil)).Elem()
+}
+
+func (o LabVirtualMachineAdminUserOutput) ToLabVirtualMachineAdminUserOutput() LabVirtualMachineAdminUserOutput {
+	return o
+}
+
+func (o LabVirtualMachineAdminUserOutput) ToLabVirtualMachineAdminUserOutputWithContext(ctx context.Context) LabVirtualMachineAdminUserOutput {
+	return o
+}
+
+func (o LabVirtualMachineAdminUserOutput) ToLabVirtualMachineAdminUserPtrOutput() LabVirtualMachineAdminUserPtrOutput {
+	return o.ToLabVirtualMachineAdminUserPtrOutputWithContext(context.Background())
+}
+
+func (o LabVirtualMachineAdminUserOutput) ToLabVirtualMachineAdminUserPtrOutputWithContext(ctx context.Context) LabVirtualMachineAdminUserPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabVirtualMachineAdminUser) *LabVirtualMachineAdminUser {
+		return &v
+	}).(LabVirtualMachineAdminUserPtrOutput)
+}
+
+// The password for the Lab user. Changing this forces a new resource to be created.
+func (o LabVirtualMachineAdminUserOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v LabVirtualMachineAdminUser) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+func (o LabVirtualMachineAdminUserOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v LabVirtualMachineAdminUser) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type LabVirtualMachineAdminUserPtrOutput struct{ *pulumi.OutputState }
+
+func (LabVirtualMachineAdminUserPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabVirtualMachineAdminUser)(nil)).Elem()
+}
+
+func (o LabVirtualMachineAdminUserPtrOutput) ToLabVirtualMachineAdminUserPtrOutput() LabVirtualMachineAdminUserPtrOutput {
+	return o
+}
+
+func (o LabVirtualMachineAdminUserPtrOutput) ToLabVirtualMachineAdminUserPtrOutputWithContext(ctx context.Context) LabVirtualMachineAdminUserPtrOutput {
+	return o
+}
+
+func (o LabVirtualMachineAdminUserPtrOutput) Elem() LabVirtualMachineAdminUserOutput {
+	return o.ApplyT(func(v *LabVirtualMachineAdminUser) LabVirtualMachineAdminUser {
+		if v != nil {
+			return *v
+		}
+		var ret LabVirtualMachineAdminUser
+		return ret
+	}).(LabVirtualMachineAdminUserOutput)
+}
+
+// The password for the Lab user. Changing this forces a new resource to be created.
+func (o LabVirtualMachineAdminUserPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineAdminUser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+func (o LabVirtualMachineAdminUserPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineAdminUser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabVirtualMachineImageReference struct {
+	// The resource ID of the image. Changing this forces a new resource to be created.
+	Id *string `pulumi:"id"`
+	// The image offer if applicable. Changing this forces a new resource to be created.
+	Offer *string `pulumi:"offer"`
+	// The image publisher. Changing this forces a new resource to be created.
+	Publisher *string `pulumi:"publisher"`
+	// The image SKU. Changing this forces a new resource to be created.
+	Sku *string `pulumi:"sku"`
+	// The image version specified on creation. Changing this forces a new resource to be created.
+	Version *string `pulumi:"version"`
+}
+
+// LabVirtualMachineImageReferenceInput is an input type that accepts LabVirtualMachineImageReferenceArgs and LabVirtualMachineImageReferenceOutput values.
+// You can construct a concrete instance of `LabVirtualMachineImageReferenceInput` via:
+//
+//	LabVirtualMachineImageReferenceArgs{...}
+type LabVirtualMachineImageReferenceInput interface {
+	pulumi.Input
+
+	ToLabVirtualMachineImageReferenceOutput() LabVirtualMachineImageReferenceOutput
+	ToLabVirtualMachineImageReferenceOutputWithContext(context.Context) LabVirtualMachineImageReferenceOutput
+}
+
+type LabVirtualMachineImageReferenceArgs struct {
+	// The resource ID of the image. Changing this forces a new resource to be created.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The image offer if applicable. Changing this forces a new resource to be created.
+	Offer pulumi.StringPtrInput `pulumi:"offer"`
+	// The image publisher. Changing this forces a new resource to be created.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	// The image SKU. Changing this forces a new resource to be created.
+	Sku pulumi.StringPtrInput `pulumi:"sku"`
+	// The image version specified on creation. Changing this forces a new resource to be created.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (LabVirtualMachineImageReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVirtualMachineImageReference)(nil)).Elem()
+}
+
+func (i LabVirtualMachineImageReferenceArgs) ToLabVirtualMachineImageReferenceOutput() LabVirtualMachineImageReferenceOutput {
+	return i.ToLabVirtualMachineImageReferenceOutputWithContext(context.Background())
+}
+
+func (i LabVirtualMachineImageReferenceArgs) ToLabVirtualMachineImageReferenceOutputWithContext(ctx context.Context) LabVirtualMachineImageReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineImageReferenceOutput)
+}
+
+func (i LabVirtualMachineImageReferenceArgs) ToLabVirtualMachineImageReferencePtrOutput() LabVirtualMachineImageReferencePtrOutput {
+	return i.ToLabVirtualMachineImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (i LabVirtualMachineImageReferenceArgs) ToLabVirtualMachineImageReferencePtrOutputWithContext(ctx context.Context) LabVirtualMachineImageReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineImageReferenceOutput).ToLabVirtualMachineImageReferencePtrOutputWithContext(ctx)
+}
+
+// LabVirtualMachineImageReferencePtrInput is an input type that accepts LabVirtualMachineImageReferenceArgs, LabVirtualMachineImageReferencePtr and LabVirtualMachineImageReferencePtrOutput values.
+// You can construct a concrete instance of `LabVirtualMachineImageReferencePtrInput` via:
+//
+//	        LabVirtualMachineImageReferenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabVirtualMachineImageReferencePtrInput interface {
+	pulumi.Input
+
+	ToLabVirtualMachineImageReferencePtrOutput() LabVirtualMachineImageReferencePtrOutput
+	ToLabVirtualMachineImageReferencePtrOutputWithContext(context.Context) LabVirtualMachineImageReferencePtrOutput
+}
+
+type labVirtualMachineImageReferencePtrType LabVirtualMachineImageReferenceArgs
+
+func LabVirtualMachineImageReferencePtr(v *LabVirtualMachineImageReferenceArgs) LabVirtualMachineImageReferencePtrInput {
+	return (*labVirtualMachineImageReferencePtrType)(v)
+}
+
+func (*labVirtualMachineImageReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabVirtualMachineImageReference)(nil)).Elem()
+}
+
+func (i *labVirtualMachineImageReferencePtrType) ToLabVirtualMachineImageReferencePtrOutput() LabVirtualMachineImageReferencePtrOutput {
+	return i.ToLabVirtualMachineImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *labVirtualMachineImageReferencePtrType) ToLabVirtualMachineImageReferencePtrOutputWithContext(ctx context.Context) LabVirtualMachineImageReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineImageReferencePtrOutput)
+}
+
+type LabVirtualMachineImageReferenceOutput struct{ *pulumi.OutputState }
+
+func (LabVirtualMachineImageReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVirtualMachineImageReference)(nil)).Elem()
+}
+
+func (o LabVirtualMachineImageReferenceOutput) ToLabVirtualMachineImageReferenceOutput() LabVirtualMachineImageReferenceOutput {
+	return o
+}
+
+func (o LabVirtualMachineImageReferenceOutput) ToLabVirtualMachineImageReferenceOutputWithContext(ctx context.Context) LabVirtualMachineImageReferenceOutput {
+	return o
+}
+
+func (o LabVirtualMachineImageReferenceOutput) ToLabVirtualMachineImageReferencePtrOutput() LabVirtualMachineImageReferencePtrOutput {
+	return o.ToLabVirtualMachineImageReferencePtrOutputWithContext(context.Background())
+}
+
+func (o LabVirtualMachineImageReferenceOutput) ToLabVirtualMachineImageReferencePtrOutputWithContext(ctx context.Context) LabVirtualMachineImageReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabVirtualMachineImageReference) *LabVirtualMachineImageReference {
+		return &v
+	}).(LabVirtualMachineImageReferencePtrOutput)
+}
+
+// The resource ID of the image. Changing this forces a new resource to be created.
+func (o LabVirtualMachineImageReferenceOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The image offer if applicable. Changing this forces a new resource to be created.
+func (o LabVirtualMachineImageReferenceOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
+}
+
+// The image publisher. Changing this forces a new resource to be created.
+func (o LabVirtualMachineImageReferenceOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// The image SKU. Changing this forces a new resource to be created.
+func (o LabVirtualMachineImageReferenceOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// The image version specified on creation. Changing this forces a new resource to be created.
+func (o LabVirtualMachineImageReferenceOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type LabVirtualMachineImageReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (LabVirtualMachineImageReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabVirtualMachineImageReference)(nil)).Elem()
+}
+
+func (o LabVirtualMachineImageReferencePtrOutput) ToLabVirtualMachineImageReferencePtrOutput() LabVirtualMachineImageReferencePtrOutput {
+	return o
+}
+
+func (o LabVirtualMachineImageReferencePtrOutput) ToLabVirtualMachineImageReferencePtrOutputWithContext(ctx context.Context) LabVirtualMachineImageReferencePtrOutput {
+	return o
+}
+
+func (o LabVirtualMachineImageReferencePtrOutput) Elem() LabVirtualMachineImageReferenceOutput {
+	return o.ApplyT(func(v *LabVirtualMachineImageReference) LabVirtualMachineImageReference {
+		if v != nil {
+			return *v
+		}
+		var ret LabVirtualMachineImageReference
+		return ret
+	}).(LabVirtualMachineImageReferenceOutput)
+}
+
+// The resource ID of the image. Changing this forces a new resource to be created.
+func (o LabVirtualMachineImageReferencePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The image offer if applicable. Changing this forces a new resource to be created.
+func (o LabVirtualMachineImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Offer
+	}).(pulumi.StringPtrOutput)
+}
+
+// The image publisher. Changing this forces a new resource to be created.
+func (o LabVirtualMachineImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
+// The image SKU. Changing this forces a new resource to be created.
+func (o LabVirtualMachineImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sku
+	}).(pulumi.StringPtrOutput)
+}
+
+// The image version specified on creation. Changing this forces a new resource to be created.
+func (o LabVirtualMachineImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabVirtualMachineNonAdminUser struct {
+	// The password for the user. Changing this forces a new resource to be created.
+	Password string `pulumi:"password"`
+	// The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+	Username string `pulumi:"username"`
+}
+
+// LabVirtualMachineNonAdminUserInput is an input type that accepts LabVirtualMachineNonAdminUserArgs and LabVirtualMachineNonAdminUserOutput values.
+// You can construct a concrete instance of `LabVirtualMachineNonAdminUserInput` via:
+//
+//	LabVirtualMachineNonAdminUserArgs{...}
+type LabVirtualMachineNonAdminUserInput interface {
+	pulumi.Input
+
+	ToLabVirtualMachineNonAdminUserOutput() LabVirtualMachineNonAdminUserOutput
+	ToLabVirtualMachineNonAdminUserOutputWithContext(context.Context) LabVirtualMachineNonAdminUserOutput
+}
+
+type LabVirtualMachineNonAdminUserArgs struct {
+	// The password for the user. Changing this forces a new resource to be created.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (LabVirtualMachineNonAdminUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVirtualMachineNonAdminUser)(nil)).Elem()
+}
+
+func (i LabVirtualMachineNonAdminUserArgs) ToLabVirtualMachineNonAdminUserOutput() LabVirtualMachineNonAdminUserOutput {
+	return i.ToLabVirtualMachineNonAdminUserOutputWithContext(context.Background())
+}
+
+func (i LabVirtualMachineNonAdminUserArgs) ToLabVirtualMachineNonAdminUserOutputWithContext(ctx context.Context) LabVirtualMachineNonAdminUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineNonAdminUserOutput)
+}
+
+func (i LabVirtualMachineNonAdminUserArgs) ToLabVirtualMachineNonAdminUserPtrOutput() LabVirtualMachineNonAdminUserPtrOutput {
+	return i.ToLabVirtualMachineNonAdminUserPtrOutputWithContext(context.Background())
+}
+
+func (i LabVirtualMachineNonAdminUserArgs) ToLabVirtualMachineNonAdminUserPtrOutputWithContext(ctx context.Context) LabVirtualMachineNonAdminUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineNonAdminUserOutput).ToLabVirtualMachineNonAdminUserPtrOutputWithContext(ctx)
+}
+
+// LabVirtualMachineNonAdminUserPtrInput is an input type that accepts LabVirtualMachineNonAdminUserArgs, LabVirtualMachineNonAdminUserPtr and LabVirtualMachineNonAdminUserPtrOutput values.
+// You can construct a concrete instance of `LabVirtualMachineNonAdminUserPtrInput` via:
+//
+//	        LabVirtualMachineNonAdminUserArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabVirtualMachineNonAdminUserPtrInput interface {
+	pulumi.Input
+
+	ToLabVirtualMachineNonAdminUserPtrOutput() LabVirtualMachineNonAdminUserPtrOutput
+	ToLabVirtualMachineNonAdminUserPtrOutputWithContext(context.Context) LabVirtualMachineNonAdminUserPtrOutput
+}
+
+type labVirtualMachineNonAdminUserPtrType LabVirtualMachineNonAdminUserArgs
+
+func LabVirtualMachineNonAdminUserPtr(v *LabVirtualMachineNonAdminUserArgs) LabVirtualMachineNonAdminUserPtrInput {
+	return (*labVirtualMachineNonAdminUserPtrType)(v)
+}
+
+func (*labVirtualMachineNonAdminUserPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabVirtualMachineNonAdminUser)(nil)).Elem()
+}
+
+func (i *labVirtualMachineNonAdminUserPtrType) ToLabVirtualMachineNonAdminUserPtrOutput() LabVirtualMachineNonAdminUserPtrOutput {
+	return i.ToLabVirtualMachineNonAdminUserPtrOutputWithContext(context.Background())
+}
+
+func (i *labVirtualMachineNonAdminUserPtrType) ToLabVirtualMachineNonAdminUserPtrOutputWithContext(ctx context.Context) LabVirtualMachineNonAdminUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineNonAdminUserPtrOutput)
+}
+
+type LabVirtualMachineNonAdminUserOutput struct{ *pulumi.OutputState }
+
+func (LabVirtualMachineNonAdminUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVirtualMachineNonAdminUser)(nil)).Elem()
+}
+
+func (o LabVirtualMachineNonAdminUserOutput) ToLabVirtualMachineNonAdminUserOutput() LabVirtualMachineNonAdminUserOutput {
+	return o
+}
+
+func (o LabVirtualMachineNonAdminUserOutput) ToLabVirtualMachineNonAdminUserOutputWithContext(ctx context.Context) LabVirtualMachineNonAdminUserOutput {
+	return o
+}
+
+func (o LabVirtualMachineNonAdminUserOutput) ToLabVirtualMachineNonAdminUserPtrOutput() LabVirtualMachineNonAdminUserPtrOutput {
+	return o.ToLabVirtualMachineNonAdminUserPtrOutputWithContext(context.Background())
+}
+
+func (o LabVirtualMachineNonAdminUserOutput) ToLabVirtualMachineNonAdminUserPtrOutputWithContext(ctx context.Context) LabVirtualMachineNonAdminUserPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabVirtualMachineNonAdminUser) *LabVirtualMachineNonAdminUser {
+		return &v
+	}).(LabVirtualMachineNonAdminUserPtrOutput)
+}
+
+// The password for the user. Changing this forces a new resource to be created.
+func (o LabVirtualMachineNonAdminUserOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v LabVirtualMachineNonAdminUser) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+func (o LabVirtualMachineNonAdminUserOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v LabVirtualMachineNonAdminUser) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type LabVirtualMachineNonAdminUserPtrOutput struct{ *pulumi.OutputState }
+
+func (LabVirtualMachineNonAdminUserPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabVirtualMachineNonAdminUser)(nil)).Elem()
+}
+
+func (o LabVirtualMachineNonAdminUserPtrOutput) ToLabVirtualMachineNonAdminUserPtrOutput() LabVirtualMachineNonAdminUserPtrOutput {
+	return o
+}
+
+func (o LabVirtualMachineNonAdminUserPtrOutput) ToLabVirtualMachineNonAdminUserPtrOutputWithContext(ctx context.Context) LabVirtualMachineNonAdminUserPtrOutput {
+	return o
+}
+
+func (o LabVirtualMachineNonAdminUserPtrOutput) Elem() LabVirtualMachineNonAdminUserOutput {
+	return o.ApplyT(func(v *LabVirtualMachineNonAdminUser) LabVirtualMachineNonAdminUser {
+		if v != nil {
+			return *v
+		}
+		var ret LabVirtualMachineNonAdminUser
+		return ret
+	}).(LabVirtualMachineNonAdminUserOutput)
+}
+
+// The password for the user. Changing this forces a new resource to be created.
+func (o LabVirtualMachineNonAdminUserPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineNonAdminUser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+func (o LabVirtualMachineNonAdminUserPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineNonAdminUser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabVirtualMachineSku struct {
+	// The capacity for the SKU. Possible values are between `0` and `400`.
+	Capacity int `pulumi:"capacity"`
+	// The name of the SKU. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+
+// LabVirtualMachineSkuInput is an input type that accepts LabVirtualMachineSkuArgs and LabVirtualMachineSkuOutput values.
+// You can construct a concrete instance of `LabVirtualMachineSkuInput` via:
+//
+//	LabVirtualMachineSkuArgs{...}
+type LabVirtualMachineSkuInput interface {
+	pulumi.Input
+
+	ToLabVirtualMachineSkuOutput() LabVirtualMachineSkuOutput
+	ToLabVirtualMachineSkuOutputWithContext(context.Context) LabVirtualMachineSkuOutput
+}
+
+type LabVirtualMachineSkuArgs struct {
+	// The capacity for the SKU. Possible values are between `0` and `400`.
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// The name of the SKU. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LabVirtualMachineSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVirtualMachineSku)(nil)).Elem()
+}
+
+func (i LabVirtualMachineSkuArgs) ToLabVirtualMachineSkuOutput() LabVirtualMachineSkuOutput {
+	return i.ToLabVirtualMachineSkuOutputWithContext(context.Background())
+}
+
+func (i LabVirtualMachineSkuArgs) ToLabVirtualMachineSkuOutputWithContext(ctx context.Context) LabVirtualMachineSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineSkuOutput)
+}
+
+func (i LabVirtualMachineSkuArgs) ToLabVirtualMachineSkuPtrOutput() LabVirtualMachineSkuPtrOutput {
+	return i.ToLabVirtualMachineSkuPtrOutputWithContext(context.Background())
+}
+
+func (i LabVirtualMachineSkuArgs) ToLabVirtualMachineSkuPtrOutputWithContext(ctx context.Context) LabVirtualMachineSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineSkuOutput).ToLabVirtualMachineSkuPtrOutputWithContext(ctx)
+}
+
+// LabVirtualMachineSkuPtrInput is an input type that accepts LabVirtualMachineSkuArgs, LabVirtualMachineSkuPtr and LabVirtualMachineSkuPtrOutput values.
+// You can construct a concrete instance of `LabVirtualMachineSkuPtrInput` via:
+//
+//	        LabVirtualMachineSkuArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabVirtualMachineSkuPtrInput interface {
+	pulumi.Input
+
+	ToLabVirtualMachineSkuPtrOutput() LabVirtualMachineSkuPtrOutput
+	ToLabVirtualMachineSkuPtrOutputWithContext(context.Context) LabVirtualMachineSkuPtrOutput
+}
+
+type labVirtualMachineSkuPtrType LabVirtualMachineSkuArgs
+
+func LabVirtualMachineSkuPtr(v *LabVirtualMachineSkuArgs) LabVirtualMachineSkuPtrInput {
+	return (*labVirtualMachineSkuPtrType)(v)
+}
+
+func (*labVirtualMachineSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabVirtualMachineSku)(nil)).Elem()
+}
+
+func (i *labVirtualMachineSkuPtrType) ToLabVirtualMachineSkuPtrOutput() LabVirtualMachineSkuPtrOutput {
+	return i.ToLabVirtualMachineSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *labVirtualMachineSkuPtrType) ToLabVirtualMachineSkuPtrOutputWithContext(ctx context.Context) LabVirtualMachineSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineSkuPtrOutput)
+}
+
+type LabVirtualMachineSkuOutput struct{ *pulumi.OutputState }
+
+func (LabVirtualMachineSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVirtualMachineSku)(nil)).Elem()
+}
+
+func (o LabVirtualMachineSkuOutput) ToLabVirtualMachineSkuOutput() LabVirtualMachineSkuOutput {
+	return o
+}
+
+func (o LabVirtualMachineSkuOutput) ToLabVirtualMachineSkuOutputWithContext(ctx context.Context) LabVirtualMachineSkuOutput {
+	return o
+}
+
+func (o LabVirtualMachineSkuOutput) ToLabVirtualMachineSkuPtrOutput() LabVirtualMachineSkuPtrOutput {
+	return o.ToLabVirtualMachineSkuPtrOutputWithContext(context.Background())
+}
+
+func (o LabVirtualMachineSkuOutput) ToLabVirtualMachineSkuPtrOutputWithContext(ctx context.Context) LabVirtualMachineSkuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabVirtualMachineSku) *LabVirtualMachineSku {
+		return &v
+	}).(LabVirtualMachineSkuPtrOutput)
+}
+
+// The capacity for the SKU. Possible values are between `0` and `400`.
+func (o LabVirtualMachineSkuOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v LabVirtualMachineSku) int { return v.Capacity }).(pulumi.IntOutput)
+}
+
+// The name of the SKU. Changing this forces a new resource to be created.
+func (o LabVirtualMachineSkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LabVirtualMachineSku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type LabVirtualMachineSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (LabVirtualMachineSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabVirtualMachineSku)(nil)).Elem()
+}
+
+func (o LabVirtualMachineSkuPtrOutput) ToLabVirtualMachineSkuPtrOutput() LabVirtualMachineSkuPtrOutput {
+	return o
+}
+
+func (o LabVirtualMachineSkuPtrOutput) ToLabVirtualMachineSkuPtrOutputWithContext(ctx context.Context) LabVirtualMachineSkuPtrOutput {
+	return o
+}
+
+func (o LabVirtualMachineSkuPtrOutput) Elem() LabVirtualMachineSkuOutput {
+	return o.ApplyT(func(v *LabVirtualMachineSku) LabVirtualMachineSku {
+		if v != nil {
+			return *v
+		}
+		var ret LabVirtualMachineSku
+		return ret
+	}).(LabVirtualMachineSkuOutput)
+}
+
+// The capacity for the SKU. Possible values are between `0` and `400`.
+func (o LabVirtualMachineSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineSku) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the SKU. Changing this forces a new resource to be created.
+func (o LabVirtualMachineSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineSku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServicePlanDefaultAutoShutdown struct {
 	// The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
 	DisconnectDelay *string `pulumi:"disconnectDelay"`
@@ -593,12 +2438,52 @@ func (o ServicePlanSupportPtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LabAutoShutdownInput)(nil)).Elem(), LabAutoShutdownArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabAutoShutdownPtrInput)(nil)).Elem(), LabAutoShutdownArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabConnectionSettingInput)(nil)).Elem(), LabConnectionSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabConnectionSettingPtrInput)(nil)).Elem(), LabConnectionSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabNetworkInput)(nil)).Elem(), LabNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabNetworkPtrInput)(nil)).Elem(), LabNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabRosterInput)(nil)).Elem(), LabRosterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabRosterPtrInput)(nil)).Elem(), LabRosterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabSecurityInput)(nil)).Elem(), LabSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabSecurityPtrInput)(nil)).Elem(), LabSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabVirtualMachineInput)(nil)).Elem(), LabVirtualMachineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabVirtualMachinePtrInput)(nil)).Elem(), LabVirtualMachineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabVirtualMachineAdminUserInput)(nil)).Elem(), LabVirtualMachineAdminUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabVirtualMachineAdminUserPtrInput)(nil)).Elem(), LabVirtualMachineAdminUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabVirtualMachineImageReferenceInput)(nil)).Elem(), LabVirtualMachineImageReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabVirtualMachineImageReferencePtrInput)(nil)).Elem(), LabVirtualMachineImageReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabVirtualMachineNonAdminUserInput)(nil)).Elem(), LabVirtualMachineNonAdminUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabVirtualMachineNonAdminUserPtrInput)(nil)).Elem(), LabVirtualMachineNonAdminUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabVirtualMachineSkuInput)(nil)).Elem(), LabVirtualMachineSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabVirtualMachineSkuPtrInput)(nil)).Elem(), LabVirtualMachineSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlanDefaultAutoShutdownInput)(nil)).Elem(), ServicePlanDefaultAutoShutdownArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlanDefaultAutoShutdownPtrInput)(nil)).Elem(), ServicePlanDefaultAutoShutdownArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlanDefaultConnectionInput)(nil)).Elem(), ServicePlanDefaultConnectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlanDefaultConnectionPtrInput)(nil)).Elem(), ServicePlanDefaultConnectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlanSupportInput)(nil)).Elem(), ServicePlanSupportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlanSupportPtrInput)(nil)).Elem(), ServicePlanSupportArgs{})
+	pulumi.RegisterOutputType(LabAutoShutdownOutput{})
+	pulumi.RegisterOutputType(LabAutoShutdownPtrOutput{})
+	pulumi.RegisterOutputType(LabConnectionSettingOutput{})
+	pulumi.RegisterOutputType(LabConnectionSettingPtrOutput{})
+	pulumi.RegisterOutputType(LabNetworkOutput{})
+	pulumi.RegisterOutputType(LabNetworkPtrOutput{})
+	pulumi.RegisterOutputType(LabRosterOutput{})
+	pulumi.RegisterOutputType(LabRosterPtrOutput{})
+	pulumi.RegisterOutputType(LabSecurityOutput{})
+	pulumi.RegisterOutputType(LabSecurityPtrOutput{})
+	pulumi.RegisterOutputType(LabVirtualMachineOutput{})
+	pulumi.RegisterOutputType(LabVirtualMachinePtrOutput{})
+	pulumi.RegisterOutputType(LabVirtualMachineAdminUserOutput{})
+	pulumi.RegisterOutputType(LabVirtualMachineAdminUserPtrOutput{})
+	pulumi.RegisterOutputType(LabVirtualMachineImageReferenceOutput{})
+	pulumi.RegisterOutputType(LabVirtualMachineImageReferencePtrOutput{})
+	pulumi.RegisterOutputType(LabVirtualMachineNonAdminUserOutput{})
+	pulumi.RegisterOutputType(LabVirtualMachineNonAdminUserPtrOutput{})
+	pulumi.RegisterOutputType(LabVirtualMachineSkuOutput{})
+	pulumi.RegisterOutputType(LabVirtualMachineSkuPtrOutput{})
 	pulumi.RegisterOutputType(ServicePlanDefaultAutoShutdownOutput{})
 	pulumi.RegisterOutputType(ServicePlanDefaultAutoShutdownPtrOutput{})
 	pulumi.RegisterOutputType(ServicePlanDefaultConnectionOutput{})

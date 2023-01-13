@@ -65,6 +65,9 @@ namespace Pulumi.Azure.Storage
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("resourceManagerId")]
+        public Output<string> ResourceManagerId { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
         /// </summary>
@@ -166,6 +169,9 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("resourceManagerId")]
+        public Input<string>? ResourceManagerId { get; set; }
 
         /// <summary>
         /// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.

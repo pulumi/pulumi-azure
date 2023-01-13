@@ -67,6 +67,7 @@ export class Queue extends pulumi.CustomResource {
      * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
     /**
      * Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
      */
@@ -87,6 +88,7 @@ export class Queue extends pulumi.CustomResource {
             const state = argsOrState as QueueState | undefined;
             resourceInputs["metadata"] = state ? state.metadata : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
             resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as QueueArgs | undefined;
@@ -96,6 +98,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["resourceManagerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Queue.__pulumiType, name, resourceInputs, opts);
@@ -114,6 +117,7 @@ export interface QueueState {
      * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    resourceManagerId?: pulumi.Input<string>;
     /**
      * Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
      */

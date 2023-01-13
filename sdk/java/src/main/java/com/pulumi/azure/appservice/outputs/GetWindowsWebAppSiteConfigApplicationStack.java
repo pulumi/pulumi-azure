@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 
@@ -29,6 +30,7 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
      * 
      */
     private String dockerContainerTag;
+    private String dotnetCoreVersion;
     /**
      * @return The version of .NET in use.
      * 
@@ -44,6 +46,7 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
      * 
      */
     private String javaContainerVersion;
+    private Boolean javaEmbeddedServerEnabled;
     /**
      * @return The Version of Java in use.
      * 
@@ -59,11 +62,13 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
      * 
      */
     private String phpVersion;
+    private Boolean python;
     /**
      * @return The Version of Python in use.
      * 
      */
     private String pythonVersion;
+    private String tomcatVersion;
 
     private GetWindowsWebAppSiteConfigApplicationStack() {}
     /**
@@ -94,6 +99,9 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
     public String dockerContainerTag() {
         return this.dockerContainerTag;
     }
+    public String dotnetCoreVersion() {
+        return this.dotnetCoreVersion;
+    }
     /**
      * @return The version of .NET in use.
      * 
@@ -114,6 +122,9 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
      */
     public String javaContainerVersion() {
         return this.javaContainerVersion;
+    }
+    public Boolean javaEmbeddedServerEnabled() {
+        return this.javaEmbeddedServerEnabled;
     }
     /**
      * @return The Version of Java in use.
@@ -136,12 +147,18 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
     public String phpVersion() {
         return this.phpVersion;
     }
+    public Boolean python() {
+        return this.python;
+    }
     /**
      * @return The Version of Python in use.
      * 
      */
     public String pythonVersion() {
         return this.pythonVersion;
+    }
+    public String tomcatVersion() {
+        return this.tomcatVersion;
     }
 
     public static Builder builder() {
@@ -157,13 +174,17 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
         private String dockerContainerName;
         private String dockerContainerRegistry;
         private String dockerContainerTag;
+        private String dotnetCoreVersion;
         private String dotnetVersion;
         private String javaContainer;
         private String javaContainerVersion;
+        private Boolean javaEmbeddedServerEnabled;
         private String javaVersion;
         private String nodeVersion;
         private String phpVersion;
+        private Boolean python;
         private String pythonVersion;
+        private String tomcatVersion;
         public Builder() {}
         public Builder(GetWindowsWebAppSiteConfigApplicationStack defaults) {
     	      Objects.requireNonNull(defaults);
@@ -171,13 +192,17 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
     	      this.dockerContainerName = defaults.dockerContainerName;
     	      this.dockerContainerRegistry = defaults.dockerContainerRegistry;
     	      this.dockerContainerTag = defaults.dockerContainerTag;
+    	      this.dotnetCoreVersion = defaults.dotnetCoreVersion;
     	      this.dotnetVersion = defaults.dotnetVersion;
     	      this.javaContainer = defaults.javaContainer;
     	      this.javaContainerVersion = defaults.javaContainerVersion;
+    	      this.javaEmbeddedServerEnabled = defaults.javaEmbeddedServerEnabled;
     	      this.javaVersion = defaults.javaVersion;
     	      this.nodeVersion = defaults.nodeVersion;
     	      this.phpVersion = defaults.phpVersion;
+    	      this.python = defaults.python;
     	      this.pythonVersion = defaults.pythonVersion;
+    	      this.tomcatVersion = defaults.tomcatVersion;
         }
 
         @CustomType.Setter
@@ -201,6 +226,11 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
             return this;
         }
         @CustomType.Setter
+        public Builder dotnetCoreVersion(String dotnetCoreVersion) {
+            this.dotnetCoreVersion = Objects.requireNonNull(dotnetCoreVersion);
+            return this;
+        }
+        @CustomType.Setter
         public Builder dotnetVersion(String dotnetVersion) {
             this.dotnetVersion = Objects.requireNonNull(dotnetVersion);
             return this;
@@ -213,6 +243,11 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
         @CustomType.Setter
         public Builder javaContainerVersion(String javaContainerVersion) {
             this.javaContainerVersion = Objects.requireNonNull(javaContainerVersion);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder javaEmbeddedServerEnabled(Boolean javaEmbeddedServerEnabled) {
+            this.javaEmbeddedServerEnabled = Objects.requireNonNull(javaEmbeddedServerEnabled);
             return this;
         }
         @CustomType.Setter
@@ -231,8 +266,18 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
             return this;
         }
         @CustomType.Setter
+        public Builder python(Boolean python) {
+            this.python = Objects.requireNonNull(python);
+            return this;
+        }
+        @CustomType.Setter
         public Builder pythonVersion(String pythonVersion) {
             this.pythonVersion = Objects.requireNonNull(pythonVersion);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tomcatVersion(String tomcatVersion) {
+            this.tomcatVersion = Objects.requireNonNull(tomcatVersion);
             return this;
         }
         public GetWindowsWebAppSiteConfigApplicationStack build() {
@@ -241,13 +286,17 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
             o.dockerContainerName = dockerContainerName;
             o.dockerContainerRegistry = dockerContainerRegistry;
             o.dockerContainerTag = dockerContainerTag;
+            o.dotnetCoreVersion = dotnetCoreVersion;
             o.dotnetVersion = dotnetVersion;
             o.javaContainer = javaContainer;
             o.javaContainerVersion = javaContainerVersion;
+            o.javaEmbeddedServerEnabled = javaEmbeddedServerEnabled;
             o.javaVersion = javaVersion;
             o.nodeVersion = nodeVersion;
             o.phpVersion = phpVersion;
+            o.python = python;
             o.pythonVersion = pythonVersion;
+            o.tomcatVersion = tomcatVersion;
             return o;
         }
     }

@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataLakeGen2Path{}
 	case "azure:storage/encryptionScope:EncryptionScope":
 		r = &EncryptionScope{}
+	case "azure:storage/localUser:LocalUser":
+		r = &LocalUser{}
 	case "azure:storage/managementPolicy:ManagementPolicy":
 		r = &ManagementPolicy{}
 	case "azure:storage/objectReplication:ObjectReplication":
@@ -119,6 +121,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"storage/encryptionScope",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"storage/localUser",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

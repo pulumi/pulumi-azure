@@ -210,7 +210,7 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/machinelearning"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-//	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
+//	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -427,8 +427,9 @@ type Workspace struct {
 	// The description of this Machine Learning Workspace.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The url for the discovery service to identify regional endpoints for machine learning experimentation services.
-	DiscoveryUrl pulumi.StringOutput          `pulumi:"discoveryUrl"`
-	Encryption   WorkspaceEncryptionPtrOutput `pulumi:"encryption"`
+	DiscoveryUrl pulumi.StringOutput `pulumi:"discoveryUrl"`
+	// An `encryption` block as defined below.
+	Encryption WorkspaceEncryptionPtrOutput `pulumi:"encryption"`
 	// Display name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
@@ -514,8 +515,9 @@ type workspaceState struct {
 	// The description of this Machine Learning Workspace.
 	Description *string `pulumi:"description"`
 	// The url for the discovery service to identify regional endpoints for machine learning experimentation services.
-	DiscoveryUrl *string              `pulumi:"discoveryUrl"`
-	Encryption   *WorkspaceEncryption `pulumi:"encryption"`
+	DiscoveryUrl *string `pulumi:"discoveryUrl"`
+	// An `encryption` block as defined below.
+	Encryption *WorkspaceEncryption `pulumi:"encryption"`
 	// Display name for this Machine Learning Workspace.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
@@ -559,7 +561,8 @@ type WorkspaceState struct {
 	Description pulumi.StringPtrInput
 	// The url for the discovery service to identify regional endpoints for machine learning experimentation services.
 	DiscoveryUrl pulumi.StringPtrInput
-	Encryption   WorkspaceEncryptionPtrInput
+	// An `encryption` block as defined below.
+	Encryption WorkspaceEncryptionPtrInput
 	// Display name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrInput
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
@@ -604,8 +607,9 @@ type workspaceArgs struct {
 	// The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	ContainerRegistryId *string `pulumi:"containerRegistryId"`
 	// The description of this Machine Learning Workspace.
-	Description *string              `pulumi:"description"`
-	Encryption  *WorkspaceEncryption `pulumi:"encryption"`
+	Description *string `pulumi:"description"`
+	// An `encryption` block as defined below.
+	Encryption *WorkspaceEncryption `pulumi:"encryption"`
 	// Display name for this Machine Learning Workspace.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
@@ -648,7 +652,8 @@ type WorkspaceArgs struct {
 	ContainerRegistryId pulumi.StringPtrInput
 	// The description of this Machine Learning Workspace.
 	Description pulumi.StringPtrInput
-	Encryption  WorkspaceEncryptionPtrInput
+	// An `encryption` block as defined below.
+	Encryption WorkspaceEncryptionPtrInput
 	// Display name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrInput
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
@@ -790,6 +795,7 @@ func (o WorkspaceOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.DiscoveryUrl }).(pulumi.StringOutput)
 }
 
+// An `encryption` block as defined below.
 func (o WorkspaceOutput) Encryption() WorkspaceEncryptionPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceEncryptionPtrOutput { return v.Encryption }).(WorkspaceEncryptionPtrOutput)
 }

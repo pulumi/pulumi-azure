@@ -13,16 +13,32 @@ public final class ModuleModuleLinkHashArgs extends com.pulumi.resources.Resourc
 
     public static final ModuleModuleLinkHashArgs Empty = new ModuleModuleLinkHashArgs();
 
+    /**
+     * Specifies the algorithm used for the hash content.
+     * 
+     */
     @Import(name="algorithm", required=true)
     private Output<String> algorithm;
 
+    /**
+     * @return Specifies the algorithm used for the hash content.
+     * 
+     */
     public Output<String> algorithm() {
         return this.algorithm;
     }
 
+    /**
+     * The hash value of the content.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return The hash value of the content.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -52,20 +68,44 @@ public final class ModuleModuleLinkHashArgs extends com.pulumi.resources.Resourc
             $ = new ModuleModuleLinkHashArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param algorithm Specifies the algorithm used for the hash content.
+         * 
+         * @return builder
+         * 
+         */
         public Builder algorithm(Output<String> algorithm) {
             $.algorithm = algorithm;
             return this;
         }
 
+        /**
+         * @param algorithm Specifies the algorithm used for the hash content.
+         * 
+         * @return builder
+         * 
+         */
         public Builder algorithm(String algorithm) {
             return algorithm(Output.of(algorithm));
         }
 
+        /**
+         * @param value The hash value of the content.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value The hash value of the content.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

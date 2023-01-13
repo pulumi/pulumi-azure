@@ -17,6 +17,10 @@ namespace Pulumi.Azure.Automation.Inputs
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
+
+        /// <summary>
+        /// A list of `parameters` block as defined below.
+        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());

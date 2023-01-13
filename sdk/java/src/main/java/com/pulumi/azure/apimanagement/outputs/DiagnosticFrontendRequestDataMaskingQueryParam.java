@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class DiagnosticFrontendRequestDataMaskingQueryParam {
+    /**
+     * @return The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+     * 
+     */
     private String mode;
+    /**
+     * @return The name of the header or the query parameter to mask.
+     * 
+     */
     private String value;
 
     private DiagnosticFrontendRequestDataMaskingQueryParam() {}
+    /**
+     * @return The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+     * 
+     */
     public String mode() {
         return this.mode;
     }
+    /**
+     * @return The name of the header or the query parameter to mask.
+     * 
+     */
     public String value() {
         return this.value;
     }

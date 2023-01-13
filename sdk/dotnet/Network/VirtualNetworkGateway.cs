@@ -148,6 +148,9 @@ namespace Pulumi.Azure.Network
         [Output("bgpSettings")]
         public Output<Outputs.VirtualNetworkGatewayBgpSettings> BgpSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+        /// </summary>
         [Output("customRoute")]
         public Output<Outputs.VirtualNetworkGatewayCustomRoute?> CustomRoute { get; private set; } = null!;
 
@@ -310,6 +313,9 @@ namespace Pulumi.Azure.Network
         [Input("bgpSettings")]
         public Input<Inputs.VirtualNetworkGatewayBgpSettingsArgs>? BgpSettings { get; set; }
 
+        /// <summary>
+        /// A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+        /// </summary>
         [Input("customRoute")]
         public Input<Inputs.VirtualNetworkGatewayCustomRouteArgs>? CustomRoute { get; set; }
 
@@ -446,6 +452,9 @@ namespace Pulumi.Azure.Network
         [Input("bgpSettings")]
         public Input<Inputs.VirtualNetworkGatewayBgpSettingsGetArgs>? BgpSettings { get; set; }
 
+        /// <summary>
+        /// A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+        /// </summary>
         [Input("customRoute")]
         public Input<Inputs.VirtualNetworkGatewayCustomRouteGetArgs>? CustomRoute { get; set; }
 

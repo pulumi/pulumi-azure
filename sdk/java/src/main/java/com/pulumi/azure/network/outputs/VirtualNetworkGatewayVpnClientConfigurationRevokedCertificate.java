@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
     /**
-     * @return The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
+     * @return Specifies the name of the certificate resource.
      * 
      */
     private String name;
@@ -18,7 +18,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate
 
     private VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate() {}
     /**
-     * @return The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
+     * @return Specifies the name of the certificate resource.
      * 
      */
     public String name() {

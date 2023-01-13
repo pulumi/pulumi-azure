@@ -2741,7 +2741,7 @@ class ApplicationGatewaySslProfile(dict):
         """
         :param str name: The name of the SSL Profile that is unique within this Application Gateway.
         :param str id: The ID of the Rewrite Rule Set
-        :param 'ApplicationGatewaySslProfileSslPolicyArgs' ssl_policy: a `ssl policy` block as defined below.
+        :param 'ApplicationGatewaySslProfileSslPolicyArgs' ssl_policy: a `ssl_policy` block as defined below.
         :param Sequence[str] trusted_client_certificate_names: The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
         :param bool verify_client_cert_issuer_dn: Should client certificate issuer DN be verified?  Defaults to `false`.
         """
@@ -2775,7 +2775,7 @@ class ApplicationGatewaySslProfile(dict):
     @pulumi.getter(name="sslPolicy")
     def ssl_policy(self) -> Optional['outputs.ApplicationGatewaySslProfileSslPolicy']:
         """
-        a `ssl policy` block as defined below.
+        a `ssl_policy` block as defined below.
         """
         return pulumi.get(self, "ssl_policy")
 
@@ -10027,7 +10027,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate(dict):
                  name: str,
                  thumbprint: str):
         """
-        :param str name: The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
+        :param str name: Specifies the name of the certificate resource.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "thumbprint", thumbprint)
@@ -10036,7 +10036,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
+        Specifies the name of the certificate resource.
         """
         return pulumi.get(self, "name")
 

@@ -6,6 +6,7 @@ package com.pulumi.azure.maintenance;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.maintenance.ConfigurationArgs;
 import com.pulumi.azure.maintenance.inputs.ConfigurationState;
+import com.pulumi.azure.maintenance.outputs.ConfigurationInstallPatches;
 import com.pulumi.azure.maintenance.outputs.ConfigurationWindow;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -63,12 +64,40 @@ import javax.annotation.Nullable;
  * Maintenance Configuration can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:maintenance/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.maintenance/maintenanceconfigurations/example-mc
+ *  $ pulumi import azure:maintenance/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Maintenance/maintenanceConfigurations/example-mc
  * ```
  * 
  */
 @ResourceType(type="azure:maintenance/configuration:Configuration")
 public class Configuration extends com.pulumi.resources.CustomResource {
+    /**
+     * The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+     * 
+     */
+    @Export(name="inGuestUserPatchMode", type=String.class, parameters={})
+    private Output</* @Nullable */ String> inGuestUserPatchMode;
+
+    /**
+     * @return The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
+     * 
+     */
+    public Output<Optional<String>> inGuestUserPatchMode() {
+        return Codegen.optional(this.inGuestUserPatchMode);
+    }
+    /**
+     * An `install_patches` block as defined below.
+     * 
+     */
+    @Export(name="installPatches", type=ConfigurationInstallPatches.class, parameters={})
+    private Output</* @Nullable */ ConfigurationInstallPatches> installPatches;
+
+    /**
+     * @return An `install_patches` block as defined below.
+     * 
+     */
+    public Output<Optional<ConfigurationInstallPatches>> installPatches() {
+        return Codegen.optional(this.installPatches);
+    }
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 

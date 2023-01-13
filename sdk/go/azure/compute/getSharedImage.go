@@ -74,11 +74,14 @@ type LookupSharedImageResult struct {
 	Identifiers []GetSharedImageIdentifier `pulumi:"identifiers"`
 	// The supported Azure location where the Shared Image Gallery exists.
 	Location string `pulumi:"location"`
-	Name     string `pulumi:"name"`
+	// (Required) The Purchase Plan Name for this Shared Image.
+	Name string `pulumi:"name"`
 	// The type of Operating System present in this Shared Image.
 	OsType string `pulumi:"osType"`
 	// The URI containing the Privacy Statement for this Shared Image.
 	PrivacyStatementUri string `pulumi:"privacyStatementUri"`
+	// (Optional) A `purchasePlan` block as defined below.
+	PurchasePlans []GetSharedImagePurchasePlan `pulumi:"purchasePlans"`
 	// The URI containing the Release Notes for this Shared Image.
 	ReleaseNoteUri    string `pulumi:"releaseNoteUri"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -168,6 +171,7 @@ func (o LookupSharedImageResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSharedImageResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
+// (Required) The Purchase Plan Name for this Shared Image.
 func (o LookupSharedImageResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSharedImageResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -180,6 +184,11 @@ func (o LookupSharedImageResultOutput) OsType() pulumi.StringOutput {
 // The URI containing the Privacy Statement for this Shared Image.
 func (o LookupSharedImageResultOutput) PrivacyStatementUri() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSharedImageResult) string { return v.PrivacyStatementUri }).(pulumi.StringOutput)
+}
+
+// (Optional) A `purchasePlan` block as defined below.
+func (o LookupSharedImageResultOutput) PurchasePlans() GetSharedImagePurchasePlanArrayOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) []GetSharedImagePurchasePlan { return v.PurchasePlans }).(GetSharedImagePurchasePlanArrayOutput)
 }
 
 // The URI containing the Release Notes for this Shared Image.

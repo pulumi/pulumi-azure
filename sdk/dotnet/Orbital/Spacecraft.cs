@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Orbital
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the link. Changing this forces a new resource to be created.
+        /// The name of the Spacecraft. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -98,17 +98,20 @@ namespace Pulumi.Azure.Orbital
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Title of the two line elements(TLE).
+        /// Title of the two line elements (TLE).
         /// </summary>
         [Output("titleLine")]
         public Output<string> TitleLine { get; private set; } = null!;
 
         /// <summary>
-        /// A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+        /// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
         /// </summary>
         [Output("twoLineElements")]
         public Output<ImmutableArray<string>> TwoLineElements { get; private set; } = null!;
@@ -178,7 +181,7 @@ namespace Pulumi.Azure.Orbital
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Name of the link. Changing this forces a new resource to be created.
+        /// The name of the Spacecraft. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -197,6 +200,10 @@ namespace Pulumi.Azure.Orbital
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -204,7 +211,7 @@ namespace Pulumi.Azure.Orbital
         }
 
         /// <summary>
-        /// Title of the two line elements(TLE).
+        /// Title of the two line elements (TLE).
         /// </summary>
         [Input("titleLine", required: true)]
         public Input<string> TitleLine { get; set; } = null!;
@@ -213,7 +220,7 @@ namespace Pulumi.Azure.Orbital
         private InputList<string>? _twoLineElements;
 
         /// <summary>
-        /// A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+        /// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
         /// </summary>
         public InputList<string> TwoLineElements
         {
@@ -248,7 +255,7 @@ namespace Pulumi.Azure.Orbital
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Name of the link. Changing this forces a new resource to be created.
+        /// The name of the Spacecraft. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -267,6 +274,10 @@ namespace Pulumi.Azure.Orbital
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -274,7 +285,7 @@ namespace Pulumi.Azure.Orbital
         }
 
         /// <summary>
-        /// Title of the two line elements(TLE).
+        /// Title of the two line elements (TLE).
         /// </summary>
         [Input("titleLine")]
         public Input<string>? TitleLine { get; set; }
@@ -283,7 +294,7 @@ namespace Pulumi.Azure.Orbital
         private InputList<string>? _twoLineElements;
 
         /// <summary>
-        /// A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+        /// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
         /// </summary>
         public InputList<string> TwoLineElements
         {

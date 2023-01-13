@@ -10,6 +10,411 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ConfigurationInstallPatches struct {
+	// A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+	Linuxes []ConfigurationInstallPatchesLinux `pulumi:"linuxes"`
+	// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
+	Reboot *string `pulumi:"reboot"`
+	// A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+	Windows []ConfigurationInstallPatchesWindow `pulumi:"windows"`
+}
+
+// ConfigurationInstallPatchesInput is an input type that accepts ConfigurationInstallPatchesArgs and ConfigurationInstallPatchesOutput values.
+// You can construct a concrete instance of `ConfigurationInstallPatchesInput` via:
+//
+//	ConfigurationInstallPatchesArgs{...}
+type ConfigurationInstallPatchesInput interface {
+	pulumi.Input
+
+	ToConfigurationInstallPatchesOutput() ConfigurationInstallPatchesOutput
+	ToConfigurationInstallPatchesOutputWithContext(context.Context) ConfigurationInstallPatchesOutput
+}
+
+type ConfigurationInstallPatchesArgs struct {
+	// A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+	Linuxes ConfigurationInstallPatchesLinuxArrayInput `pulumi:"linuxes"`
+	// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
+	Reboot pulumi.StringPtrInput `pulumi:"reboot"`
+	// A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+	Windows ConfigurationInstallPatchesWindowArrayInput `pulumi:"windows"`
+}
+
+func (ConfigurationInstallPatchesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationInstallPatches)(nil)).Elem()
+}
+
+func (i ConfigurationInstallPatchesArgs) ToConfigurationInstallPatchesOutput() ConfigurationInstallPatchesOutput {
+	return i.ToConfigurationInstallPatchesOutputWithContext(context.Background())
+}
+
+func (i ConfigurationInstallPatchesArgs) ToConfigurationInstallPatchesOutputWithContext(ctx context.Context) ConfigurationInstallPatchesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInstallPatchesOutput)
+}
+
+func (i ConfigurationInstallPatchesArgs) ToConfigurationInstallPatchesPtrOutput() ConfigurationInstallPatchesPtrOutput {
+	return i.ToConfigurationInstallPatchesPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationInstallPatchesArgs) ToConfigurationInstallPatchesPtrOutputWithContext(ctx context.Context) ConfigurationInstallPatchesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInstallPatchesOutput).ToConfigurationInstallPatchesPtrOutputWithContext(ctx)
+}
+
+// ConfigurationInstallPatchesPtrInput is an input type that accepts ConfigurationInstallPatchesArgs, ConfigurationInstallPatchesPtr and ConfigurationInstallPatchesPtrOutput values.
+// You can construct a concrete instance of `ConfigurationInstallPatchesPtrInput` via:
+//
+//	        ConfigurationInstallPatchesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationInstallPatchesPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationInstallPatchesPtrOutput() ConfigurationInstallPatchesPtrOutput
+	ToConfigurationInstallPatchesPtrOutputWithContext(context.Context) ConfigurationInstallPatchesPtrOutput
+}
+
+type configurationInstallPatchesPtrType ConfigurationInstallPatchesArgs
+
+func ConfigurationInstallPatchesPtr(v *ConfigurationInstallPatchesArgs) ConfigurationInstallPatchesPtrInput {
+	return (*configurationInstallPatchesPtrType)(v)
+}
+
+func (*configurationInstallPatchesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationInstallPatches)(nil)).Elem()
+}
+
+func (i *configurationInstallPatchesPtrType) ToConfigurationInstallPatchesPtrOutput() ConfigurationInstallPatchesPtrOutput {
+	return i.ToConfigurationInstallPatchesPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationInstallPatchesPtrType) ToConfigurationInstallPatchesPtrOutputWithContext(ctx context.Context) ConfigurationInstallPatchesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInstallPatchesPtrOutput)
+}
+
+type ConfigurationInstallPatchesOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationInstallPatchesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationInstallPatches)(nil)).Elem()
+}
+
+func (o ConfigurationInstallPatchesOutput) ToConfigurationInstallPatchesOutput() ConfigurationInstallPatchesOutput {
+	return o
+}
+
+func (o ConfigurationInstallPatchesOutput) ToConfigurationInstallPatchesOutputWithContext(ctx context.Context) ConfigurationInstallPatchesOutput {
+	return o
+}
+
+func (o ConfigurationInstallPatchesOutput) ToConfigurationInstallPatchesPtrOutput() ConfigurationInstallPatchesPtrOutput {
+	return o.ToConfigurationInstallPatchesPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationInstallPatchesOutput) ToConfigurationInstallPatchesPtrOutputWithContext(ctx context.Context) ConfigurationInstallPatchesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationInstallPatches) *ConfigurationInstallPatches {
+		return &v
+	}).(ConfigurationInstallPatchesPtrOutput)
+}
+
+// A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+func (o ConfigurationInstallPatchesOutput) Linuxes() ConfigurationInstallPatchesLinuxArrayOutput {
+	return o.ApplyT(func(v ConfigurationInstallPatches) []ConfigurationInstallPatchesLinux { return v.Linuxes }).(ConfigurationInstallPatchesLinuxArrayOutput)
+}
+
+// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
+func (o ConfigurationInstallPatchesOutput) Reboot() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationInstallPatches) *string { return v.Reboot }).(pulumi.StringPtrOutput)
+}
+
+// A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+func (o ConfigurationInstallPatchesOutput) Windows() ConfigurationInstallPatchesWindowArrayOutput {
+	return o.ApplyT(func(v ConfigurationInstallPatches) []ConfigurationInstallPatchesWindow { return v.Windows }).(ConfigurationInstallPatchesWindowArrayOutput)
+}
+
+type ConfigurationInstallPatchesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationInstallPatchesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationInstallPatches)(nil)).Elem()
+}
+
+func (o ConfigurationInstallPatchesPtrOutput) ToConfigurationInstallPatchesPtrOutput() ConfigurationInstallPatchesPtrOutput {
+	return o
+}
+
+func (o ConfigurationInstallPatchesPtrOutput) ToConfigurationInstallPatchesPtrOutputWithContext(ctx context.Context) ConfigurationInstallPatchesPtrOutput {
+	return o
+}
+
+func (o ConfigurationInstallPatchesPtrOutput) Elem() ConfigurationInstallPatchesOutput {
+	return o.ApplyT(func(v *ConfigurationInstallPatches) ConfigurationInstallPatches {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationInstallPatches
+		return ret
+	}).(ConfigurationInstallPatchesOutput)
+}
+
+// A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+func (o ConfigurationInstallPatchesPtrOutput) Linuxes() ConfigurationInstallPatchesLinuxArrayOutput {
+	return o.ApplyT(func(v *ConfigurationInstallPatches) []ConfigurationInstallPatchesLinux {
+		if v == nil {
+			return nil
+		}
+		return v.Linuxes
+	}).(ConfigurationInstallPatchesLinuxArrayOutput)
+}
+
+// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
+func (o ConfigurationInstallPatchesPtrOutput) Reboot() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationInstallPatches) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Reboot
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+func (o ConfigurationInstallPatchesPtrOutput) Windows() ConfigurationInstallPatchesWindowArrayOutput {
+	return o.ApplyT(func(v *ConfigurationInstallPatches) []ConfigurationInstallPatchesWindow {
+		if v == nil {
+			return nil
+		}
+		return v.Windows
+	}).(ConfigurationInstallPatchesWindowArrayOutput)
+}
+
+type ConfigurationInstallPatchesLinux struct {
+	// List of Classification category of patches to be patched. Possible values are `Critical`, `Security` and `Other`.
+	ClassificationsToIncludes []string `pulumi:"classificationsToIncludes"`
+	// List of package names to be excluded from patching.
+	PackageNamesMaskToExcludes []string `pulumi:"packageNamesMaskToExcludes"`
+	// List of package names to be included for patching.
+	PackageNamesMaskToIncludes []string `pulumi:"packageNamesMaskToIncludes"`
+}
+
+// ConfigurationInstallPatchesLinuxInput is an input type that accepts ConfigurationInstallPatchesLinuxArgs and ConfigurationInstallPatchesLinuxOutput values.
+// You can construct a concrete instance of `ConfigurationInstallPatchesLinuxInput` via:
+//
+//	ConfigurationInstallPatchesLinuxArgs{...}
+type ConfigurationInstallPatchesLinuxInput interface {
+	pulumi.Input
+
+	ToConfigurationInstallPatchesLinuxOutput() ConfigurationInstallPatchesLinuxOutput
+	ToConfigurationInstallPatchesLinuxOutputWithContext(context.Context) ConfigurationInstallPatchesLinuxOutput
+}
+
+type ConfigurationInstallPatchesLinuxArgs struct {
+	// List of Classification category of patches to be patched. Possible values are `Critical`, `Security` and `Other`.
+	ClassificationsToIncludes pulumi.StringArrayInput `pulumi:"classificationsToIncludes"`
+	// List of package names to be excluded from patching.
+	PackageNamesMaskToExcludes pulumi.StringArrayInput `pulumi:"packageNamesMaskToExcludes"`
+	// List of package names to be included for patching.
+	PackageNamesMaskToIncludes pulumi.StringArrayInput `pulumi:"packageNamesMaskToIncludes"`
+}
+
+func (ConfigurationInstallPatchesLinuxArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationInstallPatchesLinux)(nil)).Elem()
+}
+
+func (i ConfigurationInstallPatchesLinuxArgs) ToConfigurationInstallPatchesLinuxOutput() ConfigurationInstallPatchesLinuxOutput {
+	return i.ToConfigurationInstallPatchesLinuxOutputWithContext(context.Background())
+}
+
+func (i ConfigurationInstallPatchesLinuxArgs) ToConfigurationInstallPatchesLinuxOutputWithContext(ctx context.Context) ConfigurationInstallPatchesLinuxOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInstallPatchesLinuxOutput)
+}
+
+// ConfigurationInstallPatchesLinuxArrayInput is an input type that accepts ConfigurationInstallPatchesLinuxArray and ConfigurationInstallPatchesLinuxArrayOutput values.
+// You can construct a concrete instance of `ConfigurationInstallPatchesLinuxArrayInput` via:
+//
+//	ConfigurationInstallPatchesLinuxArray{ ConfigurationInstallPatchesLinuxArgs{...} }
+type ConfigurationInstallPatchesLinuxArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationInstallPatchesLinuxArrayOutput() ConfigurationInstallPatchesLinuxArrayOutput
+	ToConfigurationInstallPatchesLinuxArrayOutputWithContext(context.Context) ConfigurationInstallPatchesLinuxArrayOutput
+}
+
+type ConfigurationInstallPatchesLinuxArray []ConfigurationInstallPatchesLinuxInput
+
+func (ConfigurationInstallPatchesLinuxArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationInstallPatchesLinux)(nil)).Elem()
+}
+
+func (i ConfigurationInstallPatchesLinuxArray) ToConfigurationInstallPatchesLinuxArrayOutput() ConfigurationInstallPatchesLinuxArrayOutput {
+	return i.ToConfigurationInstallPatchesLinuxArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationInstallPatchesLinuxArray) ToConfigurationInstallPatchesLinuxArrayOutputWithContext(ctx context.Context) ConfigurationInstallPatchesLinuxArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInstallPatchesLinuxArrayOutput)
+}
+
+type ConfigurationInstallPatchesLinuxOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationInstallPatchesLinuxOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationInstallPatchesLinux)(nil)).Elem()
+}
+
+func (o ConfigurationInstallPatchesLinuxOutput) ToConfigurationInstallPatchesLinuxOutput() ConfigurationInstallPatchesLinuxOutput {
+	return o
+}
+
+func (o ConfigurationInstallPatchesLinuxOutput) ToConfigurationInstallPatchesLinuxOutputWithContext(ctx context.Context) ConfigurationInstallPatchesLinuxOutput {
+	return o
+}
+
+// List of Classification category of patches to be patched. Possible values are `Critical`, `Security` and `Other`.
+func (o ConfigurationInstallPatchesLinuxOutput) ClassificationsToIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationInstallPatchesLinux) []string { return v.ClassificationsToIncludes }).(pulumi.StringArrayOutput)
+}
+
+// List of package names to be excluded from patching.
+func (o ConfigurationInstallPatchesLinuxOutput) PackageNamesMaskToExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationInstallPatchesLinux) []string { return v.PackageNamesMaskToExcludes }).(pulumi.StringArrayOutput)
+}
+
+// List of package names to be included for patching.
+func (o ConfigurationInstallPatchesLinuxOutput) PackageNamesMaskToIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationInstallPatchesLinux) []string { return v.PackageNamesMaskToIncludes }).(pulumi.StringArrayOutput)
+}
+
+type ConfigurationInstallPatchesLinuxArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationInstallPatchesLinuxArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationInstallPatchesLinux)(nil)).Elem()
+}
+
+func (o ConfigurationInstallPatchesLinuxArrayOutput) ToConfigurationInstallPatchesLinuxArrayOutput() ConfigurationInstallPatchesLinuxArrayOutput {
+	return o
+}
+
+func (o ConfigurationInstallPatchesLinuxArrayOutput) ToConfigurationInstallPatchesLinuxArrayOutputWithContext(ctx context.Context) ConfigurationInstallPatchesLinuxArrayOutput {
+	return o
+}
+
+func (o ConfigurationInstallPatchesLinuxArrayOutput) Index(i pulumi.IntInput) ConfigurationInstallPatchesLinuxOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationInstallPatchesLinux {
+		return vs[0].([]ConfigurationInstallPatchesLinux)[vs[1].(int)]
+	}).(ConfigurationInstallPatchesLinuxOutput)
+}
+
+type ConfigurationInstallPatchesWindow struct {
+	// List of Classification category of patches to be patched. Possible values are `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+	ClassificationsToIncludes []string `pulumi:"classificationsToIncludes"`
+	// List of KB numbers to be excluded from patching.
+	KbNumbersToExcludes []string `pulumi:"kbNumbersToExcludes"`
+	// List of KB numbers to be included for patching.
+	KbNumbersToIncludes []string `pulumi:"kbNumbersToIncludes"`
+}
+
+// ConfigurationInstallPatchesWindowInput is an input type that accepts ConfigurationInstallPatchesWindowArgs and ConfigurationInstallPatchesWindowOutput values.
+// You can construct a concrete instance of `ConfigurationInstallPatchesWindowInput` via:
+//
+//	ConfigurationInstallPatchesWindowArgs{...}
+type ConfigurationInstallPatchesWindowInput interface {
+	pulumi.Input
+
+	ToConfigurationInstallPatchesWindowOutput() ConfigurationInstallPatchesWindowOutput
+	ToConfigurationInstallPatchesWindowOutputWithContext(context.Context) ConfigurationInstallPatchesWindowOutput
+}
+
+type ConfigurationInstallPatchesWindowArgs struct {
+	// List of Classification category of patches to be patched. Possible values are `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+	ClassificationsToIncludes pulumi.StringArrayInput `pulumi:"classificationsToIncludes"`
+	// List of KB numbers to be excluded from patching.
+	KbNumbersToExcludes pulumi.StringArrayInput `pulumi:"kbNumbersToExcludes"`
+	// List of KB numbers to be included for patching.
+	KbNumbersToIncludes pulumi.StringArrayInput `pulumi:"kbNumbersToIncludes"`
+}
+
+func (ConfigurationInstallPatchesWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationInstallPatchesWindow)(nil)).Elem()
+}
+
+func (i ConfigurationInstallPatchesWindowArgs) ToConfigurationInstallPatchesWindowOutput() ConfigurationInstallPatchesWindowOutput {
+	return i.ToConfigurationInstallPatchesWindowOutputWithContext(context.Background())
+}
+
+func (i ConfigurationInstallPatchesWindowArgs) ToConfigurationInstallPatchesWindowOutputWithContext(ctx context.Context) ConfigurationInstallPatchesWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInstallPatchesWindowOutput)
+}
+
+// ConfigurationInstallPatchesWindowArrayInput is an input type that accepts ConfigurationInstallPatchesWindowArray and ConfigurationInstallPatchesWindowArrayOutput values.
+// You can construct a concrete instance of `ConfigurationInstallPatchesWindowArrayInput` via:
+//
+//	ConfigurationInstallPatchesWindowArray{ ConfigurationInstallPatchesWindowArgs{...} }
+type ConfigurationInstallPatchesWindowArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationInstallPatchesWindowArrayOutput() ConfigurationInstallPatchesWindowArrayOutput
+	ToConfigurationInstallPatchesWindowArrayOutputWithContext(context.Context) ConfigurationInstallPatchesWindowArrayOutput
+}
+
+type ConfigurationInstallPatchesWindowArray []ConfigurationInstallPatchesWindowInput
+
+func (ConfigurationInstallPatchesWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationInstallPatchesWindow)(nil)).Elem()
+}
+
+func (i ConfigurationInstallPatchesWindowArray) ToConfigurationInstallPatchesWindowArrayOutput() ConfigurationInstallPatchesWindowArrayOutput {
+	return i.ToConfigurationInstallPatchesWindowArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationInstallPatchesWindowArray) ToConfigurationInstallPatchesWindowArrayOutputWithContext(ctx context.Context) ConfigurationInstallPatchesWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInstallPatchesWindowArrayOutput)
+}
+
+type ConfigurationInstallPatchesWindowOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationInstallPatchesWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationInstallPatchesWindow)(nil)).Elem()
+}
+
+func (o ConfigurationInstallPatchesWindowOutput) ToConfigurationInstallPatchesWindowOutput() ConfigurationInstallPatchesWindowOutput {
+	return o
+}
+
+func (o ConfigurationInstallPatchesWindowOutput) ToConfigurationInstallPatchesWindowOutputWithContext(ctx context.Context) ConfigurationInstallPatchesWindowOutput {
+	return o
+}
+
+// List of Classification category of patches to be patched. Possible values are `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+func (o ConfigurationInstallPatchesWindowOutput) ClassificationsToIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationInstallPatchesWindow) []string { return v.ClassificationsToIncludes }).(pulumi.StringArrayOutput)
+}
+
+// List of KB numbers to be excluded from patching.
+func (o ConfigurationInstallPatchesWindowOutput) KbNumbersToExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationInstallPatchesWindow) []string { return v.KbNumbersToExcludes }).(pulumi.StringArrayOutput)
+}
+
+// List of KB numbers to be included for patching.
+func (o ConfigurationInstallPatchesWindowOutput) KbNumbersToIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationInstallPatchesWindow) []string { return v.KbNumbersToIncludes }).(pulumi.StringArrayOutput)
+}
+
+type ConfigurationInstallPatchesWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationInstallPatchesWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationInstallPatchesWindow)(nil)).Elem()
+}
+
+func (o ConfigurationInstallPatchesWindowArrayOutput) ToConfigurationInstallPatchesWindowArrayOutput() ConfigurationInstallPatchesWindowArrayOutput {
+	return o
+}
+
+func (o ConfigurationInstallPatchesWindowArrayOutput) ToConfigurationInstallPatchesWindowArrayOutputWithContext(ctx context.Context) ConfigurationInstallPatchesWindowArrayOutput {
+	return o
+}
+
+func (o ConfigurationInstallPatchesWindowArrayOutput) Index(i pulumi.IntInput) ConfigurationInstallPatchesWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationInstallPatchesWindow {
+		return vs[0].([]ConfigurationInstallPatchesWindow)[vs[1].(int)]
+	}).(ConfigurationInstallPatchesWindowOutput)
+}
+
 type ConfigurationWindow struct {
 	// The duration of the maintenance window in HH:mm format.
 	Duration *string `pulumi:"duration"`
@@ -221,6 +626,351 @@ func (o ConfigurationWindowPtrOutput) TimeZone() pulumi.StringPtrOutput {
 		}
 		return &v.TimeZone
 	}).(pulumi.StringPtrOutput)
+}
+
+type GetConfigurationInstallPatch struct {
+	// A `linux` block as defined below.
+	Linuxes []GetConfigurationInstallPatchLinux `pulumi:"linuxes"`
+	// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
+	Reboot string `pulumi:"reboot"`
+	// A `windows` block as defined below.
+	Windows []GetConfigurationInstallPatchWindow `pulumi:"windows"`
+}
+
+// GetConfigurationInstallPatchInput is an input type that accepts GetConfigurationInstallPatchArgs and GetConfigurationInstallPatchOutput values.
+// You can construct a concrete instance of `GetConfigurationInstallPatchInput` via:
+//
+//	GetConfigurationInstallPatchArgs{...}
+type GetConfigurationInstallPatchInput interface {
+	pulumi.Input
+
+	ToGetConfigurationInstallPatchOutput() GetConfigurationInstallPatchOutput
+	ToGetConfigurationInstallPatchOutputWithContext(context.Context) GetConfigurationInstallPatchOutput
+}
+
+type GetConfigurationInstallPatchArgs struct {
+	// A `linux` block as defined below.
+	Linuxes GetConfigurationInstallPatchLinuxArrayInput `pulumi:"linuxes"`
+	// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
+	Reboot pulumi.StringInput `pulumi:"reboot"`
+	// A `windows` block as defined below.
+	Windows GetConfigurationInstallPatchWindowArrayInput `pulumi:"windows"`
+}
+
+func (GetConfigurationInstallPatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationInstallPatch)(nil)).Elem()
+}
+
+func (i GetConfigurationInstallPatchArgs) ToGetConfigurationInstallPatchOutput() GetConfigurationInstallPatchOutput {
+	return i.ToGetConfigurationInstallPatchOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationInstallPatchArgs) ToGetConfigurationInstallPatchOutputWithContext(ctx context.Context) GetConfigurationInstallPatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationInstallPatchOutput)
+}
+
+// GetConfigurationInstallPatchArrayInput is an input type that accepts GetConfigurationInstallPatchArray and GetConfigurationInstallPatchArrayOutput values.
+// You can construct a concrete instance of `GetConfigurationInstallPatchArrayInput` via:
+//
+//	GetConfigurationInstallPatchArray{ GetConfigurationInstallPatchArgs{...} }
+type GetConfigurationInstallPatchArrayInput interface {
+	pulumi.Input
+
+	ToGetConfigurationInstallPatchArrayOutput() GetConfigurationInstallPatchArrayOutput
+	ToGetConfigurationInstallPatchArrayOutputWithContext(context.Context) GetConfigurationInstallPatchArrayOutput
+}
+
+type GetConfigurationInstallPatchArray []GetConfigurationInstallPatchInput
+
+func (GetConfigurationInstallPatchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationInstallPatch)(nil)).Elem()
+}
+
+func (i GetConfigurationInstallPatchArray) ToGetConfigurationInstallPatchArrayOutput() GetConfigurationInstallPatchArrayOutput {
+	return i.ToGetConfigurationInstallPatchArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationInstallPatchArray) ToGetConfigurationInstallPatchArrayOutputWithContext(ctx context.Context) GetConfigurationInstallPatchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationInstallPatchArrayOutput)
+}
+
+type GetConfigurationInstallPatchOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationInstallPatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationInstallPatch)(nil)).Elem()
+}
+
+func (o GetConfigurationInstallPatchOutput) ToGetConfigurationInstallPatchOutput() GetConfigurationInstallPatchOutput {
+	return o
+}
+
+func (o GetConfigurationInstallPatchOutput) ToGetConfigurationInstallPatchOutputWithContext(ctx context.Context) GetConfigurationInstallPatchOutput {
+	return o
+}
+
+// A `linux` block as defined below.
+func (o GetConfigurationInstallPatchOutput) Linuxes() GetConfigurationInstallPatchLinuxArrayOutput {
+	return o.ApplyT(func(v GetConfigurationInstallPatch) []GetConfigurationInstallPatchLinux { return v.Linuxes }).(GetConfigurationInstallPatchLinuxArrayOutput)
+}
+
+// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
+func (o GetConfigurationInstallPatchOutput) Reboot() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationInstallPatch) string { return v.Reboot }).(pulumi.StringOutput)
+}
+
+// A `windows` block as defined below.
+func (o GetConfigurationInstallPatchOutput) Windows() GetConfigurationInstallPatchWindowArrayOutput {
+	return o.ApplyT(func(v GetConfigurationInstallPatch) []GetConfigurationInstallPatchWindow { return v.Windows }).(GetConfigurationInstallPatchWindowArrayOutput)
+}
+
+type GetConfigurationInstallPatchArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationInstallPatchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationInstallPatch)(nil)).Elem()
+}
+
+func (o GetConfigurationInstallPatchArrayOutput) ToGetConfigurationInstallPatchArrayOutput() GetConfigurationInstallPatchArrayOutput {
+	return o
+}
+
+func (o GetConfigurationInstallPatchArrayOutput) ToGetConfigurationInstallPatchArrayOutputWithContext(ctx context.Context) GetConfigurationInstallPatchArrayOutput {
+	return o
+}
+
+func (o GetConfigurationInstallPatchArrayOutput) Index(i pulumi.IntInput) GetConfigurationInstallPatchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationInstallPatch {
+		return vs[0].([]GetConfigurationInstallPatch)[vs[1].(int)]
+	}).(GetConfigurationInstallPatchOutput)
+}
+
+type GetConfigurationInstallPatchLinux struct {
+	// List of Classification category of patches to be patched.
+	ClassificationsToIncludes []string `pulumi:"classificationsToIncludes"`
+	// List of package names to be excluded from patching.
+	PackageNamesMaskToExcludes []string `pulumi:"packageNamesMaskToExcludes"`
+	// List of package names to be included for patching.
+	PackageNamesMaskToIncludes []string `pulumi:"packageNamesMaskToIncludes"`
+}
+
+// GetConfigurationInstallPatchLinuxInput is an input type that accepts GetConfigurationInstallPatchLinuxArgs and GetConfigurationInstallPatchLinuxOutput values.
+// You can construct a concrete instance of `GetConfigurationInstallPatchLinuxInput` via:
+//
+//	GetConfigurationInstallPatchLinuxArgs{...}
+type GetConfigurationInstallPatchLinuxInput interface {
+	pulumi.Input
+
+	ToGetConfigurationInstallPatchLinuxOutput() GetConfigurationInstallPatchLinuxOutput
+	ToGetConfigurationInstallPatchLinuxOutputWithContext(context.Context) GetConfigurationInstallPatchLinuxOutput
+}
+
+type GetConfigurationInstallPatchLinuxArgs struct {
+	// List of Classification category of patches to be patched.
+	ClassificationsToIncludes pulumi.StringArrayInput `pulumi:"classificationsToIncludes"`
+	// List of package names to be excluded from patching.
+	PackageNamesMaskToExcludes pulumi.StringArrayInput `pulumi:"packageNamesMaskToExcludes"`
+	// List of package names to be included for patching.
+	PackageNamesMaskToIncludes pulumi.StringArrayInput `pulumi:"packageNamesMaskToIncludes"`
+}
+
+func (GetConfigurationInstallPatchLinuxArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationInstallPatchLinux)(nil)).Elem()
+}
+
+func (i GetConfigurationInstallPatchLinuxArgs) ToGetConfigurationInstallPatchLinuxOutput() GetConfigurationInstallPatchLinuxOutput {
+	return i.ToGetConfigurationInstallPatchLinuxOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationInstallPatchLinuxArgs) ToGetConfigurationInstallPatchLinuxOutputWithContext(ctx context.Context) GetConfigurationInstallPatchLinuxOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationInstallPatchLinuxOutput)
+}
+
+// GetConfigurationInstallPatchLinuxArrayInput is an input type that accepts GetConfigurationInstallPatchLinuxArray and GetConfigurationInstallPatchLinuxArrayOutput values.
+// You can construct a concrete instance of `GetConfigurationInstallPatchLinuxArrayInput` via:
+//
+//	GetConfigurationInstallPatchLinuxArray{ GetConfigurationInstallPatchLinuxArgs{...} }
+type GetConfigurationInstallPatchLinuxArrayInput interface {
+	pulumi.Input
+
+	ToGetConfigurationInstallPatchLinuxArrayOutput() GetConfigurationInstallPatchLinuxArrayOutput
+	ToGetConfigurationInstallPatchLinuxArrayOutputWithContext(context.Context) GetConfigurationInstallPatchLinuxArrayOutput
+}
+
+type GetConfigurationInstallPatchLinuxArray []GetConfigurationInstallPatchLinuxInput
+
+func (GetConfigurationInstallPatchLinuxArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationInstallPatchLinux)(nil)).Elem()
+}
+
+func (i GetConfigurationInstallPatchLinuxArray) ToGetConfigurationInstallPatchLinuxArrayOutput() GetConfigurationInstallPatchLinuxArrayOutput {
+	return i.ToGetConfigurationInstallPatchLinuxArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationInstallPatchLinuxArray) ToGetConfigurationInstallPatchLinuxArrayOutputWithContext(ctx context.Context) GetConfigurationInstallPatchLinuxArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationInstallPatchLinuxArrayOutput)
+}
+
+type GetConfigurationInstallPatchLinuxOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationInstallPatchLinuxOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationInstallPatchLinux)(nil)).Elem()
+}
+
+func (o GetConfigurationInstallPatchLinuxOutput) ToGetConfigurationInstallPatchLinuxOutput() GetConfigurationInstallPatchLinuxOutput {
+	return o
+}
+
+func (o GetConfigurationInstallPatchLinuxOutput) ToGetConfigurationInstallPatchLinuxOutputWithContext(ctx context.Context) GetConfigurationInstallPatchLinuxOutput {
+	return o
+}
+
+// List of Classification category of patches to be patched.
+func (o GetConfigurationInstallPatchLinuxOutput) ClassificationsToIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetConfigurationInstallPatchLinux) []string { return v.ClassificationsToIncludes }).(pulumi.StringArrayOutput)
+}
+
+// List of package names to be excluded from patching.
+func (o GetConfigurationInstallPatchLinuxOutput) PackageNamesMaskToExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetConfigurationInstallPatchLinux) []string { return v.PackageNamesMaskToExcludes }).(pulumi.StringArrayOutput)
+}
+
+// List of package names to be included for patching.
+func (o GetConfigurationInstallPatchLinuxOutput) PackageNamesMaskToIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetConfigurationInstallPatchLinux) []string { return v.PackageNamesMaskToIncludes }).(pulumi.StringArrayOutput)
+}
+
+type GetConfigurationInstallPatchLinuxArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationInstallPatchLinuxArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationInstallPatchLinux)(nil)).Elem()
+}
+
+func (o GetConfigurationInstallPatchLinuxArrayOutput) ToGetConfigurationInstallPatchLinuxArrayOutput() GetConfigurationInstallPatchLinuxArrayOutput {
+	return o
+}
+
+func (o GetConfigurationInstallPatchLinuxArrayOutput) ToGetConfigurationInstallPatchLinuxArrayOutputWithContext(ctx context.Context) GetConfigurationInstallPatchLinuxArrayOutput {
+	return o
+}
+
+func (o GetConfigurationInstallPatchLinuxArrayOutput) Index(i pulumi.IntInput) GetConfigurationInstallPatchLinuxOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationInstallPatchLinux {
+		return vs[0].([]GetConfigurationInstallPatchLinux)[vs[1].(int)]
+	}).(GetConfigurationInstallPatchLinuxOutput)
+}
+
+type GetConfigurationInstallPatchWindow struct {
+	// List of Classification category of patches to be patched.
+	ClassificationsToIncludes []string `pulumi:"classificationsToIncludes"`
+	// List of KB numbers to be excluded from patching.
+	KbNumbersToExcludes []string `pulumi:"kbNumbersToExcludes"`
+	// List of KB numbers to be included for patching.
+	KbNumbersToIncludes []string `pulumi:"kbNumbersToIncludes"`
+}
+
+// GetConfigurationInstallPatchWindowInput is an input type that accepts GetConfigurationInstallPatchWindowArgs and GetConfigurationInstallPatchWindowOutput values.
+// You can construct a concrete instance of `GetConfigurationInstallPatchWindowInput` via:
+//
+//	GetConfigurationInstallPatchWindowArgs{...}
+type GetConfigurationInstallPatchWindowInput interface {
+	pulumi.Input
+
+	ToGetConfigurationInstallPatchWindowOutput() GetConfigurationInstallPatchWindowOutput
+	ToGetConfigurationInstallPatchWindowOutputWithContext(context.Context) GetConfigurationInstallPatchWindowOutput
+}
+
+type GetConfigurationInstallPatchWindowArgs struct {
+	// List of Classification category of patches to be patched.
+	ClassificationsToIncludes pulumi.StringArrayInput `pulumi:"classificationsToIncludes"`
+	// List of KB numbers to be excluded from patching.
+	KbNumbersToExcludes pulumi.StringArrayInput `pulumi:"kbNumbersToExcludes"`
+	// List of KB numbers to be included for patching.
+	KbNumbersToIncludes pulumi.StringArrayInput `pulumi:"kbNumbersToIncludes"`
+}
+
+func (GetConfigurationInstallPatchWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationInstallPatchWindow)(nil)).Elem()
+}
+
+func (i GetConfigurationInstallPatchWindowArgs) ToGetConfigurationInstallPatchWindowOutput() GetConfigurationInstallPatchWindowOutput {
+	return i.ToGetConfigurationInstallPatchWindowOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationInstallPatchWindowArgs) ToGetConfigurationInstallPatchWindowOutputWithContext(ctx context.Context) GetConfigurationInstallPatchWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationInstallPatchWindowOutput)
+}
+
+// GetConfigurationInstallPatchWindowArrayInput is an input type that accepts GetConfigurationInstallPatchWindowArray and GetConfigurationInstallPatchWindowArrayOutput values.
+// You can construct a concrete instance of `GetConfigurationInstallPatchWindowArrayInput` via:
+//
+//	GetConfigurationInstallPatchWindowArray{ GetConfigurationInstallPatchWindowArgs{...} }
+type GetConfigurationInstallPatchWindowArrayInput interface {
+	pulumi.Input
+
+	ToGetConfigurationInstallPatchWindowArrayOutput() GetConfigurationInstallPatchWindowArrayOutput
+	ToGetConfigurationInstallPatchWindowArrayOutputWithContext(context.Context) GetConfigurationInstallPatchWindowArrayOutput
+}
+
+type GetConfigurationInstallPatchWindowArray []GetConfigurationInstallPatchWindowInput
+
+func (GetConfigurationInstallPatchWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationInstallPatchWindow)(nil)).Elem()
+}
+
+func (i GetConfigurationInstallPatchWindowArray) ToGetConfigurationInstallPatchWindowArrayOutput() GetConfigurationInstallPatchWindowArrayOutput {
+	return i.ToGetConfigurationInstallPatchWindowArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationInstallPatchWindowArray) ToGetConfigurationInstallPatchWindowArrayOutputWithContext(ctx context.Context) GetConfigurationInstallPatchWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationInstallPatchWindowArrayOutput)
+}
+
+type GetConfigurationInstallPatchWindowOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationInstallPatchWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationInstallPatchWindow)(nil)).Elem()
+}
+
+func (o GetConfigurationInstallPatchWindowOutput) ToGetConfigurationInstallPatchWindowOutput() GetConfigurationInstallPatchWindowOutput {
+	return o
+}
+
+func (o GetConfigurationInstallPatchWindowOutput) ToGetConfigurationInstallPatchWindowOutputWithContext(ctx context.Context) GetConfigurationInstallPatchWindowOutput {
+	return o
+}
+
+// List of Classification category of patches to be patched.
+func (o GetConfigurationInstallPatchWindowOutput) ClassificationsToIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetConfigurationInstallPatchWindow) []string { return v.ClassificationsToIncludes }).(pulumi.StringArrayOutput)
+}
+
+// List of KB numbers to be excluded from patching.
+func (o GetConfigurationInstallPatchWindowOutput) KbNumbersToExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetConfigurationInstallPatchWindow) []string { return v.KbNumbersToExcludes }).(pulumi.StringArrayOutput)
+}
+
+// List of KB numbers to be included for patching.
+func (o GetConfigurationInstallPatchWindowOutput) KbNumbersToIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetConfigurationInstallPatchWindow) []string { return v.KbNumbersToIncludes }).(pulumi.StringArrayOutput)
+}
+
+type GetConfigurationInstallPatchWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationInstallPatchWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationInstallPatchWindow)(nil)).Elem()
+}
+
+func (o GetConfigurationInstallPatchWindowArrayOutput) ToGetConfigurationInstallPatchWindowArrayOutput() GetConfigurationInstallPatchWindowArrayOutput {
+	return o
+}
+
+func (o GetConfigurationInstallPatchWindowArrayOutput) ToGetConfigurationInstallPatchWindowArrayOutputWithContext(ctx context.Context) GetConfigurationInstallPatchWindowArrayOutput {
+	return o
+}
+
+func (o GetConfigurationInstallPatchWindowArrayOutput) Index(i pulumi.IntInput) GetConfigurationInstallPatchWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationInstallPatchWindow {
+		return vs[0].([]GetConfigurationInstallPatchWindow)[vs[1].(int)]
+	}).(GetConfigurationInstallPatchWindowOutput)
 }
 
 type GetConfigurationWindow struct {
@@ -517,14 +1267,38 @@ func (o GetPublicConfigurationsConfigArrayOutput) Index(i pulumi.IntInput) GetPu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationInstallPatchesInput)(nil)).Elem(), ConfigurationInstallPatchesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationInstallPatchesPtrInput)(nil)).Elem(), ConfigurationInstallPatchesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationInstallPatchesLinuxInput)(nil)).Elem(), ConfigurationInstallPatchesLinuxArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationInstallPatchesLinuxArrayInput)(nil)).Elem(), ConfigurationInstallPatchesLinuxArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationInstallPatchesWindowInput)(nil)).Elem(), ConfigurationInstallPatchesWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationInstallPatchesWindowArrayInput)(nil)).Elem(), ConfigurationInstallPatchesWindowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationWindowInput)(nil)).Elem(), ConfigurationWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationWindowPtrInput)(nil)).Elem(), ConfigurationWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationInstallPatchInput)(nil)).Elem(), GetConfigurationInstallPatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationInstallPatchArrayInput)(nil)).Elem(), GetConfigurationInstallPatchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationInstallPatchLinuxInput)(nil)).Elem(), GetConfigurationInstallPatchLinuxArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationInstallPatchLinuxArrayInput)(nil)).Elem(), GetConfigurationInstallPatchLinuxArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationInstallPatchWindowInput)(nil)).Elem(), GetConfigurationInstallPatchWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationInstallPatchWindowArrayInput)(nil)).Elem(), GetConfigurationInstallPatchWindowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationWindowInput)(nil)).Elem(), GetConfigurationWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationWindowArrayInput)(nil)).Elem(), GetConfigurationWindowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPublicConfigurationsConfigInput)(nil)).Elem(), GetPublicConfigurationsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPublicConfigurationsConfigArrayInput)(nil)).Elem(), GetPublicConfigurationsConfigArray{})
+	pulumi.RegisterOutputType(ConfigurationInstallPatchesOutput{})
+	pulumi.RegisterOutputType(ConfigurationInstallPatchesPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationInstallPatchesLinuxOutput{})
+	pulumi.RegisterOutputType(ConfigurationInstallPatchesLinuxArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationInstallPatchesWindowOutput{})
+	pulumi.RegisterOutputType(ConfigurationInstallPatchesWindowArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationWindowOutput{})
 	pulumi.RegisterOutputType(ConfigurationWindowPtrOutput{})
+	pulumi.RegisterOutputType(GetConfigurationInstallPatchOutput{})
+	pulumi.RegisterOutputType(GetConfigurationInstallPatchArrayOutput{})
+	pulumi.RegisterOutputType(GetConfigurationInstallPatchLinuxOutput{})
+	pulumi.RegisterOutputType(GetConfigurationInstallPatchLinuxArrayOutput{})
+	pulumi.RegisterOutputType(GetConfigurationInstallPatchWindowOutput{})
+	pulumi.RegisterOutputType(GetConfigurationInstallPatchWindowArrayOutput{})
 	pulumi.RegisterOutputType(GetConfigurationWindowOutput{})
 	pulumi.RegisterOutputType(GetConfigurationWindowArrayOutput{})
 	pulumi.RegisterOutputType(GetPublicConfigurationsConfigOutput{})

@@ -389,7 +389,7 @@ class OutputTable(pulumi.CustomResource):
         Stream Analytics Output to Table can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:streamanalytics/outputTable:OutputTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
+         $ pulumi import azure:streamanalytics/outputTable:OutputTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
         ```
 
         :param str resource_name: The name of the resource.
@@ -445,7 +445,7 @@ class OutputTable(pulumi.CustomResource):
         Stream Analytics Output to Table can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:streamanalytics/outputTable:OutputTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
+         $ pulumi import azure:streamanalytics/outputTable:OutputTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
         ```
 
         :param str resource_name: The name of the resource.

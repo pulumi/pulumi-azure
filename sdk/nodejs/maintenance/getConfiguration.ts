@@ -54,6 +54,14 @@ export interface GetConfigurationResult {
      */
     readonly id: string;
     /**
+     * The in guest user patch mode.
+     */
+    readonly inGuestUserPatchMode: string;
+    /**
+     * An `installPatches` block as defined below.
+     */
+    readonly installPatches: outputs.maintenance.GetConfigurationInstallPatch[];
+    /**
      * The Azure location where the resource exists.
      */
     readonly location: string;

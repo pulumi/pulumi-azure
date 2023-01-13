@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ModuleModuleLink {
+    /**
+     * @return A `hash` block as defined below.
+     * 
+     */
     private @Nullable ModuleModuleLinkHash hash;
     /**
      * @return The URI of the module content (zip or nupkg).
@@ -20,6 +24,10 @@ public final class ModuleModuleLink {
     private String uri;
 
     private ModuleModuleLink() {}
+    /**
+     * @return A `hash` block as defined below.
+     * 
+     */
     public Optional<ModuleModuleLinkHash> hash() {
         return Optional.ofNullable(this.hash);
     }

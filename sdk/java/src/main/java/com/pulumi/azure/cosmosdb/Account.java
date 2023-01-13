@@ -259,18 +259,18 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.createMode;
     }
     /**
-     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
      * 
      */
     @Export(name="defaultIdentityType", type=String.class, parameters={})
-    private Output</* @Nullable */ String> defaultIdentityType;
+    private Output<String> defaultIdentityType;
 
     /**
-     * @return The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+     * @return The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
      * 
      */
-    public Output<Optional<String>> defaultIdentityType() {
-        return Codegen.optional(this.defaultIdentityType);
+    public Output<String> defaultIdentityType() {
+        return this.defaultIdentityType;
     }
     /**
      * Enable automatic fail over for this Cosmos DB account.

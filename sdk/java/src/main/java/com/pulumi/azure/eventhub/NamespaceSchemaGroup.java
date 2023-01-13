@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  * Schema Group for a EventHub Namespace can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/schemagroups/group1
+ *  $ pulumi import azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/schemaGroups/group1
  * ```
  * 
  */

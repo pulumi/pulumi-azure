@@ -160,7 +160,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import azure:media/streamingEndpoint:StreamingEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/service1/streamingendpoints/endpoint1
+//	$ pulumi import azure:media/streamingEndpoint:StreamingEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/service1/streamingEndpoints/endpoint1
 //
 // ```
 type StreamingEndpoint struct {

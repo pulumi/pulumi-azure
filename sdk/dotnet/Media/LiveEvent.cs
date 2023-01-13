@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Media
     /// Live Events can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:media/liveEvent:LiveEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Media/mediaservices/account1/liveevents/event1
+    ///  $ pulumi import azure:media/liveEvent:LiveEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Media/mediaServices/account1/liveEvents/event1
     /// ```
     /// </summary>
     [AzureResourceType("azure:media/liveEvent:LiveEvent")]

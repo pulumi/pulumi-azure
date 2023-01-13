@@ -19,6 +19,10 @@ public final class DiagnosticFrontendResponse {
      * 
      */
     private @Nullable Integer bodyBytes;
+    /**
+     * @return A `data_masking` block as defined below.
+     * 
+     */
     private @Nullable DiagnosticFrontendResponseDataMasking dataMasking;
     /**
      * @return Specifies a list of headers to log.
@@ -34,6 +38,10 @@ public final class DiagnosticFrontendResponse {
     public Optional<Integer> bodyBytes() {
         return Optional.ofNullable(this.bodyBytes);
     }
+    /**
+     * @return A `data_masking` block as defined below.
+     * 
+     */
     public Optional<DiagnosticFrontendResponseDataMasking> dataMasking() {
         return Optional.ofNullable(this.dataMasking);
     }

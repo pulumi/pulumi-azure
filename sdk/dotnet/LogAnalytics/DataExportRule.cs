@@ -62,7 +62,7 @@ namespace Pulumi.Azure.LogAnalytics
     /// Log Analytics Data Export Rule can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:loganalytics/dataExportRule:DataExportRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/dataExports/dataExport1
+    ///  $ pulumi import azure:loganalytics/dataExportRule:DataExportRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/dataExports/dataExport1
     /// ```
     /// </summary>
     [AzureResourceType("azure:loganalytics/dataExportRule:DataExportRule")]

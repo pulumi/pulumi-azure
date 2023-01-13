@@ -415,7 +415,7 @@ type AccountBlobProperties struct {
 	DeleteRetentionPolicy *AccountBlobPropertiesDeleteRetentionPolicy `pulumi:"deleteRetentionPolicy"`
 	// Is the last access time based tracking enabled? Default to `false`.
 	LastAccessTimeEnabled *bool `pulumi:"lastAccessTimeEnabled"`
-	// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set and `versioningEnabled` set to `true`.
+	// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
 	RestorePolicy *AccountBlobPropertiesRestorePolicy `pulumi:"restorePolicy"`
 	// Is versioning enabled? Default to `false`.
 	VersioningEnabled *bool `pulumi:"versioningEnabled"`
@@ -447,7 +447,7 @@ type AccountBlobPropertiesArgs struct {
 	DeleteRetentionPolicy AccountBlobPropertiesDeleteRetentionPolicyPtrInput `pulumi:"deleteRetentionPolicy"`
 	// Is the last access time based tracking enabled? Default to `false`.
 	LastAccessTimeEnabled pulumi.BoolPtrInput `pulumi:"lastAccessTimeEnabled"`
-	// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set and `versioningEnabled` set to `true`.
+	// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
 	RestorePolicy AccountBlobPropertiesRestorePolicyPtrInput `pulumi:"restorePolicy"`
 	// Is versioning enabled? Default to `false`.
 	VersioningEnabled pulumi.BoolPtrInput `pulumi:"versioningEnabled"`
@@ -569,7 +569,7 @@ func (o AccountBlobPropertiesOutput) LastAccessTimeEnabled() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v AccountBlobProperties) *bool { return v.LastAccessTimeEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set and `versioningEnabled` set to `true`.
+// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
 func (o AccountBlobPropertiesOutput) RestorePolicy() AccountBlobPropertiesRestorePolicyPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *AccountBlobPropertiesRestorePolicy { return v.RestorePolicy }).(AccountBlobPropertiesRestorePolicyPtrOutput)
 }
@@ -673,7 +673,7 @@ func (o AccountBlobPropertiesPtrOutput) LastAccessTimeEnabled() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set and `versioningEnabled` set to `true`.
+// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
 func (o AccountBlobPropertiesPtrOutput) RestorePolicy() AccountBlobPropertiesRestorePolicyPtrOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) *AccountBlobPropertiesRestorePolicy {
 		if v == nil {
@@ -5037,6 +5037,315 @@ func (o DataLakeGen2PathAceArrayOutput) Index(i pulumi.IntInput) DataLakeGen2Pat
 	}).(DataLakeGen2PathAceOutput)
 }
 
+type LocalUserPermissionScope struct {
+	// A `permissions` block as defined below.
+	Permissions LocalUserPermissionScopePermissions `pulumi:"permissions"`
+	// The container name (when `service` is set to `blob`) or the file share name (when `service` is set to `file`), used by the Storage Account Local User.
+	ResourceName string `pulumi:"resourceName"`
+	// The storage service used by this Storage Account Local User. Possible values are `blob` and `file`.
+	Service string `pulumi:"service"`
+}
+
+// LocalUserPermissionScopeInput is an input type that accepts LocalUserPermissionScopeArgs and LocalUserPermissionScopeOutput values.
+// You can construct a concrete instance of `LocalUserPermissionScopeInput` via:
+//
+//	LocalUserPermissionScopeArgs{...}
+type LocalUserPermissionScopeInput interface {
+	pulumi.Input
+
+	ToLocalUserPermissionScopeOutput() LocalUserPermissionScopeOutput
+	ToLocalUserPermissionScopeOutputWithContext(context.Context) LocalUserPermissionScopeOutput
+}
+
+type LocalUserPermissionScopeArgs struct {
+	// A `permissions` block as defined below.
+	Permissions LocalUserPermissionScopePermissionsInput `pulumi:"permissions"`
+	// The container name (when `service` is set to `blob`) or the file share name (when `service` is set to `file`), used by the Storage Account Local User.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+	// The storage service used by this Storage Account Local User. Possible values are `blob` and `file`.
+	Service pulumi.StringInput `pulumi:"service"`
+}
+
+func (LocalUserPermissionScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalUserPermissionScope)(nil)).Elem()
+}
+
+func (i LocalUserPermissionScopeArgs) ToLocalUserPermissionScopeOutput() LocalUserPermissionScopeOutput {
+	return i.ToLocalUserPermissionScopeOutputWithContext(context.Background())
+}
+
+func (i LocalUserPermissionScopeArgs) ToLocalUserPermissionScopeOutputWithContext(ctx context.Context) LocalUserPermissionScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalUserPermissionScopeOutput)
+}
+
+// LocalUserPermissionScopeArrayInput is an input type that accepts LocalUserPermissionScopeArray and LocalUserPermissionScopeArrayOutput values.
+// You can construct a concrete instance of `LocalUserPermissionScopeArrayInput` via:
+//
+//	LocalUserPermissionScopeArray{ LocalUserPermissionScopeArgs{...} }
+type LocalUserPermissionScopeArrayInput interface {
+	pulumi.Input
+
+	ToLocalUserPermissionScopeArrayOutput() LocalUserPermissionScopeArrayOutput
+	ToLocalUserPermissionScopeArrayOutputWithContext(context.Context) LocalUserPermissionScopeArrayOutput
+}
+
+type LocalUserPermissionScopeArray []LocalUserPermissionScopeInput
+
+func (LocalUserPermissionScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocalUserPermissionScope)(nil)).Elem()
+}
+
+func (i LocalUserPermissionScopeArray) ToLocalUserPermissionScopeArrayOutput() LocalUserPermissionScopeArrayOutput {
+	return i.ToLocalUserPermissionScopeArrayOutputWithContext(context.Background())
+}
+
+func (i LocalUserPermissionScopeArray) ToLocalUserPermissionScopeArrayOutputWithContext(ctx context.Context) LocalUserPermissionScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalUserPermissionScopeArrayOutput)
+}
+
+type LocalUserPermissionScopeOutput struct{ *pulumi.OutputState }
+
+func (LocalUserPermissionScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalUserPermissionScope)(nil)).Elem()
+}
+
+func (o LocalUserPermissionScopeOutput) ToLocalUserPermissionScopeOutput() LocalUserPermissionScopeOutput {
+	return o
+}
+
+func (o LocalUserPermissionScopeOutput) ToLocalUserPermissionScopeOutputWithContext(ctx context.Context) LocalUserPermissionScopeOutput {
+	return o
+}
+
+// A `permissions` block as defined below.
+func (o LocalUserPermissionScopeOutput) Permissions() LocalUserPermissionScopePermissionsOutput {
+	return o.ApplyT(func(v LocalUserPermissionScope) LocalUserPermissionScopePermissions { return v.Permissions }).(LocalUserPermissionScopePermissionsOutput)
+}
+
+// The container name (when `service` is set to `blob`) or the file share name (when `service` is set to `file`), used by the Storage Account Local User.
+func (o LocalUserPermissionScopeOutput) ResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LocalUserPermissionScope) string { return v.ResourceName }).(pulumi.StringOutput)
+}
+
+// The storage service used by this Storage Account Local User. Possible values are `blob` and `file`.
+func (o LocalUserPermissionScopeOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v LocalUserPermissionScope) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type LocalUserPermissionScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (LocalUserPermissionScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocalUserPermissionScope)(nil)).Elem()
+}
+
+func (o LocalUserPermissionScopeArrayOutput) ToLocalUserPermissionScopeArrayOutput() LocalUserPermissionScopeArrayOutput {
+	return o
+}
+
+func (o LocalUserPermissionScopeArrayOutput) ToLocalUserPermissionScopeArrayOutputWithContext(ctx context.Context) LocalUserPermissionScopeArrayOutput {
+	return o
+}
+
+func (o LocalUserPermissionScopeArrayOutput) Index(i pulumi.IntInput) LocalUserPermissionScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalUserPermissionScope {
+		return vs[0].([]LocalUserPermissionScope)[vs[1].(int)]
+	}).(LocalUserPermissionScopeOutput)
+}
+
+type LocalUserPermissionScopePermissions struct {
+	// Specifies if the Local User has the create permission for this scope. Defaults to `false`.
+	Create *bool `pulumi:"create"`
+	// Specifies if the Local User has the delete permission for this scope. Defaults to `false`.
+	Delete *bool `pulumi:"delete"`
+	// Specifies if the Local User has the list permission for this scope. Defaults to `false`.
+	List *bool `pulumi:"list"`
+	// Specifies if the Local User has the read permission for this scope. Defaults to `false`.
+	Read *bool `pulumi:"read"`
+	// Specifies if the Local User has the write permission for this scope. Defaults to `false`.
+	Write *bool `pulumi:"write"`
+}
+
+// LocalUserPermissionScopePermissionsInput is an input type that accepts LocalUserPermissionScopePermissionsArgs and LocalUserPermissionScopePermissionsOutput values.
+// You can construct a concrete instance of `LocalUserPermissionScopePermissionsInput` via:
+//
+//	LocalUserPermissionScopePermissionsArgs{...}
+type LocalUserPermissionScopePermissionsInput interface {
+	pulumi.Input
+
+	ToLocalUserPermissionScopePermissionsOutput() LocalUserPermissionScopePermissionsOutput
+	ToLocalUserPermissionScopePermissionsOutputWithContext(context.Context) LocalUserPermissionScopePermissionsOutput
+}
+
+type LocalUserPermissionScopePermissionsArgs struct {
+	// Specifies if the Local User has the create permission for this scope. Defaults to `false`.
+	Create pulumi.BoolPtrInput `pulumi:"create"`
+	// Specifies if the Local User has the delete permission for this scope. Defaults to `false`.
+	Delete pulumi.BoolPtrInput `pulumi:"delete"`
+	// Specifies if the Local User has the list permission for this scope. Defaults to `false`.
+	List pulumi.BoolPtrInput `pulumi:"list"`
+	// Specifies if the Local User has the read permission for this scope. Defaults to `false`.
+	Read pulumi.BoolPtrInput `pulumi:"read"`
+	// Specifies if the Local User has the write permission for this scope. Defaults to `false`.
+	Write pulumi.BoolPtrInput `pulumi:"write"`
+}
+
+func (LocalUserPermissionScopePermissionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalUserPermissionScopePermissions)(nil)).Elem()
+}
+
+func (i LocalUserPermissionScopePermissionsArgs) ToLocalUserPermissionScopePermissionsOutput() LocalUserPermissionScopePermissionsOutput {
+	return i.ToLocalUserPermissionScopePermissionsOutputWithContext(context.Background())
+}
+
+func (i LocalUserPermissionScopePermissionsArgs) ToLocalUserPermissionScopePermissionsOutputWithContext(ctx context.Context) LocalUserPermissionScopePermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalUserPermissionScopePermissionsOutput)
+}
+
+type LocalUserPermissionScopePermissionsOutput struct{ *pulumi.OutputState }
+
+func (LocalUserPermissionScopePermissionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalUserPermissionScopePermissions)(nil)).Elem()
+}
+
+func (o LocalUserPermissionScopePermissionsOutput) ToLocalUserPermissionScopePermissionsOutput() LocalUserPermissionScopePermissionsOutput {
+	return o
+}
+
+func (o LocalUserPermissionScopePermissionsOutput) ToLocalUserPermissionScopePermissionsOutputWithContext(ctx context.Context) LocalUserPermissionScopePermissionsOutput {
+	return o
+}
+
+// Specifies if the Local User has the create permission for this scope. Defaults to `false`.
+func (o LocalUserPermissionScopePermissionsOutput) Create() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LocalUserPermissionScopePermissions) *bool { return v.Create }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies if the Local User has the delete permission for this scope. Defaults to `false`.
+func (o LocalUserPermissionScopePermissionsOutput) Delete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LocalUserPermissionScopePermissions) *bool { return v.Delete }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies if the Local User has the list permission for this scope. Defaults to `false`.
+func (o LocalUserPermissionScopePermissionsOutput) List() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LocalUserPermissionScopePermissions) *bool { return v.List }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies if the Local User has the read permission for this scope. Defaults to `false`.
+func (o LocalUserPermissionScopePermissionsOutput) Read() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LocalUserPermissionScopePermissions) *bool { return v.Read }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies if the Local User has the write permission for this scope. Defaults to `false`.
+func (o LocalUserPermissionScopePermissionsOutput) Write() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LocalUserPermissionScopePermissions) *bool { return v.Write }).(pulumi.BoolPtrOutput)
+}
+
+type LocalUserSshAuthorizedKey struct {
+	// The description of this SSH authorized key.
+	Description *string `pulumi:"description"`
+	// The public key value of this SSH authorized key.
+	Key string `pulumi:"key"`
+}
+
+// LocalUserSshAuthorizedKeyInput is an input type that accepts LocalUserSshAuthorizedKeyArgs and LocalUserSshAuthorizedKeyOutput values.
+// You can construct a concrete instance of `LocalUserSshAuthorizedKeyInput` via:
+//
+//	LocalUserSshAuthorizedKeyArgs{...}
+type LocalUserSshAuthorizedKeyInput interface {
+	pulumi.Input
+
+	ToLocalUserSshAuthorizedKeyOutput() LocalUserSshAuthorizedKeyOutput
+	ToLocalUserSshAuthorizedKeyOutputWithContext(context.Context) LocalUserSshAuthorizedKeyOutput
+}
+
+type LocalUserSshAuthorizedKeyArgs struct {
+	// The description of this SSH authorized key.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The public key value of this SSH authorized key.
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (LocalUserSshAuthorizedKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalUserSshAuthorizedKey)(nil)).Elem()
+}
+
+func (i LocalUserSshAuthorizedKeyArgs) ToLocalUserSshAuthorizedKeyOutput() LocalUserSshAuthorizedKeyOutput {
+	return i.ToLocalUserSshAuthorizedKeyOutputWithContext(context.Background())
+}
+
+func (i LocalUserSshAuthorizedKeyArgs) ToLocalUserSshAuthorizedKeyOutputWithContext(ctx context.Context) LocalUserSshAuthorizedKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalUserSshAuthorizedKeyOutput)
+}
+
+// LocalUserSshAuthorizedKeyArrayInput is an input type that accepts LocalUserSshAuthorizedKeyArray and LocalUserSshAuthorizedKeyArrayOutput values.
+// You can construct a concrete instance of `LocalUserSshAuthorizedKeyArrayInput` via:
+//
+//	LocalUserSshAuthorizedKeyArray{ LocalUserSshAuthorizedKeyArgs{...} }
+type LocalUserSshAuthorizedKeyArrayInput interface {
+	pulumi.Input
+
+	ToLocalUserSshAuthorizedKeyArrayOutput() LocalUserSshAuthorizedKeyArrayOutput
+	ToLocalUserSshAuthorizedKeyArrayOutputWithContext(context.Context) LocalUserSshAuthorizedKeyArrayOutput
+}
+
+type LocalUserSshAuthorizedKeyArray []LocalUserSshAuthorizedKeyInput
+
+func (LocalUserSshAuthorizedKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocalUserSshAuthorizedKey)(nil)).Elem()
+}
+
+func (i LocalUserSshAuthorizedKeyArray) ToLocalUserSshAuthorizedKeyArrayOutput() LocalUserSshAuthorizedKeyArrayOutput {
+	return i.ToLocalUserSshAuthorizedKeyArrayOutputWithContext(context.Background())
+}
+
+func (i LocalUserSshAuthorizedKeyArray) ToLocalUserSshAuthorizedKeyArrayOutputWithContext(ctx context.Context) LocalUserSshAuthorizedKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalUserSshAuthorizedKeyArrayOutput)
+}
+
+type LocalUserSshAuthorizedKeyOutput struct{ *pulumi.OutputState }
+
+func (LocalUserSshAuthorizedKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalUserSshAuthorizedKey)(nil)).Elem()
+}
+
+func (o LocalUserSshAuthorizedKeyOutput) ToLocalUserSshAuthorizedKeyOutput() LocalUserSshAuthorizedKeyOutput {
+	return o
+}
+
+func (o LocalUserSshAuthorizedKeyOutput) ToLocalUserSshAuthorizedKeyOutputWithContext(ctx context.Context) LocalUserSshAuthorizedKeyOutput {
+	return o
+}
+
+// The description of this SSH authorized key.
+func (o LocalUserSshAuthorizedKeyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalUserSshAuthorizedKey) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The public key value of this SSH authorized key.
+func (o LocalUserSshAuthorizedKeyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LocalUserSshAuthorizedKey) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type LocalUserSshAuthorizedKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (LocalUserSshAuthorizedKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocalUserSshAuthorizedKey)(nil)).Elem()
+}
+
+func (o LocalUserSshAuthorizedKeyArrayOutput) ToLocalUserSshAuthorizedKeyArrayOutput() LocalUserSshAuthorizedKeyArrayOutput {
+	return o
+}
+
+func (o LocalUserSshAuthorizedKeyArrayOutput) ToLocalUserSshAuthorizedKeyArrayOutputWithContext(ctx context.Context) LocalUserSshAuthorizedKeyArrayOutput {
+	return o
+}
+
+func (o LocalUserSshAuthorizedKeyArrayOutput) Index(i pulumi.IntInput) LocalUserSshAuthorizedKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalUserSshAuthorizedKey {
+		return vs[0].([]LocalUserSshAuthorizedKey)[vs[1].(int)]
+	}).(LocalUserSshAuthorizedKeyOutput)
+}
+
 type ManagementPolicyRule struct {
 	// An `actions` block as documented below.
 	Actions ManagementPolicyRuleActions `pulumi:"actions"`
@@ -8809,6 +9118,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2FilesystemAceArrayInput)(nil)).Elem(), DataLakeGen2FilesystemAceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2PathAceInput)(nil)).Elem(), DataLakeGen2PathAceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeGen2PathAceArrayInput)(nil)).Elem(), DataLakeGen2PathAceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalUserPermissionScopeInput)(nil)).Elem(), LocalUserPermissionScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalUserPermissionScopeArrayInput)(nil)).Elem(), LocalUserPermissionScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalUserPermissionScopePermissionsInput)(nil)).Elem(), LocalUserPermissionScopePermissionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalUserSshAuthorizedKeyInput)(nil)).Elem(), LocalUserSshAuthorizedKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalUserSshAuthorizedKeyArrayInput)(nil)).Elem(), LocalUserSshAuthorizedKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagementPolicyRuleInput)(nil)).Elem(), ManagementPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagementPolicyRuleArrayInput)(nil)).Elem(), ManagementPolicyRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagementPolicyRuleActionsInput)(nil)).Elem(), ManagementPolicyRuleActionsArgs{})
@@ -8922,6 +9236,11 @@ func init() {
 	pulumi.RegisterOutputType(DataLakeGen2FilesystemAceArrayOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2PathAceOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2PathAceArrayOutput{})
+	pulumi.RegisterOutputType(LocalUserPermissionScopeOutput{})
+	pulumi.RegisterOutputType(LocalUserPermissionScopeArrayOutput{})
+	pulumi.RegisterOutputType(LocalUserPermissionScopePermissionsOutput{})
+	pulumi.RegisterOutputType(LocalUserSshAuthorizedKeyOutput{})
+	pulumi.RegisterOutputType(LocalUserSshAuthorizedKeyArrayOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleActionsOutput{})

@@ -92,14 +92,14 @@ public class Module extends com.pulumi.resources.CustomResource {
         return this.automationAccountName;
     }
     /**
-     * The published Module link.
+     * A `module_link` block as defined blow.
      * 
      */
     @Export(name="moduleLink", type=ModuleModuleLink.class, parameters={})
     private Output<ModuleModuleLink> moduleLink;
 
     /**
-     * @return The published Module link.
+     * @return A `module_link` block as defined blow.
      * 
      */
     public Output<ModuleModuleLink> moduleLink() {

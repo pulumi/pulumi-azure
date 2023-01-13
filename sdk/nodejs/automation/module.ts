@@ -71,7 +71,7 @@ export class Module extends pulumi.CustomResource {
      */
     public readonly automationAccountName!: pulumi.Output<string>;
     /**
-     * The published Module link.
+     * A `moduleLink` block as defined blow.
      */
     public readonly moduleLink!: pulumi.Output<outputs.automation.ModuleModuleLink>;
     /**
@@ -130,7 +130,7 @@ export interface ModuleState {
      */
     automationAccountName?: pulumi.Input<string>;
     /**
-     * The published Module link.
+     * A `moduleLink` block as defined blow.
      */
     moduleLink?: pulumi.Input<inputs.automation.ModuleModuleLink>;
     /**
@@ -152,7 +152,7 @@ export interface ModuleArgs {
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * The published Module link.
+     * A `moduleLink` block as defined blow.
      */
     moduleLink: pulumi.Input<inputs.automation.ModuleModuleLink>;
     /**

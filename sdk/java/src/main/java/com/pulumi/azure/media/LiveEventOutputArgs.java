@@ -121,9 +121,17 @@ public final class LiveEventOutputArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+     * 
+     */
     @Import(name="outputSnapTimeInSeconds")
     private @Nullable Output<Integer> outputSnapTimeInSeconds;
 
+    /**
+     * @return The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+     * 
+     */
     public Optional<Output<Integer>> outputSnapTimeInSeconds() {
         return Optional.ofNullable(this.outputSnapTimeInSeconds);
     }
@@ -306,11 +314,23 @@ public final class LiveEventOutputArgs extends com.pulumi.resources.ResourceArgs
             return name(Output.of(name));
         }
 
+        /**
+         * @param outputSnapTimeInSeconds The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputSnapTimeInSeconds(@Nullable Output<Integer> outputSnapTimeInSeconds) {
             $.outputSnapTimeInSeconds = outputSnapTimeInSeconds;
             return this;
         }
 
+        /**
+         * @param outputSnapTimeInSeconds The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputSnapTimeInSeconds(Integer outputSnapTimeInSeconds) {
             return outputSnapTimeInSeconds(Output.of(outputSnapTimeInSeconds));
         }

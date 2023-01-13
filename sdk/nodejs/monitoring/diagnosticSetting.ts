@@ -80,6 +80,10 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     }
 
     /**
+     * One or more `enabledLog` blocks as defined below.
+     */
+    public readonly enabledLogs!: pulumi.Output<outputs.monitoring.DiagnosticSettingEnabledLog[]>;
+    /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      */
     public readonly eventhubAuthorizationRuleId!: pulumi.Output<string | undefined>;
@@ -97,8 +101,10 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string | undefined>;
     /**
      * One or more `log` blocks as defined below.
+     *
+     * @deprecated `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
      */
-    public readonly logs!: pulumi.Output<outputs.monitoring.DiagnosticSettingLog[] | undefined>;
+    public readonly logs!: pulumi.Output<outputs.monitoring.DiagnosticSettingLog[]>;
     /**
      * One or more `metric` blocks as defined below.
      */
@@ -133,6 +139,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DiagnosticSettingState | undefined;
+            resourceInputs["enabledLogs"] = state ? state.enabledLogs : undefined;
             resourceInputs["eventhubAuthorizationRuleId"] = state ? state.eventhubAuthorizationRuleId : undefined;
             resourceInputs["eventhubName"] = state ? state.eventhubName : undefined;
             resourceInputs["logAnalyticsDestinationType"] = state ? state.logAnalyticsDestinationType : undefined;
@@ -148,6 +155,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
+            resourceInputs["enabledLogs"] = args ? args.enabledLogs : undefined;
             resourceInputs["eventhubAuthorizationRuleId"] = args ? args.eventhubAuthorizationRuleId : undefined;
             resourceInputs["eventhubName"] = args ? args.eventhubName : undefined;
             resourceInputs["logAnalyticsDestinationType"] = args ? args.logAnalyticsDestinationType : undefined;
@@ -169,6 +177,10 @@ export class DiagnosticSetting extends pulumi.CustomResource {
  */
 export interface DiagnosticSettingState {
     /**
+     * One or more `enabledLog` blocks as defined below.
+     */
+    enabledLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledLog>[]>;
+    /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      */
     eventhubAuthorizationRuleId?: pulumi.Input<string>;
@@ -186,6 +198,8 @@ export interface DiagnosticSettingState {
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * One or more `log` blocks as defined below.
+     *
+     * @deprecated `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
      */
     logs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingLog>[]>;
     /**
@@ -215,6 +229,10 @@ export interface DiagnosticSettingState {
  */
 export interface DiagnosticSettingArgs {
     /**
+     * One or more `enabledLog` blocks as defined below.
+     */
+    enabledLogs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledLog>[]>;
+    /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      */
     eventhubAuthorizationRuleId?: pulumi.Input<string>;
@@ -232,6 +250,8 @@ export interface DiagnosticSettingArgs {
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * One or more `log` blocks as defined below.
+     *
+     * @deprecated `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
      */
     logs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingLog>[]>;
     /**

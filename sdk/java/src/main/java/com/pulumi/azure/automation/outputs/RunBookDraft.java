@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RunBookDraft {
     /**
-     * @return The Draft Content Link defined as `publish_content_link` above.
+     * @return A `publish_content_link` block as defined above.
      * 
      */
     private @Nullable RunBookDraftContentLink contentLink;
@@ -32,11 +32,15 @@ public final class RunBookDraft {
      * 
      */
     private @Nullable List<String> outputTypes;
+    /**
+     * @return A list of `parameters` block as defined below.
+     * 
+     */
     private @Nullable List<RunBookDraftParameter> parameters;
 
     private RunBookDraft() {}
     /**
-     * @return The Draft Content Link defined as `publish_content_link` above.
+     * @return A `publish_content_link` block as defined above.
      * 
      */
     public Optional<RunBookDraftContentLink> contentLink() {
@@ -62,6 +66,10 @@ public final class RunBookDraft {
     public List<String> outputTypes() {
         return this.outputTypes == null ? List.of() : this.outputTypes;
     }
+    /**
+     * @return A list of `parameters` block as defined below.
+     * 
+     */
     public List<RunBookDraftParameter> parameters() {
         return this.parameters == null ? List.of() : this.parameters;
     }

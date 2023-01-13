@@ -104,6 +104,17 @@ def get_disk_encryption_set(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Disk Encryption Set.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    existing = azure.compute.get_disk_encryption_set(name="example-des",
+        resource_group_name="example-resources")
+    pulumi.export("id", existing.id)
+    ```
+
 
     :param str name: The name of the Disk Encryption Set exists.
     :param str resource_group_name: The name of the Resource Group where the Disk Encryption Set exists.
@@ -129,6 +140,17 @@ def get_disk_encryption_set_output(name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskEncryptionSetResult]:
     """
     Use this data source to access information about an existing Disk Encryption Set.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    existing = azure.compute.get_disk_encryption_set(name="example-des",
+        resource_group_name="example-resources")
+    pulumi.export("id", existing.id)
+    ```
 
 
     :param str name: The name of the Disk Encryption Set exists.

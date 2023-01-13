@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
+        /// Specifies the name of the certificate resource.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

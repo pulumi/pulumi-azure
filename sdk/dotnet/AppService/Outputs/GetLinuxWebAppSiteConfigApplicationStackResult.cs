@@ -25,6 +25,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The version of .NET in use.
         /// </summary>
         public readonly string DotnetVersion;
+        public readonly string GoVersion;
         /// <summary>
         /// The Java server type.
         /// </summary>
@@ -62,6 +63,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string dotnetVersion,
 
+            string goVersion,
+
             string javaServer,
 
             string javaServerVersion,
@@ -79,6 +82,7 @@ namespace Pulumi.Azure.AppService.Outputs
             DockerImage = dockerImage;
             DockerImageTag = dockerImageTag;
             DotnetVersion = dotnetVersion;
+            GoVersion = goVersion;
             JavaServer = javaServer;
             JavaServerVersion = javaServerVersion;
             JavaVersion = javaVersion;

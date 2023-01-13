@@ -18,6 +18,8 @@ __all__ = [
     'TxtRecordRecord',
     'ZoneSoaRecord',
     'GetMxRecordRecordResult',
+    'GetResolverForwardingRuleTargetDnsServerResult',
+    'GetResolverInboundEndpointIpConfigurationResult',
     'GetSrvRecordRecordResult',
     'GetTxtRecordRecordResult',
 ]
@@ -495,6 +497,75 @@ class GetMxRecordRecordResult(dict):
         String representing the "preference” value of the MX records. Records with lower preference value take priority.
         """
         return pulumi.get(self, "preference")
+
+
+@pulumi.output_type
+class GetResolverForwardingRuleTargetDnsServerResult(dict):
+    def __init__(__self__, *,
+                 ip_address: str,
+                 port: int):
+        """
+        :param str ip_address: The DNS server IP address.
+        :param int port: The DNS server port.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> str:
+        """
+        The DNS server IP address.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The DNS server port.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class GetResolverInboundEndpointIpConfigurationResult(dict):
+    def __init__(__self__, *,
+                 private_ip_address: str,
+                 private_ip_allocation_method: str,
+                 subnet_id: str):
+        """
+        :param str private_ip_address: The private IP address of the IP configuration.
+        :param str private_ip_allocation_method: The private IP address allocation method.
+        :param str subnet_id: The subnet ID of the IP configuration.
+        """
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+        pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> str:
+        """
+        The private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIpAllocationMethod")
+    def private_ip_allocation_method(self) -> str:
+        """
+        The private IP address allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The subnet ID of the IP configuration.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type

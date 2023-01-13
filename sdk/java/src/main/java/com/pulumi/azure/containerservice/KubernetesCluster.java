@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.containerservice.KubernetesClusterArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterState;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterAciConnectorLinux;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterApiServerAccessProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterAutoScalerProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePool;
@@ -101,7 +102,7 @@ import javax.annotation.Nullable;
  * Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
+ *  $ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
  * ```
  * 
  */
@@ -122,18 +123,30 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.aciConnectorLinux);
     }
     /**
-     * Set of authorized IP ranges to allow access to API server, e.g. [&#34;198.51.100.0/24&#34;].
+     * An `api_server_access_profile` block as defined below.
      * 
      */
-    @Export(name="apiServerAuthorizedIpRanges", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> apiServerAuthorizedIpRanges;
+    @Export(name="apiServerAccessProfile", type=KubernetesClusterApiServerAccessProfile.class, parameters={})
+    private Output<KubernetesClusterApiServerAccessProfile> apiServerAccessProfile;
 
     /**
-     * @return Set of authorized IP ranges to allow access to API server, e.g. [&#34;198.51.100.0/24&#34;].
+     * @return An `api_server_access_profile` block as defined below.
      * 
      */
-    public Output<Optional<List<String>>> apiServerAuthorizedIpRanges() {
-        return Codegen.optional(this.apiServerAuthorizedIpRanges);
+    public Output<KubernetesClusterApiServerAccessProfile> apiServerAccessProfile() {
+        return this.apiServerAccessProfile;
+    }
+    /**
+     * @deprecated
+     * This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
+     * 
+     */
+    @Deprecated /* This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider */
+    @Export(name="apiServerAuthorizedIpRanges", type=List.class, parameters={String.class})
+    private Output<List<String>> apiServerAuthorizedIpRanges;
+
+    public Output<List<String>> apiServerAuthorizedIpRanges() {
+        return this.apiServerAuthorizedIpRanges;
     }
     /**
      * A `auto_scaler_profile` block as defined below.

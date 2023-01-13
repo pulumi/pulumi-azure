@@ -21,10 +21,13 @@ class AuthomationRuleArgs:
                  order: pulumi.Input[int],
                  action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]] = None,
                  action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]] = None,
+                 condition_json: Optional[pulumi.Input[str]] = None,
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 triggers_on: Optional[pulumi.Input[str]] = None,
+                 triggers_when: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AuthomationRule resource.
         :param pulumi.Input[str] display_name: The display name which should be used for this Sentinel Automation Rule.
@@ -32,10 +35,13 @@ class AuthomationRuleArgs:
         :param pulumi.Input[int] order: The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
         :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]] action_incidents: One or more `action_incident` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]] action_playbooks: One or more `action_playbook` blocks as defined below.
+        :param pulumi.Input[str] condition_json: A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
         :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]] conditions: One or more `condition` blocks as defined below.
         :param pulumi.Input[bool] enabled: Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
         :param pulumi.Input[str] expiration: The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
         :param pulumi.Input[str] name: The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
+        :param pulumi.Input[str] triggers_on: Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+        :param pulumi.Input[str] triggers_when: Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
@@ -44,6 +50,11 @@ class AuthomationRuleArgs:
             pulumi.set(__self__, "action_incidents", action_incidents)
         if action_playbooks is not None:
             pulumi.set(__self__, "action_playbooks", action_playbooks)
+        if condition_json is not None:
+            pulumi.set(__self__, "condition_json", condition_json)
+        if conditions is not None:
+            warnings.warn("""This is deprecated in favor of `condition_json`""", DeprecationWarning)
+            pulumi.log.warn("""conditions is deprecated: This is deprecated in favor of `condition_json`""")
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
         if enabled is not None:
@@ -52,6 +63,10 @@ class AuthomationRuleArgs:
             pulumi.set(__self__, "expiration", expiration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if triggers_on is not None:
+            pulumi.set(__self__, "triggers_on", triggers_on)
+        if triggers_when is not None:
+            pulumi.set(__self__, "triggers_when", triggers_when)
 
     @property
     @pulumi.getter(name="displayName")
@@ -114,6 +129,18 @@ class AuthomationRuleArgs:
         pulumi.set(self, "action_playbooks", value)
 
     @property
+    @pulumi.getter(name="conditionJson")
+    def condition_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+        """
+        return pulumi.get(self, "condition_json")
+
+    @condition_json.setter
+    def condition_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition_json", value)
+
+    @property
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]]:
         """
@@ -161,23 +188,51 @@ class AuthomationRuleArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="triggersOn")
+    def triggers_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+        """
+        return pulumi.get(self, "triggers_on")
+
+    @triggers_on.setter
+    def triggers_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "triggers_on", value)
+
+    @property
+    @pulumi.getter(name="triggersWhen")
+    def triggers_when(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+        """
+        return pulumi.get(self, "triggers_when")
+
+    @triggers_when.setter
+    def triggers_when(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "triggers_when", value)
+
 
 @pulumi.input_type
 class _AuthomationRuleState:
     def __init__(__self__, *,
                  action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]] = None,
                  action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]] = None,
+                 condition_json: Optional[pulumi.Input[str]] = None,
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[int]] = None):
+                 order: Optional[pulumi.Input[int]] = None,
+                 triggers_on: Optional[pulumi.Input[str]] = None,
+                 triggers_when: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AuthomationRule resources.
         :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]] action_incidents: One or more `action_incident` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]] action_playbooks: One or more `action_playbook` blocks as defined below.
+        :param pulumi.Input[str] condition_json: A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
         :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]] conditions: One or more `condition` blocks as defined below.
         :param pulumi.Input[str] display_name: The display name which should be used for this Sentinel Automation Rule.
         :param pulumi.Input[bool] enabled: Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
@@ -185,11 +240,18 @@ class _AuthomationRuleState:
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
         :param pulumi.Input[str] name: The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
         :param pulumi.Input[int] order: The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
+        :param pulumi.Input[str] triggers_on: Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+        :param pulumi.Input[str] triggers_when: Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
         """
         if action_incidents is not None:
             pulumi.set(__self__, "action_incidents", action_incidents)
         if action_playbooks is not None:
             pulumi.set(__self__, "action_playbooks", action_playbooks)
+        if condition_json is not None:
+            pulumi.set(__self__, "condition_json", condition_json)
+        if conditions is not None:
+            warnings.warn("""This is deprecated in favor of `condition_json`""", DeprecationWarning)
+            pulumi.log.warn("""conditions is deprecated: This is deprecated in favor of `condition_json`""")
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
         if display_name is not None:
@@ -204,6 +266,10 @@ class _AuthomationRuleState:
             pulumi.set(__self__, "name", name)
         if order is not None:
             pulumi.set(__self__, "order", order)
+        if triggers_on is not None:
+            pulumi.set(__self__, "triggers_on", triggers_on)
+        if triggers_when is not None:
+            pulumi.set(__self__, "triggers_when", triggers_when)
 
     @property
     @pulumi.getter(name="actionIncidents")
@@ -228,6 +294,18 @@ class _AuthomationRuleState:
     @action_playbooks.setter
     def action_playbooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]]):
         pulumi.set(self, "action_playbooks", value)
+
+    @property
+    @pulumi.getter(name="conditionJson")
+    def condition_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+        """
+        return pulumi.get(self, "condition_json")
+
+    @condition_json.setter
+    def condition_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition_json", value)
 
     @property
     @pulumi.getter
@@ -313,6 +391,30 @@ class _AuthomationRuleState:
     def order(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "order", value)
 
+    @property
+    @pulumi.getter(name="triggersOn")
+    def triggers_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+        """
+        return pulumi.get(self, "triggers_on")
+
+    @triggers_on.setter
+    def triggers_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "triggers_on", value)
+
+    @property
+    @pulumi.getter(name="triggersWhen")
+    def triggers_when(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+        """
+        return pulumi.get(self, "triggers_when")
+
+    @triggers_when.setter
+    def triggers_when(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "triggers_when", value)
+
 
 warnings.warn("""azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule""", DeprecationWarning)
 
@@ -326,6 +428,7 @@ class AuthomationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionIncidentArgs']]]]] = None,
                  action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionPlaybookArgs']]]]] = None,
+                 condition_json: Optional[pulumi.Input[str]] = None,
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArgs']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -333,6 +436,8 @@ class AuthomationRule(pulumi.CustomResource):
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
+                 triggers_on: Optional[pulumi.Input[str]] = None,
+                 triggers_when: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Sentinel Automation Rule.
@@ -380,6 +485,7 @@ class AuthomationRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionIncidentArgs']]]] action_incidents: One or more `action_incident` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionPlaybookArgs']]]] action_playbooks: One or more `action_playbook` blocks as defined below.
+        :param pulumi.Input[str] condition_json: A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArgs']]]] conditions: One or more `condition` blocks as defined below.
         :param pulumi.Input[str] display_name: The display name which should be used for this Sentinel Automation Rule.
         :param pulumi.Input[bool] enabled: Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
@@ -387,6 +493,8 @@ class AuthomationRule(pulumi.CustomResource):
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
         :param pulumi.Input[str] name: The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
         :param pulumi.Input[int] order: The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
+        :param pulumi.Input[str] triggers_on: Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+        :param pulumi.Input[str] triggers_when: Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
         """
         ...
     @overload
@@ -453,6 +561,7 @@ class AuthomationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionIncidentArgs']]]]] = None,
                  action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionPlaybookArgs']]]]] = None,
+                 condition_json: Optional[pulumi.Input[str]] = None,
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArgs']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -460,6 +569,8 @@ class AuthomationRule(pulumi.CustomResource):
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
+                 triggers_on: Optional[pulumi.Input[str]] = None,
+                 triggers_when: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""AuthomationRule is deprecated: azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -472,6 +583,10 @@ class AuthomationRule(pulumi.CustomResource):
 
             __props__.__dict__["action_incidents"] = action_incidents
             __props__.__dict__["action_playbooks"] = action_playbooks
+            __props__.__dict__["condition_json"] = condition_json
+            if conditions is not None and not opts.urn:
+                warnings.warn("""This is deprecated in favor of `condition_json`""", DeprecationWarning)
+                pulumi.log.warn("""conditions is deprecated: This is deprecated in favor of `condition_json`""")
             __props__.__dict__["conditions"] = conditions
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
@@ -485,6 +600,8 @@ class AuthomationRule(pulumi.CustomResource):
             if order is None and not opts.urn:
                 raise TypeError("Missing required property 'order'")
             __props__.__dict__["order"] = order
+            __props__.__dict__["triggers_on"] = triggers_on
+            __props__.__dict__["triggers_when"] = triggers_when
         super(AuthomationRule, __self__).__init__(
             'azure:sentinel/authomationRule:AuthomationRule',
             resource_name,
@@ -497,13 +614,16 @@ class AuthomationRule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionIncidentArgs']]]]] = None,
             action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionPlaybookArgs']]]]] = None,
+            condition_json: Optional[pulumi.Input[str]] = None,
             conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArgs']]]]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             expiration: Optional[pulumi.Input[str]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            order: Optional[pulumi.Input[int]] = None) -> 'AuthomationRule':
+            order: Optional[pulumi.Input[int]] = None,
+            triggers_on: Optional[pulumi.Input[str]] = None,
+            triggers_when: Optional[pulumi.Input[str]] = None) -> 'AuthomationRule':
         """
         Get an existing AuthomationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -513,6 +633,7 @@ class AuthomationRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionIncidentArgs']]]] action_incidents: One or more `action_incident` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionPlaybookArgs']]]] action_playbooks: One or more `action_playbook` blocks as defined below.
+        :param pulumi.Input[str] condition_json: A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArgs']]]] conditions: One or more `condition` blocks as defined below.
         :param pulumi.Input[str] display_name: The display name which should be used for this Sentinel Automation Rule.
         :param pulumi.Input[bool] enabled: Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
@@ -520,6 +641,8 @@ class AuthomationRule(pulumi.CustomResource):
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
         :param pulumi.Input[str] name: The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
         :param pulumi.Input[int] order: The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
+        :param pulumi.Input[str] triggers_on: Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+        :param pulumi.Input[str] triggers_when: Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -527,6 +650,7 @@ class AuthomationRule(pulumi.CustomResource):
 
         __props__.__dict__["action_incidents"] = action_incidents
         __props__.__dict__["action_playbooks"] = action_playbooks
+        __props__.__dict__["condition_json"] = condition_json
         __props__.__dict__["conditions"] = conditions
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["enabled"] = enabled
@@ -534,6 +658,8 @@ class AuthomationRule(pulumi.CustomResource):
         __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
         __props__.__dict__["name"] = name
         __props__.__dict__["order"] = order
+        __props__.__dict__["triggers_on"] = triggers_on
+        __props__.__dict__["triggers_when"] = triggers_when
         return AuthomationRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -553,8 +679,16 @@ class AuthomationRule(pulumi.CustomResource):
         return pulumi.get(self, "action_playbooks")
 
     @property
+    @pulumi.getter(name="conditionJson")
+    def condition_json(self) -> pulumi.Output[str]:
+        """
+        A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+        """
+        return pulumi.get(self, "condition_json")
+
+    @property
     @pulumi.getter
-    def conditions(self) -> pulumi.Output[Optional[Sequence['outputs.AuthomationRuleCondition']]]:
+    def conditions(self) -> pulumi.Output[Sequence['outputs.AuthomationRuleCondition']]:
         """
         One or more `condition` blocks as defined below.
         """
@@ -607,4 +741,20 @@ class AuthomationRule(pulumi.CustomResource):
         The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
         """
         return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter(name="triggersOn")
+    def triggers_on(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+        """
+        return pulumi.get(self, "triggers_on")
+
+    @property
+    @pulumi.getter(name="triggersWhen")
+    def triggers_when(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+        """
+        return pulumi.get(self, "triggers_when")
 

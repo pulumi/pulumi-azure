@@ -10,6 +10,162 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type FlexibleServerCustomerManagedKey struct {
+	// The ID of the Key Vault Key.
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
+	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
+}
+
+// FlexibleServerCustomerManagedKeyInput is an input type that accepts FlexibleServerCustomerManagedKeyArgs and FlexibleServerCustomerManagedKeyOutput values.
+// You can construct a concrete instance of `FlexibleServerCustomerManagedKeyInput` via:
+//
+//	FlexibleServerCustomerManagedKeyArgs{...}
+type FlexibleServerCustomerManagedKeyInput interface {
+	pulumi.Input
+
+	ToFlexibleServerCustomerManagedKeyOutput() FlexibleServerCustomerManagedKeyOutput
+	ToFlexibleServerCustomerManagedKeyOutputWithContext(context.Context) FlexibleServerCustomerManagedKeyOutput
+}
+
+type FlexibleServerCustomerManagedKeyArgs struct {
+	// The ID of the Key Vault Key.
+	KeyVaultKeyId pulumi.StringPtrInput `pulumi:"keyVaultKeyId"`
+	// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
+	PrimaryUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"primaryUserAssignedIdentityId"`
+}
+
+func (FlexibleServerCustomerManagedKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerCustomerManagedKey)(nil)).Elem()
+}
+
+func (i FlexibleServerCustomerManagedKeyArgs) ToFlexibleServerCustomerManagedKeyOutput() FlexibleServerCustomerManagedKeyOutput {
+	return i.ToFlexibleServerCustomerManagedKeyOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerCustomerManagedKeyArgs) ToFlexibleServerCustomerManagedKeyOutputWithContext(ctx context.Context) FlexibleServerCustomerManagedKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerCustomerManagedKeyOutput)
+}
+
+func (i FlexibleServerCustomerManagedKeyArgs) ToFlexibleServerCustomerManagedKeyPtrOutput() FlexibleServerCustomerManagedKeyPtrOutput {
+	return i.ToFlexibleServerCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerCustomerManagedKeyArgs) ToFlexibleServerCustomerManagedKeyPtrOutputWithContext(ctx context.Context) FlexibleServerCustomerManagedKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerCustomerManagedKeyOutput).ToFlexibleServerCustomerManagedKeyPtrOutputWithContext(ctx)
+}
+
+// FlexibleServerCustomerManagedKeyPtrInput is an input type that accepts FlexibleServerCustomerManagedKeyArgs, FlexibleServerCustomerManagedKeyPtr and FlexibleServerCustomerManagedKeyPtrOutput values.
+// You can construct a concrete instance of `FlexibleServerCustomerManagedKeyPtrInput` via:
+//
+//	        FlexibleServerCustomerManagedKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlexibleServerCustomerManagedKeyPtrInput interface {
+	pulumi.Input
+
+	ToFlexibleServerCustomerManagedKeyPtrOutput() FlexibleServerCustomerManagedKeyPtrOutput
+	ToFlexibleServerCustomerManagedKeyPtrOutputWithContext(context.Context) FlexibleServerCustomerManagedKeyPtrOutput
+}
+
+type flexibleServerCustomerManagedKeyPtrType FlexibleServerCustomerManagedKeyArgs
+
+func FlexibleServerCustomerManagedKeyPtr(v *FlexibleServerCustomerManagedKeyArgs) FlexibleServerCustomerManagedKeyPtrInput {
+	return (*flexibleServerCustomerManagedKeyPtrType)(v)
+}
+
+func (*flexibleServerCustomerManagedKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerCustomerManagedKey)(nil)).Elem()
+}
+
+func (i *flexibleServerCustomerManagedKeyPtrType) ToFlexibleServerCustomerManagedKeyPtrOutput() FlexibleServerCustomerManagedKeyPtrOutput {
+	return i.ToFlexibleServerCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *flexibleServerCustomerManagedKeyPtrType) ToFlexibleServerCustomerManagedKeyPtrOutputWithContext(ctx context.Context) FlexibleServerCustomerManagedKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerCustomerManagedKeyPtrOutput)
+}
+
+type FlexibleServerCustomerManagedKeyOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerCustomerManagedKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerCustomerManagedKey)(nil)).Elem()
+}
+
+func (o FlexibleServerCustomerManagedKeyOutput) ToFlexibleServerCustomerManagedKeyOutput() FlexibleServerCustomerManagedKeyOutput {
+	return o
+}
+
+func (o FlexibleServerCustomerManagedKeyOutput) ToFlexibleServerCustomerManagedKeyOutputWithContext(ctx context.Context) FlexibleServerCustomerManagedKeyOutput {
+	return o
+}
+
+func (o FlexibleServerCustomerManagedKeyOutput) ToFlexibleServerCustomerManagedKeyPtrOutput() FlexibleServerCustomerManagedKeyPtrOutput {
+	return o.ToFlexibleServerCustomerManagedKeyPtrOutputWithContext(context.Background())
+}
+
+func (o FlexibleServerCustomerManagedKeyOutput) ToFlexibleServerCustomerManagedKeyPtrOutputWithContext(ctx context.Context) FlexibleServerCustomerManagedKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServerCustomerManagedKey) *FlexibleServerCustomerManagedKey {
+		return &v
+	}).(FlexibleServerCustomerManagedKeyPtrOutput)
+}
+
+// The ID of the Key Vault Key.
+func (o FlexibleServerCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) *string { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
+func (o FlexibleServerCustomerManagedKeyOutput) PrimaryUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) *string { return v.PrimaryUserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+type FlexibleServerCustomerManagedKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerCustomerManagedKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerCustomerManagedKey)(nil)).Elem()
+}
+
+func (o FlexibleServerCustomerManagedKeyPtrOutput) ToFlexibleServerCustomerManagedKeyPtrOutput() FlexibleServerCustomerManagedKeyPtrOutput {
+	return o
+}
+
+func (o FlexibleServerCustomerManagedKeyPtrOutput) ToFlexibleServerCustomerManagedKeyPtrOutputWithContext(ctx context.Context) FlexibleServerCustomerManagedKeyPtrOutput {
+	return o
+}
+
+func (o FlexibleServerCustomerManagedKeyPtrOutput) Elem() FlexibleServerCustomerManagedKeyOutput {
+	return o.ApplyT(func(v *FlexibleServerCustomerManagedKey) FlexibleServerCustomerManagedKey {
+		if v != nil {
+			return *v
+		}
+		var ret FlexibleServerCustomerManagedKey
+		return ret
+	}).(FlexibleServerCustomerManagedKeyOutput)
+}
+
+// The ID of the Key Vault Key.
+func (o FlexibleServerCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
+func (o FlexibleServerCustomerManagedKeyPtrOutput) PrimaryUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryUserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
 type FlexibleServerHighAvailability struct {
 	// The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
 	Mode string `pulumi:"mode"`
@@ -163,6 +319,192 @@ func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulum
 			return nil
 		}
 		return v.StandbyAvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlexibleServerIdentity struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	Type string `pulumi:"type"`
+}
+
+// FlexibleServerIdentityInput is an input type that accepts FlexibleServerIdentityArgs and FlexibleServerIdentityOutput values.
+// You can construct a concrete instance of `FlexibleServerIdentityInput` via:
+//
+//	FlexibleServerIdentityArgs{...}
+type FlexibleServerIdentityInput interface {
+	pulumi.Input
+
+	ToFlexibleServerIdentityOutput() FlexibleServerIdentityOutput
+	ToFlexibleServerIdentityOutputWithContext(context.Context) FlexibleServerIdentityOutput
+}
+
+type FlexibleServerIdentityArgs struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FlexibleServerIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerIdentity)(nil)).Elem()
+}
+
+func (i FlexibleServerIdentityArgs) ToFlexibleServerIdentityOutput() FlexibleServerIdentityOutput {
+	return i.ToFlexibleServerIdentityOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerIdentityArgs) ToFlexibleServerIdentityOutputWithContext(ctx context.Context) FlexibleServerIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerIdentityOutput)
+}
+
+func (i FlexibleServerIdentityArgs) ToFlexibleServerIdentityPtrOutput() FlexibleServerIdentityPtrOutput {
+	return i.ToFlexibleServerIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerIdentityArgs) ToFlexibleServerIdentityPtrOutputWithContext(ctx context.Context) FlexibleServerIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerIdentityOutput).ToFlexibleServerIdentityPtrOutputWithContext(ctx)
+}
+
+// FlexibleServerIdentityPtrInput is an input type that accepts FlexibleServerIdentityArgs, FlexibleServerIdentityPtr and FlexibleServerIdentityPtrOutput values.
+// You can construct a concrete instance of `FlexibleServerIdentityPtrInput` via:
+//
+//	        FlexibleServerIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlexibleServerIdentityPtrInput interface {
+	pulumi.Input
+
+	ToFlexibleServerIdentityPtrOutput() FlexibleServerIdentityPtrOutput
+	ToFlexibleServerIdentityPtrOutputWithContext(context.Context) FlexibleServerIdentityPtrOutput
+}
+
+type flexibleServerIdentityPtrType FlexibleServerIdentityArgs
+
+func FlexibleServerIdentityPtr(v *FlexibleServerIdentityArgs) FlexibleServerIdentityPtrInput {
+	return (*flexibleServerIdentityPtrType)(v)
+}
+
+func (*flexibleServerIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerIdentity)(nil)).Elem()
+}
+
+func (i *flexibleServerIdentityPtrType) ToFlexibleServerIdentityPtrOutput() FlexibleServerIdentityPtrOutput {
+	return i.ToFlexibleServerIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *flexibleServerIdentityPtrType) ToFlexibleServerIdentityPtrOutputWithContext(ctx context.Context) FlexibleServerIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerIdentityPtrOutput)
+}
+
+type FlexibleServerIdentityOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerIdentity)(nil)).Elem()
+}
+
+func (o FlexibleServerIdentityOutput) ToFlexibleServerIdentityOutput() FlexibleServerIdentityOutput {
+	return o
+}
+
+func (o FlexibleServerIdentityOutput) ToFlexibleServerIdentityOutputWithContext(ctx context.Context) FlexibleServerIdentityOutput {
+	return o
+}
+
+func (o FlexibleServerIdentityOutput) ToFlexibleServerIdentityPtrOutput() FlexibleServerIdentityPtrOutput {
+	return o.ToFlexibleServerIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o FlexibleServerIdentityOutput) ToFlexibleServerIdentityPtrOutputWithContext(ctx context.Context) FlexibleServerIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlexibleServerIdentity) *FlexibleServerIdentity {
+		return &v
+	}).(FlexibleServerIdentityPtrOutput)
+}
+
+// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+func (o FlexibleServerIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FlexibleServerIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o FlexibleServerIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlexibleServerIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o FlexibleServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlexibleServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+func (o FlexibleServerIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FlexibleServerIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FlexibleServerIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerIdentity)(nil)).Elem()
+}
+
+func (o FlexibleServerIdentityPtrOutput) ToFlexibleServerIdentityPtrOutput() FlexibleServerIdentityPtrOutput {
+	return o
+}
+
+func (o FlexibleServerIdentityPtrOutput) ToFlexibleServerIdentityPtrOutputWithContext(ctx context.Context) FlexibleServerIdentityPtrOutput {
+	return o
+}
+
+func (o FlexibleServerIdentityPtrOutput) Elem() FlexibleServerIdentityOutput {
+	return o.ApplyT(func(v *FlexibleServerIdentity) FlexibleServerIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret FlexibleServerIdentity
+		return ret
+	}).(FlexibleServerIdentityOutput)
+}
+
+// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+func (o FlexibleServerIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FlexibleServerIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FlexibleServerIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FlexibleServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+func (o FlexibleServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1545,8 +1887,12 @@ func (o GetServerThreatDetectionPolicyArrayOutput) Index(i pulumi.IntInput) GetS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerCustomerManagedKeyInput)(nil)).Elem(), FlexibleServerCustomerManagedKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerCustomerManagedKeyPtrInput)(nil)).Elem(), FlexibleServerCustomerManagedKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerHighAvailabilityInput)(nil)).Elem(), FlexibleServerHighAvailabilityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerHighAvailabilityPtrInput)(nil)).Elem(), FlexibleServerHighAvailabilityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerIdentityInput)(nil)).Elem(), FlexibleServerIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerIdentityPtrInput)(nil)).Elem(), FlexibleServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerMaintenanceWindowInput)(nil)).Elem(), FlexibleServerMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerMaintenanceWindowPtrInput)(nil)).Elem(), FlexibleServerMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlexibleServerStorageInput)(nil)).Elem(), FlexibleServerStorageArgs{})
@@ -1565,8 +1911,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityArrayInput)(nil)).Elem(), GetServerIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerThreatDetectionPolicyInput)(nil)).Elem(), GetServerThreatDetectionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerThreatDetectionPolicyArrayInput)(nil)).Elem(), GetServerThreatDetectionPolicyArray{})
+	pulumi.RegisterOutputType(FlexibleServerCustomerManagedKeyOutput{})
+	pulumi.RegisterOutputType(FlexibleServerCustomerManagedKeyPtrOutput{})
 	pulumi.RegisterOutputType(FlexibleServerHighAvailabilityOutput{})
 	pulumi.RegisterOutputType(FlexibleServerHighAvailabilityPtrOutput{})
+	pulumi.RegisterOutputType(FlexibleServerIdentityOutput{})
+	pulumi.RegisterOutputType(FlexibleServerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(FlexibleServerMaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(FlexibleServerMaintenanceWindowPtrOutput{})
 	pulumi.RegisterOutputType(FlexibleServerStorageOutput{})

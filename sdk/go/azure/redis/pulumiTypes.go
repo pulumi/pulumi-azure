@@ -197,9 +197,12 @@ func (o CacheIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type CachePatchSchedule struct {
-	DayOfWeek         string  `pulumi:"dayOfWeek"`
+	// the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+	DayOfWeek string `pulumi:"dayOfWeek"`
+	// The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
-	StartHourUtc      *int    `pulumi:"startHourUtc"`
+	// the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+	StartHourUtc *int `pulumi:"startHourUtc"`
 }
 
 // CachePatchScheduleInput is an input type that accepts CachePatchScheduleArgs and CachePatchScheduleOutput values.
@@ -214,9 +217,12 @@ type CachePatchScheduleInput interface {
 }
 
 type CachePatchScheduleArgs struct {
-	DayOfWeek         pulumi.StringInput    `pulumi:"dayOfWeek"`
+	// the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
+	// The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
 	MaintenanceWindow pulumi.StringPtrInput `pulumi:"maintenanceWindow"`
-	StartHourUtc      pulumi.IntPtrInput    `pulumi:"startHourUtc"`
+	// the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+	StartHourUtc pulumi.IntPtrInput `pulumi:"startHourUtc"`
 }
 
 func (CachePatchScheduleArgs) ElementType() reflect.Type {
@@ -270,14 +276,17 @@ func (o CachePatchScheduleOutput) ToCachePatchScheduleOutputWithContext(ctx cont
 	return o
 }
 
+// the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
 func (o CachePatchScheduleOutput) DayOfWeek() pulumi.StringOutput {
 	return o.ApplyT(func(v CachePatchSchedule) string { return v.DayOfWeek }).(pulumi.StringOutput)
 }
 
+// The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
 func (o CachePatchScheduleOutput) MaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CachePatchSchedule) *string { return v.MaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
+// the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
 func (o CachePatchScheduleOutput) StartHourUtc() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CachePatchSchedule) *int { return v.StartHourUtc }).(pulumi.IntPtrOutput)
 }

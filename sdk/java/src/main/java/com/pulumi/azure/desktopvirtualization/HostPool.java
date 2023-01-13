@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * Virtual Desktop Host Pools can be imported using the `resource id`, e.g. text
  * 
  * ```sh
- *  $ pulumi import azure:desktopvirtualization/hostPool:HostPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/hostpools/myhostpool
+ *  $ pulumi import azure:desktopvirtualization/hostPool:HostPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/hostPools/myhostpool
  * ```
  * 
  */

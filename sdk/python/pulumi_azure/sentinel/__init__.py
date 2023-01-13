@@ -28,6 +28,7 @@ from .data_connector_office_atp import *
 from .data_connector_office_irm import *
 from .data_connector_office_power_bi import *
 from .data_connector_threat_intelligence import *
+from .data_connector_threat_intelligence_taxii import *
 from .get_alert_rule import *
 from .get_alert_rule_template import *
 from .watchlist import *

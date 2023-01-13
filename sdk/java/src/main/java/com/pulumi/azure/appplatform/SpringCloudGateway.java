@@ -17,6 +17,8 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -127,6 +129,20 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.apiMetadata);
     }
     /**
+     * Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+     * 
+     */
+    @Export(name="applicationPerformanceMonitoringTypes", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> applicationPerformanceMonitoringTypes;
+
+    /**
+     * @return Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
+     * 
+     */
+    public Output<Optional<List<String>>> applicationPerformanceMonitoringTypes() {
+        return Codegen.optional(this.applicationPerformanceMonitoringTypes);
+    }
+    /**
      * A `cors` block as defined below.
      * 
      */
@@ -139,6 +155,20 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<SpringCloudGatewayCors>> cors() {
         return Codegen.optional(this.cors);
+    }
+    /**
+     * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     * 
+     */
+    @Export(name="environmentVariables", type=Map.class, parameters={String.class, String.class})
+    private Output</* @Nullable */ Map<String,String>> environmentVariables;
+
+    /**
+     * @return Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> environmentVariables() {
+        return Codegen.optional(this.environmentVariables);
     }
     /**
      * is only https is allowed?
@@ -209,6 +239,20 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      */
     public Output<SpringCloudGatewayQuota> quota() {
         return this.quota;
+    }
+    /**
+     * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     * 
+     */
+    @Export(name="sensitiveEnvironmentVariables", type=Map.class, parameters={String.class, String.class})
+    private Output</* @Nullable */ Map<String,String>> sensitiveEnvironmentVariables;
+
+    /**
+     * @return Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> sensitiveEnvironmentVariables() {
+        return Codegen.optional(this.sensitiveEnvironmentVariables);
     }
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
@@ -285,6 +329,9 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "sensitiveEnvironmentVariables"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

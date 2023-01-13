@@ -550,6 +550,7 @@ func (o ConnectionTypeFieldArrayOutput) Index(i pulumi.IntInput) ConnectionTypeF
 }
 
 type ModuleModuleLink struct {
+	// A `hash` block as defined below.
 	Hash *ModuleModuleLinkHash `pulumi:"hash"`
 	// The URI of the module content (zip or nupkg).
 	Uri string `pulumi:"uri"`
@@ -567,6 +568,7 @@ type ModuleModuleLinkInput interface {
 }
 
 type ModuleModuleLinkArgs struct {
+	// A `hash` block as defined below.
 	Hash ModuleModuleLinkHashPtrInput `pulumi:"hash"`
 	// The URI of the module content (zip or nupkg).
 	Uri pulumi.StringInput `pulumi:"uri"`
@@ -649,6 +651,7 @@ func (o ModuleModuleLinkOutput) ToModuleModuleLinkPtrOutputWithContext(ctx conte
 	}).(ModuleModuleLinkPtrOutput)
 }
 
+// A `hash` block as defined below.
 func (o ModuleModuleLinkOutput) Hash() ModuleModuleLinkHashPtrOutput {
 	return o.ApplyT(func(v ModuleModuleLink) *ModuleModuleLinkHash { return v.Hash }).(ModuleModuleLinkHashPtrOutput)
 }
@@ -682,6 +685,7 @@ func (o ModuleModuleLinkPtrOutput) Elem() ModuleModuleLinkOutput {
 	}).(ModuleModuleLinkOutput)
 }
 
+// A `hash` block as defined below.
 func (o ModuleModuleLinkPtrOutput) Hash() ModuleModuleLinkHashPtrOutput {
 	return o.ApplyT(func(v *ModuleModuleLink) *ModuleModuleLinkHash {
 		if v == nil {
@@ -702,8 +706,10 @@ func (o ModuleModuleLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 }
 
 type ModuleModuleLinkHash struct {
+	// Specifies the algorithm used for the hash content.
 	Algorithm string `pulumi:"algorithm"`
-	Value     string `pulumi:"value"`
+	// The hash value of the content.
+	Value string `pulumi:"value"`
 }
 
 // ModuleModuleLinkHashInput is an input type that accepts ModuleModuleLinkHashArgs and ModuleModuleLinkHashOutput values.
@@ -718,8 +724,10 @@ type ModuleModuleLinkHashInput interface {
 }
 
 type ModuleModuleLinkHashArgs struct {
+	// Specifies the algorithm used for the hash content.
 	Algorithm pulumi.StringInput `pulumi:"algorithm"`
-	Value     pulumi.StringInput `pulumi:"value"`
+	// The hash value of the content.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ModuleModuleLinkHashArgs) ElementType() reflect.Type {
@@ -799,10 +807,12 @@ func (o ModuleModuleLinkHashOutput) ToModuleModuleLinkHashPtrOutputWithContext(c
 	}).(ModuleModuleLinkHashPtrOutput)
 }
 
+// Specifies the algorithm used for the hash content.
 func (o ModuleModuleLinkHashOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v ModuleModuleLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
 }
 
+// The hash value of the content.
 func (o ModuleModuleLinkHashOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ModuleModuleLinkHash) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -831,6 +841,7 @@ func (o ModuleModuleLinkHashPtrOutput) Elem() ModuleModuleLinkHashOutput {
 	}).(ModuleModuleLinkHashOutput)
 }
 
+// Specifies the algorithm used for the hash content.
 func (o ModuleModuleLinkHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModuleModuleLinkHash) *string {
 		if v == nil {
@@ -840,6 +851,7 @@ func (o ModuleModuleLinkHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The hash value of the content.
 func (o ModuleModuleLinkHashPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModuleModuleLinkHash) *string {
 		if v == nil {
@@ -850,15 +862,16 @@ func (o ModuleModuleLinkHashPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type RunBookDraft struct {
-	// The Draft Content Link defined as `publishContentLink` above.
+	// A `publishContentLink` block as defined above.
 	ContentLink  *RunBookDraftContentLink `pulumi:"contentLink"`
 	CreationTime *string                  `pulumi:"creationTime"`
 	// Whether the draft in edit mode.
 	EditModeEnabled  *bool   `pulumi:"editModeEnabled"`
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// Specifies the output types of the runbook.
-	OutputTypes []string                `pulumi:"outputTypes"`
-	Parameters  []RunBookDraftParameter `pulumi:"parameters"`
+	OutputTypes []string `pulumi:"outputTypes"`
+	// A list of `parameters` block as defined below.
+	Parameters []RunBookDraftParameter `pulumi:"parameters"`
 }
 
 // RunBookDraftInput is an input type that accepts RunBookDraftArgs and RunBookDraftOutput values.
@@ -873,15 +886,16 @@ type RunBookDraftInput interface {
 }
 
 type RunBookDraftArgs struct {
-	// The Draft Content Link defined as `publishContentLink` above.
+	// A `publishContentLink` block as defined above.
 	ContentLink  RunBookDraftContentLinkPtrInput `pulumi:"contentLink"`
 	CreationTime pulumi.StringPtrInput           `pulumi:"creationTime"`
 	// Whether the draft in edit mode.
 	EditModeEnabled  pulumi.BoolPtrInput   `pulumi:"editModeEnabled"`
 	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
 	// Specifies the output types of the runbook.
-	OutputTypes pulumi.StringArrayInput         `pulumi:"outputTypes"`
-	Parameters  RunBookDraftParameterArrayInput `pulumi:"parameters"`
+	OutputTypes pulumi.StringArrayInput `pulumi:"outputTypes"`
+	// A list of `parameters` block as defined below.
+	Parameters RunBookDraftParameterArrayInput `pulumi:"parameters"`
 }
 
 func (RunBookDraftArgs) ElementType() reflect.Type {
@@ -961,7 +975,7 @@ func (o RunBookDraftOutput) ToRunBookDraftPtrOutputWithContext(ctx context.Conte
 	}).(RunBookDraftPtrOutput)
 }
 
-// The Draft Content Link defined as `publishContentLink` above.
+// A `publishContentLink` block as defined above.
 func (o RunBookDraftOutput) ContentLink() RunBookDraftContentLinkPtrOutput {
 	return o.ApplyT(func(v RunBookDraft) *RunBookDraftContentLink { return v.ContentLink }).(RunBookDraftContentLinkPtrOutput)
 }
@@ -984,6 +998,7 @@ func (o RunBookDraftOutput) OutputTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RunBookDraft) []string { return v.OutputTypes }).(pulumi.StringArrayOutput)
 }
 
+// A list of `parameters` block as defined below.
 func (o RunBookDraftOutput) Parameters() RunBookDraftParameterArrayOutput {
 	return o.ApplyT(func(v RunBookDraft) []RunBookDraftParameter { return v.Parameters }).(RunBookDraftParameterArrayOutput)
 }
@@ -1012,7 +1027,7 @@ func (o RunBookDraftPtrOutput) Elem() RunBookDraftOutput {
 	}).(RunBookDraftOutput)
 }
 
-// The Draft Content Link defined as `publishContentLink` above.
+// A `publishContentLink` block as defined above.
 func (o RunBookDraftPtrOutput) ContentLink() RunBookDraftContentLinkPtrOutput {
 	return o.ApplyT(func(v *RunBookDraft) *RunBookDraftContentLink {
 		if v == nil {
@@ -1060,6 +1075,7 @@ func (o RunBookDraftPtrOutput) OutputTypes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of `parameters` block as defined below.
 func (o RunBookDraftPtrOutput) Parameters() RunBookDraftParameterArrayOutput {
 	return o.ApplyT(func(v *RunBookDraft) []RunBookDraftParameter {
 		if v == nil {
@@ -1407,7 +1423,8 @@ type RunBookDraftParameter struct {
 	Key string `pulumi:"key"`
 	// Whether this parameter is mandatory.
 	Mandatory *bool `pulumi:"mandatory"`
-	Position  *int  `pulumi:"position"`
+	// Specifies the position of the parameter.
+	Position *int `pulumi:"position"`
 	// Specifies the type of this parameter.
 	Type string `pulumi:"type"`
 }
@@ -1430,7 +1447,8 @@ type RunBookDraftParameterArgs struct {
 	Key pulumi.StringInput `pulumi:"key"`
 	// Whether this parameter is mandatory.
 	Mandatory pulumi.BoolPtrInput `pulumi:"mandatory"`
-	Position  pulumi.IntPtrInput  `pulumi:"position"`
+	// Specifies the position of the parameter.
+	Position pulumi.IntPtrInput `pulumi:"position"`
 	// Specifies the type of this parameter.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -1501,6 +1519,7 @@ func (o RunBookDraftParameterOutput) Mandatory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RunBookDraftParameter) *bool { return v.Mandatory }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the position of the parameter.
 func (o RunBookDraftParameterOutput) Position() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RunBookDraftParameter) *int { return v.Position }).(pulumi.IntPtrOutput)
 }
@@ -1531,10 +1550,11 @@ func (o RunBookDraftParameterArrayOutput) Index(i pulumi.IntInput) RunBookDraftP
 }
 
 type RunBookJobSchedule struct {
-	JobScheduleId *string           `pulumi:"jobScheduleId"`
-	Parameters    map[string]string `pulumi:"parameters"`
-	RunOn         *string           `pulumi:"runOn"`
-	ScheduleName  string            `pulumi:"scheduleName"`
+	JobScheduleId *string `pulumi:"jobScheduleId"`
+	// A list of `parameters` block as defined below.
+	Parameters   map[string]string `pulumi:"parameters"`
+	RunOn        *string           `pulumi:"runOn"`
+	ScheduleName string            `pulumi:"scheduleName"`
 }
 
 // RunBookJobScheduleInput is an input type that accepts RunBookJobScheduleArgs and RunBookJobScheduleOutput values.
@@ -1550,9 +1570,10 @@ type RunBookJobScheduleInput interface {
 
 type RunBookJobScheduleArgs struct {
 	JobScheduleId pulumi.StringPtrInput `pulumi:"jobScheduleId"`
-	Parameters    pulumi.StringMapInput `pulumi:"parameters"`
-	RunOn         pulumi.StringPtrInput `pulumi:"runOn"`
-	ScheduleName  pulumi.StringInput    `pulumi:"scheduleName"`
+	// A list of `parameters` block as defined below.
+	Parameters   pulumi.StringMapInput `pulumi:"parameters"`
+	RunOn        pulumi.StringPtrInput `pulumi:"runOn"`
+	ScheduleName pulumi.StringInput    `pulumi:"scheduleName"`
 }
 
 func (RunBookJobScheduleArgs) ElementType() reflect.Type {
@@ -1610,6 +1631,7 @@ func (o RunBookJobScheduleOutput) JobScheduleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunBookJobSchedule) *string { return v.JobScheduleId }).(pulumi.StringPtrOutput)
 }
 
+// A list of `parameters` block as defined below.
 func (o RunBookJobScheduleOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RunBookJobSchedule) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
@@ -2433,7 +2455,7 @@ type SoftwareUpdateConfigurationSchedule struct {
 	// Whether the schedule is enabled.
 	IsEnabled        *bool   `pulumi:"isEnabled"`
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+	// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
 	MonthlyOccurrences   []SoftwareUpdateConfigurationScheduleMonthlyOccurrence `pulumi:"monthlyOccurrences"`
 	NextRun              *string                                                `pulumi:"nextRun"`
 	NextRunOffsetMinutes *float64                                               `pulumi:"nextRunOffsetMinutes"`
@@ -2473,7 +2495,7 @@ type SoftwareUpdateConfigurationScheduleArgs struct {
 	// Whether the schedule is enabled.
 	IsEnabled        pulumi.BoolPtrInput   `pulumi:"isEnabled"`
 	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
-	// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+	// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
 	MonthlyOccurrences   SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayInput `pulumi:"monthlyOccurrences"`
 	NextRun              pulumi.StringPtrInput                                          `pulumi:"nextRun"`
 	NextRunOffsetMinutes pulumi.Float64PtrInput                                         `pulumi:"nextRunOffsetMinutes"`
@@ -2582,7 +2604,7 @@ func (o SoftwareUpdateConfigurationScheduleOutput) LastModifiedTime() pulumi.Str
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
-// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
 func (o SoftwareUpdateConfigurationScheduleOutput) MonthlyOccurrences() SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) []SoftwareUpdateConfigurationScheduleMonthlyOccurrence {
 		return v.MonthlyOccurrences
@@ -2904,7 +2926,7 @@ type SoftwareUpdateConfigurationTargetAzureQuery struct {
 	Scopes []string `pulumi:"scopes"`
 	// Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
 	TagFilter *string `pulumi:"tagFilter"`
-	// A mapping of tags used for query filter.
+	// A mapping of tags used for query filter as defined below.
 	Tags []SoftwareUpdateConfigurationTargetAzureQueryTag `pulumi:"tags"`
 }
 
@@ -2926,7 +2948,7 @@ type SoftwareUpdateConfigurationTargetAzureQueryArgs struct {
 	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
 	// Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
 	TagFilter pulumi.StringPtrInput `pulumi:"tagFilter"`
-	// A mapping of tags used for query filter.
+	// A mapping of tags used for query filter as defined below.
 	Tags SoftwareUpdateConfigurationTargetAzureQueryTagArrayInput `pulumi:"tags"`
 }
 
@@ -2996,7 +3018,7 @@ func (o SoftwareUpdateConfigurationTargetAzureQueryOutput) TagFilter() pulumi.St
 	return o.ApplyT(func(v SoftwareUpdateConfigurationTargetAzureQuery) *string { return v.TagFilter }).(pulumi.StringPtrOutput)
 }
 
-// A mapping of tags used for query filter.
+// A mapping of tags used for query filter as defined below.
 func (o SoftwareUpdateConfigurationTargetAzureQueryOutput) Tags() SoftwareUpdateConfigurationTargetAzureQueryTagArrayOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationTargetAzureQuery) []SoftwareUpdateConfigurationTargetAzureQueryTag {
 		return v.Tags

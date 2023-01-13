@@ -81,16 +81,17 @@ type Spacecraft struct {
 	Links SpacecraftLinkArrayOutput `pulumi:"links"`
 	// The location where the Spacecraft exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the link. Changing this forces a new resource to be created.
+	// The name of the Spacecraft. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// NORAD ID of the Spacecraft.
 	NoradId pulumi.StringOutput `pulumi:"noradId"`
 	// The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
-	Tags              pulumi.StringMapOutput `pulumi:"tags"`
-	// Title of the two line elements(TLE).
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Title of the two line elements (TLE).
 	TitleLine pulumi.StringOutput `pulumi:"titleLine"`
-	// A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+	// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
 	TwoLineElements pulumi.StringArrayOutput `pulumi:"twoLineElements"`
 }
 
@@ -142,16 +143,17 @@ type spacecraftState struct {
 	Links []SpacecraftLink `pulumi:"links"`
 	// The location where the Spacecraft exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Name of the link. Changing this forces a new resource to be created.
+	// The name of the Spacecraft. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// NORAD ID of the Spacecraft.
 	NoradId *string `pulumi:"noradId"`
 	// The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
-	ResourceGroupName *string           `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
-	// Title of the two line elements(TLE).
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Title of the two line elements (TLE).
 	TitleLine *string `pulumi:"titleLine"`
-	// A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+	// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
 	TwoLineElements []string `pulumi:"twoLineElements"`
 }
 
@@ -160,16 +162,17 @@ type SpacecraftState struct {
 	Links SpacecraftLinkArrayInput
 	// The location where the Spacecraft exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Name of the link. Changing this forces a new resource to be created.
+	// The name of the Spacecraft. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// NORAD ID of the Spacecraft.
 	NoradId pulumi.StringPtrInput
 	// The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
-	// Title of the two line elements(TLE).
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
+	// Title of the two line elements (TLE).
 	TitleLine pulumi.StringPtrInput
-	// A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+	// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
 	TwoLineElements pulumi.StringArrayInput
 }
 
@@ -182,16 +185,17 @@ type spacecraftArgs struct {
 	Links []SpacecraftLink `pulumi:"links"`
 	// The location where the Spacecraft exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Name of the link. Changing this forces a new resource to be created.
+	// The name of the Spacecraft. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// NORAD ID of the Spacecraft.
 	NoradId string `pulumi:"noradId"`
 	// The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
-	// Title of the two line elements(TLE).
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Title of the two line elements (TLE).
 	TitleLine string `pulumi:"titleLine"`
-	// A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+	// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
 	TwoLineElements []string `pulumi:"twoLineElements"`
 }
 
@@ -201,16 +205,17 @@ type SpacecraftArgs struct {
 	Links SpacecraftLinkArrayInput
 	// The location where the Spacecraft exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Name of the link. Changing this forces a new resource to be created.
+	// The name of the Spacecraft. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// NORAD ID of the Spacecraft.
 	NoradId pulumi.StringInput
 	// The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Tags              pulumi.StringMapInput
-	// Title of the two line elements(TLE).
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
+	// Title of the two line elements (TLE).
 	TitleLine pulumi.StringInput
-	// A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+	// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
 	TwoLineElements pulumi.StringArrayInput
 }
 
@@ -311,7 +316,7 @@ func (o SpacecraftOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Name of the link. Changing this forces a new resource to be created.
+// The name of the Spacecraft. Changing this forces a new resource to be created.
 func (o SpacecraftOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -326,16 +331,17 @@ func (o SpacecraftOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// A mapping of tags to assign to the resource.
 func (o SpacecraftOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Title of the two line elements(TLE).
+// Title of the two line elements (TLE).
 func (o SpacecraftOutput) TitleLine() pulumi.StringOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringOutput { return v.TitleLine }).(pulumi.StringOutput)
 }
 
-// A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
 func (o SpacecraftOutput) TwoLineElements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Spacecraft) pulumi.StringArrayOutput { return v.TwoLineElements }).(pulumi.StringArrayOutput)
 }

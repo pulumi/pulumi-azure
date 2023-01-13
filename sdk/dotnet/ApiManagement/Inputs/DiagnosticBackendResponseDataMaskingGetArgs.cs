@@ -14,6 +14,10 @@ namespace Pulumi.Azure.ApiManagement.Inputs
     {
         [Input("headers")]
         private InputList<Inputs.DiagnosticBackendResponseDataMaskingHeaderGetArgs>? _headers;
+
+        /// <summary>
+        /// A `headers` block as defined below.
+        /// </summary>
         public InputList<Inputs.DiagnosticBackendResponseDataMaskingHeaderGetArgs> Headers
         {
             get => _headers ?? (_headers = new InputList<Inputs.DiagnosticBackendResponseDataMaskingHeaderGetArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.Azure.ApiManagement.Inputs
 
         [Input("queryParams")]
         private InputList<Inputs.DiagnosticBackendResponseDataMaskingQueryParamGetArgs>? _queryParams;
+
+        /// <summary>
+        /// A `query_params` block as defined below.
+        /// </summary>
         public InputList<Inputs.DiagnosticBackendResponseDataMaskingQueryParamGetArgs> QueryParams
         {
             get => _queryParams ?? (_queryParams = new InputList<Inputs.DiagnosticBackendResponseDataMaskingQueryParamGetArgs>());

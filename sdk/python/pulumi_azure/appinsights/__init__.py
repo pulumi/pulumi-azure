@@ -10,6 +10,7 @@ from .api_key import *
 from .get_insights import *
 from .insights import *
 from .smart_detection_rule import *
+from .standard_web_test import *
 from .web_test import *
 from .workbook import *
 from .workbook_template import *

@@ -22,10 +22,16 @@ class GetConfigurationResult:
     """
     A collection of values returned by getConfiguration.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, resource_group_name=None, scope=None, tags=None, visibility=None, windows=None):
+    def __init__(__self__, id=None, in_guest_user_patch_mode=None, install_patches=None, location=None, name=None, properties=None, resource_group_name=None, scope=None, tags=None, visibility=None, windows=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if in_guest_user_patch_mode and not isinstance(in_guest_user_patch_mode, str):
+            raise TypeError("Expected argument 'in_guest_user_patch_mode' to be a str")
+        pulumi.set(__self__, "in_guest_user_patch_mode", in_guest_user_patch_mode)
+        if install_patches and not isinstance(install_patches, list):
+            raise TypeError("Expected argument 'install_patches' to be a list")
+        pulumi.set(__self__, "install_patches", install_patches)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -58,6 +64,22 @@ class GetConfigurationResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="inGuestUserPatchMode")
+    def in_guest_user_patch_mode(self) -> str:
+        """
+        The in guest user patch mode.
+        """
+        return pulumi.get(self, "in_guest_user_patch_mode")
+
+    @property
+    @pulumi.getter(name="installPatches")
+    def install_patches(self) -> Sequence['outputs.GetConfigurationInstallPatchResult']:
+        """
+        An `install_patches` block as defined below.
+        """
+        return pulumi.get(self, "install_patches")
 
     @property
     @pulumi.getter
@@ -125,6 +147,8 @@ class AwaitableGetConfigurationResult(GetConfigurationResult):
             yield self
         return GetConfigurationResult(
             id=self.id,
+            in_guest_user_patch_mode=self.in_guest_user_patch_mode,
+            install_patches=self.install_patches,
             location=self.location,
             name=self.name,
             properties=self.properties,
@@ -164,6 +188,8 @@ def get_configuration(name: Optional[str] = None,
 
     return AwaitableGetConfigurationResult(
         id=__ret__.id,
+        in_guest_user_patch_mode=__ret__.in_guest_user_patch_mode,
+        install_patches=__ret__.install_patches,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,

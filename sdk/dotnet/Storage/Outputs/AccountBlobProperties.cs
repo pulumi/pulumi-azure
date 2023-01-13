@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly bool? LastAccessTimeEnabled;
         /// <summary>
-        /// A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set and `versioning_enabled` set to `true`.
+        /// A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
         /// </summary>
         public readonly Outputs.AccountBlobPropertiesRestorePolicy? RestorePolicy;
         /// <summary>

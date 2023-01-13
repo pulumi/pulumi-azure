@@ -46,7 +46,7 @@ namespace Pulumi.Azure.LogAnalytics
     /// Log Analytics Clusters can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:loganalytics/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1
+    ///  $ pulumi import azure:loganalytics/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1
     /// ```
     /// </summary>
     [AzureResourceType("azure:loganalytics/cluster:Cluster")]

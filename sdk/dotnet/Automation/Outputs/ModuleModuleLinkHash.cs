@@ -13,7 +13,13 @@ namespace Pulumi.Azure.Automation.Outputs
     [OutputType]
     public sealed class ModuleModuleLinkHash
     {
+        /// <summary>
+        /// Specifies the algorithm used for the hash content.
+        /// </summary>
         public readonly string Algorithm;
+        /// <summary>
+        /// The hash value of the content.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

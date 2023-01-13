@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Disk Encryption Set.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const existing = azure.compute.getDiskEncryptionSet({
+ *     name: "example-des",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const id = existing.then(existing => existing.id);
+ * ```
  */
 export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> {
 
@@ -55,6 +68,19 @@ export interface GetDiskEncryptionSetResult {
 }
 /**
  * Use this data source to access information about an existing Disk Encryption Set.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const existing = azure.compute.getDiskEncryptionSet({
+ *     name: "example-des",
+ *     resourceGroupName: "example-resources",
+ * });
+ * export const id = existing.then(existing => existing.id);
+ * ```
  */
 export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskEncryptionSetResult> {
     return pulumi.output(args).apply((a: any) => getDiskEncryptionSet(a, opts))

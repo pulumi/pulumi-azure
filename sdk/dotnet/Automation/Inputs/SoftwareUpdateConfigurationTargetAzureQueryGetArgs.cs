@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Automation.Inputs
         private InputList<Inputs.SoftwareUpdateConfigurationTargetAzureQueryTagGetArgs>? _tags;
 
         /// <summary>
-        /// A mapping of tags used for query filter.
+        /// A mapping of tags used for query filter as defined below.
         /// </summary>
         public InputList<Inputs.SoftwareUpdateConfigurationTargetAzureQueryTagGetArgs> Tags
         {

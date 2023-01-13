@@ -83,7 +83,7 @@ export class Spacecraft extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Name of the link. Changing this forces a new resource to be created.
+     * The name of the Spacecraft. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -94,13 +94,16 @@ export class Spacecraft extends pulumi.CustomResource {
      * The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Title of the two line elements(TLE).
+     * Title of the two line elements (TLE).
      */
     public readonly titleLine!: pulumi.Output<string>;
     /**
-     * A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+     * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
      */
     public readonly twoLineElements!: pulumi.Output<string[]>;
 
@@ -169,7 +172,7 @@ export interface SpacecraftState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Name of the link. Changing this forces a new resource to be created.
+     * The name of the Spacecraft. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -180,13 +183,16 @@ export interface SpacecraftState {
      * The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Title of the two line elements(TLE).
+     * Title of the two line elements (TLE).
      */
     titleLine?: pulumi.Input<string>;
     /**
-     * A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+     * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
      */
     twoLineElements?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -204,7 +210,7 @@ export interface SpacecraftArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Name of the link. Changing this forces a new resource to be created.
+     * The name of the Spacecraft. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -215,13 +221,16 @@ export interface SpacecraftArgs {
      * The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Title of the two line elements(TLE).
+     * Title of the two line elements (TLE).
      */
     titleLine: pulumi.Input<string>;
     /**
-     * A list of the two line elements(TLE), the first string in the list is the first line of TLE, the second one is the second line of TLE.
+     * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE.
      */
     twoLineElements: pulumi.Input<pulumi.Input<string>[]>;
 }

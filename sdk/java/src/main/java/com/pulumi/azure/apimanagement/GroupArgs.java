@@ -61,14 +61,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
+     * The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant id&gt;/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="externalId")
     private @Nullable Output<String> externalId;
 
     /**
-     * @return The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
+     * @return The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant id&gt;/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> externalId() {
@@ -214,7 +214,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalId The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
+         * @param externalId The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant id&gt;/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalId The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant&gt;.onmicrosoft.com/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
+         * @param externalId The identifier of the external Group. For example, an Azure Active Directory group `aad://&lt;tenant id&gt;/groups/&lt;group object id&gt;`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

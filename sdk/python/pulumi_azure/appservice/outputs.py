@@ -12248,6 +12248,8 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
             suggest = "docker_image_tag"
         elif key == "dotnetVersion":
             suggest = "dotnet_version"
+        elif key == "goVersion":
+            suggest = "go_version"
         elif key == "javaServer":
             suggest = "java_server"
         elif key == "javaServerVersion":
@@ -12278,6 +12280,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
                  docker_image: Optional[str] = None,
                  docker_image_tag: Optional[str] = None,
                  dotnet_version: Optional[str] = None,
+                 go_version: Optional[str] = None,
                  java_server: Optional[str] = None,
                  java_server_version: Optional[str] = None,
                  java_version: Optional[str] = None,
@@ -12289,9 +12292,10 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         :param str docker_image: The Docker image reference, including repository host as needed.
         :param str docker_image_tag: The image Tag to use. e.g. `latest`.
         :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
+        :param str go_version: The version of Go to use. Possible values include `1.18`, and `1.19`.
         :param str java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         :param str java_server_version: The Version of the `java_server` to use.
-        :param str java_version: The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+        :param str java_version: The Version of Java to use. Possible values include `8`, `11`, and `17`.
         :param str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
         :param str php_version: The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
         :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
@@ -12303,6 +12307,8 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
             pulumi.set(__self__, "docker_image_tag", docker_image_tag)
         if dotnet_version is not None:
             pulumi.set(__self__, "dotnet_version", dotnet_version)
+        if go_version is not None:
+            pulumi.set(__self__, "go_version", go_version)
         if java_server is not None:
             pulumi.set(__self__, "java_server", java_server)
         if java_server_version is not None:
@@ -12343,6 +12349,14 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         return pulumi.get(self, "dotnet_version")
 
     @property
+    @pulumi.getter(name="goVersion")
+    def go_version(self) -> Optional[str]:
+        """
+        The version of Go to use. Possible values include `1.18`, and `1.19`.
+        """
+        return pulumi.get(self, "go_version")
+
+    @property
     @pulumi.getter(name="javaServer")
     def java_server(self) -> Optional[str]:
         """
@@ -12362,7 +12376,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[str]:
         """
-        The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+        The Version of Java to use. Possible values include `8`, `11`, and `17`.
         """
         return pulumi.get(self, "java_version")
 
@@ -14955,6 +14969,8 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
             suggest = "docker_image_tag"
         elif key == "dotnetVersion":
             suggest = "dotnet_version"
+        elif key == "goVersion":
+            suggest = "go_version"
         elif key == "javaServer":
             suggest = "java_server"
         elif key == "javaServerVersion":
@@ -14985,6 +15001,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
                  docker_image: Optional[str] = None,
                  docker_image_tag: Optional[str] = None,
                  dotnet_version: Optional[str] = None,
+                 go_version: Optional[str] = None,
                  java_server: Optional[str] = None,
                  java_server_version: Optional[str] = None,
                  java_version: Optional[str] = None,
@@ -14995,10 +15012,11 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         """
         :param str docker_image: The Docker image reference, including repository host as needed.
         :param str docker_image_tag: The image Tag to use. e.g. `latest`.
-        :param str dotnet_version: The version of .NET to use. Possible values are `3.1`, `5.0`, `6.0` and `7.0`.
+        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
+        :param str go_version: The version of Go to use. Possible values include `1.18`, and `1.19`.
         :param str java_server: The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
         :param str java_server_version: The Version of the `java_server` to use.
-        :param str java_version: The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+        :param str java_version: The Version of Java to use. Possible values include `8`, `11`, and `17`.
         :param str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
         :param str php_version: The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
         :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
@@ -15010,6 +15028,8 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
             pulumi.set(__self__, "docker_image_tag", docker_image_tag)
         if dotnet_version is not None:
             pulumi.set(__self__, "dotnet_version", dotnet_version)
+        if go_version is not None:
+            pulumi.set(__self__, "go_version", go_version)
         if java_server is not None:
             pulumi.set(__self__, "java_server", java_server)
         if java_server_version is not None:
@@ -15045,9 +15065,17 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use. Possible values are `3.1`, `5.0`, `6.0` and `7.0`.
+        The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
         """
         return pulumi.get(self, "dotnet_version")
+
+    @property
+    @pulumi.getter(name="goVersion")
+    def go_version(self) -> Optional[str]:
+        """
+        The version of Go to use. Possible values include `1.18`, and `1.19`.
+        """
+        return pulumi.get(self, "go_version")
 
     @property
     @pulumi.getter(name="javaServer")
@@ -15069,7 +15097,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[str]:
         """
-        The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
+        The Version of Java to use. Possible values include `8`, `11`, and `17`.
         """
         return pulumi.get(self, "java_version")
 
@@ -20126,8 +20154,8 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
                  use_custom_runtime: Optional[bool] = None,
                  use_dotnet_isolated_runtime: Optional[bool] = None):
         """
-        :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `6` and `7`.
-        :param str java_version: The Version of Java to use. Supported versions include `8`, `11` & `17` (In-Preview).
+        :param str dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0` and `v7.0`.
+        :param str java_version: The Version of Java to use. Supported versions include `1.8`, `11` & `17` (In-Preview).
         :param str node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16` and `~18`.
         :param str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
         :param bool use_custom_runtime: Should the Windows Function App use a custom runtime?
@@ -20150,7 +20178,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use. Possible values include `3.1`, `6` and `7`.
+        The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0` and `v7.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -20158,7 +20186,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[str]:
         """
-        The Version of Java to use. Supported versions include `8`, `11` & `17` (In-Preview).
+        The Version of Java to use. Supported versions include `1.8`, `11` & `17` (In-Preview).
         """
         return pulumi.get(self, "java_version")
 
@@ -24749,12 +24777,16 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
             suggest = "docker_container_registry"
         elif key == "dockerContainerTag":
             suggest = "docker_container_tag"
+        elif key == "dotnetCoreVersion":
+            suggest = "dotnet_core_version"
         elif key == "dotnetVersion":
             suggest = "dotnet_version"
         elif key == "javaContainer":
             suggest = "java_container"
         elif key == "javaContainerVersion":
             suggest = "java_container_version"
+        elif key == "javaEmbeddedServerEnabled":
+            suggest = "java_embedded_server_enabled"
         elif key == "javaVersion":
             suggest = "java_version"
         elif key == "nodeVersion":
@@ -24763,6 +24795,8 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
             suggest = "php_version"
         elif key == "pythonVersion":
             suggest = "python_version"
+        elif key == "tomcatVersion":
+            suggest = "tomcat_version"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WindowsWebAppSiteConfigApplicationStack. Access the value via the '{suggest}' property getter instead.")
@@ -24780,25 +24814,30 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
                  docker_container_name: Optional[str] = None,
                  docker_container_registry: Optional[str] = None,
                  docker_container_tag: Optional[str] = None,
+                 dotnet_core_version: Optional[str] = None,
                  dotnet_version: Optional[str] = None,
                  java_container: Optional[str] = None,
                  java_container_version: Optional[str] = None,
+                 java_embedded_server_enabled: Optional[bool] = None,
                  java_version: Optional[str] = None,
                  node_version: Optional[str] = None,
                  php_version: Optional[str] = None,
-                 python_version: Optional[str] = None):
+                 python: Optional[bool] = None,
+                 python_version: Optional[str] = None,
+                 tomcat_version: Optional[str] = None):
         """
         :param str current_stack: The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
         :param str docker_container_name: The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
         :param str docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
         :param str docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
-        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
-        :param str java_container: The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
-        :param str java_container_version: The Version of the `java_container` to use. Required with `java_version` and `java_container`.
-        :param str java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
-        :param str node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
-        :param str php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
-        :param str python_version: The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
+        :param str dotnet_core_version: The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
+        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+        :param bool java_embedded_server_enabled: Should the Java Embedded Server (Java SE) be used to run the app.
+        :param str java_version: The version of Java to use when `current_stack` is set to `java`.
+        :param str node_version: The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, and `~18`.
+        :param str php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values are `v7.1`, `v7.4` and `Off`.
+        :param bool python: Specifies whether this is a Python app. Defaults to `false`.
+        :param str tomcat_version: The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
         """
         if current_stack is not None:
             pulumi.set(__self__, "current_stack", current_stack)
@@ -24808,20 +24847,28 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
             pulumi.set(__self__, "docker_container_registry", docker_container_registry)
         if docker_container_tag is not None:
             pulumi.set(__self__, "docker_container_tag", docker_container_tag)
+        if dotnet_core_version is not None:
+            pulumi.set(__self__, "dotnet_core_version", dotnet_core_version)
         if dotnet_version is not None:
             pulumi.set(__self__, "dotnet_version", dotnet_version)
         if java_container is not None:
             pulumi.set(__self__, "java_container", java_container)
         if java_container_version is not None:
             pulumi.set(__self__, "java_container_version", java_container_version)
+        if java_embedded_server_enabled is not None:
+            pulumi.set(__self__, "java_embedded_server_enabled", java_embedded_server_enabled)
         if java_version is not None:
             pulumi.set(__self__, "java_version", java_version)
         if node_version is not None:
             pulumi.set(__self__, "node_version", node_version)
         if php_version is not None:
             pulumi.set(__self__, "php_version", php_version)
+        if python is not None:
+            pulumi.set(__self__, "python", python)
         if python_version is not None:
             pulumi.set(__self__, "python_version", python_version)
+        if tomcat_version is not None:
+            pulumi.set(__self__, "tomcat_version", tomcat_version)
 
     @property
     @pulumi.getter(name="currentStack")
@@ -24856,34 +24903,44 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         return pulumi.get(self, "docker_container_tag")
 
     @property
+    @pulumi.getter(name="dotnetCoreVersion")
+    def dotnet_core_version(self) -> Optional[str]:
+        """
+        The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
+        """
+        return pulumi.get(self, "dotnet_core_version")
+
+    @property
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
     @property
     @pulumi.getter(name="javaContainer")
     def java_container(self) -> Optional[str]:
-        """
-        The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
-        """
         return pulumi.get(self, "java_container")
 
     @property
     @pulumi.getter(name="javaContainerVersion")
     def java_container_version(self) -> Optional[str]:
-        """
-        The Version of the `java_container` to use. Required with `java_version` and `java_container`.
-        """
         return pulumi.get(self, "java_container_version")
+
+    @property
+    @pulumi.getter(name="javaEmbeddedServerEnabled")
+    def java_embedded_server_enabled(self) -> Optional[bool]:
+        """
+        Should the Java Embedded Server (Java SE) be used to run the app.
+        """
+        return pulumi.get(self, "java_embedded_server_enabled")
 
     @property
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[str]:
         """
-        The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
+        The version of Java to use when `current_stack` is set to `java`.
         """
         return pulumi.get(self, "java_version")
 
@@ -24891,7 +24948,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[str]:
         """
-        The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
+        The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, and `~18`.
         """
         return pulumi.get(self, "node_version")
 
@@ -24899,17 +24956,30 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[str]:
         """
-        The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
+        The version of PHP to use when `current_stack` is set to `php`. Possible values are `v7.1`, `v7.4` and `Off`.
         """
         return pulumi.get(self, "php_version")
 
     @property
+    @pulumi.getter
+    def python(self) -> Optional[bool]:
+        """
+        Specifies whether this is a Python app. Defaults to `false`.
+        """
+        return pulumi.get(self, "python")
+
+    @property
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[str]:
-        """
-        The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
-        """
         return pulumi.get(self, "python_version")
+
+    @property
+    @pulumi.getter(name="tomcatVersion")
+    def tomcat_version(self) -> Optional[str]:
+        """
+        The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
+        """
+        return pulumi.get(self, "tomcat_version")
 
 
 @pulumi.output_type
@@ -27663,12 +27733,16 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
             suggest = "docker_container_registry"
         elif key == "dockerContainerTag":
             suggest = "docker_container_tag"
+        elif key == "dotnetCoreVersion":
+            suggest = "dotnet_core_version"
         elif key == "dotnetVersion":
             suggest = "dotnet_version"
         elif key == "javaContainer":
             suggest = "java_container"
         elif key == "javaContainerVersion":
             suggest = "java_container_version"
+        elif key == "javaEmbeddedServerEnabled":
+            suggest = "java_embedded_server_enabled"
         elif key == "javaVersion":
             suggest = "java_version"
         elif key == "nodeVersion":
@@ -27677,6 +27751,8 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
             suggest = "php_version"
         elif key == "pythonVersion":
             suggest = "python_version"
+        elif key == "tomcatVersion":
+            suggest = "tomcat_version"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WindowsWebAppSlotSiteConfigApplicationStack. Access the value via the '{suggest}' property getter instead.")
@@ -27694,25 +27770,30 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
                  docker_container_name: Optional[str] = None,
                  docker_container_registry: Optional[str] = None,
                  docker_container_tag: Optional[str] = None,
+                 dotnet_core_version: Optional[str] = None,
                  dotnet_version: Optional[str] = None,
                  java_container: Optional[str] = None,
                  java_container_version: Optional[str] = None,
+                 java_embedded_server_enabled: Optional[bool] = None,
                  java_version: Optional[str] = None,
                  node_version: Optional[str] = None,
                  php_version: Optional[str] = None,
-                 python_version: Optional[str] = None):
+                 python: Optional[bool] = None,
+                 python_version: Optional[str] = None,
+                 tomcat_version: Optional[str] = None):
         """
-        :param str current_stack: The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
+        :param str current_stack: The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
         :param str docker_container_name: The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
         :param str docker_container_registry: The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
         :param str docker_container_tag: The Image Tag of the specified Docker Container to use. For example `latest`
-        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values are `v2.0`, `v3.0`, `core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0` .
-        :param str java_container: The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
-        :param str java_container_version: The Version of the `java_container` to use. Required with `java_version` and `java_container`.
+        :param str dotnet_core_version: The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
+        :param str dotnet_version: The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+        :param bool java_embedded_server_enabled: Should the Java Embedded Server (Java SE) be used to run the app.
         :param str java_version: The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
-        :param str node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
-        :param str php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
-        :param str python_version: The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
+        :param str node_version: The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
+        :param str php_version: The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4` and `Off`.
+        :param bool python: The app is a Python app. Defaults to `false`.
+        :param str tomcat_version: The version of Tomcat the Java App should use.
         """
         if current_stack is not None:
             pulumi.set(__self__, "current_stack", current_stack)
@@ -27722,26 +27803,34 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
             pulumi.set(__self__, "docker_container_registry", docker_container_registry)
         if docker_container_tag is not None:
             pulumi.set(__self__, "docker_container_tag", docker_container_tag)
+        if dotnet_core_version is not None:
+            pulumi.set(__self__, "dotnet_core_version", dotnet_core_version)
         if dotnet_version is not None:
             pulumi.set(__self__, "dotnet_version", dotnet_version)
         if java_container is not None:
             pulumi.set(__self__, "java_container", java_container)
         if java_container_version is not None:
             pulumi.set(__self__, "java_container_version", java_container_version)
+        if java_embedded_server_enabled is not None:
+            pulumi.set(__self__, "java_embedded_server_enabled", java_embedded_server_enabled)
         if java_version is not None:
             pulumi.set(__self__, "java_version", java_version)
         if node_version is not None:
             pulumi.set(__self__, "node_version", node_version)
         if php_version is not None:
             pulumi.set(__self__, "php_version", php_version)
+        if python is not None:
+            pulumi.set(__self__, "python", python)
         if python_version is not None:
             pulumi.set(__self__, "python_version", python_version)
+        if tomcat_version is not None:
+            pulumi.set(__self__, "tomcat_version", tomcat_version)
 
     @property
     @pulumi.getter(name="currentStack")
     def current_stack(self) -> Optional[str]:
         """
-        The Application Stack for the Windows Web App Slot. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
+        The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
         """
         return pulumi.get(self, "current_stack")
 
@@ -27770,28 +27859,38 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
         return pulumi.get(self, "docker_container_tag")
 
     @property
+    @pulumi.getter(name="dotnetCoreVersion")
+    def dotnet_core_version(self) -> Optional[str]:
+        """
+        The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
+        """
+        return pulumi.get(self, "dotnet_core_version")
+
+    @property
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values are `v2.0`, `v3.0`, `core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0` .
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
     @property
     @pulumi.getter(name="javaContainer")
     def java_container(self) -> Optional[str]:
-        """
-        The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
-        """
         return pulumi.get(self, "java_container")
 
     @property
     @pulumi.getter(name="javaContainerVersion")
     def java_container_version(self) -> Optional[str]:
-        """
-        The Version of the `java_container` to use. Required with `java_version` and `java_container`.
-        """
         return pulumi.get(self, "java_container_version")
+
+    @property
+    @pulumi.getter(name="javaEmbeddedServerEnabled")
+    def java_embedded_server_enabled(self) -> Optional[bool]:
+        """
+        Should the Java Embedded Server (Java SE) be used to run the app.
+        """
+        return pulumi.get(self, "java_embedded_server_enabled")
 
     @property
     @pulumi.getter(name="javaVersion")
@@ -27805,7 +27904,7 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[str]:
         """
-        The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
+        The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
         """
         return pulumi.get(self, "node_version")
 
@@ -27813,17 +27912,30 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[str]:
         """
-        The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
+        The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4` and `Off`.
         """
         return pulumi.get(self, "php_version")
 
     @property
+    @pulumi.getter
+    def python(self) -> Optional[bool]:
+        """
+        The app is a Python app. Defaults to `false`.
+        """
+        return pulumi.get(self, "python")
+
+    @property
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[str]:
-        """
-        The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
-        """
         return pulumi.get(self, "python_version")
+
+    @property
+    @pulumi.getter(name="tomcatVersion")
+    def tomcat_version(self) -> Optional[str]:
+        """
+        The version of Tomcat the Java App should use.
+        """
+        return pulumi.get(self, "tomcat_version")
 
 
 @pulumi.output_type
@@ -33468,6 +33580,7 @@ class GetLinuxWebAppSiteConfigApplicationStackResult(dict):
                  docker_image: str,
                  docker_image_tag: str,
                  dotnet_version: str,
+                 go_version: str,
                  java_server: str,
                  java_server_version: str,
                  java_version: str,
@@ -33490,6 +33603,7 @@ class GetLinuxWebAppSiteConfigApplicationStackResult(dict):
         pulumi.set(__self__, "docker_image", docker_image)
         pulumi.set(__self__, "docker_image_tag", docker_image_tag)
         pulumi.set(__self__, "dotnet_version", dotnet_version)
+        pulumi.set(__self__, "go_version", go_version)
         pulumi.set(__self__, "java_server", java_server)
         pulumi.set(__self__, "java_server_version", java_server_version)
         pulumi.set(__self__, "java_version", java_version)
@@ -33521,6 +33635,11 @@ class GetLinuxWebAppSiteConfigApplicationStackResult(dict):
         The version of .NET in use.
         """
         return pulumi.get(self, "dotnet_version")
+
+    @property
+    @pulumi.getter(name="goVersion")
+    def go_version(self) -> str:
+        return pulumi.get(self, "go_version")
 
     @property
     @pulumi.getter(name="javaServer")
@@ -36885,13 +37004,17 @@ class GetWindowsWebAppSiteConfigApplicationStackResult(dict):
                  docker_container_name: str,
                  docker_container_registry: str,
                  docker_container_tag: str,
+                 dotnet_core_version: str,
                  dotnet_version: str,
                  java_container: str,
                  java_container_version: str,
+                 java_embedded_server_enabled: bool,
                  java_version: str,
                  node_version: str,
                  php_version: str,
-                 python_version: str):
+                 python: bool,
+                 python_version: str,
+                 tomcat_version: str):
         """
         :param str current_stack: The Current Stack value of the Windows Web App.
         :param str docker_container_name: The name of the Docker Container in used.
@@ -36909,13 +37032,17 @@ class GetWindowsWebAppSiteConfigApplicationStackResult(dict):
         pulumi.set(__self__, "docker_container_name", docker_container_name)
         pulumi.set(__self__, "docker_container_registry", docker_container_registry)
         pulumi.set(__self__, "docker_container_tag", docker_container_tag)
+        pulumi.set(__self__, "dotnet_core_version", dotnet_core_version)
         pulumi.set(__self__, "dotnet_version", dotnet_version)
         pulumi.set(__self__, "java_container", java_container)
         pulumi.set(__self__, "java_container_version", java_container_version)
+        pulumi.set(__self__, "java_embedded_server_enabled", java_embedded_server_enabled)
         pulumi.set(__self__, "java_version", java_version)
         pulumi.set(__self__, "node_version", node_version)
         pulumi.set(__self__, "php_version", php_version)
+        pulumi.set(__self__, "python", python)
         pulumi.set(__self__, "python_version", python_version)
+        pulumi.set(__self__, "tomcat_version", tomcat_version)
 
     @property
     @pulumi.getter(name="currentStack")
@@ -36950,6 +37077,11 @@ class GetWindowsWebAppSiteConfigApplicationStackResult(dict):
         return pulumi.get(self, "docker_container_tag")
 
     @property
+    @pulumi.getter(name="dotnetCoreVersion")
+    def dotnet_core_version(self) -> str:
+        return pulumi.get(self, "dotnet_core_version")
+
+    @property
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> str:
         """
@@ -36972,6 +37104,11 @@ class GetWindowsWebAppSiteConfigApplicationStackResult(dict):
         The Version of the Java Container in use.
         """
         return pulumi.get(self, "java_container_version")
+
+    @property
+    @pulumi.getter(name="javaEmbeddedServerEnabled")
+    def java_embedded_server_enabled(self) -> bool:
+        return pulumi.get(self, "java_embedded_server_enabled")
 
     @property
     @pulumi.getter(name="javaVersion")
@@ -36998,12 +37135,22 @@ class GetWindowsWebAppSiteConfigApplicationStackResult(dict):
         return pulumi.get(self, "php_version")
 
     @property
+    @pulumi.getter
+    def python(self) -> bool:
+        return pulumi.get(self, "python")
+
+    @property
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> str:
         """
         The Version of Python in use.
         """
         return pulumi.get(self, "python_version")
+
+    @property
+    @pulumi.getter(name="tomcatVersion")
+    def tomcat_version(self) -> str:
+        return pulumi.get(self, "tomcat_version")
 
 
 @pulumi.output_type

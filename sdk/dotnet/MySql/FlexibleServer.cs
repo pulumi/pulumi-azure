@@ -134,6 +134,12 @@ namespace Pulumi.Azure.MySql
         public Output<string?> CreateMode { get; private set; } = null!;
 
         /// <summary>
+        /// A `customer_managed_key` block as defined below.
+        /// </summary>
+        [Output("customerManagedKey")]
+        public Output<Outputs.FlexibleServerCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         /// </summary>
         [Output("delegatedSubnetId")]
@@ -156,6 +162,12 @@ namespace Pulumi.Azure.MySql
         /// </summary>
         [Output("highAvailability")]
         public Output<Outputs.FlexibleServerHighAvailability?> HighAvailability { get; private set; } = null!;
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.FlexibleServerIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
@@ -332,6 +344,12 @@ namespace Pulumi.Azure.MySql
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
+        /// A `customer_managed_key` block as defined below.
+        /// </summary>
+        [Input("customerManagedKey")]
+        public Input<Inputs.FlexibleServerCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
+
+        /// <summary>
         /// The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         /// </summary>
         [Input("delegatedSubnetId")]
@@ -348,6 +366,12 @@ namespace Pulumi.Azure.MySql
         /// </summary>
         [Input("highAvailability")]
         public Input<Inputs.FlexibleServerHighAvailabilityArgs>? HighAvailability { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.FlexibleServerIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
@@ -476,6 +500,12 @@ namespace Pulumi.Azure.MySql
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
+        /// A `customer_managed_key` block as defined below.
+        /// </summary>
+        [Input("customerManagedKey")]
+        public Input<Inputs.FlexibleServerCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
+
+        /// <summary>
         /// The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         /// </summary>
         [Input("delegatedSubnetId")]
@@ -498,6 +528,12 @@ namespace Pulumi.Azure.MySql
         /// </summary>
         [Input("highAvailability")]
         public Input<Inputs.FlexibleServerHighAvailabilityGetArgs>? HighAvailability { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.FlexibleServerIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.

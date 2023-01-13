@@ -177,9 +177,17 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
     public Output<VirtualNetworkGatewayBgpSettings> bgpSettings() {
         return this.bgpSettings;
     }
+    /**
+     * A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+     * 
+     */
     @Export(name="customRoute", type=VirtualNetworkGatewayCustomRoute.class, parameters={})
     private Output</* @Nullable */ VirtualNetworkGatewayCustomRoute> customRoute;
 
+    /**
+     * @return A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+     * 
+     */
     public Output<Optional<VirtualNetworkGatewayCustomRoute>> customRoute() {
         return Codegen.optional(this.customRoute);
     }

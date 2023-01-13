@@ -125,6 +125,8 @@ type FlexibleServer struct {
 	BackupRetentionDays pulumi.IntPtrOutput `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
+	// A `customerManagedKey` block as defined below.
+	CustomerManagedKey FlexibleServerCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
 	// The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 	DelegatedSubnetId pulumi.StringPtrOutput `pulumi:"delegatedSubnetId"`
 	// The fully qualified domain name of the MySQL Flexible Server.
@@ -133,6 +135,8 @@ type FlexibleServer struct {
 	GeoRedundantBackupEnabled pulumi.BoolPtrOutput `pulumi:"geoRedundantBackupEnabled"`
 	// A `highAvailability` block as defined below.
 	HighAvailability FlexibleServerHighAvailabilityPtrOutput `pulumi:"highAvailability"`
+	// An `identity` block as defined below.
+	Identity FlexibleServerIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A `maintenanceWindow` block as defined below.
@@ -212,6 +216,8 @@ type flexibleServerState struct {
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 	CreateMode *string `pulumi:"createMode"`
+	// A `customerManagedKey` block as defined below.
+	CustomerManagedKey *FlexibleServerCustomerManagedKey `pulumi:"customerManagedKey"`
 	// The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 	DelegatedSubnetId *string `pulumi:"delegatedSubnetId"`
 	// The fully qualified domain name of the MySQL Flexible Server.
@@ -220,6 +226,8 @@ type flexibleServerState struct {
 	GeoRedundantBackupEnabled *bool `pulumi:"geoRedundantBackupEnabled"`
 	// A `highAvailability` block as defined below.
 	HighAvailability *FlexibleServerHighAvailability `pulumi:"highAvailability"`
+	// An `identity` block as defined below.
+	Identity *FlexibleServerIdentity `pulumi:"identity"`
 	// The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
 	Location *string `pulumi:"location"`
 	// A `maintenanceWindow` block as defined below.
@@ -261,6 +269,8 @@ type FlexibleServerState struct {
 	BackupRetentionDays pulumi.IntPtrInput
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 	CreateMode pulumi.StringPtrInput
+	// A `customerManagedKey` block as defined below.
+	CustomerManagedKey FlexibleServerCustomerManagedKeyPtrInput
 	// The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 	DelegatedSubnetId pulumi.StringPtrInput
 	// The fully qualified domain name of the MySQL Flexible Server.
@@ -269,6 +279,8 @@ type FlexibleServerState struct {
 	GeoRedundantBackupEnabled pulumi.BoolPtrInput
 	// A `highAvailability` block as defined below.
 	HighAvailability FlexibleServerHighAvailabilityPtrInput
+	// An `identity` block as defined below.
+	Identity FlexibleServerIdentityPtrInput
 	// The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
 	Location pulumi.StringPtrInput
 	// A `maintenanceWindow` block as defined below.
@@ -314,12 +326,16 @@ type flexibleServerArgs struct {
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 	CreateMode *string `pulumi:"createMode"`
+	// A `customerManagedKey` block as defined below.
+	CustomerManagedKey *FlexibleServerCustomerManagedKey `pulumi:"customerManagedKey"`
 	// The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 	DelegatedSubnetId *string `pulumi:"delegatedSubnetId"`
 	// Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
 	GeoRedundantBackupEnabled *bool `pulumi:"geoRedundantBackupEnabled"`
 	// A `highAvailability` block as defined below.
 	HighAvailability *FlexibleServerHighAvailability `pulumi:"highAvailability"`
+	// An `identity` block as defined below.
+	Identity *FlexibleServerIdentity `pulumi:"identity"`
 	// The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
 	Location *string `pulumi:"location"`
 	// A `maintenanceWindow` block as defined below.
@@ -358,12 +374,16 @@ type FlexibleServerArgs struct {
 	BackupRetentionDays pulumi.IntPtrInput
 	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
 	CreateMode pulumi.StringPtrInput
+	// A `customerManagedKey` block as defined below.
+	CustomerManagedKey FlexibleServerCustomerManagedKeyPtrInput
 	// The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 	DelegatedSubnetId pulumi.StringPtrInput
 	// Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
 	GeoRedundantBackupEnabled pulumi.BoolPtrInput
 	// A `highAvailability` block as defined below.
 	HighAvailability FlexibleServerHighAvailabilityPtrInput
+	// An `identity` block as defined below.
+	Identity FlexibleServerIdentityPtrInput
 	// The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
 	Location pulumi.StringPtrInput
 	// A `maintenanceWindow` block as defined below.
@@ -499,6 +519,11 @@ func (o FlexibleServerOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
+// A `customerManagedKey` block as defined below.
+func (o FlexibleServerOutput) CustomerManagedKey() FlexibleServerCustomerManagedKeyPtrOutput {
+	return o.ApplyT(func(v *FlexibleServer) FlexibleServerCustomerManagedKeyPtrOutput { return v.CustomerManagedKey }).(FlexibleServerCustomerManagedKeyPtrOutput)
+}
+
 // The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
 func (o FlexibleServerOutput) DelegatedSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.DelegatedSubnetId }).(pulumi.StringPtrOutput)
@@ -517,6 +542,11 @@ func (o FlexibleServerOutput) GeoRedundantBackupEnabled() pulumi.BoolPtrOutput {
 // A `highAvailability` block as defined below.
 func (o FlexibleServerOutput) HighAvailability() FlexibleServerHighAvailabilityPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) FlexibleServerHighAvailabilityPtrOutput { return v.HighAvailability }).(FlexibleServerHighAvailabilityPtrOutput)
+}
+
+// An `identity` block as defined below.
+func (o FlexibleServerOutput) Identity() FlexibleServerIdentityPtrOutput {
+	return o.ApplyT(func(v *FlexibleServer) FlexibleServerIdentityPtrOutput { return v.Identity }).(FlexibleServerIdentityPtrOutput)
 }
 
 // The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.

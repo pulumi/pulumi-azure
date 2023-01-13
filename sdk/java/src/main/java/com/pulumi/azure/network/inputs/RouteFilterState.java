@@ -63,14 +63,14 @@ public final class RouteFilterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `rules` block as defined below.
+     * A `rule` block as defined below.
      * 
      */
     @Import(name="rule")
     private @Nullable Output<RouteFilterRuleArgs> rule;
 
     /**
-     * @return A `rules` block as defined below.
+     * @return A `rule` block as defined below.
      * 
      */
     public Optional<Output<RouteFilterRuleArgs>> rule() {
@@ -184,7 +184,7 @@ public final class RouteFilterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rule A `rules` block as defined below.
+         * @param rule A `rule` block as defined below.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class RouteFilterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rule A `rules` block as defined below.
+         * @param rule A `rule` block as defined below.
          * 
          * @return builder
          * 

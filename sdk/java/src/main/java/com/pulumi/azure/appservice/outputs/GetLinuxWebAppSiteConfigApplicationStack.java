@@ -24,6 +24,7 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
      * 
      */
     private String dotnetVersion;
+    private String goVersion;
     /**
      * @return The Java server type.
      * 
@@ -81,6 +82,9 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
      */
     public String dotnetVersion() {
         return this.dotnetVersion;
+    }
+    public String goVersion() {
+        return this.goVersion;
     }
     /**
      * @return The Java server type.
@@ -144,6 +148,7 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
         private String dockerImage;
         private String dockerImageTag;
         private String dotnetVersion;
+        private String goVersion;
         private String javaServer;
         private String javaServerVersion;
         private String javaVersion;
@@ -157,6 +162,7 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
     	      this.dockerImage = defaults.dockerImage;
     	      this.dockerImageTag = defaults.dockerImageTag;
     	      this.dotnetVersion = defaults.dotnetVersion;
+    	      this.goVersion = defaults.goVersion;
     	      this.javaServer = defaults.javaServer;
     	      this.javaServerVersion = defaults.javaServerVersion;
     	      this.javaVersion = defaults.javaVersion;
@@ -179,6 +185,11 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
         @CustomType.Setter
         public Builder dotnetVersion(String dotnetVersion) {
             this.dotnetVersion = Objects.requireNonNull(dotnetVersion);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder goVersion(String goVersion) {
+            this.goVersion = Objects.requireNonNull(goVersion);
             return this;
         }
         @CustomType.Setter
@@ -221,6 +232,7 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
             o.dockerImage = dockerImage;
             o.dockerImageTag = dockerImageTag;
             o.dotnetVersion = dotnetVersion;
+            o.goVersion = goVersion;
             o.javaServer = javaServer;
             o.javaServerVersion = javaServerVersion;
             o.javaVersion = javaVersion;

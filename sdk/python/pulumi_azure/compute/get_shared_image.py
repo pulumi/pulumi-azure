@@ -22,7 +22,7 @@ class GetSharedImageResult:
     """
     A collection of values returned by getSharedImage.
     """
-    def __init__(__self__, architecture=None, description=None, eula=None, gallery_name=None, hyper_v_generation=None, id=None, identifiers=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, specialized=None, tags=None):
+    def __init__(__self__, architecture=None, description=None, eula=None, gallery_name=None, hyper_v_generation=None, id=None, identifiers=None, location=None, name=None, os_type=None, privacy_statement_uri=None, purchase_plans=None, release_note_uri=None, resource_group_name=None, specialized=None, tags=None):
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
@@ -56,6 +56,9 @@ class GetSharedImageResult:
         if privacy_statement_uri and not isinstance(privacy_statement_uri, str):
             raise TypeError("Expected argument 'privacy_statement_uri' to be a str")
         pulumi.set(__self__, "privacy_statement_uri", privacy_statement_uri)
+        if purchase_plans and not isinstance(purchase_plans, list):
+            raise TypeError("Expected argument 'purchase_plans' to be a list")
+        pulumi.set(__self__, "purchase_plans", purchase_plans)
         if release_note_uri and not isinstance(release_note_uri, str):
             raise TypeError("Expected argument 'release_note_uri' to be a str")
         pulumi.set(__self__, "release_note_uri", release_note_uri)
@@ -130,6 +133,9 @@ class GetSharedImageResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        (Required) The Purchase Plan Name for this Shared Image.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -147,6 +153,14 @@ class GetSharedImageResult:
         The URI containing the Privacy Statement for this Shared Image.
         """
         return pulumi.get(self, "privacy_statement_uri")
+
+    @property
+    @pulumi.getter(name="purchasePlans")
+    def purchase_plans(self) -> Sequence['outputs.GetSharedImagePurchasePlanResult']:
+        """
+        (Optional) A `purchase_plan` block as defined below.
+        """
+        return pulumi.get(self, "purchase_plans")
 
     @property
     @pulumi.getter(name="releaseNoteUri")
@@ -195,6 +209,7 @@ class AwaitableGetSharedImageResult(GetSharedImageResult):
             name=self.name,
             os_type=self.os_type,
             privacy_statement_uri=self.privacy_statement_uri,
+            purchase_plans=self.purchase_plans,
             release_note_uri=self.release_note_uri,
             resource_group_name=self.resource_group_name,
             specialized=self.specialized,
@@ -243,6 +258,7 @@ def get_shared_image(gallery_name: Optional[str] = None,
         name=__ret__.name,
         os_type=__ret__.os_type,
         privacy_statement_uri=__ret__.privacy_statement_uri,
+        purchase_plans=__ret__.purchase_plans,
         release_note_uri=__ret__.release_note_uri,
         resource_group_name=__ret__.resource_group_name,
         specialized=__ret__.specialized,

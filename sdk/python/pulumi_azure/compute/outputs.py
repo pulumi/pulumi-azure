@@ -183,6 +183,7 @@ __all__ = [
     'GetManagedDiskEncryptionSettingDiskEncryptionKeyResult',
     'GetManagedDiskEncryptionSettingKeyEncryptionKeyResult',
     'GetSharedImageIdentifierResult',
+    'GetSharedImagePurchasePlanResult',
     'GetSharedImageVersionTargetRegionResult',
     'GetSharedImageVersionsImageResult',
     'GetSharedImageVersionsImageTargetRegionResult',
@@ -10998,7 +10999,7 @@ class GetSharedImageIdentifierResult(dict):
                  sku: str):
         """
         :param str offer: The Offer Name for this Shared Image.
-        :param str publisher: The Publisher Name for this Gallery Image.
+        :param str publisher: (Optional) The Purchase Plan Publisher for this Gallery Image.
         :param str sku: The Name of the SKU for this Gallery Image.
         """
         pulumi.set(__self__, "offer", offer)
@@ -11017,7 +11018,7 @@ class GetSharedImageIdentifierResult(dict):
     @pulumi.getter
     def publisher(self) -> str:
         """
-        The Publisher Name for this Gallery Image.
+        (Optional) The Purchase Plan Publisher for this Gallery Image.
         """
         return pulumi.get(self, "publisher")
 
@@ -11028,6 +11029,46 @@ class GetSharedImageIdentifierResult(dict):
         The Name of the SKU for this Gallery Image.
         """
         return pulumi.get(self, "sku")
+
+
+@pulumi.output_type
+class GetSharedImagePurchasePlanResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 product: str,
+                 publisher: str):
+        """
+        :param str name: The name of the Shared Image.
+        :param str product: (Optional) The Purchase Plan Product for this Gallery Image.
+        :param str publisher: (Optional) The Purchase Plan Publisher for this Gallery Image.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Shared Image.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def product(self) -> str:
+        """
+        (Optional) The Purchase Plan Product for this Gallery Image.
+        """
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        """
+        (Optional) The Purchase Plan Publisher for this Gallery Image.
+        """
+        return pulumi.get(self, "publisher")
 
 
 @pulumi.output_type

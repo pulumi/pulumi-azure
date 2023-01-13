@@ -3422,6 +3422,181 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) SubnetName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+type KubernetesClusterApiServerAccessProfile struct {
+	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+	AuthorizedIpRanges []string `pulumi:"authorizedIpRanges"`
+	// The ID of the Subnet where the API server endpoint is delegated to.
+	SubnetId *string `pulumi:"subnetId"`
+	// Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+	VnetIntegrationEnabled *bool `pulumi:"vnetIntegrationEnabled"`
+}
+
+// KubernetesClusterApiServerAccessProfileInput is an input type that accepts KubernetesClusterApiServerAccessProfileArgs and KubernetesClusterApiServerAccessProfileOutput values.
+// You can construct a concrete instance of `KubernetesClusterApiServerAccessProfileInput` via:
+//
+//	KubernetesClusterApiServerAccessProfileArgs{...}
+type KubernetesClusterApiServerAccessProfileInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterApiServerAccessProfileOutput() KubernetesClusterApiServerAccessProfileOutput
+	ToKubernetesClusterApiServerAccessProfileOutputWithContext(context.Context) KubernetesClusterApiServerAccessProfileOutput
+}
+
+type KubernetesClusterApiServerAccessProfileArgs struct {
+	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+	AuthorizedIpRanges pulumi.StringArrayInput `pulumi:"authorizedIpRanges"`
+	// The ID of the Subnet where the API server endpoint is delegated to.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+	VnetIntegrationEnabled pulumi.BoolPtrInput `pulumi:"vnetIntegrationEnabled"`
+}
+
+func (KubernetesClusterApiServerAccessProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterApiServerAccessProfile)(nil)).Elem()
+}
+
+func (i KubernetesClusterApiServerAccessProfileArgs) ToKubernetesClusterApiServerAccessProfileOutput() KubernetesClusterApiServerAccessProfileOutput {
+	return i.ToKubernetesClusterApiServerAccessProfileOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterApiServerAccessProfileArgs) ToKubernetesClusterApiServerAccessProfileOutputWithContext(ctx context.Context) KubernetesClusterApiServerAccessProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterApiServerAccessProfileOutput)
+}
+
+func (i KubernetesClusterApiServerAccessProfileArgs) ToKubernetesClusterApiServerAccessProfilePtrOutput() KubernetesClusterApiServerAccessProfilePtrOutput {
+	return i.ToKubernetesClusterApiServerAccessProfilePtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterApiServerAccessProfileArgs) ToKubernetesClusterApiServerAccessProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterApiServerAccessProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterApiServerAccessProfileOutput).ToKubernetesClusterApiServerAccessProfilePtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterApiServerAccessProfilePtrInput is an input type that accepts KubernetesClusterApiServerAccessProfileArgs, KubernetesClusterApiServerAccessProfilePtr and KubernetesClusterApiServerAccessProfilePtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterApiServerAccessProfilePtrInput` via:
+//
+//	        KubernetesClusterApiServerAccessProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterApiServerAccessProfilePtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterApiServerAccessProfilePtrOutput() KubernetesClusterApiServerAccessProfilePtrOutput
+	ToKubernetesClusterApiServerAccessProfilePtrOutputWithContext(context.Context) KubernetesClusterApiServerAccessProfilePtrOutput
+}
+
+type kubernetesClusterApiServerAccessProfilePtrType KubernetesClusterApiServerAccessProfileArgs
+
+func KubernetesClusterApiServerAccessProfilePtr(v *KubernetesClusterApiServerAccessProfileArgs) KubernetesClusterApiServerAccessProfilePtrInput {
+	return (*kubernetesClusterApiServerAccessProfilePtrType)(v)
+}
+
+func (*kubernetesClusterApiServerAccessProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterApiServerAccessProfile)(nil)).Elem()
+}
+
+func (i *kubernetesClusterApiServerAccessProfilePtrType) ToKubernetesClusterApiServerAccessProfilePtrOutput() KubernetesClusterApiServerAccessProfilePtrOutput {
+	return i.ToKubernetesClusterApiServerAccessProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterApiServerAccessProfilePtrType) ToKubernetesClusterApiServerAccessProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterApiServerAccessProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterApiServerAccessProfilePtrOutput)
+}
+
+type KubernetesClusterApiServerAccessProfileOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterApiServerAccessProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterApiServerAccessProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterApiServerAccessProfileOutput) ToKubernetesClusterApiServerAccessProfileOutput() KubernetesClusterApiServerAccessProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterApiServerAccessProfileOutput) ToKubernetesClusterApiServerAccessProfileOutputWithContext(ctx context.Context) KubernetesClusterApiServerAccessProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterApiServerAccessProfileOutput) ToKubernetesClusterApiServerAccessProfilePtrOutput() KubernetesClusterApiServerAccessProfilePtrOutput {
+	return o.ToKubernetesClusterApiServerAccessProfilePtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterApiServerAccessProfileOutput) ToKubernetesClusterApiServerAccessProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterApiServerAccessProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterApiServerAccessProfile) *KubernetesClusterApiServerAccessProfile {
+		return &v
+	}).(KubernetesClusterApiServerAccessProfilePtrOutput)
+}
+
+// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+func (o KubernetesClusterApiServerAccessProfileOutput) AuthorizedIpRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterApiServerAccessProfile) []string { return v.AuthorizedIpRanges }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Subnet where the API server endpoint is delegated to.
+func (o KubernetesClusterApiServerAccessProfileOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterApiServerAccessProfile) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+func (o KubernetesClusterApiServerAccessProfileOutput) VnetIntegrationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterApiServerAccessProfile) *bool { return v.VnetIntegrationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type KubernetesClusterApiServerAccessProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterApiServerAccessProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterApiServerAccessProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterApiServerAccessProfilePtrOutput) ToKubernetesClusterApiServerAccessProfilePtrOutput() KubernetesClusterApiServerAccessProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterApiServerAccessProfilePtrOutput) ToKubernetesClusterApiServerAccessProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterApiServerAccessProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterApiServerAccessProfilePtrOutput) Elem() KubernetesClusterApiServerAccessProfileOutput {
+	return o.ApplyT(func(v *KubernetesClusterApiServerAccessProfile) KubernetesClusterApiServerAccessProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterApiServerAccessProfile
+		return ret
+	}).(KubernetesClusterApiServerAccessProfileOutput)
+}
+
+// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+func (o KubernetesClusterApiServerAccessProfilePtrOutput) AuthorizedIpRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterApiServerAccessProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizedIpRanges
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Subnet where the API server endpoint is delegated to.
+func (o KubernetesClusterApiServerAccessProfilePtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterApiServerAccessProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+func (o KubernetesClusterApiServerAccessProfilePtrOutput) VnetIntegrationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterApiServerAccessProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VnetIntegrationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type KubernetesClusterAutoScalerProfile struct {
 	// Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
 	BalanceSimilarNodeGroups *bool `pulumi:"balanceSimilarNodeGroups"`
@@ -19154,6 +19329,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitContainerVolumeGitRepoPtrInput)(nil)).Elem(), GroupInitContainerVolumeGitRepoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAciConnectorLinuxInput)(nil)).Elem(), KubernetesClusterAciConnectorLinuxArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAciConnectorLinuxPtrInput)(nil)).Elem(), KubernetesClusterAciConnectorLinuxArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterApiServerAccessProfileInput)(nil)).Elem(), KubernetesClusterApiServerAccessProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterApiServerAccessProfilePtrInput)(nil)).Elem(), KubernetesClusterApiServerAccessProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAutoScalerProfileInput)(nil)).Elem(), KubernetesClusterAutoScalerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAutoScalerProfilePtrInput)(nil)).Elem(), KubernetesClusterAutoScalerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlInput)(nil)).Elem(), KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs{})
@@ -19368,6 +19545,8 @@ func init() {
 	pulumi.RegisterOutputType(GroupInitContainerVolumeGitRepoPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAciConnectorLinuxOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAciConnectorLinuxPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterApiServerAccessProfileOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterApiServerAccessProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAutoScalerProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAutoScalerProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput{})

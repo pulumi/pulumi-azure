@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.monitoring.DiagnosticSettingArgs;
 import com.pulumi.azure.monitoring.inputs.DiagnosticSettingState;
+import com.pulumi.azure.monitoring.outputs.DiagnosticSettingEnabledLog;
 import com.pulumi.azure.monitoring.outputs.DiagnosticSettingLog;
 import com.pulumi.azure.monitoring.outputs.DiagnosticSettingMetric;
 import com.pulumi.core.Output;
@@ -100,6 +101,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:monitoring/diagnosticSetting:DiagnosticSetting")
 public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
+     * One or more `enabled_log` blocks as defined below.
+     * 
+     */
+    @Export(name="enabledLogs", type=List.class, parameters={DiagnosticSettingEnabledLog.class})
+    private Output<List<DiagnosticSettingEnabledLog>> enabledLogs;
+
+    /**
+     * @return One or more `enabled_log` blocks as defined below.
+     * 
+     */
+    public Output<List<DiagnosticSettingEnabledLog>> enabledLogs() {
+        return this.enabledLogs;
+    }
+    /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      * 
      */
@@ -158,16 +173,20 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * One or more `log` blocks as defined below.
      * 
+     * @deprecated
+     * `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
     @Export(name="logs", type=List.class, parameters={DiagnosticSettingLog.class})
-    private Output</* @Nullable */ List<DiagnosticSettingLog>> logs;
+    private Output<List<DiagnosticSettingLog>> logs;
 
     /**
      * @return One or more `log` blocks as defined below.
      * 
      */
-    public Output<Optional<List<DiagnosticSettingLog>>> logs() {
-        return Codegen.optional(this.logs);
+    public Output<List<DiagnosticSettingLog>> logs() {
+        return this.logs;
     }
     /**
      * One or more `metric` blocks as defined below.

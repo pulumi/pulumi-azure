@@ -30,6 +30,11 @@ export type SmartDetectionRule = import("./smartDetectionRule").SmartDetectionRu
 export const SmartDetectionRule: typeof import("./smartDetectionRule").SmartDetectionRule = null as any;
 utilities.lazyLoad(exports, ["SmartDetectionRule"], () => require("./smartDetectionRule"));
 
+export { StandardWebTestArgs, StandardWebTestState } from "./standardWebTest";
+export type StandardWebTest = import("./standardWebTest").StandardWebTest;
+export const StandardWebTest: typeof import("./standardWebTest").StandardWebTest = null as any;
+utilities.lazyLoad(exports, ["StandardWebTest"], () => require("./standardWebTest"));
+
 export { WebTestArgs, WebTestState } from "./webTest";
 export type WebTest = import("./webTest").WebTest;
 export const WebTest: typeof import("./webTest").WebTest = null as any;
@@ -58,6 +63,8 @@ const _module = {
                 return new Insights(name, <any>undefined, { urn })
             case "azure:appinsights/smartDetectionRule:SmartDetectionRule":
                 return new SmartDetectionRule(name, <any>undefined, { urn })
+            case "azure:appinsights/standardWebTest:StandardWebTest":
+                return new StandardWebTest(name, <any>undefined, { urn })
             case "azure:appinsights/webTest:WebTest":
                 return new WebTest(name, <any>undefined, { urn })
             case "azure:appinsights/workbook:Workbook":
@@ -73,6 +80,7 @@ pulumi.runtime.registerResourceModule("azure", "appinsights/analyticsItem", _mod
 pulumi.runtime.registerResourceModule("azure", "appinsights/apiKey", _module)
 pulumi.runtime.registerResourceModule("azure", "appinsights/insights", _module)
 pulumi.runtime.registerResourceModule("azure", "appinsights/smartDetectionRule", _module)
+pulumi.runtime.registerResourceModule("azure", "appinsights/standardWebTest", _module)
 pulumi.runtime.registerResourceModule("azure", "appinsights/webTest", _module)
 pulumi.runtime.registerResourceModule("azure", "appinsights/workbook", _module)
 pulumi.runtime.registerResourceModule("azure", "appinsights/workbookTemplate", _module)

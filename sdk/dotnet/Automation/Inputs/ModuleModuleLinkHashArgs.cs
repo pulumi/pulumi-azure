@@ -12,9 +12,15 @@ namespace Pulumi.Azure.Automation.Inputs
 
     public sealed class ModuleModuleLinkHashArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the algorithm used for the hash content.
+        /// </summary>
         [Input("algorithm", required: true)]
         public Input<string> Algorithm { get; set; } = null!;
 
+        /// <summary>
+        /// The hash value of the content.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

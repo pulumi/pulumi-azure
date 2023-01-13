@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RunBookJobSchedule {
     private @Nullable String jobScheduleId;
+    /**
+     * @return A list of `parameters` block as defined below.
+     * 
+     */
     private @Nullable Map<String,String> parameters;
     private @Nullable String runOn;
     private String scheduleName;
@@ -21,6 +25,10 @@ public final class RunBookJobSchedule {
     public Optional<String> jobScheduleId() {
         return Optional.ofNullable(this.jobScheduleId);
     }
+    /**
+     * @return A list of `parameters` block as defined below.
+     * 
+     */
     public Map<String,String> parameters() {
         return this.parameters == null ? Map.of() : this.parameters;
     }

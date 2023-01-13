@@ -93,7 +93,11 @@ type AutomationRule struct {
 	ActionIncidents AutomationRuleActionIncidentArrayOutput `pulumi:"actionIncidents"`
 	// One or more `actionPlaybook` blocks as defined below.
 	ActionPlaybooks AutomationRuleActionPlaybookArrayOutput `pulumi:"actionPlaybooks"`
+	// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+	ConditionJson pulumi.StringOutput `pulumi:"conditionJson"`
 	// One or more `condition` blocks as defined below.
+	//
+	// Deprecated: This is deprecated in favor of `condition_json`
 	Conditions AutomationRuleConditionArrayOutput `pulumi:"conditions"`
 	// The display name which should be used for this Sentinel Automation Rule.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
@@ -107,6 +111,10 @@ type AutomationRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
 	Order pulumi.IntOutput `pulumi:"order"`
+	// Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+	TriggersOn pulumi.StringPtrOutput `pulumi:"triggersOn"`
+	// Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+	TriggersWhen pulumi.StringPtrOutput `pulumi:"triggersWhen"`
 }
 
 // NewAutomationRule registers a new resource with the given unique name, arguments, and options.
@@ -157,7 +165,11 @@ type automationRuleState struct {
 	ActionIncidents []AutomationRuleActionIncident `pulumi:"actionIncidents"`
 	// One or more `actionPlaybook` blocks as defined below.
 	ActionPlaybooks []AutomationRuleActionPlaybook `pulumi:"actionPlaybooks"`
+	// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+	ConditionJson *string `pulumi:"conditionJson"`
 	// One or more `condition` blocks as defined below.
+	//
+	// Deprecated: This is deprecated in favor of `condition_json`
 	Conditions []AutomationRuleCondition `pulumi:"conditions"`
 	// The display name which should be used for this Sentinel Automation Rule.
 	DisplayName *string `pulumi:"displayName"`
@@ -171,6 +183,10 @@ type automationRuleState struct {
 	Name *string `pulumi:"name"`
 	// The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
 	Order *int `pulumi:"order"`
+	// Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+	TriggersOn *string `pulumi:"triggersOn"`
+	// Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+	TriggersWhen *string `pulumi:"triggersWhen"`
 }
 
 type AutomationRuleState struct {
@@ -178,7 +194,11 @@ type AutomationRuleState struct {
 	ActionIncidents AutomationRuleActionIncidentArrayInput
 	// One or more `actionPlaybook` blocks as defined below.
 	ActionPlaybooks AutomationRuleActionPlaybookArrayInput
+	// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+	ConditionJson pulumi.StringPtrInput
 	// One or more `condition` blocks as defined below.
+	//
+	// Deprecated: This is deprecated in favor of `condition_json`
 	Conditions AutomationRuleConditionArrayInput
 	// The display name which should be used for this Sentinel Automation Rule.
 	DisplayName pulumi.StringPtrInput
@@ -192,6 +212,10 @@ type AutomationRuleState struct {
 	Name pulumi.StringPtrInput
 	// The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
 	Order pulumi.IntPtrInput
+	// Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+	TriggersOn pulumi.StringPtrInput
+	// Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+	TriggersWhen pulumi.StringPtrInput
 }
 
 func (AutomationRuleState) ElementType() reflect.Type {
@@ -203,7 +227,11 @@ type automationRuleArgs struct {
 	ActionIncidents []AutomationRuleActionIncident `pulumi:"actionIncidents"`
 	// One or more `actionPlaybook` blocks as defined below.
 	ActionPlaybooks []AutomationRuleActionPlaybook `pulumi:"actionPlaybooks"`
+	// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+	ConditionJson *string `pulumi:"conditionJson"`
 	// One or more `condition` blocks as defined below.
+	//
+	// Deprecated: This is deprecated in favor of `condition_json`
 	Conditions []AutomationRuleCondition `pulumi:"conditions"`
 	// The display name which should be used for this Sentinel Automation Rule.
 	DisplayName string `pulumi:"displayName"`
@@ -217,6 +245,10 @@ type automationRuleArgs struct {
 	Name *string `pulumi:"name"`
 	// The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
 	Order int `pulumi:"order"`
+	// Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+	TriggersOn *string `pulumi:"triggersOn"`
+	// Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+	TriggersWhen *string `pulumi:"triggersWhen"`
 }
 
 // The set of arguments for constructing a AutomationRule resource.
@@ -225,7 +257,11 @@ type AutomationRuleArgs struct {
 	ActionIncidents AutomationRuleActionIncidentArrayInput
 	// One or more `actionPlaybook` blocks as defined below.
 	ActionPlaybooks AutomationRuleActionPlaybookArrayInput
+	// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+	ConditionJson pulumi.StringPtrInput
 	// One or more `condition` blocks as defined below.
+	//
+	// Deprecated: This is deprecated in favor of `condition_json`
 	Conditions AutomationRuleConditionArrayInput
 	// The display name which should be used for this Sentinel Automation Rule.
 	DisplayName pulumi.StringInput
@@ -239,6 +275,10 @@ type AutomationRuleArgs struct {
 	Name pulumi.StringPtrInput
 	// The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
 	Order pulumi.IntInput
+	// Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+	TriggersOn pulumi.StringPtrInput
+	// Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+	TriggersWhen pulumi.StringPtrInput
 }
 
 func (AutomationRuleArgs) ElementType() reflect.Type {
@@ -338,7 +378,14 @@ func (o AutomationRuleOutput) ActionPlaybooks() AutomationRuleActionPlaybookArra
 	return o.ApplyT(func(v *AutomationRule) AutomationRuleActionPlaybookArrayOutput { return v.ActionPlaybooks }).(AutomationRuleActionPlaybookArrayOutput)
 }
 
+// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
+func (o AutomationRuleOutput) ConditionJson() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.ConditionJson }).(pulumi.StringOutput)
+}
+
 // One or more `condition` blocks as defined below.
+//
+// Deprecated: This is deprecated in favor of `condition_json`
 func (o AutomationRuleOutput) Conditions() AutomationRuleConditionArrayOutput {
 	return o.ApplyT(func(v *AutomationRule) AutomationRuleConditionArrayOutput { return v.Conditions }).(AutomationRuleConditionArrayOutput)
 }
@@ -371,6 +418,16 @@ func (o AutomationRuleOutput) Name() pulumi.StringOutput {
 // The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
 func (o AutomationRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
+}
+
+// Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
+func (o AutomationRuleOutput) TriggersOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.StringPtrOutput { return v.TriggersOn }).(pulumi.StringPtrOutput)
+}
+
+// Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
+func (o AutomationRuleOutput) TriggersWhen() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.StringPtrOutput { return v.TriggersWhen }).(pulumi.StringPtrOutput)
 }
 
 type AutomationRuleArrayOutput struct{ *pulumi.OutputState }

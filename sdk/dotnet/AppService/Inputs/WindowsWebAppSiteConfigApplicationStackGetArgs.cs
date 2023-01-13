@@ -37,46 +37,61 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? DockerContainerTag { get; set; }
 
         /// <summary>
-        /// The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+        /// The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
+        /// </summary>
+        [Input("dotnetCoreVersion")]
+        public Input<string>? DotnetCoreVersion { get; set; }
+
+        /// <summary>
+        /// The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
         /// </summary>
         [Input("dotnetVersion")]
         public Input<string>? DotnetVersion { get; set; }
 
-        /// <summary>
-        /// The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
-        /// </summary>
         [Input("javaContainer")]
         public Input<string>? JavaContainer { get; set; }
 
-        /// <summary>
-        /// The Version of the `java_container` to use. Required with `java_version` and `java_container`.
-        /// </summary>
         [Input("javaContainerVersion")]
         public Input<string>? JavaContainerVersion { get; set; }
 
         /// <summary>
-        /// The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
+        /// Should the Java Embedded Server (Java SE) be used to run the app.
+        /// </summary>
+        [Input("javaEmbeddedServerEnabled")]
+        public Input<bool>? JavaEmbeddedServerEnabled { get; set; }
+
+        /// <summary>
+        /// The version of Java to use when `current_stack` is set to `java`.
         /// </summary>
         [Input("javaVersion")]
         public Input<string>? JavaVersion { get; set; }
 
         /// <summary>
-        /// The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, `16-LTS` and `18-LTS`.
+        /// The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, and `~18`.
         /// </summary>
         [Input("nodeVersion")]
         public Input<string>? NodeVersion { get; set; }
 
         /// <summary>
-        /// The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
+        /// The version of PHP to use when `current_stack` is set to `php`. Possible values are `v7.1`, `v7.4` and `Off`.
         /// </summary>
         [Input("phpVersion")]
         public Input<string>? PhpVersion { get; set; }
 
         /// <summary>
-        /// The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
+        /// Specifies whether this is a Python app. Defaults to `false`.
         /// </summary>
+        [Input("python")]
+        public Input<bool>? Python { get; set; }
+
         [Input("pythonVersion")]
         public Input<string>? PythonVersion { get; set; }
+
+        /// <summary>
+        /// The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
+        /// </summary>
+        [Input("tomcatVersion")]
+        public Input<string>? TomcatVersion { get; set; }
 
         public WindowsWebAppSiteConfigApplicationStackGetArgs()
         {

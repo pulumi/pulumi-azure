@@ -77,7 +77,7 @@ type Group struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of this API Management Group.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`. Changing this forces a new resource to be created.
+	// The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant id>/groups/<group object id>`. Changing this forces a new resource to be created.
 	ExternalId pulumi.StringPtrOutput `pulumi:"externalId"`
 	// The name of the API Management Group. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -131,7 +131,7 @@ type groupState struct {
 	Description *string `pulumi:"description"`
 	// The display name of this API Management Group.
 	DisplayName *string `pulumi:"displayName"`
-	// The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`. Changing this forces a new resource to be created.
+	// The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant id>/groups/<group object id>`. Changing this forces a new resource to be created.
 	ExternalId *string `pulumi:"externalId"`
 	// The name of the API Management Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -148,7 +148,7 @@ type GroupState struct {
 	Description pulumi.StringPtrInput
 	// The display name of this API Management Group.
 	DisplayName pulumi.StringPtrInput
-	// The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`. Changing this forces a new resource to be created.
+	// The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant id>/groups/<group object id>`. Changing this forces a new resource to be created.
 	ExternalId pulumi.StringPtrInput
 	// The name of the API Management Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -169,7 +169,7 @@ type groupArgs struct {
 	Description *string `pulumi:"description"`
 	// The display name of this API Management Group.
 	DisplayName string `pulumi:"displayName"`
-	// The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`. Changing this forces a new resource to be created.
+	// The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant id>/groups/<group object id>`. Changing this forces a new resource to be created.
 	ExternalId *string `pulumi:"externalId"`
 	// The name of the API Management Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -187,7 +187,7 @@ type GroupArgs struct {
 	Description pulumi.StringPtrInput
 	// The display name of this API Management Group.
 	DisplayName pulumi.StringInput
-	// The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`. Changing this forces a new resource to be created.
+	// The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant id>/groups/<group object id>`. Changing this forces a new resource to be created.
 	ExternalId pulumi.StringPtrInput
 	// The name of the API Management Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -299,7 +299,7 @@ func (o GroupOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`. Changing this forces a new resource to be created.
+// The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant id>/groups/<group object id>`. Changing this forces a new resource to be created.
 func (o GroupOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.ExternalId }).(pulumi.StringPtrOutput)
 }

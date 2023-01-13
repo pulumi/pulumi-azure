@@ -102,6 +102,12 @@ public class Queue extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    @Export(name="resourceManagerId", type=String.class, parameters={})
+    private Output<String> resourceManagerId;
+
+    public Output<String> resourceManagerId() {
+        return this.resourceManagerId;
+    }
     /**
      * Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
      * 

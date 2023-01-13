@@ -105,6 +105,11 @@ export const getTableEntity: typeof import("./getTableEntity").getTableEntity = 
 export const getTableEntityOutput: typeof import("./getTableEntity").getTableEntityOutput = null as any;
 utilities.lazyLoad(exports, ["getTableEntity","getTableEntityOutput"], () => require("./getTableEntity"));
 
+export { LocalUserArgs, LocalUserState } from "./localUser";
+export type LocalUser = import("./localUser").LocalUser;
+export const LocalUser: typeof import("./localUser").LocalUser = null as any;
+utilities.lazyLoad(exports, ["LocalUser"], () => require("./localUser"));
+
 export { ManagementPolicyArgs, ManagementPolicyState } from "./managementPolicy";
 export type ManagementPolicy = import("./managementPolicy").ManagementPolicy;
 export const ManagementPolicy: typeof import("./managementPolicy").ManagementPolicy = null as any;
@@ -189,6 +194,8 @@ const _module = {
                 return new DataLakeGen2Path(name, <any>undefined, { urn })
             case "azure:storage/encryptionScope:EncryptionScope":
                 return new EncryptionScope(name, <any>undefined, { urn })
+            case "azure:storage/localUser:LocalUser":
+                return new LocalUser(name, <any>undefined, { urn })
             case "azure:storage/managementPolicy:ManagementPolicy":
                 return new ManagementPolicy(name, <any>undefined, { urn })
             case "azure:storage/objectReplication:ObjectReplication":
@@ -227,6 +234,7 @@ pulumi.runtime.registerResourceModule("azure", "storage/customerManagedKey", _mo
 pulumi.runtime.registerResourceModule("azure", "storage/dataLakeGen2Filesystem", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/dataLakeGen2Path", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/encryptionScope", _module)
+pulumi.runtime.registerResourceModule("azure", "storage/localUser", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/managementPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/objectReplication", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/queue", _module)

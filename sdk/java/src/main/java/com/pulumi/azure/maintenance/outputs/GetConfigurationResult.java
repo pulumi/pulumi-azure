@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.maintenance.outputs;
 
+import com.pulumi.azure.maintenance.outputs.GetConfigurationInstallPatch;
 import com.pulumi.azure.maintenance.outputs.GetConfigurationWindow;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -17,6 +18,16 @@ public final class GetConfigurationResult {
      * 
      */
     private String id;
+    /**
+     * @return The in guest user patch mode.
+     * 
+     */
+    private String inGuestUserPatchMode;
+    /**
+     * @return An `install_patches` block as defined below.
+     * 
+     */
+    private List<GetConfigurationInstallPatch> installPatches;
     /**
      * @return The Azure location where the resource exists.
      * 
@@ -57,6 +68,20 @@ public final class GetConfigurationResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return The in guest user patch mode.
+     * 
+     */
+    public String inGuestUserPatchMode() {
+        return this.inGuestUserPatchMode;
+    }
+    /**
+     * @return An `install_patches` block as defined below.
+     * 
+     */
+    public List<GetConfigurationInstallPatch> installPatches() {
+        return this.installPatches;
     }
     /**
      * @return The Azure location where the resource exists.
@@ -117,6 +142,8 @@ public final class GetConfigurationResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private String inGuestUserPatchMode;
+        private List<GetConfigurationInstallPatch> installPatches;
         private String location;
         private String name;
         private Map<String,String> properties;
@@ -129,6 +156,8 @@ public final class GetConfigurationResult {
         public Builder(GetConfigurationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.inGuestUserPatchMode = defaults.inGuestUserPatchMode;
+    	      this.installPatches = defaults.installPatches;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.properties = defaults.properties;
@@ -143,6 +172,19 @@ public final class GetConfigurationResult {
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
+        }
+        @CustomType.Setter
+        public Builder inGuestUserPatchMode(String inGuestUserPatchMode) {
+            this.inGuestUserPatchMode = Objects.requireNonNull(inGuestUserPatchMode);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder installPatches(List<GetConfigurationInstallPatch> installPatches) {
+            this.installPatches = Objects.requireNonNull(installPatches);
+            return this;
+        }
+        public Builder installPatches(GetConfigurationInstallPatch... installPatches) {
+            return installPatches(List.of(installPatches));
         }
         @CustomType.Setter
         public Builder location(String location) {
@@ -190,6 +232,8 @@ public final class GetConfigurationResult {
         public GetConfigurationResult build() {
             final var o = new GetConfigurationResult();
             o.id = id;
+            o.inGuestUserPatchMode = inGuestUserPatchMode;
+            o.installPatches = installPatches;
             o.location = location;
             o.name = name;
             o.properties = properties;

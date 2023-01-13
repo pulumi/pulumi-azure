@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * SSH Public Keys can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:compute/sshPublicKey:SshPublicKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/SshPublicKeys/mySshPublicKeyName1
+ *  $ pulumi import azure:compute/sshPublicKey:SshPublicKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/sshPublicKeys/mySshPublicKeyName1
  * ```
  * 
  */

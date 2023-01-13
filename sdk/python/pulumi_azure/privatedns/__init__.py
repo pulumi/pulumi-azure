@@ -14,6 +14,12 @@ from .get_cname_record import *
 from .get_dns_zone import *
 from .get_mx_record import *
 from .get_ptr_record import *
+from .get_resolver import *
+from .get_resolver_dns_forwarding_ruleset import *
+from .get_resolver_forwarding_rule import *
+from .get_resolver_inbound_endpoint import *
+from .get_resolver_outbound_endpoint import *
+from .get_resolver_virtual_network_link import *
 from .get_soa_record import *
 from .get_srv_record import *
 from .get_txt_record import *

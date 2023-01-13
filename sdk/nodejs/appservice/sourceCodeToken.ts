@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * App Service Source Control Token's can be imported using the `type`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example /providers/Microsoft.Web/sourceControls/GitHub
+ *  $ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example {type}
  * ```
  */
 export class SourceCodeToken extends pulumi.CustomResource {

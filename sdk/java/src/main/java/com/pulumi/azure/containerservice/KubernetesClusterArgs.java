@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice;
 
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterAciConnectorLinuxArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterApiServerAccessProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterAutoScalerProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolArgs;
@@ -55,16 +56,35 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Set of authorized IP ranges to allow access to API server, e.g. [&#34;198.51.100.0/24&#34;].
+     * An `api_server_access_profile` block as defined below.
      * 
      */
+    @Import(name="apiServerAccessProfile")
+    private @Nullable Output<KubernetesClusterApiServerAccessProfileArgs> apiServerAccessProfile;
+
+    /**
+     * @return An `api_server_access_profile` block as defined below.
+     * 
+     */
+    public Optional<Output<KubernetesClusterApiServerAccessProfileArgs>> apiServerAccessProfile() {
+        return Optional.ofNullable(this.apiServerAccessProfile);
+    }
+
+    /**
+     * @deprecated
+     * This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
+     * 
+     */
+    @Deprecated /* This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider */
     @Import(name="apiServerAuthorizedIpRanges")
     private @Nullable Output<List<String>> apiServerAuthorizedIpRanges;
 
     /**
-     * @return Set of authorized IP ranges to allow access to API server, e.g. [&#34;198.51.100.0/24&#34;].
+     * @deprecated
+     * This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
      * 
      */
+    @Deprecated /* This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider */
     public Optional<Output<List<String>>> apiServerAuthorizedIpRanges() {
         return Optional.ofNullable(this.apiServerAuthorizedIpRanges);
     }
@@ -767,6 +787,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
 
     private KubernetesClusterArgs(KubernetesClusterArgs $) {
         this.aciConnectorLinux = $.aciConnectorLinux;
+        this.apiServerAccessProfile = $.apiServerAccessProfile;
         this.apiServerAuthorizedIpRanges = $.apiServerAuthorizedIpRanges;
         this.autoScalerProfile = $.autoScalerProfile;
         this.automaticChannelUpgrade = $.automaticChannelUpgrade;
@@ -856,32 +877,59 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param apiServerAuthorizedIpRanges Set of authorized IP ranges to allow access to API server, e.g. [&#34;198.51.100.0/24&#34;].
+         * @param apiServerAccessProfile An `api_server_access_profile` block as defined below.
          * 
          * @return builder
          * 
          */
+        public Builder apiServerAccessProfile(@Nullable Output<KubernetesClusterApiServerAccessProfileArgs> apiServerAccessProfile) {
+            $.apiServerAccessProfile = apiServerAccessProfile;
+            return this;
+        }
+
+        /**
+         * @param apiServerAccessProfile An `api_server_access_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiServerAccessProfile(KubernetesClusterApiServerAccessProfileArgs apiServerAccessProfile) {
+            return apiServerAccessProfile(Output.of(apiServerAccessProfile));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
+         * 
+         */
+        @Deprecated /* This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider */
         public Builder apiServerAuthorizedIpRanges(@Nullable Output<List<String>> apiServerAuthorizedIpRanges) {
             $.apiServerAuthorizedIpRanges = apiServerAuthorizedIpRanges;
             return this;
         }
 
         /**
-         * @param apiServerAuthorizedIpRanges Set of authorized IP ranges to allow access to API server, e.g. [&#34;198.51.100.0/24&#34;].
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
+         * 
          */
+        @Deprecated /* This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider */
         public Builder apiServerAuthorizedIpRanges(List<String> apiServerAuthorizedIpRanges) {
             return apiServerAuthorizedIpRanges(Output.of(apiServerAuthorizedIpRanges));
         }
 
         /**
-         * @param apiServerAuthorizedIpRanges Set of authorized IP ranges to allow access to API server, e.g. [&#34;198.51.100.0/24&#34;].
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
+         * 
          */
+        @Deprecated /* This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider */
         public Builder apiServerAuthorizedIpRanges(String... apiServerAuthorizedIpRanges) {
             return apiServerAuthorizedIpRanges(List.of(apiServerAuthorizedIpRanges));
         }

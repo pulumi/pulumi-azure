@@ -6,6 +6,7 @@ package com.pulumi.azure.media;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.media.ServiceAccountArgs;
 import com.pulumi.azure.media.inputs.ServiceAccountState;
+import com.pulumi.azure.media.outputs.ServiceAccountEncryption;
 import com.pulumi.azure.media.outputs.ServiceAccountIdentity;
 import com.pulumi.azure.media.outputs.ServiceAccountKeyDeliveryAccessControl;
 import com.pulumi.azure.media.outputs.ServiceAccountStorageAccount;
@@ -14,6 +15,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -86,6 +88,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:media/serviceAccount:ServiceAccount")
 public class ServiceAccount extends com.pulumi.resources.CustomResource {
     /**
+     * An `encryption` block as defined below.
+     * 
+     */
+    @Export(name="encryption", type=ServiceAccountEncryption.class, parameters={})
+    private Output<ServiceAccountEncryption> encryption;
+
+    /**
+     * @return An `encryption` block as defined below.
+     * 
+     */
+    public Output<ServiceAccountEncryption> encryption() {
+        return this.encryption;
+    }
+    /**
      * An `identity` block as defined below.
      * 
      */
@@ -142,6 +158,20 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Whether public network access is allowed for this server. Defaults to `true`.
+     * 
+     */
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Whether public network access is allowed for this server. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
+        return Codegen.optional(this.publicNetworkAccessEnabled);
+    }
+    /**
      * The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
      * 
      */
@@ -170,14 +200,14 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
         return this.storageAccounts;
     }
     /**
-     * Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+     * Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
      * 
      */
     @Export(name="storageAuthenticationType", type=String.class, parameters={})
     private Output<String> storageAuthenticationType;
 
     /**
-     * @return Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+     * @return Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
      * 
      */
     public Output<String> storageAuthenticationType() {

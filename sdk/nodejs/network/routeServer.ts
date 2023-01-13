@@ -100,11 +100,17 @@ export class RouteServer extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     public /*out*/ readonly routingState!: pulumi.Output<string>;
+    /**
+     * The SKU of the Route Server. The only possible value is `Standard`.
+     */
     public readonly sku!: pulumi.Output<string>;
     /**
      * The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
      */
     public readonly subnetId!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly virtualRouterAsn!: pulumi.Output<number>;
     public /*out*/ readonly virtualRouterIps!: pulumi.Output<string[]>;
@@ -189,11 +195,17 @@ export interface RouteServerState {
      */
     resourceGroupName?: pulumi.Input<string>;
     routingState?: pulumi.Input<string>;
+    /**
+     * The SKU of the Route Server. The only possible value is `Standard`.
+     */
     sku?: pulumi.Input<string>;
     /**
      * The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
      */
     subnetId?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualRouterAsn?: pulumi.Input<number>;
     virtualRouterIps?: pulumi.Input<pulumi.Input<string>[]>;
@@ -223,10 +235,16 @@ export interface RouteServerArgs {
      * Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The SKU of the Route Server. The only possible value is `Standard`.
+     */
     sku: pulumi.Input<string>;
     /**
      * The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
      */
     subnetId: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

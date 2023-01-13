@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
+ *  $ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
  * ```
  */
 export class KubernetesCluster extends pulumi.CustomResource {
@@ -79,9 +79,13 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly aciConnectorLinux!: pulumi.Output<outputs.containerservice.KubernetesClusterAciConnectorLinux | undefined>;
     /**
-     * Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+     * An `apiServerAccessProfile` block as defined below.
      */
-    public readonly apiServerAuthorizedIpRanges!: pulumi.Output<string[] | undefined>;
+    public readonly apiServerAccessProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterApiServerAccessProfile>;
+    /**
+     * @deprecated This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
+     */
+    public readonly apiServerAuthorizedIpRanges!: pulumi.Output<string[]>;
     /**
      * A `autoScalerProfile` block as defined below.
      */
@@ -317,6 +321,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as KubernetesClusterState | undefined;
             resourceInputs["aciConnectorLinux"] = state ? state.aciConnectorLinux : undefined;
+            resourceInputs["apiServerAccessProfile"] = state ? state.apiServerAccessProfile : undefined;
             resourceInputs["apiServerAuthorizedIpRanges"] = state ? state.apiServerAuthorizedIpRanges : undefined;
             resourceInputs["autoScalerProfile"] = state ? state.autoScalerProfile : undefined;
             resourceInputs["automaticChannelUpgrade"] = state ? state.automaticChannelUpgrade : undefined;
@@ -382,6 +387,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["aciConnectorLinux"] = args ? args.aciConnectorLinux : undefined;
+            resourceInputs["apiServerAccessProfile"] = args ? args.apiServerAccessProfile : undefined;
             resourceInputs["apiServerAuthorizedIpRanges"] = args ? args.apiServerAuthorizedIpRanges : undefined;
             resourceInputs["autoScalerProfile"] = args ? args.autoScalerProfile : undefined;
             resourceInputs["automaticChannelUpgrade"] = args ? args.automaticChannelUpgrade : undefined;
@@ -455,7 +461,11 @@ export interface KubernetesClusterState {
      */
     aciConnectorLinux?: pulumi.Input<inputs.containerservice.KubernetesClusterAciConnectorLinux>;
     /**
-     * Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+     * An `apiServerAccessProfile` block as defined below.
+     */
+    apiServerAccessProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterApiServerAccessProfile>;
+    /**
+     * @deprecated This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
      */
     apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -689,7 +699,11 @@ export interface KubernetesClusterArgs {
      */
     aciConnectorLinux?: pulumi.Input<inputs.containerservice.KubernetesClusterAciConnectorLinux>;
     /**
-     * Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+     * An `apiServerAccessProfile` block as defined below.
+     */
+    apiServerAccessProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterApiServerAccessProfile>;
+    /**
+     * @deprecated This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider
      */
     apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**

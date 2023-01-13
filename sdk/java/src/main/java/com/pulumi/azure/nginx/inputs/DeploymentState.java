@@ -204,14 +204,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+     * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+     * @return Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -553,7 +553,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+         * @param sku Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
          * 
          * @return builder
          * 
@@ -564,7 +564,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+         * @param sku Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
          * 
          * @return builder
          * 

@@ -146,6 +146,8 @@ type Account struct {
 	AccountTier pulumi.StringOutput `pulumi:"accountTier"`
 	// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 	AllowNestedItemsToBePublic pulumi.BoolPtrOutput `pulumi:"allowNestedItemsToBePublic"`
+	// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+	AllowedCopyScope pulumi.StringPtrOutput `pulumi:"allowedCopyScope"`
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrOutput `pulumi:"azureFilesAuthentication"`
 	// A `blobProperties` block as defined below.
@@ -330,6 +332,8 @@ type accountState struct {
 	AccountTier *string `pulumi:"accountTier"`
 	// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 	AllowNestedItemsToBePublic *bool `pulumi:"allowNestedItemsToBePublic"`
+	// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+	AllowedCopyScope *string `pulumi:"allowedCopyScope"`
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication *AccountAzureFilesAuthentication `pulumi:"azureFilesAuthentication"`
 	// A `blobProperties` block as defined below.
@@ -468,6 +472,8 @@ type AccountState struct {
 	AccountTier pulumi.StringPtrInput
 	// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 	AllowNestedItemsToBePublic pulumi.BoolPtrInput
+	// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+	AllowedCopyScope pulumi.StringPtrInput
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrInput
 	// A `blobProperties` block as defined below.
@@ -610,6 +616,8 @@ type accountArgs struct {
 	AccountTier string `pulumi:"accountTier"`
 	// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 	AllowNestedItemsToBePublic *bool `pulumi:"allowNestedItemsToBePublic"`
+	// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+	AllowedCopyScope *string `pulumi:"allowedCopyScope"`
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication *AccountAzureFilesAuthentication `pulumi:"azureFilesAuthentication"`
 	// A `blobProperties` block as defined below.
@@ -685,6 +693,8 @@ type AccountArgs struct {
 	AccountTier pulumi.StringInput
 	// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 	AllowNestedItemsToBePublic pulumi.BoolPtrInput
+	// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+	AllowedCopyScope pulumi.StringPtrInput
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrInput
 	// A `blobProperties` block as defined below.
@@ -858,6 +868,11 @@ func (o AccountOutput) AccountTier() pulumi.StringOutput {
 // Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 func (o AccountOutput) AllowNestedItemsToBePublic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.AllowNestedItemsToBePublic }).(pulumi.BoolPtrOutput)
+}
+
+// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+func (o AccountOutput) AllowedCopyScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.AllowedCopyScope }).(pulumi.StringPtrOutput)
 }
 
 // A `azureFilesAuthentication` block as defined below.

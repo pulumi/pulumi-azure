@@ -95,7 +95,8 @@ type Server struct {
 	// The full name of the Analysis Services Server.
 	ServerFullName pulumi.StringOutput `pulumi:"serverFullName"`
 	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
-	Sku  pulumi.StringOutput    `pulumi:"sku"`
+	Sku pulumi.StringOutput `pulumi:"sku"`
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -160,7 +161,8 @@ type serverState struct {
 	// The full name of the Analysis Services Server.
 	ServerFullName *string `pulumi:"serverFullName"`
 	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
-	Sku  *string           `pulumi:"sku"`
+	Sku *string `pulumi:"sku"`
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -184,7 +186,8 @@ type ServerState struct {
 	// The full name of the Analysis Services Server.
 	ServerFullName pulumi.StringPtrInput
 	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
-	Sku  pulumi.StringPtrInput
+	Sku pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
 
@@ -210,7 +213,8 @@ type serverArgs struct {
 	// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
-	Sku  string            `pulumi:"sku"`
+	Sku string `pulumi:"sku"`
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -233,7 +237,8 @@ type ServerArgs struct {
 	// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
-	Sku  pulumi.StringInput
+	Sku pulumi.StringInput
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
 
@@ -374,6 +379,7 @@ func (o ServerOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }
 
+// A mapping of tags to assign to the resource.
 func (o ServerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

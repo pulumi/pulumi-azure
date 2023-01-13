@@ -112,6 +112,11 @@ class CachePatchSchedule(dict):
                  day_of_week: str,
                  maintenance_window: Optional[str] = None,
                  start_hour_utc: Optional[int] = None):
+        """
+        :param str day_of_week: the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+        :param str maintenance_window: The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
+        :param int start_hour_utc: the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+        """
         pulumi.set(__self__, "day_of_week", day_of_week)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
@@ -121,16 +126,25 @@ class CachePatchSchedule(dict):
     @property
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> str:
+        """
+        the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+        """
         return pulumi.get(self, "day_of_week")
 
     @property
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> Optional[str]:
+        """
+        The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
+        """
         return pulumi.get(self, "maintenance_window")
 
     @property
     @pulumi.getter(name="startHourUtc")
     def start_hour_utc(self) -> Optional[int]:
+        """
+        the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+        """
         return pulumi.get(self, "start_hour_utc")
 
 

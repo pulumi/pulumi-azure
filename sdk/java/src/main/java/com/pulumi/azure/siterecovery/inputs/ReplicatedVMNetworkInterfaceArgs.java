@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ReplicatedVMNetworkInterfaceArgs Empty = new ReplicatedVMNetworkInterfaceArgs();
+
+    /**
+     * If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
+     * 
+     */
+    @Import(name="isPrimary")
+    private @Nullable Output<Boolean> isPrimary;
+
+    /**
+     * @return If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> isPrimary() {
+        return Optional.ofNullable(this.isPrimary);
+    }
 
     /**
      * Id of the public IP object to use when a failover is done.
@@ -78,6 +94,7 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
     private ReplicatedVMNetworkInterfaceArgs() {}
 
     private ReplicatedVMNetworkInterfaceArgs(ReplicatedVMNetworkInterfaceArgs $) {
+        this.isPrimary = $.isPrimary;
         this.recoveryPublicIpAddressId = $.recoveryPublicIpAddressId;
         this.sourceNetworkInterfaceId = $.sourceNetworkInterfaceId;
         this.targetStaticIp = $.targetStaticIp;
@@ -100,6 +117,27 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
 
         public Builder(ReplicatedVMNetworkInterfaceArgs defaults) {
             $ = new ReplicatedVMNetworkInterfaceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param isPrimary If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isPrimary(@Nullable Output<Boolean> isPrimary) {
+            $.isPrimary = isPrimary;
+            return this;
+        }
+
+        /**
+         * @param isPrimary If this is the primary network interface used for failover. If there is only one `network_interface` block, this is automatically set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isPrimary(Boolean isPrimary) {
+            return isPrimary(Output.of(isPrimary));
         }
 
         /**

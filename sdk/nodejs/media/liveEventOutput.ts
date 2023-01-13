@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  * Live Outputs can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:media/liveEventOutput:LiveEventOutput example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/account1/liveevents/event1/liveoutputs/output1
+ *  $ pulumi import azure:media/liveEventOutput:LiveEventOutput example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/liveEvents/event1/liveOutputs/output1
  * ```
  */
 export class LiveEventOutput extends pulumi.CustomResource {
@@ -122,6 +122,9 @@ export class LiveEventOutput extends pulumi.CustomResource {
      * The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+     */
     public readonly outputSnapTimeInSeconds!: pulumi.Output<number | undefined>;
 
     /**
@@ -202,6 +205,9 @@ export interface LiveEventOutputState {
      * The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+     */
     outputSnapTimeInSeconds?: pulumi.Input<number>;
 }
 
@@ -237,5 +243,8 @@ export interface LiveEventOutputArgs {
      * The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+     */
     outputSnapTimeInSeconds?: pulumi.Input<number>;
 }

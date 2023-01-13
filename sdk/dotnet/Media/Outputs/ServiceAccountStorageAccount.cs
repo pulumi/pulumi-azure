@@ -21,15 +21,22 @@ namespace Pulumi.Azure.Media.Outputs
         /// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
         /// </summary>
         public readonly bool? IsPrimary;
+        /// <summary>
+        /// A `managed_identity` block as defined below.
+        /// </summary>
+        public readonly Outputs.ServiceAccountStorageAccountManagedIdentity? ManagedIdentity;
 
         [OutputConstructor]
         private ServiceAccountStorageAccount(
             string id,
 
-            bool? isPrimary)
+            bool? isPrimary,
+
+            Outputs.ServiceAccountStorageAccountManagedIdentity? managedIdentity)
         {
             Id = id;
             IsPrimary = isPrimary;
+            ManagedIdentity = managedIdentity;
         }
     }
 }

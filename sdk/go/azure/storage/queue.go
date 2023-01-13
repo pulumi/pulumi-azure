@@ -70,7 +70,8 @@ type Queue struct {
 	// A mapping of MetaData which should be assigned to this Storage Queue.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name              pulumi.StringOutput `pulumi:"name"`
+	ResourceManagerId pulumi.StringOutput `pulumi:"resourceManagerId"`
 	// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 }
@@ -110,7 +111,8 @@ type queueState struct {
 	// A mapping of MetaData which should be assigned to this Storage Queue.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
+	Name              *string `pulumi:"name"`
+	ResourceManagerId *string `pulumi:"resourceManagerId"`
 	// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
 }
@@ -119,7 +121,8 @@ type QueueState struct {
 	// A mapping of MetaData which should be assigned to this Storage Queue.
 	Metadata pulumi.StringMapInput
 	// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	ResourceManagerId pulumi.StringPtrInput
 	// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput
 }
@@ -242,6 +245,10 @@ func (o QueueOutput) Metadata() pulumi.StringMapOutput {
 // The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 func (o QueueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o QueueOutput) ResourceManagerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.ResourceManagerId }).(pulumi.StringOutput)
 }
 
 // Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.

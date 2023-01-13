@@ -19,6 +19,10 @@ public final class DiagnosticBackendRequest {
      * 
      */
     private @Nullable Integer bodyBytes;
+    /**
+     * @return A `data_masking` block as defined below.
+     * 
+     */
     private @Nullable DiagnosticBackendRequestDataMasking dataMasking;
     /**
      * @return Specifies a list of headers to log.
@@ -34,6 +38,10 @@ public final class DiagnosticBackendRequest {
     public Optional<Integer> bodyBytes() {
         return Optional.ofNullable(this.bodyBytes);
     }
+    /**
+     * @return A `data_masking` block as defined below.
+     * 
+     */
     public Optional<DiagnosticBackendRequestDataMasking> dataMasking() {
         return Optional.ofNullable(this.dataMasking);
     }

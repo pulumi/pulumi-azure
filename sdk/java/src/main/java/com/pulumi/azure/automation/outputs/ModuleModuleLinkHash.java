@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class ModuleModuleLinkHash {
+    /**
+     * @return Specifies the algorithm used for the hash content.
+     * 
+     */
     private String algorithm;
+    /**
+     * @return The hash value of the content.
+     * 
+     */
     private String value;
 
     private ModuleModuleLinkHash() {}
+    /**
+     * @return Specifies the algorithm used for the hash content.
+     * 
+     */
     public String algorithm() {
         return this.algorithm;
     }
+    /**
+     * @return The hash value of the content.
+     * 
+     */
     public String value() {
         return this.value;
     }

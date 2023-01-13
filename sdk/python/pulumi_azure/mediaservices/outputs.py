@@ -8,12 +8,142 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'AccountEncryption',
+    'AccountEncryptionManagedIdentity',
     'AccountIdentity',
     'AccountKeyDeliveryAccessControl',
     'AccountStorageAccount',
+    'AccountStorageAccountManagedIdentity',
 ]
+
+@pulumi.output_type
+class AccountEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentKeyIdentifier":
+            suggest = "current_key_identifier"
+        elif key == "keyVaultKeyIdentifier":
+            suggest = "key_vault_key_identifier"
+        elif key == "managedIdentity":
+            suggest = "managed_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 current_key_identifier: Optional[str] = None,
+                 key_vault_key_identifier: Optional[str] = None,
+                 managed_identity: Optional['outputs.AccountEncryptionManagedIdentity'] = None,
+                 type: Optional[str] = None):
+        """
+        :param str current_key_identifier: The current key used to encrypt the Media Services Account, including the key version.
+        :param str key_vault_key_identifier: Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+        :param 'AccountEncryptionManagedIdentityArgs' managed_identity: A `managed_identity` block as defined below.
+        :param str type: Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+        """
+        if current_key_identifier is not None:
+            pulumi.set(__self__, "current_key_identifier", current_key_identifier)
+        if key_vault_key_identifier is not None:
+            pulumi.set(__self__, "key_vault_key_identifier", key_vault_key_identifier)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="currentKeyIdentifier")
+    def current_key_identifier(self) -> Optional[str]:
+        """
+        The current key used to encrypt the Media Services Account, including the key version.
+        """
+        return pulumi.get(self, "current_key_identifier")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyIdentifier")
+    def key_vault_key_identifier(self) -> Optional[str]:
+        """
+        Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+        """
+        return pulumi.get(self, "key_vault_key_identifier")
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional['outputs.AccountEncryptionManagedIdentity']:
+        """
+        A `managed_identity` block as defined below.
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AccountEncryptionManagedIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useSystemAssignedIdentity":
+            suggest = "use_system_assigned_identity"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountEncryptionManagedIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountEncryptionManagedIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountEncryptionManagedIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 use_system_assigned_identity: Optional[bool] = None,
+                 user_assigned_identity_id: Optional[str] = None):
+        """
+        :param bool use_system_assigned_identity: Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+        :param str user_assigned_identity_id: The ID of the User Assigned Identity. This value can only be set when `use_system_assigned_identity` is `false`
+        """
+        if use_system_assigned_identity is not None:
+            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="useSystemAssignedIdentity")
+    def use_system_assigned_identity(self) -> Optional[bool]:
+        """
+        Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+        """
+        return pulumi.get(self, "use_system_assigned_identity")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The ID of the User Assigned Identity. This value can only be set when `use_system_assigned_identity` is `false`
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
 
 @pulumi.output_type
 class AccountIdentity(dict):
@@ -147,6 +277,8 @@ class AccountStorageAccount(dict):
         suggest = None
         if key == "isPrimary":
             suggest = "is_primary"
+        elif key == "managedIdentity":
+            suggest = "managed_identity"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AccountStorageAccount. Access the value via the '{suggest}' property getter instead.")
@@ -161,14 +293,18 @@ class AccountStorageAccount(dict):
 
     def __init__(__self__, *,
                  id: str,
-                 is_primary: Optional[bool] = None):
+                 is_primary: Optional[bool] = None,
+                 managed_identity: Optional['outputs.AccountStorageAccountManagedIdentity'] = None):
         """
         :param str id: Specifies the ID of the Storage Account that will be associated with the Media Services instance.
         :param bool is_primary: Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+        :param 'AccountStorageAccountManagedIdentityArgs' managed_identity: A `managed_identity` block as defined below.
         """
         pulumi.set(__self__, "id", id)
         if is_primary is not None:
             pulumi.set(__self__, "is_primary", is_primary)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
 
     @property
     @pulumi.getter
@@ -185,5 +321,63 @@ class AccountStorageAccount(dict):
         Specifies whether the storage account should be the primary account or not. Defaults to `false`.
         """
         return pulumi.get(self, "is_primary")
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional['outputs.AccountStorageAccountManagedIdentity']:
+        """
+        A `managed_identity` block as defined below.
+        """
+        return pulumi.get(self, "managed_identity")
+
+
+@pulumi.output_type
+class AccountStorageAccountManagedIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useSystemAssignedIdentity":
+            suggest = "use_system_assigned_identity"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountStorageAccountManagedIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountStorageAccountManagedIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountStorageAccountManagedIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 use_system_assigned_identity: Optional[bool] = None,
+                 user_assigned_identity_id: Optional[str] = None):
+        """
+        :param bool use_system_assigned_identity: Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+        :param str user_assigned_identity_id: The ID of the User Assigned Identity. This value can only be set when `use_system_assigned_identity` is `false`
+        """
+        if use_system_assigned_identity is not None:
+            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="useSystemAssignedIdentity")
+    def use_system_assigned_identity(self) -> Optional[bool]:
+        """
+        Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+        """
+        return pulumi.get(self, "use_system_assigned_identity")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The ID of the User Assigned Identity. This value can only be set when `use_system_assigned_identity` is `false`
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
 

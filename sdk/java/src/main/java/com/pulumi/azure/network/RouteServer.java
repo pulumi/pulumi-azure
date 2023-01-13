@@ -175,9 +175,17 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
     public Output<String> routingState() {
         return this.routingState;
     }
+    /**
+     * The SKU of the Route Server. The only possible value is `Standard`.
+     * 
+     */
     @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
+    /**
+     * @return The SKU of the Route Server. The only possible value is `Standard`.
+     * 
+     */
     public Output<String> sku() {
         return this.sku;
     }
@@ -195,9 +203,17 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
     public Output<String> subnetId() {
         return this.subnetId;
     }
+    /**
+     * A mapping of tags to assign to the resource.
+     * 
+     */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

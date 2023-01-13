@@ -62,9 +62,17 @@ public final class RunBookDraftParameterArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.mandatory);
     }
 
+    /**
+     * Specifies the position of the parameter.
+     * 
+     */
     @Import(name="position")
     private @Nullable Output<Integer> position;
 
+    /**
+     * @return Specifies the position of the parameter.
+     * 
+     */
     public Optional<Output<Integer>> position() {
         return Optional.ofNullable(this.position);
     }
@@ -175,11 +183,23 @@ public final class RunBookDraftParameterArgs extends com.pulumi.resources.Resour
             return mandatory(Output.of(mandatory));
         }
 
+        /**
+         * @param position Specifies the position of the parameter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder position(@Nullable Output<Integer> position) {
             $.position = position;
             return this;
         }
 
+        /**
+         * @param position Specifies the position of the parameter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder position(Integer position) {
             return position(Output.of(position));
         }

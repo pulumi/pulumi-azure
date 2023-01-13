@@ -12,12 +12,21 @@ namespace Pulumi.Azure.Redis.Inputs
 
     public sealed class CachePatchScheduleGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+        /// </summary>
         [Input("dayOfWeek", required: true)]
         public Input<string> DayOfWeek { get; set; } = null!;
 
+        /// <summary>
+        /// The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
+        /// </summary>
         [Input("maintenanceWindow")]
         public Input<string>? MaintenanceWindow { get; set; }
 
+        /// <summary>
+        /// the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+        /// </summary>
         [Input("startHourUtc")]
         public Input<int>? StartHourUtc { get; set; }
 

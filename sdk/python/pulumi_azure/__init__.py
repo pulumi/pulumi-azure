@@ -68,6 +68,8 @@ if typing.TYPE_CHECKING:
     core = __core
     import pulumi_azure.cosmosdb as __cosmosdb
     cosmosdb = __cosmosdb
+    import pulumi_azure.costmanagement as __costmanagement
+    costmanagement = __costmanagement
     import pulumi_azure.dashboard as __dashboard
     dashboard = __dashboard
     import pulumi_azure.databasemigration as __databasemigration
@@ -262,6 +264,7 @@ else:
     containerservice = _utilities.lazy_import('pulumi_azure.containerservice')
     core = _utilities.lazy_import('pulumi_azure.core')
     cosmosdb = _utilities.lazy_import('pulumi_azure.cosmosdb')
+    costmanagement = _utilities.lazy_import('pulumi_azure.costmanagement')
     dashboard = _utilities.lazy_import('pulumi_azure.dashboard')
     databasemigration = _utilities.lazy_import('pulumi_azure.databasemigration')
     databoxedge = _utilities.lazy_import('pulumi_azure.databoxedge')
@@ -786,6 +789,14 @@ _utilities.register(
   "fqn": "pulumi_azure.appinsights",
   "classes": {
    "azure:appinsights/smartDetectionRule:SmartDetectionRule": "SmartDetectionRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appinsights/standardWebTest",
+  "fqn": "pulumi_azure.appinsights",
+  "classes": {
+   "azure:appinsights/standardWebTest:StandardWebTest": "StandardWebTest"
   }
  },
  {
@@ -2726,6 +2737,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "costmanagement/anomalyAlert",
+  "fqn": "pulumi_azure.costmanagement",
+  "classes": {
+   "azure:costmanagement/anomalyAlert:AnomalyAlert": "AnomalyAlert"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "dashboard/dashboard",
   "fqn": "pulumi_azure.dashboard",
   "classes": {
@@ -4358,10 +4377,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "lab/lab",
+  "fqn": "pulumi_azure.lab",
+  "classes": {
+   "azure:lab/lab:Lab": "Lab"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "lab/servicePlan",
   "fqn": "pulumi_azure.lab",
   "classes": {
    "azure:lab/servicePlan:ServicePlan": "ServicePlan"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "lab/user",
+  "fqn": "pulumi_azure.lab",
+  "classes": {
+   "azure:lab/user:User": "User"
   }
  },
  {
@@ -4890,6 +4925,14 @@ _utilities.register(
   "fqn": "pulumi_azure.marketplace",
   "classes": {
    "azure:marketplace/agreement:Agreement": "Agreement"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "media/accountFilter",
+  "fqn": "pulumi_azure.media",
+  "classes": {
+   "azure:media/accountFilter:AccountFilter": "AccountFilter"
   }
  },
  {
@@ -5766,10 +5809,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "network/networkManagerManagementGroupConnection",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection": "NetworkManagerManagementGroupConnection"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "network/networkManagerNetworkGroup",
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup": "NetworkManagerNetworkGroup"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/networkManagerSubscriptionConnection",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection": "NetworkManagerSubscriptionConnection"
   }
  },
  {
@@ -6478,6 +6537,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "privatelink/applicationSecurityGroupAssociation",
+  "fqn": "pulumi_azure.privatelink",
+  "classes": {
+   "azure:privatelink/applicationSecurityGroupAssociation:ApplicationSecurityGroupAssociation": "ApplicationSecurityGroupAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "privatelink/endpoint",
   "fqn": "pulumi_azure.privatelink",
   "classes": {
@@ -6886,6 +6953,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "sentinel/dataConnectorThreatIntelligenceTaxii",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/dataConnectorThreatIntelligenceTaxii:DataConnectorThreatIntelligenceTaxii": "DataConnectorThreatIntelligenceTaxii"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "sentinel/watchlist",
   "fqn": "pulumi_azure.sentinel",
   "classes": {
@@ -7234,6 +7309,14 @@ _utilities.register(
   "fqn": "pulumi_azure.storage",
   "classes": {
    "azure:storage/encryptionScope:EncryptionScope": "EncryptionScope"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "storage/localUser",
+  "fqn": "pulumi_azure.storage",
+  "classes": {
+   "azure:storage/localUser:LocalUser": "LocalUser"
   }
  },
  {

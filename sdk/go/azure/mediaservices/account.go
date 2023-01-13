@@ -77,6 +77,8 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
+	// An `encryption` block as defined below.
+	Encryption AccountEncryptionOutput `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
 	// A `keyDeliveryAccessControl` block as defined below.
@@ -85,11 +87,13 @@ type Account struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts AccountStorageAccountArrayOutput `pulumi:"storageAccounts"`
-	// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+	// Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
 	StorageAuthenticationType pulumi.StringOutput `pulumi:"storageAuthenticationType"`
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -130,6 +134,8 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
+	// An `encryption` block as defined below.
+	Encryption *AccountEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
 	// A `keyDeliveryAccessControl` block as defined below.
@@ -138,17 +144,21 @@ type accountState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []AccountStorageAccount `pulumi:"storageAccounts"`
-	// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+	// Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
 	StorageAuthenticationType *string `pulumi:"storageAuthenticationType"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type AccountState struct {
+	// An `encryption` block as defined below.
+	Encryption AccountEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
 	// A `keyDeliveryAccessControl` block as defined below.
@@ -157,11 +167,13 @@ type AccountState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts AccountStorageAccountArrayInput
-	// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+	// Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
 	StorageAuthenticationType pulumi.StringPtrInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
@@ -172,6 +184,8 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// An `encryption` block as defined below.
+	Encryption *AccountEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
 	// A `keyDeliveryAccessControl` block as defined below.
@@ -180,11 +194,13 @@ type accountArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []AccountStorageAccount `pulumi:"storageAccounts"`
-	// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+	// Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
 	StorageAuthenticationType *string `pulumi:"storageAuthenticationType"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -192,6 +208,8 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// An `encryption` block as defined below.
+	Encryption AccountEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
 	// A `keyDeliveryAccessControl` block as defined below.
@@ -200,11 +218,13 @@ type AccountArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether public network access is allowed for this server. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts AccountStorageAccountArrayInput
-	// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+	// Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
 	StorageAuthenticationType pulumi.StringPtrInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
@@ -297,6 +317,11 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
+// An `encryption` block as defined below.
+func (o AccountOutput) Encryption() AccountEncryptionOutput {
+	return o.ApplyT(func(v *Account) AccountEncryptionOutput { return v.Encryption }).(AccountEncryptionOutput)
+}
+
 // An `identity` block as defined below.
 func (o AccountOutput) Identity() AccountIdentityPtrOutput {
 	return o.ApplyT(func(v *Account) AccountIdentityPtrOutput { return v.Identity }).(AccountIdentityPtrOutput)
@@ -317,6 +342,11 @@ func (o AccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Whether public network access is allowed for this server. Defaults to `true`.
+func (o AccountOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
 func (o AccountOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
@@ -327,7 +357,7 @@ func (o AccountOutput) StorageAccounts() AccountStorageAccountArrayOutput {
 	return o.ApplyT(func(v *Account) AccountStorageAccountArrayOutput { return v.StorageAccounts }).(AccountStorageAccountArrayOutput)
 }
 
-// Specifies the storage authentication type. Possible value is  `ManagedIdentity` or `System`.
+// Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
 func (o AccountOutput) StorageAuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.StorageAuthenticationType }).(pulumi.StringOutput)
 }

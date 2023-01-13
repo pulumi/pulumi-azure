@@ -17,6 +17,7 @@ __all__ = ['DiagnosticSettingArgs', 'DiagnosticSetting']
 class DiagnosticSettingArgs:
     def __init__(__self__, *,
                  target_resource_id: pulumi.Input[str],
+                 enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]]] = None,
                  eventhub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  log_analytics_destination_type: Optional[pulumi.Input[str]] = None,
@@ -29,6 +30,7 @@ class DiagnosticSettingArgs:
         """
         The set of arguments for constructing a DiagnosticSetting resource.
         :param pulumi.Input[str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]] enabled_logs: One or more `enabled_log` blocks as defined below.
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_destination_type: When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
@@ -40,6 +42,8 @@ class DiagnosticSettingArgs:
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "target_resource_id", target_resource_id)
+        if enabled_logs is not None:
+            pulumi.set(__self__, "enabled_logs", enabled_logs)
         if eventhub_authorization_rule_id is not None:
             pulumi.set(__self__, "eventhub_authorization_rule_id", eventhub_authorization_rule_id)
         if eventhub_name is not None:
@@ -48,6 +52,9 @@ class DiagnosticSettingArgs:
             pulumi.set(__self__, "log_analytics_destination_type", log_analytics_destination_type)
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if logs is not None:
+            warnings.warn("""`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""logs is deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""")
         if logs is not None:
             pulumi.set(__self__, "logs", logs)
         if metrics is not None:
@@ -70,6 +77,18 @@ class DiagnosticSettingArgs:
     @target_resource_id.setter
     def target_resource_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_resource_id", value)
+
+    @property
+    @pulumi.getter(name="enabledLogs")
+    def enabled_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]]]:
+        """
+        One or more `enabled_log` blocks as defined below.
+        """
+        return pulumi.get(self, "enabled_logs")
+
+    @enabled_logs.setter
+    def enabled_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]]]):
+        pulumi.set(self, "enabled_logs", value)
 
     @property
     @pulumi.getter(name="eventhubAuthorizationRuleId")
@@ -183,6 +202,7 @@ class DiagnosticSettingArgs:
 @pulumi.input_type
 class _DiagnosticSettingState:
     def __init__(__self__, *,
+                 enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]]] = None,
                  eventhub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  log_analytics_destination_type: Optional[pulumi.Input[str]] = None,
@@ -195,6 +215,7 @@ class _DiagnosticSettingState:
                  target_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DiagnosticSetting resources.
+        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]] enabled_logs: One or more `enabled_log` blocks as defined below.
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_destination_type: When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
@@ -206,6 +227,8 @@ class _DiagnosticSettingState:
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
         """
+        if enabled_logs is not None:
+            pulumi.set(__self__, "enabled_logs", enabled_logs)
         if eventhub_authorization_rule_id is not None:
             pulumi.set(__self__, "eventhub_authorization_rule_id", eventhub_authorization_rule_id)
         if eventhub_name is not None:
@@ -214,6 +237,9 @@ class _DiagnosticSettingState:
             pulumi.set(__self__, "log_analytics_destination_type", log_analytics_destination_type)
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if logs is not None:
+            warnings.warn("""`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""logs is deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""")
         if logs is not None:
             pulumi.set(__self__, "logs", logs)
         if metrics is not None:
@@ -226,6 +252,18 @@ class _DiagnosticSettingState:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
         if target_resource_id is not None:
             pulumi.set(__self__, "target_resource_id", target_resource_id)
+
+    @property
+    @pulumi.getter(name="enabledLogs")
+    def enabled_logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]]]:
+        """
+        One or more `enabled_log` blocks as defined below.
+        """
+        return pulumi.get(self, "enabled_logs")
+
+    @enabled_logs.setter
+    def enabled_logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]]]):
+        pulumi.set(self, "enabled_logs", value)
 
     @property
     @pulumi.getter(name="eventhubAuthorizationRuleId")
@@ -353,6 +391,7 @@ class DiagnosticSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingEnabledLogArgs']]]]] = None,
                  eventhub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  log_analytics_destination_type: Optional[pulumi.Input[str]] = None,
@@ -406,6 +445,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingEnabledLogArgs']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_destination_type: When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
@@ -478,6 +518,7 @@ class DiagnosticSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingEnabledLogArgs']]]]] = None,
                  eventhub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  log_analytics_destination_type: Optional[pulumi.Input[str]] = None,
@@ -497,10 +538,14 @@ class DiagnosticSetting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DiagnosticSettingArgs.__new__(DiagnosticSettingArgs)
 
+            __props__.__dict__["enabled_logs"] = enabled_logs
             __props__.__dict__["eventhub_authorization_rule_id"] = eventhub_authorization_rule_id
             __props__.__dict__["eventhub_name"] = eventhub_name
             __props__.__dict__["log_analytics_destination_type"] = log_analytics_destination_type
             __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+            if logs is not None and not opts.urn:
+                warnings.warn("""`log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+                pulumi.log.warn("""logs is deprecated: `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider.""")
             __props__.__dict__["logs"] = logs
             __props__.__dict__["metrics"] = metrics
             __props__.__dict__["name"] = name
@@ -519,6 +564,7 @@ class DiagnosticSetting(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingEnabledLogArgs']]]]] = None,
             eventhub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
             eventhub_name: Optional[pulumi.Input[str]] = None,
             log_analytics_destination_type: Optional[pulumi.Input[str]] = None,
@@ -536,6 +582,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingEnabledLogArgs']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_destination_type: When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
@@ -551,6 +598,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
         __props__ = _DiagnosticSettingState.__new__(_DiagnosticSettingState)
 
+        __props__.__dict__["enabled_logs"] = enabled_logs
         __props__.__dict__["eventhub_authorization_rule_id"] = eventhub_authorization_rule_id
         __props__.__dict__["eventhub_name"] = eventhub_name
         __props__.__dict__["log_analytics_destination_type"] = log_analytics_destination_type
@@ -562,6 +610,14 @@ class DiagnosticSetting(pulumi.CustomResource):
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["target_resource_id"] = target_resource_id
         return DiagnosticSetting(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="enabledLogs")
+    def enabled_logs(self) -> pulumi.Output[Sequence['outputs.DiagnosticSettingEnabledLog']]:
+        """
+        One or more `enabled_log` blocks as defined below.
+        """
+        return pulumi.get(self, "enabled_logs")
 
     @property
     @pulumi.getter(name="eventhubAuthorizationRuleId")
@@ -597,7 +653,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def logs(self) -> pulumi.Output[Optional[Sequence['outputs.DiagnosticSettingLog']]]:
+    def logs(self) -> pulumi.Output[Sequence['outputs.DiagnosticSettingLog']]:
         """
         One or more `log` blocks as defined below.
         """

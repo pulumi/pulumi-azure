@@ -46,6 +46,13 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="resourceManagerId")
+    private @Nullable Output<String> resourceManagerId;
+
+    public Optional<Output<String>> resourceManagerId() {
+        return Optional.ofNullable(this.resourceManagerId);
+    }
+
     /**
      * Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
      * 
@@ -66,6 +73,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     private QueueState(QueueState $) {
         this.metadata = $.metadata;
         this.name = $.name;
+        this.resourceManagerId = $.resourceManagerId;
         this.storageAccountName = $.storageAccountName;
     }
 
@@ -127,6 +135,15 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder resourceManagerId(@Nullable Output<String> resourceManagerId) {
+            $.resourceManagerId = resourceManagerId;
+            return this;
+        }
+
+        public Builder resourceManagerId(String resourceManagerId) {
+            return resourceManagerId(Output.of(resourceManagerId));
         }
 
         /**

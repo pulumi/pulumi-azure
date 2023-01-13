@@ -32,6 +32,7 @@ __all__ = [
     'GroupInitContainerVolume',
     'GroupInitContainerVolumeGitRepo',
     'KubernetesClusterAciConnectorLinux',
+    'KubernetesClusterApiServerAccessProfile',
     'KubernetesClusterAutoScalerProfile',
     'KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl',
     'KubernetesClusterDefaultNodePool',
@@ -1700,6 +1701,70 @@ class KubernetesClusterAciConnectorLinux(dict):
         The subnet name for the virtual nodes to run.
         """
         return pulumi.get(self, "subnet_name")
+
+
+@pulumi.output_type
+class KubernetesClusterApiServerAccessProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizedIpRanges":
+            suggest = "authorized_ip_ranges"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "vnetIntegrationEnabled":
+            suggest = "vnet_integration_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterApiServerAccessProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterApiServerAccessProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterApiServerAccessProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorized_ip_ranges: Optional[Sequence[str]] = None,
+                 subnet_id: Optional[str] = None,
+                 vnet_integration_enabled: Optional[bool] = None):
+        """
+        :param Sequence[str] authorized_ip_ranges: Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+        :param str subnet_id: The ID of the Subnet where the API server endpoint is delegated to.
+        :param bool vnet_integration_enabled: Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+        """
+        if authorized_ip_ranges is not None:
+            pulumi.set(__self__, "authorized_ip_ranges", authorized_ip_ranges)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if vnet_integration_enabled is not None:
+            pulumi.set(__self__, "vnet_integration_enabled", vnet_integration_enabled)
+
+    @property
+    @pulumi.getter(name="authorizedIpRanges")
+    def authorized_ip_ranges(self) -> Optional[Sequence[str]]:
+        """
+        Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+        """
+        return pulumi.get(self, "authorized_ip_ranges")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The ID of the Subnet where the API server endpoint is delegated to.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="vnetIntegrationEnabled")
+    def vnet_integration_enabled(self) -> Optional[bool]:
+        """
+        Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+        """
+        return pulumi.get(self, "vnet_integration_enabled")
 
 
 @pulumi.output_type

@@ -17,6 +17,7 @@ __all__ = [
     'OrderShipmentHistory',
     'OrderShipmentTracking',
     'OrderStatus',
+    'GetDeviceDevicePropertyResult',
 ]
 
 @pulumi.output_type
@@ -624,5 +625,133 @@ class OrderStatus(dict):
         Time of status update.
         """
         return pulumi.get(self, "last_update")
+
+
+@pulumi.output_type
+class GetDeviceDevicePropertyResult(dict):
+    def __init__(__self__, *,
+                 capacity: int,
+                 configured_role_types: Sequence[str],
+                 culture: str,
+                 hcs_version: str,
+                 model: str,
+                 node_count: int,
+                 serial_number: str,
+                 software_version: str,
+                 status: str,
+                 time_zone: str,
+                 type: str):
+        """
+        :param int capacity: The Data Box Edge/Gateway device local capacity in MB.
+        :param Sequence[str] configured_role_types: Type of compute roles configured.
+        :param str culture: The Data Box Edge/Gateway device culture.
+        :param str hcs_version: The device software version number of the device (e.g. 1.2.18105.6).
+        :param str model: The Data Box Edge/Gateway device model.
+        :param int node_count: The number of nodes in the cluster.
+        :param str serial_number: The Serial Number of Data Box Edge/Gateway device.
+        :param str software_version: The Data Box Edge/Gateway device software version.
+        :param str status: The status of the Data Box Edge/Gateway device.
+        :param str time_zone: The Data Box Edge/Gateway device timezone.
+        :param str type: The type of the Data Box Edge/Gateway device.
+        """
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "configured_role_types", configured_role_types)
+        pulumi.set(__self__, "culture", culture)
+        pulumi.set(__self__, "hcs_version", hcs_version)
+        pulumi.set(__self__, "model", model)
+        pulumi.set(__self__, "node_count", node_count)
+        pulumi.set(__self__, "serial_number", serial_number)
+        pulumi.set(__self__, "software_version", software_version)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "time_zone", time_zone)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> int:
+        """
+        The Data Box Edge/Gateway device local capacity in MB.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter(name="configuredRoleTypes")
+    def configured_role_types(self) -> Sequence[str]:
+        """
+        Type of compute roles configured.
+        """
+        return pulumi.get(self, "configured_role_types")
+
+    @property
+    @pulumi.getter
+    def culture(self) -> str:
+        """
+        The Data Box Edge/Gateway device culture.
+        """
+        return pulumi.get(self, "culture")
+
+    @property
+    @pulumi.getter(name="hcsVersion")
+    def hcs_version(self) -> str:
+        """
+        The device software version number of the device (e.g. 1.2.18105.6).
+        """
+        return pulumi.get(self, "hcs_version")
+
+    @property
+    @pulumi.getter
+    def model(self) -> str:
+        """
+        The Data Box Edge/Gateway device model.
+        """
+        return pulumi.get(self, "model")
+
+    @property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> int:
+        """
+        The number of nodes in the cluster.
+        """
+        return pulumi.get(self, "node_count")
+
+    @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> str:
+        """
+        The Serial Number of Data Box Edge/Gateway device.
+        """
+        return pulumi.get(self, "serial_number")
+
+    @property
+    @pulumi.getter(name="softwareVersion")
+    def software_version(self) -> str:
+        """
+        The Data Box Edge/Gateway device software version.
+        """
+        return pulumi.get(self, "software_version")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the Data Box Edge/Gateway device.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> str:
+        """
+        The Data Box Edge/Gateway device timezone.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the Data Box Edge/Gateway device.
+        """
+        return pulumi.get(self, "type")
 
 

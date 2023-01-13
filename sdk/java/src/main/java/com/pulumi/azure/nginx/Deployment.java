@@ -289,14 +289,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+     * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
      * 
      */
     @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
-     * @return Specify the Name of Nginx deployment SKU. The possible value is `publicpreview_Monthly_gmz7xq9ge3py`.
+     * @return Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
      * 
      */
     public Output<String> sku() {

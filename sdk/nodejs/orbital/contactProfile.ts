@@ -135,6 +135,9 @@ export class ContactProfile extends pulumi.CustomResource {
      * The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -233,6 +236,9 @@ export interface ContactProfileState {
      * The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -276,5 +282,8 @@ export interface ContactProfileArgs {
      * The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
