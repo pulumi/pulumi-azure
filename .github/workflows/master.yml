@@ -7,7 +7,13 @@ env:
   ARM_LOCATION: westus2
   ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
   ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+  DOTNETVERSION: |
+    6.0.x
+    3.1.301
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GOVERSION: 1.19.x
+  JAVAVERSION: "11"
+  NODEVERSION: 16.x
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
@@ -20,10 +26,12 @@ env:
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   PULUMI_MISSING_DOCS_ERROR: true
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+  PYTHONVERSION: "3.9"
   SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
   SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  TF_APPEND_USER_AGENT: pulumi
   TRAVIS_OS_NAME: linux
 jobs:
   build_sdk:
@@ -43,7 +51,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: ${{matrix.goversion}}
+        go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -53,22 +61,22 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v2
       with:
-        node-version: ${{matrix.nodeversion}}
+        node-version: ${{ env.NODEVERSION }}
         registry-url: https://registry.npmjs.org
     - name: Setup DotNet
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: ${{matrix.dotnetversion}}
+        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: ${{matrix.pythonversion}}
+        python-version: ${{ env.PYTHONVERSION }}
     - name: Setup Java
       uses: actions/setup-java@v3
       with:
         cache: gradle
         distribution: temurin
-        java-version: ${{matrix.javaversion}}
+        java-version: ${{ env.JAVAVERSION }}
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
@@ -108,22 +116,12 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        dotnetversion:
-        - 3.1.301
-        goversion:
-        - 1.19.x
-        javaversion:
-        - "11"
         language:
         - nodejs
         - python
         - dotnet
         - go
         - java
-        nodeversion:
-        - 16.x
-        pythonversion:
-        - "3.9"
   generate_coverage_data:
     continue-on-error: true
     env:
@@ -150,7 +148,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: ${{matrix.goversion}}
+        go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -175,11 +173,6 @@ jobs:
         s3FullURI="s3://${{ secrets.S3_COVERAGE_BUCKET_NAME }}/summaries/${summaryName}"
 
         aws s3 cp ${{ env.COVERAGE_OUTPUT_DIR }}/summary.json ${s3FullURI} --acl bucket-owner-full-control
-    strategy:
-      fail-fast: true
-      matrix:
-        goversion:
-        - 1.19.x
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
@@ -196,7 +189,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: ${{matrix.goversion}}
+        go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -243,17 +236,6 @@ jobs:
         author_name: Failure in building provider prerequisites
         fields: repo,commit,author,action
         status: ${{ job.status }}
-    strategy:
-      fail-fast: true
-      matrix:
-        dotnetversion:
-        - 3.1.301
-        goversion:
-        - 1.19.x
-        nodeversion:
-        - 16.x
-        pythonversion:
-        - "3.9"
   publish:
     name: publish
     needs: test
@@ -266,7 +248,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: ${{matrix.goversion}}
+        go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -299,17 +281,6 @@ jobs:
         author_name: Failure in publishing binaries
         fields: repo,commit,author,action
         status: ${{ job.status }}
-    strategy:
-      fail-fast: true
-      matrix:
-        dotnetversion:
-        - 3.1.301
-        goversion:
-        - 1.19.x
-        nodeversion:
-        - 16.x
-        pythonversion:
-        - "3.9"
   publish_java_sdk:
     continue-on-error: true
     name: publish_java_sdk
@@ -328,7 +299,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: ${{matrix.goversion}}
+        go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -340,7 +311,7 @@ jobs:
       with:
         cache: gradle
         distribution: temurin
-        java-version: ${{matrix.javaversion}}
+        java-version: ${{ env.JAVAVERSION }}
     - name: Download java SDK
       uses: actions/download-artifact@v2
       with:
@@ -358,13 +329,6 @@ jobs:
         arguments: publishToSonatype closeAndReleaseSonatypeStagingRepository
         build-root-directory: ./sdk/java
         gradle-version: 7.4.1
-    strategy:
-      fail-fast: true
-      matrix:
-        goversion:
-        - 1.19.x
-        javaversion:
-        - "11"
   publish_sdk:
     name: publish_sdk
     needs: publish
@@ -382,7 +346,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: ${{matrix.goversion}}
+        go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -392,16 +356,16 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v2
       with:
-        node-version: ${{matrix.nodeversion}}
+        node-version: ${{ env.NODEVERSION }}
         registry-url: https://registry.npmjs.org
     - name: Setup DotNet
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: ${{matrix.dotnetversion}}
+        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: ${{matrix.pythonversion}}
+        python-version: ${{ env.PYTHONVERSION }}
     - name: Download python SDK
       uses: actions/download-artifact@v2
       with:
@@ -438,17 +402,6 @@ jobs:
         author_name: Failure in publishing SDK
         fields: repo,commit,author,action
         status: ${{ job.status }}
-    strategy:
-      fail-fast: true
-      matrix:
-        dotnetversion:
-        - 3.1.301
-        goversion:
-        - 1.19.x
-        nodeversion:
-        - 16.x
-        pythonversion:
-        - "3.9"
   test:
     name: test
     needs: build_sdk
@@ -469,7 +422,7 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
-        go-version: ${{matrix.goversion}}
+        go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -479,22 +432,22 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v2
       with:
-        node-version: ${{matrix.nodeversion}}
+        node-version: ${{ env.NODEVERSION }}
         registry-url: https://registry.npmjs.org
     - name: Setup DotNet
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: ${{matrix.dotnetversion}}
+        dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: ${{matrix.pythonversion}}
+        python-version: ${{ env.PYTHONVERSION }}
     - name: Setup Java
       uses: actions/setup-java@v3
       with:
         cache: gradle
         distribution: temurin
-        java-version: ${{matrix.javaversion}}
+        java-version: ${{ env.JAVAVERSION }}
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
@@ -541,22 +494,12 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        dotnetversion:
-        - 3.1.301
-        goversion:
-        - 1.19.x
-        javaversion:
-        - "11"
         language:
         - nodejs
         - python
         - dotnet
         - go
         - java
-        nodeversion:
-        - 16.x
-        pythonversion:
-        - "3.9"
 name: master
 on:
   push:
