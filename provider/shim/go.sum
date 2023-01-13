@@ -306,8 +306,8 @@ github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230109211715-fc3bdf9e0cc4 h1:1DODhD4cCxlCHfL6JuZZuJ1CB7XEvBd9L7zvPsdqMpM=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230109211715-fc3bdf9e0cc4/go.mod h1:NSuDYXvhbTQ0Z//dTex3BAJe82xqDQrupI2jKg7JEsI=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230113195931-4c17414dc0c7 h1:x5uG6R7wXu1SMXpbQBFxVK3qvBSZRLHViU1ItyyDgYw=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230113195931-4c17414dc0c7/go.mod h1:NSuDYXvhbTQ0Z//dTex3BAJe82xqDQrupI2jKg7JEsI=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=

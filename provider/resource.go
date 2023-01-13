@@ -75,6 +75,7 @@ const (
 	azureContainerService      = "ContainerService"      // Azure Container Service
 	azureCore                  = "Core"                  // Base Resources
 	azureCosmosDB              = "CosmosDB"              // Cosmos DB
+	azureCostManagement        = "CostManagement"        // Cost Management
 	azureDashboard             = "Dashboard"             // Dashboard
 	azureDatabaseMigration     = "DatabaseMigration"     // Database Migration
 	azureDataboxEdge           = "DataboxEdge"           // Databox Edge
@@ -534,6 +535,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_application_insights_smart_detection_rule": {Tok: azureResource(azureAppInsights, "SmartDetectionRule")},
 			"azurerm_application_insights_workbook_template":    {Tok: azureResource(azureAppInsights, "WorkbookTemplate")},
 			"azurerm_application_insights_workbook":             {Tok: azureResource(azureAppInsights, "Workbook")},
+			"azurerm_application_insights_standard_web_test":    {Tok: azureResource(azureAppInsights, "StandardWebTest")},
 
 			// App Service
 			"azurerm_app_service": {
@@ -1082,6 +1084,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_gallery_application":         {Tok: azureResource(azureCompute, "GalleryApplication")},
 			"azurerm_gallery_application_version": {Tok: azureResource(azureCompute, "GalleryApplicationVersion")},
 
+			// Cost (resource provider Microsoft.CostManagement, not Microsoft.Billing)
+			"azurerm_cost_anomaly_alert": {Tok: azureResource(azureCostManagement, "AnomalyAlert")},
+
 			// DataBricks
 			"azurerm_databricks_access_connector": {Tok: azureResource(azureDataBricks, "AccessConnector")},
 			"azurerm_databricks_workspace":        {Tok: azureResource(azureDataBricks, "Workspace")},
@@ -1331,6 +1336,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Lab
 
 			"azurerm_lab_service_plan": {Tok: azureResource(azureLab, "ServicePlan")},
+			"azurerm_lab_service_lab":  {Tok: azureResource(azureLab, "Lab")},
+			"azurerm_lab_service_user": {Tok: azureResource(azureLab, "User")},
 
 			// LoadBalancer
 			"azurerm_lb": {
@@ -1506,6 +1513,7 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "media_live_output.html.markdown",
 				},
 			},
+			"azurerm_media_services_account_filter": {Tok: azureResource(azureMedia, "AccountFilter")},
 
 			// Monitoring resources
 			"azurerm_monitor_action_group": {
@@ -1823,10 +1831,13 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_network_watcher":               {Tok: azureResource(azureNetwork, "NetworkWatcher")},
-			"azurerm_network_watcher_flow_log":      {Tok: azureResource(azureNetwork, "NetworkWatcherFlowLog")},
-			"azurerm_network_manager":               {Tok: azureResource(azureNetwork, "NetworkManager")},
-			"azurerm_network_manager_network_group": {Tok: azureResource(azureNetwork, "NetworkManagerNetworkGroup")},
+			"azurerm_network_watcher":                             {Tok: azureResource(azureNetwork, "NetworkWatcher")},
+			"azurerm_network_watcher_flow_log":                    {Tok: azureResource(azureNetwork, "NetworkWatcherFlowLog")},
+			"azurerm_network_manager":                             {Tok: azureResource(azureNetwork, "NetworkManager")},
+			"azurerm_network_manager_network_group":               {Tok: azureResource(azureNetwork, "NetworkManagerNetworkGroup")},
+			"azurerm_network_manager_management_group_connection": {Tok: azureResource(azureNetwork, "NetworkManagerManagementGroupConnection")},
+			"azurerm_network_manager_subscription_connection":     {Tok: azureResource(azureNetwork, "NetworkManagerSubscriptionConnection")},
+
 			"azurerm_public_ip": {
 				Tok: azureResource(azureNetwork, "PublicIp"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2069,6 +2080,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_object_replication": {
 				Tok: azureResource(azureStorage, "ObjectReplication"),
 			},
+			"azurerm_storage_account_local_user": {Tok: azureResource(azureStorage, "LocalUser")},
 
 			//StreamAnalytics
 			"azurerm_stream_analytics_function_javascript_udf": {
@@ -2253,7 +2265,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_backup_policy_vm_workload":        {Tok: azureResource(azureBackup, "PolicyVMWorkload")},
 
 			// Private Link
-			"azurerm_private_endpoint": {Tok: azureResource(azurePrivateLink, "Endpoint")},
+			"azurerm_private_endpoint":                                        {Tok: azureResource(azurePrivateLink, "Endpoint")},
+			"azurerm_private_endpoint_application_security_group_association": {Tok: azureResource(azurePrivateLink, "ApplicationSecurityGroupAssociation")},
 
 			// SiteRecovery
 			"azurerm_site_recovery_fabric":               {Tok: azureResource(azureSiteRecovery, "Fabric")},
@@ -2380,6 +2393,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_alert_rule_nrt":        {Tok: azureResource(azureSentinel, "AlertRuleNrt")},
 			"azurerm_sentinel_data_connector_microsoft_threat_protection": {
 				Tok: azureResource(azureSentinel, "DataConnectorMicrosoftThreatProtection"),
+			},
+			"azurerm_sentinel_data_connector_threat_intelligence_taxii": {
+				Tok: azureResource(azureSentinel, "DataConnectorThreatIntelligenceTaxii"),
 			},
 
 			// Eventgrid
@@ -2608,6 +2624,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_share_dataset_data_lake_gen2":     {Tok: azureDataSource(azureDataShare, "getDatasetDataLakeGen2")},
 			"azurerm_data_share_dataset_kusto_cluster":      {Tok: azureDataSource(azureDataShare, "getDatasetKustoCluster")},
 			"azurerm_data_share_dataset_kusto_database":     {Tok: azureDataSource(azureDataShare, "getDatasetKustoDatabase")},
+			"azurerm_databox_edge_device":                   {Tok: azureDataSource(azureDataboxEdge, "getDevice")},
 			"azurerm_dev_test_lab":                          {Tok: azureDataSource(azureDevTest, "getLab")},
 			"azurerm_dev_test_virtual_network":              {Tok: azureDataSource(azureDevTest, "getVirtualNetwork")},
 
@@ -2952,16 +2969,22 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_consumption_budget_subscription":   {Tok: azureDataSource(azureConsumption, "getBudgetSubscription")},
 
 			// Private DNS
-			"azurerm_private_dns_zone":                      {Tok: azureDataSource(azurePrivateDNS, "getDnsZone")},
-			"azurerm_private_dns_a_record":                  {Tok: azureDataSource(azurePrivateDNS, "getARecord")},
-			"azurerm_private_dns_aaaa_record":               {Tok: azureDataSource(azurePrivateDNS, "getAAAARecord")},
-			"azurerm_private_dns_cname_record":              {Tok: azureDataSource(azurePrivateDNS, "getCnameRecord")},
-			"azurerm_private_dns_mx_record":                 {Tok: azureDataSource(azurePrivateDNS, "getMxRecord")},
-			"azurerm_private_dns_ptr_record":                {Tok: azureDataSource(azurePrivateDNS, "getPtrRecord")},
-			"azurerm_private_dns_soa_record":                {Tok: azureDataSource(azurePrivateDNS, "getSoaRecord")},
-			"azurerm_private_dns_srv_record":                {Tok: azureDataSource(azurePrivateDNS, "getSrvRecord")},
-			"azurerm_private_dns_txt_record":                {Tok: azureDataSource(azurePrivateDNS, "getTxtRecord")},
-			"azurerm_private_dns_zone_virtual_network_link": {Tok: azureDataSource(azurePrivateDNS, "getZoneVirtualNetworkLink")},
+			"azurerm_private_dns_zone":                            {Tok: azureDataSource(azurePrivateDNS, "getDnsZone")},
+			"azurerm_private_dns_a_record":                        {Tok: azureDataSource(azurePrivateDNS, "getARecord")},
+			"azurerm_private_dns_aaaa_record":                     {Tok: azureDataSource(azurePrivateDNS, "getAAAARecord")},
+			"azurerm_private_dns_cname_record":                    {Tok: azureDataSource(azurePrivateDNS, "getCnameRecord")},
+			"azurerm_private_dns_mx_record":                       {Tok: azureDataSource(azurePrivateDNS, "getMxRecord")},
+			"azurerm_private_dns_ptr_record":                      {Tok: azureDataSource(azurePrivateDNS, "getPtrRecord")},
+			"azurerm_private_dns_soa_record":                      {Tok: azureDataSource(azurePrivateDNS, "getSoaRecord")},
+			"azurerm_private_dns_srv_record":                      {Tok: azureDataSource(azurePrivateDNS, "getSrvRecord")},
+			"azurerm_private_dns_txt_record":                      {Tok: azureDataSource(azurePrivateDNS, "getTxtRecord")},
+			"azurerm_private_dns_zone_virtual_network_link":       {Tok: azureDataSource(azurePrivateDNS, "getZoneVirtualNetworkLink")},
+			"azurerm_private_dns_resolver":                        {Tok: azureDataSource(azurePrivateDNS, "getResolver")},
+			"azurerm_private_dns_resolver_dns_forwarding_ruleset": {Tok: azureDataSource(azurePrivateDNS, "getResolverDnsForwardingRuleset")},
+			"azurerm_private_dns_resolver_forwarding_rule":        {Tok: azureDataSource(azurePrivateDNS, "getResolverForwardingRule")},
+			"azurerm_private_dns_resolver_inbound_endpoint":       {Tok: azureDataSource(azurePrivateDNS, "getResolverInboundEndpoint")},
+			"azurerm_private_dns_resolver_outbound_endpoint":      {Tok: azureDataSource(azurePrivateDNS, "getResolverOutboundEndpoint")},
+			"azurerm_private_dns_resolver_virtual_network_link":   {Tok: azureDataSource(azurePrivateDNS, "getResolverVirtualNetworkLink")},
 
 			// Dashboard
 			// TODO: This resource is in the "Portal" module in the upstream provider. Move to a new namespace when terraform-provider-azurerm hits v3.0.
